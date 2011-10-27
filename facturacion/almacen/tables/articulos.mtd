@@ -1,0 +1,316 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>articulos</name>
+	<!-- Listado de artículos con todos los datos	-->	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Articulos")</alias>
+
+	<field>
+		<name>referencia</name>
+		<!-- Código de referencia del artículo	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Referencia")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>18</length>
+
+		<relation>
+			<table>articulosagen</table>
+			<field>referencia</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>articulostarifas</table>
+			<field>referencia</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>articulosprov</table>
+			<field>referencia</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>stocks</table>
+			<field>referencia</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>lineaspresupuestoscli</table>
+			<field>referencia</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>lineaspedidoscli</table>
+			<field>referencia</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>lineaspedidosprov</table>
+			<field>referencia</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>lineasalbaranescli</table>
+			<field>referencia</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>lineasalbaranesprov</table>
+			<field>referencia</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>lineasfacturascli</table>
+			<field>referencia</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>lineasfacturasprov</table>
+			<field>referencia</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>lineastransstock</table>
+			<field>referencia</field>
+			<card>1M</card>
+		</relation>
+
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción del artículo	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>pvp</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Precio de venta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>codimpuesto</name>
+		<!-- Tipo de I.V.A. aplicado al artículo	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo de I.V.A.")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>impuestos</table>
+			<field>codimpuesto</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codfamilia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Familia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+
+		<relation>
+			<table>familias</table>
+			<field>codfamilia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>secompra</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Se compra")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+	</field>
+	
+	<field>
+		<name>sevende</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Se vende")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+	</field>
+	
+	<field>
+		<name>codbarras</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código de barras")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>18</length>
+	</field>
+
+	<field>
+		<name>tipocodbarras</name>
+		<!-- Tipo del código de barras	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo Cod.Barras")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>Code39,Code128,Code128B,Code128C,Code128R,EAN,ISBN,UPC,CodeI25,CBR,MSI,PLS,Code93</optionslist>
+		<default>Code39</default>
+		<type>string</type>
+		<length>8</length>
+	</field>
+
+	<field>
+		<name>imagen</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Imagen")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>pixmap</type>
+	</field>
+
+	<field>
+		<name>stockmax</name>
+		<!-- Stock máximo permitido para el artículo	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","S.Máximo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>stockmin</name>
+		<!-- Stock mínimo permitido para el artículo	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","S.Mínimo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>stockfis</name>
+		<!-- Suma de las existencias del artículo en todos los almacenes -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","S.Físico")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>costemedio</name>
+		<!-- Promedio calculado del coste del artículo entre todos los proveedores	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Coste medio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>controlstock</name>
+		<!-- Indica si se va a permitir la venta (facturación) del artículo cuando no haya stock en los almacenes	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Permitir ventas sin stock")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+	</field>
+	
+	<field>
+		<name>nostock</name>
+		<!-- Indica si se lleva control de stock del artículo o no	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Sin stock")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+
+	<field>
+		<name>observaciones</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Observaciones")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+	
+	<field>
+		<name>codsubcuentacom</name>
+		<!-- Código de la subcuenta de contabilidad asociada a la subcuenta de compras-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subcuenta de compras")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>idsubcuentacom</name>
+		<!-- Identificador interno de la subcuenta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codsubcuentairpfcom</name>
+		<!-- Código de la subcuenta de contabilidad asociada a la subcuenta de compras-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subcuenta de IRPF compras")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>idsubcuentairpfcom</name>
+		<!-- Identificador interno de la subcuenta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+</TMD>

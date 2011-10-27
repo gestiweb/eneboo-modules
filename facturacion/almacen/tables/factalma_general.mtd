@@ -1,0 +1,32 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>factalma_general</name>
+	<!--Datos generales de almacén-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Datos Generales")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador  -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visible>true</visible>
+	</field>
+
+	<field>
+		<name>codimpuesto</name>
+		<!-- I.V.A. por defecto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","I.V.A. por defecto")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>impuestos</table>
+			<field>codimpuesto</field>
+			<card>M1</card>
+		</relation>
+	</field>
+</TMD>
+

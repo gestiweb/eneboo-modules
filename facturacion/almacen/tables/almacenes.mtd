@@ -1,0 +1,201 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>almacenes</name>
+		<!-- Listado de almacenes de la empresa	-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Almacenes")</alias>
+
+	<field>
+		<name>codalmacen</name>
+		<!-- Código del almacén	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>4</length>
+
+		<relation>
+			<table>mv_presupuestoscli</table>
+			<field>codalmacen</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>stocks</table>
+			<field>codalmacen</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>empresa</table>
+			<field>codalmacen</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>facturas</table>
+			<field>codalmacen</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>transstock</table>
+			<field>codalmaorigen</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>transstock</table>
+			<field>codalmadestino</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>tpv_puntosventa</table>
+			<field>codalmacen</field>
+			<card>1M</card>
+        </relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>direccion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Dirección")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>codpostal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código postal")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+	</field>
+
+	<field>
+		<name>apartado</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apdo. de correos")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+	</field>
+
+	<field>
+		<name>poblacion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Población")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>idprovincia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>provincias</table>
+			<field>idprovincia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>provincia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Provincia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>codpais</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","País")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+
+		<relation>
+			<table>paises</table>
+			<field>codpais</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>telefono</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Teléfono")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>fax</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fax")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>contacto</name>
+		<!-- Persona de contacto del almacén	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contacto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>observaciones</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Observaciones")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+
+	<field>
+        <name>tipovaloracion</name>
+		<!-- Tipo de valoracion-->        
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valorado según")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>100</length>
+		<optionslist>Coste medio,PVP,Coste Prov.</optionslist>
+		<default>Coste medio</default>
+    </field>
+
+	<field>
+		<name>porpvp</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","% Sobre PVP")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+
+</TMD>

@@ -1,0 +1,72 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>transstock</name>
+	<!-- Tabla base para realizar transferencias de stock entre almacenes -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Transferencia de stock")</alias>
+
+	<field>
+		<name>idtrans</name>
+		<!-- Identificador interno -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>lineastransstock</table>
+			<field>idtrans</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>fecha</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>hora</name>
+		<!-- hora de la transferencia -->
+		<alias>QT_TRANSLATE_NOOP(&quot;MetaData&quot;,&quot;Hora&quot;)</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>time</type>
+	</field>
+
+	<field>
+		<name>codalmaorigen</name>
+		<!-- Código del almacén de origen-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Origen")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>almacenes</table>
+			<field>codalmacen</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codalmadestino</name>
+		<!-- Código del almacén de destino-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Destino")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>almacenes</table>
+			<field>codalmacen</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+</TMD>

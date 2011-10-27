@@ -1,0 +1,69 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>Tarifas</name>
+	<!-- Listado de tarifas -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Tarifas")</alias>
+
+	<field>
+		<name>codtarifa</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<counter>true</counter>
+
+		<relation>
+			<table>articuloscli</table>
+			<field>codtarifa</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>articulostarifas</table>
+			<field>codtarifa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>gruposclientes</table>
+			<field>codtarifa</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<!-- Nombre de la tarifa -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>inclineal</name>
+		<!-- Valor que se suma al precio de venta original para obtener el precio de la tarifa (puede ser negativo) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Incremento Lineal")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>incporcentual</name>
+		<!-- Incremento porcentual que se aplica al precio de venta original para obtener el precio de la tarifa (puede ser negativo) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Incremento Porcentual")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+</TMD>
