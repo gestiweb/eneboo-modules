@@ -1,0 +1,32 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_resalbaranesprovtotaleuros</name>
+
+	<tables>albaranesprov,empresa</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.cifnif</field>
+	</group>
+
+	<select>
+		albaranesprov.codigo, albaranesprov.fecha,
+		albaranesprov.codproveedor, albaranesprov.nombre,
+		albaranesprov.cifnif, albaranesprov.ptefactura,
+		albaranesprov.neto, albaranesprov.totaliva,
+		albaranesprov.totalrecargo, albaranesprov.total,
+		albaranesprov.coddivisa,albaranesprov.totaleuros,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa,albaranesprov
+	</from>
+
+	<where>
+	</where>
+</QRY>

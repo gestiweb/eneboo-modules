@@ -1,0 +1,48 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>pedidoscli</name>
+
+	<tables>empresa,pedidoscli</tables>
+
+	<group>
+		<level>0</level>
+		<field>pedidoscli.idpedido</field>
+	</group>
+
+	<select>
+		pedidoscli.idpedido, lineaspedidoscli.idpedido,
+		pedidoscli.codigo, pedidoscli.codserie,
+		pedidoscli.fecha, pedidoscli.total,
+		pedidoscli.totaliva, pedidoscli.totalrecargo,
+		pedidoscli.irpf, pedidoscli.totalirpf,
+		pedidoscli.neto, pedidoscli.coddivisa,
+		pedidoscli.codejercicio, pedidoscli.codpago,
+		pedidoscli.codalmacen, pedidoscli.codcliente,
+		pedidoscli.nombrecliente, pedidoscli.cifnif,
+		pedidoscli.tasaconv, pedidoscli.coddir,
+		pedidoscli.direccion, pedidoscli.codpostal,
+		pedidoscli.ciudad, pedidoscli.provincia, pedidoscli.apartado,
+		pedidoscli.codpais, pedidoscli.observaciones,
+		lineaspedidoscli.referencia, lineaspedidoscli.descripcion,
+		lineaspedidoscli.cantidad, lineaspedidoscli.pvpunitario,
+		lineaspedidoscli.pvptotal, lineaspedidoscli.codimpuesto,
+		lineaspedidoscli.iva,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa,pedidoscli INNER JOIN lineaspedidoscli ON pedidoscli.idpedido = lineaspedidoscli.idpedido
+	</from>
+
+	<where>
+		pedidoscli.codigo&gt;=[from] AND pedidoscli.codigo&lt;=[to]
+	</where>
+	
+	<order>
+		lineaspedidoscli.referencia
+	</order>
+</QRY>

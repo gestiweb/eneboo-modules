@@ -1,0 +1,48 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>presupuestoscli</name>
+
+	<tables>empresa,presupuestoscli</tables>
+
+	<group>
+		<level>0</level>
+		<field>presupuestoscli.idpresupuesto</field>
+	</group>
+
+	<select>
+		presupuestoscli.idpresupuesto, lineaspresupuestoscli.idpresupuesto,
+		presupuestoscli.codigo, presupuestoscli.codserie,
+		presupuestoscli.fecha, presupuestoscli.total,
+		presupuestoscli.totaliva, presupuestoscli.totalrecargo,
+		presupuestoscli.irpf, presupuestoscli.totalirpf,
+		presupuestoscli.neto, presupuestoscli.coddivisa,
+		presupuestoscli.codejercicio, presupuestoscli.codpago,
+		presupuestoscli.codalmacen, presupuestoscli.codcliente,
+		presupuestoscli.nombrecliente, presupuestoscli.cifnif,
+		presupuestoscli.tasaconv, presupuestoscli.coddir,
+		presupuestoscli.direccion, presupuestoscli.codpostal,
+		presupuestoscli.ciudad, presupuestoscli.provincia,
+		presupuestoscli.apartado, presupuestoscli.codpais,
+		presupuestoscli.observaciones,
+		lineaspresupuestoscli.referencia,
+		lineaspresupuestoscli.descripcion, lineaspresupuestoscli.cantidad,
+		lineaspresupuestoscli.pvpunitario, lineaspresupuestoscli.pvptotal,
+		lineaspresupuestoscli.codimpuesto, lineaspresupuestoscli.iva,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa,presupuestoscli INNER JOIN lineaspresupuestoscli ON presupuestoscli.idpresupuesto = lineaspresupuestoscli.idpresupuesto
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		lineaspresupuestoscli.referencia
+	</order>
+</QRY>

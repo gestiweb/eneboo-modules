@@ -1,0 +1,44 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_albaranesprov</name>
+
+	<tables>empresa,albaranesprov</tables>
+
+	<group>
+		<level>0</level>
+		<field>albaranesprov.idalbaran</field>
+	</group>
+
+	<select>
+		albaranesprov.idalbaran, albaranesprov.codigo,
+		lineasalbaranesprov.idalbaran, albaranesprov.codserie,
+		albaranesprov.fecha, albaranesprov.total,
+		albaranesprov.coddivisa, albaranesprov.codejercicio,
+		albaranesprov.codpago, albaranesprov.codalmacen,
+		albaranesprov.codproveedor, albaranesprov.nombre,
+		albaranesprov.cifnif, albaranesprov.tasaconv,
+		albaranesprov.neto, albaranesprov.totaliva,
+		albaranesprov.totalrecargo,albaranesprov.irpf, albaranesprov.totalirpf,
+		albaranesprov.observaciones,
+		lineasalbaranesprov.referencia, lineasalbaranesprov.descripcion,
+		lineasalbaranesprov.cantidad, lineasalbaranesprov.pvpunitario,
+		lineasalbaranesprov.pvptotal, lineasalbaranesprov.codimpuesto,
+		lineasalbaranesprov.iva, dirproveedores.direccion,dirproveedores.codpostal, dirproveedores.provincia,dirproveedores.ciudad,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa,albaranesprov INNER JOIN lineasalbaranesprov ON albaranesprov.idalbaran = lineasalbaranesprov.idalbaran LEFT OUTER JOIN dirproveedores ON albaranesprov.codproveedor = dirproveedores.codproveedor
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		lineasalbaranesprov.referencia
+	</order>
+</QRY>
