@@ -1,0 +1,196 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>lineaspedidosprov</name>
+	<!--Líneas de pedido a proveedor-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Líneas de Pedido a Proveedores")</alias>
+
+	<field>
+		<name>idlinea</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>numero
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>idpedido</name>
+		<!--Identificador del pedido al que pertenece la línea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Pedido")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>pedidosprov</table>
+			<field>idpedido</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>referencia</name>
+		<!--Referencia del artículo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Referencia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>18</length>
+		<visible>true</visible>
+
+		<relation>
+			<table>articulos</table>
+			<field>referencia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!--Descripción del artículo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>pvpunitario</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Precio Unidad")</alias>
+		<null>false</null>	
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>cantidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cantidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>1</default>
+	</field>
+
+	<field>
+		<name>pvpsindto</name>
+		<!--Precio unitario por cantidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Precio Nominal")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>pvptotal</name>
+		<!--Precio unitario por cantidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>totalenalbaran</name>
+		<!--Total de artículos que figuran en el/los albaranes asociados al pedido-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Servida")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>codimpuesto</name>
+		<!--Tipo de IVA aplicado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","I.V.A.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>impuestos</table>
+			<field>codimpuesto</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>iva</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","%I.V.A.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>2</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>dtolineal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Dto. Lineal")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>dtopor</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","%Descuento")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>2</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>recargo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","%R.Equivalencia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>2</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>irpf</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","% IRPF")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cerrada</name>
+		<!--Indica que está línea ya no se va a servir aunque no se haya servido completamente-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cerrada")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+</TMD>

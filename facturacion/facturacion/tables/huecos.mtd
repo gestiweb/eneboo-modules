@@ -1,0 +1,53 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>huecos</name>
+	<!--Lista de códigos de documentos (facturas, etc.) que han sido eliminados y pueden reutilizarse-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Huecos en Secuencias")</alias>
+
+	<field>
+		<name>id</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+	</field>
+
+	<field>
+		<name>tipo</name>
+		<!--Tipo de documento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+
+	<field>
+		<name>codserie</name>
+		<!--Serie de facturación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Serie")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+	</field>
+
+	<field>
+		<name>codejercicio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+
+	<field>
+		<name>numero</name>
+		<!--Número de documento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Número")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+</TMD>
