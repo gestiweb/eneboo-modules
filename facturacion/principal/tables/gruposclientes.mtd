@@ -1,0 +1,48 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>gruposclientes</name>
+	<!--Listado de grupos de clientes-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Grupos de Clientes")</alias>
+
+	<field>
+		<name>codgrupo</name>
+		<!--Código del grupo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<counter>true</counter>
+
+		<relation>
+			<table>clientes</table>
+			<field>codgrupo</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre del grupo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>codtarifa</name>
+		<!--Tarifa asociada al grupo de clientes-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tarifa")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+
+		<relation>
+			<table>tarifas</table>
+			<field>codtarifa</field>
+			<card>M1</card>
+		</relation>
+	</field>
+</TMD>

@@ -1,0 +1,296 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>empresa</name>
+	<!--Datos de la empresa-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Empresa")</alias>
+
+	<field>
+		<name>id</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visible>true</visible>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>cifnif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","C.I.F./N.I.F")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>codedi</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cód. edi (EAN)")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>17</length>
+	</field>
+
+	<field>
+		<name>administrador</name>
+		<!--Nombre del administrador-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Administrador")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>direccion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Dirección")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>logo</name>
+		<!--Gráfico con el logotipo de la empresa. Puede cagarse desde un archivo gráfico en formato xpm-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Logo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>pixmap</type>
+	</field>
+
+	<field>
+		<name>codpostal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código postal")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+	</field>
+
+	<field>
+		<name>ciudad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ciudad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>idprovincia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>provincias</table>
+			<field>idprovincia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>provincia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Provincia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>apartado</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apdo. de correos")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+	</field>
+
+	<field>
+		<name>codpais</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","País")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+
+		<relation>
+			<table>paises</table>
+			<field>codpais</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>telefono</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Teléfono")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>fax</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fax")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>email</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","E-mail")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>web</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Web")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>codejercicio</name>
+		<!--Código del ejercicio fiscal por defecto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>coddivisa</name>
+		<!--Divisa por defecto para las actividades de la empresa (divisa local)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Divisa")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+
+		<relation>
+			<table>divisas</table>
+			<field>coddivisa</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codpago</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Forma de pago")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>formaspago</table>
+			<field>codpago</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codalmacen</name>
+		<!--Código del almacén utilizado por defecto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Almacén")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+
+		<relation>
+			<table>almacenes</table>
+			<field>codalmacen</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codcuentarem</name>
+		<!--Cuenta corriente de la empresa utilizada en remesas de recibos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta de remesas")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+
+		<relation>
+			<table>cuentasbanco</table>
+			<field>codcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codserie</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Serie de facturación")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+
+		<relation>
+			<table>series</table>
+			<field>codserie</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>recequivalencia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Aplicar recargo de equivalencia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+
+	<field>
+		<name>contintegrada</name>
+		<!--Indica si la contabilidad se integra con la facturación, de modo que las modificaciones de facturas y pagos generen automáticamente los asientos correspondientes. Esta opción no tiene efecto si el módulo principal de contabilidad no está cargado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contabilidad integrada")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+
+	<field>
+		<name>stockpedidos</name>
+		<!--Indica si el stock se realizará desde los pedidos de cliente-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Controlar stocks desde pedidos de cliente")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+	</field>
+</TMD>
+

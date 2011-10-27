@@ -1,0 +1,173 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>series</name>
+	<!--Listado de series de facturación-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Series de Facturación")</alias>
+
+	<field>
+		<name>codserie</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>2</length>
+
+		<relation>
+			<table>mv_presupuestoscli</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>secuenciasejercicios</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>series_imp</table>
+			<field>desde</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>series_imp</table>
+			<field>hasta</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>clientes</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>proveedores</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>facturas</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>pedidosprov</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>albaranesprov</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>facturasprov</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>agruparpedidosprov</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>empresa</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_partidas</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>i_facturascli</table> 
+			<field>i_facturascli_codserie</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>i_facturasprov</table> 
+			<field>i_facturasprov_codserie</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_datos347</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_modelo347</table>
+			<field>codserie</field>
+			<card>1M</card>
+		</relation>
+
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>irpf</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","%I.R.P.F.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>2</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>siniva</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Sin I.V.A.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+
+	<field>
+		<name>codcuenta</name>
+		<!-- Código de la cuenta de ventas de contabilidad a la que se asociarán las facturas de esta serie-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta de ventas")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+	</field>
+
+	<field>
+		<name>idcuenta</name>
+		<!-- Identificador interno de la cuenta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>co_cuentas</table>
+			<field>idcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+</TMD>

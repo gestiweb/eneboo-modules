@@ -1,0 +1,59 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>provincias</name>
+	<!--Listado de provincias-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Provincias")</alias>
+
+	<field>
+		<name>idprovincia</name>
+		<!--Id-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>		
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>dirclientes</table>
+			<field>idprovincia</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>provincia</name>
+		<!--Provincia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Provincia")</alias>
+		<null>false</null>		
+		<pk>false</pk>
+		<ck>true</ck>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>codpais</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","País")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<ck>true</ck>
+		<type>string</type>
+		<length>20</length>
+		
+		<relation>
+			<table>paises</table>
+			<field>codpais</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codigo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+	</field>
+
+</TMD>

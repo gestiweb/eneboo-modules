@@ -1,0 +1,30 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>series</name>
+
+	<tables>series</tables>
+	
+	<param>
+		<name>from</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Desde Serie:")</alias>
+		<type>string</type>
+	</param>
+
+	<param>
+		<name>to</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Hasta Serie:")</alias>
+		<type>string</type>
+	</param>
+
+	<select>
+		series.codserie, series.descripcion, series.irpf
+	</select>
+
+	<from>
+		series
+	</from>
+
+	<where>
+		series.codserie&gt;=[from] AND series.codserie&lt;=[to] 
+	</where>
+</QRY> 

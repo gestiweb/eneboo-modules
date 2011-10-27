@@ -1,0 +1,36 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>formaspago</name>
+
+	<tables>formaspago,plazos</tables>
+
+	<param>
+		<name>from</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Desde Forma de Pago:")</alias>
+		<type>string</type>
+	</param>
+
+	<param>
+		<name>to</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Hasta Forma de Pago:")</alias>
+		<type>string</type>
+	</param>
+
+	<group>
+		<level>0</level>
+		<field>formaspago.codpago</field>
+	</group>
+
+	<select>
+		formaspago.codpago, formaspago.descripcion, formaspago.genrecibos,
+		plazos.dias, plazos.aplazado
+	</select>
+
+	<from>
+		formaspago LEFT JOIN plazos ON formaspago.codpago = plazos.codpago
+	</from>
+
+	<where>
+		formaspago.codpago&gt;=[from] AND formaspago.codpago&lt;=[to] 
+	</where>
+</QRY> 

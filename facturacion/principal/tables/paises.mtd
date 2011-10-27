@@ -1,0 +1,143 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>paises</name>
+	<!--Listado de países-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Países")</alias>
+
+	<field>
+		<name>codpais</name>
+		<!--Código de país-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>		
+		<pk>true</pk>
+		<type>string</type>
+		<length>20</length>
+
+		<relation>
+			<table>provincias</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>paises_imp</table>
+			<field>desde</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>paises_imp</table>
+			<field>hasta</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>sucursales</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>dirclientes</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>dirproveedores</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>almacenes</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>empresa</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>facturascli</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>presupuestoscli</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>pedidoscli</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>albaranescli</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>agruparalbaranescli</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>agruparpedidoscli</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_operaciones349</table>
+			<field>codpais</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>bandera</name>
+		<!--Gráfico de la bandera-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Bandera")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>pixmap</type>
+	</field>
+	
+	<field>
+		<name>codiso</name>
+		<!--Código ISO-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código I.S.O.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	
+	<field>
+		<name>validarprov</name>
+		<!--Validar provincias-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Exigir validación de provincias")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+</TMD>

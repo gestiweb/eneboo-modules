@@ -1,0 +1,188 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>divisas</name>
+	<!--Listado de divisas-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Divisas")</alias>
+
+	<field>
+		<name>coddivisa</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>3</length>
+
+		<relation>
+			<table>divisas_imp</table>
+			<field>desde</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>divisas_imp</table>
+			<field>hasta</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>clientes</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>articulosprov</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>presupuestoscli</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>pedidoscli</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>pedidosprov</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>albaranescli</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>albaranesprov</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>facturascli</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>facturasprov</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>agruparpedidoscli</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>agruparpedidosprov</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>agruparalbaranescli</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>agruparalbaranesprov</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>empresa</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>proveedores</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>remesas</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_partidas</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_subcuentas</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_planpartidas</table>
+			<field>coddivisa</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>tasaconv</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tasa de conversión")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>3</partD>
+		<default>1</default>
+	</field>
+
+	<field>
+		<name>bandera</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Bandera")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>pixmap</type>
+	</field>
+
+	<field>
+		<name>fecha</name>
+		<!--Fecha de la última actualización de la tasa de conversión-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha de actualización")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>codiso</name>
+		<!--Código ISO de la divisa, utilizado en transaccciones bancarias-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código ISO")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+</TMD>

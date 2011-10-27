@@ -1,0 +1,182 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>sucursales</name>
+	<!--Listado de sucursales bancarias-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Sucursales")</alias>
+
+	<field>
+		<name>id</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>entidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº de entidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<ck>true</ck>
+		<type>string</type>
+		<length>4</length>
+		<regexp>^[0-9]{4,4}$</regexp>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>bancos</table>
+			<field>entidad</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>agencia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº de oficina")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<ck>true</ck>
+		<type>string</type>
+		<length>4</length>
+		<regexp>^[0-9]{4,4}$</regexp>
+
+		<relation>
+			<table>cuentasbanco</table>
+			<field>agencia</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>cuentasbcocli</table>
+			<field>agencia</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>cuentasbcopro</table>
+			<field>agencia</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>direccion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Dirección")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>codpostal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código postal")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+	</field>
+
+	<field>
+		<name>apartado</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apdo. de correos")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+	</field>
+
+	<field>
+		<name>poblacion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Población")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>idprovincia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>provincias</table>
+			<field>idprovincia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>provincia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Provincia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>codpais</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","País")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+
+		<relation>
+			<table>paises</table>
+			<field>codpais</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>telefono</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Teléfono")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>fax</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fax")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>contacto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contacto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>observaciones</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Observaciones")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+</TMD>

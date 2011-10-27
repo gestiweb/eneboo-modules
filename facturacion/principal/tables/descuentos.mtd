@@ -1,0 +1,59 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>descuentos</name>
+	<!--Listado de descuentos-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Descuentos")</alias>
+
+	<field>
+		<name>coddescuento</name>
+		<!--Código del descuento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>descuentos_imp</table>
+			<field>desde</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>descuentos_imp</table>
+			<field>hasta</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>descuentosclientes</table>
+			<field>coddescuento</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>descuentosproveedores</table>
+			<field>coddescuento</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>dto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","% Descuento")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>2</partI>
+		<partD>2</partD>
+	</field>
+</TMD>

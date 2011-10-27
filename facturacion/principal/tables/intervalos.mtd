@@ -1,0 +1,100 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>intervalos</name>
+	<!--Intervalos de fechas-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Intervalos")</alias>
+
+	<field>
+		<name>codigo</name>
+		<!--Identificador-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<visible>true</visible>
+		
+		<relation>
+			<table>i_albaranescli</table>
+			<field>codintervalo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>i_albaranesprov</table>
+			<field>codintervalo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>i_facturascli</table>
+			<field>codintervalo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>i_facturasprov</table>
+			<field>codintervalo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>i_pedidoscli</table>
+			<field>codintervalo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>i_pedidosprov</table>
+			<field>codintervalo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>i_presupuestoscli</table>
+			<field>codintervalo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>i_reciboscli</table>
+			<field>codintervalo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>i_reciboscli</table>
+			<field>codintervalov</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>intervalo</name>
+		<!--Nombre-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Intervalo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!--Descripción del intervalo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+    
+	<field>
+        <name>funcionintervalo</name>
+		<!--Función que indica cómo se calcula el intervalo-->        <alias>QT_TRANSLATE_NOOP("MetaData","Función")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>stringlist</type>
+    </field>
+</TMD>
+

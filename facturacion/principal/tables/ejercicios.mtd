@@ -1,0 +1,258 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>ejercicios</name>
+	<!--Listado de ejercicios fiscales-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicios Fiscales")</alias>
+
+	<field>
+		<name>codejercicio</name>
+		<!--Código del ejercicio -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>4</length>
+		<counter>true</counter>
+
+		<relation>
+			<table>secuenciasejercicios</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>empresa</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>facturascli</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>pedidosprov</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>albaranesprov</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>facturasprov</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>agruparpedidosprov</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_asientos</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_epigrafes</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_regiva</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_i_mayor</table>
+			<field>i_co__subcuentas_codejercicio</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_i_diario</table>
+			<field>i_co__subcuentas_codejercicio</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_i_balancesit</table>
+			<field>i_co__subcuentas_codejercicioact</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_i_balancepyg</table>
+			<field>i_co__subcuentas_codejercicioact</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_i_balancepyg</table>
+			<field>i_co__subcuentas_codejercicioant</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_i_balancesys</table>
+			<field>i_co__subcuentas_codejercicio</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_i_balancesys</table>
+			<field>codejercicioant</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_i_facturasemi</table>
+			<field>i_co__cuentas_codejercicio</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_i_facturasrec</table>
+			<field>i_co__cuentas_codejercicio</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_modelo300</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_modelo390</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_modelo347</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_datos347</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>fechaejercicio</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_subcuentascli</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+	
+		<relation>
+			<table>rh_nominas</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+	
+		<relation>
+			<table>rh_recibossegsocial</table>
+			<field>codejercicio</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>fechainicio</name>
+		<!--Fecha de inicio del ejercicio-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Inicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>fechafin</name>
+		<!--Fecha de fin del ejercicio-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fin")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>estado</name>
+		<!--Estado contable del ejercicio -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","ABIERTO");QT_TRANSLATE_NOOP("MetaData","CERRADO")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","ABIERTO")</default>
+	</field>
+	
+	<field>
+		<name>longsubcuenta</name>
+		<!-- Número de dígitos de las subcuentas contables del ejercicio (para contabilidad) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Dígitos de subcuenta")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>10</default>
+	</field>
+	
+	<field>
+		<name>idasientoapertura</name>
+		<!-- Identificador del asiento de apertura del ejercicio (para contabilidad)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asiento de apertura")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>idasientopyg</name>
+		<!-- Identificador del asiento de regularización de pérdidas y ganancias del ejercicio (para contabilidad) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asiento de regularización")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>idasientocierre</name>
+		<!-- Identificador del asiento de cierre del ejercicio (para contabilidad) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asiento de cierre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+</TMD>

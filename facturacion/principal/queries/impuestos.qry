@@ -1,0 +1,30 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>impuestos</name>
+
+	<tables>impuestos</tables>
+	
+	<param>
+		<name>from</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Desde Impuesto:")</alias>
+		<type>string</type>
+	</param>
+
+	<param>
+		<name>to</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Hasta Impuesto:")</alias>
+		<type>string</type>
+	</param>
+
+	<select>
+		impuestos.codimpuesto, impuestos.descripcion, impuestos.iva, impuestos.recargo
+	</select>
+
+	<from>
+		impuestos
+	</from>
+
+	<where>
+		impuestos.codimpuesto&gt;=[from] AND impuestos.codimpuesto&lt;=[to] ORDER BY impuestos.codimpuesto 
+	</where>
+</QRY> 

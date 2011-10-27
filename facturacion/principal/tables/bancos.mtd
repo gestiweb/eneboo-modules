@@ -1,0 +1,79 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>bancos</name>
+	<!--Listado de bancos-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Bancos")</alias>
+
+	<field>
+		<name>entidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº de Entidad")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>4</length>
+		<regexp>^[0-9]{4,4}$</regexp>
+
+		<relation>
+			<table>sucursales</table>
+			<field>entidad</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>bancos_imp</table>
+			<field>desde</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>bancos_imp</table>
+			<field>hasta</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>cuentasbanco</table>
+			<field>entidad</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>cuentasbcocli</table>
+			<field>entidad</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>cuentasbcopro</table>
+			<field>entidad</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<!--Nombre comercial del banco-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>codproveedor</name>
+		<!--Código identificativo del proveedor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Acreedor")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>proveedores</table>
+			<field>codproveedor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+</TMD>

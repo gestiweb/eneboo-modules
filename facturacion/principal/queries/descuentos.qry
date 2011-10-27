@@ -1,0 +1,30 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>descuentos</name>
+
+	<tables>descuentos</tables>
+	
+	<param>
+		<name>from</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Desde Descuento:")</alias>
+		<type>string</type>
+	</param>
+
+	<param>
+		<name>to</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Hasta Descuento:")</alias>
+		<type>string</type>
+	</param>
+
+	<select>
+		descuentos.coddescuento, descuentos.descripcion, descuentos.dto
+	</select>
+
+	<from>
+		descuentos
+	</from>
+
+	<where>
+		descuentos.coddescuento&gt;=[from] AND descuentos.coddescuento&lt;=[to] ORDER BY descuentos.coddescuento 
+	</where>
+</QRY> 

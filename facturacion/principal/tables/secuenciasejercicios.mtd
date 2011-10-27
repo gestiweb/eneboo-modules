@@ -1,0 +1,125 @@
+<!DOCTYPE TMD>
+<TMD>
+	<!--Listado de secuencias por ejercicio-->
+	<name>secuenciasejercicios</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Secuencias de Ejercicios")</alias>
+
+	<field>
+		<name>id</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>secuencias</table>
+			<field>id</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codserie</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código Serie")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+		<ck>true</ck>
+
+		<relation>
+			<table>series</table>
+			<field>codserie</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codejercicio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<visiblegrid>false</visiblegrid>
+		<ck>true</ck>
+
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>npedidoprov</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº Pedido")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>1</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>nalbaranprov</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº Albarán")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>1</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>nfacturaprov</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº Factura")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>1</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>npresupuestocli</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº Presupuesto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>1</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>npedidocli</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº Pedido")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>1</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>nalbarancli</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº Albarán")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>1</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>nfacturacli</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº Factura")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>1</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+</TMD>

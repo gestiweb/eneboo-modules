@@ -1,0 +1,332 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>contactosclientes</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>contactosclientes</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>640</width>
+            <height>173</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>contactosclientes</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>gbxContacto</cstring>
+            </property>
+            <property name="title">
+                <string></string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout13</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>tbnEdtiInsertContacto</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="accel">
+                                <string>F3</string>
+                            </property>
+                            <property name="iconSet">
+                                <iconset>image0</iconset>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Insertar o modificar contacto (F3)</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Para insertar o modificar un contacto asociado a la tarjeta.</string>
+                            </property>
+                        </widget>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbCodContacto</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>5</hsizetype>
+                                    <vsizetype>5</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>150</width>
+                                    <height>27</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>400</width>
+                                    <height>400</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>crm_contactos.codcontacto</string>
+                            </property>
+                            <property name="tableName">
+                                <string></string>
+                            </property>
+                        </widget>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbNombre</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>400</width>
+                                    <height>25</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>nombre</string>
+                            </property>
+                            <property name="tableName">
+                                <string>crm_contactos</string>
+                            </property>
+                            <property name="foreignField">
+                                <string>codcontacto</string>
+                            </property>
+                            <property name="fieldRelation">
+                                <string>codcontacto</string>
+                            </property>
+                            <property name="showAlias">
+                                <bool>false</bool>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbCargo</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>1</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>400</width>
+                            <height>25</height>
+                        </size>
+                    </property>
+                    <property name="font">
+                        <font>
+                        </font>
+                    </property>
+                    <property name="fieldName">
+                        <string>cargo</string>
+                    </property>
+                    <property name="tableName">
+                        <string>crm_contactos</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>codcontacto</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>codcontacto</string>
+                    </property>
+                    <property name="showAlias">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layoutTelFax</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbTelefono</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>200</width>
+                                    <height>25</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>telefono1</string>
+                            </property>
+                            <property name="tableName">
+                                <string>crm_contactos</string>
+                            </property>
+                            <property name="foreignField">
+                                <string>codcontacto</string>
+                            </property>
+                            <property name="fieldRelation">
+                                <string>codcontacto</string>
+                            </property>
+                            <property name="showAlias">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbFax</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>200</width>
+                                    <height>25</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>fax</string>
+                            </property>
+                            <property name="tableName">
+                                <string>crm_contactos</string>
+                            </property>
+                            <property name="foreignField">
+                                <string>codcontacto</string>
+                            </property>
+                            <property name="fieldRelation">
+                                <string>codcontacto</string>
+                            </property>
+                            <property name="showAlias">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbEmail</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>1</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>400</width>
+                            <height>25</height>
+                        </size>
+                    </property>
+                    <property name="font">
+                        <font>
+                        </font>
+                    </property>
+                    <property name="fieldName">
+                        <string>email</string>
+                    </property>
+                    <property name="tableName">
+                        <string>crm_contactos</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>codcontacto</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>codcontacto</string>
+                    </property>
+                    <property name="showAlias">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </vbox>
+</widget>
+<images>
+    <image name="image0">
+        <data format="PNG" length="2233">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af40000088049444154789ced966d4c5bd719c7fff7fa02c77069ae5b3bbd9798cab7852997250c501ad55643879366dbf54a3b581a09b297a493a62669b72a44ea0499da91ee2d495fb6d0ae2b8e1629665a5bbb13899d0ead8e9425266acacb0a3128419825145b89033784c2012e3efb40d0b26ed19a4dea97f5271d3de7c3b9f7ff9ce72f3dcf013ee7ff8df1e12e6e319ee3b4229785ff2cc5d9f039ce66a816769291d0f613793300113e2bf1f1e12e0e9db69c9812bbabe557afde41055c497427a678499424cd25e7b3f1e94f5d0d228027845800f0372dee56e75b5bf6596ca8901a4e3579075e1c59afadd6acc1b6700683005f5ea6b28929ba5cb9b760ade672b9b66fadf9773fe300f04420774822590d81bc46293d0a600cc00204f40228ba91c83f7dd7facabeece468aab8beb1f6896432b5050fcff04d3fdacfc70763801d8c6317a7ad18898ae11329c7ce379aee360cba829a7412c008a5f42322100601554420df9464c96ba48d3b773db5e39ada13bbd23665589b37352a0366cff0cec603cb8848b6a752c69f0050009c2ccb2bf69635954484c8f7ebeeaf2b50d649673c0ffa06d18f1ec8b810eb0d7e6ca9742b1675a59e65de95145fd8b19fa5272f0866060e633cbd01bcb099ced1ad7651dcf2f39fed2d3d7c2860ab5c57c9ab1fbe9ffbeaf090fde0a33592b2e951cbda0d8fda8bedb0b6bd7d427716d8ff664c4e5d2304c584883b0de9d2d77f57ebe76d0f8bb3a5150f5d8f7f104d399c6aba7b3038bed6e99de3d88763243612caf514d528180cd9b06a9bb33bdd595061772f472a7a2f56f956c244311cc809bf13e4688f8104bad1f09316e03a807c0067c3c0fd3e86a3818fb9ea2dd720e0220199ddf62d7da1654f508419075c2569f4e2225ce8efee0ff65538f5f3e1ce4386a57825117ce59b85d8f976b1d0a5e747ff7af84e8fa6dbe2974f1638d6fa8a66a693ae2c477e6ee0d5fd16db994e787ef01dac7fac1e13c904acd9367477b4404924101be943a1f709aefae1d5ecf5675ee6c872937fe1297f4edc886539eea9c8c4fba3330ea73a11eb0e5c5e2b575e0e76faaf6e9cdb38cbd797d765c267839ca74867d1a148b657abcd436f28b7c4e915d11bceb73a941c5c8145a12abc2ff8612b5481ce306c2920faee7e6842396b194d328fdd8de8d1bd960a51cb422a4a76acabcb6af97d83500295437fd852627723f6817fde63f7ce053b03a657f1b2106d83457442d84c6ab3da2f87f27c1938a2e303b2aad5dabb874205cadacd8533a9b894a5382c81a387b8ca873622391c43be5481f05f5af0e6bb9dd8e37f9dbb3496c68574df829e81a5e3723f2b313cf3ede976b31a266b1beae42a32be4c78f44dba7efa7a323072767463666332920e5dd34dccf17a512dda6888790b7504a728ef557521da1720152b6b966108a2b5b0c482649c6bfac62eecddd70045f3203618826f751d52979208ff32084a29a725dc0b2da329d363afe2033494e32dd4732202116a341d41c30f9f52b510a494e9c5fa4cc48ccc7b149d6d391e651675b598554bac42fbd840bece573b22e3ed8a8f1796c7ae8fac285c5371f74c3a9e93a59470f1e10e444ff6a1e40bc528b55722dc750817460d4cf029ec5df7329adedf6d314d21736921c5f9042b4263dd191dbed9f654704e87752e94ea9bde98a9be1a498712a1e3278d57de6a994c8c1af3bcd2a3f281f484452fd6b9100d412fd42dc1299aeb71e979e80d0b56a584c315a0644d2d2835a0ba4a80a110e8900d8a43c213ee6d50d438a21d712e994e096a9f3aed4f25b3dcb25708a40316bd5837dba692f3bae6e5779e68907a7e1d700c0c2584834feea7de07b4794e2b72d96628cdb349c4aecaea7de5f7ab5faa27f5a5317bacac5e2405ded7dab2029b5a81af19c0d108f6f627605ca7501409cdab34441d0a7c6575981053b0a525f89e5e3f2f49d28c56ac7000ae02f4eac040723a726a8053ecd298ea545e6a2ed7060f2412536d7f3cb180238f1d24759b74a9794d63a96c97be2ddba5375c4e39766c4feba8fb41778631c6d82463c79e6f652cd4cad8f971d6156965ece234631d47189b66aceac172c6bac7d8117f2beb3a7c9ad56c70d361ff916bcdbb6b92ad1bdc1f1201a75c4e79abe672b9dd659aa3ea81f2ec1bed9de30058ca576982224b5698b8738252c52690cae899cec69979969b188873aa5682e83b7ec867bb1132297615a98882c227d621513c00d5ee81e7f1f5086c3a82206d43e78928a3c0f48c89d9ce333d578828eda153461f11a571c330ae019807c06eacc541e372cad92ea7bc4c9665a7e692d740c05cd7c9f732ecfc346bdebd9d2d55e274cb31d6f8641d1b6f3fcddc651a631da7d931ff3e76eef03156f35537eb7aa595eddb5dc3ca57ba16dcab5c8392283d0ba018c03200599f1c58dc4d9103c04b22c9a6141291f015234d0f557dd99d896e6de5a3b61e781fa947b02d00e554041150ec70a9f8def1281a576bf0a70dd0eb33501c4022419148258d09c3787a24657c00e02300d30016966ebd84e5a63d0390a173e682993117e8b479c5254b83bdfd438f88e536e6b59572cfb734e187cf3e87c2d25a4cbc75091ddc05547f71338e8ff740bfa70af9aa8903af1f0778cc4d4cd180313915a473e6d8adc46faec027b100c805e0b8318a9f23048eee67b6650761e51a7ebc1f2d3f6d42f07814151ac12e978286b30916f9f340469149d784415f8280f386418729a553b712ff4f58b038eb5c001e2702ce553da04d8c05dece343f55c718634cdfe066effde22073c912230249cbb2f49b5d4ef9bb8490fbf00fcf6ff952fab44988000a016c02109765e9d2f09ebab9d603db33841093089894edd26f0941b524913249248500f20008ffabf8123c16ed5801e0110051002922901949247f90087908025611420ab178eb1cfcebd3ec967cda0c790004c01d006c00f2082159924866015c4da58d0900b3004c0019dc86dfb753221e8b9ee6dc88c0624399c5271acbed70bb1e2df58ba53dc37f29fc394bfc1d1038c7db7756cb7e0000000049454e44ae426082</data>
+    </image>
+</images>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>FLFieldDB.h</includehint>
+    <includehint>FLFieldDB.h</includehint>
+    <includehint>FLFieldDB.h</includehint>
+    <includehint>FLFieldDB.h</includehint>
+    <includehint>FLFieldDB.h</includehint>
+    <includehint>FLFieldDB.h</includehint>
+</includehints>
+</UI>

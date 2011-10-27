@@ -1,0 +1,100 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>contactosproveedores</name>
+	<!--Almacena los datos de las personas de contacto en el proveedor-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Contactos de proveedores")</alias>
+
+	<field>
+		<name>id</name>
+		<!--Identificador interno del proveedor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>contacto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>cargo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cargo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>telefono</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Teléfono")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>fax</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fax")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>email</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","E-mail")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>codproveedor</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Proveedor")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>proveedores</table>
+			<field>codproveedor</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codcontacto</name>
+		<!--Código del contacto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contacto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>crm_contactos</table>
+			<field>codcontacto</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+</TMD>
