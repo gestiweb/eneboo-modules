@@ -1,0 +1,41 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_conceptospar</name>
+	<!--Concepto. Utilizado en las partidas-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Conceptos")</alias>
+
+	<field>
+		<name>idconceptopar</name>
+		<!-- Identificador del concepto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>4</length>	
+
+		<relation>
+			<table>co_partidas</table>
+			<field>idconcepto</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_asientos</table>
+			<field>idconcepto</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>	
+		<name>concepto</name>
+		<!-- Descripcion del concepto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>	
+	</field>
+
+</TMD>
+

@@ -1,0 +1,261 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_amortizaciones</name>
+	<!-- Listado de amortizaciones -->
+			
+	<alias>QT_TRANSLATE_NOOP("MetaData","Amortizaciones")</alias>
+
+	<field>
+		<name>codamortizacion</name>
+		<!-- Identificador de la amortizacion -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<counter>true</counter>
+		
+		<relation>
+			<table>co_dotaciones</table>
+			<field>codamortizacion</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>elemento</name>
+		<!-- Elemento de inmovilizado -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Elemento de Inmovilizado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>estado</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","En Curso");QT_TRANSLATE_NOOP("MetaData","Terminada");QT_TRANSLATE_NOOP("MetaData","Suspendida")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","En Curso")</default>
+	</field>
+	
+	<field>
+		<name>fecha</name>
+		<!-- Fecha de adquisición -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha Adquisición")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>valoradquisicion</name>
+		<!-- Valor de adquisición -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor de Adquisición")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>valorresidual</name>
+		<!-- Valor residual -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor Residual")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>valoramortizable</name>
+		<!-- Valor amortizable -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor Amortizable")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>metodo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Método")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Lineal")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Lineal")</default>
+	</field>
+	
+	<field>
+		<name>periodo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Periódo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Mensual");QT_TRANSLATE_NOOP("MetaData","Trimestral");QT_TRANSLATE_NOOP("MetaData","Semestral");QT_TRANSLATE_NOOP("MetaData","Anual")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Anual")</default>
+	</field>
+	
+	<field>
+		<name>porcentajeperiodo</name>
+		<!-- Porcentaje de amortización -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","% Periódo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>numperiodos</name>
+		<!-- Número de periodos -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº Periódos")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>0</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>amorperiodo</name>
+		<!-- Amortización periodo -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Amortización periódo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>amorprimerperiodo</name>
+		<!-- Amortización primer periodo -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Amortización primer periódo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>amorultimoperiodo</name>
+		<!-- Amortización ultimo periódo -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Amortización ultimo periódo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>totalamortizado</name>
+		<!-- Total amortizado -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total amortizado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>pendiente</name>
+		<!-- Pendiente -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Pendiente")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>idsubcuentaelem</name>
+		<!-- Identificador de la subcuenta del elemento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID Subcuenta Elemento")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	
+	<field>
+		<name>codsubcuentaelem</name>
+		<!-- Código de la subcuenta del elemento -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","S. Elemento")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>idsubcuentaamor</name>
+		<!-- Identificador de la subcuenta de la amortización-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID Subcuenta Amortización")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>codsubcuentaamor</name>
+		<!-- Código de la subcuenta de la amortización -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","S. Amortización")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>notas</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Notas")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+</TMD>
+

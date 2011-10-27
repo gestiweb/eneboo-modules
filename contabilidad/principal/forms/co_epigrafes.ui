@@ -1,0 +1,275 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>co_epigrafes</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>co_epigrafes</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>672</width>
+            <height>109</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Epígrafes</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>6</number>
+        </property>
+        <property name="spacing">
+            <number>6</number>
+        </property>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>groupBox4_2_2_2</cstring>
+            </property>
+            <property name="font">
+                <font>
+                    <bold>1</bold>
+                    <italic>1</italic>
+                </font>
+            </property>
+            <property name="title">
+                <string></string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout15</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel1</cstring>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string>Epígrafe padre</string>
+                            </property>
+                        </widget>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbCodPadre</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>60</width>
+                                    <height>25</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>codepigrafe</string>
+                            </property>
+                            <property name="tableName">
+                                <string>co_epigrafes</string>
+                            </property>
+                            <property name="foreignField">
+                                <string>idpadre</string>
+                            </property>
+                            <property name="fieldRelation">
+                                <string>idepigrafe</string>
+                            </property>
+                        </widget>
+                        <widget class="QToolButton">
+                            <property name="name">
+                                <cstring>tbnBuscarEpigrafe</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="iconSet">
+                                <iconset>image0</iconset>
+                            </property>
+                            <property name="toolTip" stdset="0">
+                                <string>Buscar epigrafe padre</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Abre la tabla de epigrafes para seleccionar el epigrafe padre del actual, en caso de tenerlo</string>
+                            </property>
+                        </widget>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbDesPadre</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>370</width>
+                                    <height>25</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>descripcion</string>
+                            </property>
+                            <property name="tableName">
+                                <string>co_epigrafes</string>
+                            </property>
+                            <property name="foreignField">
+                                <string>idpadre</string>
+                            </property>
+                            <property name="fieldRelation">
+                                <string>idepigrafe</string>
+                            </property>
+                            <property name="showAlias">
+                                <bool>false</bool>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout46</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbCodEpigrafe</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>130</width>
+                                    <height>25</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>codepigrafe</string>
+                            </property>
+                            <property name="tableName">
+                                <string></string>
+                            </property>
+                            <property name="foreignField">
+                                <string></string>
+                            </property>
+                            <property name="fieldRelation">
+                                <string></string>
+                            </property>
+                        </widget>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbDescripcion</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>500</width>
+                                    <height>25</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>descripcion</string>
+                            </property>
+                            <property name="tableName">
+                                <string></string>
+                            </property>
+                            <property name="foreignField">
+                                <string></string>
+                            </property>
+                            <property name="fieldRelation">
+                                <string></string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+            </vbox>
+        </widget>
+    </vbox>
+</widget>
+<images>
+    <image name="image0">
+        <data format="PNG" length="1078">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af4000003fd49444154789cb5974148236714c79f650f5e0aeed143617a744f5b961eb6bd5470412a5bbadb532d3de8ad160f4bf420d183c41e96b1878578083b2281c9c50d1664f46019172ce341880b5922ad072d1e224d4b14a1d96d7af8f5f07d5f9219e33aa9fa20bc7999e17bfff79bf7bd2f11008a0010686f627faba42eb6942b6c87637725f81d90ab7c24289669b56aa5a6165f2d00606fa9d8de315e27df5062f2abc1e9950484b2ef29975a55ded1b17ba07cfe487badd9d9d5f14af00fd0732502a5a2ca925cd704f6db2735b157098b73737e9d5ce7221401bd58723dbca85fd564b4f7aaedef7be58688bfff1f811c2457cae1c5cf942f1026d0485a093fe7956b900577d9af744cc0cef80038fbe145cfd959848c8e83ba16a17bc25d09fe882dc0c9faa400a718ae4c6f38439f405f1c98b81e2664bcfdd455c52c07c4235005dbeceba30b2a37496be1b844fbd85d05ea2022f72e15d050bc7f09019ddc4c0d73ff2012e7370a9083d482174f0035489bfdac09984634d9a3955f664ed68f4f2039e360b72435048c18d3904693f1e50bbcbb1a009d10d86df680d96a66bf17ea9d550ec019781bc42790fac1855ccb443363578b31dd6edeb1a9d4f4462d128f8ea43a24008c4e3aaaf2c8b835fb3cdaed17da9652583a884fe0bdedd7c7d2fdf644a67f3a94a15e91b53f45befa4079795f64fb5f913b22b227ca8eb57f23613b7923f2fd0b91cd5ff7e4ce872273cfd7249601b0036c374fb7c6c4bb6822b6b33a249ea4d575393e81c669e8663d46c7c129aab7eaeb976bb6e03b7b6001c6c66d009c450fe8b0078cb9590f7620bdd9ac0a9a63f69c55941253b99351c90b45e00cf293562e360163859d1263e3366353aa31fd48239a3990ce788c8e280f907e9607c05b0f203346e9470b9e5af8337d4bb109442d35ebc086c67b0489a9346c4262321d56a3c7b8bbecabfe597cacbec85a50b660ea6211e70844ad665ec3aeca56d33d51d564aaba19ca152093a0b038ac9edbb38161aa590b662df2e3ed45bc9340c3ea116fa68fd925e647caacaebcaa0e38f635a9ac050716ee77e745c426d0f01102e55602407ee673c8f5434589089198b47046c222ae9580f96de94e3e069a2242248a16e9af9b22e213a8857ddb1e68f1a96ffb21db0f15b59b6afb2d24c62d525f5a4bdc14012aea5e72d0fa4d9150224224762c92837d4bd7de0365fdcf2ab5e061f5747f9618b05eb1d84a220d0c537a66c1e047dc1c0173160c547b12037dafa8b590d84cc1fa7dec599b5bdbaf8fe5935f7a654ed6a45b86e4adacc9b40c5d4b2c22223fdf3e9d7f20fd135f1cbe9cbfbf78f7f8e1b1f43edf94b5470939fcebf0b40b90aeaeae7bf1cecece0d288888c883939e09f9f4e5fcadeebb731f0fcbf4c389d36fece9275dc04de58e65ff01427f8c02eb81ea790000000049454e44ae426082</data>
+    </image>
+</images>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

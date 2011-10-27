@@ -1,0 +1,59 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_cuentasesp</name>
+	<!--Cuentas especiales (Impuestos, redondeo de moneda, saldo en ejercicios anteriores, divisas...)-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Cuentas especiales")</alias>
+
+	<field>
+		<name>idcuentaesp</name>
+		<!-- Identificador del tipo de cuenta especial -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>	
+
+		<relation>
+			<table>co_cuentas</table>
+			<field>idcuentaesp</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idcuentaesp</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>	
+		<name>descripcion</name>
+		<!-- Descripción del tipo de cuenta especial -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>	
+	</field>
+	
+	<field>
+		<name>codcuenta</name>
+		<!-- Código de la cuenta asociada a la cuenta especial -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+	</field>
+	
+	<field>
+		<name>codsubcuenta</name>
+		<!-- Código de la subcuenta asociada a la cuenta especial -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subcuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+</TMD>

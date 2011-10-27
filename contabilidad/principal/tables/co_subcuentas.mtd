@@ -1,0 +1,351 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_subcuentas</name>
+	<!---->
+			
+	<alias>QT_TRANSLATE_NOOP("MetaData","Subcuentas")</alias>
+
+	<field>
+		<name>idsubcuenta</name>
+		<!-- Identificador interno de la subcuenta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>co_subcuentascli</table>
+			<field>idsubcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_subcuentasprov</table>
+			<field>idsubcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_partidas</table>
+			<field>idsubcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_partidas</table>
+			<field>idcontrapartida</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_regiva</table>
+			<field>idsubcuentadeu</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_regiva</table>
+			<field>idsubcuentaacr</field>
+			<card>1M</card>
+		</relation>
+	
+		<relation>
+			<table>co_i_diario</table>
+			<field>idsubcuentadesde</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_i_diario</table>
+			<field>idsubcuentahasta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_i_mayor</table>
+			<field>idsubcuentadesde</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_i_mayor</table>
+			<field>idsubcuentahasta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_i_balancesis</table>
+			<field>idsubcuentadesde</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_i_balancesis</table>
+			<field>idsubcuentahasta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>pagosdevolcli</table>
+			<field>idsubcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>remesas</table>
+			<field>idsubcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>impuestos</table>
+			<field>idsubcuentarep</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>impuestos</table>
+			<field>idsubcuentasop</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>impuestos</table>
+			<field>idsubcuentaacr</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>impuestos</table>
+			<field>idsubcuentadeu</field>
+			<card>1M</card>
+		</relation>
+		
+<!--		<relation>
+			<table>impuestos</table>
+			<field>idsubcuentaivadevadue</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>impuestos</table>
+			<field>idsubcuentaivadedadue</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>impuestos</table>
+			<field>idsubcuentaivadeventue</field>
+			<card>1M</card>
+		</relation>
+	-->
+		<relation>
+			<table>clientes</table>
+			<field>idsubcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>proveedores</table>
+			<field>idsubcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>cuentasbanco</table>
+			<field>idsubcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>lineasfacturasprov</table>
+			<field>idsubcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>articulos</table>
+			<field>idsubcuentacom</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>rh_empleados</table>
+			<field>idsubcuenta</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codsubcuenta</name>
+		<!-- Código de la subcuenta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<ck>true</ck>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>	
+		<name>descripcion</name>
+		<!-- Descripción de la subcuenta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>	
+	</field>
+		
+	<field>
+		<!-- Cantidad en el Debe -->
+		<name>debe</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Debe")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<!-- Cantidad en el Haber -->
+		<name>haber</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Haber")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<!-- Saldo de la subcuenta -->
+		<name>saldo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Saldo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>idcuenta</name>
+		<!-- Identificador de la cuenta, de la que depende la subcuenta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+	
+		<relation>
+			<table>co_cuentas</table>
+			<field>idcuenta</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>codcuenta</name>
+		<!-- Código de la subcuenta, del que depende la subcuenta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+	</field>
+
+	<field>
+		<!-- Código del tipo de impuesto en la tabla de impuestos -->
+		<name>codimpuesto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","I.V.A.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>impuestos</table>
+			<field>codimpuesto</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<!-- Porcentaje de I.V.A. -->
+		<name>iva</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","%I.V.A.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>2</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<!-- Porcentaje de recargo de equivalencia -->
+		<name>recargo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","%R.Equivalencia")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>2</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<!-- Divisa utilizada por defecto en las partidas de la subcuenta -->
+		<name>coddivisa</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Divisa")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+
+		<relation>
+			<table>divisas</table>
+			<field>coddivisa</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<!-- Ejercicio al que pertenece -->
+		<name>codejercicio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<ck>true</ck>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>idcuentaesp</name>
+		<!-- Identificador del tipo de cuenta especial -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo especial")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+
+		<relation>
+			<table>co_cuentasesp</table>
+			<field>idcuentaesp</field>
+			<card>M1</card>
+		</relation>
+
+	</field>
+</TMD>
+

@@ -1,0 +1,138 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_dotaciones</name>
+	<!-- Listado de dotaciones -->
+			
+	<alias>QT_TRANSLATE_NOOP("MetaData","Dotaciones")</alias>
+
+	<field>
+		<name>iddotacion</name>
+		<!--Identificador interno de la dotación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>codamortizacion</name>
+		<!-- Identificador de la amortizacion -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Amortización")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>co_amortizaciones</table>
+			<field>codamortizacion</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>fechainicio</name>
+		<!-- Fecha de inicio del periodo -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha Inicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fechafin</name>
+		<!-- Fecha de fin del periodo -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha Fin")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>importe</name>
+		<!-- Importe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Importe")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>porcentaje</name>
+		<!-- porcentaje -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","%")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>fecha</name>
+		<!-- Fecha del asiento -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha Asiento")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>acumulado</name>
+		<!-- Valor acumulado -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Acumulado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>resto</name>
+		<!-- Resto por amortizar -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Resto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>idasiento</name>
+		<!-- Código del asiento al que pertenece la dotacion-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asiento")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+	
+		<relation>
+			<table>co_asientos</table>
+			<field>idasiento</field>
+			<card>M1</card>
+		</relation>
+	</field>
+		
+	<field>
+		<name>nogenerarasiento</name>
+		<!--Si la validación de la dotación va a generar un asiento contable-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ignorar contabilidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+</TMD>
+
