@@ -353,7 +353,7 @@ function oficial_actualizarLineasIva(curFactura:FLSqlCursor):Boolean
 		idFactura = curFactura.valueBuffer("idfactura");
 	} catch (e) {
 		// Antes se recibía sólo idFactura
-		MessageBox.critical(util.translate("scripts", "Hay un problema con la actualización de su personalización.\nPor favor, póngase en contacto con InfoSiAL para solucionarlo"), MessageBox.Ok, MessageBox.NoButton);
+		MessageBox.critical(util.translate("scripts", "Hay un problema con la actualización de su personalización."), MessageBox.Ok, MessageBox.NoButton);
 		return false;
 	}
 
