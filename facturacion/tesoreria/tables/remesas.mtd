@@ -1,0 +1,128 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>remesas</name>
+	<!-- Listado de remesas de recibos	-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Remesas")</alias>
+
+	<field>
+		<name>idremesa</name>
+		<!-- Identificador -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Número")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>uint</type>
+		<counter>true</counter>
+		
+		<relation>
+			<table>pagosdevolcli</table>
+			<field>idremesa</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>total</name>
+		<!-- Suma del importe de los recibos de la remesa	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total Remesa")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<editable>false</editable>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>coddivisa</name>
+		<!-- Código de la divisa de los recibos de la remesa -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Divisa")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+
+		<relation>
+			<table>divisas</table>
+			<field>coddivisa</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>fecha</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	<field>
+		<name>fechacargo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","F. de cargo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	<field>
+		<name>codcuenta</name>
+		<!-- Cuenta bancaria donde se cargará la remesa -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta Bancaria")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+
+		<relation>
+			<table>cuentasbanco</table>
+			<field>codcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+        <name>estado</name>
+<!-- Estado -->        <alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>15</length>
+        <default>Emitida</default>
+        <editable>false</editable>
+    </field>
+	
+	<field>
+		<name>codsubcuenta</name>
+		<!-- Código de la subcuenta contable a la que se aplica el asiento de la remesa -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subcuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>idsubcuenta</name>
+		<!-- Identificador de la subcuenta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+	
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>nogenerarasiento</name>
+		<!--Indica si se debe generar asiento contable o no para los pedidos incluidos en la remesa-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ignorar contabilidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+</TMD>
