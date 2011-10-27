@@ -1,0 +1,128 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_i_facturasemi</name>
+	<!-- Listado de informes de Facturas Emitidas -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Facturas Emitidas")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador interno del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>200</length>
+	</field>
+
+	<field>
+		<name>d_co__asientos_fecha</name>
+		<!-- Fecha mínima de los asientos incluidos en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde fecha")</alias>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>h_co__asientos_fecha</name>
+		<!-- Fecha máxima de los asientos incluidos en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta fecha")</alias>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>i_co__cuentas_codejercicio</name>
+		<!-- Ejercicio al que pertenecen las subcuentas del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>todosivarecargo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Todos los I.V.A. y Recargos")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>coniva</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ignorar facturas sin I.V.A.")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>mostrartotalfactura</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total factura")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>mostrarnif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","N.I.F.")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>mostrardocumento</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Documento")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+		<visiblegrid>false</visiblegrid>
+	</field>	
+	
+	<field>
+		<name>numeracionauto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Numeración automática de facturas")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>numdesde</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","desde el nº")</alias>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>1</default>
+	</field>
+	
+	<field>
+		<name>mostrarasiento</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asiento")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+</TMD>

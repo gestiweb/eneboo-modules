@@ -1,0 +1,49 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_i_balancesit</name>
+
+	<tables>co_cuentas,co_codbalances,co_i_balancesit_buffer</tables>
+
+	<param>
+		<name>ejAct</name>
+		<type>string</type>
+	</param>
+
+	<group>
+		<level>0</level>
+		<field>cbl.naturaleza</field>
+	</group>
+	
+	<group>
+		<level>1</level>
+		<field>cbl.descripcion1</field>
+	</group>
+	
+	<group>
+		<level>2</level>
+		<field>cbl.descripcion2</field>
+	</group>
+	
+	<group>
+		<level>3</level>
+		<field>cbl.descripcion3</field>
+	</group>
+
+	<select>
+		cbl.naturaleza,
+		cbl.descripcion1, cbl.descripcion2, cbl.descripcion3, 
+		cbl.nivel1, cbl.nivel2,
+		c.descripcion, 
+		SUM(buf.suma)
+	</select>
+
+	<from>
+		co_codbalances cbl 
+		left outer join co_cuentas c on cbl.codbalance = c.codbalance and c.codejercicio = [ejAct]
+		left outer join co_i_balancesit_buffer buf 
+		on (c.codcuenta = buf.codcuenta and buf.codejercicio = [ejAct])
+	</from>
+
+	<where>
+	</where>
+</QRY>

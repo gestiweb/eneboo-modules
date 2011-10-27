@@ -1,0 +1,41 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_i_balancepyg</name>
+
+	<tables>co_cuentas,co_codbalances,co_i_balancepyg_buffer</tables>
+
+	<group>
+		<level>0</level>
+		<field>buf.naturaleza</field>
+	</group>
+	
+	<group>
+		<level>1</level>
+		<field>buf.descripcion1</field>
+	</group>
+	
+	<group>
+		<level>2</level>
+		<field>buf.descripcion2</field>
+	</group>
+	
+	<group>
+		<level>3</level>
+		<field>buf.descripcion3</field>
+	</group>
+
+	<select>
+		buf.naturaleza,
+		buf.descripcion1, buf.descripcion2, buf.descripcion3, 
+		buf.desccuenta,
+		buf.nivel1, buf.nivel2,
+		buf.sumaact, buf.sumaant
+	</select>
+
+	<from>
+		co_i_balancepyg_buffer buf
+	</from>
+
+	<where>
+	</where>
+</QRY>

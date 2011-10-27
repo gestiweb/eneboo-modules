@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?> <!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd"> <KugarTemplate BottomMargin="10" TopMargin="10" RightMargin="10" LeftMargin="20" PageOrientation="0" PageSize="0" >
+
+<ReportHeader Height="45" PrintFrequency="1">
+</ReportHeader>
+
+
+<DetailHeader Level="0" Height="115">
+
+<Label WordWrap="0" Width="420" X="10" Y="1" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" Libro Mayor" FontWeight="75" FontSize="12" BorderWidth="0" fontfamily="arial narrow" />
+<CalculatedField WordWrap="0" CalculationType="6" Width="150" X="430" Y="1" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="fecha" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+
+<CalculatedField WordWrap="0" CalculationType="6" Width="570" X="10" Y="24" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="mayor" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+<CalculatedField CalculationType="6" FunctionName="flcontinfo.pub_nombreEmpresa" WordWrap="0" Width="470" X="10" Y="45" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="" Field="empresa.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+<CalculatedField WordWrap="0" CalculationType="6" Width="100" X="480" Y="45" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="numpag" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+
+<Line Width="3" Y1="68" Y2="68" X1="10" X2="580" Style="1" Color="220,220,220" />
+
+<Field WordWrap="0" Width="85" X="10" Y="85" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="co_subcuentas.codsubcuenta" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="12" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="0" Width="320" X="90" Y="85" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="co_subcuentas.descripcion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="12" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="0" Width="150" X="430" Y="85" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="0" Field="divisas.descripcion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="11" BorderWidth="0"  Precision="2" FontFamily="Arial Narrow" />
+
+<Line Width="1" Y1="107" Y2="107" X1="10" X2="580" Style="1" Color="150,150,150" />
+</DetailHeader>
+
+<DetailHeader Height="20" Level="1">
+<Label WordWrap="0" Width="75" X="10" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Asiento" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial" />
+<Label WordWrap="0" Width="75" X="85" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Fecha" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial" />
+<Label WordWrap="0" Width="240" X="160" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Concepto" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial" />
+<Label WordWrap="0" Width="90" X="400" Y="0" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Debe" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial" />
+<Label WordWrap="0" Width="90" X="490" Y="0" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Haber" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial" />
+</DetailHeader>
+
+<AddOnHeader Height="30" Level="0">
+<CalculatedField WordWrap="0" CalculationType="6" Width="100" X="480" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="numpag" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+
+<Line Width="2" Y1="20" Y2="20" X1="10" X2="580" Style="1" Color="220,220,220" />
+</AddOnHeader>
+
+<AddOnHeader Height="20" Level="1">
+<Label WordWrap="0" Width="75" X="10" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Asiento" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial" />
+<Label WordWrap="0" Width="75" X="85" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Fecha" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial" />
+<Label WordWrap="0" Width="240" X="160" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Concepto" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial" />
+<Label WordWrap="0" Width="90" X="400" Y="0" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Debe" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial" />
+<Label WordWrap="0" Width="90" X="490" Y="0" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Haber" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial" />
+</AddOnHeader>
+
+
+<Detail Height="16" Level="1">
+<Field WordWrap="0" Width="75" X="10" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="co_asientos.numero" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="0"  Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="0" Width="75" X="85" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="3" Field="co_asientos.fecha" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="0"  Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="0" Width="240" X="160" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="co_partidas.concepto" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="0"  Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="0" Width="90" X="400" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="4" Field="co_partidas.debeme" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="0"  Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="0" Width="90" X="490" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="4" Field="co_partidas.haberme" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="0"  Precision="2" FontFamily="Arial Narrow" />
+<!--CAMPO OCULTO PARA REALIZAR EL TOTAL DE SALDO MÁS ABAJO-->
+<Field WordWrap="0" Width="0" X="490" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="0" HAlignment="2" DataType="0" Field="co_partidas.debeme-co_partidas.haberme" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="255,255,255" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="0"  Precision="2" FontFamily="Arial Narrow" />
+</Detail>
+
+
+<DetailFooter Height="70" Level="1" NewPage="true" PlaceAtBottom="false">
+
+<Line Width="1" Y1="15" Y2="15" X1="10" X2="580" Style="1" Color="150,150,150"/>
+
+<Label WordWrap="0" Width="110" X="10" Y="20" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Totales" FontWeight="65" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+<Label WordWrap="0" Width="90" X="310" Y="20" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Saldo" FontWeight="65" FontSize="11" BorderWidth="0" FontFamily="Arial Narrow" />
+<Label WordWrap="0" Width="90" X="400" Y="20" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Debe" FontWeight="65" FontSize="11" BorderWidth="0" FontFamily="Arial Narrow" />
+<Label WordWrap="0" Width="90" X="490" Y="20" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Haber" FontWeight="65" FontSize="11" BorderWidth="0" FontFamily="Arial Narrow" />
+
+<CalculatedField WordWrap="0" CalculationType="1" Width="90" X="310" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="co_partidas.debeme-co_partidas.haberme" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="0"  Precision="2" FontFamily="Arial Narrow" />
+<CalculatedField WordWrap="0" CalculationType="1" Width="90" X="400" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="co_partidas.debeme" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="0"  Precision="2" FontFamily="Arial Narrow" />
+<CalculatedField WordWrap="0" CalculationType="1" Width="90" X="490" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="co_partidas.haberme" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="66" FontSize="10" BorderWidth="0"  Precision="2" FontFamily="Arial Narrow" />
+</DetailFooter>
+
+<AddOnFooter Height="70" Level="1" NewPage="true" PlaceAtBottom="false">
+
+<Line Width="1" Y1="25" Y2="25" X1="10" X2="580" Style="1" Color="150,150,150"/>
+
+</AddOnFooter>
+
+
+
+</KugarTemplate>

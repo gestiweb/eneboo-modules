@@ -1,0 +1,28 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_i_balancesis</name>
+
+	<group>
+		<level>0</level>
+		<field>co_i_balancesis_buffer.codcuenta</field>
+	</group>
+	
+	<tables>co_i_balancesis_buffer</tables>
+
+	<select>
+		co_i_balancesis_buffer.codcuenta, co_i_balancesis_buffer.codsubcuenta,
+		co_i_balancesis_buffer.descripcion, co_i_balancesis_buffer.descripcioncuenta,
+		co_i_balancesis_buffer.debe, co_i_balancesis_buffer.haber, co_i_balancesis_buffer.saldo
+	</select>
+
+	<from>
+		co_i_balancesis_buffer
+	</from>
+
+	<where>
+	</where>
+
+	<order>
+		co_i_balancesis_buffer.codcuenta,co_i_balancesis_buffer.codsubcuenta
+	</order>
+</QRY>

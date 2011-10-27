@@ -1,0 +1,140 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_i_balancepyg_buffer</name>
+	<!--Buffer de la cuenta de pérdidas y ganacias-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Buffer de pérdidas y ganancias")</alias>
+
+	<field>
+		<name>id</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>codbalance</name>
+		<!-- Identificador interno de la clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>		
+	</field>
+	
+	<field>	
+		<name>naturaleza</name>
+		<!-- Naturaleza en el balance (DEBE, HABER, ACTIVO o PASIVO) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Naturaleza")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>	
+	</field>
+	
+	<field>	
+		<name>nivel1</name>
+		<!-- Nivel 1 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código nivel 1")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>	
+	</field>
+	
+	<field>	
+		<name>nivel2</name>
+		<!-- Nivel 2 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código nivel 2")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>	
+	</field>
+	
+	<field>	
+		<name>nivel3</name>
+		<!-- Nivel 3 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código nivel 3")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>	
+	</field>
+	
+	<field>	
+		<name>descripcion1</name>
+		<!-- Nivel 1 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>	
+	</field>
+	
+	<field>	
+		<name>descripcion2</name>
+		<!-- Nivel 2 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>	
+	</field>
+	
+	<field>	
+		<name>descripcion3</name>
+		<!-- Nivel 3 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>	
+	</field>
+	
+	<field>
+		<name>codcuenta</name>
+		<!-- Código de la cuenta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+	</field>
+
+	<field>	
+		<name>desccuenta</name>
+		<!-- Descripción de la cuenta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>	
+	</field>
+	
+	<field>
+		<!-- Suma agrupada de la cuenta para el ejercicio actual-->
+		<name>sumaact</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Suma")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<!-- Suma agrupada de la cuenta para el ejercicio anterior -->
+		<name>sumaant</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Suma")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+</TMD>
