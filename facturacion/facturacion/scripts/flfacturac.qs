@@ -316,6 +316,9 @@ class oficial extends interna {
 	function datosImpuesto(codImpuesto:String, fecha:String):Array {
 		return this.ctx.oficial_datosImpuesto(codImpuesto, fecha);
 	}
+	function valorDefecto(fN:String):String {
+		return this.ctx.oficial_valorDefecto(fN);
+	}
 }
 
 //// OFICIAL /////////////////////////////////////////////////////
@@ -1844,7 +1847,8 @@ function oficial_regenerarAsiento(cur:FLSqlCursor, valoresDefecto:Array):Array
 		this.iface.curAsiento_.setValueBuffer("tipodocumento", datosAsiento.tipoDocumento);
 		this.iface.curAsiento_.setValueBuffer("documento", datosAsiento.documento);
 		if (!this.iface.datosAsientoRegenerado(cur, valoresDefecto)) {
-			return false;
+			asiento.error = true;
+			return asiento;
 		}
 
 		if (!this.iface.curAsiento_.commitBuffer()) {
@@ -1858,7 +1862,7 @@ function oficial_regenerarAsiento(cur:FLSqlCursor, valoresDefecto:Array):Array
 		asiento.tipodocumento = this.iface.curAsiento_.valueBuffer("tipodocumento");
 		asiento.documento = this.iface.curAsiento_.valueBuffer("documento");
 
-		this.iface.curAsiento_.select("idasiento = " + this.iface.curAsiento_.idasiento);
+		this.iface.curAsiento_.select("idasiento = " + asiento.idasiento);
 		this.iface.curAsiento_.first();
 		this.iface.curAsiento_.setUnLock("editable", false);
 	} else {
@@ -1891,7 +1895,8 @@ function oficial_regenerarAsiento(cur:FLSqlCursor, valoresDefecto:Array):Array
 		this.iface.curAsiento_.setValueBuffer("tipodocumento", datosAsiento.tipoDocumento);
 		this.iface.curAsiento_.setValueBuffer("documento", datosAsiento.documento);
 		if (!this.iface.datosAsientoRegenerado(cur, valoresDefecto)) {
-			return false;
+			asiento.error = true;
+			return asiento;
 		}
 		if (!this.iface.curAsiento_.commitBuffer()) {
 			asiento.error = true;
@@ -4383,6 +4388,17 @@ function oficial_datosImpuesto(codImpuesto:String, fecha:String):Array
 	datosImpuesto.recargo = qryImpuesto.value("recargo");
 	return datosImpuesto;	
 }
+
+function oficial_valorDefecto(fN:String):String
+{
+	var util:FLUtil = new FLUtil;
+	var valor:String = util.sqlSelect("facturac_general", fN, "1 = 1");
+	if (!valor) {
+		return "";
+	}
+	return valor;
+}
+
 //// OFICIAL ////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
