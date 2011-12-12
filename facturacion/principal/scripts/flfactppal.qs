@@ -162,15 +162,91 @@ class oficial extends interna {
 	function validarProvincia(cursor:FLSqlCursor, mtd:Array):Boolean {
 		return this.ctx.oficial_validarProvincia(cursor, mtd);
 	}
+  function  simplify(str)     { return this.ctx.oficial_simplify(str); }
+  function  escapeQuote(str)  { return this.ctx.oficial_escapeQuote(str); }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO MAIL /////////////////////////////////////////////////
+class envioMail extends oficial {
+	function envioMail( context ) { oficial ( context ); }
+	function enviarCorreo(cuerpo:String, asunto:String, arrayDest:Array, arrayAttach:Array) {
+		return this.ctx.envioMail_enviarCorreo(cuerpo, asunto, arrayDest, arrayAttach);
+	}
+	function componerCorreo(cuerpo:String, asunto:String, arrayDest:Array, arrayAttach:Array):String {
+		return this.ctx.envioMail_componerCorreo(cuerpo, asunto, arrayDest, arrayAttach);
+	}
+	function componerListaDestinatarios(codigo:String, tabla:String):String {
+		return this.ctx.envioMail_componerListaDestinatarios(codigo, tabla);
+	}
+	function existeEnvioMail():Boolean {
+		return this.ctx.envioMail_existeEnvioMail();
+	}
+}
+//// ENVIO MAIL /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration pubEnvioMail */
+/////////////////////////////////////////////////////////////////
+//// PUB ENVIO MAIL /////////////////////////////////////////////
+class pubEnvioMail extends envioMail {
+	function pubEnvioMail( context ) { envioMail ( context ); }
+	function pub_enviarCorreo(cuerpo:String, asunto:String, arrayDest:Array, arrayAttach:Array) {
+		return this.enviarCorreo(cuerpo, asunto, arrayDest, arrayAttach);
+	}
+	function pub_componerListaDestinatarios(codigo:String, tabla:String):String {
+		return this.componerListaDestinatarios(codigo, tabla);
+	}
+	function pub_existeEnvioMail():Boolean {
+		return this.existeEnvioMail();
+	}
+}
+
+//// PUB ENVIO MAIL /////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+
+/** @class_declaration liqAgentes */
+/////////////////////////////////////////////////////////////////
+//// LIQUIDACIÓN A AGENTES //////////////////////////////////////
+class liqAgentes extends pubEnvioMail {
+	function liqAgentes( context ) { pubEnvioMail ( context ); }
+	function calcularLiquidacionAgente(where:String):Number {
+		return this.ctx.liqAgentes_calcularLiquidacionAgente(where);
+	}
+	function obtenFiltroFacturas(codAgente:String, desde:String, hasta:String, codEjercicio:String):String {
+		return this.ctx.liqAgentes_obtenFiltroFacturas(codAgente, desde, hasta, codEjercicio);
+	}
+	function asociarFacturasLiq(filtro:String, codLiquidacion:String):Boolean {
+		return this.ctx.liqAgentes_asociarFacturasLiq(filtro, codLiquidacion);
+	}
+	function asociarFacturaLiq(idFactura:String, codLiquidacion:String):Boolean {
+		return this.ctx.liqAgentes_asociarFacturaLiq(idFactura, codLiquidacion);
+	}
+}
+//// LIQUIDACIÓN A AGENTES //////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration dtoEsp */
+/////////////////////////////////////////////////////////////////
+//// DESCUENTO ESPECIAL /////////////////////////////////////////
+class dtoEsp extends liqAgentes {
+	function dtoEsp( context ) { liqAgentes ( context ); }
+	function calcularLiquidacionAgente(where:String):Number {
+		return this.ctx.dtoEsp_calcularLiquidacionAgente(where);
+	}
+}
+//// DESCUENTO ESPECIAL /////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-	function head( context ) { oficial ( context ); }
+class head extends dtoEsp {
+	function head( context ) { dtoEsp ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -264,10 +340,33 @@ class ifaceCtx extends head {
 	function pub_validarProvincia(cursor:FLSqlCursor, mtd:Array):Boolean {
 		return this.validarProvincia(cursor, mtd);
 	}
+  function pub_simplify(str)     { return this.simplify(str); }
+  function pub_escapeQuote(str)  { return this.escapeQuote(str); }
 }
 
-const iface = new ifaceCtx( this );
+const iface = new pubLiqAgentes( this );
 //// INTERFACE  /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration pubLiqAgentes */
+/////////////////////////////////////////////////////////////////
+//// PUB LIQ AGENTES ////////////////////////////////////////////
+class pubLiqAgentes extends ifaceCtx {
+	function pubLiqAgentes( context ) { ifaceCtx( context ); }
+	function pub_calcularLiquidacionAgente(where:String):Number {
+		return this.calcularLiquidacionAgente(where);
+	}
+	function pub_obtenFiltroFacturas(codAgente:String, desde:String, hasta:String, codEjercicio:String):String {
+		return this.obtenFiltroFacturas(codAgente, desde, hasta, codEjercicio);
+	}
+	function pub_asociarFacturasLiq(filtro:String, codLiquidacion:String):Boolean {
+		return this.asociarFacturasLiq(filtro, codLiquidacion);
+	}
+	function pub_asociarFacturaLiq(idFactura:String, codLiquidacion:String):Boolean {
+		return this.asociarFacturaLiq(idFactura, codLiquidacion);
+	}
+}
+//// PUB LIQ AGENTES ////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 /** @class_definition interna */
@@ -562,7 +661,7 @@ function oficial_msgNoDisponible(nombreModulo:String)
 	var util:FLUtil = new FLUtil();
 	MessageBox.information(util.translate("scripts", "El módulo '") +
 		nombreModulo + util.translate("scripts",
-		"' no está disponible."), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
+		"' sólo está disponible a través de suscripción.\n\nSi ha probado AbanQ y considera que puede serle útil, tiene\nla opción de suscribirse mediante una pequeña aportación para tener\nacceso a la zona de descargas (www.abanq.org), además de a un\nforo de soporte.\n\nCon su suscripción obtiene una aplicación estable\ny dispone del soporte de InfoSiAL (www.infosial.com), al tiempo\nque ayuda a seguir desarrollando y mejorando este software libre."), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
 }
 
 /** \D Ejecuta la query especificada y devuelve un array con los datos de los campos seleccionados. Devuelve un campo extra 'result' que es 1 = Ok, 0 = Error, -1 No encontrado
@@ -715,22 +814,22 @@ function oficial_valoresIniciales()
 	with(cursor) {
 		setModeAccess(cursor.Insert);
 		refreshBuffer();
-		setValueBuffer("codimpuesto", "IVA16");
-		setValueBuffer("descripcion", "I.V.A. 16%");
-		setValueBuffer("iva", "16");
+		setValueBuffer("codimpuesto", "GEN");
+		setValueBuffer("descripcion", "I.V.A. General");
+		setValueBuffer("iva", "18");
 		setValueBuffer("recargo", "4");
 		commitBuffer();
 		setModeAccess(cursor.Insert);
 		refreshBuffer();
-		setValueBuffer("codimpuesto", "IVA7");
-		setValueBuffer("descripcion", "I.V.A. 7%");
-		setValueBuffer("iva", "7");
+		setValueBuffer("codimpuesto", "RED");
+		setValueBuffer("descripcion", "I.V.A. Reducido");
+		setValueBuffer("iva", "8");
 		setValueBuffer("recargo", "1");
 		commitBuffer();
 		setModeAccess(cursor.Insert);
 		refreshBuffer();
-		setValueBuffer("codimpuesto", "IVA4");
-		setValueBuffer("descripcion", "I.V.A. 4%");
+		setValueBuffer("codimpuesto", "SRED");
+		setValueBuffer("descripcion", "I.V.A. Superreducido");
 		setValueBuffer("iva", "4");
 		setValueBuffer("recargo", "0.5");
 		commitBuffer();
@@ -911,52 +1010,24 @@ function oficial_valoresIniciales()
 	delete cursor;
 	
 	cursor = new FLSqlCursor("empresa");
-	var milogo:String = "";
-	milogo+='/* XPM */\n';
-	milogo+='static char * logo_xpm[] = {\n';
-	milogo+='"50 16 7 1",\n';
-	milogo+='" 	c #1E00FF",\n';
-	milogo+='".	c #FF0000",\n';
-	milogo+='"+	c #FF00FF",\n';
-	milogo+='"@	c #18FF00",\n';
-	milogo+='"#	c #33FFFF",\n';
-	milogo+='"$	c #FFFF00",\n';
-	milogo+='"%	c #FFFFFF",\n';
-	milogo+='"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",\n';
-	milogo+='"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",\n';
-	milogo+='"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",\n';
-	milogo+='"%%$%%%%%%%%%%%%%%%%%%%%%%%%%% %%% %%%%%%%%%%%%%%%%",\n';
-	milogo+='"%%.%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%",\n';
-	milogo+='"%%.%%%%%%@@@%%%@@@@@%%%   %%    % %%   ++%%%...%%%",\n';
-	milogo+='"%%.%%%%%$%%%@%%@%%%@%%#%%% %% %%% %% %%%+%%.%%%.%%",\n';
-	milogo+='"%%.%%%%%$%%%@%%@%%%@%%#%%% %% %%% %% %%% %%+%%%.%%",\n';
-	milogo+='"%%.%%%%%$%%%@%%@%%%@%%@%%%#%% %%% %% %%% %%+%%%.%%",\n';
-	milogo+='"%%.%%%%%.%%%$%%@%%%@%%@%%%#%%#%%% %% %%% %% %%%+%%",\n';
-	milogo+='"%%.....%%.$$%%%%@@@@%%%@@@%%%## % %%     %%%  +%%%",\n';
-	milogo+='"%%%%%%%%%%%%%%%%%%%@%%%%%%%%%%%%%%%% %%%%%%%%%%%%%",\n';
-	milogo+='"%%%%%%%%%%%%%%%$$$$%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%",\n';
-	milogo+='"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",\n';
-	milogo+='"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",\n';
-	milogo+='"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"};\n';
-	milogo+='");\n';
 	with(cursor) {
 		setModeAccess(cursor.Insert);
 		refreshBuffer();
-		setValueBuffer("nombre", "Empresa por defecto");
-		setValueBuffer("cifnif", "Z99999999");
-		setValueBuffer("administrador", "ANONIMO");
-		setValueBuffer("direccion", "C/ CALLE 999");
+		setValueBuffer("nombre", "InfoSiAL, S.L. - Creadores de AbanQ - http://www.infosial.com");
+		setValueBuffer("cifnif", "B02352961");
+		setValueBuffer("administrador", "FEDERICO ALBUJER ZORNOZA");
+		setValueBuffer("direccion", "C/. SAN ANTONIO, 88");
 		setValueBuffer("codejercicio", codEjercicio);
 		setValueBuffer("coddivisa", "EUR");
 		setValueBuffer("codpago", "CONT");
 		setValueBuffer("codserie", "A");
-		setValueBuffer("codpostal", "00000");
-		setValueBuffer("ciudad", "MADRID");
-		setValueBuffer("provincia", "MADRID");
-		setValueBuffer("telefono", "96 111 22 33");
-		setValueBuffer("email", "email@example.com");
+		setValueBuffer("codpostal", "02640");
+		setValueBuffer("ciudad", "ALMANSA");
+		setValueBuffer("provincia", "ALBACETE");
+		setValueBuffer("telefono", "967 345 174");
+		setValueBuffer("email", "mail@infosial.com");
 		setValueBuffer("codpais", "ES");
-		setValueBuffer("logo", milogo);
+		setValueBuffer("logo", "/* XPM */\n static char * minilogoinfosial_xpm[] = {\n \"125 43 392 2\",\n \"  	c None\",\n \". 	c #5172B6\",\n \"+ 	c #5D7CBB\",\n \"@ 	c #8CA2CF\",\n \"# 	c #93A7D2\",\n \"$ 	c #BAC7E2\",\n \"% 	c #FDFDFE\",\n \"& 	c #FCFCFE\",\n \"* 	c #FBFCFD\",\n \"= 	c #FCFDFE\",\n \"- 	c #FFFFFF\",\n \"; 	c #FEFEFE\",\n \"> 	c #CED7EA\",\n \", 	c #AABADB\",\n \"' 	c #5676B8\",\n \") 	c #6381BE\",\n \"! 	c #E1E7F2\",\n \"~ 	c #748FC5\",\n \"{ 	c #B9C6E1\",\n \"] 	c #738DC4\",\n \"^ 	c #B7C5E1\",\n \"/ 	c #F7F1ED\",\n \"( 	c #E1CABB\",\n \"_ 	c #E4CFC2\",\n \": 	c #FCFAF8\",\n \"< 	c #F1E6DE\",\n \"[ 	c #A76135\",\n \"} 	c #923C05\",\n \"| 	c #933E08\",\n \"1 	c #B57A55\",\n \"2 	c #FBF8F6\",\n \"3 	c #F2E8E1\",\n \"4 	c #D1AC95\",\n \"5 	c #D7B7A3\",\n \"6 	c #FAF6F4\",\n \"7 	c #B7C4E0\",\n \"8 	c #BC8866\",\n \"9 	c #903800\",\n \"0 	c #913A03\",\n \"a 	c #D5B49F\",\n \"b 	c #F5EDE8\",\n \"c 	c #A15627\",\n \"d 	c #903801\",\n \"e 	c #913902\",\n \"f 	c #B67C57\",\n \"g 	c #B5C1DC\",\n \"h 	c #AF6F47\",\n \"i 	c #C79A7E\",\n \"j 	c #D9BCA9\",\n \"k 	c #CCA48A\",\n \"l 	c #913A02\",\n \"m 	c #95400B\",\n \"n 	c #E2CBBC\",\n \"o 	c #E7D3C7\",\n \"p 	c #933E07\",\n \"q 	c #9C4E1C\",\n \"r 	c #556FAC\",\n \"s 	c #636182\",\n \"t 	c #64617F\",\n \"u 	c #576DA5\",\n \"v 	c #F9F5F2\",\n \"w 	c #C59779\",\n \"x 	c #A25829\",\n \"y 	c #A55E31\",\n \"z 	c #D4B29D\",\n \"A 	c #FEFDFC\",\n \"B 	c #FDFCFB\",\n \"C 	c #A45C2E\",\n \"D 	c #A9653A\",\n \"E 	c #E0C8B8\",\n \"F 	c #586BA1\",\n \"G 	c #834424\",\n \"H 	c #8F3903\",\n \"I 	c #8F3902\",\n \"J 	c #874019\",\n \"K 	c #5F658D\",\n \"L 	c #FEFDFD\",\n \"M 	c #F8F2EF\",\n \"N 	c #F9F4F1\",\n \"O 	c #FBF7F5\",\n \"P 	c #E8D5CA\",\n \"Q 	c #5370AF\",\n \"R 	c #616388\",\n \"S 	c #6E5863\",\n \"T 	c #715458\",\n \"U 	c #6A5B6E\",\n \"V 	c #566DA8\",\n \"W 	c #794D42\",\n \"X 	c #834426\",\n \"Y 	c #5271B2\",\n \"Z 	c #F4F6FB\",\n \"` 	c #DBE2F0\",\n \" .	c #CBD4E9\",\n \"..	c #C1CDE5\",\n \"+.	c #E0E6F2\",\n \"@.	c #F7F8FB\",\n \"#.	c #FDFEFE\",\n \"$.	c #E1C8B9\",\n \"%.	c #9B4C19\",\n \"&.	c #923B04\",\n \"*.	c #A3592B\",\n \"=.	c #EFE2DA\",\n \"-.	c #F4F6FA\",\n \";.	c #F6F8FB\",\n \">.	c #F5F7FB\",\n \",.	c #5271B3\",\n \"'.	c #5F658E\",\n \").	c #626284\",\n \"!.	c #616387\",\n \"~.	c #546FAD\",\n \"{.	c #5D6794\",\n \"].	c #824528\",\n \"^.	c #8E3905\",\n \"/.	c #626385\",\n \"(.	c #5470AE\",\n \"_.	c #E7ECF5\",\n \":.	c #95A9D3\",\n \"<.	c #5F7DBC\",\n \"[.	c #617FBD\",\n \"}.	c #A5B6DA\",\n \"|.	c #FCFAF9\",\n \"1.	c #AD6D44\",\n \"2.	c #C29273\",\n \"3.	c #C4CFE6\",\n \"4.	c #B1C0DF\",\n \"5.	c #758FC5\",\n \"6.	c #5B7ABA\",\n \"7.	c #546FAC\",\n \"8.	c #844322\",\n \"9.	c #8D3B09\",\n \"0.	c #5C6896\",\n \"a.	c #556EAA\",\n \"b.	c #87411B\",\n \"c.	c #8E3A07\",\n \"d.	c #7D4936\",\n \"e.	c #5370B1\",\n \"f.	c #D3DBEC\",\n \"g.	c #6582BE\",\n \"h.	c #5374B7\",\n \"i.	c #6B87C1\",\n \"j.	c #7C95C8\",\n \"k.	c #7D96C8\",\n \"l.	c #7992C7\",\n \"m.	c #6683BF\",\n \"n.	c #5273B7\",\n \"o.	c #A2B4D8\",\n \"p.	c #FEFEFF\",\n \"q.	c #AE6F46\",\n \"r.	c #C39375\",\n \"s.	c #8299CA\",\n \"t.	c #F9FAFC\",\n \"u.	c #6C5967\",\n \"v.	c #8D3A08\",\n \"w.	c #7D4A38\",\n \"x.	c #7A4C3F\",\n \"y.	c #5A6A9D\",\n \"z.	c #5D6792\",\n \"A.	c #8A3E12\",\n \"B.	c #8C3C0B\",\n \"C.	c #675E78\",\n \"D.	c #F0F3F9\",\n \"E.	c #708BC3\",\n \"F.	c #5978B9\",\n \"G.	c #B5C3E0\",\n \"H.	c #F1F4F9\",\n \"I.	c #ECF0F7\",\n \"J.	c #C6D1E7\",\n \"K.	c #E6EBF5\",\n \"L.	c #E2CABC\",\n \"M.	c #F0E4DD\",\n \"N.	c #E5EAF4\",\n \"O.	c #5273B6\",\n \"P.	c #5373B7\",\n \"Q.	c #D6DEEE\",\n \"R.	c #80472E\",\n \"S.	c #6B5A6C\",\n \"T.	c #5271B4\",\n \"U.	c #5172B5\",\n \"V.	c #596B9E\",\n \"W.	c #6C5968\",\n \"X.	c #5C6895\",\n \"Y.	c #C4D0E6\",\n \"Z.	c #9AADD4\",\n \"`.	c #FFFEFE\",\n \" +	c #F6EEEA\",\n \".+	c #ECDDD4\",\n \"++	c #F9F3F0\",\n \"@+	c #A7B8DA\",\n \"#+	c #5C7BBB\",\n \"$+	c #C5D0E7\",\n \"%+	c #5777B9\",\n \"&+	c #97AAD3\",\n \"*+	c #8C3C0C\",\n \"=+	c #596B9F\",\n \"-+	c #B6C4E0\",\n \";+	c #C0CCE4\",\n \">+	c #6C88C1\",\n \",+	c #7B94C8\",\n \"'+	c #F8F9FC\",\n \")+	c #7791C6\",\n \"!+	c #F7F8FC\",\n \"~+	c #6A5A6C\",\n \"{+	c #655F7C\",\n \"]+	c #576DA6\",\n \"^+	c #76504B\",\n \"/+	c #75504D\",\n \"(+	c #685D74\",\n \"_+	c #556EA9\",\n \":+	c #626386\",\n \"<+	c #8E3A06\",\n \"[+	c #8D3B08\",\n \"}+	c #6F565F\",\n \"|+	c #6B5A6A\",\n \"1+	c #794D43\",\n \"2+	c #725355\",\n \"3+	c #566EA9\",\n \"4+	c #BFCBE4\",\n \"5+	c #5272B6\",\n \"6+	c #8DA2CF\",\n \"7+	c #8199CA\",\n \"8+	c #6A86C1\",\n \"9+	c #CAD4E9\",\n \"0+	c #5575B8\",\n \"a+	c #B9C6E2\",\n \"b+	c #ACBCDC\",\n \"c+	c #774F49\",\n \"d+	c #636181\",\n \"e+	c #86411E\",\n \"f+	c #745150\",\n \"g+	c #774F48\",\n \"h+	c #8F3904\",\n \"i+	c #864525\",\n \"j+	c #814B35\",\n \"k+	c #874421\",\n \"l+	c #844321\",\n \"m+	c #64607E\",\n \"n+	c #E9EDF6\",\n \"o+	c #5475B7\",\n \"p+	c #9AADD5\",\n \"q+	c #EAEEF6\",\n \"r+	c #FEFFFF\",\n \"s+	c #8DA3CF\",\n \"t+	c #E4E9F4\",\n \"u+	c #75514F\",\n \"v+	c #8C3B0B\",\n \"w+	c #8B3D10\",\n \"x+	c #7D4A37\",\n \"y+	c #80472F\",\n \"z+	c #8D3C0B\",\n \"A+	c #6D667D\",\n \"B+	c #5E7AB6\",\n \"C+	c #5B7EC0\",\n \"D+	c #5E79B3\",\n \"E+	c #745D67\",\n \"F+	c #8C3B0A\",\n \"G+	c #665F7A\",\n \"H+	c #CBD5E9\",\n \"I+	c #6482BE\",\n \"J+	c #98ACD4\",\n \"K+	c #D4DCED\",\n \"L+	c #FBFCFE\",\n \"M+	c #8EA4D0\",\n \"N+	c #89A0CE\",\n \"O+	c #5877B9\",\n \"P+	c #DBE1F0\",\n \"Q+	c #893E14\",\n \"R+	c #7A4C3E\",\n \"S+	c #87401A\",\n \"T+	c #675E76\",\n \"U+	c #735354\",\n \"V+	c #8E3A05\",\n \"W+	c #76504A\",\n \"X+	c #64607F\",\n \"Y+	c #725458\",\n \"Z+	c #735F6A\",\n \"`+	c #5C7DBD\",\n \" @	c #7B544C\",\n \".@	c #883F17\",\n \"+@	c #576CA4\",\n \"@@	c #DAE0EF\",\n \"#@	c #BBC8E3\",\n \"$@	c #B0BFDE\",\n \"%@	c #D2DBEC\",\n \"&@	c #C9D3E8\",\n \"*@	c #5474B7\",\n \"=@	c #9DB0D6\",\n \"-@	c #85421F\",\n \";@	c #576CA5\",\n \">@	c #566EA8\",\n \",@	c #6A5B6F\",\n \"'@	c #8B3C0D\",\n \")@	c #596BA0\",\n \"!@	c #586CA2\",\n \"~@	c #5F78B1\",\n \"{@	c #666F97\",\n \"]@	c #6B5A6B\",\n \"^@	c #8FA4D0\",\n \"/@	c #6280BD\",\n \"(@	c #7891C6\",\n \"_@	c #E2E8F3\",\n \":@	c #FAFBFD\",\n \"<@	c #F0F2F9\",\n \"[@	c #6F5660\",\n \"}@	c #71555A\",\n \"|@	c #616489\",\n \"1@	c #65719C\",\n \"2@	c #7B4B3D\",\n \"3@	c #5272B4\",\n \"4@	c #F2F4F9\",\n \"5@	c #BAC8E2\",\n \"6@	c #EFF2F8\",\n \"7@	c #D4DDED\",\n \"8@	c #718CC3\",\n \"9@	c #A1B3D7\",\n \"0@	c #A1B3D8\",\n \"a@	c #6F8BC3\",\n \"b@	c #C0CCE5\",\n \"c@	c #6C5969\",\n \"d@	c #6E5761\",\n \"e@	c #725357\",\n \"f@	c #695C70\",\n \"g@	c #6D667F\",\n \"h@	c #5B7EBF\",\n \"i@	c #745E67\",\n \"j@	c #EDF0F7\",\n \"k@	c #829ACB\",\n \"l@	c #894119\",\n \"m@	c #65719D\",\n \"n@	c #696C8E\",\n \"o@	c #8C3D0F\",\n \"p@	c #824529\",\n \"q@	c #D0D9EB\",\n \"r@	c #F3F5FA\",\n \"s@	c #BCC9E3\",\n \"t@	c #BCC8E3\",\n \"u@	c #6885C0\",\n \"v@	c #636283\",\n \"w@	c #8D3C0C\",\n \"x@	c #7E5042\",\n \"y@	c #77595B\",\n \"z@	c #804E3B\",\n \"A@	c #8BA2CF\",\n \"B@	c #ABBBDC\",\n \"C@	c #A4B5D9\",\n \"D@	c #596A9E\",\n \"E@	c #8B3D0E\",\n \"F@	c #B3C2DF\",\n \"G@	c #A9BADB\",\n \"H@	c #E3E8F3\",\n \"I@	c #5878B9\",\n \"J@	c #6B88C1\",\n \"K@	c #784E46\",\n \"L@	c #CDD6EA\",\n \"M@	c #DAE1EF\",\n \"N@	c #F3F6FA\",\n \"O@	c #5E7CBB\",\n \"P@	c #607EBC\",\n \"Q@	c #E8ECF5\",\n \"R@	c #DCE3F0\",\n \"S@	c #859CCC\",\n \"T@	c #889ECD\",\n \"U@	c #5979BA\",\n \"V@	c #ECEFF7\",\n \"W@	c #8AA0CE\",\n \"X@	c #6D89C2\",\n \"Y@	c #7D96C9\",\n \"Z@	c #889FCD\",\n \"`@	c #839ACB\",\n \" #	c #5A699B\",\n \".#	c #7F4730\",\n \"+#	c #646181\",\n \"@#	c #5A7ABA\",\n \"##	c #DDE3F1\",\n \"$#	c #6481BE\",\n \"%#	c #F1F3F9\",\n \"&#	c #6A5B6D\",\n \"*#	c #70555C\",\n \"=#	c #6F5761\",\n \"-#	c #566DA6\",\n \";#	c #5E6690\",\n \">#	c #60658C\",\n \",#	c #6E5763\",\n \"'#	c #556FAB\",\n \")#	c #735353\",\n \"!#	c #7C4A39\",\n \"~#	c #7E4934\",\n \"{#	c #76504C\",\n \"]#	c #D3DCED\",\n \"^#	c #F9FAFD\",\n \"/#	c #F8FAFC\",\n \"(#	c #869DCC\",\n \"_#	c #E2E7F3\",\n \". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . \",\n \". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . \",\n \". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . \",\n \". . + @ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # @ + . . \",\n \". . $ % & * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * = - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ; $ . . \",\n \". . > , ' . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ) ! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . > ~ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . { - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ^ - / ( _ : - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ^ < [ } | 1 2 - - - - 3 4 5 6 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7 8 9 9 9 0 a - - - b c d e f ; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . g h 9 9 9 9 i - - - j 9 9 9 d / - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ^ k l 9 9 m n - - - o p 9 9 q : - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . r s t u . . ^ v w x y z A - - - B k C D E - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . F G H I J K . ^ - L M v - - - - - - ; N O - - - - / P 2 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Q R S T U V . . . . . . . W 9 9 9 9 X Y ^ - - - - ; Z `  ...> +.@.#.- - - $.%.&.*.=.- - - - - - - - % -.-.-.& - - - - - - - - - ;.-.>.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . ,.'.).).!.~.. . . . . . . . . . . . . . . . . . . {.].9 9 9 ^./.. . . . . . . J 9 9 9 9 H (.^ - - - _.:.<.. . . . . [.}.& - |.1.9 9 9 2.- - - - - - - - 3.. . . 4.- - - - - - - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . . . . . . . . . . . . . . . . . a.b.9 9 9 9 c.K . . . . . . . d.9 9 9 9 b.e.^ - - f.g.. h.i.j.k.l.m.n.o.p.- : q.9 9 9 r.- - - - - - - - s.. . . 5.t.- - - - - - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . . . . . . . . . . . . . . . . . u.9 9 9 v.w.x.y.. . . . . . . z.A.9 9 B.C.. ^ - D.E.. F.G.H.p.- = I.J.K.- - - L.q 9 C M.- - - - - - - N.F.O.5.. P.Q.- - - - - - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . . . . . . . . . . . . . . . . . R.9 9 9 S.T.T.U.. . . . . . . . V.W.S X.U.. ^ - Y.P.. Z.; - - - - - - - - - - `. +.+++- - - - - - - - @+. #+$+%+. &+- - - - - - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . . . . . . . . . . . . . . . . . A.9 9 *+=+. . . . . . . . . . . . . . . . . ^ - -+. O.;+- - - - - - - - - - - - ;.-.>.- - - - - - - ;.>+. ,+'+)+. F.!+- - - - - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . ).~+~+{+,.]+U ^+/+(+_+. . . :+~+<+9 9 [+}+~+K . . . T.0.|+^+1+2+t 3+. . . . ^ - 4+5+. 6+* - - - - - - - - - - - 7+[.8+- - - - - - - 9+0+5+a+- b+. . $ - - - - - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . c+9 9 8.d+e+9 9 9 9 X =+. . x.9 9 9 9 9 9 9 f+. . ]+g+9.h+i+j+k+d l+m+T.. . ^ - n+m.. o+p+q+r+- - - - - - - - - 5.. 6.- - - - - - % s+. 6.D.- t+<.. l.% - - - - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . u+9 9 v+w+9 9 9 9 9 9 x+. . x.9 9 9 9 9 9 9 f+. V y+d z+A+B+C+D+E+H F+G+. . ^ - - H+6.. O.I+J+K+L+- - - - - - - 5.. 6.- - - - - - K.<.. M+- - p.N+. O+P+- - - - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . u+9 9 9 9 Q+R+S+9 9 9 <+0.. T+U+V+9 9 <+W+U+X+. Y+d 9 Z+C+C+C+C+`+ @9 .@+@. ^ - - - @@)+O.. . ' E.#@t.- - - - - 5.. 6.- - - - - - $@. . %@- - - &@*@. =@- - - - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . u+9 9 9 -@;@. >@8.9 9 9 ,@. . . v+9 9 '@)@. . !@Q+9 9 ~@C+C+C+C+C+{@9 9 ]@. ^ - - - - % %@^@/@P.. . (@_@- - - - 5.. 6.- - - - - @.5.. E.t.- - - :@8+. m.<@- - - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . u+9 9 9 [@. . . 2+9 9 9 }@. . . v+9 9 '@)@. . |@9 9 9 B+C+C+C+C+C+1@9 9 2@3@^ - - - - - - - 4@5@>+. . E.6@- - - 5.. 6.- - - - - 7@h.. 8@9@0@0@0@0@a@. n.b@- - - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . u+9 9 9 c@. . . d@9 9 9 e@. . . v+9 9 '@)@. . f@9 9 9 g@C+C+C+C+h@i@9 9 ].Y ^ - - - - - - - - - j@j.. . $@- - - 5.. 6.- - - - p.:.. . . . . . . . . . . k@:@- - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . u+9 9 9 c@. . . d@9 9 9 e@. . . v+9 9 '@)@. . ]@9 9 9 l@m@C+C+C+n@o@9 9 p@Y ^ - - - - - - - - - - q@. . s+- - - 5.. 6.- - - - r@6.. >+a+s@s@s@s@s@t@u@. 6.! - - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . u+9 9 9 c@. . . d@9 9 9 e@. . . v+9 9 '@)@. . v@9 9 9 9 w@x@y@z@<+9 9 9 x.U.^ - - - - - - - - - - _@' . A@- - - 5.. 6.- - - - { . . b+- - - - - - - B@. . C@- - - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . u+9 9 9 c@. . . d@9 9 9 e@. . . v+9 9 '@)@. . D@E@9 9 9 9 9 9 9 9 9 9 9 f@. ^ - #.p.- - - - - - p.F@. . G@- - - 5.. 6.- - - p.)+. + H@- - - - - - - n+I@. J@-.- - - 5.. 6.- - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . u+9 9 9 c@. . . d@9 9 9 e@. . . v+9 9 '@)@. . ,.K@9 9 9 9 9 9 9 9 9 9 J +@. ^ - L@=@M@N@- - - D.$ O@. P@Q@- - - 5.. 6.- - - R@0+. S@= - - - - - - - & T@. . &@- - - 5.. U@V@V@V@V@V@V@V@V@6@p.- - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . u+9 9 9 c@. . . d@9 9 9 e@. . . v+9 9 '@)@. . . D@e+9 9 9 9 9 9 9 9 [+G+. . ^ #.W@. %+X@Y@6+7+8+O.. O@3.p.- - - 5.. 6.- - - =@. h...- - - - - - - - - J.O.. Z@p.- - 5.. O.g.g.g.g.g.g.g.g.`@:@- - > . . \",\n \". . > ] . . . . . . . . . . . . . 7.8.9 9 9.0.. . u+9 9 9 c@. . . d@9 9 9 e@. . . v+9 9 '@)@. . . .  #.#9 9 9 9 9 9 S++#T.. . ^ #.s@l.o+. . . . . @#6+##p.- - - - 5.. 6.- - 4@m.. $#H.- - - - - - - - - %#i.. 0+I.- - 5.. . . . . . . . . . ] t.- - > . . \",\n \". . > ] . . . . . . . . . . . . . e.&#*#*#=#-#. . v@*#*#*#;#. . . >#*#*#*#!.. . . d@*#*#,#'#. . . . . ,.!.)#!#~#{#G+~.. . . . ^ - - & D.]#;+s@b@Q.-.#.- - - - - - ^#'+'+- - p./#'+t.- - - - - - - - - - - ^#'+'+#.- - ^#'+'+'+'+'+'+'+'+'+'+^#- - - > . . \",\n \". . > ] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ^ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ^ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . > ] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ^ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . > 5.. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . a+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > . . \",\n \". . H+G./@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@O@E._.- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - H+. . \",\n \". . (#P+_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#P+(#. . \",\n \". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . \",\n \". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . \",\n \". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . \"};\n ");
 		commitBuffer();
 	}
 	this.iface.crearProvinciasEsp();
@@ -1623,7 +1694,7 @@ function oficial_actualizarContactos20070525():Boolean
 		}
 
 		if ((qryClientes.value("contacto") && qryClientes.value("contacto") != "") && (!qryClientes.value("codcontacto") || qryClientes.value("codcontacto") == "")) {
-				codContacto = util.sqlSelect("crm_contactos", "codcontacto", "nombre = '" + qryClientes.value("contacto") + "'");
+				codContacto = util.sqlSelect("crm_contactos", "codcontacto", "nombre = '" +  this.iface.escapeQuote(qryClientes.value("contacto")) + "'");
 				if (codContacto)
 					this.iface.actualizarContactosDeAgenda20070525(codCliente,codContacto,qryClientes.value("contacto"));
 				else
@@ -2232,7 +2303,407 @@ function oficial_validarProvincia(cursor:FLSqlCursor, mtd:Array):Boolean
 	}
 	return true;
 }
+
+function oficial_simplify(str)
+{
+  var regExp = new RegExp("( |\n|\r|\t|\f)");
+  regExp.global = true;
+  str = str.replace(regExp, "");
+  return str;
+}
+
+function oficial_escapeQuote(str)
+{
+  var regExp = new RegExp("'");
+  regExp.global = true;
+  str = str.replace(regExp, "''");
+  return str;
+}
 //// OFICIAL /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO MAIL /////////////////////////////////////////////////
+function envioMail_componerListaDestinatarios(codigo:String, tabla:String):String
+{debug(tabla);
+	var util:FLUtil = new FLUtil();
+	var arrayMails:Array = [];
+	var listaDestinatarios:String;
+	var emailPrincipal:String;
+	var nombrePrincipal:String;
+	var dialog;
+	var q:FLSqlQuery = new FLSqlQuery();
+
+	switch (tabla) {
+		case "clientes": {
+			emailPrincipal = util.sqlSelect("clientes", "email", "codcliente = '" + codigo + "'");
+			nombrePrincipal = util.sqlSelect("clientes", "nombre", "codcliente = '" + codigo + "'");
+					
+			q.setTablesList("contactosclientes,crm_contactos");
+			q.setFrom("contactosclientes INNER JOIN crm_contactos ON contactosclientes.codcontacto = crm_contactos.codcontacto");
+			q.setSelect("crm_contactos.email,crm_contactos.nombre");
+			q.setWhere("contactosclientes.codcliente = '" + codigo + "' AND (crm_contactos.email <> '' AND crm_contactos.email IS NOT NULL)");
+			if (!q.exec()) {
+				return false;
+			}
+			dialog = new Dialog(util.translate ( "scripts", "Contactos del cliente" ), 0);
+			break;
+		}
+		case "proveedores": {
+			emailPrincipal = util.sqlSelect("proveedores", "email", "codproveedor = '" + codigo + "'");
+			nombrePrincipal = util.sqlSelect("proveedores", "nombre", "codproveedor = '" + codigo + "'");
+					
+			q.setTablesList("contactosproveedores,crm_contactos");
+			q.setFrom("contactosproveedores INNER JOIN crm_contactos ON contactosproveedores.codcontacto = crm_contactos.codcontacto");
+			q.setSelect("crm_contactos.email,crm_contactos.nombre");
+			q.setWhere("contactosproveedores.codproveedor = '" + codigo + "' AND (crm_contactos.email <> '' AND crm_contactos.email IS NOT NULL)");
+			if (!q.exec()) {
+				return false;
+			}
+			dialog = new Dialog(util.translate ( "scripts", "Contactos del proveedor" ), 0);
+			break;
+		}
+	}
+debug("emailPrincipal " + emailPrincipal);
+	dialog.caption = "Selecciona el destinatario";
+	dialog.OKButtonText = util.translate ( "scripts", "Aceptar" );
+	dialog.cancelButtonText = util.translate ( "scripts", "Cancelar" );
+	
+	var bgroup:GroupBox = new GroupBox;
+	dialog.add( bgroup );
+	var cB:Array = [];
+	var nEmails:Number = 0;	
+	
+	cB[nEmails] = new CheckBox;
+	cB[nEmails].text = util.translate ( "scripts", nombrePrincipal + " (" + emailPrincipal + ")");
+	arrayMails[nEmails] = emailPrincipal;
+	cB[nEmails].checked = true;
+	bgroup.add( cB[nEmails] );
+	nEmails ++;
+	
+	while (q.next())  {
+		cB[nEmails] = new CheckBox;
+		cB[nEmails].text = util.translate ( "scripts", q.value(1) + " (" + q.value(0) + ")");
+		arrayMails[nEmails] = q.value(0);
+		cB[nEmails].checked = false;
+		bgroup.add( cB[nEmails] );
+		nEmails ++;
+	}
+debug("nEmails " + nEmails);
+	if (nEmails > 1) {
+		nEmails --;
+		var lista:String = "";
+		if(dialog.exec()) {
+			for (var i:Number = 0; i <= nEmails; i++) {
+				if (cB[i].checked == true) {
+debug("arrayMails[i] " + arrayMails[i]);
+					lista += arrayMails[i] + ",";
+				}
+			}
+		}
+		else {
+			return;
+		}
+		lista = lista.left(lista.length -1)
+		if (lista == "") {
+			return;
+		}
+		listaDestinatarios = lista;
+	}
+	else {
+		listaDestinatarios = emailPrincipal;
+	}
+debug("listaDestinatarios " + listaDestinatarios);
+	return listaDestinatarios;
+}
+
+function envioMail_enviarCorreo(cuerpo:String, asunto:String, arrayDest:Array, arrayAttach:Array):Boolean
+{
+	var util:FLUtil = new FLUtil;
+	var comando:Array = this.iface.componerCorreo(cuerpo, asunto, arrayDest, arrayAttach);
+	if (!comando) {
+		return false;
+	}
+	var res:Array = this.iface.ejecutarComandoAsincrono(comando);
+
+	return true;
+}
+
+function envioMail_componerCorreo(cuerpo:String, asunto:String, arrayDest:String, arrayAttach:String):Array
+{
+	var util:FLUtil = new FLUtil();
+	var clienteCorreo = util.readSettingEntry("scripts/flfactinfo/clientecorreo");
+	if (!clienteCorreo || clienteCorreo == "") {
+		MessageBox.warning(util.translate("scripts", "No tiene establecido el tipo de cliente de correo.\nDebe establecer este valor en la pestaña Correo del formulario de empresa"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+	var nombreCorreo = util.readSettingEntry("scripts/flfactinfo/nombrecorreo");
+	if (!nombreCorreo || nombreCorreo == "") {
+		MessageBox.warning(util.translate("scripts", "No tiene establecido el nombre del ejecutable del programa de correo.\nDebe establecer este valor en la pestaña Correo del formulario de empresa"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+
+	var destinatarios:String = "";
+	for (var i:Number = 0; i < arrayDest.length; i++) {
+		if (i > 0) {
+			destinatarios += " ";
+		}
+		destinatarios += arrayDest[i]["direccion"];
+	}
+	var documentos:String = "";
+	if (arrayAttach) {
+		documentos = arrayAttach.join(" ");
+	}
+	
+ 	var comando:Array;
+	switch (clienteCorreo) {
+		case "Thunderbird": {
+			if (documentos != "") {
+				comando = [nombreCorreo, "-compose", "to=" + destinatarios + ",subject=", asunto, ",body=", cuerpo, ",attachment=file://" + documentos];
+			} else {
+				comando = [nombreCorreo, "-compose", "to=" + destinatarios + ",subject=", asunto, ",body=", cuerpo];
+			}
+			break;
+		}
+
+		case "Outlook": {
+			if (documentos != "") {
+ 				documentos = Dir.convertSeparators(documentos);
+				comando = ["\"" + nombreCorreo + "\" /c", "ipm.note", "/m", destinatarios, "/a", documentos];
+			} else {
+				comando = ["\"" + nombreCorreo + "\" /c", "ipm.note", "/m" , destinatarios];
+			}
+			break;
+		}
+		case "KMail": {
+			if (documentos != "") {
+				comando = [nombreCorreo , destinatarios, "-s", asunto, "--body", cuerpo, documentos];
+			} else {
+				comando = [nombreCorreo , destinatarios, "-s", asunto, "--body", cuerpo];
+			}
+			break;
+		}
+		default: {
+			
+		}
+	}
+	return comando;
+}
+
+function envioMail_existeEnvioMail():Boolean
+{
+	return true;
+}
+
+//// ENVIO MAIL /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition liqAgentes */
+/////////////////////////////////////////////////////////////////
+//// LIQUIDACIÓN A AGENTES //////////////////////////////////////
+function liqAgentes_calcularLiquidacionAgente(where:String):Number {
+	var util:FLUtil = new FLUtil();
+	
+	var qryFacturas:FLSqlQuery = new FLSqlQuery();
+	qryFacturas.setTablesList("facturascli,lineasfacturascli");
+	qryFacturas.setSelect("coddivisa, tasaconv, facturascli.porcomision, lineasfacturascli.porcomision, neto, facturascli.idfactura, lineasfacturascli.pvptotal");
+	qryFacturas.setFrom("facturascli INNER JOIN lineasfacturascli ON facturascli.idfactura = lineasfacturascli.idfactura");
+	qryFacturas.setWhere(where);
+	if (!qryFacturas.exec()) {
+		return false;
+	}
+	var total:Number = 0;
+	var comision:Number = 0;
+	var tasaconv:Number = 0;
+	var divisaEmpresa:String = util.sqlSelect("empresa","coddivisa","1=1");
+	var idfactura:Number = 0;
+	var comisionFactura:Boolean = false;
+	while (qryFacturas.next()) {
+		if (!idfactura || idfactura != qryFacturas.value("facturascli.idfactura")) {
+			idfactura = qryFacturas.value("facturascli.idfactura");
+			if (parseFloat(qryFacturas.value("facturascli.porcomision"))) {
+				comisionFactura = true;
+				comision = parseFloat(qryFacturas.value("facturascli.porcomision")) * parseFloat(qryFacturas.value("neto")) / 100;
+				tasaconv = parseFloat(qryFacturas.value("tasaconv"));
+				if (qryFacturas.value("coddivisa") == divisaEmpresa) {
+					total += comision;
+				} else {
+					total += comision * tasaconv;
+				}
+			} else {
+				comisionFactura = false;
+			}
+		}
+		if (!comisionFactura) {
+			comision = parseFloat(qryFacturas.value("lineasfacturascli.porcomision")) * parseFloat(qryFacturas.value("lineasfacturascli.pvptotal")) / 100;
+			tasaconv = parseFloat(qryFacturas.value("tasaconv"));
+			if (qryFacturas.value("coddivisa") == divisaEmpresa) {
+				total += comision;
+			} else {
+				total += comision * tasaconv ;
+			}
+		}
+	}
+	return total;
+}
+
+/** \D Establece el filtro sobre la tabla de facturas que deben cumplir las facturas a incluir en una liquidación
+@param	codAgente: Agente
+@param	desde: Fecha desde
+@param	hasta: Fecha hasta
+@param	codEjercicio: Ejercicio (opcional)
+@return	filtro
+\end */
+function liqAgentes_obtenFiltroFacturas(codAgente:String, desde:String, hasta:String, codEjercicio:String):String
+{
+	var filtro:String = "facturascli.idfactura IN (SELECT DISTINCT facturascli.idfactura FROM facturascli INNER JOIN lineasfacturascli ON facturascli.idfactura = lineasfacturascli.idfactura WHERE 1 = 1";
+	if (codAgente && codAgente != "") {
+		filtro += " AND facturascli.codagente = '" + codAgente + "'";
+	}
+	if (codEjercicio && codEjercicio != "") {
+		filtro += " AND codejercicio = '" + codEjercicio + "'";
+	}
+	filtro += " AND (facturascli.codliquidacion = '' OR facturascli.codliquidacion IS NULL) AND (facturascli.porcomision > 0 OR lineasfacturascli.porcomision > 0) and facturascli.fecha >= '" + desde + "' and facturascli.fecha <= '" + hasta + "')";
+	return filtro;
+
+// 	return "idfactura IN (SELECT DISTINCT facturascli.idfactura FROM facturascli INNER JOIN lineasfacturascli ON facturascli.idfactura = lineasfacturascli.idfactura WHERE facturascli.codagente = '" + cursor.valueBuffer("codagente") + "' AND (facturascli.codliquidacion = '' OR facturascli.codliquidacion IS NULL) AND (facturascli.porcomision > 0 OR lineasfacturascli.porcomision > 0) and facturascli.fecha >= '" + this.child("dateDesde").date + "' and facturascli.fecha <= '" + this.child("dateHasta").date + "')";
+}
+
+/** \D Asocia las facturas que cumplen el filtro a la liquidación indicada
+@param	filtro: Sentencia where a aplicar sobre la tabla de facturas de cliente
+@param	codLiquidación: Código de la liquidación a la que asociar las facturas
+\end */
+function liqAgentes_asociarFacturasLiq(filtro:String, codLiquidacion:String):Boolean
+{
+	var util:FLUtil = new FLUtil;
+	var qryFacturas:FLSqlQuery = new FLSqlQuery;
+	qryFacturas.setTablesList("facturascli");
+	qryFacturas.setSelect("idfactura");
+	qryFacturas.setFrom("facturascli");
+	qryFacturas.setWhere(filtro);
+	
+	if (!qryFacturas.exec()) {
+		return false;
+	}
+	util.createProgressDialog( util.translate( "scripts", "Asociando facturas pendientes de liquidar..." ), qryFacturas.size());
+	var i:Number = 0;
+	
+	while(qryFacturas.next()) {
+// 		if (!this.iface.asociarFactura(qryFacturas.value(0), this.iface.codLiquidacion)) {
+		if (!this.iface.asociarFacturaLiq(qryFacturas.value(0), codLiquidacion)) {
+			util.destroyProgressDialog();
+			return false;
+		}
+	
+		util.setProgress( i );
+		sys.processEvents();
+		i++;
+	}
+	
+	util.destroyProgressDialog();
+	return true;
+}
+
+/** \D Asocia una factura a una liquidación de agentes comerciales
+@param	idFactura: Identificador de la factura
+@param	codLiquidacion: Identificador de la liquidación
+@return	true si la asociación se raliza correctamente, false en caso contrario
+\end */
+function liqAgentes_asociarFacturaLiq(idFactura:String, codLiquidacion:String):Boolean
+{
+	var curFactura:FLSqlCursor = new FLSqlCursor("facturascli");
+	var editable:Boolean = true;
+	
+	curFactura.select("idfactura = " + idFactura);
+	if (!curFactura.first()) {
+		return false;
+	}
+	curFactura.setModeAccess(curFactura.Browse);
+	curFactura.refreshBuffer();
+	
+	curFactura.setActivatedCommitActions(false);
+	if (!curFactura.valueBuffer("editable")) {
+		editable = false;
+		curFactura.setUnLock("editable", true);
+		curFactura.select("idfactura = " + idFactura);
+		if (!curFactura.first())
+			return false;
+	}
+	
+	curFactura.setModeAccess(curFactura.Edit);
+	curFactura.refreshBuffer();
+	curFactura.setValueBuffer( "codliquidacion", codLiquidacion);
+	if (!curFactura.commitBuffer()) {
+		return false;
+	}
+	if (editable == false) {
+		curFactura.select("idfactura = " + idFactura);
+		if (!curFactura.first()) {
+			return false;
+		}
+		curFactura.setUnLock("editable", false);
+	}
+	
+	return true;
+}
+
+
+//// LIQUIDACIÓN A AGENTES //////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition dtoEsp */
+/////////////////////////////////////////////////////////////////
+//// DESCUENTO ESPECIAL /////////////////////////////////////////
+function dtoEsp_calcularLiquidacionAgente(where:String):Number {
+	var util:FLUtil = new FLUtil();
+	
+	var qryFacturas:FLSqlQuery = new FLSqlQuery();
+	qryFacturas.setTablesList("facturascli,lineasfacturascli");
+	qryFacturas.setSelect("coddivisa, tasaconv, facturascli.porcomision, lineasfacturascli.porcomision, neto, facturascli.idfactura, lineasfacturascli.pvptotal, facturascli.pordtoesp");
+	qryFacturas.setFrom("facturascli INNER JOIN lineasfacturascli ON facturascli.idfactura = lineasfacturascli.idfactura");
+	qryFacturas.setWhere(where);
+	if (!qryFacturas.exec()) {
+		return false;
+	}
+	var total:Number = 0;
+	var comision:Number = 0;
+	var descuento:Number = 0;
+	var tasaconv:Number = 0;
+	var divisaEmpresa:String = util.sqlSelect("empresa","coddivisa","1=1");
+	var idfactura:Number = 0;
+	var comisionFactura:Boolean = false;
+	while (qryFacturas.next()) {
+		if (!idfactura || idfactura != qryFacturas.value("facturascli.idfactura")) {
+			idfactura = qryFacturas.value("facturascli.idfactura");
+			if (parseFloat(qryFacturas.value("facturascli.porcomision"))) {
+				comisionFactura = true;
+				comision = parseFloat(qryFacturas.value("facturascli.porcomision")) * parseFloat(qryFacturas.value("neto")) / 100;
+				tasaconv = parseFloat(qryFacturas.value("tasaconv"));
+				if (qryFacturas.value("coddivisa") == divisaEmpresa) {
+					total += comision;
+				} else {
+					total += comision * tasaconv;
+				}
+			} else {
+				comisionFactura = false;
+			}
+		}
+		if (!comisionFactura) {
+			descuento = parseFloat(qryFacturas.value("facturascli.pordtoesp"));
+			descuento = (isNaN(descuento) ? 0 : descuento);
+			comision = parseFloat(qryFacturas.value("lineasfacturascli.porcomision")) * (parseFloat(qryFacturas.value("lineasfacturascli.pvptotal") * (100 - descuento) / 100)) / 100;
+			tasaconv = parseFloat(qryFacturas.value("tasaconv"));
+			if (qryFacturas.value("coddivisa") == divisaEmpresa) {
+				total += comision;
+			} else {
+				total += comision * tasaconv ;
+			}
+		}
+	}
+	return total;
+}
+//// DESCUENTO ESPECIAL /////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 /** @class_definition head */
@@ -2240,4 +2711,4 @@ function oficial_validarProvincia(cursor:FLSqlCursor, mtd:Array):Boolean
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////

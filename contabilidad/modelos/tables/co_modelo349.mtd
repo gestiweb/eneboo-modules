@@ -1,0 +1,383 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_modelo349</name>
+	<!--Modelo 349-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Modelo 349")</alias>
+
+	<field>
+		<name>idmodelo</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>co_operaciones349</table>
+			<field>idmodelo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_rectificaciones349</table>
+			<field>idmodelo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_rectificaciones349</table>
+			<field>idmodelorec</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codejercicio</name>
+		<!--Ejercicio al que corresponde el período del modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>tipoperiodo</name>
+		<!--Tipo de período-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Período")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>Mes,Trimestre,Año</optionslist>
+		<default>Trimestre</default>
+		<type>string</type>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>periodo</name>
+		<!--Período (trimestre) del modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Trimestre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>1T,2T,3T,4T</optionslist>
+		<default>1T</default>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	
+	<field>
+		<name>mes</name>
+		<!--Período (mes) del modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mes")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>01,02,03,04,05,06,07,08,09,10,11,12</optionslist>
+		<default>01</default>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	
+	<field>
+		<name>fechainicio</name>
+		<!--Fecha de inicio del período correspondiente al modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Inicio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fechafin</name>
+		<!--Fecha de fin del período correspondiente al modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fin")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>complementaria</name>
+		<!--Declaración complementaria-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Declaración complementaria")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>sustitutiva</name>
+		<!--Declaración sustitutiva-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Declaración sustitutiva")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>numdecanterior</name>
+		<!--Número identificativo de la declaración anterior-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Número identificativo de la declaración anterior")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>13</length>
+	</field>
+	
+	<field>
+		<name>numtotaloi</name>
+		<!--Número total de operadores intracomunitarios-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","01")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+	
+	<field>
+		<name>importetotaloi</name>
+		<!--Importe de las operaciones intracomunitarias-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","02")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>13</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>numtotaloirec</name>
+		<!--Número total de operadores intracomunitarios con rectificaciones-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","03")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+	
+	<field>
+		<name>importetotaloirec</name>
+		<!--Importe de las rectificaciones-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","04")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>13</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>numdeclarantes</name>
+		<!--Número total de declarantes-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","05")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>int</type>
+	</field>
+	
+	<field>
+		<name>numpersonasrel</name>
+		<!--Nº Total de personas o entidades relacionadas-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","06")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>int</type>
+	</field>
+	
+	<field>
+		<name>numjustificante</name>
+		<!--Número de justificante del presentador-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","07")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>13</length>
+	</field>
+
+	<field>
+		<name>personarel</name>
+		<!--Persona quien relacionarse-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apellidos y nombre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>40</length>
+	</field>
+	
+	<field>
+		<name>telefonorel</name>
+		<!--Teléfono de la persona quien relacionarse-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Teléfono")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+
+	<field>
+		<!--Apellidos y nombre o razón social del presentador-->
+		<name>nombrepres</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apellidos y nombre o R.S.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>40</length>
+	</field>
+
+	<field>
+		<!--NIF del presentador-->
+		<name>cifnifpres</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","N.I.F")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+
+	<field>
+		<!--Código postal del presentador-->
+		<name>codpospres</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código postal")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>
+	</field>
+
+	<field>
+		<!--Municipio del presentador-->
+		<name>municipiopres</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Municipio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>12</length>
+	</field>
+
+	<field>
+		<!--Provincia del presentador-->
+		<name>codprovinciapres</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cod. provincia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+	</field>
+
+	<field>
+		<!--Tipo de vía del presentador-->
+		<name>codtipoviapres</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo vía")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+		<default>CL</default>
+		
+		<relation>
+			<table>co_tiposvia</table>
+			<field>codtipovia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<!--Nombre de vía del presentador-->
+		<name>nombreviapres</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre de la Vía Pública")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+	
+	<field>
+		<!--Número de la vía del presentador-->
+		<name>numeropres</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>
+	</field>
+	
+	<field>
+		<!--Escalera del presentador-->
+		<name>escalerapres</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Esc.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	
+	<field>
+		<!--Piso del presentador-->
+		<name>pisopres</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Piso")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	
+	<field>
+		<!--Puerta del presentador-->
+		<name>puertapres</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Puerta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+	</field>
+
+	<field>
+		<name>personarelpres</name>
+		<!--Persona quien relacionarse (el presentador)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apellidos y nombre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>40</length>
+	</field>
+	
+	<field>
+		<name>telefonorelpres</name>
+		<!--Teléfono de la persona quien relacionarse (el presentador)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Teléfono")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+	
+	<field>
+		<name>cambioperiodicidad</name>
+		<!--Indicador de cambio en la periodicidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cambio en la periodicidad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+
+	<field>
+		<!--NIF del representante legal-->
+		<name>cifnifreplegal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","N.I.F. R.Legal")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+
+</TMD>

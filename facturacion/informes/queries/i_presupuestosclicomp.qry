@@ -1,0 +1,52 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>presupuestoscli</name>
+
+	<tables>empresa,presupuestoscli,lineaspresupuestoscli,i_articuloscomp_buffer</tables>
+
+	<group>
+		<level>0</level>
+		<field>presupuestoscli.idpresupuesto</field>
+	</group>
+	
+	<group>
+		<level>1</level> 
+		<field>lineaspresupuestoscli.idlinea</field>
+	</group>
+
+	<select>
+		presupuestoscli.idpresupuesto, lineaspresupuestoscli.idpresupuesto,
+		presupuestoscli.codigo, presupuestoscli.codserie,
+		presupuestoscli.fecha, presupuestoscli.total,
+		presupuestoscli.totaliva, presupuestoscli.totalrecargo,
+		presupuestoscli.irpf, presupuestoscli.totalirpf,
+		presupuestoscli.neto, presupuestoscli.coddivisa,
+		presupuestoscli.codejercicio, presupuestoscli.codpago,
+		presupuestoscli.codalmacen, presupuestoscli.codcliente,
+		presupuestoscli.nombrecliente, presupuestoscli.cifnif,
+		presupuestoscli.tasaconv, presupuestoscli.coddir,
+		presupuestoscli.direccion, presupuestoscli.codpostal,
+		presupuestoscli.ciudad, presupuestoscli.provincia,
+		presupuestoscli.apartado, presupuestoscli.codpais,
+		lineaspresupuestoscli.referencia,lineaspresupuestoscli.idlinea,
+		lineaspresupuestoscli.descripcion, lineaspresupuestoscli.cantidad,
+		lineaspresupuestoscli.pvpunitario, lineaspresupuestoscli.pvptotal,
+		lineaspresupuestoscli.codimpuesto, lineaspresupuestoscli.iva,
+		articulos.codunidad,
+		i_articuloscomp_buffer.referencia,i_articuloscomp_buffer.descripcion,
+		i_articuloscomp_buffer.cantidad,i_articuloscomp_buffer.codunidad,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion, empresa.logo,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa,presupuestoscli INNER JOIN lineaspresupuestoscli ON presupuestoscli.idpresupuesto = lineaspresupuestoscli.idpresupuesto LEFT OUTER JOIN i_articuloscomp_buffer ON lineaspresupuestoscli.idlinea = i_articuloscomp_buffer.idlinea
+		LEFT OUTER JOIN articulos ON lineaspresupuestoscli.referencia = articulos.referencia
+	</from>
+
+	<where>
+	</where>
+</QRY>

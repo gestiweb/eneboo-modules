@@ -1,0 +1,35 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_vencimientos</name>
+
+	<tables>i_vencimientos_buffer,empresa,i_vencimientos,cuentasbanco</tables>
+
+	<group>
+		<level>0</level>
+		<field>buffer.fechavto</field>
+	</group>
+
+	<select>
+		buffer.fechavto, buffer.fechaemision, buffer.codsujeto,
+		buffer.codrecibo, buffer.codcuenta, buffer.cobros,
+		buffer.pagos, buffer.saldo, buffer.nombresujeto, 
+		buffer.concepto, buffer.descuenta, buffer.codsubcuenta, 
+	
+		criterios.fechavtodesde, criterios.fechavtohasta, 
+		criterios.codejercicio, criterios.codcuenta, criterios.saldoinicial,
+		
+		cb.descripcion,
+		
+		empresa.nombre, empresa.cifnif, empresa.direccion, empresa.logo,
+		empresa.codpostal, empresa.ciudad, empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa,i_vencimientos_buffer buffer,
+		i_vencimientos criterios LEFT OUTER JOIN cuentasbanco cb ON criterios.codcuenta = cb.codcuenta
+	</from>
+
+	<where>
+	</where>
+</QRY>

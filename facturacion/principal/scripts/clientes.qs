@@ -156,11 +156,92 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO MAIL /////////////////////////////////////////////////
+class envioMail extends oficial {
+    function envioMail( context ) { oficial ( context ); }
+    function init() { 
+		return this.ctx.envioMail_init(); 
+	}
+    function enviarEmail() { 
+		return this.ctx.envioMail_enviarEmail(); 
+	}
+    function enviarEmailPresupuesto() { 
+		return this.ctx.envioMail_enviarEmailPresupuesto(); 
+	}
+    function enviarEmailPedido() { 
+		return this.ctx.envioMail_enviarEmailPedido(); 
+	}
+    function enviarEmailAlbaran() { 
+		return this.ctx.envioMail_enviarEmailAlbaran(); 
+	}
+    function enviarEmailFactura() { 
+		return this.ctx.envioMail_enviarEmailFactura(); 
+	}
+    function enviarEmailRecibo() { 
+		return this.ctx.envioMail_enviarEmailRecibo(); 
+	}
+    function accesoWeb():Boolean { 
+		return this.ctx.envioMail_accesoWeb(); 
+	}
+    function enviarEmailContacto() { 
+		return this.ctx.envioMail_enviarEmailContacto(); 
+	}
+}
+//// ENVIO MAIL /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration personaFisica */
+/////////////////////////////////////////////////////////////////
+//// PERSONA_FISICA /////////////////////////////////////////////
+class personaFisica extends envioMail {
+    function personaFisica( context ) { envioMail ( context ); }
+	function init() {
+		return this.ctx.personaFisica_init();
+	}
+	function bufferChanged(fN:String) {
+		return this.ctx.personaFisica_bufferChanged(fN);
+	}
+	function habilitarNombre() {
+		return this.ctx.personaFisica_habilitarNombre();
+	}
+	function copiarNombre() {
+		return this.ctx.personaFisica_copiarNombre();
+	}
+	function insertarNombre() {
+		return this.ctx.personaFisica_insertarNombre();
+	}
+	function eliminarNombre() {
+		return this.ctx.personaFisica_eliminarNombre();
+	}
+	function informarNombreJuridico() {
+		return this.ctx.personaFisica_informarNombreJuridico();
+	}
+}
+//// PERSONA_FISICA /////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration diasPago */
+/////////////////////////////////////////////////////////////////
+//// DIAS_PAGO //////////////////////////////////////////////////
+class diasPago extends personaFisica {
+    function diasPago( context ) { personaFisica ( context ); }
+	function validateForm():Boolean {
+		return this.ctx.diasPago_validateForm();
+	}
+	function validarDiasPago():Boolean {
+		return this.ctx.diasPago_validarDiasPago();
+	}
+}
+//// DIAS_PAGO //////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends diasPago {
+    function head( context ) { diasPago ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -1073,9 +1154,354 @@ function oficial_validarNifIva():Boolean
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+/** @class_definition envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO MAIL /////////////////////////////////////////////////
+function envioMail_init()
+{
+	this.iface.__init();
+	connect(this.child("tbnEnviarMail"), "clicked()", this, "iface.enviarEmail()");
+	connect(this.child("tbnEnviarMailPr"), "clicked()", this, "iface.enviarEmailPresupuesto()");
+	connect(this.child("tbnEnviarMailPed"), "clicked()", this, "iface.enviarEmailPedido()");
+	connect(this.child("tbnEnviarMailAlb"), "clicked()", this, "iface.enviarEmailAlbaran()");
+	connect(this.child("tbnEnviarMailFac"), "clicked()", this, "iface.enviarEmailFactura()");
+	connect(this.child("tbnEnviarMailRec"), "clicked()", this, "iface.enviarEmailRecibo()");
+	connect(this.child("tbnWeb"), "clicked()", this, "iface.accesoWeb()");
+	connect(this.child("tbnEnviarMailContacto"), "clicked()", this, "iface.enviarEmailContacto()");
+/*	this.child("tbnEnviarMailPr").close();
+	this.child("tbnEnviarMailPed").close();
+	this.child("tbnEnviarMailAlb").close();
+	this.child("tbnEnviarMailFac").close();
+	this.child("tbnEnviarMailRec").close();*/
+}
+
+function envioMail_enviarEmail()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var util:FLUtil = new FLUtil();
+
+	var codCliente:String = cursor.valueBuffer("codcliente");
+	var tabla:String = "clientes";
+	var emailCliente:String = flfactppal.iface.pub_componerListaDestinatarios(codCliente, tabla);
+
+	if (!emailCliente) {
+		return;
+	}
+	var cuerpo:String = "";
+	var asunto:String = "";
+
+	var arrayDest:Array = [];
+	arrayDest[0] = [];
+	arrayDest[0]["tipo"] = "to";
+	arrayDest[0]["direccion"] = emailCliente;
+
+	var arrayAttach:Array = [];
+
+	flfactppal.iface.pub_enviarCorreo(cuerpo, asunto, arrayDest, false);
+}
+
+function envioMail_enviarEmailPresupuesto()
+{
+	var codPresupuesto:String = this.child("tdbPresupuestos").cursor().valueBuffer("codigo");
+	if (!codPresupuesto) {
+		return;
+	}
+
+	var codCliente:String = this.child("tdbPresupuestos").cursor().valueBuffer("codcliente");
+	if (!codCliente) {
+		return;
+	}
+	
+	formpresupuestoscli.iface.pub_enviarDocumento(codPresupuesto, codCliente);
+}
+
+function envioMail_enviarEmailPedido()
+{
+	var codPedido:String = this.child("tdbPedidos").cursor().valueBuffer("codigo");
+	if (!codPedido) {
+		return;
+	}
+
+	var codCliente:String = this.child("tdbPedidos").cursor().valueBuffer("codcliente");
+	if (!codCliente) {
+		return;
+	}
+	formpedidoscli.iface.pub_enviarDocumento(codPedido, codCliente);
+}
+
+function envioMail_enviarEmailAlbaran()
+{
+	var codAlbaran:String = this.child("tdbAlbaranes").cursor().valueBuffer("codigo");
+	if (!codAlbaran) {
+		return;
+	}
+
+	var codCliente:String = this.child("tdbAlbaranes").cursor().valueBuffer("codcliente");
+	if (!codCliente) {
+		return;
+	}
+	formalbaranescli.iface.pub_enviarDocumento(codAlbaran, codCliente);
+}
+
+function envioMail_enviarEmailFactura()
+{
+	var codFactura:String = this.child("tdbFacturas").cursor().valueBuffer("codigo");
+	if (!codFactura) {
+		return;
+	}
+
+	var codCliente:String = this.child("tdbFacturas").cursor().valueBuffer("codcliente");
+	if (!codCliente) {
+		return;
+	}
+	formfacturascli.iface.pub_enviarDocumento(codFactura, codCliente);
+}
+
+function envioMail_enviarEmailRecibo()
+{
+	var codRecibo:String = this.child("tdbRecibos").cursor().valueBuffer("codigo");
+	if (!codRecibo) {
+		return;
+	}
+
+	var codCliente:String = this.child("tdbRecibos").cursor().valueBuffer("codcliente");
+	if (!codCliente) {
+		return;
+	}
+	formreciboscli.iface.pub_enviarDocumento(codRecibo, codCliente);
+}
+
+function envioMail_accesoWeb():Boolean
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var util:FLUtil = new FLUtil();
+
+	var nombreNavegador = util.readSettingEntry("scripts/flfactinfo/nombrenavegador");
+	if (!nombreNavegador || nombreNavegador == "") {
+		MessageBox.warning(util.translate("scripts", "No tiene establecido el nombre del navegador.\nDebe establecer este valor en la pestaña Correo del formulario de empresa"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+
+	var webCliente:String = cursor.valueBuffer("web");
+	if (!webCliente) {
+		MessageBox.warning(util.translate("scripts", "Debe informar la web del cliente"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+
+	var comando:Array = [nombreNavegador, webCliente];
+	var res:Array = flfactppal.iface.pub_ejecutarComandoAsincrono(comando);
+
+	return true;
+}
+
+function envioMail_enviarEmailContacto()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var util:FLUtil = new FLUtil();
+
+	var emailContacto:String = this.child("tdbContactos").cursor().valueBuffer("email");
+
+	if (!emailContacto || emailContacto == "") {
+		MessageBox.warning(util.translate("scripts", "El contacto no tiene el campo email informado."), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+	var cuerpo:String = "";
+	var asunto:String = "";
+
+	var arrayDest:Array = [];
+	arrayDest[0] = [];
+	arrayDest[0]["tipo"] = "to";
+	arrayDest[0]["direccion"] = emailContacto;
+
+	var arrayAttach:Array = [];
+
+	flfactppal.iface.pub_enviarCorreo(cuerpo, asunto, arrayDest, false);
+}
+
+//// ENVIO MAIL /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition personaFisica */
+/////////////////////////////////////////////////////////////////
+//// PERSONA_FISICA /////////////////////////////////////////////
+function personaFisica_init()
+{
+	this.iface.__init();
+
+	connect(this.child("tbnInsertarNombre"), "clicked()", this, "iface.insertarNombre()");
+	connect(this.child("tbnEliminarNombre"), "clicked()", this, "iface.eliminarNombre()");
+	this.iface.habilitarNombre();
+}
+
+function personaFisica_bufferChanged(fN)
+{
+	var cursor:FLSqlCursor = this.cursor();
+	switch(fN) {
+		case "personafisica": {
+			this.iface.habilitarNombre();
+			this.iface.copiarNombre();
+			break;
+		}
+		case "nombrepila": 
+		case "apellidos": {
+			this.iface.informarNombreJuridico();
+			break;
+		}
+		default: {
+			this.iface.__bufferChanged(fN);
+			break;
+		}
+	}
+}
+
+function personaFisica_habilitarNombre()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	if (cursor.valueBuffer("personafisica")) {
+		this.child("gbxNombre").close();
+		this.child("gbxNombreApellidos").show();
+	} else {
+		this.child("gbxNombre").show();
+		this.child("gbxNombreApellidos").close();
+	}
+}
+
+function personaFisica_copiarNombre()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	if (cursor.valueBuffer("personafisica") && cursor.valueBuffer("apellidos") == "") {
+		this.child("fdbApellidos").setValue(cursor.valueBuffer("nombre"));
+	}
+}
+
+function personaFisica_insertarNombre()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var i:Number;
+	var nombrePila:String = cursor.valueBuffer("nombrepila");
+	var apellidos:String = cursor.valueBuffer("apellidos");
+	if (!apellidos) {
+		apellidos = "";
+		return;
+	}
+	if (!nombrePila) {
+		nombrePila = "";
+	}
+	var palabra:String;
+	var iEspacio:Number = apellidos.find(" ");
+	if (iEspacio != - 1) {
+		palabra = apellidos.substring(0, iEspacio);
+		apellidos = apellidos.right(apellidos.length - iEspacio -1);
+	} else {
+		palabra = cursor.valueBuffer("apellidos");
+		apellidos = "";
+	}
+
+	if (nombrePila == "") {
+		nombrePila = palabra;
+	} else {
+		nombrePila = nombrePila + " " + palabra;
+	}
+
+	this.child("fdbNombrePila").setValue(nombrePila);
+	this.child("fdbApellidos").setValue(apellidos);
+}
+
+function personaFisica_eliminarNombre()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var i:Number;
+	var nombrePila:String = cursor.valueBuffer("nombrepila");
+	var apellidos:String = cursor.valueBuffer("apellidos");
+	if (!nombrePila) {
+		nombrePila = "";
+		return;
+	}
+	if (!apellidos) {
+		apellidos = "";
+	}
+	var iEspacio:Number = nombrePila.findRev(" ");
+	var palabra:String = nombrePila.substring(iEspacio + 1, nombrePila.length);
+	if (apellidos == "") {
+		apellidos = palabra;
+	} else {
+		apellidos = palabra + " " + apellidos;
+	}
+	if (iEspacio == -1) {
+		nombrePila = "";
+	} else {
+		nombrePila = nombrePila.left(iEspacio);
+	}
+	this.child("fdbNombrePila").setValue(nombrePila);
+	this.child("fdbApellidos").setValue(apellidos);
+}
+
+function personaFisica_informarNombreJuridico()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var nombrePila:String = cursor.valueBuffer("nombrepila");
+	if (!nombrePila) {
+		nombrePila = "";
+	}
+	var apellidos:String = cursor.valueBuffer("apellidos");
+	if (!apellidos) {
+		apellidos = "";
+	}
+	if (cursor.valueBuffer("personafisica")) {
+		var nombre:String = apellidos + " " + nombrePila;
+		this.child("fdbNombre").setValue(nombre);
+	}
+}
+
+//// PERSONA_FISICA /////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition diasPago */
+/////////////////////////////////////////////////////////////////
+//// DIAS_PAGO //////////////////////////////////////////////////
+function diasPago_validateForm():Boolean
+{
+	if (!this.iface.__validateForm())
+		return false;
+	
+	return this.iface.validarDiasPago();
+}
+/** \D
+Comprueba que el valor del campo --diaspago-- es una lista de días válido ordenada de forma ascentente
+@return	Verdadero si se cumplo, falso en caso contrario
+\end */
+function diasPago_validarDiasPago():Boolean
+{
+	var util = new FLUtil();
+	var cursor:FLSqlCursor = form.cursor();
+	var diasPago:String = cursor.valueBuffer("diaspago");
+	if (!diasPago || diasPago == "")
+			return true;
+	var dia:Array = diasPago.split(",");
+	var numDias = dia.length;
+	if (numDias == 0) {
+		MessageBox.warning(util.translate("scripts", "El formato de los días de pago no es válido"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+	var diaAnterior:Number = 0;
+	for (var i:Number = 0; i < numDias; i++) {
+		if (parseFloat(dia[i]) <= parseFloat(diaAnterior)) {
+			MessageBox.warning(util.translate("scripts", "Los días de pago deben formar una lista ascendente"), MessageBox.Ok, MessageBox.NoButton);
+			return false;
+		}
+		if (dia[i] > 31) {
+			MessageBox.warning(util.translate("scripts", "El formato de los días de pago no es válido"), MessageBox.Ok, MessageBox.NoButton);
+			return false;
+		}
+		diaAnterior = dia[i];
+	}
+	return true;
+}
+//// DIAS_PAGO //////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////

@@ -1,0 +1,41 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_i_balancesit_08</name>
+
+	<tables>co_codbalances08,co_i_balances08_datos</tables>
+
+	<group>
+		<level>0</level>
+		<field>cbl.naturaleza</field>
+	</group>
+	
+	<group>
+		<level>1</level>
+		<field>cbl.nivel1</field>
+	</group>
+	
+	<group>
+		<level>2</level>
+		<field>cbl.nivel2</field>
+	</group>
+	
+	<group>
+		<level>3</level>
+		<field>cbl.orden3</field>
+	</group>
+
+	<select>
+		cbl.codbalance,cbl.naturaleza,
+		cbl.descripcion1, cbl.descripcion2, cbl.descripcion3, cbl.descripcion4, cbl.descripcion4ba,
+		cbl.nivel1, cbl.nivel2,cbl.nivel3,cbl.orden3,cbl.nivel4,
+		buf.saldoact,buf.saldoant
+	</select>
+
+	<from>
+		co_codbalances08 cbl
+		LEFT JOIN co_i_balances08_datos buf on cbl.codbalance = buf.codbalance
+	</from>
+
+	<where>
+	</where>
+</QRY>

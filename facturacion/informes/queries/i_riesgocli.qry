@@ -1,0 +1,28 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_riesgocli</name>
+
+	<tables>empresa,i_riesgocli_buffer,i_riesgocli</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.cifnif</field>
+	</group>
+
+	<select>
+		empresa.nombre, empresa.cifnif, empresa.direccion, empresa.logo,
+		empresa.codpostal, empresa.ciudad, empresa.provincia, empresa.apartado,
+		empresa.codpais,
+		i_riesgocli_buffer.nombreagente,i_riesgocli_buffer.codcliente,i_riesgocli_buffer.nombrecliente,
+		i_riesgocli_buffer.riesgomax,i_riesgocli_buffer.imprecibos,i_riesgocli_buffer.imppagados,
+		i_riesgocli_buffer.imppendientes,i_riesgocli_buffer.riesgoexced,
+		i_riesgocli.dfecha,i_riesgocli.hfecha
+	</select>
+
+	<from>
+		empresa,i_riesgocli_buffer,i_riesgocli
+	</from>
+
+	<where>
+	</where>
+</QRY>

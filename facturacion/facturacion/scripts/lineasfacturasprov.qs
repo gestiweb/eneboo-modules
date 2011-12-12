@@ -52,15 +52,30 @@ class oficial extends interna {
 	function filtrarArtProv() {
 		return this.ctx.oficial_filtrarArtProv();
 	}
+	function dameFiltroReferencia():String {
+		return this.ctx.oficial_dameFiltroReferencia();
+	}
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+class rappel extends oficial {
+    function rappel( context ) { oficial ( context ); }
+	function init() {
+		return this.ctx.rappel_init();
+	}
+}
+//// RAPPEL /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends rappel {
+    function head( context ) { rappel ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -98,11 +113,36 @@ function interna_init()
 	if (!irpf)
 		irpf = 0;
 
+	var opcionIvaRec:Number = flfacturac.iface.pub_tieneIvaDocProveedor(cursor.cursorRelation().valueBuffer("codserie"), cursor.cursorRelation().valueBuffer("codproveedor"));
 	if (cursor.modeAccess() == cursor.Insert) {
+		switch (opcionIvaRec) {
+			case 0: {
+				this.child("fdbCodImpuesto").setValue("");
+				this.child("fdbIva").setValue(0);
+			}
+			case 1: {
+				this.child("fdbRecargo").setValue(0);
+				break;
+			}
+		}
+		
 		this.child("fdbIRPF").setValue(irpf);
 // 		this.child("fdbDtoPor").setValue(this.iface.calculateField("dtopor"));
 	}
 
+// 	if (cursor.modeAccess() == cursor.Insert || cursor.modeAccess() == cursor.Edit) {
+// 		switch (opcionIvaRec) {
+// 			case 0: {
+// 				this.child("fdbCodImpuesto").setDisabled(true);
+// 				this.child("fdbIva").setDisabled(true);
+// 			}
+// 			case 1: {
+// 				this.child("fdbRecargo").setDisabled(true);
+// 				break;
+// 			}
+// 		}
+// 	}
+	
 	this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
 	
 	if (sys.isLoadedModule("flcontppal")) {
@@ -112,13 +152,11 @@ function interna_init()
 		this.iface.bloqueoSubcuenta = false;
 		this.iface.posActualPuntoSubcuenta = -1;
 		this.child("fdbIdSubcuenta").setFilter("codejercicio = '" + this.iface.ejercicioActual + "'");
-	} else
+	} else {
 		this.child("gbxContabilidad").enabled = false;
-		
-	this.child("fdbReferencia").setFilter("secompra");
-	if (this.child("chkFiltrarArtProv").checked) {
-		this.iface.filtrarArtProv();
 	}
+		
+	this.iface.filtrarArtProv();
 }
 
 /** \C
@@ -203,6 +241,12 @@ function oficial_bufferChanged(fN:String)
 */
 function oficial_filtrarArtProv()
 {
+	var filtroReferencia:String = this.iface.dameFiltroReferencia();
+	this.child("fdbReferencia").setFilter(filtroReferencia);
+}
+
+function oficial_dameFiltroReferencia():String
+{
 	var filtroReferencia:String = "secompra";
 	if (this.child("chkFiltrarArtProv").checked) {
 		var codProveedor:String = this.cursor().cursorRelation().valueBuffer("codproveedor");
@@ -211,16 +255,26 @@ function oficial_filtrarArtProv()
 	} else {
 		filtroReferencia = "secompra";
 	}
-
-	this.child("fdbReferencia").setFilter(filtroReferencia);
+	return filtroReferencia;
 }
 
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
+/** @class_definition rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+function rappel_init()
+{
+	this.iface.__init();
+	this.child("lblDtoRappel").setText(formRecordlineaspedidosprov.iface.pub_commonCalculateField("lbldtorappel", this.cursor()));
+}
+//// RAPPEL /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////

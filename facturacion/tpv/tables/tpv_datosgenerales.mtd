@@ -1,0 +1,328 @@
+<!DOCTYPE TMD>
+<TMD>
+    <name>tpv_datosgenerales</name>
+<!--Datos generales de ventas-->    <alias>QT_TRANSLATE_NOOP("MetaData","Datos Generales")</alias>
+    <field>
+        <name>id</name>
+<!-- Identificador  -->        <alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+        <null>false</null>
+        <pk>true</pk>
+        <type>serial</type>
+        <visible>true</visible>
+    </field>
+    <field>
+        <name>tarifa</name>
+<!-- Tarifa que se aplicará por defecto -->        <alias>QT_TRANSLATE_NOOP("MetaData","Tarifa")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>6</length>
+        <editable>true</editable>
+        <relation>
+            <table>tarifas</table>
+            <field>codtarifa</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>tarifaesp</name>
+<!-- Tarifa que se aplicará por defecto -->        <alias>QT_TRANSLATE_NOOP("MetaData","Tarifa Especial")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>6</length>
+        <editable>true</editable>
+        <relation>
+            <table>tarifas</table>
+            <field>codtarifa</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>pagoefectivo</name>
+<!-- Forma de pago que se establecera para las comandas con tipo de pago Efectivo -->        <alias>QT_TRANSLATE_NOOP("MetaData","Forma de pago en efectivo")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>10</length>
+        <editable>true</editable>
+        <relation>
+            <table>formaspago</table>
+            <field>codpago</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>pagotarjeta</name>
+<!-- Forma de pago que se establecera para las comandas con tipo de pago Tarjeta  -->        <alias>QT_TRANSLATE_NOOP("MetaData","Forma de pago con tarjeta")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>10</length>
+        <editable>true</editable>
+        <relation>
+            <table>formaspago</table>
+            <field>codpago</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>pagovale</name>
+<!-- Forma de pago que se establecera para las comandas con tipo de pago Vale -->        <alias>QT_TRANSLATE_NOOP("MetaData","Forma de pago con vales")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>10</length>
+        <editable>true</editable>
+        <relation>
+            <table>formaspago</table>
+            <field>codpago</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>codcliente</name>
+<!-- Código de cliente al que se asociarán las facturas correspondientes a las ventas -->        <alias>QT_TRANSLATE_NOOP("MetaData","Cliente facturación")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>10</length>
+        <relation>
+            <table>clientes</table>
+            <field>codcliente</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>codserie</name>
+<!-- Código de cliente al que se asociarán las facturas correspondientes a las ventas -->        <alias>QT_TRANSLATE_NOOP("MetaData","Serie facturación")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>2</length>
+        <relation>
+            <table>series</table>
+            <field>codserie</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>diasvalidezvale</name>
+<!-- Días de validez de un vale hasta que caduca-->        <alias>QT_TRANSLATE_NOOP("MetaData","Período de validez de los vales (días)")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>uint</type>
+    </field>
+    <field>
+        <name>integracionfac</name>
+<!-- Tipo de integración con facturación-->        <alias>QT_TRANSLATE_NOOP("MetaData","Facturación inmediata")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>bool</type>
+    </field>
+    <field>
+        <name>codsubcuentacaja</name>
+<!-- Código de la subcuenta de contabilidad asociada a caja-->        <alias>QT_TRANSLATE_NOOP("MetaData","Caja")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>15</length>
+    </field>
+    <field>
+        <name>idsubcuentacaja</name>
+<!-- Identificador interno de la subcuenta -->        <alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>uint</type>
+        <visiblegrid>false</visiblegrid>
+        <relation>
+            <table>co_subcuentas</table>
+            <field>idsubcuenta</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>codsubcuentadifpos</name>
+<!-- Código de la subcuenta de contabilidad asociada a diferencias positivas de cambio-->        <alias>QT_TRANSLATE_NOOP("MetaData","Dif. Positivas")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>15</length>
+    </field>
+    <field>
+        <name>idsubcuentadifpos</name>
+<!-- Identificador interno de la subcuenta -->        <alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>uint</type>
+        <visiblegrid>false</visiblegrid>
+        <relation>
+            <table>co_subcuentas</table>
+            <field>idsubcuenta</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>codsubcuentadifneg</name>
+<!-- Código de la subcuenta de contabilidad asociada a diferencias negativas de cambio-->        <alias>QT_TRANSLATE_NOOP("MetaData","Dif. Negativas")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>15</length>
+    </field>
+    <field>
+        <name>idsubcuentadifneg</name>
+<!-- Identificador interno de la subcuenta -->        <alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>uint</type>
+        <visiblegrid>false</visiblegrid>
+        <relation>
+            <table>co_subcuentas</table>
+            <field>idsubcuenta</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>codcausacierre</name>
+<!--Causa cuya subcuenta usar para el movimiento de cierre-->        <alias>QT_TRANSLATE_NOOP("MetaData","Causa asociada al movimiento de cierre")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>15</length>
+        <relation>
+            <table>tpv_causasmovimiento</table>
+            <field>codcausa</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>rvimprimirtique</name>
+<!--Imprimir tique automáticamente al realizar la venta-->        <alias>QT_TRANSLATE_NOOP("MetaData","Imprimir tique")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>bool</type>
+        <default>false</default>
+    </field>
+    <field>
+        <name>rvabrircajon</name>
+<!--Abrir cajón automáticamente al realizar la venta-->        <alias>QT_TRANSLATE_NOOP("MetaData","Abrir cajón")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>bool</type>
+        <default>false</default>
+    </field>
+    <field>
+        <name>rvpasarsiguiente</name>
+<!--Pasar a la siguiente venta automáticamente al realizar la venta-->        <alias>QT_TRANSLATE_NOOP("MetaData","Pasar a la siguiente")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>bool</type>
+        <default>false</default>
+    </field>
+    <field>
+        <name>ircursorinicio</name>
+<!--Posición inicial del cursor-->        <alias>QT_TRANSLATE_NOOP("MetaData","Posición inicial del cursor")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>15</length>
+        <optionslist>Referencia,Cod.Barras,Cantidad</optionslist>
+        <default>Referencia</default>
+    </field>
+    <field>
+        <name>irultrarrapida</name>
+<!--Inserción rápida-->        <alias>QT_TRANSLATE_NOOP("MetaData","I. ultrarrápida (con sólo localizar el artículo)")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <pk>false</pk>
+        <type>bool</type>
+        <default>false</default>
+    </field>
+    <field>
+        <name>nfilas</name>
+<!-- Número de filas a mostrar en la tabla de artículos del tpv táctil-->        <alias>QT_TRANSLATE_NOOP("MetaData","Filas")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>uint</type>
+        <default>4</default>
+    </field>
+    <field>
+        <name>ncolumnas</name>
+<!-- Número de columnas a mostrar en la tabla de artículos del tpv táctil-->        <alias>QT_TRANSLATE_NOOP("MetaData","Columnas")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>uint</type>
+        <default>4</default>
+    </field>
+    <field>
+        <name>codnivel</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Nivel base")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>10</length>
+        <relation>
+            <table>nivelestpv</table>
+            <field>codnivel</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>volvernivelbase</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Volver al nivel base al insertar línea")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>bool</type>
+        <default>false</default>
+    </field>
+    <field>
+        <name>secuencialinea</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Secuencia para selección de artículo")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>20</length>
+        <optionslist>Cantidad_Referencia,Referencia_Cantidad</optionslist>
+        <default>Cantidad_Referencia</default>
+    </field>
+    <field>
+        <name>codimpuestogen</name>
+<!--Código del impuesto-->        <alias>QT_TRANSLATE_NOOP("MetaData","I.V.A. General")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>10</length>
+        <relation>
+            <table>impuestos</table>
+            <field>codimpuesto</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>codimpuestored</name>
+<!--Código del impuesto-->        <alias>QT_TRANSLATE_NOOP("MetaData","I.V.A. Reducido")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>10</length>
+        <relation>
+            <table>impuestos</table>
+            <field>codimpuesto</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>codimpuestosred</name>
+<!--Código del impuesto-->        <alias>QT_TRANSLATE_NOOP("MetaData","I.V.A. Superreducido")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>10</length>
+        <relation>
+            <table>impuestos</table>
+            <field>codimpuesto</field>
+            <card>M1</card>
+        </relation>
+    </field>
+</TMD>

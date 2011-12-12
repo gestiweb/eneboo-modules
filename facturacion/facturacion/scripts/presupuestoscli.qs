@@ -73,11 +73,61 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+class ivaIncluido extends oficial {
+    function ivaIncluido( context ) { oficial( context ); } 	
+	function calcularTotales() {
+		return this.ctx.ivaIncluido_calcularTotales();
+	}
+}
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+/** @class_declaration clientesPot */
+/////////////////////////////////////////////////////////////////
+//// CLIENTESPOT //////////////////////////////////////////////////
+class clientesPot extends ivaIncluido {
+	function clientesPot( context ) { ivaIncluido ( context ); }
+    function init() { this.ctx.clientesPot_init(); }
+	function bufferChanged(fN:String) {
+		return this.ctx.clientesPot_bufferChanged(fN);
+	}
+	function cargarDatosClientePot() {
+		return this.ctx.clientesPot_cargarDatosClientePot();
+	}
+	function estadoClientePot(borrarDatos:Boolean) {
+		return this.ctx.clientesPot_estadoClientePot(borrarDatos);
+	}
+}
+//// CLIENTESPOT //////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration dtoEspecial */
+/////////////////////////////////////////////////////////////////
+//// DTO ESPECIAL ///////////////////////////////////////////////
+class dtoEspecial extends clientesPot {
+	var bloqueoDto:Boolean;
+    function dtoEspecial( context ) { clientesPot ( context ); }
+	function init() {
+		return this.ctx.dtoEspecial_init();
+	}
+	function bufferChanged(fN:String) {
+		return this.ctx.dtoEspecial_bufferChanged(fN);
+	}
+	function calcularTotales() {
+		return this.ctx.dtoEspecial_calcularTotales();
+	}
+}
+//// DTO ESPECIAL ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends dtoEspecial {
+    function head( context ) { dtoEspecial ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -426,9 +476,168 @@ function oficial_aplicarComision_clicked()
 //// OFICIAL/////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+/** @class_definition ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+	
+function ivaIncluido_calcularTotales()
+{
+	this.iface.__calcularTotales();
+	
+	formRecordfacturascli.iface.comprobarRedondeoIVA(this.cursor(), "idpresupuesto")
+}
+
+//// IVAINCLUIDO /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition clientesPot */
+/////////////////////////////////////////////////////////////////
+//// CLIENTESPOT //////////////////////////////////////////////////
+
+function clientesPot_init()
+{
+	this.iface.__init();
+	
+	this.iface.estadoClientePot(false);
+}
+
+function clientesPot_bufferChanged(fN:String)
+{
+	switch (fN) {
+		case "clientepot":
+			this.iface.estadoClientePot(true);
+			break;	
+		case "codclientepot":
+			this.child("fdbCodDir").setValue("");
+			this.iface.cargarDatosClientePot();
+			break;	
+		default:
+			return this.iface.__bufferChanged(fN);
+	}
+}
+
+/** \D Carga los datos de nombre, nif y dirección cuando se selecciona un cliente
+potencial
+*/
+function clientesPot_cargarDatosClientePot()
+{
+	var codigo:String = this.child("fdbCodClientePot").value();
+	
+	if (!codigo)
+		return;
+		
+	var datos:Array = flfactppal.iface.pub_ejecutarQry("clientespot", "nombre,cifnif,direccion,ciudad,provincia,codpostal,codpais", "codigo = '" + codigo + "'");
+	
+	if (datos.result > 0) {
+		this.child("fdbCodDir").setValue("");
+		this.child("fdbNombreCliente").setValue(datos.nombre);
+		this.child("fdbCifNif").setValue(datos.cifnif);
+		this.child("fdbDireccion").setValue(datos.direccion);
+		this.child("fdbCiudad").setValue(datos.ciudad);
+		this.child("fdbProvincia").setValue(datos.provincia);
+		this.child("fdbCodPostal").setValue(datos.codpostal);
+		this.child("fdbCodPais").setValue(datos.codpais);
+	}
+}
+
+/** \D Habilida o deshabilita los campos de código de cliente real y potencial
+en base al valor de --clientepot--
+*/
+function clientesPot_estadoClientePot(borrarDatos:Boolean)
+{
+	if (this.cursor().modeAccess() == this.cursor().Browse)
+		return;
+
+	if (this.child("fdbClientePot").value()) {
+		this.child("fdbCodClientePot").setDisabled(false);		
+		this.child("fdbCodCliente").setDisabled(true);
+		this.child("fdbCodCliente").setValue("");		
+	}
+	else {
+		this.child("fdbCodClientePot").setDisabled(true);
+		this.child("fdbCodCliente").setDisabled(false);
+		this.child("fdbCodClientePot").setValue("");		
+	}
+	
+	if (borrarDatos) {
+		this.child("fdbCifNif").setValue("");
+		this.child("fdbNombreCliente").setValue("");
+		this.child("fdbDireccion").setValue("");
+		this.child("fdbCiudad").setValue("");
+		this.child("fdbProvincia").setValue("");
+		this.child("fdbCodPostal").setValue("");
+		this.child("fdbCodPais").setValue("");
+	}
+}
+
+//// CLIENTESPOT //////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+
+/** @class_definition dtoEspecial */
+//////////////////////////////////////////////////////////////////
+//// DTO ESPECIAL ////////////////////////////////////////////////
+function dtoEspecial_bufferChanged(fN:String)
+{
+	switch (fN) {
+		case "neto": {
+			form.child("fdbTotalIva").setValue(this.iface.calculateField("totaliva"));
+			form.child("fdbTotalRecargo").setValue(this.iface.calculateField("totalrecargo"));
+			this.iface.__bufferChanged(fN);
+			break;
+		}
+		/** \C
+		El --neto-- es el producto del --netosindtoesp-- por el --pordtoesp--
+		\end */
+		case "netosindtoesp": {
+			if (!this.iface.bloqueoDto) {
+				this.iface.bloqueoDto = true;
+				this.child("fdbDtoEsp").setValue(this.iface.calculateField("dtoesp"));
+				this.iface.bloqueoDto = false;
+			}
+			break;
+		}
+		case "pordtoesp": {
+			if (!this.iface.bloqueoDto) {
+				this.iface.bloqueoDto = true;
+				this.child("fdbDtoEsp").setValue(this.iface.calculateField("dtoesp"));
+				this.iface.bloqueoDto = false;
+			}
+			break;
+		}
+		case "dtoesp": {
+			if (!this.iface.bloqueoDto) {
+				this.iface.bloqueoDto = true;
+				this.child("fdbPorDtoEsp").setValue(this.iface.calculateField("pordtoesp"));
+				this.iface.bloqueoDto = false;
+			}
+			this.child("fdbNeto").setValue(this.iface.calculateField("neto"));
+			break;
+		}
+		default: {
+			this.iface.__bufferChanged(fN);
+			break;
+		}
+	}
+}
+
+function dtoEspecial_calcularTotales()
+{
+		this.child("fdbNetoSinDtoEsp").setValue(this.iface.calculateField("netosindtoesp"));
+		this.iface.__calcularTotales();
+}
+
+function dtoEspecial_init()
+{
+	this.iface.__init();
+
+	this.iface.bloqueoDto = false;
+}
+//// DTO ESPECIAL ////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 /** @class_definition head */
 //////////////////////////////////////////////////////////////////
 //// DESARROLLO //////////////////////////////////////////////////
 
 //// DESARROLLO //////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////

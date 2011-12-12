@@ -1,0 +1,50 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_facturasclicomp</name>
+
+	<tables>empresa,facturascli,lineasfacturascli,albaranescli,i_articuloscomp_buffer</tables>
+	<group>
+		<level>0</level>
+		<field>facturascli.idfactura</field>
+	</group>
+	
+	<group>
+		<level>1</level>
+		<field>lineasfacturascli.idalbaran</field>
+	</group>
+
+	<group>
+		<level>2</level> 
+		<field>lineasfacturascli.idlinea</field>
+	</group>
+	
+	<select>
+		facturascli.idfactura, lineasfacturascli.idfactura, facturascli.codigo, facturascli.codserie, facturascli.fecha,
+		facturascli.total, facturascli.coddivisa, facturascli.codejercicio, facturascli.codpago, facturascli.codalmacen, facturascli.totaliva,
+		facturascli.codcliente, facturascli.nombrecliente, facturascli.cifnif, facturascli.tasaconv, facturascli.coddir,
+		facturascli.direccion, facturascli.codpostal, facturascli.ciudad, facturascli.provincia, facturascli.apartado,
+		facturascli.codpais, facturascli.neto, lineasfacturascli.referencia, facturascli.deabono, facturascli.idfacturarect,lineasfacturascli.descripcion,
+		lineasfacturascli.cantidad,facturascli.irpf, facturascli.totalirpf,lineasfacturascli.idlinea,
+		lineasfacturascli.pvpunitario, lineasfacturascli.pvptotal, lineasfacturascli.codimpuesto, lineasfacturascli.iva,
+		articulos.codunidad, lineasfacturascli.recargo,
+		albaranescli.codigo, albaranescli.fecha, lineasfacturascli.idalbaran,
+		i_articuloscomp_buffer.referencia,i_articuloscomp_buffer.descripcion,
+		i_articuloscomp_buffer.cantidad,i_articuloscomp_buffer.codunidad,
+		empresa.nombre, empresa.cifnif, empresa.direccion, empresa.codpostal, empresa.ciudad, facturascli.neto+facturascli.totaliva+facturascli.totalrecargo,
+		formaspago.descripcion, facturascli.observaciones,
+		clientes.regimeniva,
+		empresa.provincia, empresa.apartado, empresa.codpais
+	</select>
+
+	<from>
+		empresa,facturascli INNER JOIN lineasfacturascli ON facturascli.idfactura = lineasfacturascli.idfactura  INNER JOIN formaspago on formaspago.codpago = facturascli.codpago LEFT OUTER JOIN albaranescli ON albaranescli.idalbaran = lineasfacturascli.idalbaran LEFT OUTER JOIN i_articuloscomp_buffer ON lineasfacturascli.idlinea = i_articuloscomp_buffer.idlinea
+		LEFT OUTER JOIN articulos ON lineasfacturascli.referencia = articulos.referencia  LEFT OUTER JOIN clientes ON facturascli.codcliente = clientes.codcliente
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		facturascli.codigo,lineasfacturascli.idalbaran, lineasfacturascli.referencia,i_articuloscomp_buffer.id
+	</order>
+</QRY>

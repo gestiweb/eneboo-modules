@@ -1,0 +1,35 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_liquidaciones</name>
+
+	<tables>liquidaciones,agentes,facturascli,empresa</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.cifnif</field>
+	</group>
+
+	<select>
+		facturascli.idfactura,facturascli.codigo, facturascli.fecha, facturascli.nombrecliente, facturascli.neto, facturascli.porcomision,
+		agentes.nombre, agentes.apellidos, agentes.dnicif, agentes.direccion, agentes.ciudad, agentes.provincia, agentes.codpostal, agentes.coddepartamento,
+		liquidaciones.codliquidacion, liquidaciones.fecha, liquidaciones.codfactura, liquidaciones.codagente, liquidaciones.total,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion, empresa.logo,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa, liquidaciones 
+		INNER JOIN agentes ON liquidaciones.codagente = agentes.codagente 
+		LEFT OUTER JOIN facturascli ON facturascli.codliquidacion = liquidaciones.codliquidacion
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		facturascli.fecha
+	</order>
+</QRY>

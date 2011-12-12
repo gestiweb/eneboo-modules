@@ -1,0 +1,62 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>pesosmedidas</name>
+	<!-- Listado de unidades de pesos y medidas-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Pesos y medidas")</alias>
+
+	<field>
+		<name>codunidad</name>
+		<!-- Código de la unidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Abreviatura")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>familias</table>
+			<field>codunidad</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>articulos</table>
+			<field>codunidad</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción de la unidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>magnitud</name>
+		<!-- Magnitud-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Magnitud")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>25</length>
+		<optionslist>Unidades,Longitud,Superficie,Volumen,Peso,Otro</optionslist>
+		<default>Unidades</default>
+	</field>
+	
+	<field>
+		<name>factorconv</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Factor conversión")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>9</partI>
+		<partD>9</partD>
+		<default>0</default>
+	</field>
+
+</TMD>

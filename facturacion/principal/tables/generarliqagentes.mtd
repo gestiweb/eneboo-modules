@@ -1,0 +1,103 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>generarliqagentes</name>
+	<!--Lista de criterios de búsqueda de facturas a agrupar en liquidaciones de agente-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Generar liquidaciones a agentes")</alias>
+
+	<field>
+		<name>id</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>agentes</name>
+		<!--Lista separada por comas de los agentes a liquidar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Agentes")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+
+	<field>
+		<name>fecha</name>
+		<!--Fecha de las liquidaciones a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>tipoperiodo</name>
+		<!--Tipo de período-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Período")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>Mes,Trimestre,Año</optionslist>
+		<default>Año</default>
+		<type>string</type>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>trimestre</name>
+		<!--Período (trimestre) del modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Trimestre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>1T,2T,3T,4T</optionslist>
+		<default>1T</default>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	
+	<field>
+		<name>mes</name>
+		<!--Período (mes) del modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mes   ")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>01,02,03,04,05,06,07,08,09,10,11,12</optionslist>
+		<default>01</default>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	
+	<field>
+		<name>fechadesde</name>
+		<!--Fecha mínima de las facturas a liquidar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>fechahasta</name>
+		<!--Fecha máxima de los albaranes-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>codejercicio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+</TMD>

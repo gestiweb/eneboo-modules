@@ -1,0 +1,30 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_clientes</name>
+
+	<tables>clientes,dirclientes</tables>
+
+	<select>
+		clientes.codcliente, clientes.nombre,
+		clientes.telefono1, clientes.fax, clientes.email,
+		dirclientes.direccion, dirclientes.ciudad,
+		dirclientes.codpostal, dirclientes.provincia, dirclientes.codpais,
+		empresa.direccion, empresa.nombre,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais, empresa.cifnif,
+		empresa.telefono, empresa.fax
+	</select>
+
+	<from>
+		empresa,clientes 
+		LEFT OUTER JOIN dirclientes ON clientes.codcliente = dirclientes.codcliente
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		clientes.codcliente
+	</order>
+</QRY>

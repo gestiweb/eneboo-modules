@@ -1,0 +1,83 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_i_patrimonio</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Estado de cambios en el patrimonio")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador interno del balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>200</length>
+	</field>
+
+	<field>
+		<name>codejercicio</name>
+		<!-- Código del ejercicio -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio actual")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codejercicioant</name>
+		<!-- Indica si se mostrará el ejercicio anterior -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio X-1")</alias>
+		<pk>false</pk>
+		<null>true</null>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codejercicioantant</name>
+		<!-- Indica si se mostrará el ejercicio anterior -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio X-2")</alias>
+		<pk>false</pk>
+		<null>true</null>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>ignorarcierre</name>
+		<!-- Indica si se tiene en cuenta o no los asientos de cierre y regularización de pérdidas y ganancias -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ignorar asientos de cierre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+
+</TMD>

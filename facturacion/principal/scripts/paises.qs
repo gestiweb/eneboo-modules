@@ -245,6 +245,7 @@ function oficial_normalizarProvTabla(provincias:Array, tabla:String):Boolean
 	var cursor:FLSqlCursor = this.cursor();
 
 	var curTabla:FLSqlCursor = new FLSqlCursor(metadatos.tabla);
+	curTabla.setForwardOnly(true);
 	var curBloqueo:FLSqlCursor = new FLSqlCursor(metadatos.tabla);
 	curTabla.select(metadatos.campoPais + " = '" + cursor.valueBuffer("codpais") + "'");
 	curTabla.setActivatedCheckIntegrity(false);
@@ -266,7 +267,7 @@ function oficial_normalizarProvTabla(provincias:Array, tabla:String):Boolean
 		if (!datosNormalizados) {
 			continue;
 		}
-		bloqueado = (metadatos.bloqueo && curTabla.valueBuffer(metadatos.campoBloqueo));
+		bloqueado = (metadatos.bloqueo && !curTabla.valueBuffer(metadatos.campoBloqueo));
 		if (bloqueado) {
 			curBloqueo.select(metadatos.campoClave + " = " + clave);
 			if (!curBloqueo.first()) {
@@ -280,11 +281,11 @@ function oficial_normalizarProvTabla(provincias:Array, tabla:String):Boolean
 				util.destroyProgressDialog();
 				return false;
 			}
-			curTabla.setModeAccess(curTabla.Edit);
-			curTabla.refreshBuffer();
-			curTabla.setValueBuffer(metadatos.campoIdProvincia, datosNormalizados["id"]);
-			curTabla.setValueBuffer(metadatos.campoProvincia, datosNormalizados["provincia"]);
-			if (!curTabla.commitBuffer()) {
+			curBloqueo.setModeAccess(curBloqueo.Edit);
+			curBloqueo.refreshBuffer();
+			curBloqueo.setValueBuffer(metadatos.campoIdProvincia, datosNormalizados["id"]);
+			curBloqueo.setValueBuffer(metadatos.campoProvincia, datosNormalizados["provincia"]);
+			if (!curBloqueo.commitBuffer()) {
 				util.destroyProgressDialog();
 				return false;
 			}
@@ -293,7 +294,7 @@ function oficial_normalizarProvTabla(provincias:Array, tabla:String):Boolean
 				util.destroyProgressDialog();
 				return false;
 			}
-			curBloqueo.setUnLock(metadatos.campoBloqueo, true);
+			curBloqueo.setUnLock(metadatos.campoBloqueo, false);
 		} else {
 			curTabla.setModeAccess(curTabla.Edit);
 			curTabla.refreshBuffer();

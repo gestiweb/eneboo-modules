@@ -130,11 +130,95 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO MAIL /////////////////////////////////////////////////
+class envioMail extends oficial {
+    function envioMail( context ) { oficial ( context ); }
+    function init() { 
+		return this.ctx.envioMail_init(); 
+	}
+    function enviarEmail() { 
+		return this.ctx.envioMail_enviarEmail(); 
+	}
+    function enviarEmailPedido() { 
+		return this.ctx.envioMail_enviarEmailPedido(); 
+	}
+    function accesoWeb():Boolean { 
+		return this.ctx.envioMail_accesoWeb(); 
+	}
+    function enviarEmailContacto() { 
+		return this.ctx.envioMail_enviarEmailContacto(); 
+	}
+}
+//// ENVIO MAIL /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration personaFisica */
+/////////////////////////////////////////////////////////////////
+//// PERSONA_FISICA /////////////////////////////////////////////
+class personaFisica extends envioMail {
+    function personaFisica( context ) { envioMail ( context ); }
+	function init() {
+		return this.ctx.personaFisica_init();
+	}
+	function bufferChanged(fN:String) {
+		return this.ctx.personaFisica_bufferChanged(fN);
+	}
+	function habilitarNombre() {
+		return this.ctx.personaFisica_habilitarNombre();
+	}
+	function copiarNombre() {
+		return this.ctx.personaFisica_copiarNombre();
+	}
+	function insertarNombre() {
+		return this.ctx.personaFisica_insertarNombre();
+	}
+	function eliminarNombre() {
+		return this.ctx.personaFisica_eliminarNombre();
+	}
+	function informarNombreJuridico() {
+		return this.ctx.personaFisica_informarNombreJuridico();
+	}
+}
+//// PERSONA_FISICA /////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration diasPagoProv */
+/////////////////////////////////////////////////////////////////
+//// DIAS_PAGO_PROV /////////////////////////////////////////////
+class diasPagoProv extends personaFisica {
+    function diasPagoProv( context ) { personaFisica ( context ); }
+	function validateForm():Boolean {
+		return this.ctx.diasPagoProv_validateForm();
+	}
+	function validarDiasPagoProv():Boolean {
+		return this.ctx.diasPagoProv_validarDiasPagoProv();
+	}
+}
+//// DIAS_PAGO_PROV /////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration recibosProv */
+/////////////////////////////////////////////////////////////////
+//// RECIBOS PROV ///////////////////////////////////////////////
+class recibosProv extends diasPagoProv {
+    function recibosProv( context ) { diasPagoProv ( context ); }
+	function init() {
+		this.ctx.recibosProv_init();
+	}
+	function imprimirRecibo() {
+		this.ctx.recibosProv_imprimirRecibo();
+	}
+}
+//// RECIBOS PROV ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends recibosProv {
+    function head( context ) { recibosProv ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -864,9 +948,313 @@ function oficial_borrarCuentaDom()
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+/** @class_definition envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO MAIL /////////////////////////////////////////////////
+function envioMail_init()
+{
+	this.iface.__init();
+	connect(this.child("tbnEnviarMail"), "clicked()", this, "iface.enviarEmail()");
+	connect(this.child("tbnEnviarMailPed"), "clicked()", this, "iface.enviarEmailPedido()");
+	connect(this.child("tbnWeb"), "clicked()", this, "iface.accesoWeb()");
+	connect(this.child("tbnEnviarMailContacto"), "clicked()", this, "iface.enviarEmailContacto()");
+	//this.child("tbnEnviarMailPed").close();
+}
+
+function envioMail_enviarEmail()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var util:FLUtil = new FLUtil();
+
+	var codProveedor:String = cursor.valueBuffer("codproveedor");
+	var tabla:String = "proveedores";
+	var emailProveedor:String = flfactppal.iface.pub_componerListaDestinatarios(codProveedor, tabla);
+	if (!emailProveedor) {
+		return;
+	}
+
+	var cuerpo:String = "";
+	var asunto:String = "";
+
+	var arrayDest:Array = [];
+	arrayDest[0] = [];
+	arrayDest[0]["tipo"] = "to";
+	arrayDest[0]["direccion"] = emailProveedor;
+
+	var arrayAttach:Array = [];
+
+	flfactppal.iface.pub_enviarCorreo(cuerpo, asunto, arrayDest, arrayAttach);
+}
+
+function envioMail_enviarEmailPedido()
+{
+	var codPedido:String = this.child("tdbPedidos").cursor().valueBuffer("codigo");
+	if (!codPedido) {
+		return;
+	}
+
+	var codProveedor:String = this.child("tdbPedidos").cursor().valueBuffer("codproveedor");
+	if (!codProveedor) {
+		return;
+	}
+	formpedidosprov.iface.pub_enviarDocumento(codPedido, codProveedor);
+}
+
+function envioMail_accesoWeb():Boolean
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var util:FLUtil = new FLUtil();
+
+	var nombreNavegador = util.readSettingEntry("scripts/flfactinfo/nombrenavegador");
+	if (!nombreNavegador || nombreNavegador == "") {
+		MessageBox.warning(util.translate("scripts", "No tiene establecido el nombre del navegador.\nDebe establecer este valor en la pestaña Correo del formulario de empresa"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+
+	var webProveedor:String = cursor.valueBuffer("web");
+	if (!webProveedor) {
+		MessageBox.warning(util.translate("scripts", "Debe informar la web del proveedor"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+
+	var comando:Array = [nombreNavegador, webProveedor];
+	var res:Array = flfactppal.iface.pub_ejecutarComandoAsincrono(comando);
+
+	return true;
+}
+
+function envioMail_enviarEmailContacto()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var util:FLUtil = new FLUtil();
+
+	var emailContacto:String = this.child("tdbContactos").cursor().valueBuffer("email");
+	if (!emailContacto || emailContacto == "") {
+		MessageBox.warning(util.translate("scripts", "El contacto no tiene el campo email informado."), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+	var cuerpo:String = "";
+	var asunto:String = "";
+
+	var arrayDest:Array = [];
+	arrayDest[0] = [];
+	arrayDest[0]["tipo"] = "to";
+	arrayDest[0]["direccion"] = emailContacto;
+
+	var arrayAttach:Array = [];
+
+	flfactppal.iface.pub_enviarCorreo(cuerpo, asunto, arrayDest, arrayAttach);
+}
+
+//// ENVIO MAIL /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition personaFisica */
+/////////////////////////////////////////////////////////////////
+//// PERSONA_FISICA /////////////////////////////////////////////
+function personaFisica_init()
+{
+	this.iface.__init();
+
+	connect(this.child("tbnInsertarNombre"), "clicked()", this, "iface.insertarNombre()");
+	connect(this.child("tbnEliminarNombre"), "clicked()", this, "iface.eliminarNombre()");
+	this.iface.habilitarNombre();
+}
+
+function personaFisica_bufferChanged(fN)
+{
+	var cursor:FLSqlCursor = this.cursor();
+	switch(fN) {
+		case "personafisica": {
+			this.iface.habilitarNombre();
+			this.iface.copiarNombre();
+			break;
+		}
+		case "nombrepila": 
+		case "apellidos": {
+			this.iface.informarNombreJuridico();
+			break;
+		}
+		default: {
+			this.iface.__bufferChanged(fN);
+			break;
+		}
+	}
+}
+
+function personaFisica_habilitarNombre()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	if (cursor.valueBuffer("personafisica")) {
+		this.child("gbxNombre").close();
+		this.child("gbxNombreApellidos").show();
+	} else {
+		this.child("gbxNombre").show();
+		this.child("gbxNombreApellidos").close();
+	}
+}
+
+function personaFisica_copiarNombre()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	if (cursor.valueBuffer("personafisica") && cursor.valueBuffer("apellidos") == "") {
+		this.child("fdbApellidos").setValue(cursor.valueBuffer("nombre"));
+	}
+}
+
+function personaFisica_insertarNombre()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var i:Number;
+	var nombrePila:String = cursor.valueBuffer("nombrepila");
+	var apellidos:String = cursor.valueBuffer("apellidos");
+	if (!apellidos) {
+		apellidos = "";
+		return;
+	}
+	if (!nombrePila) {
+		nombrePila = "";
+	}
+	var palabra:String;
+	var iEspacio:Number = apellidos.find(" ");
+	if (iEspacio != - 1) {
+		palabra = apellidos.substring(0, iEspacio);
+		apellidos = apellidos.right(apellidos.length - iEspacio -1);
+	} else {
+		palabra = cursor.valueBuffer("apellidos");
+		apellidos = "";
+	}
+
+	if (nombrePila == "") {
+		nombrePila = palabra;
+	} else {
+		nombrePila = nombrePila + " " + palabra;
+	}
+
+	this.child("fdbNombrePila").setValue(nombrePila);
+	this.child("fdbApellidos").setValue(apellidos);
+}
+
+function personaFisica_eliminarNombre()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var i:Number;
+	var nombrePila:String = cursor.valueBuffer("nombrepila");
+	var apellidos:String = cursor.valueBuffer("apellidos");
+	if (!nombrePila) {
+		nombrePila = "";
+		return;
+	}
+	if (!apellidos) {
+		apellidos = "";
+	}
+	var iEspacio:Number = nombrePila.findRev(" ");
+	var palabra:String = nombrePila.substring(iEspacio + 1, nombrePila.length);
+	if (apellidos == "") {
+		apellidos = palabra;
+	} else {
+		apellidos = palabra + " " + apellidos;
+	}
+	if (iEspacio == -1) {
+		nombrePila = "";
+	} else {
+		nombrePila = nombrePila.left(iEspacio);
+	}
+	this.child("fdbNombrePila").setValue(nombrePila);
+	this.child("fdbApellidos").setValue(apellidos);
+}
+
+function personaFisica_informarNombreJuridico()
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var nombrePila:String = cursor.valueBuffer("nombrepila");
+	if (!nombrePila) {
+		nombrePila = "";
+	}
+	var apellidos:String = cursor.valueBuffer("apellidos");
+	if (!apellidos) {
+		apellidos = "";
+	}
+	if (cursor.valueBuffer("personafisica")) {
+		var nombre:String = apellidos + " " + nombrePila;
+		this.child("fdbNombre").setValue(nombre);
+	}
+}
+
+//// PERSONA_FISICA /////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition diasPagoProv */
+/////////////////////////////////////////////////////////////////
+//// DIAS_PAGO_PROV /////////////////////////////////////////////
+function diasPagoProv_validateForm():Boolean
+{
+	try {
+		if (!this.iface.__validateForm())
+			return false;
+	}
+	catch(e) {
+	}
+	return this.iface.validarDiasPagoProv();
+}
+/** \D
+Comprueba que el valor del campo --diaspago-- es una lista de días válido ordenada de forma ascentente
+@return	Verdadero si se cumplo, falso en caso contrario
+\end */
+function diasPagoProv_validarDiasPagoProv():Boolean
+{
+	var util = new FLUtil(); 
+	var cursor:FLSqlCursor = form.cursor();
+	var diasPago:String = cursor.valueBuffer("diaspago");
+	if (!diasPago || diasPago == "")
+			return true;
+	var dia:Array = diasPago.split(",");
+	var numDias = dia.length;
+	if (numDias == 0) {
+		MessageBox.warning(util.translate("scripts", "El formato de los días de pago no es válido"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+	var diaAnterior:Number = 0;
+	for (var i:Number = 0; i < numDias; i++) {
+		if (parseFloat(dia[i]) <= parseFloat(diaAnterior)) {
+			MessageBox.warning(util.translate("scripts", "Los días de pago deben formar una lista ascendente"), MessageBox.Ok, MessageBox.NoButton);
+			return false;
+		}
+		if (dia[i] > 31) {
+			MessageBox.warning(util.translate("scripts", "El formato de los días de pago no es válido"), MessageBox.Ok, MessageBox.NoButton);
+			return false;
+		}
+		diaAnterior = dia[i];
+	}
+	return true;
+}
+//// DIAS_PAGO_PROV /////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+/** @class_definition recibosProv */
+/////////////////////////////////////////////////////////////////
+//// RECIBOS PROV ///////////////////////////////////////////////
+function recibosProv_init()
+{
+	this.iface.__init();
+
+	connect(this.child("toolButtonPrintRec"), "clicked()", this, "iface.imprimirRecibo()");
+}
+
+function recibosProv_imprimirRecibo()
+{
+	var codRecibo:String = this.child("tdbRecibos").cursor().valueBuffer("codigo");
+	if (!codRecibo)
+		return;
+	formrecibosprov.iface.pub_imprimir(codRecibo);
+
+}
+//// RECIBOS PROV ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////

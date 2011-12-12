@@ -1,0 +1,52 @@
+<!DOCTYPE TMD>
+<TMD>
+
+	<name>tpv_tecladoletras</name>
+	<!-- Teclado alfanumérico-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Teclado alfanumérico")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+	</field>
+
+	<field>
+		<name>idusuario</name>
+		<!-- Usuario -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Usuario")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>texto</name>
+		<!-- texto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Texto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>300</length>
+	</field>
+
+	<field>
+		<name>codimpuesto</name>
+		<!--Tipo de impuesto aplicado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","IVA")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>impuestos</table>
+			<field>codimpuesto</field>
+			<card>M1</card>
+		</relation>
+	</field>
+</TMD>

@@ -1,0 +1,289 @@
+<!DOCTYPE TMD>
+<TMD>
+
+	<name>tpv_puntosventa</name>
+	<!-- Listado de puntos de venta -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Puntos de venta")</alias>
+
+	<field>
+		<name>codtpv_puntoventa</name>
+		<!-- Identificador -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<counter>true</counter>
+
+		<relation>
+			<table>tpv_comandas</table>
+			<field>codtpv_puntoventa</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>tpv_pagoscomanda</table>
+			<field>codtpv_puntoventa</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Nombre del punto de venta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>estado</name>
+		<!-- 0: Fuera de servicio, 1: En servicio -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","En servicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+
+	<field>
+		<name>codtpv_agente</name>
+		<!-- Persona que vende en el terminal -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Agente")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<relation>
+			<table>tpv_agentes</table>
+			<field>codtpv_agente</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>impresora</name>
+		<!-- Nombre de la impresora ESC/POS utilizado por el comando lpr -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre de Impresora LPR")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>150</length>
+	</field>
+	
+	<field>
+		<name>coddepartamento</name>
+		<!--Código de departamento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Departamento")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>departamentos</table>
+			<field>coddepartamento</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codalmacen</name>
+		<!-- Código del almacén	-->
+		<alias>QT_TRANSLATE_NOOP(&quot;MetaData&quot;,&quot;Almacén&quot;)</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<relation>
+			<table>almacenes</table>
+			<field>codalmacen</field>
+			<card>M1</card>
+		</relation>
+    </field>
+	
+	<field>
+		<name>tipoimpresora</name>
+		<!-- Tipo de impresora-->
+		<alias>QT_TRANSLATE_NOOP(&quot;MetaData&quot;,&quot;Tipo&quot;)</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+		<optionslist>ESC-POS,Térmica</optionslist>
+		<default>ESC-POS</default>
+    </field>
+
+	<field>
+		<name>pixel</name>
+		<!-- Pixel-->
+		<alias>QT_TRANSLATE_NOOP(&quot;MetaData&quot;,&quot;Pixel&quot;)</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>780</default>
+    </field>
+
+	<field>
+		<name>resolucion</name>
+		<!-- Resolución-->
+		<alias>QT_TRANSLATE_NOOP(&quot;MetaData&quot;,&quot;Resolución&quot;)</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>300</default>
+    </field>
+
+	<field>
+		<name>usarvisor</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Usar visor")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+    </field>
+	
+	<field>
+		<name>numcaractvisor</name>
+		<!-- Número de caracteres por línea en el visor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Número caracteres/línea")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>int</type>
+    </field>
+
+	<field>
+		<name>nombrepuertovisor</name>
+		<!-- Nombre puerto visor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre puerto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+    </field>
+
+	<field>
+		<name>baudratevisor</name>
+		<!-- Baud Rate Visor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Baud Rate")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<optionslist>--,50,75,110,134,150,200,300,600,1200,1800,2400,4800,9600,14400,19200,38400,56000,57600,76800,115200,128000,256000</optionslist>
+    </field>
+
+		<field>
+		<name>bitdatosvisor</name>
+		<!-- Bit Datos Visor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Bit datos")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>1</length>
+		<optionslist>--,5,6,7,8</optionslist>
+    </field>
+	<field>
+		<name>paridadvisor</name>
+		<!-- Paridad Visor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Paridad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+		<optionslist>--,Sin paridad,Impar,Par,MARK,SPACE</optionslist>
+    </field>
+
+	<field>
+		<name>bitstopvisor</name>
+		<!-- Bit stop Visor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Bit stop")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<optionslist>--,1,1_5,2</optionslist>
+    </field>
+
+    	<field>
+		<name>flowcontrol</name>
+		<!-- Control de flujo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Control Flujo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<optionslist>FLOW_OFF,FLOW_HARDWARE,FLOW_XONXOFF</optionslist>
+    </field>
+
+	<field>
+		<name>iniciarvisor</name>
+		<!-- Iniciar visor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Iniciar")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+    </field>
+
+	<field>
+		<name>limpiarvisor</name>
+		<!-- Limpiar visor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Limpiar")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+    </field>
+
+	<field>
+		<name>prefprimeralinea</name>
+		<!-- Prefifo de la primera linea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Prefijo primera linea")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+    </field>
+	
+	<field>
+		<name>sufprimeralinea</name>
+		<!-- Sufijo de la primera linea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Sufijo primera linea")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+    </field>
+	
+	<field>
+		<name>prefsegundalinea</name>
+		<!-- Prefijo de la segunda linea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Prefijo segunda linea")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+    </field>
+	
+	<field>
+		<name>sufsegundalinea</name>
+		<!-- Sufijo de la segunda linea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Sufijo segunda linea")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+    </field>
+	
+	<field>
+		<name>abrircajon</name>
+		<!-- Apertura cajón-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apertura cajón")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>25</length>
+    </field>
+</TMD>

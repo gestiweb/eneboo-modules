@@ -1,0 +1,84 @@
+<!DOCTYPE TMD>
+<TMD>
+
+	<name>tpv_agentes</name>
+	<!-- Listado de agentes de TPV -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Agentes")</alias>
+
+	<field>
+		<name>codtpv_agente</name>
+		<!-- Identificador -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<counter>true</counter>
+
+		<relation>
+			<table>tpv_puntosventa</table>
+			<field>codtpv_agente</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>tpv_comandas</table>
+			<field>codtpv_agente</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>tpv_pagoscomanda</table>
+			<field>codtpv_agente</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>tpv_movimientos</table>
+			<field>codtpv_agente</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Nombre -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>idusuario</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Usuario")</alias>
+		<pk>false</pk>
+		<null>true</null>
+		<type>string</type>
+		<length>30</length>
+		
+		<relation>
+			<table>flusers</table>
+			<field>iduser</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codagente</name>
+		<!--Código del agente comercial asignado al agente de ventas-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Agente comercial")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>agentes</table>
+			<field>codagente</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+</TMD>

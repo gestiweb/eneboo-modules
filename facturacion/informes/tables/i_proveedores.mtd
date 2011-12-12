@@ -1,0 +1,134 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>i_proveedores</name>
+	<!-- Listado de proveedores-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Informes de proveedores")</alias>
+	
+	<field>
+		<name>id</name>
+		<!-- Identificador interno	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>d_proveedores_codproveedor</name>
+		<!-- Proveedor inicial-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde proveedor")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>proveedores</table>
+			<field>codproveedor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>h_proveedores_codproveedor</name>
+		<!-- Proveedor inicial-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta proveedor")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>proveedores</table>
+			<field>codproveedor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>i_proveedores_codserie</name>
+		<!-- Serie-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Serie de facturación")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		
+		<relation>
+			<table>series</table>
+			<field>codserie</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>i_proveedores_regimeniva</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Régimen I.V.A.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Todos");QT_TRANSLATE_NOOP("MetaData","General");QT_TRANSLATE_NOOP("MetaData","Exportaciones");QT_TRANSLATE_NOOP("MetaData","UE");QT_TRANSLATE_NOOP("MetaData","Exento")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Todos")</default>
+	</field>
+	
+	<field>
+		<name>i_dirproveedores_codpais</name>
+		<!-- Serie-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","País")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		
+		<relation>
+			<table>paises</table>
+			<field>codpais</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>orden1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden 1")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","No ordenar");QT_TRANSLATE_NOOP("MetaData","Cod. proveedor");QT_TRANSLATE_NOOP("MetaData","Proveedor");QT_TRANSLATE_NOOP("MetaData","Población");QT_TRANSLATE_NOOP("MetaData","Provincia");QT_TRANSLATE_NOOP("MetaData","País");QT_TRANSLATE_NOOP("MetaData","Cod.Postal")</optionslist>
+		<length>20</length>
+		<default>QT_TRANSLATE_NOOP("MetaData","No ordenar")</default>
+	</field>
+	
+	<field>
+		<name>tipoorden1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Ascendente");QT_TRANSLATE_NOOP("MetaData","Descendente")</optionslist>
+		<length>20</length>
+	</field>
+	
+	<field>
+		<name>orden2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden 2")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","No ordenar");QT_TRANSLATE_NOOP("MetaData","Cod. proveedor");QT_TRANSLATE_NOOP("MetaData","Proveedor");QT_TRANSLATE_NOOP("MetaData","Población");QT_TRANSLATE_NOOP("MetaData","Provincia");QT_TRANSLATE_NOOP("MetaData","País");QT_TRANSLATE_NOOP("MetaData","Cod.Postal")</optionslist>
+		<length>20</length>
+		<default>QT_TRANSLATE_NOOP("MetaData","No ordenar")</default>
+	</field>
+	
+	<field>
+		<name>tipoorden2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Ascendente");QT_TRANSLATE_NOOP("MetaData","Descendente")</optionslist>
+		<length>20</length>
+	</field>
+	
+</TMD>

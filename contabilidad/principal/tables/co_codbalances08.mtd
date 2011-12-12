@@ -1,0 +1,141 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_codbalances08</name>
+	<!--Datos de la clasificación de cuentas en niveles para los balances-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Códigos de Balance PGC 08")</alias>
+
+	<field>
+		<name>codbalance</name>
+		<!-- Identificador interno de la clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>15</length>
+		
+		<relation>
+			<table>co_cuentascb</table>
+			<field>codbalance</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_cuentascbba</table>
+			<field>codbalance</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>	
+		<name>naturaleza</name>
+		<!-- Naturaleza en el balance (DEBE, HABER, ACTIVO o PASIVO) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Naturaleza")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>	
+		<optionslist>A,P,PG,IG</optionslist>
+		<default>A</default>		
+	</field>
+	
+	<field>	
+		<name>nivel1</name>
+		<!-- Código de nivel 1 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código nivel 1")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>	
+	</field>
+	
+	<field>	
+		<name>descripcion1</name>
+		<!-- Nivel 1 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>	
+	</field>
+	
+	<field>	
+		<name>nivel2</name>
+		<!-- Código de nivel 2 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código nivel 2")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>	
+		<name>descripcion2</name>
+		<!-- Nivel 2 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>	
+	</field>
+	
+	<field>	
+		<name>nivel3</name>
+		<!-- Código de nivel 3 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código nivel 3")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>	
+	</field>
+	
+	<field>	
+		<name>orden3</name>
+		<!-- Orden de nivel 3 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden nivel 3")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>	
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>	
+		<name>descripcion3</name>
+		<!-- Nivel 3 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>	
+	</field>
+	
+	<field>	
+		<name>nivel4</name>
+		<!-- Código de nivel 4 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código nivel 4")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>	
+	</field>
+	
+	<field>	
+		<name>descripcion4</name>
+		<!-- Nivel 4 de clasificación en el balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>	
+	</field>
+
+	<field>	
+		<name>descripcion4ba</name>
+		<!-- Nivel 4 de clasificación en el balance para el balance abreviado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción balance abreviado")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>	
+	</field>
+</TMD>

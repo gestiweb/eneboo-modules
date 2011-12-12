@@ -1,0 +1,914 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_modelo303</name>
+	<!--Modelo 303-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Modelo 303")</alias>
+
+	<field>
+		<name>id</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>codejercicio</name>
+		<!--Ejercicio al que corresponde el período del modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>tipoperiodo</name>
+		<!--Tipo de período-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Período")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>Mes,Trimestre</optionslist>
+		<default>Trimestre</default>
+		<type>string</type>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>trimestre</name>
+		<!--Período (trimestre) del modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Trimestre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>1T,2T,3T,4T</optionslist>
+		<default>1T</default>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	
+	<field>
+		<name>mes</name>
+		<!--Período (mes) del modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mes")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre</optionslist>
+		<default>Enero</default>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>fechainicio</name>
+		<!--Fecha de inicio del período correspondiente al modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Inicio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fechafin</name>
+		<!--Fecha de fin del período correspondiente al modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fin")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>idtipodec</name>
+		<!--Tipo de declaración (usado en la presentación telemática)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>1</length>
+		
+		<relation>
+			<table>co_tipodec303</table>
+			<field>idtipodec</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codadmon</name>
+		<!--Código de administración-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Admón.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>
+		<regexp>\d{5}</regexp>
+	</field>
+
+	<field>
+		<name>baseimponiblerg1</name>
+		<!--IVA Devengado: Base imponible del régimen general (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","01")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblerg2</name>
+		<!--IVA Devengado: Base imponible del régimen general (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","04")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblerg3</name>
+		<!--IVA Devengado: Base imponible del régimen general (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","07")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblere1</name>
+		<!--IVA Devengado: Base imponible de recargo de equivalencia (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","10")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblere2</name>
+		<!--IVA Devengado: Base imponible de recargo de equivalencia (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","13")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblere3</name>
+		<!--IVA Devengado: Base imponible de recargo de equivalencia (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","16")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleai</name>
+		<!--IVA Devengado: Base imponible por adquisiciones intracomunitarias-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","19")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tiporg1</name>
+		<!--IVA Devengado: Tipo de IVA (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","02")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tiporg2</name>
+		<!--IVA Devengado: Tipo de IVA (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","05")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tiporg3</name>
+		<!--IVA Devengado: Tipo de IVA (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","08")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tipore1</name>
+		<!--IVA Devengado: Tipo de recargo de equivalencia (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","11")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tipore2</name>
+		<!--IVA Devengado: Tipo de recargo de equivalencia (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","14")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tipore3</name>
+		<!--IVA Devengado: Tipo de recargo de equivalencia (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","17")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotarg1</name>
+		<!--IVA Devengado: Cuota del régimen general (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","03")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotarg2</name>
+		<!--IVA Devengado: Cuota del régimen general (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","06")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotarg3</name>
+		<!--IVA Devengado: Cuota del régimen general (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","09")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotare1</name>
+		<!--IVA Devengado: Cuota de recargo de equivalencia (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","12")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotare2</name>
+		<!--IVA Devengado: Cuota de recargo de equivalencia (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","15")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotare3</name>
+		<!--IVA Devengado: Cuota de recargo de equivalencia (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","18")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaai</name>
+		<!--IVA Devengado: Cuota por adquisiciones intracomunitarias-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","20")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotadevtotal</name>
+		<!--IVA Devengado: Cuota total (03 + 06 + 09 + 12 + 15 + 18 + 20)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","21")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>basededoibc</name>
+		<!--IVA deducible por cuotas soportadas en operaciones interiores corrientes. BI-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","22")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>cuotadedoibc</name>
+		<!--IVA deducible por cuotas soportadas en operaciones interiores corrientes. Cuota-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","23")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>basededoibi</name>
+		<!--IVA deducible por cuotas soportadas en operaciones interiores con bienes de inversión. BI-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","24")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>cuotadedoibi</name>
+		<!--IVA deducible por cuotas soportadas en operaciones interiores con bienes de inversión. Cuota-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","25")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>basededimbc</name>
+		<!--IVA deducible por cuotas soportadas en las importaciones de bienes corrientes. BI-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","26")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>cuotadedimbc</name>
+		<!--IVA deducible por cuotas soportadas en las importaciones de bienes corrientes. Cuota-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","27")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>basededimbi</name>
+		<!--IVA deducible por cuotas soportadas en las importaciones de bienes de inversión. BI-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","28")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>cuotadedimbi</name>
+		<!--IVA deducible por cuotas soportadas en las importaciones de bienes de inversión. Cuota-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","29")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>basededaibc</name>
+		<!--IVA deducible en adquisiciones intracomunitarias de bienes corrientes. BI-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","30")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>cuotadedaibc</name>
+		<!--IVA deducible en adquisiciones intracomunitarias de bienes corrientes. Cuota-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","31")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>basededaibi</name>
+		<!--IVA deducible en adquisiciones intracomunitarias de bienes de inversión. BI-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","32")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>cuotadedaibi</name>
+		<!--IVA deducible en adquisiciones intracomunitarias de bienes de inversión. Cuota-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","33")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotacomre</name>
+		<!--IVA deducible en compensaciones Régimen Especial A.G. y P.-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","34")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaregin</name>
+		<!--IVA deducible: Regularización inversiones-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","35")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaregapli</name>
+		<!--IVA deducible: Regularización por aplicación del porcentaje def. de prorrata-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","36")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotadedtotal</name>
+		<!--IVA deducible: Total a deducir (?23 + 25 + 27 + 29 + 31 + 33 + 34 + 35 + 36?)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","37")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotadif</name>
+		<!--Diferencia (21 - 37)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","38")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>porcuotaestado</name>
+		<!--Atribuible a la Administración del Estado - %-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","39")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+		<default>100</default>
+	</field>
+	
+	<field>
+		<name>cuotaestado</name>
+		<!--Atribuible a la Administración del Estado -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","40")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>codsctacoutasanteriores</name>
+		<!--Código de la subcuenta en la que se almacenan las cuotas a compensar de ejercicios anteriores-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subcuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>idsctacuotasanteriores</name>
+		<!--Identificador interno de la subcuenta en la que se almacenan las cuotas a compensar de ejercicios anteriores-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+	
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>cuotaanterior</name>
+		<!--Cuota a compensar de periodos anteriores-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","41")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>entregasi</name>
+		<!--Entregas intracomunitarias-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","42")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>exportaciones</name>
+		<!--Exportaciones y operaciones asimiladas-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","43")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>nosujetas</name>
+		<!--Operaciones no sujetas o con inversión del sujeto pasivo. Derecho a deducción-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","44")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>sujetospasivos</name>
+		<!--Cuota exclusiva para sujetos pasivos que tributan conjuntamente a la Administración del Estado y a las Diputaciones Forales-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","45")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaresultado</name>
+		<!--Resultado (?40 - 41 + 45?)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","46")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>adeducircompl</name>
+		<!--Importe a deducir -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","47")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>resliquid</name>
+		<!--Resultado de la liquidación (46 - 47)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","48")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>impcompensar</name>
+		<!--Importe a compensar en caso de que la casilla 48 resulte negativa-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","49")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>sinactividad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Sin actividad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>imported</name>
+		<!--Importe a devolver-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","50s")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>ctaentidaddev</name>
+		<!-- Entidad de la cuenta bancaria de devolución-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Entidad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<editable>true</editable>
+	</field>
+
+	<field>
+		<name>ctaagenciadev</name>
+		<!-- Oficina de la cuenta bancaria de devolución-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Oficina")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<editable>true</editable>
+	</field>
+
+	<field>
+		<name>dcdev</name>
+		<!-- Dígitos de Control de la cuenta bancaria de devolución-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","D.C.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+		<calculated>true</calculated>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>cuentadev</name>
+		<!-- Número de la cuenta bancaria de devolución-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		<editable>true</editable>
+	</field>
+	
+	<field>
+		<name>formapago</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Forma de pago")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<optionslist>0-No consta,1-Efectivo,2-Adeudo en cuenta,3-Domiciliación</optionslist>
+		<default>0-No consta</default>
+	</field>
+	
+	<field>
+		<name>importei</name>
+		<!--Importe a ingresar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","50")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>codcuentadev</name>
+		<!-- Código de la cuenta bancaria de devolución-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>cuentasbanco</table>
+			<field>codcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>desctadev</name>
+		<!-- Descripción de la cuenta bancaria de devolución-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+		<editable>true</editable>
+	</field>
+
+	<field>
+		<name>codcuentaingreso</name>
+		<!-- Código de la cuenta bancaria de ingreso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>cuentasbanco</table>
+			<field>codcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>desctaingreso</name>
+		<!-- Descripción de la cuenta bancaria de ingreso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+		<editable>true</editable>
+	</field>
+
+	<field>
+		<name>ctaentidadingreso</name>
+		<!-- Entidad de la cuenta bancaria de ingreso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Entidad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<editable>true</editable>
+	</field>
+
+	<field>
+		<name>ctaagenciaingreso</name>
+		<!-- Oficina de la cuenta bancaria de ingreso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Oficina")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<editable>true</editable>
+	</field>
+
+	<field>
+		<name>dcingreso</name>
+		<!-- Dígitos de Control de la cuenta bancaria de ingreso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","D.C.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+		<calculated>true</calculated>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>cuentaingreso</name>
+		<!-- Número de la cuenta bancaria de ingreso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		<editable>true</editable>
+	</field>
+	
+	<field>
+		<name>complementaria</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Autoliquidación complementaria")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>numjustificante</name>
+		<!--número de justificante de la declaración anterior-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº justificante")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>13</length>
+	</field>
+	
+	<field>
+		<name>localidadfirma</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Localidad de la firma")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>16</length>
+	</field>
+	
+	<field>
+		<name>fechafirma</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>inscritoregdev</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Inscrito en el Registro de devolución mensual")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+
+</TMD>

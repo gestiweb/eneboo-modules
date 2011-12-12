@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+<KugarTemplate BottomMargin="10" TopMargin="50" RightMargin="10" LeftMargin="20" PageOrientation="1" PageSize="0" >
+ <DetailHeader Height="125" Level="0" >
+ 
+	<CalculatedField FunctionName="flfactalma.pub_mostrarEmpresa" CalculationType="6" WordWrap="1" Width="450" X="2" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="35" HAlignment="1" DataType="0" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[]" FontWeight="65" FontSize="14" BorderWidth="1" Precision="2" FontFamily="Arial" />
+ 
+	<CalculatedField FunctionName="flfactinfo.pub_logo" CalculationType="6" WordWrap="0" Width="109" X="500" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="34" HAlignment="0" DataType="5" Field="empresa.logo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.logo]" FontWeight="50" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	
+	<Label WordWrap="0" Width="400" X="5" Y="45" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="LISTADO DE MOVIMIENTOS DE STOCK" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+  
+	<Label WordWrap="0" Width="100" X="2" Y="70" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="ARTÍCULO: " FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="1" Width="120" X="102" Y="70" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="referencia" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[]" FontWeight="65" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	<Label WordWrap="0" Width="100" X="262" Y="70" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="ALMACÉN : " FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="1" Width="100" X="362" Y="70" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="codalmacen" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[]" FontWeight="65" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial" />
+ 	
+ 	
+  <!--Cabecera de lista de articulos-->
+  
+   <Label WordWrap="0" Width="60" X="1" Y="95" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Fecha" FontWeight="50" FontSize="11" BorderWidth="1" FontFamily="Arial Narrow" />
+   <Label WordWrap="0" Width="50" X="62" Y="95" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Hora" FontWeight="50" FontSize="11" BorderWidth="1" FontFamily="Arial Narrow" />
+   <Label WordWrap="0" Width="170" X="113" Y="95" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Origen/Destino" FontWeight="50" FontSize="11" BorderWidth="1" FontFamily="Arial Narrow" />
+   <Label WordWrap="0" Width="90" X="284" Y="95" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Tipo documento" FontWeight="50" FontSize="11" BorderWidth="1" FontFamily="Arial Narrow" />
+   <Label WordWrap="0" Width="80" X="375" Y="95" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Documento" FontWeight="50" FontSize="11" BorderWidth="1" FontFamily="Arial Narrow" />
+   <Label WordWrap="0" Width="60" X="456" Y="95" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Cantidad" FontWeight="50" FontSize="11" BorderWidth="1" FontFamily="Arial Narrow" />
+   <Label WordWrap="0" Width="29" X="517" Y="95" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Ud." FontWeight="50" FontSize="11" BorderWidth="1" FontFamily="Arial Narrow" />
+   <Label WordWrap="0" Width="60" X="547" Y="95" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Estado" FontWeight="50" FontSize="11" BorderWidth="1" FontFamily="Arial Narrow" />
+   <Label WordWrap="0" Width="70" X="608" Y="95" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Lote" FontWeight="50" FontSize="11" BorderWidth="1" FontFamily="Arial Narrow" />
+
+  <Line Width="1" Y1="120" Y2="120" X1="0" X2="670" Style="1" Color="100,100,100" />
+  
+ </DetailHeader>
+ 
+ <Detail Height="20" Level="0" >
+	<Field WordWrap="0" Width="60" X="1" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="fecha" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	<Field WordWrap="0" Width="50" X="62" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="1" DataType="0" Field="hora" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	<Field WordWrap="0" Width="168" X="115" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="origen" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	<Field WordWrap="0" Width="87" X="287" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="tipodoc" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	<Field WordWrap="0" Width="77" X="375" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="1" DataType="0" Field="documento" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	<Field WordWrap="0" Width="58" X="456" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="1" DataType="1" Field="cantidad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	<Field WordWrap="0" Width="28" X="516" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="codunidad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	<Field WordWrap="0" Width="58" X="547" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="1" DataType="0" Field="estado" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	<Field WordWrap="0" Width="68" X="610" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="1" DataType="0" Field="codlote" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	
+</Detail>
+ 
+</KugarTemplate>

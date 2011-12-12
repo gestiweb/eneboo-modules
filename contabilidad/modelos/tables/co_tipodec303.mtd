@@ -1,0 +1,33 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_tipodec303</name>
+	<!--Tipos de declaración para el modelo 303-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de declaración para el modelo 303")</alias>
+
+	<field>
+		<name>idtipodec</name>
+		<!--Tipo de declaración (usado en la presentación telemática)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo de declaración")</alias>
+		<null>true</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>1</length>
+		
+		<relation>
+			<table>co_modelo303</table>
+			<field>idtipodec</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>150</length>
+	</field>
+
+</TMD>

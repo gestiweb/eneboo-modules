@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+<KugarTemplate BottomMargin="10" TopMargin="40" RightMargin="10" LeftMargin="20" PageOrientation="1" PageSize="0" >
+ <Detail Height="130" Level="0" >
+  
+	<!-- EMPRESA -->
+  <Line Width="1" Y1="0" Y2="0" X1="0" X2="370" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="80" Y2="80" X1="0" X2="370" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="80" X1="0" X2="0" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="80" X1="370" X2="370" Style="1" Color="100,100,100" />
+	
+	<Label WordWrap="0" Width="300" X="1" Y="100" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Listado riesgo excedido" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+	<Label WordWrap="0" Width="70" X="540" Y="100" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Fecha del" FontWeight="50" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+	<Label WordWrap="0" Width="20" X="680" Y="100" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="al" FontWeight="50" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+  	<Field WordWrap="0" Width="70" X="605" Y="100" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="1" DataType="3" Field="i_riesgocli.dfecha" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_riesgocli.dfecha]" FontWeight="50" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	<Field WordWrap="0" Width="70" X="695" Y="100" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="1" DataType="3" Field="i_riesgocli.hfecha" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_riesgocli.hfecha]" FontWeight="50" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	
+	<Field WordWrap="1" Width="260" X="2" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="35" HAlignment="1" DataType="0" Field="empresa.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.nombre]" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+ 
+	<Field WordWrap="0" Width="109" X="260" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="34" HAlignment="0" DataType="5" Field="empresa.logo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.logo]" FontWeight="50" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  
+	<Label WordWrap="0" Width="60" X="5" Y="40" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="CIF/NIF" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="80" X="45" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.cifnif" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.cifnif]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+ 
+  <Field WordWrap="0" Width="235" X="125" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.direccion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.direccion]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="45" X="5" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.codpostal" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.codpostal]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="150" X="65" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.ciudad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.ciudad]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="100" X="215" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.provincia" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.provincia]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+ </Detail>
+ 
+ <DetailHeader Height="20" Level="1" >
+  <Label WordWrap="0" Width="69" X="0" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Códidgo" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial narrow" />
+ <Label WordWrap="0" Width="149" X="70" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Nombre" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial narrow" />
+ <Label WordWrap="0" Width="149" X="220" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Representante" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial narrow" />
+ <Label WordWrap="0" Width="79" X="370" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Riesgo Máx." FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial narrow" />
+ <Label WordWrap="0" Width="79" X="450" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Imp. Recibos" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial narrow" />
+ <Label WordWrap="0" Width="79" X="530" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="R. Pagados" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial narrow" />
+ <Label WordWrap="0" Width="79" X="610" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="R. Pendientes" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial narrow" />
+ <Label WordWrap="0" Width="79" X="690" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Ries. Exced." FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial narrow" />
+ </DetailHeader>
+ 
+ <Detail Height="22" Level="1" >
+  <Field WordWrap="0" Width="70" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="i_riesgocli_buffer.codcliente" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_riesgocli_buffer.codcliente]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="150" X="70" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="i_riesgocli_buffer.nombrecliente" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_riesgocli_buffer.nombrecliente]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="150" X="220" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="i_riesgocli_buffer.nombreagente" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_riesgocli_buffer.nombreagente]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="80" X="370" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="2" Field="i_riesgocli_buffer.riesgomax" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_riesgocli_buffer.riesgomax]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="80" X="450" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="2" Field="i_riesgocli_buffer.imprecibos" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_riesgocli_buffer.imprecibos]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="80" X="530" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="2" Field="i_riesgocli_buffer.imppagados" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_riesgocli_buffer.imppagados]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="80" X="610" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="2" Field="i_riesgocli_buffer.imppendientes" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_riesgocli_buffer.imppendientes]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="80" X="690" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="2" Field="i_riesgocli_buffer.riesgoexced" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_riesgocli_buffer.riesgoexced]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+ </Detail>
+  
+ <DetailFooter Height="35" Level="1" >
+ </DetailFooter>
+ <PageFooter Height="5" PrintFrequency="1" >
+ </PageFooter>
+</KugarTemplate>

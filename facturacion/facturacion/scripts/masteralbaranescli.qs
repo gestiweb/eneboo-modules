@@ -41,6 +41,7 @@ class oficial extends interna {
 	var pbnGFactura:Object;
 	var tdbRecords:FLTableDB;
 	var tbnImprimir:Object;
+	var tbnAbrirCerrar:Object;
 	var curFactura:FLSqlCursor;
 	var curLineaFactura:FLSqlCursor;
 	
@@ -96,24 +97,134 @@ class oficial extends interna {
 	function filtroTabla():String {
 		return this.ctx.oficial_filtroTabla();
 	}
+	function tbnAbrirCerrar_clicked() {
+		return this.ctx.oficial_tbnAbrirCerrar_clicked();
+	}
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+class ivaIncluido extends oficial {
+    function ivaIncluido( context ) { oficial( context ); } 	
+	function datosLineaFactura(curLineaAlbaran:FLSqlCursor):Boolean {
+		return this.ctx.ivaIncluido_datosLineaFactura(curLineaAlbaran);
+	}
+	function totalesFactura():Boolean {
+		return this.ctx.ivaIncluido_totalesFactura();
+	}
+}
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+/** @class_declaration envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO_MAIL ////////////////////////////////////////////////
+class envioMail extends ivaIncluido {
+    function envioMail( context ) { ivaIncluido ( context ); }
+	function init() { 
+		return this.ctx.envioMail_init(); 
+	}
+	function enviarDocumento(codAlbaran:String, codCliente:String) {
+		return this.ctx.envioMail_enviarDocumento(codAlbaran, codCliente);
+	}
+	function imprimir(codAlbaran:String) {
+		return this.ctx.envioMail_imprimir(codAlbaran);
+	}
+}
+
+//// ENVIO_MAIL ////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration modelo347 */
+/////////////////////////////////////////////////////////////////
+//// MODELO347 //////////////////////////////////////////////////
+class modelo347 extends envioMail {
+    function modelo347( context ) { envioMail ( context ); }
+    function totalesFactura():Boolean {
+		return this.ctx.modelo347_totalesFactura();
+	}
+}
+//// MODELO347 //////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+class rappel extends modelo347 {
+    function rappel( context ) { modelo347 ( context ); }
+	function datosLineaFactura(curLineaAlbaran:FLSqlCursor):Boolean {
+		return this.ctx.rappel_datosLineaFactura(curLineaAlbaran);
+	}
+}
+//// RAPPEL /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration batchDocs */
+/////////////////////////////////////////////////////////////////
+//// BATCH_DOCS /////////////////////////////////////////////////
+class batchDocs extends rappel {
+	var pbnBatchPedidos:Object;
+    function batchDocs( context ) { rappel ( context ); }
+	function init() {
+		return this.ctx.batchDocs_init();
+	}
+	function pbnBatchPedidos_clicked() {
+		return this.ctx.batchDocs_pbnBatchPedidos_clicked();
+	}
+}
+//// BATCH_DOCS /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration dtoEspecial */
+/////////////////////////////////////////////////////////////////
+//// DTO ESPECIAL ///////////////////////////////////////////////
+class dtoEspecial extends batchDocs {
+    function dtoEspecial( context ) { batchDocs ( context ); }
+	function commonCalculateField(fN:String, cursor:FLSqlCursor):String {
+		return this.ctx.dtoEspecial_commonCalculateField(fN, cursor);
+	}
+	function totalesFactura():Boolean {
+		return this.ctx.dtoEspecial_totalesFactura();
+	}
+	function datosFactura(curAlbaran:FLSqlCursor, where:String, datosAgrupacion:Array):Boolean {
+		return this.ctx.dtoEspecial_datosFactura(curAlbaran, where, datosAgrupacion);
+	}
+	function buscarPorDtoEsp(where:String):Number  {
+		return this.ctx.dtoEspecial_buscarPorDtoEsp(where);
+	}
+}
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends dtoEspecial {
+    function head( context ) { dtoEspecial ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration pubEnvioMail */
+/////////////////////////////////////////////////////////////////
+//// PUB_ENVIO_MAIL /////////////////////////////////////////////
+class pubEnvioMail extends head {
+    function pubEnvioMail( context ) { head( context ); }
+	function pub_enviarDocumento(codAlbaran:String, codCliente:String) {
+		return this.enviarDocumento(codAlbaran, codCliente);
+	}
+}
+
+//// PUB_ENVIO_MAIL /////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 /** @class_declaration ifaceCtx */
 /////////////////////////////////////////////////////////////////
 //// INTERFACE  /////////////////////////////////////////////////
-class ifaceCtx extends head {
-    function ifaceCtx( context ) { head( context ); }
+class ifaceCtx extends pubEnvioMail {
+    function ifaceCtx( context ) { pubEnvioMail( context ); }
 	function pub_whereAgrupacion(curAgrupar:FLSqlCursor):String {
 		return this.whereAgrupacion(curAgrupar);
 	}
@@ -151,11 +262,13 @@ function interna_init()
 	this.iface.pbnGFactura = this.child("pbnGenerarFactura");
 	this.iface.tdbRecords = this.child("tableDBRecords");
 	this.iface.tbnImprimir = this.child("toolButtonPrint");
+	this.iface.tbnAbrirCerrar = this.child("tbnAbrirCerrar");
 
 	connect(this.iface.pbnAAlbaran, "clicked()", this, "iface.asociarAAlbaran");
 	connect(this.iface.pbnGFactura, "clicked()", this, "iface.pbnGenerarFactura_clicked");
 	connect(this.iface.tdbRecords, "currentChanged()", this, "iface.procesarEstado");
 	connect(this.iface.tbnImprimir, "clicked()", this, "iface.imprimir");
+	connect(this.iface.tbnAbrirCerrar, "clicked()", this, "iface.tbnAbrirCerrar_clicked");
 
 	this.iface.filtrarTabla();
 	this.iface.procesarEstado();
@@ -784,12 +897,441 @@ function oficial_filtroTabla():String
 	}
 	return filtro;
 }
+
+function oficial_tbnAbrirCerrar_clicked()
+{
+	var util:FLUtil;
+	var cursor:FLSqlCursor = this.cursor();
+
+	var idAlbaran:Number = cursor.valueBuffer("idalbaran");
+	if (!idAlbaran) {
+		MessageBox.warning(util.translate("scripts", "No hay ningún albarán seleccionado"), MessageBox.Ok, MessageBox.NoButton);
+		return;
+	}
+	var codAlbaran:String = cursor.valueBuffer("codigo");
+
+	var cerrar:Boolean = true;
+	var res:Number;
+	if (!cursor.isNull("idfactura") && cursor.valueBuffer("idfactura")) {
+		MessageBox.warning(util.translate("scripts", "El albarán ya está facturado"), MessageBox.Ok, MessageBox.NoButton);
+		return;
+	}
+	var editable:Boolean = cursor.valueBuffer("ptefactura")
+	if (editable) {
+		res = MessageBox.information(util.translate("scripts", "Se va a cerrar el albarán %1 y no podrá facturarse.\n¿Desea continuar?").arg(codAlbaran), MessageBox.Yes, MessageBox.No);
+		if (res != MessageBox.Yes) {
+			return;
+		}
+	} else {
+		res = MessageBox.information(util.translate("scripts", "Se va a reabrir el albarán %1.\n¿Desea continuar?").arg(codAlbaran), MessageBox.Yes, MessageBox.No);
+		if (res != MessageBox.Yes) {
+			return;
+		}
+	}
+	cursor.setUnLock("ptefactura", !editable);
+	this.iface.tdbRecords.refresh();
+}
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+/** @class_definition ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+/** \D Copia los datos de una línea de albarán en una línea de factura
+@param	curLineaAlbaran: Cursor que contiene los datos a incluir en la línea de factura
+@return	True si la copia se realiza correctamente, false en caso contrario
+\end */
+function ivaIncluido_datosLineaFactura(curLineaAlbaran:FLSqlCursor):Boolean
+{
+	if (!this.iface.__datosLineaFactura(curLineaAlbaran)) {
+		return false;
+	}
+	with (this.iface.curLineaFactura) {
+		setValueBuffer("ivaincluido", curLineaAlbaran.valueBuffer("ivaincluido"));
+		setValueBuffer("pvpunitarioiva", curLineaAlbaran.valueBuffer("pvpunitarioiva"));
+	}
+	/// El cambio puede deberse a que la fecha del nuevo documento esté asociada a un tipo de IVA distinto del documento origens
+	if (curLineaAlbaran.valueBuffer("iva") != this.iface.curLineaFactura.valueBuffer("iva")) {
+		if (this.iface.curLineaFactura.valueBuffer("ivaincluido")) {
+			this.iface.curLineaFactura.setValueBuffer("pvpunitario", formRecordlineaspedidoscli.iface.pub_commonCalculateField("pvpunitario2", this.iface.curLineaFactura));
+			this.iface.curLineaFactura.setValueBuffer("pvpsindto", formRecordlineaspedidoscli.iface.pub_commonCalculateField("pvpsindto", this.iface.curLineaFactura));
+			this.iface.curLineaFactura.setValueBuffer("pvptotal", formRecordlineaspedidoscli.iface.pub_commonCalculateField("pvptotal", this.iface.curLineaFactura));
+		}
+	}
+	
+	return true;
+}
+
+function ivaIncluido_totalesFactura():Boolean
+{
+	this.iface.__totalesFactura();
+
+	// Comprobar redondeo y recalcular totales
+	formRecordfacturascli.iface.comprobarRedondeoIVA(this.iface.curFactura, "idfactura")
+	with (this.iface.curFactura) {
+		setValueBuffer("total", formpedidoscli.iface.pub_commonCalculateField("total", this));
+		setValueBuffer("totaleuros", formpedidoscli.iface.pub_commonCalculateField("totaleuros", this));
+	}
+	return true;
+}
+
+
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+/** @class_definition envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO_MAIL /////////////////////////////////////////////////
+function envioMail_init()
+{
+	this.iface.__init();
+	//this.child("tbnEnviarMail").close();
+	connect(this.child("tbnEnviarMail"), "clicked()", this, "iface.enviarDocumento()");
+}
+
+function envioMail_enviarDocumento(codAlbaran:String, codCliente:String)
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var util:FLUtil = new FLUtil();
+
+	if (!codAlbaran) {
+		codAlbaran = cursor.valueBuffer("codigo");
+	}
+
+	if (!codCliente) {
+		codCliente = cursor.valueBuffer("codcliente");
+	}
+
+	var tabla:String = "clientes";
+	var emailCliente:String = flfactppal.iface.pub_componerListaDestinatarios(codCliente, tabla);
+	if (!emailCliente) {
+		return;
+	}
+
+	var rutaIntermedia:String = util.readSettingEntry("scripts/flfactinfo/dirCorreo");
+	if (!rutaIntermedia.endsWith("/")) {
+		rutaIntermedia += "/";
+	}
+	var cuerpo:String = "";
+	var asunto:String = util.translate("scripts", "Albaran %1").arg(codAlbaran);
+	var rutaDocumento:String = rutaIntermedia + "A_" + codAlbaran + ".pdf";
+
+	var util:FLUtil = new FLUtil;
+	var codigo:String;
+	if (codAlbaran) {
+		codigo = codAlbaran;
+	} else {
+		if (!cursor.isValid()) {
+			return;
+		}
+		codigo = cursor.valueBuffer("codigo");
+	}
+	
+	var numCopias:Number = util.sqlSelect("albaranescli a INNER JOIN clientes c ON c.codcliente = a.codcliente", "c.copiasfactura", "a.codigo = '" + codigo + "'", "albaranescli,clientes");
+	if (!numCopias) {
+		numCopias = 1;
+	}
+		
+	var curImprimir:FLSqlCursor = new FLSqlCursor("i_albaranescli");
+	curImprimir.setModeAccess(curImprimir.Insert);
+	curImprimir.refreshBuffer();
+	curImprimir.setValueBuffer("descripcion", "temp");
+	curImprimir.setValueBuffer("d_albaranescli_codigo", codigo);
+	curImprimir.setValueBuffer("h_albaranescli_codigo", codigo);
+	flfactinfo.iface.pub_lanzarInforme(curImprimir, "i_albaranescli", "", "", false, false, "", "i_albaranescli", 1, rutaDocumento, true);
+
+	var arrayDest:Array = [];
+	arrayDest[0] = [];
+	arrayDest[0]["tipo"] = "to";
+	arrayDest[0]["direccion"] = emailCliente;
+
+	var arrayAttach:Array = [];
+	arrayAttach[0] = rutaDocumento;
+
+	flfactppal.iface.pub_enviarCorreo(cuerpo, asunto, arrayDest, arrayAttach);
+}
+
+function envioMail_imprimir(codAlbaran:String)
+{
+	var util:FLUtil = new FLUtil;
+	
+	var datosEMail:Array = [];
+	datosEMail["tipoInforme"] = "albaranescli";
+	var codCliente:String;
+	if (codAlbaran && codAlbaran != "") {
+		datosEMail["codDestino"] = util.sqlSelect("albaranescli", "codcliente", "codigo = '" + codAlbaran + "'");
+		datosEMail["codDocumento"] = codAlbaran;
+	} else {
+		var cursor:FLSqlCursor = this.cursor();
+		datosEMail["codDestino"] = cursor.valueBuffer("codcliente");
+		datosEMail["codDocumento"] = cursor.valueBuffer("codigo");
+	}
+	flfactinfo.iface.datosEMail = datosEMail;
+	this.iface.__imprimir(codAlbaran);
+}
+
+//// ENVIO_MAIL /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition modelo347 */
+/////////////////////////////////////////////////////////////////
+//// MODELO 347 /////////////////////////////////////////////////
+function modelo347_totalesFactura():Boolean
+{
+	if (!this.iface.__totalesFactura()) {
+		return false;
+	}
+	with (this.iface.curFactura) {
+		setValueBuffer("nomodelo347", formfacturascli.iface.pub_commonCalculateField("nomodelo347", this));
+	}
+	return true;
+}
+//// MODELO 347 /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+/** \D Copia los datos de una línea de albarán en una línea de factura añadiendo el dato de descuento por rappel a una línea de factura
+@param	curLineaAlbaran: Cursor que contiene los datos a incluir en la línea de factura
+@return	True si la copia se realiza correctamente, false en caso contrario
+\end */
+function rappel_datosLineaFactura(curLineaAlbaran:FLSqlCursor):Boolean
+{
+	if(!this.iface.__datosLineaFactura(curLineaAlbaran))
+		return false;
+
+	with (this.iface.curLineaFactura) {
+		setValueBuffer("dtorappel", curLineaAlbaran.valueBuffer("dtorappel"));
+	}
+	return true;
+}
+//// RAPPEL /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+/** @class_definition batchDocs */
+/////////////////////////////////////////////////////////////////
+//// BATCH_DOCS /////////////////////////////////////////////////
+function batchDocs_init()
+{
+		this.iface.__init();
+		
+		this.iface.pbnBatchPedidos = this.child("pbnBatchPedidos");
+		connect(this.iface.pbnBatchPedidos, "clicked()", this, "iface.pbnBatchPedidos_clicked()");
+}
+
+/** \C
+Al pulsar el botón de Batch de albaranes se abre la ventana de batch de albaranes de cliente
+\end */
+function batchDocs_pbnBatchPedidos_clicked()
+{
+	var f:Object = new FLFormSearchDB("agruparpedidoscli");
+	var cursor:FLSqlCursor = f.cursor();
+	var where:String;
+
+	cursor.setActivatedCheckIntegrity(false);
+	cursor.select();
+	if (!cursor.first())
+		cursor.setModeAccess(cursor.Insert);
+	else
+		cursor.setModeAccess(cursor.Edit);
+
+	f.setMainWidget();
+	cursor.refreshBuffer();
+	var acpt:String = f.exec("codejercicio");
+	if (acpt) {
+		cursor.commitBuffer();
+		var curAgruparPedidos:FLSqlCursor = new FLSqlCursor("agruparpedidoscli");
+		curAgruparPedidos.select();
+		if (curAgruparPedidos.first()) {
+			where = this.iface.whereAgrupacion(curAgruparPedidos);
+			var excepciones:String = curAgruparPedidos.valueBuffer("excepciones");
+			if (!excepciones.isEmpty())
+				where += " AND idpedido NOT IN (" + excepciones + ")";
+
+			var qryAgruparPedidos:FLSqlQuery = new FLSqlQuery;
+			qryAgruparPedidos.setTablesList("pedidoscli");
+			qryAgruparPedidos.setSelect("idpedido");
+			qryAgruparPedidos.setFrom("pedidoscli");
+			qryAgruparPedidos.setWhere(where);
+
+			if (!qryAgruparPedidos.exec())
+				return;
+
+			var curPedido:FLSqlCursor = new FLSqlCursor("pedidoscli");
+			var whereAlbaran:String;
+			while (qryAgruparPedidos.next()) {
+				whereAlbaran = "idpedido = " + qryAgruparPedidos.value(0);
+				curPedido.transaction(false);
+				curPedido.select(whereAlbaran);
+				if (!curPedido.first()) {
+					curPedido.rollback();
+					return;
+				}
+				curPedido.setValueBuffer("fecha", curAgruparPedidos.valueBuffer("fecha"));
+				if (formpedidoscli.iface.pub_generarAlbaran(whereAlbaran, curPedido)) {
+					curPedido.commit();
+				} else {
+					curPedido.rollback();
+					return;
+				}
+			}
+		}
+
+		f.close();
+		this.iface.tdbRecords.refresh();
+	}
+}
+
+//// BATCH_DOCS /////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+/** @class_definition dtoEspecial */
+/////////////////////////////////////////////////////////////////
+//// DTO ESPECIAL ///////////////////////////////////////////////
+function dtoEspecial_commonCalculateField(fN:String, cursor:FLSqlCursor):String
+{
+	var util = new FLUtil();
+	var valor;
+debug("Calculando " + fN);
+	switch (fN) {
+	/** \C
+	El --totaliva-- es la suma del iva correspondiente a las líneas de factura
+	*/
+		case "totaliva": {
+			var porDto:Number = cursor.valueBuffer("pordtoesp");
+			if (!porDto || porDto == 0) {
+				valor = this.iface.__commonCalculateField(fN, cursor);
+				break;
+			}
+			valor = util.sqlSelect("lineasalbaranescli", "SUM((pvptotal * iva * (100 - " + porDto + ")) / 100 / 100)", "idalbaran = " + cursor.valueBuffer("idalbaran"));
+			valor = parseFloat(util.roundFieldValue(valor, "albaranescli", "totaliva"));
+			break;
+		}
+	/** \C
+	El --totarecargo-- es la suma del recargo correspondiente a las líneas de factura
+	*/
+		case "totalrecargo": {
+			var porDto:Number = cursor.valueBuffer("pordtoesp");
+			if (!porDto || porDto == 0) {
+				valor = this.iface.__commonCalculateField(fN, cursor);
+				break;
+			}
+			valor = util.sqlSelect("lineasalbaranescli", "SUM((pvptotal * recargo * (100 - " + porDto + ")) / 100 / 100)", "idalbaran = " + cursor.valueBuffer("idalbaran"));
+			valor = parseFloat(util.roundFieldValue(valor, "albaranescli", "totalrecargo"));
+			break;
+		}
+	/** \C
+	El --netosindtoesp-- es la suma del pvp total de las líneas de factura
+	*/
+		case "netosindtoesp": {
+			valor = this.iface.__commonCalculateField("neto", cursor); 
+			break;
+		}
+	/** \C
+	El --neto-- es el --netosindtoesp-- menos el --dtoesp--
+	*/
+		case "neto": {
+			valor = parseFloat(cursor.valueBuffer("netosindtoesp")) - parseFloat(cursor.valueBuffer("dtoesp"));
+			valor = parseFloat(util.roundFieldValue(valor, "albaranescli", "neto"));
+			break;
+		}
+	/** \C
+	El --dtoesp-- es el --netosindtoesp-- menos el porcentaje que marca el --pordtoesp--
+	*/
+		case "dtoesp": {
+			valor = (parseFloat(cursor.valueBuffer("netosindtoesp")) * parseFloat(cursor.valueBuffer("pordtoesp"))) / 100;
+			valor = parseFloat(util.roundFieldValue(valor, "albaranescli", "dtoesp"));
+			break;
+		}
+	/** \C
+	El --pordtoesp-- es el --dtoesp-- entre el --netosindtoesp-- por 100
+	\end */
+		case "pordtoesp": {
+			if (parseFloat(cursor.valueBuffer("netosindtoesp")) != 0) {
+				valor = (parseFloat(cursor.valueBuffer("dtoesp")) / parseFloat(cursor.valueBuffer("netosindtoesp"))) * 100;
+			} else {
+				valor = cursor.valueBuffer("pordtoesp");
+			}
+			valor = parseFloat(util.roundFieldValue(valor, "albaranescli", "pordtoesp"));
+			break;
+		}
+		default: {
+			valor = this.iface.__commonCalculateField(fN, cursor);
+			break;
+		}
+	}
+	return valor;
+}
+
+/** \D Informa los datos de una factura referentes a totales (I.V.A., neto, etc.)
+@return	True si el cálculo se realiza correctamente, false en caso contrario
+\end */
+function dtoEspecial_totalesFactura():Boolean
+{
+	with(this.iface.curFactura) {
+		setValueBuffer("netosindtoesp", formfacturascli.iface.pub_commonCalculateField("netosindtoesp", this));
+		setValueBuffer("dtoesp", formfacturascli.iface.pub_commonCalculateField("dtoesp", this));
+		setValueBuffer("neto", formfacturascli.iface.pub_commonCalculateField("neto", this));
+		setValueBuffer("totaliva", formfacturascli.iface.pub_commonCalculateField("totaliva", this));
+		setValueBuffer("totalirpf", formfacturascli.iface.pub_commonCalculateField("totalirpf", this));
+		setValueBuffer("totalrecargo", formfacturascli.iface.pub_commonCalculateField("totalrecargo", this));
+		setValueBuffer("total", formfacturascli.iface.pub_commonCalculateField("total", this));
+		setValueBuffer("totaleuros", formfacturascli.iface.pub_commonCalculateField("totaleuros", this));
+	}
+	
+	return true;
+}
+
+/** \D Informa los datos de una factura a partir de los de uno o varios albaranes
+@param	curAlbaran: Cursor que contiene los datos a incluir en la factura
+@return	True si el cálculo se realiza correctamente, false en caso contrario
+\end */
+function dtoEspecial_datosFactura(curAlbaran:FLSqlCursor,where:String,datosAgrupacion:Array):Boolean
+{
+	var util:FLUtil = new FLUtil();
+	var porDtoEsp:Number = this.iface.buscarPorDtoEsp(where);
+	if (porDtoEsp == -1) {
+		MessageBox.critical(util.translate("scripts", "No es posible generar un único albarán para pedidos con distinto porcentaje de descuento especial"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+	
+	var fecha:String;
+	if (curAlbaran.action() == "albaranescli") {
+		var hoy:Date = new Date();
+		fecha = hoy.toString();
+	} else
+		fecha = curAlbaran.valueBuffer("fecha");
+	
+	with (this.iface.curFactura) {
+		setValueBuffer("pordtoesp", porDtoEsp);
+	}
+	if(!this.iface.__datosFactura(curAlbaran, where, datosAgrupacion))
+		return false;
+
+	return true;
+}
+
+/** \D
+Busca el porcentaje de descuento especial realizado a los albaranes que se agruparán en una factura. Si existen dos pedidos con distinto porcentaje devuelve un código de error.
+@param where: Cláusula where para buscar los pedidos
+@return porcenteje de descuento (-1 si hay error);
+*/
+function dtoEspecial_buscarPorDtoEsp(where:String):Number
+{
+	var util:FLUtil = new FLUtil;
+	var porDtoEsp:Number = util.sqlSelect("albaranescli", "pordtoesp", where);
+	var porDtoEsp2:Number = util.sqlSelect("albaranescli", "pordtoesp", where + " AND pordtoesp <> " + porDtoEsp);
+	if (!porDtoEsp2 && isNaN(parseFloat(porDtoEsp2)))
+		return porDtoEsp;
+	else
+		return -1;
+}
+//// DTO ESPECIAL ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////

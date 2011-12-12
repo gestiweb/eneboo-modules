@@ -77,11 +77,39 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+class ivaIncluido extends oficial {
+    function ivaIncluido( context ) { oficial( context ); } 	
+	function validateForm():Boolean {
+		return this.ctx.ivaIncluido_validateForm();
+	}
+	function establecerDatosAlta() {
+		return this.ctx.ivaIncluido_establecerDatosAlta();
+	}
+}
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+/** @class_declaration sfamilia */
+//////////////////////////////////////////////////////////////////
+//// SUBFAMILIA //////////////////////////////////////////////////
+class sfamilia extends ivaIncluido {
+    function sfamilia( context ) { ivaIncluido( context ); } 
+	function bufferChanged(fN:String){return this.ctx.sfamilia_bufferChanged(fN);}
+	function calculateField(fN:String):Number{return this.ctx.sfamilia_calculateField(fN);}
+	function validateForm():Boolean {return this.ctx.sfamilia_validateForm();}
+}
+//// SUBFAMILIA //////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends sfamilia {
+    function head( context ) { sfamilia ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -386,9 +414,95 @@ debug("oficial_establecerDatosAlta " + flfactalma.iface.pub_valorDefectoAlmacen(
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+/** @class_definition ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+	
+function ivaIncluido_validateForm():Boolean
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var util:FLUtil = new FLUtil();
+
+	if(!this.iface.__validateForm())
+		return false;
+
+	if (cursor.valueBuffer("ivaincluido") && !cursor.valueBuffer("codimpuesto")) {
+		MessageBox.critical(util.translate("scripts","Si el IVA del artículo está incluído se debe especificar el tipo de IVA"),
+				MessageBox.Ok, MessageBox.NoButton,MessageBox.NoButton);
+		return false;
+	}
+
+	return true;
+}
+
+function ivaIncluido_establecerDatosAlta()
+{
+	this.iface.__establecerDatosAlta();
+	this.child("fdbIvaIncluido").setValue(flfactalma.iface.pub_valorDefectoAlmacen("ivaincluido"));
+}
+//// IVAINCLUIDO /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+
+/** @class_definition sfamilia */
+/////////////////////////////////////////////////////////////////
+//// SUBFAMILIA /////////////////////////////////////////////////
+function sfamilia_bufferChanged(fN:String)
+{
+	switch (fN) {
+		case "codsubfamilia":
+			this.child("fdbCodFamilia").setValue(this.iface.calculateField("codfamilia"));
+			break;
+		default:
+			this.iface.__bufferChanged(fN);
+	}
+}
+
+function sfamilia_calculateField(fN:String):Number
+{
+	var util:FLUtil = new FLUtil();
+	var valor:Number;
+
+	switch (fN) {
+		case "codfamilia": {
+			valor =  util.sqlSelect("subfamilias", "codfamilia", "codsubfamilia='" + this.cursor().valueBuffer("codsubfamilia") + "';");
+			break;
+		}
+		default: {
+			valor = this.iface.__calculateField(fN);
+		}
+	}
+	return valor;
+}
+
+function sfamilia_validateForm():Boolean 
+{
+	var util:FLUtil = new FLUtil();
+	var cursor:FLSqlCursor = this.cursor();
+
+	if (!this.iface.__validateForm())
+		return false;
+	
+	var codFamilia:String = cursor.valueBuffer("codfamilia");
+	var codSubfamilia:String = cursor.valueBuffer("codsubfamilia");
+	
+	if (!codFamilia || !codSubfamilia) return true;
+	
+	var codFamiliaSF:String = util.sqlSelect("subfamilias", "codfamilia", "codsubfamilia='" + codSubfamilia + "';");
+	
+	if (codFamiliaSF != codFamilia) {
+		MessageBox.critical(util.translate("scripts", "La subfamilia no pertenece a la familia"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+	
+	return true;
+}
+
+//// SUBFAMILIA /////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////

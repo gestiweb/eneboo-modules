@@ -1,0 +1,143 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>i_ventasmcli</name>
+	<!-- Listado unidades vendidas por cliente y mes -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Informe de unidades vendidas por mes")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador interno -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<!-- Descripción del registro de criterios de búsqueda -->
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>200</length>
+	</field>
+
+	<field>
+		<name>codejercicio</name>
+		<!-- Ejercicio al que pertenecen las facturas del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<pk>false</pk>
+		<null>true</null>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codintervalo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Intervalo")</alias>
+		<pk>false</pk>
+		<null>true</null>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>intervalos</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>fechainicio</name>
+		<!-- Fecha inicial para las facturas del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha desde")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fechafin</name>
+		<!-- Fecha final para las facturas del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData"," hasta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>codserie</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Serie")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<null>true</null>
+		<length>2</length>
+		
+		<relation>
+			<table>series</table>
+			<field>codserie</field>
+			<card>M1</card>
+		</relation>
+		
+	</field>
+	
+	<field>
+		<name>clientedesde</name>
+		<!-- Código del cliente -->	
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde")</alias>
+		<pk>false</pk>
+		<null>true</null>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>clientes</table>
+			<field>codcliente</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>clientehasta</name>
+		<!-- Código del cliente -->	
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta")</alias>
+		<pk>false</pk>
+		<null>true</null>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>clientes</table>
+			<field>codcliente</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>orden1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ordenar por")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Código de cliente");QT_TRANSLATE_NOOP("MetaData","Nombre de cliente");QT_TRANSLATE_NOOP("MetaData","Volumen de ventas")</optionslist>
+		<length>20</length>
+		<default>QT_TRANSLATE_NOOP("MetaData","Código de cliente")</default>
+	</field>
+	
+	<field>
+		<name>tipoorden1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Ascendente");QT_TRANSLATE_NOOP("MetaData","Descendente")</optionslist>
+		<length>20</length>
+		<default>QT_TRANSLATE_NOOP("MetaData","Ascendente")</default>
+	</field>
+</TMD>

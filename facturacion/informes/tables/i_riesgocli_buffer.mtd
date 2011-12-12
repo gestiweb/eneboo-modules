@@ -1,0 +1,100 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>i_riesgocli_buffer</name>
+	<!-- Riesgo de clientes -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Riesgo de clientes")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador interno -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>nombreagente</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Representante")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>codcliente</name>
+		<!--Código del cliente-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+	</field>
+	
+	<field>
+		<name>nombrecliente</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>riesgomax</name>
+		<!--Cantidad máxima que el cliente podrá adeudar a la empresa-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Riesgo máximo autorizado")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>imprecibos</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Importe Recibos")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>imppagados</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Recibos Pagados")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>imppendientes</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Recibos Pendientes")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>riesgoexced</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Riesgo Excedido")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+</TMD>

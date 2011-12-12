@@ -1,203 +1,238 @@
 <ACTIONS>
-	<action>
-		<name>co_epigrafes</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Epígrafes")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Los epígrafes son los niveles principales del plan general contable, agrupando cuentas contables u otros subepígrafes con un denominador común")</description>
-		<scriptform>co_masterepigrafes</scriptform>
-		<scriptformrecord>co_epigrafes</scriptformrecord>
-		<table>co_epigrafes</table>
-		<form>master_copy</form>
-		<formrecord>co_epigrafes</formrecord>
-	</action>
-
-	<action>
-		<name>co_cerrarejer</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","El cierre del ejercicio permite contabilizar las diferencias de cambio, realizar los asientos de regularización de pérdidas y ganancias, asiento de cierre de ejercicio y asiento de apertura de ejercicio siguiente")</description>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Cerrar ejercicio")</alias>
-		<scriptform>co_cerrarejer</scriptform>
-		<table>ejercicios</table>
-		<form>co_cerrarejer</form>
-		<formrecord>co_cerrarejer</formrecord>
-	</action>
-
-	<action>
-		<name>co_cuentas</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Cuentas")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Las cuentas son agrupaciones de subcuentas con el mismo significado contable")</description>	
-		<scriptform>co_mastercuentas</scriptform>
-		<scriptformrecord>co_cuentas</scriptformrecord>
-		<table>co_cuentas</table>
-		<form>master_copy</form>
-		<formrecord>co_cuentas</formrecord>
-	</action>
- 
-	<action>
-		<name>co_cuentasesp</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","Las cuentas del plan contable pueden definirse de un tipo especial, que será tomado en cuenta a la hora de realizar asientos de regularización e informes. Algunas de las cuentas especiales más utilizadas son las de I.V.A")</description>	
-		<alias>QT_TRANSLATE_NOOP("MetaData","Cuentas especiales")</alias>
-		<table>co_cuentasesp</table>
-		<form>master_copy</form>
-		<formrecord>co_cuentasesp</formrecord>
-		<scriptformrecord>co_cuentasesp</scriptformrecord>
-	</action>
-
-	<action>
-		<name>co_codbalances</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","Cada una de las cuentas del plan contable está asociada a un código de balance. El código de balance refleja la naturaleza de una cuenta: activo, pasivo, debe o haber además de su clasificación dentro del balance de situación y el balance de sumas y saldos")</description>	
-		<alias>QT_TRANSLATE_NOOP("MetaData","Códigos de Balance")</alias>
-		<table>co_codbalances</table>
-		<form>master_copy</form>
-		<formrecord>co_codbalances</formrecord>
-	</action>
-
-	<action>
-		<name>co_subcuentas</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Subcuentas")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Cada subcuenta contable refleja un concepto de gastos o ingresos")</description>
-		<scriptform>co_mastersubcuentas</scriptform>
-		<scriptformrecord>co_subcuentas</scriptformrecord>
-		<table>co_subcuentas</table>
-		<form>co_mastersubcuentas</form>
-		<formrecord>co_subcuentas</formrecord>
-	</action>
-
-	<action>
-		<name>co_asientos</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","Cada asiento es un conjunto de movimientos contables entre distintas subcuentas, de saldo final cero, que obedece a una única operación. Se compone de dos o más partidas")</description>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Asientos")</alias>
-		<scriptform>co_masterasientos</scriptform>
-		<scriptformrecord>co_asientos</scriptformrecord>
-		<table>co_asientos</table>
-		<form>co_masterasientos</form>
-		<formrecord>co_asientos</formrecord>
-	</action>
-	
-	<action>
-		<name>co_partidas</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","Cada partida refleja un movimiento contable entre dos subcuentas. Si una de las subcuentas tiene por cuenta asociada una cuenta de tipo especial I.V.A., la partida también almacenará los datos de I.V.A. Es posible trabajar con moneda extranjera, que será convertida automáticamente a moneda local")</description>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Partidas")</alias>
-		<scriptformrecord>co_partidas</scriptformrecord>
-		<table>co_partidas</table>
-		<form>master</form>
-		<formrecord>co_partidas</formrecord>
-	</action>
-
-	<action>
-		<name>co_partidaspre</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","Algunas de las partidas más comúnmente utilizadas pueden ser generadas automáticamente")</description>	
-		<alias>QT_TRANSLATE_NOOP("MetaData","Partidas predefinidas")</alias>
-		<scriptformrecord>co_partidaspre</scriptformrecord>
-		<table>co_partidas</table>
-		<form>master</form>
-		<formrecord>co_partidas</formrecord>
-	</action>
-
-	<action>
-		<name>co_regiva</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","La tabla de datos de la regularización de I.V.A contiene un listado de los períodos ya regularizados y el asiento de regularización correspondiente a cada período")</description>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Regularización del I.V.A.")</alias>
-		<scriptformrecord>co_regiva</scriptformrecord>
-		<scriptform>co_masterregiva</scriptform>
-		<table>co_regiva</table>
-		<form>co_masterregiva</form>
-		<formrecord>co_regiva</formrecord>
-	</action>
-	
-	<action>
-		<name>co_asientosejer</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","Asientos de cierre y apertura del ejercicio. Se cierran las subcuentas del ejercicio y se abren en el nuevo ejercicio con el mismo saldo
+    <action>
+        <name>co_gruposepigrafes</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Grupos")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","")</description>
+        <table>co_gruposepigrafes</table>
+        <form>master</form>
+        <formrecord>co_gruposepigrafes</formrecord>
+        <scriptformrecord>co_gruposepigrafes</scriptformrecord>
+        <scriptform>co_mastergruposepigrafes</scriptform>
+    </action>
+    <action>
+        <name>co_epigrafes</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Subgrupos")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Los epígrafes son los niveles principales del plan general contable, agrupando cuentas contables u otros subepígrafes con un denominador común")</description>
+        <scriptform>co_masterepigrafes</scriptform>
+        <scriptformrecord>co_epigrafes</scriptformrecord>
+        <table>co_epigrafes</table>
+        <form>master_copy</form>
+        <formrecord>co_epigrafes</formrecord>
+    </action>
+    <action>
+        <name>co_cerrarejer</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","El cierre del ejercicio permite contabilizar las diferencias de cambio, realizar los asientos de regularización de pérdidas y ganancias, asiento de cierre de ejercicio y asiento de apertura de ejercicio siguiente")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Cerrar ejercicio")</alias>
+        <scriptform>co_cerrarejer</scriptform>
+        <table>ejercicios</table>
+        <form>co_cerrarejer</form>
+        <formrecord>co_cerrarejer</formrecord>
+    </action>
+    <action>
+        <name>co_cuentas</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Cuentas")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Las cuentas son agrupaciones de subcuentas con el mismo significado contable")</description>
+        <scriptform>co_mastercuentas</scriptform>
+        <scriptformrecord>co_cuentas</scriptformrecord>
+        <table>co_cuentas</table>
+        <form>master_copy</form>
+        <formrecord>co_cuentas</formrecord>
+    </action>
+    <action>
+        <name>co_cuentasesp</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Las cuentas del plan contable pueden definirse de un tipo especial, que será tomado en cuenta a la hora de realizar asientos de regularización e informes. Algunas de las cuentas especiales más utilizadas son las de I.V.A")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Cuentas especiales")</alias>
+        <table>co_cuentasesp</table>
+        <form>master_copy</form>
+        <formrecord>co_cuentasesp</formrecord>
+        <scriptformrecord>co_cuentasesp</scriptformrecord>
+    </action>
+    <action>
+        <name>co_codbalances</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Cada una de las cuentas del plan contable está asociada a un código de balance. El código de balance refleja la naturaleza de una cuenta: activo, pasivo, debe o haber además de su clasificación dentro del balance de situación y el balance de sumas y saldos")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Códigos de Balance")</alias>
+        <table>co_codbalances</table>
+        <form>master_copy</form>
+        <formrecord>co_codbalances</formrecord>
+    </action>
+    <action>
+        <name>co_subcuentas</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Subcuentas")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Cada subcuenta contable refleja un concepto de gastos o ingresos")</description>
+        <scriptform>co_mastersubcuentas</scriptform>
+        <scriptformrecord>co_subcuentas</scriptformrecord>
+        <table>co_subcuentas</table>
+        <form>co_mastersubcuentas</form>
+        <formrecord>co_subcuentas</formrecord>
+    </action>
+    <action>
+        <name>co_asientos</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Cada asiento es un conjunto de movimientos contables entre distintas subcuentas, de saldo final cero, que obedece a una única operación. Se compone de dos o más partidas")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Asientos")</alias>
+        <scriptform>co_masterasientos</scriptform>
+        <scriptformrecord>co_asientos</scriptformrecord>
+        <table>co_asientos</table>
+        <form>co_masterasientos</form>
+        <formrecord>co_asientos</formrecord>
+    </action>
+    <action>
+        <name>co_partidas</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Cada partida refleja un movimiento contable entre dos subcuentas. Si una de las subcuentas tiene por cuenta asociada una cuenta de tipo especial I.V.A., la partida también almacenará los datos de I.V.A. Es posible trabajar con moneda extranjera, que será convertida automáticamente a moneda local")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Partidas")</alias>
+        <scriptformrecord>co_partidas</scriptformrecord>
+        <table>co_partidas</table>
+        <form>master</form>
+        <formrecord>co_partidas</formrecord>
+    </action>
+    <action>
+        <name>co_partidaspre</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Algunas de las partidas más comúnmente utilizadas pueden ser generadas automáticamente")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Partidas predefinidas")</alias>
+        <scriptformrecord>co_partidaspre</scriptformrecord>
+        <table>co_partidas</table>
+        <form>master</form>
+        <formrecord>co_partidas</formrecord>
+    </action>
+    <action>
+        <name>co_regiva</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","La tabla de datos de la regularización de I.V.A contiene un listado de los períodos ya regularizados y el asiento de regularización correspondiente a cada período")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Regularización del I.V.A.")</alias>
+        <scriptformrecord>co_regiva</scriptformrecord>
+        <scriptform>co_masterregiva</scriptform>
+        <table>co_regiva</table>
+        <form>co_masterregiva</form>
+        <formrecord>co_regiva</formrecord>
+    </action>
+    <action>
+        <name>co_asientosejer</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Asientos de cierre y apertura del ejercicio. Se cierran las subcuentas del ejercicio y se abren en el nuevo ejercicio con el mismo saldo
 		")</description>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Asientos de Ejercicio")</alias>
-		<scriptform>co_masterasientosejer</scriptform>
-		<table>co_asientos</table>
-		<form>co_asientosejer</form>
-		<formrecord>co_asientos</formrecord>
-	</action>
-
-	<action>
-		<name>co_conceptospar</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","Los conceptos de partida permiten almacenar algunas descripciones utilizadas frecuentemente en las partidas")</description>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Conceptos de Partidas")</alias>
-		<table>co_conceptospar</table>
-		<form>master_copy</form>
-		<formrecord>co_conceptospar</formrecord>
-	</action>
-	
-	<action>
-		<name>co_cambiarejer</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","El cambio de ejercicio establece el ejercicio actual, que determina los datos contables que se muestran. El cambio de ejercicio NO conlleva el cierre de un ejercicio y la apertura de otro, sólo determina la visualización de los datos de un ejercicio ya existente")</description>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Cambiar Ejercicio")</alias>
-		<scriptform>co_cambiarejer</scriptform>
-		<table>empresa</table>
-		<form>co_cambiarejer</form>
-		<formrecord>co_cambiarejer</formrecord>
-	</action>
-	
-	<action>
-		<name>co_subcuentascli</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Subcuentas de clientes")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Muestra las subcuentas de un cliente para cada ejercicio")</description>
-		<table>co_subcuentascli</table>
-		<formrecord>co_subcuentascli</formrecord>
-		<scriptformrecord>co_subcuentascli</scriptformrecord>
-	</action>
-	
-	<action>
-		<name>co_subcuentasprov</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Subcuentas de proveedores")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Muestra las subcuentas de un proveedor para cada ejercicio")</description>
-		<table>co_subcuentasprov</table>
-		<formrecord>co_subcuentasprov</formrecord>
-		<scriptformrecord>co_subcuentasprov</scriptformrecord>
-	</action>
-	
-	<action>
-		<name>co_planasientos</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","Plantillas de asientos o predefinidos. Se compone de dos o más plantillas de partidas")</description>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Plantillas")</alias>
-		<scriptformrecord>co_planasientos</scriptformrecord>
-		<table>co_planasientos</table>
-		<form>master</form>
-		<formrecord>co_planasientos</formrecord>
-	</action>
-	
-	<action>
-		<name>co_planpartidas</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","Predefinición de las partidas que creará el asiento predefinido")</description>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Partidas predefinidas")</alias>
-		<scriptformrecord>co_planpartidas</scriptformrecord>
-		<table>co_planpartidas</table>
-		<formrecord>co_planpartidas</formrecord>
-	</action>
-	
-	<action>
-		<name>co_secuencias</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","Las secuencias de contabilidad son secuencias de números para un mismo ejercicio contable. La más importante es la secuencia de números de asiento")</description>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Secuencias de contabilidad")</alias>
-		<table>co_planpartidas</table>
-		<form>master</form>
-		<formrecord>co_secuencias</formrecord>
-	</action>
-	
-	<action>
-		<name>co_amortizaciones</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","Muestra las amortizaciones de distintos elementos de inmovilizado")</description>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Amortizaciones")</alias>
-		<table>co_amortizaciones</table>
-		<form>co_masteramortizaciones</form>
-		<formrecord>co_amortizaciones</formrecord>
-		<scriptformrecord>co_amortizaciones</scriptformrecord>
-		<scriptform>co_masteramortizaciones</scriptform>
-	</action>
-	
-	<action>
-		<name>co_dotaciones</name>
-		<description>QT_TRANSLATE_NOOP("MetaData","Muestra las dotaciones relacionadas con las amortizaciones")</description>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Dotaciones")</alias>
-		<table>co_dotaciones</table>
-		<form>master</form>
-		<formrecord>co_dotaciones</formrecord>
-		<scriptformrecord>co_dotaciones</scriptformrecord>
-		<scriptform>co_masterdotaciones</scriptform>
-	</action>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Asientos de Ejercicio")</alias>
+        <scriptform>co_masterasientosejer</scriptform>
+        <table>co_asientos</table>
+        <form>co_asientosejer</form>
+        <formrecord>co_asientos</formrecord>
+    </action>
+    <action>
+        <name>co_conceptospar</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Los conceptos de partida permiten almacenar algunas descripciones utilizadas frecuentemente en las partidas")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Conceptos de Partidas")</alias>
+        <table>co_conceptospar</table>
+        <form>master_copy</form>
+        <formrecord>co_conceptospar</formrecord>
+    </action>
+    <action>
+        <name>co_cambiarejer</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","El cambio de ejercicio establece el ejercicio actual, que determina los datos contables que se muestran. El cambio de ejercicio NO conlleva el cierre de un ejercicio y la apertura de otro, sólo determina la visualización de los datos de un ejercicio ya existente")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Cambiar Ejercicio")</alias>
+        <scriptform>co_cambiarejer</scriptform>
+        <table>empresa</table>
+        <form>co_cambiarejer</form>
+        <formrecord>co_cambiarejer</formrecord>
+    </action>
+    <action>
+        <name>co_subcuentascli</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Subcuentas de clientes")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Muestra las subcuentas de un cliente para cada ejercicio")</description>
+        <table>co_subcuentascli</table>
+        <formrecord>co_subcuentascli</formrecord>
+        <scriptformrecord>co_subcuentascli</scriptformrecord>
+    </action>
+    <action>
+        <name>co_subcuentasprov</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Subcuentas de proveedores")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Muestra las subcuentas de un proveedor para cada ejercicio")</description>
+        <table>co_subcuentasprov</table>
+        <formrecord>co_subcuentasprov</formrecord>
+        <scriptformrecord>co_subcuentasprov</scriptformrecord>
+    </action>
+    <action>
+        <name>co_planasientos</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Plantillas de asientos o predefinidos. Se compone de dos o más plantillas de partidas")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Plantillas")</alias>
+        <scriptformrecord>co_planasientos</scriptformrecord>
+        <table>co_planasientos</table>
+        <form>master</form>
+        <formrecord>co_planasientos</formrecord>
+    </action>
+    <action>
+        <name>co_planpartidas</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Predefinición de las partidas que creará el asiento predefinido")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Partidas predefinidas")</alias>
+        <scriptformrecord>co_planpartidas</scriptformrecord>
+        <table>co_planpartidas</table>
+        <formrecord>co_planpartidas</formrecord>
+    </action>
+    <action>
+        <name>co_secuencias</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Las secuencias de contabilidad son secuencias de números para un mismo ejercicio contable. La más importante es la secuencia de números de asiento")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Secuencias de contabilidad")</alias>
+        <table>co_planpartidas</table>
+        <form>master</form>
+        <formrecord>co_secuencias</formrecord>
+    </action>
+    <action>
+        <name>co_codbalances08</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Códigos de Balance 2008")</alias>
+        <table>co_codbalances08</table>
+        <form>co_mastercodbalances08</form>
+        <formrecord>co_codbalances08</formrecord>
+        <scriptform>co_mastercodbalances08</scriptform>
+        <scriptformrecord>co_codbalances08</scriptformrecord>
+    </action>
+    <action>
+        <name>co_correspondenciascc</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Correspondencias entre cuentas 90-08")</alias>
+        <table>co_correspondenciascc</table>
+        <form>master</form>
+        <formrecord>co_correspondenciascc</formrecord>
+    </action>
+    <action>
+        <name>co_cuentascb</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Cuentas por código de balance")</alias>
+        <table>co_cuentascb</table>
+        <form>master</form>
+        <formrecord>co_cuentascb</formrecord>
+    </action>
+    <action>
+        <name>co_cuentascbba</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Cuentas por código de balance para balance abreviado")</alias>
+        <table>co_cuentascbba</table>
+        <form>master</form>
+        <formrecord>co_cuentascb</formrecord>
+    </action>
+    <action>
+        <name>co_ejercicios</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Regenerar cuadro de cuentas")</alias>
+        <scriptform>co_masterejercicios</scriptform>
+        <table>ejercicios</table>
+        <form>co_masterejercicios</form>
+        <formrecord>ejercicios</formrecord>
+        <scriptformrecord>ejercicios</scriptformrecord>
+    </action>
+    <action>
+        <name>co_amortizaciones</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Muestra las amortizaciones de distintos elementos de inmovilizado")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Amortizaciones")</alias>
+        <table>co_amortizaciones</table>
+        <form>co_masteramortizaciones</form>
+        <formrecord>co_amortizaciones</formrecord>
+        <scriptformrecord>co_amortizaciones</scriptformrecord>
+        <scriptform>co_masteramortizaciones</scriptform>
+    </action>
+    <action>
+        <name>co_dotaciones</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Muestra las dotaciones relacionadas con las amortizaciones")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Dotaciones")</alias>
+        <table>co_dotaciones</table>
+        <form>master</form>
+        <formrecord>co_dotaciones</formrecord>
+        <scriptformrecord>co_dotaciones</scriptformrecord>
+        <scriptform>co_masterdotaciones</scriptform>
+    </action>
 </ACTIONS>

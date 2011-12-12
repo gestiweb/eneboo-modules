@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+
+<KugarTemplate PageOrientation="0" TopMargin="20" RightMargin="20" BottomMargin="20" LeftMargin="20" PageSize="0" PageWidth="793" PageHeight="1123">
+	<Detail Level="0" Height="120" Repeat="false">
+		<Label VAlignment="1" HAlignment="1"
+		   BorderStyle="1" WordWrap="0" DrawLeft="false"
+		   X="150" Y="10" ForegroundColor="0,0,0"
+		   Text="RESUMEN HORAS POR CENTRO DE COSTE " BorderColor="0,0,0" FontFamily="Sans Serif"
+		   DrawTop="false" FontWeight="75" Height="30"
+		   Width="310" BackgroundColor="192,192,192" FontItalic="0"
+		   BorderWidth="1" DrawRight="false" DrawBottom="false"
+		   FontSize="10" />
+		<Field VAlignment="1" HAlignment="1"
+		   CommaSeparator="53" BorderStyle="1" WordWrap="0"
+		   DrawLeft="false" Field="empresa.nombre" X="150"
+		   Y="50" ForegroundColor="0,0,0" NegValueColor="0,0,0"
+		   Text="" DataType="0" BorderColor="0,0,0"
+		   DateFormat="11" FontFamily="Sans Serif" DrawTop="false"
+		   FontWeight="75" InputMask="" Precision="2"
+		   Height="30" Width="310" BackgroundColor="192,192,192"
+		   Currency="53" FontItalic="0" BorderWidth="1"
+		   DrawRight="false" DrawBottom="false" FontSize="10" />
+		<CalculatedField VAlignment="1" HAlignment="0"
+		   CommaSeparator="53" BorderStyle="0" WordWrap="0"
+		   CalculationType="6" FunctionName="flfacthora.encabezadoInformeCCos"
+		   DrawLeft="false" Field="" X="40"
+		   Y="90" ForegroundColor="0,0,0" NegValueColor="0,0,0"
+		   Text="" DataType="0" BorderColor="0,0,0"
+		   DateFormat="11" FontFamily="Sans Serif" DrawTop="false"
+		   FontWeight="87" InputMask="" Precision="2"
+		   Height="20" Width="550" 
+		   BackgroundColor="255,255,255" Currency="53" FontItalic="0"
+		   BorderWidth="1" DrawRight="false" DrawBottom="false"
+		   FontSize="10" />
+	</Detail>
+
+	<Detail Level="1" Height="50" Repeat="false">
+		<Label VAlignment="1" HAlignment="0"
+		   BorderStyle="0" WordWrap="0" DrawLeft="false"
+		   X="10" Y="10" ForegroundColor="0,0,0"
+		   Text="Centro de coste:" BorderColor="0,0,0" FontFamily="Sans Serif"
+		   DrawTop="false" FontWeight="87" Height="20"
+		   Width="130" BackgroundColor="255,255,255" FontItalic="0"
+		   BorderWidth="1" DrawRight="false" DrawBottom="false"
+		   FontSize="10" />
+		<Field VAlignment="1" HAlignment="0"
+		   CommaSeparator="53" BorderStyle="0" WordWrap="0"
+		   DrawLeft="false" Field="horasope.codcentro" X="140"
+		   Y="10" ForegroundColor="0,0,0" NegValueColor="0,0,0"
+		   Text="" DataType="0" BorderColor="0,0,0"
+		   DateFormat="11" FontFamily="Sans Serif" DrawTop="false"
+		   FontWeight="87" InputMask="" Precision="2"
+		   Height="20" Width="70" BackgroundColor="255,255,255"
+		   Currency="53" FontItalic="0" BorderWidth="1"
+		   DrawRight="false" DrawBottom="false" FontSize="10" />
+		<Field VAlignment="1" HAlignment="0"
+		   CommaSeparator="53" BorderStyle="0" WordWrap="0"
+		   DrawLeft="false" Field="centroscoste.descripcion" X="210"
+		   Y="10" ForegroundColor="0,0,0" NegValueColor="0,0,0"
+		   Text="" DataType="0" BorderColor="0,0,0"
+		   DateFormat="11" FontFamily="Sans Serif" DrawTop="false"
+		   FontWeight="87" InputMask="" Precision="2"
+		   Height="20" Width="320" BackgroundColor="255,255,255"
+		   Currency="53" FontItalic="0" BorderWidth="1"
+		   DrawRight="false" DrawBottom="false" FontSize="10" />
+		<Label VAlignment="1" HAlignment="0"
+		   BorderStyle="0" WordWrap="0" DrawLeft="false"
+		   X="10" Y="30" ForegroundColor="0,0,0"
+		   Text="Cliente:" BorderColor="0,0,0" FontFamily="Sans Serif"
+		   DrawTop="false" FontWeight="87" Height="20"
+		   Width="60" BackgroundColor="255,255,255" FontItalic="0"
+		   BorderWidth="1" DrawRight="false" DrawBottom="false"
+		   FontSize="10" />
+		<Field VAlignment="1" HAlignment="0"
+		   CommaSeparator="53" BorderStyle="0" WordWrap="0"
+		   DrawLeft="false" Field="clientes.codcliente" X="70"
+		   Y="30" ForegroundColor="0,0,0" NegValueColor="0,0,0"
+		   Text="" DataType="0" BorderColor="0,0,0"
+		   DateFormat="11" FontFamily="Sans Serif" DrawTop="false"
+		   FontWeight="50" InputMask="" Precision="2"
+		   Height="20" Width="60" BackgroundColor="255,255,255"
+		   Currency="53" FontItalic="0" BorderWidth="1"
+		   DrawRight="false" DrawBottom="false" FontSize="10" />
+		<Field VAlignment="1" HAlignment="0"
+		   CommaSeparator="53" BorderStyle="0" WordWrap="0"
+		   DrawLeft="false" Field="clientes.nombre" X="130"
+		   Y="30" ForegroundColor="0,0,0" NegValueColor="0,0,0"
+		   Text="" DataType="0" BorderColor="0,0,0"
+		   DateFormat="11" FontFamily="Sans Serif" DrawTop="false"
+		   FontWeight="50" InputMask="" Precision="2"
+		   Height="20" Width="340" BackgroundColor="255,255,255"
+		   Currency="53" FontItalic="0" BorderWidth="1"
+		   DrawRight="false" DrawBottom="false" FontSize="10" />
+	</Detail>
+
+	<DetailHeader Level="2" Height="30">
+		<Label VAlignment="1" HAlignment="0"
+		   BorderStyle="1" WordWrap="0" DrawLeft="false"
+		   X="320" Y="0" ForegroundColor="0,0,0"
+		   Text="H. trabajadas" BorderColor="0,0,0" FontFamily="Sans Serif"
+		   DrawTop="false" FontWeight="50" Height="20"
+		   Width="90" BackgroundColor="192,192,192" FontItalic="0"
+		   BorderWidth="1" DrawRight="false" DrawBottom="false"
+		   FontSize="10" />
+		<Label VAlignment="1" HAlignment="0"
+		   BorderStyle="1" WordWrap="0" DrawLeft="false"
+		   X="440" Y="0" ForegroundColor="0,0,0"
+		   Text="H. extra" BorderColor="0,0,0" FontFamily="Sans Serif"
+		   DrawTop="false" FontWeight="50" Height="20"
+		   Width="90" BackgroundColor="192,192,192" FontItalic="0"
+		   BorderWidth="1" DrawRight="false" DrawBottom="false"
+		   FontSize="10" />
+	</DetailHeader>
+
+	<Detail Level="2" Height="20" Repeat="false">
+		<Field VAlignment="1" HAlignment="2"
+		   CommaSeparator="53" BorderStyle="0" WordWrap="0"
+		   DrawLeft="false" Field="sum(horasope.totalhoras)" X="320"
+		   Y="0" ForegroundColor="0,0,0" NegValueColor="0,0,0"
+		   Text="" DataType="2" BorderColor="0,0,0"
+		   DateFormat="11" FontFamily="Sans Serif" DrawTop="false"
+		   FontWeight="50" InputMask="" Precision="2"
+		   Height="20" Width="90" BackgroundColor="255,255,255"
+		   Currency="53" FontItalic="0" BorderWidth="1"
+		   DrawRight="false" DrawBottom="false" FontSize="10" />
+		<Field VAlignment="1" HAlignment="2"
+		   CommaSeparator="53" BorderStyle="0" WordWrap="0"
+		   DrawLeft="false" Field="sum(horasope.totalhorasextra)" X="440"
+		   Y="0" ForegroundColor="0,0,0" NegValueColor="0,0,0"
+		   Text="" DataType="2" BorderColor="0,0,0"
+		   DateFormat="11" FontFamily="Sans Serif" DrawTop="false"
+		   FontWeight="50" InputMask="" Precision="2"
+		   Height="20" Width="90" BackgroundColor="255,255,255"
+		   Currency="53" FontItalic="0" BorderWidth="1"
+		   DrawRight="false" DrawBottom="false" FontSize="10" />
+	</Detail>
+
+	<DetailFooter Level="1" Height="50">
+		<CalculatedField VAlignment="1" HAlignment="2"
+		   CommaSeparator="53" BorderStyle="1" WordWrap="0"
+		   DrawLeft="false" Field="sum(horasope.totalhoras)" X="320"
+		   Y="30" ForegroundColor="0,0,0" NegValueColor="0,0,0"
+		   Text="" DataType="2" BorderColor="0,0,0"
+		   CalculationType="1" DateFormat="11" FontFamily="Sans Serif"
+		   DrawTop="false" FontWeight="75" InputMask=""
+		   Precision="2" Height="20" Width="90"
+		   BackgroundColor="235,235,235" Currency="53" FontItalic="0"
+		   BorderWidth="1" DrawRight="false" DrawBottom="false"
+		   FontSize="12" />
+		<CalculatedField VAlignment="1" HAlignment="2"
+		   CommaSeparator="53" BorderStyle="1" WordWrap="0"
+		   DrawLeft="false" Field="sum(horasope.totalhorasextra)" X="440"
+		   Y="30" ForegroundColor="0,0,0" NegValueColor="0,0,0"
+		   Text="" DataType="2" BorderColor="0,0,0"
+		   CalculationType="1" DateFormat="11" FontFamily="Sans Serif"
+		   DrawTop="false" FontWeight="75" InputMask=""
+		   Precision="2" Height="20" Width="90"
+		   BackgroundColor="235,235,235" Currency="53" FontItalic="0"
+		   BorderWidth="1" DrawRight="false" DrawBottom="false"
+		   FontSize="12" />
+	</DetailFooter>
+
+</KugarTemplate>

@@ -1,0 +1,288 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>co_calculoscasilla</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>co_calculoscasilla</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>1000</width>
+            <height>491</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>co_calculoscasilla</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout40</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbCodModelo</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>79</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>codmodelo</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer38</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>71</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbCodCasilla</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>120</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>codcasilla</string>
+                    </property>
+                    <property name="foreignField">
+                        <string></string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string></string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout48</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbCodEpigrafe</cstring>
+                    </property>
+                    <property name="fieldName">
+                        <string>codepigrafe</string>
+                    </property>
+                    <property name="showAlias">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbDesEpigrafe</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>260</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>descripcion</string>
+                    </property>
+                    <property name="tableName">
+                        <string>co_epigrafes</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>codepigrafe</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>codepigrafe</string>
+                    </property>
+                    <property name="showAlias">
+                        <bool>false</bool>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbCodCuenta</cstring>
+                    </property>
+                    <property name="fieldName">
+                        <string>codcuenta</string>
+                    </property>
+                    <property name="showAlias">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbDesCuenta</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>260</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>descripcion</string>
+                    </property>
+                    <property name="tableName">
+                        <string>co_cuentas</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>codcuenta</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>codcuenta</string>
+                    </property>
+                    <property name="showAlias">
+                        <bool>false</bool>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>gbxSubcuentas</cstring>
+            </property>
+            <property name="font">
+                <font>
+                    <bold>1</bold>
+                    <italic>1</italic>
+                </font>
+            </property>
+            <property name="title">
+                <string>&amp;Subcuentas</string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout47</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="FLTableDB">
+                            <property name="name">
+                                <cstring>tdbSubcuentas</cstring>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="tableName">
+                                <string>co_subcuentas</string>
+                            </property>
+                            <property name="foreignField">
+                                <string></string>
+                            </property>
+                            <property name="fieldRelation">
+                                <string></string>
+                            </property>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout46</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QPushButton">
+                                    <property name="name">
+                                        <cstring>pbnSelect</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string></string>
+                                    </property>
+                                    <property name="iconSet">
+                                        <iconset>image0</iconset>
+                                    </property>
+                                    <property name="toolTip" stdset="0">
+                                        <string>Añadir subcuenta</string>
+                                    </property>
+                                </widget>
+                                <widget class="QPushButton">
+                                    <property name="name">
+                                        <cstring>pbnEliminar</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string></string>
+                                    </property>
+                                    <property name="iconSet">
+                                        <iconset>image1</iconset>
+                                    </property>
+                                    <property name="toolTip" stdset="0">
+                                        <string>Quitar subcuenta</string>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                        <widget class="FLTableDB">
+                            <property name="name">
+                                <cstring>tdbSubcuentasSelec</cstring>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="tableName">
+                                <string>co_subcuentas</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+            </vbox>
+        </widget>
+    </vbox>
+</widget>
+<customwidgets>
+</customwidgets>
+<images>
+    <image name="image0">
+        <data format="PNG" length="1302">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af4000004dd49444154789cc597cd6b5c5518c67f4d6ff54d99d073e0a69e5b1ae9d51032d145ad0b75a748a122f8fdad88eeeacead7f806ec4851b414410b456858a55b40543fd58a448ea4c31911b69656611cdd504ef810673b4978c8b73e76632f99aa40bdfcde1de99e77d9ef3becf7be6ccae56abc5ff1d775e03f63aa07a2de4bb81f78b24e33bc0ef023e000680c99d8af81a6801afee10ff7d813fbe53016708681549ded82e5802192ff0cbc0cb3b12a02aaad521e22d7c6b7a8d7155516d6c0b78653be47d0004609469bf7b097807d8d37396009452eda7d78093785ff4280010254820edc71781f7005907b32624102f20285f3d057c02e89e0568a531074de767cf002780ca56491c8e288c30e12afc31e05360b02701e4100fc7dd491e013e02f66d9644101c8eea70b5b315007703a781035b0a5081425734d55bab18633adb713f708a4dcae9701e1f6aaaa355ccc155f8bb80cf81a14d05582cec013da8890fc5a870d54eeec5b7e386f5924820b8dc217b84c844c407d7e06f07de05fabbb141671280388ce1eaca739aa6edafdc872fe763c0ec5a157e89a31872101108c0a616973b80a3c087c0f3c0955515287780b0c41266d0a0a3957276c41df872deb44640eeb7b3c4122632e841cd91d1231ebf321d0fd1351d01acf410408bc6e58ed8c488085a34b5a0463a9bb677725b21e261e0523b910e7489cff28cd8c464929595489b25fe18de534f02f3a5071c0e02c85ce6650510ab181914c646c7ba8d750bf0057018f8072023430221cb33fa837e08200a23d4a0626c78acbb92f7009f0143bb81e764af0c0fed1f6260df00918ac8c95115452e397118a3b566e4e61106d400152ab865073961be9c1f0576572a9503d1fe88fe7dfd44950e7c5fce5038841ed48cc423c85e29dbe596dd10cb1c0ebc7fa45d1eb23c4307451bc21809856a50254913df63b78458c1e6f65fe075e051605dbc0a155a69aa52a5b9d06489259c73586b212703deec6b97bfec61a0cb934d42410d289a0b4d6c6aa94dd5486612d285d4e1ddfcf61a0fb4f12a225211461b9ab6c9dcec1c493d219949b0d6fe893fe44e971ec8f2ccaf2e432a82a8827cae49e3728373e7cf914c27a469ba083c0b7c5c40fbda78413c5e0abc2ef0cd06139313d4a7eb586b7f2ba6e1db720aca79c8bd8ba330c20c189a734de69a734cd42748a613acb5b620ff8aae688f725489884c549267b319b5c91af58b75acb54dfc39f263272d827863e07081c3544ca9bc365923b9986017eddfc0d3c0d96ef2d203c5596094219d4f4bf105f95fc083c04f9db8d20382c0557f12a68b29599a914c25249713eca2fd0378602372005d9c2d91894a7c3da9d3986960adbd02bcd04dbeaa0536b744fd11599e619b965abde67bbe90ce1665fb612372f01e301543b69861172cc954426dba469aa619fea77d5df15e40eedb2022b805e77be60dd3c08f597d337272bf88c8cab478f1f3c0131486db580045ff73e7ddee47e59782fce74dc93b32d945cbf9a9f3349a0dacb5bf038f03135bc07c4412d1481a9e7cd14e15e4973686ae0e1d68ef999904e7dcaff86bd9855eb06754a85ad5d16aabb8dd5e000ef54a0c8c1b635ad5e16a4b445ac097c08ddbc0734629d5269f6093ebd37a21818c2ba5dae4a7e8e10ed91d67259016f00d5b5c2037887305fe043ddea2bb6302f88e1eaed0ebc42efc789e643bff23bae23810ee102b78b35dbf53f2ff0010cc0f35e14a5b610000000049454e44ae426082</data>
+    </image>
+    <image name="image1">
+        <data format="PNG" length="1444">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af40000056b49444154789cd5975f681c5514c67fd9dec6bbb5abb3626156adce481e3262d58df8b0d18029085a151faa08161415fc576aa9b12866c57f7d28a8a0a8f8e74150b04f1ac1422a54eb83d0fa200db2e28a1176b5c1193743e69a0eddebf6eec687d95dd3dab4c9e6c9ef65e0ce7c73bef3dd73cedce95b5858e0ff8c21e0e255f06f5c4df05b80df802b7ae43f04fcd06bf05b01051820d703ff61a009fcd24bf0bb8079cbb21680f91e043c21856cb6f9a5d40ac9f702fb1cc7c92056c84cf014f08eebb8ddb82b11703ff0b137e0ad7307dcc4fc95611cc1ebf9abf3d897d95dfe72053c0a7ce8384e7f61a4402e9b436bbd92e0af20d8e30d7814460aa4651aa5d5b205ec44f0ae37e8add93cba996df76cc39ff55712fc352964313f9867cb6d5bd87adb56fcc0470ab92c01cf2078c31bf0fa0a8502c5dd45eaa64e1004cb099c02de96428e79577b14460b8cef1aa7e25788548436fa9c025e9042eecd0fe6298c1428ee2ae27a2e478e1c01e866b00404f08194727bfeba3c9b4737b367f71eb2176739fafd51d2227d4e071e005e741d176f93c7f607b7e36e72a9942a94cb65a490dd0c96c038f0b0ebb878f9849fdd98e5f07787a91eab26f2ce5284f703ef398e43fe863c638f8f315418229a8df8ecc0675869eb5c0e3c87e0456f3029b8e28e22ee2617bfe233f9cd2496b4fef5e8df4b178f00ef388e23860bc349f09121223f62dfe7fb50a14299a47a9770e06504cf77aabd1b7cda67e2c0045a6b34fa14fe62013b80371dc7e91bbe6198b11dedcc8f454c1c98a0aeea0058d242a3936d485e76b2cd7f15c1d39ee39d5233957285c98393d4e3842f915d07b5d188b68831047b9dcb1c86478619df35ce55f9abf02b3e13fb278854d42575fab79d410b90c0eb089ef2063c46474729ee2e927373fc54fa89c98393e838c9d6c2a26ccaff71600bb0d75a6f91b373e407f368a53974f01047a78e768b454a898a1596b0c0d071e06fe06960a76dd9d8b6cdd0e010fe8c4ff9c732874b874fc9382038956f346b803f818bb4d6d71b6308fe08982a4d51faa5445faa0f8120db9f256ec4988661e6cf19c230249c0b31c618e049c08e4fc49e369acaef15a64a534c57a749a7d220202bb2c426463734337fcca0e614c15c002d6a2992cfea63c09b41105099a9e02b1f89a4ae937d8b4c44566693bd475237f54e17a48063c07dc0a7c14c803fe313a9088944ebe4f9c844c9f386d3f9ac5954845f02328ee39b4cc320fa0599f33268346bfbd7625a064e4035a8323b374b1006d0a201bc0f44c07ec051f3ea1a0c987e834c4b9a349142624cc29fae4da3e614a10aa1456db10080af01e238be596b8de8176cb870037df461490ba5157118e3d77cf4098d31a601bc05c424d5b21fb854cdab215a909669d6a7d7d3a489b5cec23fe1d30c9b546a154c6c302d533bd357fd25a03f0882e73a65ea6e74bb37231d8159720e18925922abd5eab6cea29db3014893c6d77ec26fcf83d31de8e05be08a388eafed64b221b30104e85053092a9886e938f076db810e16806f80eb55acae1429414666c89e9f8514cc06b384b510a397760092e1f210a0abd5ea239d4567a383163ac9e0ece78108b81bc327e59fcbb7773276363a4912e8334ec2d3d124e90e5dad569fec2cda599beef83afba9e82f9223dc47e55fcb5b21e9809c95638aa92e7fa92d588c2f81b452eaa6e3fa38997519744313d64280336dc1629c04be00dc702ebca6dea893b1321c9f3f8e9a53c07fbb60297c05f4c5f3f1cd271b27c95c9041850ad33a630d9c8e4e775ca2941a1208d6f6af250c4380da32e377f12cb060dbf6825c2f577a2c4fb5c5267c291780d24a0500ec045aed17f4f25ff01ab02a01909c929bc0df3d0800d843d2aee55e0540f27b350f5cde23ff15607a350200ee00ec55f0effc07862f7736034db33e0000000049454e44ae426082</data>
+    </image>
+</images>
+<tabstops>
+    <tabstop>fdbCodEpigrafe</tabstop>
+</tabstops>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>FLTableDB.h</includehint>
+    <includehint>FLTableDB.h</includehint>
+</includehints>
+</UI>

@@ -1,0 +1,37 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_clientes</name>
+
+	<group>
+		<level>0</level>
+		<field>clientes.codagente</field>
+	</group>
+	
+	<tables>clientes,dirclientes</tables>
+
+	<select>
+		agentes.nombre,agentes.apellidos,agentes.dnicif,
+		clientes.codcliente, clientes.nombre, clientes.codagente,
+		clientes.telefono1, clientes.fax, clientes.email,
+		dirclientes.direccion, dirclientes.ciudad,
+		dirclientes.codpostal, dirclientes.provincia, dirclientes.codpais,
+		empresa.direccion, empresa.nombre,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais, empresa.cifnif,
+		empresa.telefono, empresa.fax
+	</select>
+
+	<from>
+		empresa, agentes
+		INNER JOIN clientes ON agentes.codagente = clientes.codagente
+		LEFT OUTER JOIN dirclientes ON clientes.codcliente = dirclientes.codcliente
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		clientes.codcliente
+	</order>
+</QRY>

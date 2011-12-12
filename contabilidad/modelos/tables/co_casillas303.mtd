@@ -1,0 +1,33 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_casillas303</name>
+	<!--Casillas del modelo 303-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Casillas del modelo 303")</alias>
+
+	<field>
+		<name>casilla303</name>
+		<!--Número de casilla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº casilla")</alias>
+		<null>true</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+		
+		<relation>
+			<table>co_partidas</table>
+			<field>casilla303</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>150</length>
+	</field>
+
+</TMD>

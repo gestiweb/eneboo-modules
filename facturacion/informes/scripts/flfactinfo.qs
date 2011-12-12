@@ -140,11 +140,127 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO MAIL /////////////////////////////////////////////////
+class envioMail extends oficial {
+	var datosEMail:Array;
+    function envioMail( context ) { oficial ( context ); }
+	function mostrarInformeVisor(visor:FLReportViewer):Boolean {
+		return this.ctx.envioMail_mostrarInformeVisor(visor);
+	}
+}
+//// ENVIO MAIL /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration infoCliProv */
+/////////////////////////////////////////////////////////////////
+//// INFOCLIPROV //////////////////////////////////////////////////
+class infoCliProv extends envioMail {
+	var idInformeActual:Number;
+	function infoCliProv( context ) { envioMail ( context ); }
+	function cabeceraClientes(nodo:FLDomNode, campo:String):String {
+		return this.ctx.infoCliProv_cabeceraClientes(nodo, campo);
+	}
+	function cabeceraProveedores(nodo:FLDomNode, campo:String):String {
+		return this.ctx.infoCliProv_cabeceraProveedores(nodo, campo);
+	}
+	function establecerId(id:Number) {
+		return this.ctx.infoCliProv_establecerId(id);
+	}
+}
+//// INFOCLIPROV //////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration pubInfoCliProv */
+/////////////////////////////////////////////////////////////////
+//// PUBINFOCLIPROV //////////////////////////////////////////////////
+class pubInfoCliProv extends infoCliProv {
+	function pubInfoCliProv( context ) { infoCliProv ( context ); }
+	function pub_cabeceraClientes(nodo:FLDomNode, campo:String):String {
+		return this.cabeceraClientes(nodo, campo);
+	}
+	function pub_cabeceraProveedores(nodo:FLDomNode, campo:String):String {
+		return this.cabeceraProveedores(nodo, campo);
+	}
+	function pub_establecerId(id:Number) {
+		return this.establecerId(id);
+	}
+}
+
+//// PUBINFOCLIPROV //////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration liqAgentes */
+/////////////////////////////////////////////////////////////////
+//// LIQAGENTES /////////////////////////////////////////////////
+class liqAgentes extends pubInfoCliProv {
+	var porComision:Number;
+	var baseLiq:Number;
+	var ivaLiq:Number;
+	var irpfLiq:Number;
+
+    function liqAgentes( context ) { pubInfoCliProv ( context ); }
+	function totalComisionFactura(nodo:FLDomNode, campo:String):Number {
+		return this.ctx.liqAgentes_totalComisionFactura(nodo, campo);
+	}
+	function porComisionFactura(nodo:FLDomNode, campo:String):Number {
+		return this.ctx.liqAgentes_porComisionFactura(nodo, campo);
+	}
+	function iniciarValoresLiq(nodo:FLDomNode, campo:String) {
+		return this.ctx.liqAgentes_iniciarValoresLiq(nodo, campo);
+	}
+	function calcularValoresLiq(nodo:FLDomNode, campo:String) {
+		return this.ctx.liqAgentes_calcularValoresLiq(nodo, campo);
+	}
+	function mostrarValoresLiq(nodo:FLDomNode, campo:String):Number {
+		return this.ctx.liqAgentes_mostrarValoresLiq(nodo, campo);
+	}
+}
+//// LIQAGENTES /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration infoVtos */
+/////////////////////////////////////////////////////////////////
+//// INFO_VENCIMIENTOS //////////////////////////////////////////
+class infoVtos extends liqAgentes {
+    function infoVtos( context ) { liqAgentes ( context ); }
+	function cabeceraVencimientos(nodo:FLDomNode, campo:String):String {
+		return this.ctx.infoVtos_cabeceraVencimientos(nodo, campo);
+	}
+}
+//// INFO_VENCIMIENTOS //////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration dtoEspecial */
+/////////////////////////////////////////////////////////////////
+//// DTOESPECIAL/////////////////////////////////////////////////
+class dtoEspecial extends infoVtos {
+    function dtoEspecial( context ) { infoVtos ( context ); }
+	function descuento(nodo:FLDomNode, campo:String):String {
+		return this.ctx.dtoEspecial_descuento(nodo, campo);
+	}
+}
+//// DESARROLLO /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration recibosProv */
+/////////////////////////////////////////////////////////////////
+//// RECIBOS PROV ///////////////////////////////////////////////
+class recibosProv extends dtoEspecial {
+    function recibosProv( context ) { dtoEspecial ( context ); }
+	function aplicarCriterio(tabla:String, campo:String, valor:String, signo:String):String {
+		return this.ctx.recibosProv_aplicarCriterio(tabla, campo, valor, signo);
+	}
+}
+//// RECIBOS PROV ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends recibosProv {
+    function head( context ) { recibosProv ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -191,9 +307,49 @@ class ifaceCtx extends head {
 		return this.mostrarInformeVisor(visor);
 	}
 }
-const iface = new ifaceCtx( this );
+const iface = new pubDtoEspecial( this );
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
+/** @class_declaration pubLiqAgentes */
+/////////////////////////////////////////////////////////////////
+//// PUB_LIQ_AGENTES ////////////////////////////////////////////
+class pubLiqAgentes extends ifaceCtx {
+	function pubLiqAgentes( context ) { ifaceCtx( context ); }
+	function pub_iniciarValoresLiq(nodo:FLDomNode, campo:String) {
+		return this.iniciarValoresLiq(nodo, campo);
+	}
+	function pub_calcularValoresLiq(nodo:FLDomNode, campo:String) {
+		return this.calcularValoresLiq(nodo, campo);
+	}
+	function pub_mostrarValoresLiq(nodo:FLDomNode, campo:String):Number {
+		return this.mostrarValoresLiq(nodo, campo);
+	}
+}
+//// PUB_LIQ_AGENTES ////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration pubInfoVtos */
+/////////////////////////////////////////////////////////////////
+//// PUB_INFO_VENCIMIENTOS //////////////////////////////////////
+class pubInfoVtos extends pubLiqAgentes {
+    function pubInfoVtos( context ) { pubLiqAgentes ( context ); }
+	function pub_cabeceraVencimientos(nodo:FLDomNode, campo:String):String {
+		return this.cabeceraVencimientos(nodo, campo);
+	}
+}
+//// PUB_INFO_VENCIMIENTOS //////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration pubDtoEspecial */
+/////////////////////////////////////////////////////////////////
+//// PUB_DTOESPECIAL//////////////////////////////////////////////////
+class pubDtoEspecial extends pubInfoVtos {
+	function pubDtoEspecial( context ) { pubInfoVtos( context ); }
+	function pub_descuento(nodo:FLDomNode, campo:String):Number {
+		return this.descuento(nodo, campo);
+	}
+}
 
 /** @class_definition interna */
 ////////////////////////////////////////////////////////////////////////////
@@ -242,25 +398,25 @@ function oficial_datosPieFactura(nodo:FLDomNode, campo:String):Number
 		if (campo == "BI4") {
 				res = util.sqlSelect(tablaIva, "neto", "idfactura = " + idFactura + " AND iva = 4");
 		} else if (campo == "BI7") {
-				res = util.sqlSelect(tablaIva, "neto", "idfactura = " + idFactura + " AND iva = 7");
+				res = util.sqlSelect(tablaIva, "neto", "idfactura = " + idFactura + " AND (iva = 7 OR iva = 8)");
 		} else if (campo == "BI16") {
-				res = util.sqlSelect(tablaIva, "neto", "idfactura = " + idFactura + " AND iva = 16");
+				res = util.sqlSelect(tablaIva, "neto", "idfactura = " + idFactura + " AND (iva = 16 OR iva = 18)");
 		} else if (campo == "IVA4") {
 				res = util.sqlSelect(tablaIva, "totaliva", "idfactura = " + idFactura + " AND iva = 4");
 		} else if (campo == "IVA7") {
-				res = util.sqlSelect(tablaIva, "totaliva", "idfactura = " + idFactura + " AND iva = 7");
+				res = util.sqlSelect(tablaIva, "totaliva", "idfactura = " + idFactura + " AND (iva = 7 OR iva = 8)");
 		} else if (campo == "IVA16") {
-				res = util.sqlSelect(tablaIva, "totaliva", "idfactura = " + idFactura + " AND iva = 16");
+				res = util.sqlSelect(tablaIva, "totaliva", "idfactura = " + idFactura + " AND (iva = 16 OR iva = 18)");
 		} else if (campo == "POR_RE4") {
 				res = util.sqlSelect(tablaIva, "recargo", "idfactura = " + idFactura + " AND iva = 4");
 				if (res && parseFloat(res) != 0)
 						res += "%";
 		} else if (campo == "POR_RE7") {
-				res = util.sqlSelect(tablaIva, "recargo", "idfactura = " + idFactura + " AND iva = 7");
+				res = util.sqlSelect(tablaIva, "recargo", "idfactura = " + idFactura + " AND (iva = 7 OR iva = 8)");
 				if (res && parseFloat(res) != 0)
 						res += "%";
 		} else if (campo == "POR_RE16") {
-				res = util.sqlSelect(tablaIva, "recargo", "idfactura = " + idFactura + " AND iva = 16");
+				res = util.sqlSelect(tablaIva, "recargo", "idfactura = " + idFactura + " AND (iva = 16 OR iva = 18)");
 				if (res && parseFloat(res) != 0)
 						res += "%";
 		} else if (campo == "RE4") {
@@ -268,19 +424,19 @@ function oficial_datosPieFactura(nodo:FLDomNode, campo:String):Number
 				if (parseFloat(res) != 0)
 						res = util.buildNumber(res, "f", 2);
 		} else if (campo == "RE7") {
-				res = util.sqlSelect(tablaIva, "totalrecargo", "idfactura = " + idFactura + " AND iva = 7");
+				res = util.sqlSelect(tablaIva, "totalrecargo", "idfactura = " + idFactura + " AND (iva = 7 OR iva = 8)");
 				if (parseFloat(res) != 0)
 						res = util.buildNumber(res, "f", 2);
 		} else if (campo == "RE16") {
-				res = util.sqlSelect(tablaIva, "totalrecargo", "idfactura = " + idFactura + " AND iva = 16");
+				res = util.sqlSelect(tablaIva, "totalrecargo", "idfactura = " + idFactura + " AND (iva = 16 OR iva = 18)");
 				if (parseFloat(res) != 0)
 						res = util.buildNumber(res, "f", 2);
 		} else if (campo == "T4") {
 				res = util.sqlSelect(tablaIva, "totallinea", "idfactura = " + idFactura + " AND iva = 4");
 		} else if (campo == "T7") {
-				res = util.sqlSelect(tablaIva, "totallinea", "idfactura = " + idFactura + " AND iva = 7");
+				res = util.sqlSelect(tablaIva, "totallinea", "idfactura = " + idFactura + " AND (iva = 7 OR iva = 8)");
 		} else if (campo == "T16") {
-				res = util.sqlSelect(tablaIva, "totallinea", "idfactura = " + idFactura + " AND iva = 16");
+				res = util.sqlSelect(tablaIva, "totallinea", "idfactura = " + idFactura + " AND (iva = 16 OR iva = 18)");
 		}
 		if (parseFloat(res) == 0 || !res)
 				res = "";
@@ -502,28 +658,69 @@ debug("------ CONSULTA -------" + q.sql());
 		}
 	}
 
-	if (!nombreReport) 
+	var tipoReport:String = "";
+	if (!nombreReport || nombreReport == "") {
 		nombreReport = nombreInforme;
-			
-	var rptViewer:FLReportViewer = new FLReportViewer();
-	rptViewer.setReportTemplate(nombreReport);
-	rptViewer.setReportData(q);
-	rptViewer.renderReport(etiquetaInicial.fila, etiquetaInicial.col);
-	if (numCopias)
-		rptViewer.setNumCopies(numCopias);
-	if (impresora) {
-		try {
-			rptViewer.setPrinterName(impresora);
-		}
-		catch (e) {}
-	}
-	if (impDirecta) {
-		rptViewer.printReport();
-	} else if (pdf) { 
-		//Si pdf es true, en el parámetro impresora está la ruta completa del fichero pdf
-		rptViewer.printReportToPDF(impresora);
 	} else {
-		this.iface.mostrarInformeVisor(rptViewer);
+		var extension:String;
+		var iPunto:Number = nombreReport.findRev(".");
+		if (iPunto > -1) {
+			extension = nombreReport.right(nombreReport.length - (iPunto + 1));
+			nombreReport = nombreReport.left(iPunto);
+			if (extension.toLowerCase() == "jxml") {
+				tipoReport = "JasperQueryData";
+			} else if (extension.toLowerCase() == "jdxml") {
+				tipoReport = "JasperXmlData";
+			}
+		}
+		debug("extension = '" + extension + "'");
+		debug("nombreReport = '" + nombreReport + "'");
+		debug("tipoReport = '" + tipoReport + "'");
+	}
+	
+	switch (tipoReport) {
+		case "JasperQueryData": {
+			var jpViewer = new FLJasperViewer;
+			jpViewer.setReportData(q);
+			jpViewer.setReportTemplate(nombreReport);
+			jpViewer.exec();
+			break;
+		}
+		case "JasperXmlData": {
+		  var xmlData = sys.toXmlReportData(q);
+		  var regExp = new RegExp(" \\|\\| ' ' \\|\\| ");
+		  
+		  regExp.global = true;
+		  xmlData.setContent(xmlData.toString(0).replace(regExp,"_"));
+
+      var jpViewer = new FLJasperViewer;
+      jpViewer.setReportData(xmlData);
+      jpViewer.setReportTemplate(nombreReport);
+      jpViewer.exec();
+			break;
+		}
+		default: {
+			var rptViewer:FLReportViewer = new FLReportViewer();
+			rptViewer.setReportTemplate(nombreReport);
+			rptViewer.setReportData(q);
+			rptViewer.renderReport(etiquetaInicial.fila, etiquetaInicial.col);
+			if (numCopias)
+				rptViewer.setNumCopies(numCopias);
+			if (impresora) {
+				try {
+					rptViewer.setPrinterName(impresora);
+				}
+				catch (e) {}
+			}
+			if (impDirecta) {
+				rptViewer.printReport();
+			} else if (pdf) { 
+				//Si pdf es true, en el parámetro impresora está la ruta completa del fichero pdf
+				rptViewer.printReportToPDF(impresora);
+			} else {
+				this.iface.mostrarInformeVisor(rptViewer);
+			}
+		}
 	}
 }
 
@@ -652,12 +849,16 @@ function oficial_porIVA(nodo:FLDomNode, campo:String):String
 	if (!porIva)
 		porIva = 0;
 
-	if (util.sqlSelect(tabla, "iva", campoClave + " = " + idDocumento + " AND iva <> " + porIva)) {
+	if (util.sqlSelect(tabla, campoClave, campoClave + " = " + idDocumento + " AND iva <> " + porIva)) {
 		this.iface.variosIvas_ = true;
 		porIva = 0;
 	}
 	
-	return "I.V.A. " + porIva.toString() + "%";
+	if (porIva.toString() == "0") {
+		return "I.V.A.";
+	} else {
+		return "I.V.A. " + porIva.toString() + "%";
+	}
 }
 
 
@@ -1675,9 +1876,302 @@ function oficial_mostrarInformeVisor(visor:FLReportViewer):Boolean
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+/** @class_definition envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO MAIL /////////////////////////////////////////////////
+function envioMail_mostrarInformeVisor(visor:FLReportViewer):Boolean
+{
+	this.iface.visor_ = visor;
+	this.iface.visor_.exec();
+	return true;
+
+/*	this.iface.visor_ = visor;
+	var f = new FLFormSearchDB( "customviewer" );
+	f.setMainWidget();
+    f.exec();*/
+}
+//// ENVIO MAIL /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition infoCliProv */
+/////////////////////////////////////////////////////////////////
+//// INFOCLIPROV //////////////////////////////////////////////////
+
+function infoCliProv_cabeceraClientes(nodo:FLDomNode, campo:String):String
+{
+	var texCampo:String = new String(campo);
+
+	var util:FLUtil = new FLUtil();
+
+	var texto:String;
+	var sep:String = "       ";
+
+	var cri:Array = flfactppal.iface.pub_ejecutarQry("i_clientes", "descripcion,d_clientes_codcliente,h_clientes_codcliente,i_clientes_codagente,i_clientes_codgrupo,i_clientes_codserie,i_clientes_regimeniva,i_dirclientes_codpais","id = '" + this.iface.idInformeActual + "'");
+
+	texto = " " + cri.descripcion + sep + sep;
+
+	if (cri.d_clientes_codcliente || cri.h_clientes_codcliente)
+		texto += util.translate("scripts","Clientes");
+	
+	if (cri.d_clientes_codcliente)		
+		texto += " " + util.translate("scripts","desde") + " " + cri.d_clientes_codcliente;
+	
+	if (cri.h_clientes_codcliente)
+		texto += " " + util.translate("scripts","hasta") + " " + cri.h_clientes_codcliente;
+
+	if (cri.i_clientes_codagente)
+		texto += sep + util.translate("scripts","Agente") + " " + cri.i_clientes_codagente;
+
+	if (cri.i_clientes_codgrupo)
+		texto += sep + util.translate("scripts","Grupo") + " " + cri.i_clientes_codgrupo;
+
+	if (cri.i_clientes_codserie)	
+		texto += sep + util.translate("scripts","Serie de facturación") + " " + cri.i_clientes_codserie;
+
+	if (cri.i_clientes_regimeniva && cri.i_clientes_regimeniva != util.translate("scripts","Todos"))
+		texto += sep + util.translate("scripts","Régimen I.V.A.") + " " + cri.i_clientes_regimeniva;
+
+	if (cri.i_dirclientes_codpais)
+		texto += sep + util.translate("scripts","País") + " " + cri.i_dirclientes_codpais;
+
+	return texto;
+}
+
+function infoCliProv_cabeceraProveedores(nodo:FLDomNode, campo:String):String
+{
+	var texCampo:String = new String(campo);
+
+	var util:FLUtil = new FLUtil();
+
+	var texto:String;
+	var sep:String = "       ";
+
+	var cri:Array = flfactppal.iface.pub_ejecutarQry("i_proveedores", "descripcion,d_proveedores_codproveedor,h_proveedores_codproveedor,i_proveedores_codserie,i_proveedores_regimeniva,i_dirproveedores_codpais","id = '" + this.iface.idInformeActual + "'");
+
+	texto = " " + cri.descripcion + sep + sep;
+
+	if (cri.d_proveedores_codproveedor || cri.h_proveedores_codproveedor)
+		texto += util.translate("scripts","Proveedores");
+	
+	if (cri.d_proveedores_codproveedor)		
+		texto += " " + util.translate("scripts","desde") + " " + cri.d_proveedores_codproveedor;
+	
+	if (cri.h_proveedores_codproveedor)
+		texto += " " + util.translate("scripts","hasta") + " " + cri.h_proveedores_codproveedor;
+
+	if (cri.i_proveedores_codserie)	
+		texto += sep + util.translate("scripts","Serie de facturación") + " " + cri.i_proveedores_codserie;
+
+	if (cri.i_proveedores_regimeniva && cri.i_proveedores_regimeniva != util.translate("scripts","Todos"))
+		texto += sep + util.translate("scripts","Régimen I.V.A.") + " " + cri.i_proveedores_regimeniva;
+
+	if (cri.i_dirproveedores_codpais)
+		texto += sep + util.translate("scripts","País") + " " + cri.i_dirproveedores_codpais;
+
+	return texto;
+}
+
+/** \D Establece el id del informe que está siendo impreso
+*/
+function infoCliProv_establecerId(id:Number) 
+{
+	this.iface.idInformeActual = id;
+}
+
+//// INFOCLIPROV //////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition liqAgentes */
+/////////////////////////////////////////////////////////////////
+//// LIQAGENTES /////////////////////////////////////////////////
+/** \D
+Obtiene el porcentaje de comisión de la factura. Si no lo tiene el porcentaje será la media de los porcentajes de sus líneas.
+@param	nodo: Nodo XML con los datos de la línea que se va a mostrar en el informe
+@param	campo: Campo a mostrar
+@return	Valor del campo
+\end */
+function liqAgentes_porComisionFactura(nodo:FLDomNode, campo:String):Number
+{debug("liqAgentes_porComisionFactura");
+		var util:FLUtil = new FLUtil();
+		
+	var res:Number = parseFloat(nodo.attributeValue("facturascli.porcomision"));
+	if(res && res != 0) {
+		this.iface.porComision = res;
+		return res;
+	}
+	
+	var idFactura:String = nodo.attributeValue("facturascli.idfactura");
+	var numLineas:Number = parseFloat(util.sqlSelect("lineasfacturascli","COUNT(idlinea)","idfactura = " + idFactura));
+debug("numLineas " + numLineas);
+	if(!numLineas) {
+		this.iface.porComision = 0;
+		return 0;
+	}
+
+	var sumCom:Number = parseFloat(util.sqlSelect("lineasfacturascli","SUM(porcomision)","idfactura = " + idFactura));
+debug("sumCom " + sumCom);
+	res = sumCom/numLineas;
+debug("res " + res);
+	this.iface.porComision = res;
+
+	return res;
+}
+
+/** \D
+Obtiene la comisión total de una factura
+@param	nodo: Nodo XML con los datos de la línea que se va a mostrar en el informe
+@param	campo: Campo a mostrar
+@return	Valor del campo
+\end */
+function liqAgentes_totalComisionFactura(nodo:FLDomNode, campo:String):Number
+{
+	var util:FLUtil = new FLUtil();
+	
+	if(!this.iface.porComision)
+		return 0;
+
+	var totalFactura:Number = nodo.attributeValue("facturascli.neto");
+	var res:Number = totalFactura * this.iface.porComision / 100;
+	return res;
+}
+
+function liqAgentes_iniciarValoresLiq(nodo:FLDomNode, campo:String)
+{
+	this.iface.baseLiq = 0;
+	this.iface.ivaLiq = 0;
+	this.iface.irpfLiq = 0;
+}
+
+function liqAgentes_calcularValoresLiq(nodo:FLDomNode, campo:String)
+{
+	var util:FLUtil = new FLUtil();
+	this.iface.baseLiq = nodo.attributeValue("liquidaciones.total");
+
+	var irpf:Number = util.sqlSelect("agentes", "irpf", "codagente = '" + nodo.attributeValue("liquidaciones.codagente") + "'");
+	this.iface.irpfLiq = (nodo.attributeValue("liquidaciones.total") * irpf) / 100;
+
+	var hoy:Date = new Date();
+	var codImpuesto:Number = util.sqlSelect("articulos", "codimpuesto", "referencia = '" + flfactalma.iface.pub_valorDefectoAlmacen("refivaliquidacion") + "'");
+	if (codImpuesto) {
+		var iva:Number = flfacturac.iface.pub_campoImpuesto("iva", codImpuesto, util.dateAMDtoDMA(hoy));
+		this.iface.ivaLiq = (nodo.attributeValue("liquidaciones.total") * iva) / 100;
+	}	
+}
+
+function liqAgentes_mostrarValoresLiq(nodo:FLDomNode, campo:String):Number
+{
+	var util:FLUtil = new FLUtil();
+	var valor:Number;
+	switch (campo) {
+		case "baseimponible": {
+			valor = this.iface.baseLiq;
+			break;
+		}
+		case "irpf": {
+			valor = this.iface.irpfLiq;
+			break;
+		}
+		case "iva": {
+			valor = this.iface.ivaLiq;
+			break;
+		}
+		case "total": {
+			valor = parseFloat(this.iface.baseLiq) + parseFloat(this.iface.ivaLiq) - parseFloat(this.iface.irpfLiq);
+			break;
+		}
+	}
+	return valor;
+}
+
+//// LIQAGENTES /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition infoVtos */
+/////////////////////////////////////////////////////////////////
+//// INFO_VENCIMIENTOS //////////////////////////////////////////
+function infoVtos_cabeceraVencimientos(nodo:FLDomNode, campo:String):String
+{
+	switch (campo) {
+		case "codejercicio":
+			return nodo.attributeValue("criterios.codejercicio");
+			break;
+		case "empresa":
+			return nodo.attributeValue("empresa.nombre");
+			break;
+		case "fachavtodesde":
+			return nodo.attributeValue("criterios.fechavtodesde");
+			break;
+		case "fachavtohasta":
+			return nodo.attributeValue("criterios.fechavtohasta");
+			break;
+	}
+}
+//// INFO_VENCIMIENTOS //////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/** @class_definition dtoEspecial */
+/////////////////////////////////////////////////////////////////
+//// DTOESPECIAL/////////////////////////////////////////////////
+
+function dtoEspecial_descuento(nodo:FLDomNode, campo:String):String
+{
+	var res:String;
+	var idDescuento:String;
+	var tabla:String;
+
+	switch (campo) {
+		case "facturacli": {
+			tabla = "facturascli";
+			break;
+		}
+		case "facturaprov": {
+			tabla = "facturasprov";
+			break;
+		}
+	}
+    if ( nodo.attributeValue(tabla + ".pordtoesp") == 0 )
+		res = "";
+	else
+		res = nodo.attributeValue(tabla + ".pordtoesp") + " %"; 
+	
+	return res;
+}
+//// DTOESPECIAL/////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition recibosProv */
+/////////////////////////////////////////////////////////////////
+//// RECIBOS PROV ///////////////////////////////////////////////
+function recibosProv_aplicarCriterio(tabla:String, campo:String, valor:String, signo:String):String
+{
+	var criterio:String = "";
+	switch (tabla) {
+		case "i_recibosprov": {
+			switch (campo) {
+				case "recibosprov.estado": {
+					switch (valor) {
+						case "Pendiente": {
+							criterio = "recibosprov.estado IN ('Emitido', 'Devuelto')";
+							break;
+						}
+					}
+					break;
+				}
+			}
+			break;
+		}
+	}
+
+	if (criterio == "") {
+		criterio = this.iface.__aplicarCriterio(tabla, campo, valor, signo);
+	}
+	return criterio;
+}
+//// RECIBOS PROV ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////

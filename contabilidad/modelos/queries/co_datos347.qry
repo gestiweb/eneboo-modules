@@ -1,0 +1,24 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_datos347</name>
+
+	<tables>empresa,clientes,facturascli</tables>
+	
+	<select>
+		empresa.nombre, empresa.cifnif, empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		clientes.cifnif, clientes.nombre,
+		SUM(f.total)
+	</select>
+	
+	<from>
+		empresa, clientes 
+		INNER JOIN facturascli f ON clientes.codcliente = f.codcliente
+		INNER JOIN dirclientes ON f.codcliente = dirclientes.codcliente and dirclientes.domfacturacion = true
+		INNER JOIN paises ON dirclientes.codpais = paises.codpais
+	</from>
+
+	<where>
+	</where>
+
+</QRY>

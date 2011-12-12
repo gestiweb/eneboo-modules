@@ -1,426 +1,412 @@
 <ACTIONS>
-
-	<action>
-		<name>agentes</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Agentes comerciales")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","La gestión de agentes comerciales soporta los datos completos de contacto de los agentes, el departamento al que pertenencen y la comisión que tienen asignada")</description>
-		<table>agentes</table>
-		<form>master_copy</form>
-		<formrecord>agentes</formrecord>
-		<scriptformrecord>agentes</scriptformrecord>
-	</action>
-
-	<action>
-		<name>bancos</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Bancos")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","El listado de bancos almacena el nombre y número de entidad del banco, que se utilizarán para definir las cuentas bancarias")</description>
-		<scriptform>masterbancos</scriptform>
-		<table>bancos</table>
-		<form>master_print</form>
-		<formrecord>bancos</formrecord>
-	</action>
-
-	<action>
-		<name>bancos_imp</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Imprimir bancos")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de bancos para un intervalo de números de entidad, a través del botón 'impresión' del formulario de bancos")</description>
-		<table>bancos_imp</table>
-		<form>desdehasta</form>
-	</action>
-
-	<action>
-		<name>clientes</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Clientes")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","La gestión de clientes soporta un completo conjunto de datos generales y comerciales (forma de pago, divisa, agente comercial, cuentas bancarias, etc). Para cada cliente es posible registrar una serie de direcciones y contactos. El formulario de clientes ofrece además listados de todos los documentos referentes al cliente (presupuestos, pedidos, albaranes, facturas y recibos). Cuando se trabaja con contabilidad integrada, se puede establecer la subcuenta contable del cliente y consultar su libro mayor")</description>
-		<scriptformrecord>clientes</scriptformrecord>
-		<scriptform>masterclientes</scriptform>
-		<table>clientes</table>
-		<form>master_copy</form>
-		<formrecord>clientes</formrecord>
-	</action>
-
-	<action>
-		<name>contactosclientes</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Contactos de clientes")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Cada cliente tiene asignada una agenda que permite guardar información sobre personas de contacto de la empresa cliente")</description>
-		<table>contactosclientes</table>
-		<form>master</form>
-		<formrecord>contactosclientes</formrecord>
-		<scriptformrecord>contactosclientes</scriptformrecord>
-	</action>
-
-	<action>
-		<name>contactosproveedores</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Contactos de proveedores")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Cada proveedor tiene asignada una agenda que permite guardar información sobre personas de contacto de la empresa proveedora")</description>
-		<table>contactosproveedores</table>
-		<form>master</form>
-		<formrecord>contactosclientes</formrecord>
-	</action>
-
-	<action>
-		<name>cuentasbanco</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Cuentas bancarias")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Las cuentas bancarias, además del propio número de cuenta, relacionan el número de oficina con la sucursal correspondiente, a cuyos datos de es posible acceder desde la cuenta bancaria")</description>
-		<scriptform>mastercuentasbanco</scriptform>
-		<scriptformrecord>cuentasbanco</scriptformrecord>
-		<table>cuentasbanco</table>
-		<form>master_print</form>
-		<formrecord>cuentasbanco</formrecord>
-	</action>
-
-	<action>
-		<name>cuentasbcocli</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Cuentas bancarias de cliente")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Conjunto de las cuentas bancarias que se asocian a un cliente")</description>
-		<scriptformrecord>cuentasbancocli</scriptformrecord>
-		<table>cuentasbcocli</table>
-		<form>mastercuentasbcocli</form>
-		<formrecord>cuentasbcocli</formrecord>
-	</action>
-
-	<action>
-		<name>cuentasbcopro</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Cuentas bancarias de proveedor")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Conjunto de las cuentas bancarias que se asocian a un proveedor")</description>
-		<scriptformrecord>cuentasbancopro</scriptformrecord>
-		<table>cuentasbcopro</table>
-		<form>mastercuentasbcocli</form>
-		<formrecord>cuentasbcoprov</formrecord>
-	</action>
-
-	<action>
-		<name>cuentasbanco_imp</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Imprimir cuentas bancarias")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de cuentas bancarias para un intervalo de números de cuenta, a través del botón 'impresión' del formulario de cuentas bancarias")</description>
-		<table>cuentasbco_imp</table>
-		<form>desdehasta</form>
-	</action>
-
-	<action>
-		<name>departamentos</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Departamentos")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Los departamentos de la empresa almacenan un código y un nombre de departamento. Los agentes comerciales pueden asignarse a un departamento")</description>
-		<table>departamentos</table>
-		<form>master_copy</form>
-		<scriptform>departamentos</scriptform>
-		<formrecord>departamentos</formrecord>
-	</action>
-
-	<action>
-		<name>descuentos</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Descuentos")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Los descuentos son generales para la actividad de facturación de la empresa. Almacenan el descuento porcentual sobre los precios")</description>
-		<scriptform>masterdescuentos</scriptform>
-		<table>descuentos</table>
-		<form>master_print</form>
-		<formrecord>descuentos</formrecord>
-	</action>
-
-	<action>
-		<name>descuentosclientes</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Descuentos de clientes")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Cada cliente tiene asignada una serie de descuentos personalizados")</description>
-		<table>descuentosclientes</table>
-		<form>master</form>
-		<formrecord>descuentosclientes</formrecord>
-	</action>
-
-	<action>
-		<name>descuentosproveedores</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Descuentos de proveedores")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Cada proveedor tiene asignada una serie de descuentos personalizados")</description>
-		<table>descuentosproveedores</table>
-		<form>master</form>
-		<formrecord>descuentosclientes</formrecord>
-	</action>
-
-	<action>
-		<name>descuentos_imp</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Imprimir descuentos")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de descuentos, a través del botón 'impresión' del formulario de descuentos")</description>
-		<table>descuentos_imp</table>
-		<form>desdehasta</form>
-	</action>
-
-	<action>
-		<name>dirclientes</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Direcciones de clientes")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Cada cliente tiene asignada una serie de direcciones, una de las cuales puede establecerse como dirección principal o de facturación. Esta dirección de facturación es la que aparecerá en los documentos de facturación")</description>
-		<table>dirclientes</table>
-		<form>master</form>
-		<scriptformrecord>dirclientes</scriptformrecord>
-		<formrecord>dirclientes</formrecord>
-	</action>
-
-	<action>
-		<name>dirproveedores</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Direcciones de proveedores")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Cada proveedor tiene asignada una serie de direcciones, una de las cuales puede establecerse como dirección principal. Esta dirección es la que aparecerá en los documentos de facturación")</description>
-		<table>dirproveedores</table>
-		<form>master</form>
-		<scriptformrecord>dirproveedores</scriptformrecord>
-		<formrecord>dirproveedores</formrecord>
-	</action>
-
-	<action>
-		<name>divisas</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Divisas")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Las divisas permiten trabajar en moneda extranjera. Almacenan el código de divisa, la tasa de conversión a la moneda local y la fecha de actualización de la tasa de conversión")</description>
-		<scriptform>masterdivisas</scriptform>
-		<table>divisas</table>
-		<form>master_print</form>
-		<formrecord>divisas</formrecord>
-	</action>
-
-	<action>
-		<name>divisas_imp</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Imprimir divisas")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de divisas a través del botón 'impresión' del formulario")</description>
-		<table>divisas_imp</table>
-		<form>desdehasta</form>
-	</action>
-
-	<action>
-		<name>ejercicios</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicios fiscales")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Los ejercicios fiscales admiten datos de contabilidad tales como estado del ejercicio (abierto/cerrado) y número de dígitos de las subcuentas contables")</description>
-		<scriptform>masterejercicios</scriptform>
-		<scriptformrecord>ejercicios</scriptformrecord>
-		<table>ejercicios</table>
-		<form>masterejercicios</form>
-		<formrecord>ejercicios</formrecord>
-	</action>
-
-	<action>
-		<name>ejercicios_imp</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Imprimir ejercicios")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de ejercicios, a través del botón 'impresión' del formulario de ejercicios")</description>
-		<table>ejercicios_imp</table>
-		<form>desdehasta</form>
-	</action>
-
-	<action>
-		<name>empresa</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Empresa")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","En empresa se almacenan los datos de contacto de la empresa, y un listado de valores por defecto que se utilizarán en todas las actividades de la empresa, como la divisa local o la serie de facturación por defecto")</description>
-		<scriptform>empresa</scriptform>
-		<scriptformrecord>empresa</scriptformrecord>
-		<table>empresa</table>
-		<form>empresa</form>
-		<formrecord>empresa</formrecord>
-	</action>
-
-	<action>
-		<name>formaspago</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Formas de pago")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Las formas de pago contemplan los plazos de pago (en pagos fraccionados), la cuenta bancaria asociada y el modo de generación de los recibos")</description>
-		<scriptform>masterformaspago</scriptform>
-		<scriptformrecord>formaspago</scriptformrecord>
-		<table>formaspago</table>
-		<form>master_print</form>
-		<formrecord>formaspago</formrecord>
-	</action>
-
-	<action>
-		<name>formaspago_imp</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Imprimir formas de pago")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de formas de pago a través del botón 'impresión' del formulario")</description>
-		<table>formaspago_imp</table>
-		<form>desdehasta</form>
-	</action>
-
-	<action>
-		<name>gruposclientes</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Grupos de clientes")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Es posible agrupar a los clientes y aplicarles una tarifa por grupo")</description>
-		<table>gruposclientes</table>
-		<form>master_copy</form>
-		<formrecord>gruposclientes</formrecord>
-	</action>
-
-	<action>
-		<name>impuestos</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Impuestos")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Listado de tipos de impuestos, con porcentajes de I.V.A. y recargo de equivalencia")</description>
-		<scriptform>masterimpuestos</scriptform>
-		<table>impuestos</table>
-		<form>master_print</form>
-		<formrecord>impuestos</formrecord>
-		<scriptformrecord>impuestos</scriptformrecord>
-	</action>
-
-	<action>
-		<name>impuestos_imp</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Imprimir impuestos")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de impuestos a través del botón 'impresión' del formulario")</description>
-		<table>formaspago_imp</table>
-		<table>impuestos_imp</table>
-		<form>desdehasta</form>
-	</action>
-
-	<action>
-		<name>intervalosrappel</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Intervalos de rappel")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Los intervalos de rappel soportan la definición de escalones de venta para los tipos de rappel")</description>
-		<scriptformrecord>intervalosrappel</scriptformrecord>
-		<table>intervalosrappel</table>
-		<form>master_copy</form>
-		<formrecord>intervalosrappel</formrecord>
-	</action>
-
-	<action>
-		<name>paises</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Países")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Listado de países y banderas asociadas")</description>
-		<scriptform>masterpaises</scriptform>
-		<table>paises</table>
-		<form>master_print</form>
-		<formrecord>paises</formrecord>
-		<scriptformrecord>paises</scriptformrecord>
-	</action>
-	
-	<action>
-		<name>provincias</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Provincias")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Listado provincias de los distintos países")</description>
-		<table>provincias</table>
-		<form>master</form>
-		<formrecord>provincias</formrecord>
-	</action>
-
-	<action>
-		<name>paises_imp</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Imprimir países")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de países a través del botón 'impresión' del formulario")</description>
-		<table>paises_imp</table>
-		<form>desdehasta</form>
-	</action>
-
-	<action>
-		<name>plazos</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Plazos")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Los plazos intervienen en las formas de pago")</description>
-		<scriptformrecord>plazos</scriptformrecord>
-		<table>plazos</table>
-		<form>master</form>
-		<formrecord>plazos</formrecord>
-	</action>
-
-	<action>
-		<name>proveedores</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Proveedores")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","La gestión de proveedores soporta un completo conjunto de datos generales y comerciales (forma de pago, divisa, cuentas bancarias, etc). Para cada proveedor es posible registrar una serie de direcciones y contactos. El formulario de proveedores ofrece además listados de todos los documentos referentes al proveedor (albaranes, facturas y pedidos). Cuando se trabaja con contabilidad integrada, se puede establecer la subcuenta contable del proveedor y consultar su libro mayor")</description>
-		<scriptformrecord>proveedores</scriptformrecord>
-		<scriptform>masterproveedores</scriptform>
-		<table>proveedores</table>
-		<form>master_copy</form>
-		<formrecord>proveedores</formrecord>
-	</action>
-
-	<action>
-		<name>secuenciasejercicios</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Secuencias de ejercicio")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Las secuencias por serie establecen los número iniciales de los documentos de facturación para una serie de facturación determinada. Estas secuencias van asociadas a cada serie de cada ejercicio")</description>
-		<scriptformrecord>secuenciasejercicios</scriptformrecord>
-		<table>secuenciasejercicios</table>
-		<form>master</form>
-		<formrecord>secuenciasejercicios</formrecord>
-	</action>
-
-	<action>
-		<name>series</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Series de facturación")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Las series de facturación registran el tipo de I.R.P.F. y la opción de no facturar con I.V.A.")</description>
-		<scriptform>masterseries</scriptform>
-		<scriptformrecord>series</scriptformrecord>
-		<table>series</table>
-		<form>master_print_copy</form>
-		<formrecord>series</formrecord>
-	</action>
-
-	<action>
-		<name>series_imp</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Imprimir series de facturación")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de series a través del botón 'impresión' del formulario")</description>
-		<table>series_imp</table>
-		<form>desdehasta</form>
-	</action>
-
-	<action>
-		<name>sucursales</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Sucursales bancarias")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Cada banco puede tener su propio listado de sucursales con el número de oficina y todos los datos de contacto de cada sucursal")</description>
-		<table>sucursales</table>
-		<form>master</form>
-		<formrecord>sucursales</formrecord>
-		<scriptformrecord>sucursales</scriptformrecord>
-	</action>
-
-	<action>
-		<name>tiposrappel</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de rappel")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Los tipos de rappel almacenan descuentos porcentuales aplicados por cantidades. Es posible establecer intervalos de rappel en cantidades y los descuentos asociados a cada intervalo")</description>
-		<table>tiposrappel</table>
-		<form>master_copy</form>
-		<formrecord>tiposrappel</formrecord>
-	</action>	
-	
-	<action>
-		<name>intervalos</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Intervalos de fechas")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Intervalos entre fechas para mostrar informes")</description>
-		<table>intervalos</table>
-		<form>master</form>
-		<formrecord>intervalos</formrecord>
-		<scriptform>masterintervalos</scriptform>
-		<scriptformrecord>intervalos</scriptformrecord>
-	</action>
-	
-	<action>
-		<name>usuarios</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Usuarios")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Cada usuario de FacturaLUX corresponde a un usuario de la base de datos. El formulario de usuarios alberga los datos personales de cada usuario")</description>
-		<table>usuarios</table>
-		<form>master</form>
-		<formrecord>usuarios</formrecord>
-		<scriptformrecord>usuarios</scriptformrecord>
-	</action>
-
-	<action>
-		<name>secuencias</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Secuencias de documentos")</alias>
-		<description>QT_TRANSLATE_NOOP("MetaData","Las secuencias de documentos establecen los número iniciales de los documentos de facturación para una serie de facturación determinada. Estas secuencias van asociadas a cada serie de cada ejercicio")</description>
-		<table>secuencias</table>
-		<form>master</form>
-		<formrecord>secuencias</formrecord>
-	</action>
-	
-	<action>
-		<name>editcontactoprov</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Contactos")</alias>
-		<table>contactosproveedores</table>
-		<form>contactosproveedores</form>
-	</action>
-	<action>
-		<name>editcontactocliente</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Contactos")</alias>
-		<table>contactosclientes</table>
-		<form>contactosclientes</form>
-	</action>	
-	<action>
-		<name>contactos</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Contactos")</alias>
-		<table>crm_contactos</table>
-		<form>master</form>
-		<formrecord>contactos</formrecord>
-		<scriptformrecord>contactos</scriptformrecord>
-	</action>	
-
-	<action>
-		<name>wg_widget</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Widget")</alias>
-		<table>empresa</table>
-		<scriptform>wg_masterwidget</scriptform>
-	</action>	
+    <action>
+        <name>agentes</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Agentes comerciales")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","La gestión de agentes comerciales soporta los datos completos de contacto de los agentes, el departamento al que pertenencen y la comisión que tienen asignada")</description>
+        <table>agentes</table>
+        <form>master_copy</form>
+        <formrecord>agentes</formrecord>
+        <scriptformrecord>agentes</scriptformrecord>
+    </action>
+    <action>
+        <name>bancos</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Bancos")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","El listado de bancos almacena el nombre y número de entidad del banco, que se utilizarán para definir las cuentas bancarias")</description>
+        <scriptform>masterbancos</scriptform>
+        <table>bancos</table>
+        <form>master_print</form>
+        <formrecord>bancos</formrecord>
+    </action>
+    <action>
+        <name>bancos_imp</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Imprimir bancos")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de bancos para un intervalo de números de entidad, a través del botón 'impresión' del formulario de bancos")</description>
+        <table>bancos_imp</table>
+        <form>desdehasta</form>
+    </action>
+    <action>
+        <name>clientes</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Clientes")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","La gestión de clientes soporta un completo conjunto de datos generales y comerciales (forma de pago, divisa, agente comercial, cuentas bancarias, etc). Para cada cliente es posible registrar una serie de direcciones y contactos. El formulario de clientes ofrece además listados de todos los documentos referentes al cliente (presupuestos, pedidos, albaranes, facturas y recibos). Cuando se trabaja con contabilidad integrada, se puede establecer la subcuenta contable del cliente y consultar su libro mayor")</description>
+        <scriptformrecord>clientes</scriptformrecord>
+        <scriptform>masterclientes</scriptform>
+        <table>clientes</table>
+        <form>master_copy</form>
+        <formrecord>clientes</formrecord>
+    </action>
+    <action>
+        <name>contactosclientes</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Contactos de clientes")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Cada cliente tiene asignada una agenda que permite guardar información sobre personas de contacto de la empresa cliente")</description>
+        <table>contactosclientes</table>
+        <form>master</form>
+        <formrecord>contactosclientes</formrecord>
+        <scriptformrecord>contactosclientes</scriptformrecord>
+    </action>
+    <action>
+        <name>contactosproveedores</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Contactos de proveedores")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Cada proveedor tiene asignada una agenda que permite guardar información sobre personas de contacto de la empresa proveedora")</description>
+        <table>contactosproveedores</table>
+        <form>master</form>
+        <formrecord>contactosclientes</formrecord>
+    </action>
+    <action>
+        <name>cuentasbanco</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Cuentas bancarias")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Las cuentas bancarias, además del propio número de cuenta, relacionan el número de oficina con la sucursal correspondiente, a cuyos datos de es posible acceder desde la cuenta bancaria")</description>
+        <scriptform>mastercuentasbanco</scriptform>
+        <scriptformrecord>cuentasbanco</scriptformrecord>
+        <table>cuentasbanco</table>
+        <form>master_print</form>
+        <formrecord>cuentasbanco</formrecord>
+    </action>
+    <action>
+        <name>cuentasbcocli</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Cuentas bancarias de cliente")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Conjunto de las cuentas bancarias que se asocian a un cliente")</description>
+        <scriptformrecord>cuentasbancocli</scriptformrecord>
+        <table>cuentasbcocli</table>
+        <form>mastercuentasbcocli</form>
+        <formrecord>cuentasbcocli</formrecord>
+    </action>
+    <action>
+        <name>cuentasbcopro</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Cuentas bancarias de proveedor")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Conjunto de las cuentas bancarias que se asocian a un proveedor")</description>
+        <scriptformrecord>cuentasbancopro</scriptformrecord>
+        <table>cuentasbcopro</table>
+        <form>mastercuentasbcocli</form>
+        <formrecord>cuentasbcoprov</formrecord>
+    </action>
+    <action>
+        <name>cuentasbanco_imp</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Imprimir cuentas bancarias")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de cuentas bancarias para un intervalo de números de cuenta, a través del botón 'impresión' del formulario de cuentas bancarias")</description>
+        <table>cuentasbco_imp</table>
+        <form>desdehasta</form>
+    </action>
+    <action>
+        <name>departamentos</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Departamentos")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Los departamentos de la empresa almacenan un código y un nombre de departamento. Los agentes comerciales pueden asignarse a un departamento")</description>
+        <table>departamentos</table>
+        <form>master_copy</form>
+        <scriptform>departamentos</scriptform>
+        <formrecord>departamentos</formrecord>
+    </action>
+    <action>
+        <name>descuentos</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Descuentos")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Los descuentos son generales para la actividad de facturación de la empresa. Almacenan el descuento porcentual sobre los precios")</description>
+        <scriptform>masterdescuentos</scriptform>
+        <table>descuentos</table>
+        <form>master_print</form>
+        <formrecord>descuentos</formrecord>
+    </action>
+    <action>
+        <name>descuentosclientes</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Descuentos de clientes")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Cada cliente tiene asignada una serie de descuentos personalizados")</description>
+        <table>descuentosclientes</table>
+        <form>master</form>
+        <formrecord>descuentosclientes</formrecord>
+    </action>
+    <action>
+        <name>descuentosproveedores</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Descuentos de proveedores")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Cada proveedor tiene asignada una serie de descuentos personalizados")</description>
+        <table>descuentosproveedores</table>
+        <form>master</form>
+        <formrecord>descuentosclientes</formrecord>
+    </action>
+    <action>
+        <name>descuentos_imp</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Imprimir descuentos")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de descuentos, a través del botón 'impresión' del formulario de descuentos")</description>
+        <table>descuentos_imp</table>
+        <form>desdehasta</form>
+    </action>
+    <action>
+        <name>dirclientes</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Direcciones de clientes")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Cada cliente tiene asignada una serie de direcciones, una de las cuales puede establecerse como dirección principal o de facturación. Esta dirección de facturación es la que aparecerá en los documentos de facturación")</description>
+        <table>dirclientes</table>
+        <form>master</form>
+        <scriptformrecord>dirclientes</scriptformrecord>
+        <formrecord>dirclientes</formrecord>
+    </action>
+    <action>
+        <name>dirproveedores</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Direcciones de proveedores")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Cada proveedor tiene asignada una serie de direcciones, una de las cuales puede establecerse como dirección principal. Esta dirección es la que aparecerá en los documentos de facturación")</description>
+        <table>dirproveedores</table>
+        <form>master</form>
+        <scriptformrecord>dirproveedores</scriptformrecord>
+        <formrecord>dirproveedores</formrecord>
+    </action>
+    <action>
+        <name>divisas</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Divisas")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Las divisas permiten trabajar en moneda extranjera. Almacenan el código de divisa, la tasa de conversión a la moneda local y la fecha de actualización de la tasa de conversión")</description>
+        <scriptform>masterdivisas</scriptform>
+        <table>divisas</table>
+        <form>master_print</form>
+        <formrecord>divisas</formrecord>
+    </action>
+    <action>
+        <name>divisas_imp</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Imprimir divisas")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de divisas a través del botón 'impresión' del formulario")</description>
+        <table>divisas_imp</table>
+        <form>desdehasta</form>
+    </action>
+    <action>
+        <name>ejercicios</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Ejercicios fiscales")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Los ejercicios fiscales admiten datos de contabilidad tales como estado del ejercicio (abierto/cerrado) y número de dígitos de las subcuentas contables")</description>
+        <scriptform>masterejercicios</scriptform>
+        <scriptformrecord>ejercicios</scriptformrecord>
+        <table>ejercicios</table>
+        <form>masterejercicios</form>
+        <formrecord>ejercicios</formrecord>
+    </action>
+    <action>
+        <name>ejercicios_imp</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Imprimir ejercicios")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de ejercicios, a través del botón 'impresión' del formulario de ejercicios")</description>
+        <table>ejercicios_imp</table>
+        <form>desdehasta</form>
+    </action>
+    <action>
+        <name>empresa</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Empresa")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","En empresa se almacenan los datos de contacto de la empresa, y un listado de valores por defecto que se utilizarán en todas las actividades de la empresa, como la divisa local o la serie de facturación por defecto")</description>
+        <scriptform>empresa</scriptform>
+        <scriptformrecord>empresa</scriptformrecord>
+        <table>empresa</table>
+        <form>empresa</form>
+        <formrecord>empresa</formrecord>
+    </action>
+    <action>
+        <name>formaspago</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Formas de pago")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Las formas de pago contemplan los plazos de pago (en pagos fraccionados), la cuenta bancaria asociada y el modo de generación de los recibos")</description>
+        <scriptform>masterformaspago</scriptform>
+        <scriptformrecord>formaspago</scriptformrecord>
+        <table>formaspago</table>
+        <form>master_print</form>
+        <formrecord>formaspago</formrecord>
+    </action>
+    <action>
+        <name>formaspago_imp</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Imprimir formas de pago")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de formas de pago a través del botón 'impresión' del formulario")</description>
+        <table>formaspago_imp</table>
+        <form>desdehasta</form>
+    </action>
+    <action>
+        <name>gruposclientes</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Grupos de clientes")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Es posible agrupar a los clientes y aplicarles una tarifa por grupo")</description>
+        <table>gruposclientes</table>
+        <form>master_copy</form>
+        <formrecord>gruposclientes</formrecord>
+    </action>
+    <action>
+        <name>impuestos</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Impuestos")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Listado de tipos de impuestos, con porcentajes de I.V.A. y recargo de equivalencia")</description>
+        <scriptform>masterimpuestos</scriptform>
+        <table>impuestos</table>
+        <form>master_print</form>
+        <formrecord>impuestos</formrecord>
+        <scriptformrecord>impuestos</scriptformrecord>
+    </action>
+    <action>
+        <name>impuestos_imp</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Imprimir impuestos")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de impuestos a través del botón 'impresión' del formulario")</description>
+        <table>formaspago_imp</table>
+        <table>impuestos_imp</table>
+        <form>desdehasta</form>
+    </action>
+    <action>
+        <name>intervalosrappel</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Intervalos de rappel")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Los intervalos de rappel soportan la definición de escalones de venta para los tipos de rappel")</description>
+        <scriptformrecord>intervalosrappel</scriptformrecord>
+        <table>intervalosrappel</table>
+        <form>master_copy</form>
+        <formrecord>intervalosrappel</formrecord>
+    </action>
+    <action>
+        <name>paises</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Países")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Listado de países y banderas asociadas")</description>
+        <scriptform>masterpaises</scriptform>
+        <table>paises</table>
+        <form>master_print</form>
+        <formrecord>paises</formrecord>
+        <scriptformrecord>paises</scriptformrecord>
+    </action>
+    <action>
+        <name>provincias</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Provincias")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Listado provincias de los distintos países")</description>
+        <table>provincias</table>
+        <form>master</form>
+        <formrecord>provincias</formrecord>
+    </action>
+    <action>
+        <name>paises_imp</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Imprimir países")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de países a través del botón 'impresión' del formulario")</description>
+        <table>paises_imp</table>
+        <form>desdehasta</form>
+    </action>
+    <action>
+        <name>plazos</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Plazos")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Los plazos intervienen en las formas de pago")</description>
+        <scriptformrecord>plazos</scriptformrecord>
+        <table>plazos</table>
+        <form>master</form>
+        <formrecord>plazos</formrecord>
+    </action>
+    <action>
+        <name>proveedores</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Proveedores")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","La gestión de proveedores soporta un completo conjunto de datos generales y comerciales (forma de pago, divisa, cuentas bancarias, etc). Para cada proveedor es posible registrar una serie de direcciones y contactos. El formulario de proveedores ofrece además listados de todos los documentos referentes al proveedor (albaranes, facturas y pedidos). Cuando se trabaja con contabilidad integrada, se puede establecer la subcuenta contable del proveedor y consultar su libro mayor")</description>
+        <scriptformrecord>proveedores</scriptformrecord>
+        <scriptform>masterproveedores</scriptform>
+        <table>proveedores</table>
+        <form>master_copy</form>
+        <formrecord>proveedores</formrecord>
+    </action>
+    <action>
+        <name>secuenciasejercicios</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Secuencias de ejercicio")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Las secuencias por serie establecen los número iniciales de los documentos de facturación para una serie de facturación determinada. Estas secuencias van asociadas a cada serie de cada ejercicio")</description>
+        <scriptformrecord>secuenciasejercicios</scriptformrecord>
+        <table>secuenciasejercicios</table>
+        <form>master</form>
+        <formrecord>secuenciasejercicios</formrecord>
+    </action>
+    <action>
+        <name>series</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Series de facturación")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Las series de facturación registran el tipo de I.R.P.F. y la opción de no facturar con I.V.A.")</description>
+        <scriptform>masterseries</scriptform>
+        <scriptformrecord>series</scriptformrecord>
+        <table>series</table>
+        <form>master_print_copy</form>
+        <formrecord>series</formrecord>
+    </action>
+    <action>
+        <name>series_imp</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Imprimir series de facturación")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Es posible imprimir un listado de series a través del botón 'impresión' del formulario")</description>
+        <table>series_imp</table>
+        <form>desdehasta</form>
+    </action>
+    <action>
+        <name>sucursales</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Sucursales bancarias")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Cada banco puede tener su propio listado de sucursales con el número de oficina y todos los datos de contacto de cada sucursal")</description>
+        <table>sucursales</table>
+        <form>master</form>
+        <formrecord>sucursales</formrecord>
+        <scriptformrecord>sucursales</scriptformrecord>
+    </action>
+    <action>
+        <name>tiposrappel</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Tipos de rappel")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Los tipos de rappel almacenan descuentos porcentuales aplicados por cantidades. Es posible establecer intervalos de rappel en cantidades y los descuentos asociados a cada intervalo")</description>
+        <table>tiposrappel</table>
+        <form>master_copy</form>
+        <formrecord>tiposrappel</formrecord>
+    </action>
+    <action>
+        <name>liquidaciones</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Liquidaciones de Agentes")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","La liquidación de un agente comercial sumariza las comisiones correspondientes a un grupo de facturas y emitidas por la venta realizada por dicho agente.")</description>
+        <table>liquidaciones</table>
+        <form>masterliquidaciones</form>
+        <formrecord>liquidaciones</formrecord>
+        <scriptformrecord>liquidaciones</scriptformrecord>
+        <scriptform>masterliquidaciones</scriptform>
+    </action>
+    <action>
+        <name>intervalos</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Intervalos de fechas")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Intervalos entre fechas para mostrar informes")</description>
+        <table>intervalos</table>
+        <form>master</form>
+        <formrecord>intervalos</formrecord>
+        <scriptform>masterintervalos</scriptform>
+        <scriptformrecord>intervalos</scriptformrecord>
+    </action>
+    <action>
+        <name>clientespot</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Clientes potenciales")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Un cliente potencial es aquel del que sólo tenemos sus datos básicos y al que podemos hacerle un presupuesto, pero no facturar. Se utiliza para aquellos clientes posibles que sólo buscan información o un presupuesto rápido</description>
+        <scriptformrecord>clientespot</scriptformrecord>
+        <scriptform>masterclientespot</scriptform>
+        <table>clientespot</table>
+        <form>masterclientespot</form>
+        <formrecord>clientespot</formrecord>
+    </action>
+    <action>
+        <name>usuarios</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Usuarios")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Cada usuario de FacturaLUX corresponde a un usuario de la base de datos. El formulario de usuarios alberga los datos personales de cada usuario")</description>
+        <table>usuarios</table>
+        <form>master</form>
+        <formrecord>usuarios</formrecord>
+        <scriptformrecord>usuarios</scriptformrecord>
+    </action>
+    <action>
+        <name>secuencias</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Secuencias de documentos")</alias>
+        <description>QT_TRANSLATE_NOOP("MetaData","Las secuencias de documentos establecen los número iniciales de los documentos de facturación para una serie de facturación determinada. Estas secuencias van asociadas a cada serie de cada ejercicio")</description>
+        <table>secuencias</table>
+        <form>master</form>
+        <formrecord>secuencias</formrecord>
+    </action>
+    <action>
+        <name>editcontactoprov</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Contactos")</alias>
+        <table>contactosproveedores</table>
+        <form>contactosproveedores</form>
+    </action>
+    <action>
+        <name>editcontactocliente</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Contactos")</alias>
+        <table>contactosclientes</table>
+        <form>contactosclientes</form>
+    </action>
+    <action>
+        <name>contactos</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Contactos")</alias>
+        <table>crm_contactos</table>
+        <form>master</form>
+        <formrecord>contactos</formrecord>
+        <scriptformrecord>contactos</scriptformrecord>
+    </action>
+    <action>
+        <name>generarliqagentes</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","La generación de liquidaciones a agentes permite crear automáticamente todas las liquidaciones correspondientes a un determinado período de tiempo")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Generar liquidaciones a agentes")</alias>
+        <scriptform>generarliqagentes</scriptform>
+        <table>generarliqagentes</table>
+        <form>generarliqagentes</form>
+        <formrecord>generarliqagentes</formrecord>
+    </action>
+    <action>
+        <name>wg_widget</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Widget")</alias>
+        <table>empresa</table>
+        <scriptform>wg_masterwidget</scriptform>
+    </action>
 </ACTIONS>

@@ -1,0 +1,219 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>pagosmulticli</name>
+	<!-- Pagos múltiples de recibos de cliente -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Pagos múltiples de cliente")</alias>
+
+	<field>
+		<name>idpagomulti</name>
+		<!-- Identificador interno -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>uint</type>
+		<counter>true</counter>
+		
+	</field>
+
+	<field>
+		<name>codcliente</name>
+		<!-- Código de cliente -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cliente")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>clientes</table>
+			<field>codcliente</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>fecha</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>importe</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Importe")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<editable>false</editable>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>codcuenta</name>
+		<!-- Código de la cuenta bancaria para el pago -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>cuentasbanco</table>
+			<field>codcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>ctaentidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº Entidad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>ctaagencia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº Oficina")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>dc</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Dígitos de Control")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+		<calculated>true</calculated>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>cuenta</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº Cuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>idasiento</name>
+		<!-- Código del asiento contable generado por el pago o devolución-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asiento")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>codsubcuenta</name>
+		<!-- Código de la subcuenta contable -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subcuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>idsubcuenta</name>
+		<!-- Identificador de la subcuenta contable-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+	
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>tasaconv</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tasa cambio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>3</partD>
+		<default>1</default>
+	</field>
+
+	<field>
+		<name>nogenerarasiento</name>
+		<!--Si la validación del pago o devolución va a generar un asiento contable-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ignorar contabilidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+
+	<field>
+		<name>coddivisa</name>
+		<!-- Código de la divisa -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Divisa")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+
+		<relation>
+			<table>divisas</table>
+			<field>coddivisa</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>importeeuros</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Importe en Euros")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<editable>false</editable>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>origentasaconv</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tomar tasa de")</alias>
+		<!-- Indica si la tasa de cambio se tomará de las facturas o del valor actual -->
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<optionslist>Tasa actual,Facturas</optionslist>
+		<default>Tasa actual</default>
+	</field>
+</TMD>

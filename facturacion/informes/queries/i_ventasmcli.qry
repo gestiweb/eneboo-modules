@@ -1,0 +1,28 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_ventasmcli</name>
+
+	<tables>empresa,i_ventasmcli_buffer</tables>
+
+	<select>
+		i_ventasmcli_buffer.codcliente,i_ventasmcli_buffer.nombre,
+		sum(ventas01),sum(ventas02),sum(ventas03),sum(ventas04),
+		sum(ventas05),sum(ventas06),sum(ventas07),sum(ventas08),
+		sum(ventas09),sum(ventas10),sum(ventas11),sum(ventas12),
+		sum(ventascli),
+		
+		empresa.nombre,
+		
+		i_ventasmcli.clientedesde, i_ventasmcli.clientehasta,
+		i_ventasmcli.fechainicio, i_ventasmcli.fechafin,
+		i_ventasmcli.codejercicio, i_ventasmcli.codserie
+	</select>
+
+	<from>
+		empresa, i_ventasmcli_buffer,
+		i_ventasmcli 
+	</from>
+
+	<where>
+	</where>
+</QRY>

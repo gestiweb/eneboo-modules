@@ -1,0 +1,63 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>nivelestpv</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Niveles para el TPV")</alias>
+	
+	<field>
+		<name>codnivel</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Codigo")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+	
+		<relation>
+			<table>articulos</table>
+			<field>codnivel</field>
+			<card>1M</card>
+		</relation>
+		<relation>
+			<table>tpv_datosgenerales</table>
+			<field>codnivel</field>
+			<card>1M</card>
+		</relation>
+		<relation>
+			<table>nivelestpv</table>
+			<field>codnivelsup</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>codnivelsup</name>
+		<!-- Código de la familia -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nivel Superior")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>nivelestpv</table>
+			<field>codnivel</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+        <name>imagen</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Imagen")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>pixmap</type>
+    </field>
+</TMD>

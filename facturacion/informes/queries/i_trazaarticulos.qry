@@ -1,0 +1,34 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_trazaarticulos</name>
+
+	<tables>empresa,i_trazaarticulos_buffer</tables>
+
+	<select>
+		i_trazaarticulos_buffer.referencia,i_trazaarticulos_buffer.descripcion,
+		i_trazaarticulos_buffer.movimiento,i_trazaarticulos_buffer.nombrecliprov,
+		i_trazaarticulos_buffer.dtopor,i_trazaarticulos_buffer.preciounidad,
+		i_trazaarticulos_buffer.cantidad,i_trazaarticulos_buffer.precio,
+		i_trazaarticulos_buffer.codalbaran,i_trazaarticulos_buffer.fechaalbaran,
+		i_trazaarticulos_buffer.codfactura,i_trazaarticulos_buffer.fechafactura,
+		
+		empresa.nombre,
+		
+		i_trazaarticulos.fechadesde, i_trazaarticulos.fechahasta,
+		i_trazaarticulos.referenciadesde, i_trazaarticulos.referenciahasta,
+		i_trazaarticulos.almacendesde, i_trazaarticulos.almacenhasta,
+		i_trazaarticulos.clientedesde, i_trazaarticulos.clientehasta,
+		i_trazaarticulos.proveedordesde, i_trazaarticulos.proveedorhasta,
+		i_trazaarticulos.codfamilia
+	</select>
+
+	<from>
+		empresa, i_trazaarticulos,
+		i_trazaarticulos_buffer
+		INNER JOIN articulos ON i_trazaarticulos_buffer.referencia = articulos.referencia
+		LEFT OUTER JOIN familias ON articulos.codfamilia = familias.codfamilia
+	</from>
+
+	<where>
+	</where>
+</QRY>

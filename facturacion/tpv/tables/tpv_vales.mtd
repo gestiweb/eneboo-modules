@@ -1,0 +1,108 @@
+<!DOCTYPE TMD>
+<TMD>
+
+	<name>tpv_vales</name>
+	<!--Devolucines y vales de compra-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Devolucines y vales de compra")</alias>
+
+	<field>
+		<name>referencia</name>
+		<!-- Identificador -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Referencia")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>16</length>
+		
+		<relation>
+			<table>tpv_lineasvale</table>
+			<field>refvale</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>tpv_pagoscomanda</table>
+			<field>refvale</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>idtpv_comanda</name>
+		<!--Identificador de la comanda a la que pertenece la línea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Venta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>tpv_comandas</table>
+			<field>idtpv_comanda</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>fechaemision</name>
+		<!-- Fecha de emisión-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","F.Emisión")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>hora</name>
+		<!--Hora de la venta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hora")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>time</type>
+	</field>
+
+	<field>
+		<name>fechacaducidad</name>
+		<!-- Fecha de caducidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","F.Caducidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>importe</name>
+		<!--Importe inicial del vale-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Importe inicial")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>saldo</name>
+		<!--Saldo del vale-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Saldo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>notas</name>
+		<!-- Notas -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Notas")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+
+</TMD>

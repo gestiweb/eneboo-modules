@@ -14,29 +14,26 @@
 	
 	<select>
 		facturascli.idfactura, lineasfacturascli.idfactura, facturascli.codigo, facturascli.codserie, facturascli.fecha,
-		facturascli.total, facturascli.coddivisa, facturascli.codejercicio, facturascli.codpago, facturascli.codalmacen, facturascli.totaliva,
+		facturascli.total, facturascli.coddivisa, facturascli.codejercicio, facturascli.codpago, facturascli.codalmacen, facturascli.pordtoesp, facturascli.dtoesp,
+		facturascli.totaliva, facturascli.totalrecargo,
 		facturascli.codcliente, facturascli.nombrecliente, facturascli.cifnif, facturascli.tasaconv, facturascli.coddir,
-		facturascli.direccion, facturascli.codpostal, facturascli.ciudad, facturascli.provincia, facturascli.apartado, facturascli.totalrecargo,
+		facturascli.direccion, facturascli.codpostal, facturascli.ciudad, facturascli.provincia, facturascli.apartado,
 		facturascli.codpais, facturascli.neto, lineasfacturascli.referencia,
 		facturascli.deabono, facturascli.idfacturarect,
 		lineasfacturascli.descripcion,
 		lineasfacturascli.cantidad,facturascli.irpf, facturascli.totalirpf,
 		lineasfacturascli.pvpunitario, lineasfacturascli.pvptotal, lineasfacturascli.codimpuesto, lineasfacturascli.iva,
-		lineasfacturascli.recargo,
 		albaranescli.codigo, albaranescli.fecha, lineasfacturascli.idalbaran,
-		empresa.nombre, empresa.cifnif, empresa.direccion, empresa.codpostal, empresa.ciudad,
+		empresa.nombre, empresa.cifnif, empresa.direccion, empresa.logo, empresa.codpostal, empresa.ciudad,
 		empresa.provincia, empresa.apartado, empresa.codpais,
 		facturascli.neto+facturascli.totaliva+facturascli.totalrecargo,
-		formaspago.descripcion, facturascli.observaciones,
-		clientes.regimeniva
+		formaspago.descripcion, facturascli.observaciones
 	</select>
 
 	<from>
-		empresa,facturascli 
-		INNER JOIN lineasfacturascli ON facturascli.idfactura = lineasfacturascli.idfactura
+		empresa,facturascli INNER JOIN lineasfacturascli ON facturascli.idfactura = lineasfacturascli.idfactura
 		INNER JOIN formaspago on formaspago.codpago = facturascli.codpago
 		LEFT OUTER JOIN albaranescli ON albaranescli.idalbaran = lineasfacturascli.idalbaran
-		LEFT OUTER JOIN clientes ON facturascli.codcliente = clientes.codcliente
 	</from>
 
 	<where>

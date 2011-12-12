@@ -1,0 +1,189 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_i_balanceig</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Estado de ingresos y gastos")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador interno del balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>200</length>
+	</field>
+
+	<field>
+		<name>tipo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Sumas y Saldos");QT_TRANSLATE_NOOP("MetaData","Comparativo Presupuesto")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Sumas y Saldos")</default>
+		<length>40</length>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>i_co__subcuentas_codejercicio</name>
+		<!-- Código del ejercicio -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio actual")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>d_co__asientos_fecha</name>
+		<!-- Fecha inicial dentro de un intervalo del ejercicio actual -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde fecha")</alias>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>h_co__asientos_fecha</name>
+		<!-- Fecha final dentro de un intervalo del ejercicio actual -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta fecha")</alias>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>codejercicioant</name>
+		<!-- Indica si se mostrará el ejercicio anterior -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio anterior")</alias>
+		<pk>false</pk>
+		<null>true</null>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>fechaant_d</name>
+		<!-- Fecha inicial dentro de un intervalo del ejercicio anterior -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde fecha")</alias>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fechaant_h</name>
+		<!-- Fecha final dentro de un intervalo del ejercicio anterior -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta fecha")</alias>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>d_co__subcuentas_codsubcuenta</name>
+		<!-- Código de subcuenta mínimo incluido en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde subcuenta Nº")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>idsubcuentadesde</name>
+		<!-- Identificador interno de la subcuenta inicial. No visible en el formulario -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+		</relation>
+
+	</field>
+	
+	<field>
+		<name>h_co__subcuentas_codsubcuenta</name>
+		<!-- Código de subcuenta máximo incluido en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta subcuenta Nº")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>idsubcuentahasta</name>
+		<!-- Identificador interno de la subcuenta final. No visible en el formulario -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+		</relation>
+
+	</field>
+	
+	<field>
+		<name>todassubcuentas</name>
+		<!-- Indica si todas las subcuentas del ejercicio se mostrarán en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Todas las subcuentas")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+	</field>
+
+	<field>
+		<name>ejercicioanterior</name>
+		<!-- Indica si se consolidarán los ejericios en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Consolidar ejercicios")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>nivel</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mostrar datos a nivel de")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Subcuenta");QT_TRANSLATE_NOOP("MetaData","Cuenta")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Subcuenta")</default>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>ignorarcierre</name>
+		<!-- Indica si se tiene en cuenta o no los asientos de cierre y regularización de pérdidas y ganancias -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ignorar asientos de cierre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+
+</TMD>

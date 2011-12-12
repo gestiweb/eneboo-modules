@@ -1,0 +1,28 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_ventasmensual</name>
+
+	<tables>empresa,i_ventasmensual_buffer,articulos</tables>
+
+	<select>
+		i_ventasmensual_buffer.referencia,i_ventasmensual_buffer.descripcion,
+		sum(ventas01),sum(ventas02),sum(ventas03),sum(ventas04),
+		sum(ventas05),sum(ventas06),sum(ventas07),sum(ventas08),
+		sum(ventas09),sum(ventas10),sum(ventas11),sum(ventas12),
+		sum(ventasart),
+		
+		empresa.nombre,
+		
+		i_ventasmensual.fechainicio, i_ventasmensual.fechafin,
+		i_ventasmensual.codejercicio, i_ventasmensual.codfamilia,
+		i_ventasmensual.codserie
+	</select>
+
+	<from>
+		empresa, i_ventasmensual_buffer,
+		i_ventasmensual 
+	</from>
+
+	<where>
+	</where>
+</QRY>

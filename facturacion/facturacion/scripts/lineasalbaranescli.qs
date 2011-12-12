@@ -43,6 +43,9 @@ class oficial extends interna {
 	function desconectar() {
 		return this.ctx.oficial_desconectar();
 	}
+	function dameFiltroReferencia():String {
+		return this.ctx.oficial_dameFiltroReferencia();
+	}
 	function bufferChanged(fN:String) {
 		return this.ctx.oficial_bufferChanged(fN);
 	}
@@ -59,11 +62,35 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration ivaIncluido */
+/////////////////////////////////////////////////////////////////
+//// IVA_INCLUIDO //////////////////////////////////////////////
+class ivaIncluido extends oficial {
+    function ivaIncluido( context ) { oficial ( context ); }
+	function init() {
+		return this.ctx.ivaIncluido_init();
+	}
+}
+//// IVA_INCLUIDO //////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+class rappel extends ivaIncluido {
+    function rappel( context ) { ivaIncluido ( context ); }
+	function init() {
+		return this.ctx.rappel_init();
+	}
+}
+//// RAPPEL /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends rappel {
+    function head( context ) { rappel ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -142,11 +169,7 @@ function interna_init()
 	this.child("lblComision").setText(this.iface.calculateField("lblComision"));
 	this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
 	
-	var filtroReferencia:String = ""; //this.child("fdbReferencia").filter();
-	if (filtroReferencia != "") {
-		filtroReferencia += " AND ";
-	}
-	filtroReferencia += "sevende";
+	var filtroReferencia:String = this.iface.dameFiltroReferencia();
 	this.child("fdbReferencia").setFilter(filtroReferencia);
 }
 
@@ -182,6 +205,12 @@ function oficial_desconectar()
 {
 		disconnect(this.cursor(), "bufferChanged(QString)", this, "iface.bufferChanged");
 }
+
+function oficial_dameFiltroReferencia():String
+{
+	return "sevende";
+}
+
 
 /** \C
 Las dependencias entre controles de este formulario son las mismas que las del formulario de líneas de pedido a cliente
@@ -232,9 +261,32 @@ function oficial_actualizarLineaPedido(idLineaPedido:Number, idPedido:Number, re
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+/** @class_definition ivaIncluido */
+/////////////////////////////////////////////////////////////////
+//// IVA_INCLUIDO //////////////////////////////////////////////
+function ivaIncluido_init()
+{
+	this.iface.__init();
+	formRecordlineaspedidoscli.iface.pub_habilitarPorIvaIncluido(form);
+}
+
+//// IVA_INCLUIDO //////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+function rappel_init()
+{
+	this.iface.__init();
+	this.child("lblDtoRappel").setText(formRecordlineaspedidoscli.iface.pub_commonCalculateField("lbldtorappel", this.cursor()));
+}
+//// RAPPEL /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////

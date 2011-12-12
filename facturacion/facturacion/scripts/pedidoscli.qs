@@ -70,11 +70,76 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration scab */
+/////////////////////////////////////////////////////////////////
+//// CONTROL STOCK CABECERA /////////////////////////////////////
+class scab extends oficial {
+	var arrayStocks_:Array;
+    function scab( context ) { oficial ( context ); }
+	function init() {
+		return this.ctx.scab_init();
+	}
+	function validateForm():Boolean {
+		return this.ctx.scab_validateForm();
+	}
+	function cargarArrayStocks():Boolean {
+		return this.ctx.scab_cargarArrayStocks();
+	}
+	function controlStockCabecera():Boolean {
+		return this.ctx.scab_controlStockCabecera();
+	}
+}
+//// CONTROL STOCK CABECERA /////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+class ivaIncluido extends scab {
+    function ivaIncluido( context ) { scab( context ); } 	
+	function calcularTotales() {
+		return this.ctx.ivaIncluido_calcularTotales();
+	}
+}
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+/** @class_declaration pedProvCli */
+/////////////////////////////////////////////////////////////////
+//// PEDPROVCLI /////////////////////////////////////////////////
+class pedProvCli extends ivaIncluido {
+    function pedProvCli( context ) { ivaIncluido ( context ); }
+	function calcularTotales() {
+		return this.ctx.pedProvCli_calcularTotales();
+	}
+}
+//// PEDPROVCLI /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration dtoEspecial */
+/////////////////////////////////////////////////////////////////
+//// DTO ESPECIAL ///////////////////////////////////////////////
+class dtoEspecial extends pedProvCli {
+    var bloqueoDto:Boolean;
+    function dtoEspecial( context ) { pedProvCli ( context ); }
+	function init() {
+		return this.ctx.dtoEspecial_init();
+	}
+	function bufferChanged(fN:String) {
+		return this.ctx.dtoEspecial_bufferChanged(fN);
+	}
+	function calcularTotales() {
+		return this.ctx.dtoEspecial_calcularTotales();
+	}
+}
+//// DTO ESPECIAL ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends dtoEspecial {
+    function head( context ) { dtoEspecial ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -142,7 +207,7 @@ Los valores de los campos de este formulario se calculan en el script asociado a
 \end */
 function interna_calculateField(fN:String):String
 {
-		return formpedidoscli.iface.pub_commonCalculateField(fN, this.cursor());
+	return formpedidoscli.iface.pub_commonCalculateField(fN, this.cursor());
 }
 
 function interna_validateForm()
@@ -352,9 +417,182 @@ function oficial_aplicarComision_clicked()
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+/** @class_definition scab */
+/////////////////////////////////////////////////////////////////
+//// CONTROL STOCK CABECERA /////////////////////////////////////
+function scab_init()
+{
+	this.iface.__init();
+
+	var util:FLUtil = new FLUtil;
+
+	this.iface.arrayStocks_ = this.iface.cargarArrayStocks();
+	if (!this.iface.arrayStocks_) {
+		MessageBox.warning(util.translate("scripts", "Error al cargar los datos de stock"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+}
+
+function scab_cargarArrayStocks():Array
+{
+	var util:FLUtil = new FLUtil;
+	var cursor:FLSqlCursor = this.cursor();
+	var arrayStocks:Array = [];
+
+	var qryStocks:FLSqlQuery = new FLSqlQuery;
+	qryStocks.setTablesList("pedidoscli,lineaspedidoscli");
+	qryStocks.setSelect("lp.referencia, SUM(lp.cantidad)");
+	qryStocks.setFrom("pedidoscli p INNER JOIN lineaspedidoscli lp ON p.idpedido = lp.idpedido");
+	qryStocks.setWhere("p.idpedido = " + cursor.valueBuffer("idpedido") + " AND lp.referencia IS NOT NULL AND (lp.cerrada IS NULL OR lp.cerrada = false) GROUP BY p.codalmacen, lp.referencia");
+	qryStocks.setForwardOnly(true);
+	if (!qryStocks.exec()) {
+		return false;
+	}
+	var i:Number = 0;
+	while (qryStocks.next()) {
+		arrayStocks[i] = [];
+		arrayStocks[i]["idarticulo"] = qryStocks.value("lp.referencia");
+		arrayStocks[i]["codalmacen"] = cursor.valueBuffer("codalmacen");
+		arrayStocks[i]["cantidad"] = qryStocks.value("SUM(lp.cantidad)");
+		i++;
+	}
+	return arrayStocks;
+}
+
+function scab_validateForm():Boolean
+{
+	if (!this.iface.__validateForm()) {
+		return false;
+	}
+
+	if (!this.iface.controlStockCabecera()) {
+		return false;
+	}
+
+	return true;
+}
+
+function scab_controlStockCabecera():Boolean
+{
+	var util:FLUtil = new FLUtil;
+	var cursor:FLSqlCursor = this.cursor();
+	
+	var arrayActual:Array = this.iface.cargarArrayStocks();
+	if (!arrayActual) {
+		MessageBox.warning(util.translate("scripts", "Error al cargar los datos de stock"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+
+	var arrayAfectados:Array = flfactalma.iface.pub_arraySocksAfectados(this.iface.arrayStocks_, arrayActual);
+	if (!arrayAfectados) {
+		return false;
+	}
+	for (var i:Number = 0; i < arrayAfectados.length; i++) {
+		if (!flfactalma.iface.pub_actualizarStockReservado(arrayAfectados[i]["idarticulo"], arrayAfectados[i]["codalmacen"], -1)) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+//// CONTROL STOCK CABECERA /////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+	
+function ivaIncluido_calcularTotales()
+{
+	this.iface.__calcularTotales();
+	
+	formRecordfacturascli.iface.comprobarRedondeoIVA(this.cursor(), "idpedido")
+}
+
+//// IVAINCLUIDO /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition pedProvCli */
+/////////////////////////////////////////////////////////////////
+//// PEDPROVCLI /////////////////////////////////////////////////
+function pedProvCli_calcularTotales()
+{
+	this.iface.__calcularTotales();
+/*	
+	var cursor:FLSqlCursor = this.cursor();
+	var idPedido:String = cursor.valueBuffer("idpedido");
+	var estado:String = flfacturac.iface.pub_estadoPedidoCliProv(idPedido);
+	cursor.setValueBuffer("pedido", estado);
+*/
+}
+//// PEDPROVCLI /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition dtoEspecial */
+//////////////////////////////////////////////////////////////////
+//// DTO ESPECIAL ////////////////////////////////////////////////
+function dtoEspecial_bufferChanged(fN:String)
+{
+	switch (fN) {
+		case "neto":{
+			form.child("fdbTotalIva").setValue(this.iface.calculateField("totaliva"));
+			form.child("fdbTotalRecargo").setValue(this.iface.calculateField("totalrecargo"));
+			this.iface.__bufferChanged(fN);
+			break;
+		}
+		/** \C
+		El --neto-- es el producto del --netosindtoesp-- por el --pordtoesp--
+		\end */
+		case "netosindtoesp": {
+			if (!this.iface.bloqueoDto) {
+				this.iface.bloqueoDto = true;
+				this.child("fdbDtoEsp").setValue(this.iface.calculateField("dtoesp"));
+				this.iface.bloqueoDto = false;
+			}
+			break;
+		}
+		case "pordtoesp": {
+			if (!this.iface.bloqueoDto) {
+				this.iface.bloqueoDto = true;
+				this.child("fdbDtoEsp").setValue(this.iface.calculateField("dtoesp"));
+				this.iface.bloqueoDto = false;
+			}
+			break;
+		}
+		case "dtoesp": {
+			if (!this.iface.bloqueoDto) {
+				this.iface.bloqueoDto = true;
+				this.child("fdbPorDtoEsp").setValue(this.iface.calculateField("pordtoesp"));
+				this.iface.bloqueoDto = false;
+			}
+			this.child("fdbNeto").setValue(this.iface.calculateField("neto"));
+			break;
+		}
+		default: {
+			this.iface.__bufferChanged(fN);
+			break;
+		}
+	}
+}
+
+function dtoEspecial_calcularTotales()
+{
+	this.child("fdbNetoSinDtoEsp").setValue(this.iface.calculateField("netosindtoesp"));
+	this.iface.__calcularTotales();
+}
+
+function dtoEspecial_init()
+{
+	this.iface.__init();
+
+	this.iface.bloqueoDto = false;
+}
+//// DTO ESPECIAL ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////

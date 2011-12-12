@@ -1,139 +1,299 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>factalma_general</class>
-<widget class="QWidget">
-    <property name="name">
-        <cstring>factalma_general</cstring>
-    </property>
-    <property name="geometry">
-        <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>878</width>
-            <height>209</height>
-        </rect>
-    </property>
-    <property name="caption">
-        <string>factalma_general</string>
-    </property>
-    <vbox>
-        <property name="name">
-            <cstring>unnamed</cstring>
+<!DOCTYPE UI>
+<UI stdsetdef="1" version="3.3" >
+    <class>factalma_general</class>
+    <widget class="QWidget" >
+        <property name="name" >
+            <cstring>factalma_general</cstring>
         </property>
-        <widget class="QTabWidget">
-            <property name="name">
-                <cstring>tbwDatosGenerales</cstring>
+        <property name="geometry" >
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>878</width>
+                <height>209</height>
+            </rect>
+        </property>
+        <property name="caption" >
+            <string>factalma_general</string>
+        </property>
+        <vbox>
+            <property name="name" >
+                <cstring>unnamed</cstring>
             </property>
-            <property name="font">
-                <font>
-                    <bold>1</bold>
-                </font>
-            </property>
-            <widget class="QWidget">
-                <property name="name">
-                    <cstring>datosgenerales</cstring>
+            <widget class="QTabWidget" >
+                <property name="name" >
+                    <cstring>tbwDatosGenerales</cstring>
                 </property>
-                <attribute name="title">
-                    <string>Datos &amp;generales</string>
-                </attribute>
-                <vbox>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
+                <property name="font" >
+                    <font>
+                        <bold>1</bold>
+                    </font>
+                </property>
+                <widget class="QWidget" >
+                    <property name="name" >
+                        <cstring>datosgenerales</cstring>
                     </property>
-                    <widget class="QGroupBox">
-                        <property name="name">
-                            <cstring>gbxDatosGenerales</cstring>
+                    <attribute name="title" >
+                        <string>Datos &amp;generales</string>
+                    </attribute>
+                    <vbox>
+                        <property name="name" >
+                            <cstring>unnamed</cstring>
                         </property>
-                        <property name="title">
-                            <string>Valores por defecto</string>
-                        </property>
-                        <vbox>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
+                        <widget class="QGroupBox" >
+                            <property name="name" >
+                                <cstring>gbxDatosGenerales</cstring>
                             </property>
-                            <widget class="QLayoutWidget">
-                                <property name="name">
-                                    <cstring>layoutIVA</cstring>
+                            <property name="title" >
+                                <string>Valores por defecto</string>
+                            </property>
+                            <vbox>
+                                <property name="name" >
+                                    <cstring>unnamed</cstring>
                                 </property>
-                                <hbox>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
+                                <widget class="QLayoutWidget" >
+                                    <property name="name" >
+                                        <cstring>layoutIVA</cstring>
                                     </property>
-                                    <widget class="FLFieldDB">
-                                        <property name="name">
-                                            <cstring>fdbCodImpuesto</cstring>
+                                    <hbox>
+                                        <property name="name" >
+                                            <cstring>unnamed</cstring>
                                         </property>
-                                        <property name="maximumSize">
-                                            <size>
-                                                <width>300</width>
-                                                <height>32767</height>
-                                            </size>
+                                        <widget class="FLFieldDB" >
+                                            <property name="name" >
+                                                <cstring>fdbCodImpuesto</cstring>
+                                            </property>
+                                            <property name="maximumSize" >
+                                                <size>
+                                                    <width>300</width>
+                                                    <height>32767</height>
+                                                </size>
+                                            </property>
+                                            <property name="font" >
+                                                <font>
+                                                    <bold>0</bold>
+                                                </font>
+                                            </property>
+                                            <property name="fieldName" >
+                                                <string>codimpuesto</string>
+                                            </property>
+                                            <property name="fieldAlias" >
+                                                <string>codimpuesto</string>
+                                            </property>
+                                        </widget>
+                                        <widget class="FLFieldDB" >
+                                            <property name="name" >
+                                                <cstring>fdbDesImpuesto</cstring>
+                                            </property>
+                                            <property name="font" >
+                                                <font>
+                                                    <bold>0</bold>
+                                                </font>
+                                            </property>
+                                            <property name="fieldName" >
+                                                <string>descripcion</string>
+                                            </property>
+                                            <property name="tableName" >
+                                                <string>impuestos</string>
+                                            </property>
+                                            <property name="foreignField" >
+                                                <string>codimpuesto</string>
+                                            </property>
+                                            <property name="fieldRelation" >
+                                                <string>codimpuesto</string>
+                                            </property>
+                                            <property name="fieldAlias" >
+                                                <string>descripcion</string>
+                                            </property>
+                                        </widget>
+                                    </hbox>
+                                </widget>
+                                <widget class="QLayoutWidget" >
+                                    <property name="name" >
+                                        <cstring>layoutIVAIncluido</cstring>
+                                    </property>
+                                    <hbox>
+                                        <property name="name" >
+                                            <cstring>unnamed</cstring>
                                         </property>
-                                        <property name="font">
-                                            <font>
-                                                <bold>0</bold>
-                                            </font>
+                                        <widget class="FLFieldDB" >
+                                            <property name="name" >
+                                                <cstring>fdbIvaIncluido</cstring>
+                                            </property>
+                                            <property name="maximumSize" >
+                                                <size>
+                                                    <width>300</width>
+                                                    <height>32767</height>
+                                                </size>
+                                            </property>
+                                            <property name="font" >
+                                                <font>
+                                                    <bold>0</bold>
+                                                </font>
+                                            </property>
+                                            <property name="fieldName" >
+                                                <string>ivaincluido</string>
+                                            </property>
+                                            <property name="fieldAlias" >
+                                                <string>ivaincluido</string>
+                                            </property>
+                                        </widget>
+                                        <spacer>
+                                            <property name="name" >
+                                                <cstring>spacerIVAIncluido</cstring>
+                                            </property>
+                                            <property name="orientation" >
+                                                <enum>Horizontal</enum>
+                                            </property>
+                                            <property name="sizeType" >
+                                                <enum>Expanding</enum>
+                                            </property>
+                                            <property name="sizeHint" >
+                                                <size>
+                                                    <width>131</width>
+                                                    <height>20</height>
+                                                </size>
+                                            </property>
+                                        </spacer>
+                                    </hbox>
+                                </widget>
+                                <widget class="QLayoutWidget" >
+                                    <property name="name" >
+                                        <cstring>layoutIVA_2</cstring>
+                                    </property>
+                                    <hbox>
+                                        <property name="name" >
+                                            <cstring>unnamed</cstring>
                                         </property>
-                                        <property name="fieldName">
-                                            <string>codimpuesto</string>
+                                        <widget class="FLFieldDB" >
+                                            <property name="name" >
+                                                <cstring>fdbRefIvaImport</cstring>
+                                            </property>
+                                            <property name="maximumSize" >
+                                                <size>
+                                                    <width>300</width>
+                                                    <height>32767</height>
+                                                </size>
+                                            </property>
+                                            <property name="font" >
+                                                <font>
+                                                    <bold>0</bold>
+                                                </font>
+                                            </property>
+                                            <property name="fieldName" >
+                                                <string>refivaimport</string>
+                                            </property>
+                                            <property name="fieldAlias" >
+                                                <string>refivaimport</string>
+                                            </property>
+                                        </widget>
+                                        <widget class="FLFieldDB" >
+                                            <property name="name" >
+                                                <cstring>fdbDesRefIvaImp</cstring>
+                                            </property>
+                                            <property name="font" >
+                                                <font>
+                                                    <bold>0</bold>
+                                                </font>
+                                            </property>
+                                            <property name="fieldName" >
+                                                <string>descripcion</string>
+                                            </property>
+                                            <property name="tableName" >
+                                                <string>articulos</string>
+                                            </property>
+                                            <property name="foreignField" >
+                                                <string>refivaimport</string>
+                                            </property>
+                                            <property name="fieldRelation" >
+                                                <string>referencia</string>
+                                            </property>
+                                            <property name="fieldAlias" >
+                                                <string>descripcion</string>
+                                            </property>
+                                        </widget>
+                                    </hbox>
+                                </widget>
+                                <widget class="QLayoutWidget" >
+                                    <property name="name" >
+                                        <cstring>layoutIVA_2</cstring>
+                                    </property>
+                                    <hbox>
+                                        <property name="name" >
+                                            <cstring>unnamed</cstring>
                                         </property>
-                                        <property name="fieldAlias">
-                                            <string>codimpuesto</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="FLFieldDB">
-                                        <property name="name">
-                                            <cstring>fdbDesImpuesto</cstring>
-                                        </property>
-                                        <property name="font">
-                                            <font>
-                                                <bold>0</bold>
-                                            </font>
-                                        </property>
-                                        <property name="fieldName">
-                                            <string>descripcion</string>
-                                        </property>
-                                        <property name="tableName">
-                                            <string>impuestos</string>
-                                        </property>
-                                        <property name="foreignField">
-                                            <string>codimpuesto</string>
-                                        </property>
-                                        <property name="fieldRelation">
-                                            <string>codimpuesto</string>
-                                        </property>
-                                        <property name="fieldAlias">
-                                            <string>descripcion</string>
-                                        </property>
-                                    </widget>
-                                </hbox>
-                            </widget>
-                            <spacer>
-                                <property name="name">
-                                    <cstring>spacerPG</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Vertical</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>41</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                        </vbox>
-                    </widget>
-                </vbox>
+                                        <widget class="FLFieldDB" >
+                                            <property name="name" >
+                                                <cstring>fdbRefIvaLiquidacion</cstring>
+                                            </property>
+                                            <property name="maximumSize" >
+                                                <size>
+                                                    <width>300</width>
+                                                    <height>32767</height>
+                                                </size>
+                                            </property>
+                                            <property name="font" >
+                                                <font>
+                                                    <bold>0</bold>
+                                                </font>
+                                            </property>
+                                            <property name="fieldName" >
+                                                <string>refivaliquidacion</string>
+                                            </property>
+                                            <property name="fieldAlias" >
+                                                <string>refivaliquidacion</string>
+                                            </property>
+                                        </widget>
+                                        <widget class="FLFieldDB" >
+                                            <property name="name" >
+                                                <cstring>fdbDesImpuesto_2</cstring>
+                                            </property>
+                                            <property name="font" >
+                                                <font>
+                                                    <bold>0</bold>
+                                                </font>
+                                            </property>
+                                            <property name="fieldName" >
+                                                <string>descripcion</string>
+                                            </property>
+                                            <property name="tableName" >
+                                                <string>articulos</string>
+                                            </property>
+                                            <property name="foreignField" >
+                                                <string>refivaliquidacion</string>
+                                            </property>
+                                            <property name="fieldRelation" >
+                                                <string>referencia</string>
+                                            </property>
+                                            <property name="fieldAlias" >
+                                                <string>descripcion</string>
+                                            </property>
+                                        </widget>
+                                    </hbox>
+                                </widget>
+                                <spacer>
+                                    <property name="name" >
+                                        <cstring>spacerPG</cstring>
+                                    </property>
+                                    <property name="orientation" >
+                                        <enum>Vertical</enum>
+                                    </property>
+                                    <property name="sizeType" >
+                                        <enum>Expanding</enum>
+                                    </property>
+                                    <property name="sizeHint" >
+                                        <size>
+                                            <width>20</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
+                                </spacer>
+                            </vbox>
+                        </widget>
+                    </vbox>
+                </widget>
             </widget>
-        </widget>
-    </vbox>
-</widget>
-<layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>flfielddb.h</includehint>
-    <includehint>flfielddb.h</includehint>
-</includehints>
+        </vbox>
+    </widget>
+    <layoutdefaults spacing="6" margin="11" />
 </UI>

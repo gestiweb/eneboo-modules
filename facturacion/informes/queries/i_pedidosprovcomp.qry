@@ -1,0 +1,51 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>pedidosprov</name>
+
+	<tables>empresa,pedidosprov,lineaspedidosprov,i_articuloscomp_buffer</tables>
+
+	<group>
+		<level>0</level>
+		<field>pedidosprov.idpedido</field>
+	</group>
+	
+	<group>
+		<level>1</level> 
+		<field>lineaspedidosprov.idlinea</field>
+	</group>
+
+	<select>
+		pedidosprov.idpedido, pedidosprov.codigo,
+		lineaspedidosprov.idpedido, pedidosprov.codserie,
+		pedidosprov.fecha, pedidosprov.total,
+		pedidosprov.coddivisa, pedidosprov.codejercicio,
+		pedidosprov.codpago, pedidosprov.codalmacen,
+		pedidosprov.codproveedor, pedidosprov.nombre,
+		pedidosprov.cifnif, pedidosprov.tasaconv,
+		pedidosprov.neto, pedidosprov.totaliva,
+		pedidosprov.observaciones,
+		pedidosprov.totalrecargo, pedidosprov.irpf, pedidosprov.totalirpf,
+		lineaspedidosprov.referencia, lineaspedidosprov.descripcion,
+		lineaspedidosprov.cantidad, lineaspedidosprov.pvpunitario,
+		lineaspedidosprov.pvptotal, lineaspedidosprov.codimpuesto,
+		lineaspedidosprov.iva,lineaspedidosprov.idlinea,
+		articulos.codunidad,
+		dirproveedores.direccion,dirproveedores.codpostal, dirproveedores.provincia,dirproveedores.ciudad,
+		i_articuloscomp_buffer.referencia,i_articuloscomp_buffer.descripcion,
+		i_articuloscomp_buffer.cantidad,i_articuloscomp_buffer.codunidad,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion, empresa.logo,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa,pedidosprov INNER JOIN lineaspedidosprov ON pedidosprov.idpedido = lineaspedidosprov.idpedido LEFT OUTER JOIN i_articuloscomp_buffer ON lineaspedidosprov.idlinea = i_articuloscomp_buffer.idlinea
+		LEFT OUTER JOIN articulos ON lineaspedidosprov.referencia = articulos.referencia LEFT OUTER JOIN dirproveedores ON pedidosprov.codproveedor = dirproveedores.codproveedor
+	</from>
+
+	<where>
+		pedidosprov.codigo&gt;=[from] AND pedidosprov.codigo&lt;=[to]
+	</where>
+</QRY>

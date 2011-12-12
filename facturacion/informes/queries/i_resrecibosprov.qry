@@ -1,0 +1,29 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_resrecibosprov</name>
+
+	<tables>recibosprov,empresa</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.cifnif</field>
+	</group>
+
+	<select>
+		recibosprov.codigo, recibosprov.fecha, recibosprov.fechav,
+		recibosprov.codproveedor, recibosprov.nombreproveedor,
+		recibosprov.cifnif, recibosprov.estado,
+		recibosprov.importe, recibosprov.coddivisa,
+		empresa.nombre, empresa.cifnif, empresa.direccion, empresa.logo,
+		empresa.codpostal, empresa.ciudad, empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa,recibosprov
+		INNER JOIN facturasprov ON recibosprov.idfactura = facturasprov.idfactura
+	</from>
+
+	<where>
+	</where>
+</QRY>

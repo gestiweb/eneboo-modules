@@ -97,11 +97,94 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration scab */
+/////////////////////////////////////////////////////////////////
+//// CONTROL STOCK CABECERA /////////////////////////////////////
+class scab extends oficial {
+	var arrayStocks_:Array;
+    function scab( context ) { oficial ( context ); }
+	function init() {
+		return this.ctx.scab_init();
+	}
+	function validateForm():Boolean {
+		return this.ctx.scab_validateForm();
+	}
+	function cargarArrayStocks():Boolean {
+		return this.ctx.scab_cargarArrayStocks();
+	}
+	function controlStockCabecera():Boolean {
+		return this.ctx.scab_controlStockCabecera();
+	}
+}
+//// CONTROL STOCK CABECERA /////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+class ivaIncluido extends scab {
+    function ivaIncluido( context ) { scab( context ); } 	
+	function calcularTotales() {
+		return this.ctx.ivaIncluido_calcularTotales();
+	}
+	function comprobarRedondeoIVA(cursor:FLSqlCursor, pk:String) {
+		return this.ctx.ivaIncluido_comprobarRedondeoIVA(cursor, pk);
+	}
+}
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+/** @class_declaration modelo347 */
+/////////////////////////////////////////////////////////////////
+//// MODELO 347 /////////////////////////////////////////////////
+class modelo347 extends ivaIncluido {
+    function modelo347( context ) { ivaIncluido ( context ); }
+    function calcularTotales() {
+		return this.ctx.modelo347_calcularTotales();
+	}
+}
+//// MODELO 347 /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration liqAgentes */
+//////////////////////////////////////////////////////////////////
+//// LIQAGENTES //////////////////////////////////////////////////
+class liqAgentes extends modelo347 {
+	function liqAgentes( context ) { modelo347( context ); }
+	function validateForm():Boolean {
+		return this.ctx.liqAgentes_validateForm();
+	}
+}
+//// LIQAGENTES ///////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+/** @class_declaration dtoEspecial */
+/////////////////////////////////////////////////////////////////
+//// DTO ESPECIAL ///////////////////////////////////////////////
+class dtoEspecial extends liqAgentes {
+    var bloqueoDto:Boolean;
+    function dtoEspecial( context ) { liqAgentes ( context ); }
+	function init() {
+		return this.ctx.dtoEspecial_init();
+	}
+	function bufferChanged(fN:String) {
+		return this.ctx.dtoEspecial_bufferChanged(fN);
+	}
+	function calcularTotales() {
+		return this.ctx.dtoEspecial_calcularTotales();
+	}
+	function actualizarLineasIva(curFactura:FLSqlCursor):Boolean {
+		return this.ctx.dtoEspecial_actualizarLineasIva(curFactura);
+	}
+}
+//// DTO ESPECIAL ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends dtoEspecial {
+    function head( context ) { dtoEspecial ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -545,7 +628,7 @@ function oficial_actualizarLineasIva(curFactura:FLSqlCursor):Boolean
 		idFactura = curFactura.valueBuffer("idfactura");
 	} catch (e) {
 		// Antes se recibía sólo idFactura
-		MessageBox.critical(util.translate("scripts", "Hay un problema con la actualización de su personalización."), MessageBox.Ok, MessageBox.NoButton);
+		MessageBox.critical(util.translate("scripts", "Hay un problema con la actualización de su personalización.\nPor favor, póngase en contacto con InfoSiAL para solucionarlo"), MessageBox.Ok, MessageBox.NoButton);
 		return false;
 	}
 
@@ -741,9 +824,378 @@ function oficial_aplicarComision_clicked()
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+/** @class_definition scab */
+/////////////////////////////////////////////////////////////////
+//// CONTROL STOCK CABECERA /////////////////////////////////////
+function scab_init()
+{
+	this.iface.__init();
+
+	var util:FLUtil = new FLUtil;
+
+	this.iface.arrayStocks_ = this.iface.cargarArrayStocks();
+	if (!this.iface.arrayStocks_) {
+		MessageBox.warning(util.translate("scripts", "Error al cargar los datos de stock"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+}
+
+function scab_cargarArrayStocks():Array
+{
+	var util:FLUtil = new FLUtil;
+	var cursor:FLSqlCursor = this.cursor();
+	var arrayStocks:Array = [];
+
+	var qryStocks:FLSqlQuery = new FLSqlQuery;
+	qryStocks.setTablesList("facturascli,lineasfacturascli");
+	qryStocks.setSelect("lf.referencia, SUM(lf.cantidad)");
+	qryStocks.setFrom("facturascli f INNER JOIN lineasfacturascli lf ON f.idfactura = lf.idfactura");
+	qryStocks.setWhere("f.idfactura = " + cursor.valueBuffer("idfactura") + " AND lf.referencia IS NOT NULL GROUP BY f.codalmacen, lf.referencia");
+	qryStocks.setForwardOnly(true);
+	if (!qryStocks.exec()) {
+		return false;
+	}
+	var i:Number = 0;
+	while (qryStocks.next()) {
+		arrayStocks[i] = [];
+		arrayStocks[i]["idarticulo"] = qryStocks.value("lf.referencia");
+		arrayStocks[i]["codalmacen"] = cursor.valueBuffer("codalmacen");
+		arrayStocks[i]["cantidad"] = qryStocks.value("SUM(lf.cantidad)");
+		i++;
+	}
+	return arrayStocks;
+}
+
+function scab_validateForm():Boolean
+{
+	if (!this.iface.__validateForm()) {
+		return false;
+	}
+
+	if (!this.iface.controlStockCabecera()) {
+		return false;
+	}
+
+	return true;
+}
+
+function scab_controlStockCabecera():Boolean
+{
+	var util:FLUtil = new FLUtil;
+	var cursor:FLSqlCursor = this.cursor();
+	
+	var arrayActual:Array = this.iface.cargarArrayStocks();
+	if (!arrayActual) {
+		MessageBox.warning(util.translate("scripts", "Error al cargar los datos de stock"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+
+	var arrayAfectados:Array = flfactalma.iface.pub_arraySocksAfectados(this.iface.arrayStocks_, arrayActual);
+	if (!arrayAfectados) {
+		return false;
+	}
+	for (var i:Number = 0; i < arrayAfectados.length; i++) {
+		if (!flfactalma.iface.pub_actualizarStockFisico(arrayAfectados[i]["idarticulo"], arrayAfectados[i]["codalmacen"], "cantidadfc")) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+//// CONTROL STOCK CABECERA /////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+	
+function ivaIncluido_calcularTotales()
+{
+	this.iface.__calcularTotales();
+	
+	this.iface.comprobarRedondeoIVA(this.cursor(), "idfactura");
+}
+
+function ivaIncluido_comprobarRedondeoIVA(cursor:FLSqlCursor, pk:String)
+{
+	var regIva:String = flfacturac.iface.pub_regimenIVACliente(cursor);
+	if (regIva == "U.E." || regIva == "Exento" || regIva == "Exportaciones"){
+		return;
+	}
+	
+	// Si hay portes o descuento, no habra errores de redondeo al recalcularse iva y totales
+	var portes:Number = parseFloat(cursor.valueBuffer("totalportes"));
+	if (!isNaN(portes) && portes != 0) return;
+	
+	var dtoEspecial:Number = parseFloat(cursor.valueBuffer("dtoesp"));
+	if (!isNaN(dtoEspecial) && dtoEspecial != 0) return;
+	
+
+	var util:FLUtil = new FLUtil();
+	var tabla:String = "lineas" + cursor.table();
+	
+	var id:Number = cursor.valueBuffer(pk);
+	var neto:Number = util.sqlSelect(tabla, "sum((pvpunitario*cantidad)-dtolineal-((pvpunitario*cantidad)*dtopor/100))", pk + " = " + id);
+	var iva:Number = util.sqlSelect(tabla, "sum(((pvpunitario*cantidad)-dtolineal-((pvpunitario*cantidad)*dtopor/100))*iva/100)", pk + " = " + id);
+	
+	// Comparamos la suma exacta redondeada a 2 con la suma de neto + iva
+	var totalExacto = Math.round(100 * (parseFloat(neto) + parseFloat(iva)))/100;
+	var totalActual = parseFloat(cursor.valueBuffer("neto")) + parseFloat(cursor.valueBuffer("totaliva"));
+	
+	debug(totalExacto + "|" + totalActual)
+
+	var dif:Number = parseFloat(totalActual) - parseFloat(totalExacto);
+	if (dif != 0) {
+		var nuevoValor:Number = parseFloat(cursor.valueBuffer("totaliva")) - dif;
+		nuevoValor = util.roundFieldValue(nuevoValor, cursor.table(), "totaliva");
+		cursor.setValueBuffer("totaliva", nuevoValor);
+	}
+}
+
+//// IVAINCLUIDO /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition modelo347 */
+/////////////////////////////////////////////////////////////////
+//// MODELO 347 /////////////////////////////////////////////////
+function modelo347_calcularTotales()
+{
+	this.iface.__calcularTotales();
+	this.child("fdbNoModelo347").setValue(this.iface.calculateField("nomodelo347"));
+}
+//// MODELO 347 /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+//// OFICIAL /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition liqAgentes */
+//////////////////////////////////////////////////////////////////
+//// LIQAGENTES /////////////////////////////////////////////////////
+function liqAgentes_validateForm():Boolean
+{
+	if (!this.iface.__validateForm()) {
+		return false;
+	}
+
+	var util:FLUtil = new FLUtil();
+	var cursor:FLSqlCursor = this.cursor();
+	var codLiquidacion:String = cursor.valueBuffer("codliquidacion");
+	if(cursor.modeAccess() == cursor.Edit && codLiquidacion){
+		var res:Number =MessageBox.warning(util.translate("scripts", "La factura que intenta modificar pertenece a la liquidación ") + codLiquidacion + util.translate("scripts", "\n¿Desea continuar?"),MessageBox.Yes, MessageBox.No,MessageBox.NoButton);
+		if(res != MessageBox.Yes)
+			return false;
+
+		var curLiq:FLSqlCursor = new FLSqlCursor("liquidaciones");
+		curLiq.select("codliquidacion = '" + cursor.valueBuffer("codliquidacion") + "'");
+		if (!curLiq.first())
+			return false;
+
+		curLiq.setModeAccess(curLiq.Edit);
+		curLiq.refreshBuffer();
+		curLiq.setValueBuffer("total", formRecordliquidaciones.iface.pub_commonCalculateField("total", curLiq));
+		if (!curLiq.commitBuffer())
+			return false;
+	}
+		
+	return true;
+	
+}
+
+//// LIQAGENTES /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition dtoEspecial */
+//////////////////////////////////////////////////////////////////
+//// DTO ESPECIAL ////////////////////////////////////////////////
+function dtoEspecial_bufferChanged(fN:String)
+{
+	switch (fN) {
+		case "neto": {
+			form.child("fdbTotalIva").setValue(this.iface.calculateField("totaliva"));
+			form.child("fdbTotalRecargo").setValue(this.iface.calculateField("totalrecargo"));
+			this.iface.__bufferChanged(fN);
+			break;
+		}
+		/** \C
+		El --neto-- es el producto del --netosindtoesp-- por el --pordtoesp--
+		\end */
+		case "netosindtoesp": {
+			if (!this.iface.bloqueoDto) {
+				this.iface.bloqueoDto = true;
+				this.child("fdbDtoEsp").setValue(this.iface.calculateField("dtoesp"));
+				this.iface.bloqueoDto = false;
+			}
+
+			break;
+		}
+		case "pordtoesp": {
+			if (!this.iface.bloqueoDto) {
+				this.iface.bloqueoDto = true;
+				this.child("fdbDtoEsp").setValue(this.iface.calculateField("dtoesp"));
+				this.iface.bloqueoDto = false;
+			}
+			break;
+		}
+		case "dtoesp": {
+			if (!this.iface.bloqueoDto) {
+				this.iface.bloqueoDto = true;
+				this.child("fdbPorDtoEsp").setValue(this.iface.calculateField("pordtoesp"));
+				this.iface.bloqueoDto = false;
+			}
+			this.child("fdbNeto").setValue(this.iface.calculateField("neto"));
+			break;
+		}
+		default: {
+			this.iface.__bufferChanged(fN);
+			break;
+		}
+	}
+}
+
+function dtoEspecial_calcularTotales()
+{
+	var idFactura:Number = this.cursor().valueBuffer("idfactura");
+	this.child("fdbNetoSinDtoEsp").setValue(this.iface.calculateField("netosindtoesp"));
+	this.iface.__calcularTotales();
+}
+
+/** \D
+Actualiza (borra y reconstruye) los datos referentes a la factura en la tabla de agrupaciones por IVA (lineasivafactcli)
+@param curFactura: Cursor posicionado en la factura
+\end */
+function dtoEspecial_actualizarLineasIva(curFactura:FLSqlCursor):Boolean
+{
+	var util:FLUtil = new FLUtil;
+	var idFactura:String;
+	try {
+		idFactura = curFactura.valueBuffer("idfactura");
+	} catch (e) {
+		// Antes se recibía sólo idFactura
+		MessageBox.critical(util.translate("scripts", "Hay un problema con la actualización de su personalización.\nPor favor, póngase en contacto con InfoSiAL para solucionarlo"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+
+	var porDto:Number = parseFloat(curFactura.valueBuffer("pordtoesp"));
+	if (isNaN(porDto))
+		porDto = 0;
+	if (!porDto || porDto == 0)
+		return this.iface.__actualizarLineasIva(curFactura);
+
+	var netoExacto:Number = curFactura.valueBuffer("neto");
+	var lineasSinIVA:Number = util.sqlSelect("lineasfacturascli", "SUM(pvptotal)", "idfactura = " + idFactura + " AND iva IS NULL");
+	lineasSinIVA = (isNaN(lineasSinIVA) ? 0 : lineasSinIVA);
+	netoExacto -= lineasSinIVA;
+	netoExacto = util.roundFieldValue(netoExacto, "facturascli", "neto");
+
+	var ivaExacto:Number = util.sqlSelect("lineasfacturascli", "SUM((pvptotal * iva * (100 - " + porDto + ")) / 100 / 100)", "idfactura = " + idFactura);
+	if (!ivaExacto)
+		ivaExacto = 0;
+	var reExacto:Number = util.sqlSelect("lineasfacturascli", "SUM((pvptotal * recargo * (100 - " + porDto + ")) / 100 / 100)", "idfactura = " + idFactura);
+	if (!reExacto)
+		reExacto = 0;
+	
+	if (!util.sqlDelete("lineasivafactcli", "idfactura = " + idFactura)) {
+		return false;
+	}
+
+	var codImpuestoAnt:String = "";
+	var codImpuesto:String = "";
+	var iva:Number;
+	var recargo:Number;
+	var totalNeto:Number = 0;
+	var totalIva:Number = 0;
+	var totalRecargo:Number = 0;
+	var totalLinea:Number = 0;
+	var acumNeto:Number = 0;
+	var acumIva:Number = 0;
+	var acumRecargo:Number = 0;
+	
+	var curLineaIva:FLSqlCursor = new FLSqlCursor("lineasivafactcli");
+	var qryLineasFactura:FLSqlQuery = new FLSqlQuery;
+	with (qryLineasFactura) {
+		setTablesList("lineasfacturascli");
+		setSelect("codimpuesto, iva, recargo, pvptotal");
+		setFrom("lineasfacturascli");
+		setWhere("idfactura = " + idFactura + " AND pvptotal <> 0 AND iva IS NOT NULL ORDER BY codimpuesto");
+		setForwardOnly(true);
+	}
+	if (!qryLineasFactura.exec())
+		return false;
+	
+	while (qryLineasFactura.next()) {
+		codImpuesto = qryLineasFactura.value("codimpuesto");
+		if (codImpuestoAnt != "" && codImpuestoAnt != codImpuesto) {
+			totalNeto = (totalNeto * (100 - porDto)) / 100;
+			totalNeto = util.roundFieldValue(totalNeto, "lineasivafactcli", "neto");
+			totalIva = util.roundFieldValue((iva * totalNeto) / 100, "lineasivafactcli", "totaliva");
+			totalRecargo = util.roundFieldValue((recargo * totalNeto) / 100, "lineasivafactcli", "totalrecargo");
+			totalLinea = parseFloat(totalNeto) + parseFloat(totalIva) + parseFloat(totalRecargo);
+			totalLinea = util.roundFieldValue(totalLinea, "lineasivafactcli", "totallinea");
+			
+			acumNeto += parseFloat(totalNeto);
+			acumIva += parseFloat(totalIva);
+			acumRecargo += parseFloat(totalRecargo);
+
+			with(curLineaIva) {
+				setModeAccess(Insert);
+				refreshBuffer();
+				setValueBuffer("idfactura", idFactura);
+				setValueBuffer("codimpuesto", codImpuestoAnt);
+				setValueBuffer("iva", iva);
+				setValueBuffer("recargo", recargo);
+				setValueBuffer("neto", totalNeto);
+				setValueBuffer("totaliva", totalIva);
+				setValueBuffer("totalrecargo", totalRecargo);
+				setValueBuffer("totallinea", totalLinea);
+			}
+			if (!curLineaIva.commitBuffer())
+					return false;
+			totalNeto = 0;
+		}
+		codImpuestoAnt = codImpuesto;
+		iva = parseFloat(qryLineasFactura.value("iva"));
+		recargo = parseFloat(qryLineasFactura.value("recargo"));
+		totalNeto += parseFloat(qryLineasFactura.value("pvptotal"));
+	}
+
+	if (totalNeto != 0) {
+		totalNeto = util.roundFieldValue(netoExacto - acumNeto, "lineasivafactcli", "neto");
+		totalIva = util.roundFieldValue(ivaExacto - acumIva, "lineasivafactcli", "totaliva");
+		totalRecargo = util.roundFieldValue(reExacto - acumRecargo, "lineasivafactcli", "totalrecargo");
+		totalLinea = parseFloat(totalNeto) + parseFloat(totalIva) + parseFloat(totalRecargo);
+		totalLinea = util.roundFieldValue(totalLinea, "lineasivafactcli", "totallinea");
+
+		with(curLineaIva) {
+			setModeAccess(Insert);
+			refreshBuffer();
+			setValueBuffer("idfactura", idFactura);
+			setValueBuffer("codimpuesto", codImpuestoAnt);
+			setValueBuffer("iva", iva);
+			setValueBuffer("recargo", recargo);
+			setValueBuffer("neto", totalNeto);
+			setValueBuffer("totaliva", totalIva);
+			setValueBuffer("totalrecargo", totalRecargo);
+			setValueBuffer("totallinea", totalLinea);
+		}
+		if (!curLineaIva.commitBuffer())
+			return false;
+	}
+	return true;
+}
+
+function dtoEspecial_init()
+{
+	this.iface.__init();
+
+	this.iface.bloqueoDto = false;
+}
+//// DTO ESPECIAL ////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////

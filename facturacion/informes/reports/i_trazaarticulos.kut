@@ -1,0 +1,162 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+<KugarTemplate BottomMargin="40" TopMargin="40" RightMargin="30" LeftMargin="30" PageOrientation="1" PageSize="0" >
+	<PageHeader Height="25" >
+		
+		<Label WordWrap="0" Width="820" X="0" Y="1" BorderStyle="0" Height="22" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" Trazabilidad de Artículos" FontWeight="75" FontSize="12" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Label WordWrap="0" Width="40" X="730" Y="1" BorderStyle="0" Height="22" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" Fecha" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Special WordWrap="0" Width="50" X="770" Y="1" BorderStyle="0" Height="22" HAlignment="0" DateFormat="19" BorderColor="0,0,0" BackgroundColor="220,220,220" Type="0" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+		
+		<!--empresa-->
+		<Field WordWrap="0" Width="300" X="0" Y="20" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="empresa.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.nombre]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+	</PageHeader>
+	
+	<DetailHeader Level="0" Height="85">
+		
+		<!--periodo-->
+		<Label WordWrap="0" Width="40" X="0" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Período" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="50" X="40" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="3" Field="i_trazaarticulos.fechadesde" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="50" X="40" Y="15" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="3" Field="i_trazaarticulos.fechahasta" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_trazaarticulos.fechahasta]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<!--familia-->
+		<Label WordWrap="0" Width="40" X="100" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Familia" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="50" X="140" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.codfamilia" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_trazaarticulos_buffer.codfamilia]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<!--referencias-->
+		<Label WordWrap="0" Width="60" X="200" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Referencias" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="90" X="260" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.referenciadesde" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="90" X="260" Y="15" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.referenciahasta" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_trazaarticulos.fechahasta]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<!--clientes-->
+		<Label WordWrap="0" Width="40" X="400" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Clientes" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="60" X="440" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.clientedesde" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="60" X="440" Y="15" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.clientehasta" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_trazaarticulos.fechahasta]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<!--proveedores-->
+		<Label WordWrap="0" Width="60" X="500" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Proveedores" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="60" X="560" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.proveedordesde" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="60" X="560" Y="15" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.proveedorhasta" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<!--almacenes-->
+		<Label WordWrap="0" Width="60" X="650" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Almacenes" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="40" X="710" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.almacendesde" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="40" X="710" Y="15" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.almacenhasta" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_trazaarticulos.fechahasta]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<!--página-->
+		<Label WordWrap="0" Width="60" X="740" Y="20" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="página" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Special WordWrap="0" Width="20" X="800" Y="20" BorderStyle="0" Height="20" HAlignment="2" DateFormat="19" BorderColor="0,0,0" BackgroundColor="255,255,255" Type="1" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+		
+		<Line Width="4" Y1="45" Y2="45" X1="0" X2="820" Style="1" Color="220,220,220" />
+		
+		<!--campos-->
+		<Label WordWrap="0" Width="249" X="0" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Referencia" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="29" X="250" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Tipo" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="159" X="280" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Cliente/Proveedor" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		
+		<Label WordWrap="0" Width="49" X="440" Y="60" BorderStyle="0" Height="15" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Pre. Ud " FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="29" X="490" Y="60" BorderStyle="0" Height="15" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Cant. " FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="29" X="520" Y="60" BorderStyle="0" Height="15" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="% dto" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="49" X="550" Y="60" BorderStyle="0" Height="15" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Importe " FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		
+		<Label WordWrap="0" Width="60" X="600" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Albaran" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="49" X="660" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Fecha" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="60" X="710" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Factura" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="49" X="770" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Fecha" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		
+	</DetailHeader>
+	
+	
+	<AddOnHeader Level="0" Height="85">
+		<!--periodo-->
+		<Label WordWrap="0" Width="40" X="0" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Período" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="50" X="40" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="3" Field="i_trazaarticulos.fechadesde" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="50" X="40" Y="15" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="3" Field="i_trazaarticulos.fechahasta" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_trazaarticulos.fechahasta]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<!--familia-->
+		<Label WordWrap="0" Width="40" X="100" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Familia" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="50" X="140" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.codfamilia" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_trazaarticulos_buffer.codfamilia]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<!--referencias-->
+		<Label WordWrap="0" Width="60" X="200" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Referencias" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="90" X="260" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.referenciadesde" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="90" X="260" Y="15" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.referenciahasta" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_trazaarticulos.fechahasta]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<!--clientes-->
+		<Label WordWrap="0" Width="40" X="400" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Clientes" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="60" X="440" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.clientedesde" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="60" X="440" Y="15" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.clientehasta" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_trazaarticulos.fechahasta]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<!--proveedores-->
+		<Label WordWrap="0" Width="40" X="500" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Proveedores" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="60" X="560" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.proveedordesde" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="60" X="560" Y="15" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.proveedorhasta" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<!--almacenes-->
+		<Label WordWrap="0" Width="60" X="650" Y="0" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Almacenes" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="40" X="710" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.almacendesde" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="40" X="710" Y="15" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="i_trazaarticulos.almacenhasta" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[i_trazaarticulos.fechahasta]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<!--página-->
+		<Label WordWrap="0" Width="60" X="740" Y="20" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="página" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+		<Special WordWrap="0" Width="20" X="800" Y="20" BorderStyle="0" Height="20" HAlignment="2" DateFormat="19" BorderColor="0,0,0" BackgroundColor="255,255,255" Type="1" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+		
+		<Line Width="4" Y1="45" Y2="45" X1="0" X2="820" Style="1" Color="220,220,220" />
+		
+		<!--campos-->
+		<Label WordWrap="0" Width="249" X="0" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Referencia" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="29" X="250" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Tipo" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="159" X="280" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Cliente/Proveedor" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		
+		<Label WordWrap="0" Width="49" X="440" Y="60" BorderStyle="0" Height="15" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Pre. Ud " FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="29" X="490" Y="60" BorderStyle="0" Height="15" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Cant. " FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="29" X="520" Y="60" BorderStyle="0" Height="15" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="% dto" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="49" X="550" Y="60" BorderStyle="0" Height="15" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Importe " FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		
+		<Label WordWrap="0" Width="60" X="600" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Albaran" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="49" X="660" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Fecha" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="60" X="710" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Factura" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+		<Label WordWrap="0" Width="49" X="770" Y="60" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Fecha" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	</AddOnHeader>
+	
+	
+	<Detail Height="15" Level="0" >
+		
+		<Field WordWrap="0" Width="50" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="0" DataType="0" Field="i_trazaarticulos_buffer.referencia" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[buffer.fechavto]" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="200" X="50" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="0" DataType="0" Field="i_trazaarticulos_buffer.descripcion" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="30" X="250" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="0" DataType="0" Field="i_trazaarticulos_buffer.movimiento" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="160" X="280" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="0" DataType="0" Field="i_trazaarticulos_buffer.nombrecliprov" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<Field WordWrap="0" Width="45" X="440" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="2" DataType="2" Field="i_trazaarticulos_buffer.preciounidad" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="30" X="490" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="2" DataType="2" Field="i_trazaarticulos_buffer.cantidad" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="30" X="520" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="2" DataType="2" Field="i_trazaarticulos_buffer.dtopor" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="45" X="550" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="2" DataType="2" Field="i_trazaarticulos_buffer.precio" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<Field WordWrap="0" Width="60" X="600" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="0" DataType="0" Field="i_trazaarticulos_buffer.codalbaran" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="50" X="660" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="2" DataType="3" Field="i_trazaarticulos_buffer.fechaalbaran" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="60" X="715" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="0" DataType="0" Field="i_trazaarticulos_buffer.codfactura" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="45" X="775" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="2" DataType="3" Field="i_trazaarticulos_buffer.fechafactura" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<Line Width="1" Y1="13" Y2="13" X1="0" X2="820" Style="1" Color="220,220,220" />
+		
+	</Detail>
+	
+	<AddOnFooter Height="60" Level="0" >
+		<Line Width="1" Y1="5" Y2="5" X1="0" X2="820" Style="1" Color="150,150,150" />
+		<Label WordWrap="0" Width="99" X="0" Y="10" BorderStyle="0" Height="11" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Suma y sigue" FontWeight="65" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+		<CalculatedField CalculationType="1" WordWrap="0" Width="50" X="470" Y="10" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="2" DataType="2" Field="i_trazaarticulos_buffer.cantidad" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" /> -->
+		<CalculatedField CalculationType="1" WordWrap="0" Width="45" X="550" Y="10" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="2" DataType="2" Field="i_trazaarticulos_buffer.precio" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" /> -->
+		
+		<Label WordWrap="0" Width="800" X="0" Y="40" BorderStyle="0" Height="11" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="(*) Tipos: C=Compra, V=Venta, R=regularización de stock, D=Devolución de venta, E=Devolución de compra" FontWeight="50" FontSize="8" BorderWidth="1" FontFamily="Arial" />
+	</AddOnFooter>
+	
+	<DetailFooter Height="60" Level="0" >
+		<Line Width="1" Y1="5" Y2="5" X1="0" X2="820" Style="1" Color="150,150,150" />
+		<Label WordWrap="0" Width="99" X="0" Y="10" BorderStyle="0" Height="11" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Totales" FontWeight="65" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+		<CalculatedField CalculationType="1" WordWrap="0" Width="50" X="470" Y="10" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="2" DataType="2" Field="i_trazaarticulos_buffer.cantidad" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" /> -->
+		<CalculatedField CalculationType="1" WordWrap="0" Width="45" X="550" Y="10" BorderStyle="0" NegValueColor="0,0,0" Height="11" HAlignment="2" DataType="2" Field="i_trazaarticulos_buffer.precio" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" /> -->
+		
+		<Label WordWrap="0" Width="800" X="0" Y="40" BorderStyle="0" Height="11" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="(*) Tipos: C=Compra, V=Venta, R=regularización de stock, D=Devolución de venta, E=Devolución de compra" FontWeight="50" FontSize="8" BorderWidth="1" FontFamily="Arial" />
+	</DetailFooter>
+	
+</KugarTemplate>

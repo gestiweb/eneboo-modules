@@ -57,15 +57,59 @@ class oficial extends interna {
 	function datosTablaPadre(cursor:FLSqlCursor):Array {
 		return this.ctx.oficial_datosTablaPadre(cursor);
 	}
+	function dameFiltroReferencia():String {
+		return this.ctx.oficial_dameFiltroReferencia();
+	}
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+class ivaIncluido extends oficial {
+	var bloqueoPrecio:Boolean;
+    function ivaIncluido( context ) { oficial( context ); } 	
+	function init() {
+		return this.ctx.ivaIncluido_init();
+	}
+	function habilitarPorIvaIncluido(miForm:Object) {
+		return this.ctx.ivaIncluido_habilitarPorIvaIncluido(miForm);
+	}
+	function commonCalculateField(fN:String, cursor:FLSqlCursor):String {
+		return this.ctx.ivaIncluido_commonCalculateField(fN, cursor);
+	}
+	function commonBufferChanged(fN:String, miForm:Object) {
+		return this.ctx.ivaIncluido_commonBufferChanged(fN, miForm);
+	}
+}
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+/** @class_declaration rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+class rappel extends ivaIncluido {
+    function rappel( context ) { ivaIncluido ( context ); }
+	function init() {
+		return this.ctx.rappel_init();
+	}
+	function commonBufferChanged(fN:String, miForm:Object) {
+		return this.ctx.rappel_commonBufferChanged(fN, miForm);
+	}
+	function commonCalculateField(fN:String, cursor:FLSqlCursor):String {
+		return this.ctx.rappel_commonCalculateField(fN, cursor);
+	}
+}
+//// RAPPEL /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends rappel {
+    function head( context ) { rappel ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -83,8 +127,21 @@ class ifaceCtx extends head {
 		}
 }
 
-const iface = new ifaceCtx( this );
+const iface = new pubIvaIncluido( this );
 //// INTERFACE  /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration pubIvaIncluido */
+/////////////////////////////////////////////////////////////////
+//// PUB_IVA_INCLUIDO ///////////////////////////////////////////
+class pubIvaIncluido extends ifaceCtx {
+    function pubIvaIncluido( context ) { ifaceCtx( context ); }
+	function pub_habilitarPorIvaIncluido(miForm:Object) {
+		return this.habilitarPorIvaIncluido(miForm);
+	}
+}
+
+//// PUB_IVA_INCLUIDO ///////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 /** @class_definition interna */
@@ -166,11 +223,7 @@ function interna_init()
 	this.child("lblComision").setText(this.iface.calculateField("lblComision"));
 	this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
 	
-	var filtroReferencia:String = ""; //this.child("fdbReferencia").filter();
-	if (filtroReferencia != "") {
-		filtroReferencia += " AND ";
-	}
-	filtroReferencia += "sevende";
+	var filtroReferencia:String = this.iface.dameFiltroReferencia();
 	this.child("fdbReferencia").setFilter(filtroReferencia);
 }
 
@@ -298,7 +351,22 @@ function oficial_commonBufferChanged(fN:String, miForm:Object)
 function oficial_obtenerTarifa(codCliente:String, cursor:FLSqlCursor):String
 {
 	var util:FLUtil = new FLUtil;
-	return util.sqlSelect("clientes c INNER JOIN gruposclientes gc ON c.codgrupo = gc.codgrupo", "gc.codtarifa", "codcliente = '" + codCliente + "'", "clientes,gruposclientes");
+	var codTarifa;
+	switch (cursor.table()) {
+		case "tpv_lineascomanda": {
+			var curRel = cursor.cursorRelation();
+			if (curRel && curRel.table() == "tpv_comandas") {
+				codTarifa = curRel.valueBuffer("codtarifa");
+			} else {
+				codTarifa = util.sqlSelect("tpv_comandas", "codtarifa", "idtpv_comanda = " + cursor.valueBuffer("idtpv_comanda"));
+			}
+			break;
+		}
+		default: {
+			codTarifa = util.sqlSelect("clientes c INNER JOIN gruposclientes gc ON c.codgrupo = gc.codgrupo", "gc.codtarifa", "codcliente = '" + codCliente + "'", "clientes,gruposclientes");
+		}
+	}
+	return codTarifa;
 }
 
 function oficial_commonCalculateField(fN:String, cursor:FLSqlCursor):String
@@ -440,19 +508,44 @@ function oficial_datosTablaPadre(cursor:FLSqlCursor):Array
 			datos.tabla = "facturascli";
 			break;
 		}
+		case "tpv_lineascomanda": {
+			datos.where = "idtpv_comanda = "+ cursor.valueBuffer("idtpv_comanda");
+			datos.tabla = "tpv_comandas";
+			break;
+		}
 	}
 	var curRel:FLSqlCursor = cursor.cursorRelation();
 	if (curRel && curRel.table() == datos.tabla) {
-		datos["tasaconv"] = curRel.valueBuffer("tasaconv");
+		switch (cursor.table()) {
+			case "tpv_lineascomanda": {
+				datos["tasaconv"] = 1;
+				datos["codserie"] = false;
+				datos["porcomision"] = 0;
+				datos["codagente"] = false;
+				break;
+			}
+			default: {
+				datos["tasaconv"] = curRel.valueBuffer("tasaconv");
+				datos["codserie"] = curRel.valueBuffer("codserie");
+				datos["porcomision"] = curRel.valueBuffer("porcomision");
+				datos["codagente"] = curRel.valueBuffer("codagente");
+			}
+		}
 		datos["codcliente"] = curRel.valueBuffer("codcliente");
 		datos["fecha"] = curRel.valueBuffer("fecha");
-		datos["codserie"] = curRel.valueBuffer("codserie");
-		datos["porcomision"] = curRel.valueBuffer("porcomision");
-		datos["codagente"] = curRel.valueBuffer("codagente");
 	} else {
 		var qryDatos:FLSqlQuery = new FLSqlQuery;
 		qryDatos.setTablesList(datos.tabla);
-		qryDatos.setSelect("tasaconv, codcliente, fecha, codserie, porcomision, codagente");
+		switch (cursor.table()) {
+			case "tpv_lineascomanda": {
+				qryDatos.setSelect("codcliente, fecha");
+				break;
+			}
+			default: {
+				qryDatos.setSelect("tasaconv, codcliente, fecha, codserie, porcomision, codagente");
+			}
+		}
+		
 		qryDatos.setFrom(datos.tabla);
 		qryDatos.setWhere(datos.where);
 		qryDatos.setForwardOnly(true);
@@ -462,22 +555,297 @@ function oficial_datosTablaPadre(cursor:FLSqlCursor):Array
 		if (!qryDatos.first()) {
 			return false;
 		}
-		datos["tasaconv"] = qryDatos.value("tasaconv");
+		switch (cursor.table()) {
+			case "tpv_lineascomanda": {
+				datos["tasaconv"] = 1;
+				datos["codserie"] = false;
+				datos["porcomision"] = 0;
+				datos["codagente"] = false;
+				break;
+			}
+			default: {
+				datos["tasaconv"] = qryDatos.value("tasaconv");
+				datos["codserie"] = qryDatos.value("codserie");
+				datos["porcomision"] = qryDatos.value("porcomision");
+				datos["codagente"] = qryDatos.value("codagente");
+			}
+		}
 		datos["codcliente"] = qryDatos.value("codcliente");
 		datos["fecha"] = qryDatos.value("fecha");
-		datos["codserie"] = qryDatos.value("codserie");
-		datos["porcomision"] = qryDatos.value("porcomision");
-		datos["codagente"] = qryDatos.value("codagente");
 	}
 	return datos;
 }
 
+function oficial_dameFiltroReferencia():String
+{
+	return "sevende";
+}
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
+/** @class_definition ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+function ivaIncluido_init()
+{
+	this.iface.__init();
+	this.iface.habilitarPorIvaIncluido(form);
+}
+
+function ivaIncluido_habilitarPorIvaIncluido(miForm:Object)
+{
+	if (miForm.cursor().valueBuffer("ivaincluido")) {
+		miForm.child("fdbPvpUnitarioIva").setDisabled(false);
+		miForm.child("fdbPvpUnitario").setDisabled(true);
+	} else {
+		miForm.child("fdbPvpUnitarioIva").setDisabled(true);
+		miForm.child("fdbPvpUnitario").setDisabled(false);
+	}
+}
+	
+function ivaIncluido_commonBufferChanged(fN:String, miForm:Object)
+{
+	var util:FLUtil = new FLUtil();
+	
+	switch (fN) {
+		case "referencia":
+			this.iface.bloqueoPrecio = true;
+			var ivaIncluido:Boolean = this.iface.commonCalculateField("ivaincluido", miForm.cursor());
+			miForm.child("fdbIvaIncluido").setValue(ivaIncluido);
+			miForm.child("fdbCodImpuesto").setValue(this.iface.commonCalculateField("codimpuesto", miForm.cursor()));
+	
+			if (ivaIncluido) {
+				miForm.child("fdbPvpUnitarioIva").setValue(this.iface.commonCalculateField("pvpunitarioiva", miForm.cursor()));
+				miForm.cursor().setValueBuffer("pvpunitario", this.iface.commonCalculateField("pvpunitario2", miForm.cursor()));
+			} else {
+				miForm.cursor().setValueBuffer("pvpunitario", this.iface.commonCalculateField("pvpunitario", miForm.cursor()));
+				miForm.child("fdbPvpUnitarioIva").setValue(this.iface.commonCalculateField("pvpunitarioiva2", miForm.cursor()));
+			}
+			this.iface.bloqueoPrecio = false;
+			this.iface.habilitarPorIvaIncluido(miForm);
+			break;
+		case "codimpuesto":
+			miForm.child("fdbIva").setValue(this.iface.commonCalculateField("iva", miForm.cursor()));
+			miForm.child("fdbRecargo").setValue(this.iface.commonCalculateField("recargo", miForm.cursor()));
+/*			if (!this.iface.bloqueoPrecio && miForm.cursor().valueBuffer("ivaincluido")) {
+				this.iface.bloqueoPrecio = true;
+				miForm.cursor().setValueBuffer("pvpunitario", this.iface.commonCalculateField("pvpunitario", miForm.cursor()));
+				this.iface.bloqueoPrecio = false;
+			}*/
+			break;
+		
+		case "ivaincluido":
+			this.iface.habilitarPorIvaIncluido(miForm);
+		case "iva": {
+			if (!this.iface.bloqueoPrecio) {
+				this.iface.bloqueoPrecio = true;
+				if (miForm.cursor().valueBuffer("ivaincluido")) {
+					miForm.cursor().setValueBuffer("pvpunitario", this.iface.commonCalculateField("pvpunitario2", miForm.cursor()));
+				} else {
+					miForm.child("fdbPvpUnitarioIva").setValue(this.iface.commonCalculateField("pvpunitarioiva2", miForm.cursor()));
+				}
+				this.iface.bloqueoPrecio = false;
+			}
+			break;
+		}
+		case "recargo": {
+			if (!this.iface.bloqueoPrecio) {
+				this.iface.bloqueoPrecio = true;
+				if (miForm.cursor().valueBuffer("ivaincluido")) {
+					miForm.cursor().setValueBuffer("pvpunitario", this.iface.commonCalculateField("pvpunitario2", miForm.cursor()));
+				} else {
+					miForm.child("fdbPvpUnitarioIva").setValue(this.iface.commonCalculateField("pvpunitarioiva2", miForm.cursor()));
+				}
+				this.iface.bloqueoPrecio = false;
+			}
+			break;
+		}
+		case "pvpunitarioiva": {
+			if (!this.iface.bloqueoPrecio) {
+				this.iface.bloqueoPrecio = true;
+				miForm.cursor().setValueBuffer("pvpunitario", this.iface.commonCalculateField("pvpunitario2", miForm.cursor()));
+				this.iface.bloqueoPrecio = false;
+			}
+			break;
+		}
+		case "pvpunitario": {
+			if (!this.iface.bloqueoPrecio) {
+				this.iface.bloqueoPrecio = true;
+				miForm.child("fdbPvpUnitarioIva").setValue(this.iface.commonCalculateField("pvpunitarioiva2", miForm.cursor()));
+				this.iface.bloqueoPrecio = false;
+			}
+		}
+		case "cantidad": {
+			if (miForm.cursor().valueBuffer("ivaincluido")) {
+				miForm.cursor().setValueBuffer("pvpsindto", this.iface.commonCalculateField("pvpsindto", miForm.cursor()));
+			} else {
+				return this.iface.__commonBufferChanged(fN, miForm);
+			}
+			break;
+		}
+		case "pvpsindto":
+		case "dtopor": {
+			miForm.child("lblDtoPor").setText(this.iface.commonCalculateField("lbldtopor", miForm.cursor()));
+		}
+		case "dtolineal": {
+			if (miForm.cursor().valueBuffer("ivaincluido")) {
+				miForm.cursor().setValueBuffer("pvptotal", this.iface.commonCalculateField("pvptotal", miForm.cursor()));
+			} else {
+				return this.iface.__commonBufferChanged(fN, miForm);
+			}
+			break;
+		}
+		default:
+			return this.iface.__commonBufferChanged(fN, miForm);
+	}
+}
+
+function ivaIncluido_commonCalculateField(fN, cursor):String 
+{
+	var util:FLUtil = new FLUtil();
+	var valor:String;
+	var referencia:String = cursor.valueBuffer("referencia");
+	
+	switch (fN) {
+		case "pvpunitarioiva":
+			valor = this.iface.__commonCalculateField("pvpunitario", cursor);
+			break;
+		case "pvpunitarioiva2": {
+			var iva:Number = parseFloat(cursor.valueBuffer("iva"));
+			if (isNaN(iva)) {
+				iva = 0;
+			}
+			var recargo:Number = parseFloat(cursor.valueBuffer("recargo"));
+			if (isNaN(recargo)) {
+				iva = recargo;
+			}
+			iva += parseFloat(recargo);
+			valor = cursor.valueBuffer("pvpunitario") * ((100 + iva) / 100);
+			break;
+		}
+		case "pvpunitario2": {
+			var iva:Number = parseFloat(cursor.valueBuffer("iva"));
+			if (isNaN(iva)) {
+				iva = 0;
+			}
+debug("iva " + iva);
+			var recargo:Number = parseFloat(cursor.valueBuffer("recargo"));
+			if (isNaN(recargo)) {
+				recargo = 0;
+			}
+			iva += parseFloat(recargo);
+debug("iva " + iva);
+debug("pvp con iva " + cursor.valueBuffer("pvpunitarioiva"));
+			valor = parseFloat(cursor.valueBuffer("pvpunitarioiva")) / ((100 + iva) / 100);
+			break;
+		}
+		case "pvpsindto":
+			valor = parseFloat(cursor.valueBuffer("pvpunitario")) * parseFloat(cursor.valueBuffer("cantidad"));
+			break;
+		
+		case "ivaincluido":
+			valor = util.sqlSelect("articulos", "ivaincluido", "referencia = '" + referencia + "'");
+			break;
+		
+		case "pvptotal":{
+debug("pvptotal iva incli");
+			var dtoPor:Number = (cursor.valueBuffer("pvpsindto") * cursor.valueBuffer("dtopor")) / 100;
+			dtoPor = util.roundFieldValue(dtoPor, "lineaspedidoscli", "pvpsindto");
+			valor = cursor.valueBuffer("pvpsindto") - parseFloat(dtoPor) - cursor.valueBuffer("dtolineal");
+debug("valor = " + valor);
+			break;
+		}
+		default:
+			return this.iface.__commonCalculateField(fN, cursor);
+	}
+	return valor;
+}
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+/** @class_definition rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+function rappel_init()
+{
+	this.iface.__init();
+	this.child("lblDtoRappel").setText(this.iface.commonCalculateField("lbldtorappel", this.cursor()));
+}
+
+function rappel_commonBufferChanged(fN:String, miForm:Object)
+{
+	var util:FLUtil = new FLUtil();
+	switch (fN) {
+		case "referencia":
+			miForm.child("fdbPvpUnitario").setValue(this.iface.commonCalculateField("pvpunitario", miForm.cursor()));
+			var serie:String = miForm.cursor().cursorRelation().valueBuffer("codserie");
+			var sinIva:Boolean = util.sqlSelect("series","siniva","codserie = '" + serie + "'");
+			if(sinIva == false)
+				miForm.child("fdbCodImpuesto").setValue(this.iface.commonCalculateField("codimpuesto", miForm.cursor()));
+			miForm.child("fdbDtoRappel").setValue(this.iface.commonCalculateField("dtorappel", miForm.cursor()));
+			this.iface.__commonBufferChanged(fN, miForm);
+			break;
+		case "dtorappel":
+			miForm.child("fdbPvpTotal").setValue(this.iface.commonCalculateField("pvptotal", miForm.cursor()));
+			miForm.child("lblDtoRappel").setText(this.iface.commonCalculateField("lbldtorappel", miForm.cursor()));
+			break;
+		case "cantidad":
+			miForm.child("fdbPvpSinDto").setValue(this.iface.commonCalculateField("pvpsindto", miForm.cursor()));
+			miForm.child("fdbDtoRappel").setValue(this.iface.commonCalculateField("dtorappel", miForm.cursor()));
+			this.iface.__commonBufferChanged(fN, miForm);
+			break;
+		case "pvpsindto":
+			miForm.child("fdbPvpTotal").setValue(this.iface.commonCalculateField("pvptotal", miForm.cursor()));
+			miForm.child("lblDtoPor").setText(this.iface.commonCalculateField("lbldtopor", miForm.cursor()));
+			miForm.child("lblDtoRappel").setText(this.iface.commonCalculateField("lbldtorappel", miForm.cursor()));
+			this.iface.__commonBufferChanged(fN, miForm);
+			break;
+		default:
+			this.iface.__commonBufferChanged(fN, miForm);
+			break;
+	}
+}
+
+function rappel_commonCalculateField(fN:String, cursor:FLSqlCursor):String
+{
+	var util:FLUtil = new FLUtil();
+	var valor:String;
+
+	switch (fN) {
+		case "dtorappel":
+			var cantidad:String = parseFloat(cursor.valueBuffer("cantidad"));
+			if (!cantidad || cantidad < 0)
+				return 0;
+			var referencia:String = cursor.valueBuffer("referencia");
+			valor = util.sqlSelect("rappelarticulos", "descuento", "referencia = '" + referencia + "' AND limiteinferior <= " + cantidad + " AND limitesuperior >= " + cantidad );
+			if (!valor) 
+				valor = 0;
+			break;
+		case "lbldtorappel":
+			valor = (parseFloat(cursor.valueBuffer("pvpsindto")) * parseFloat(cursor.valueBuffer("dtorappel"))) / 100;
+			valor = util.roundFieldValue(valor, "lineaspedidoscli", "pvpsindto");
+			break;
+		case "pvptotal":
+			var dtoPor:Number = (parseFloat(cursor.valueBuffer("pvpsindto")) * parseFloat(cursor.valueBuffer("dtopor"))) / 100;
+			dtoPor = util.roundFieldValue(dtoPor, "lineaspedidoscli", "pvpsindto");
+			var dtoRappel:Number = (parseFloat(cursor.valueBuffer("pvpsindto")) * parseFloat(cursor.valueBuffer("dtorappel"))) / 100;
+			dtoRappel = util.roundFieldValue(dtoRappel, "lineaspedidoscli", "pvpsindto");
+			valor = parseFloat(cursor.valueBuffer("pvpsindto")) - dtoPor - parseFloat(cursor.valueBuffer("dtolineal")) - dtoRappel;
+			break;
+		default:
+			valor = this.iface.__commonCalculateField(fN, cursor);
+			break;
+	}
+	return valor;
+}
+
+//// RAPPEL /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////

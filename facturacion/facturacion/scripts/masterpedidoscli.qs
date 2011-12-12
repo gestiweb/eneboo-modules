@@ -42,7 +42,8 @@ class oficial extends interna {
 	var tbnAbrirCerrar:Object;
 	var curAlbaran:FLSqlCursor;
 	var curLineaAlbaran:FLSqlCursor;
-
+	var ignorarAvisoStock_:Boolean;
+	
     function oficial( context ) { interna( context ); } 
 	function imprimir(codPedido:String) {
 		return this.ctx.oficial_imprimir(codPedido);
@@ -96,20 +97,129 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+class ivaIncluido extends oficial {
+    function ivaIncluido( context ) { oficial( context ); } 	
+	function datosLineaAlbaran(curLineaPedido:FLSqlCursor):Boolean {
+		return this.ctx.ivaIncluido_datosLineaAlbaran(curLineaPedido);
+	}
+	function totalesAlbaran():Boolean {
+		return this.ctx.ivaIncluido_totalesAlbaran();
+	}
+}
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+/** @class_declaration envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO_MAIL ////////////////////////////////////////////////
+class envioMail extends ivaIncluido {
+    function envioMail( context ) { ivaIncluido ( context ); }
+	function init() { 
+		return this.ctx.envioMail_init(); 
+	}
+	function enviarDocumento(codPedido:String, codCliente:String) {
+		return this.ctx.envioMail_enviarDocumento(codPedido, codCliente);
+	}
+	function imprimir(codPedido:String) {
+		return this.ctx.envioMail_imprimir(codPedido);
+	}
+}
+
+//// ENVIO_MAIL ////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration pedidosauto */
+/////////////////////////////////////////////////////////////////
+//// PEDIDOS_AUTO ///////////////////////////////////////////////
+class pedidosauto extends envioMail {
+	function pedidosauto( context ) { envioMail ( context ); }
+}
+//// PEDIDOS_AUTO ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+class rappel extends pedidosauto {
+    function rappel( context ) { pedidosauto ( context ); }
+	function datosLineaAlbaran(curLineaPedido:FLSqlCursor):Boolean {
+		return this.ctx.rappel_datosLineaAlbaran(curLineaPedido);
+	}
+}
+//// RAPPEL /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration batchDocs */
+/////////////////////////////////////////////////////////////////
+//// BATCH_DOCS /////////////////////////////////////////////////
+class batchDocs extends rappel {
+	var pbnBatchPresupuestos;
+    function batchDocs( context ) { rappel ( context ); }
+	function init() {
+		return this.ctx.batchDocs_init();
+	}
+	function pbnBatchPresupuestos_clicked() {
+		return this.ctx.batchDocs_pbnBatchPresupuestos_clicked();
+	}
+	function whereAgrupacion(curAgrupar:FLSqlCursor):String {
+		return this.ctx.batchDocs_whereAgrupacion(curAgrupar);
+	}
+}
+//// BATCH_DOCS /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration dtoEspecial */
+/////////////////////////////////////////////////////////////////
+//// DTO ESPECIAL ///////////////////////////////////////////////
+class dtoEspecial extends batchDocs {
+    function dtoEspecial( context ) { batchDocs ( context ); }
+	function commonCalculateField(fN:String, cursor:FLSqlCursor):String {
+		return this.ctx.dtoEspecial_commonCalculateField(fN, cursor);
+	}
+	function totalesAlbaran():Boolean {
+		return this.ctx.dtoEspecial_totalesAlbaran();
+	}
+	function datosAlbaran(curPedido:FLSqlCursor,where:String,datosAgrupacion:Array):Boolean {
+		return this.ctx.dtoEspecial_datosAlbaran(curPedido,where,datosAgrupacion);
+	}
+	function buscarPorDtoEsp(where:String):Number {
+		return this.ctx.dtoEspecial_buscarPorDtoEsp(where);
+	}
+}
+//// DTO ESPECIAL ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends dtoEspecial {
+    function head( context ) { dtoEspecial ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration pubEnvioMail */
+/////////////////////////////////////////////////////////////////
+//// PUB_ENVIO_MAIL /////////////////////////////////////////////
+class pubEnvioMail extends head {
+    function pubEnvioMail( context ) { head( context ); }
+	function pub_enviarDocumento(codPedido:String, codCliente:String) {
+		return this.enviarDocumento(codPedido, codCliente);
+	}
+}
+
+//// PUB_ENVIO_MAIL /////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 /** @class_declaration ifaceCtx */
 /////////////////////////////////////////////////////////////////
 //// INTERFACE  /////////////////////////////////////////////////
-class ifaceCtx extends head {
-    function ifaceCtx( context ) { head( context ); }
+class ifaceCtx extends pubEnvioMail {
+    function ifaceCtx( context ) { pubEnvioMail( context ); }
 	function pub_commonCalculateField(fN:String, cursor:FLSqlCursor):String {
 		return this.commonCalculateField(fN, cursor);
 	}
@@ -121,8 +231,20 @@ class ifaceCtx extends head {
 	}
 }
 
-const iface = new ifaceCtx( this );
+const iface = new pubBatchDocs( this );
 //// INTERFACE  /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration pubBatchDocs */
+/////////////////////////////////////////////////////////////////
+//// PUB_BATCH_DOCS /////////////////////////////////////////////
+class pubBatchDocs extends ifaceCtx {
+    function pubBatchDocs( context ) { ifaceCtx ( context ); }
+	function pub_whereAgrupacion(curAgrupar:FLSqlCursor):String {
+		return this.whereAgrupacion(curAgrupar);
+	}
+}
+//// PUB_BATCH_DOCS /////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 /** @class_definition interna */
@@ -582,6 +704,7 @@ function oficial_copiaLineas(idPedido:Number, idAlbaran:Number):Boolean
 	var util:FLUtil = new FLUtil;
 	var cantidad:Number;
 	var totalEnAlbaran:Number;
+	this.iface.ignorarAvisoStock_ = false;
 	var curLineaPedido:FLSqlCursor = new FLSqlCursor("lineaspedidoscli");
 	curLineaPedido.select("idpedido = " + idPedido + " AND (cerrada = false or cerrada IS NULL)");
 	while (curLineaPedido.next()) {
@@ -645,8 +768,9 @@ function oficial_datosLineaAlbaran(curLineaPedido:FLSqlCursor):Boolean
 	if (!comprobarStock["haystock"]) {
 		cantidad = comprobarStock["cantidad"];
 	}
-	var pvpSinDto:Number = parseFloat(curLineaPedido.valueBuffer("pvpsindto")) * cantidad / parseFloat(curLineaPedido.valueBuffer("cantidad"));
-	pvpSinDto = util.roundFieldValue(pvpSinDto, "lineasalbaranescli", "pvpsindto");
+/// Eliminado para evitar fallos de redondeo en extensión IVA incluido
+// 	var pvpSinDto:Number = parseFloat(curLineaPedido.valueBuffer("pvpsindto")) * cantidad / parseFloat(curLineaPedido.valueBuffer("cantidad"));
+// 	pvpSinDto = util.roundFieldValue(pvpSinDto, "lineasalbaranescli", "pvpsindto");
 	
 	var iva:Number, recargo:Number;
 	var codImpuesto:String = curLineaPedido.valueBuffer("codimpuesto");
@@ -680,7 +804,8 @@ function oficial_datosLineaAlbaran(curLineaPedido:FLSqlCursor):Boolean
 		setValueBuffer("dtolineal", curLineaPedido.valueBuffer("dtolineal"));
 		setValueBuffer("dtopor", curLineaPedido.valueBuffer("dtopor"));
 		setValueBuffer("porcomision", curLineaPedido.valueBuffer("porcomision"));
-		setValueBuffer("pvpsindto", pvpSinDto);
+// 		setValueBuffer("pvpsindto", pvpSinDto);
+		setValueBuffer("pvpsindto", formRecordlineaspedidoscli.iface.pub_commonCalculateField("pvpsindto", this));
 		setValueBuffer("pvptotal", formRecordlineaspedidoscli.iface.pub_commonCalculateField("pvptotal", this));
 	}
 	return true;
@@ -710,13 +835,25 @@ function oficial_comprobarStockEnAlbaranado(curLineaPedido:FLSqlCursor, cantidad
 
 			if (cantidadStock < cantidad) {
 				res["haystock"] = false;
-				var resCuestion:Number = MessageBox.warning(util.translate("scripts", "El artículo %1 no permite ventas sin stocks.\nEstá albaranando más cantidad (%2) que la disponible (%3) ahora mismo en el almacén %4.\n¿Desea continuar dejando el pedido parcialmente albaranado?").arg(referencia).arg(cantidad).arg(cantidadStock).arg(codAlmacen), MessageBox.No, MessageBox.Yes);
-				if (resCuestion != MessageBox.Yes) {
-					res["ok"] = false;
-					return res;
+				if (!this.iface.ignorarAvisoStock_) {
+					var resCuestion:Number = MessageBox.warning(util.translate("scripts", "El artículo %1 no permite ventas sin stocks.\nEstá albaranando más cantidad (%2) que la disponible (%3) ahora mismo en el almacén %4.\n¿Desea continuar dejando el pedido parcialmente albaranado?\n(pulse Ignorar para evitar esta pregunta en el resto de las líneas)").arg(referencia).arg(cantidad).arg(cantidadStock).arg(codAlmacen), MessageBox.No, MessageBox.Yes, MessageBox.Ignore);
+					switch (resCuestion) {
+						case MessageBox.Yes: {
+							break;
+						}
+						case MessageBox.Ignore: {
+							this.iface.ignorarAvisoStock_ = true;
+							break;
+						}
+						default: {
+							res["ok"] = false;
+							return res;
+						}
+					}
 				}
-				if (cantidadStock < 0)
+				if (cantidadStock < 0) {
 					cantidadStock = 0;
+				}
 				res["cantidad"] = cantidadStock;
 			}
 		}
@@ -732,6 +869,7 @@ function oficial_abrirCerrarPedido()
 	var idPedido:Number = cursor.valueBuffer("idpedido");
 	if(!idPedido) {
 		MessageBox.warning(util.translate("scripts", "No hay ningún registro seleccionado"), MessageBox.Ok, MessageBox.NoButton);
+		return;
 	}
 
 	var cerrar:Boolean = true;
@@ -778,9 +916,435 @@ function oficial_filtroTabla():String
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+/** @class_definition ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+/** \D Copia los datos de una línea de pedido en una línea de albarán
+@param	curLineaPedido: Cursor que contiene los datos a incluir en la línea de albarán
+@return	True si la copia se realiza correctamente, false en caso contrario
+\end */
+function ivaIncluido_datosLineaAlbaran(curLineaPedido:FLSqlCursor):Boolean
+{
+	if (!this.iface.__datosLineaAlbaran(curLineaPedido)) {
+		return false;
+	}
+	with (this.iface.curLineaAlbaran) {
+		setValueBuffer("ivaincluido", curLineaPedido.valueBuffer("ivaincluido"));
+		setValueBuffer("pvpunitarioiva", curLineaPedido.valueBuffer("pvpunitarioiva"));
+	}
+	/// El cambio puede deberse a que la fecha del nuevo documento esté asociada a un tipo de IVA distinto del documento origens
+	if (curLineaPedido.valueBuffer("iva") != this.iface.curLineaAlbaran.valueBuffer("iva")) {
+		if (this.iface.curLineaAlbaran.valueBuffer("ivaincluido")) {
+			this.iface.curLineaAlbaran.setValueBuffer("pvpunitario", formRecordlineaspedidoscli.iface.pub_commonCalculateField("pvpunitario2", this.iface.curLineaAlbaran));
+			this.iface.curLineaAlbaran.setValueBuffer("pvpsindto", formRecordlineaspedidoscli.iface.pub_commonCalculateField("pvpsindto", this.iface.curLineaAlbaran));
+			this.iface.curLineaAlbaran.setValueBuffer("pvptotal", formRecordlineaspedidoscli.iface.pub_commonCalculateField("pvptotal", this.iface.curLineaAlbaran));
+		} else {
+			this.iface.curLineaAlbaran.setValueBuffer("pvpunitarioiva", formRecordlineaspedidoscli.iface.pub_commonCalculateField("pvpunitarioiva2", this.iface.curLineaAlbaran));
+		}
+	}
+	
+	return true;
+}
+
+function ivaIncluido_totalesAlbaran():Boolean
+{
+	this.iface.__totalesAlbaran();
+
+	// Comprobar redondeo y recalcular totales
+	formRecordfacturascli.iface.comprobarRedondeoIVA(this.iface.curAlbaran, "idalbaran")
+	with (this.iface.curAlbaran) {
+		setValueBuffer("total", formpedidoscli.iface.pub_commonCalculateField("total", this));
+		setValueBuffer("totaleuros", formpedidoscli.iface.pub_commonCalculateField("totaleuros", this));
+	}
+	return true;
+}
+
+
+
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+/** @class_definition envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO_MAIL /////////////////////////////////////////////////
+function envioMail_init()
+{
+	this.iface.__init();
+	//this.child("tbnEnviarMail").close();
+	connect(this.child("tbnEnviarMail"), "clicked()", this, "iface.enviarDocumento()");
+}
+
+function envioMail_enviarDocumento(codPedido:String, codCliente:String)
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var util:FLUtil = new FLUtil();
+
+	if (!codPedido) {
+		codPedido = cursor.valueBuffer("codigo");
+	}
+
+	if (!codCliente) {
+		codCliente = cursor.valueBuffer("codcliente");
+	}
+	var tabla:String = "clientes";
+	var emailCliente:String = flfactppal.iface.pub_componerListaDestinatarios(codCliente, tabla);
+	if (!emailCliente) {
+		return;
+	}
+
+	var rutaIntermedia:String = util.readSettingEntry("scripts/flfactinfo/dirCorreo");
+	if (!rutaIntermedia.endsWith("/")) {
+		rutaIntermedia += "/";
+	}
+
+	var cuerpo:String = "";
+	var asunto:String = util.translate("scripts", "Pedido %1").arg(codPedido);
+	var rutaDocumento:String = rutaIntermedia + "P_" + codPedido + ".pdf";
+
+	var codigo:String;
+	if (codPedido) {
+		codigo = codPedido;
+	} else {
+		if (!cursor.isValid()) {
+			return;
+		}
+		codigo = cursor.valueBuffer("codigo");
+	}
+	
+	var numCopias:Number = util.sqlSelect("pedidoscli p INNER JOIN clientes c ON c.codcliente = p.codcliente", "c.copiasfactura", "p.codigo = '" + codigo + "'", "pedidoscli,clientes");
+	if (!numCopias) {
+		numCopias = 1;
+	}
+		
+	var curImprimir:FLSqlCursor = new FLSqlCursor("i_pedidoscli");
+	curImprimir.setModeAccess(curImprimir.Insert);
+	curImprimir.refreshBuffer();
+	curImprimir.setValueBuffer("descripcion", "temp");
+	curImprimir.setValueBuffer("d_pedidoscli_codigo", codigo);
+	curImprimir.setValueBuffer("h_pedidoscli_codigo", codigo);
+	flfactinfo.iface.pub_lanzarInforme(curImprimir, "i_pedidoscli", "", "", false, false, "", "i_pedidoscli", numCopias, rutaDocumento, true);
+
+	var arrayDest:Array = [];
+	arrayDest[0] = [];
+	arrayDest[0]["tipo"] = "to";
+	arrayDest[0]["direccion"] = emailCliente;
+
+	var arrayAttach:Array = [];
+	arrayAttach[0] = rutaDocumento;
+
+	flfactppal.iface.pub_enviarCorreo(cuerpo, asunto, arrayDest, arrayAttach);
+}
+
+function envioMail_imprimir(codPedido:String)
+{
+	var util:FLUtil = new FLUtil;
+	
+	var datosEMail:Array = [];
+	datosEMail["tipoInforme"] = "pedidoscli";
+	var codCliente:String;
+	if (codPedido && codPedido != "") {
+		datosEMail["codDestino"] = util.sqlSelect("pedidoscli", "codcliente", "codigo = '" + codPedido + "'");
+		datosEMail["codDocumento"] = codPedido;
+	} else {
+		var cursor:FLSqlCursor = this.cursor();
+		datosEMail["codDestino"] = cursor.valueBuffer("codcliente");
+		datosEMail["codDocumento"] = cursor.valueBuffer("codigo");
+	}
+	flfactinfo.iface.datosEMail = datosEMail;
+	this.iface.__imprimir(codPedido);
+}
+
+//// ENVIO_MAIL /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition pedidosauto */
+/////////////////////////////////////////////////////////////////
+//// PEDIDOS_AUTO //////////////////////////////////////////////
+
+//// PEDIDOS_AUTO ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+/** \D Copia los datos de una línea de pedido en una línea de albarán añadiendo el dato de descuento por rappel a una línea de albarán
+@param	curLineaPedido: Cursor que contiene los datos a incluir en la línea de albarán
+@return	True si la copia se realiza correctamente, false en caso contrario
+\end */
+function rappel_datosLineaAlbaran(curLineaPedido:FLSqlCursor):Boolean
+{
+	with (this.iface.curLineaAlbaran) {
+		setValueBuffer("dtorappel", curLineaPedido.valueBuffer("dtorappel"));
+	}
+	
+	if(!this.iface.__datosLineaAlbaran(curLineaPedido))
+		return false;
+		
+	return true;
+}
+
+//// RAPPEL /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+/** @class_definition batchDocs */
+/////////////////////////////////////////////////////////////////
+//// BATCH_DOCS /////////////////////////////////////////////////
+function batchDocs_init()
+{
+	this.iface.__init();
+		
+	this.iface.pbnBatchPresupuestos = this.child("pbnBatchPresupuestos");
+	connect(this.iface.pbnBatchPresupuestos, "clicked()", this, "iface.pbnBatchPresupuestos_clicked()");
+}
+
+/** \C
+Al pulsar el botón de Batch de albaranes se abre la ventana de batch de albaranes de cliente
+\end */
+function batchDocs_pbnBatchPresupuestos_clicked()
+{
+	var f:Object = new FLFormSearchDB("agruparpresupuestoscli");
+	var cursor:FLSqlCursor = f.cursor();
+	var where:String;
+
+	cursor.setActivatedCheckIntegrity(false);
+	cursor.select();
+	if (!cursor.first())
+		cursor.setModeAccess(cursor.Insert);
+	else
+		cursor.setModeAccess(cursor.Edit);
+
+	f.setMainWidget();
+	cursor.refreshBuffer();
+	var acpt:String = f.exec("codejercicio");
+	if (acpt) {
+		cursor.commitBuffer();
+		var curAgruparPresupuestos:FLSqlCursor = new FLSqlCursor("agruparpresupuestoscli");
+		curAgruparPresupuestos.select();
+		if (curAgruparPresupuestos.first()) {
+			where = this.iface.whereAgrupacion(curAgruparPresupuestos);
+			var excepciones:String = curAgruparPresupuestos.valueBuffer("excepciones");
+			if (!excepciones.isEmpty())
+				where += " AND idpresupuesto NOT IN (" + excepciones + ")";
+
+			var qryAgruparPresupuestos:FLSqlQuery = new FLSqlQuery;
+			qryAgruparPresupuestos.setTablesList("presupuestoscli");
+			qryAgruparPresupuestos.setSelect("idpresupuesto");
+			qryAgruparPresupuestos.setFrom("presupuestoscli");
+			qryAgruparPresupuestos.setWhere(where);
+
+			if (!qryAgruparPresupuestos.exec())
+				return;
+
+			var curPresupuesto:FLSqlCursor = new FLSqlCursor("presupuestoscli");
+			var wherePedido:String;
+			while (qryAgruparPresupuestos.next()) {
+				wherePedido = "idpresupuesto = " + qryAgruparPresupuestos.value(0);
+				curPresupuesto.transaction(false);
+				curPresupuesto.select(wherePedido);
+				if (!curPresupuesto.first()) {
+					curPresupuesto.rollback();
+					return;
+				}
+				curPresupuesto.setValueBuffer("fecha", curAgruparPresupuestos.valueBuffer("fecha"));
+				if (formpresupuestoscli.iface.pub_generarPedido(curPresupuesto)) {
+					curPresupuesto.commit();
+				} else {
+					curPresupuesto.rollback();
+					return;
+				}
+			}
+		}
+
+		f.close();
+		this.iface.tdbRecords.refresh();
+	}
+}
+
+/** \D
+Construye la sentencia WHERE de la consulta que buscará los pedidos a agrupar
+@param curAgrupar: Cursor de la tabla agruparpedidoscli que contiene los valores de los criterios de búsqueda
+@return Sentencia where
+\end */
+function batchDocs_whereAgrupacion(curAgrupar:FLSqlCursor):String
+{
+	var codCliente:String = curAgrupar.valueBuffer("codcliente");
+	var nombreCliente:String = curAgrupar.valueBuffer("nombrecliente");
+	var cifNif:String = curAgrupar.valueBuffer("cifnif");
+	var codAlmacen:String = curAgrupar.valueBuffer("codalmacen");
+	var codPago:String = curAgrupar.valueBuffer("codpago");
+	var codDivisa:String = curAgrupar.valueBuffer("coddivisa");
+	var codSerie:String = curAgrupar.valueBuffer("codserie");
+	var codEjercicio:String = curAgrupar.valueBuffer("codejercicio");
+	var fechaDesde:String = curAgrupar.valueBuffer("fechadesde");
+	var fechaHasta:String = curAgrupar.valueBuffer("fechahasta");
+	var where:String = "editable = true";
+	if (!codCliente.isEmpty())
+		where += " AND codcliente = '" + codCliente + "'";
+	if (!cifNif.isEmpty())
+		where += " AND cifnif = '" + cifNif + "'";
+	if (!codAlmacen.isEmpty())
+		where = where + " AND codalmacen = '" + codAlmacen + "'";
+	where = where + " AND fecha >= '" + fechaDesde + "'";
+	where = where + " AND fecha <= '" + fechaHasta + "'";
+	if (!codPago.isEmpty() != "")
+		where = where + " AND codpago = '" + codPago + "'";
+	if (!codDivisa.isEmpty())
+		where = where + " AND coddivisa = '" + codDivisa + "'";
+	if (!codSerie.isEmpty())
+		where = where + " AND codserie = '" + codSerie + "'";
+	if (!codEjercicio.isEmpty())
+		where = where + " AND codejercicio = '" + codEjercicio + "'";
+	return where;
+}
+//// BATCH_DOCS /////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+/** @class_definition dtoEspecial */
+/////////////////////////////////////////////////////////////////
+//// DTO ESPECIAL ///////////////////////////////////////////////
+function dtoEspecial_commonCalculateField(fN:String, cursor:FLSqlCursor):String
+{
+	var util = new FLUtil();
+	var valor;
+
+	switch (fN) {
+	/** \C
+	El --totaliva-- es la suma del iva correspondiente a las líneas de factura
+	\end */
+		case "totaliva":{
+			var porDto:Number = cursor.valueBuffer("pordtoesp");
+			if (!porDto || porDto == 0) {
+				valor = this.iface.__commonCalculateField(fN, cursor);
+				break;
+			}
+			valor = util.sqlSelect("lineaspedidoscli", "SUM((pvptotal * iva * (100 - " + porDto + ")) / 100 / 100)", "idpedido = " + cursor.valueBuffer("idpedido"));
+			valor = parseFloat(util.roundFieldValue(valor, "pedidoscli", "totaliva"));
+			break;
+		}
+	/** \C
+	El --totarecargo-- es la suma del recargo correspondiente a las líneas de factura
+	\end */
+		case "totalrecargo":{
+			var porDto:Number = cursor.valueBuffer("pordtoesp");
+			if (!porDto || porDto == 0) {
+				valor = this.iface.__commonCalculateField(fN, cursor);
+				break;
+			}
+			valor = util.sqlSelect("lineaspedidoscli", "SUM((pvptotal * recargo * (100 - " + porDto + ")) / 100 / 100)", "idpedido = " + cursor.valueBuffer("idpedido"));
+			valor = parseFloat(util.roundFieldValue(valor, "pedidoscli", "totalrecargo"));
+			break;
+		}
+	/** \C
+	El --netosindtoesp-- es la suma del pvp total de las líneas de factura
+	\end */
+		case "netosindtoesp":{
+			valor = this.iface.__commonCalculateField("neto", cursor);
+			break;
+		}
+	/** \C
+	El --neto-- es el --netosindtoesp-- menos el --dtoesp--
+	\end */
+		case "neto": {
+			valor = parseFloat(cursor.valueBuffer("netosindtoesp")) - parseFloat(cursor.valueBuffer("dtoesp"));
+			valor = parseFloat(util.roundFieldValue(valor, "pedidoscli", "neto"));
+			break;
+		}
+	/** \C
+	El --dtoesp-- es el --netosindtoesp-- menos el porcentaje que marca el --pordtoesp--
+	\end */
+		case "dtoesp": {
+			valor = (parseFloat(cursor.valueBuffer("netosindtoesp")) * parseFloat(cursor.valueBuffer("pordtoesp"))) / 100;
+			valor = parseFloat(util.roundFieldValue(valor, "pedidoscli", "dtoesp"));
+			break;
+		}
+	/** \C
+	El --pordtoesp-- es el --dtoesp-- entre el --netosindtoesp-- por 100
+	\end */
+		case "pordtoesp": {
+			if (parseFloat(cursor.valueBuffer("netosindtoesp")) != 0) {
+				valor = (parseFloat(cursor.valueBuffer("dtoesp")) / parseFloat(cursor.valueBuffer("netosindtoesp"))) * 100;
+			} else {
+				valor = cursor.valueBuffer("pordtoesp");
+			}
+			valor = parseFloat(util.roundFieldValue(valor, "pedidoscli", "pordtoesp"));
+			break;
+		}
+		default: {
+			valor = this.iface.__commonCalculateField(fN, cursor);
+			break;
+		}
+	}
+	return valor;
+}
+
+/** \D Informa los datos de un albarán a partir de los de uno o varios pedidos
+@param	curPedido: Cursor que contiene los datos a incluir en el albarán
+@return	True si el cálculo se realiza correctamente, false en caso contrario
+\end */
+function dtoEspecial_datosAlbaran(curPedido:FLSqlCursor,where:String,datosAgrupacion:Array):Boolean
+{
+	var util:FLUtil = new FLUtil();
+	var porDtoEsp:Number = this.iface.buscarPorDtoEsp(where);
+	if (porDtoEsp == -1) {
+		MessageBox.critical(util.translate("scripts", "No es posible generar un único albarán para pedidos con distinto porcentaje de descuento especial"), MessageBox.Ok, MessageBox.NoButton);
+		return false;
+	}
+	
+	var fecha:String;
+	if (curPedido.action() == "pedidoscli") {
+		var hoy:Date = new Date();
+		fecha = hoy.toString();
+	} else
+		fecha = curPedido.valueBuffer("fecha");
+			
+	with (this.iface.curAlbaran) {
+		setValueBuffer("pordtoesp", porDtoEsp);
+	}
+	
+	if(!this.iface.__datosAlbaran(curPedido, where, datosAgrupacion))
+		return false;
+	
+	return true;
+}
+
+/** \D Informa los datos de un albarán referentes a totales (I.V.A., neto, etc.)
+@return	True si el cálculo se realiza correctamente, false en caso contrario
+\end */
+function dtoEspecial_totalesAlbaran():Boolean
+{
+	with (this.iface.curAlbaran) {
+		setValueBuffer("netosindtoesp", formalbaranescli.iface.pub_commonCalculateField("netosindtoesp", this));
+		setValueBuffer("dtoesp", formalbaranescli.iface.pub_commonCalculateField("dtoesp", this));
+		setValueBuffer("neto", formalbaranescli.iface.pub_commonCalculateField("neto", this));
+		setValueBuffer("totaliva", formalbaranescli.iface.pub_commonCalculateField("totaliva", this));
+		setValueBuffer("totalirpf", formalbaranescli.iface.pub_commonCalculateField("totalirpf", this));
+		setValueBuffer("totalrecargo", formalbaranescli.iface.pub_commonCalculateField("totalrecargo", this));
+		setValueBuffer("total", formalbaranescli.iface.pub_commonCalculateField("total", this));
+		setValueBuffer("totaleuros", formalbaranescli.iface.pub_commonCalculateField("totaleuros", this));
+	}
+	return true;
+}
+
+/** \D
+Busca el porcentaje de descuento especial realizado a los pedidos que se agruparán en un albarán. Si existen dos pedidos con distinto porcentaje devuelve un código de error.
+@param where: Cláusula where para buscar los pedidos
+@return porcenteje de descuento (-1 si hay error);
+\end */
+function dtoEspecial_buscarPorDtoEsp(where:String):Number
+{
+	var util:FLUtil = new FLUtil;
+	var porDtoEsp:Number = util.sqlSelect("pedidoscli", "pordtoesp", where);
+	var porDtoEsp2:Number = util.sqlSelect("pedidoscli", "pordtoesp", where + " AND pordtoesp <> " + porDtoEsp);
+	if (!porDtoEsp2 && isNaN(parseFloat(porDtoEsp2)))
+		return porDtoEsp;
+	else
+		return -1;
+}
+//// DTO ESPECIAL ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////

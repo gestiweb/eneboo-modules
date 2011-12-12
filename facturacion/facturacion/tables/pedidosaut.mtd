@@ -1,0 +1,111 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>pedidosaut</name>
+	<!-- Tabla de pedidos automaticos -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Pedidos automaticos")</alias>
+
+	<field>
+		<name>idpedidoaut</name>
+		<!-- Id -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Número")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>uint</type>
+		<counter>true</counter>
+		
+		<relation>
+			<table>lineaspedidosaut</table>
+			<field>idpedidoaut</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>editable</name>
+		<!--Indica si el pedido está o no creado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Pte. generar")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>unlock</type>
+		<default>true</default>
+	</field>
+	
+	<field>
+		<name>codproveedor</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Proveedor")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>proveedores</table>
+			<field>codproveedor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombreproveedor</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>fecha</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+		
+	<field>
+		<name>total</name>
+		<!-- Sum of the order -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<editable>false</editable>
+		<calculated>true</calculated>
+	</field>
+
+	<field>
+		<name>coddivisa</name>
+		<!-- Código de la divisa de los recibos de la remesa -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Divisa")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+
+		<relation>
+			<table>divisas</table>
+			<field>coddivisa</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codserie</name>
+		<!--Serie de facturación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Serie")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>series</table>
+			<field>codserie</field>
+			<card>M1</card>
+		</relation>
+	</field>	
+</TMD>

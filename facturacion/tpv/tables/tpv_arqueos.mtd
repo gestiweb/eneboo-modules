@@ -1,0 +1,337 @@
+<!DOCTYPE TMD>
+<TMD>
+
+	<name>tpv_arqueos</name>
+	<!-- Listado de arqueos -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Arqueos")</alias>
+
+	<field>
+		<name>idtpv_arqueo</name>
+		<!-- Identificador -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>8</length>
+		<counter>true</counter>
+		<editable>false</editable>
+
+		<relation>
+			<table>tpv_comandas</table>
+			<field>idtpv_arqueo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>tpv_pagoscomanda</table>
+			<field>idtpv_arqueo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>tpv_movimientos</table>
+			<field>idtpv_arqueo</field>
+			<card>1M</card>
+		</relation>
+		
+	</field>
+
+	<field>
+		<name>abierta</name>
+		<!--Indicador de si el la caja está abierta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Abierta")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>unlock</type>
+		<default>true</default>
+		<visiblegrid>true</visiblegrid>
+	</field>
+	
+	<field>
+		<name>diadesde</name>
+		<!-- Fecha de apertura de la caja -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>diahasta</name>
+		<!-- Fecha de cierre de la caja -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>ptoventa</name>
+		<!--Indicador del punto de venta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Punto de Venta")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+
+		<relation>
+			<table>tpv_puntosventa</table>
+			<field>codtpv_puntoventa</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>inicio</name>
+		<!-- Cantidad inicial -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Importe inicial")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>b500</name>
+		<!-- Cantidad de billetes de 500 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Billetes de 500")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>b200</name>
+		<!-- Cantidad de billetes de 200 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Billetes de 200")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>b100</name>
+		<!-- Cantidad de billetes de 100 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Billetes de 100")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>b50</name>
+		<!-- Cantidad de billetes de 50 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Billetes de 50")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type> 
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>b20</name>
+		<!-- Cantidad de billetes de 20 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Billetes de 20")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>b10</name>
+		<!-- Cantidad de billetes de 10 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Billetes de 10")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>b5</name>
+		<!-- Cantidad de billetes de 5 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Billetes de 5")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>m2</name>
+		<!-- Cantidad de monedad de 2 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Monedas de 2")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>m1</name>
+		<!-- Cantidad de monedas de 1 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Monedas de 1")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>m050</name>
+		<!-- Cantidad de monedas de 0.50 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Monedas de 0.50")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>m020</name>
+		<!-- Cantidad de monedas de 0.20 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Monedas de 0.20")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>m010</name>
+		<!-- Cantidad de monedas de 0.10 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Monedas de 0.10")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>m005</name>
+		<!-- Cantidad de monedas de 0.05 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Monedas de 0.05")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>m002</name>
+		<!-- Cantidad de monedas de 0.02 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Monedas de 0.02")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>m001</name>
+		<!-- Cantidad de monedas de 0.01 -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Monedas de 0.01")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<default>0</default>
+	</field>
+	
+	
+	<field>
+		<name>totalmov</name>
+		<!--Importe total de movimientos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total de movimientos")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<calculated>true</calculated>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>totalcaja</name>
+		<!--Importe total de caja-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Efectivo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default> 
+		<calculated>true</calculated>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>totaltarjeta</name>
+		<!--Importe total pagado con tarjeta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tarjeta")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default> 
+	</field>
+
+	<field>
+		<name>totalvale</name>
+		<!--Importe total pagado con vales-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Vales")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default> 
+	</field>
+	
+	<field>
+		<name>sacadodecaja</name>
+		<!--Importe del movimiento de cierre-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mov. de Cierre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>nogenerarasiento</name>
+		<!--Si la validación de la factura va a generar un asiento contable-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ignorar contabilidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>idasiento</name>
+		<!-- Identificador interno del asiento de contabilidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asiento")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>co_asientos</table>
+			<field>idasiento</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+</TMD>

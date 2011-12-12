@@ -1,0 +1,47 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>facturasprov</name>
+
+	<tables>empresa,facturasprov,lineasfacturasprov,,albaranesprov,i_articuloscomp_buffer,dirproveedores</tables>
+
+	<group>
+		<level>0</level>
+		<field>facturasprov.idfactura</field>
+	</group>
+	
+	<group>
+		<level>1</level>
+		<field>lineasfacturasprov.idalbaran</field>
+	</group>
+
+	<group>
+		<level>2</level> 
+		<field>lineasfacturasprov.idlinea</field>
+	</group>
+
+	<select>
+		facturasprov.idfactura, lineasfacturasprov.idfactura, facturasprov.codigo, facturasprov.codserie, facturasprov.fecha, facturasprov.totaliva,
+		facturasprov.total, facturasprov.coddivisa, facturasprov.codejercicio, facturasprov.codpago, facturasprov.codalmacen, facturasprov.totalrecargo,
+		facturasprov.codproveedor, facturasprov.nombre, facturasprov.cifnif, facturasprov.tasaconv,  facturasprov.neto, facturasprov.observaciones,
+		lineasfacturasprov.referencia, lineasfacturasprov.descripcion,
+		lineasfacturasprov.cantidad, facturasprov.irpf, facturasprov.totalirpf,
+		lineasfacturasprov.pvpunitario, lineasfacturasprov.pvptotal, lineasfacturasprov.codimpuesto, lineasfacturasprov.iva, dirproveedores.direccion,dirproveedores.codpostal, dirproveedores.provincia,dirproveedores.ciudad,
+		albaranesprov.codigo, albaranesprov.fecha, lineasfacturasprov.idalbaran,
+		empresa.nombre, empresa.cifnif, empresa.direccion, empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado, empresa.codpais,
+		facturasprov.neto+facturasprov.totaliva+facturasprov.totalrecargo,
+		proveedores.regimeniva,
+		articulos.codunidad,
+		i_articuloscomp_buffer.referencia,i_articuloscomp_buffer.descripcion,
+		i_articuloscomp_buffer.cantidad,i_articuloscomp_buffer.codunidad
+	</select>
+
+	<from>
+		empresa,facturasprov INNER JOIN lineasfacturasprov ON facturasprov.idfactura = lineasfacturasprov.idfactura LEFT OUTER JOIN i_articuloscomp_buffer ON lineasfacturasprov.idlinea = i_articuloscomp_buffer.idlinea LEFT OUTER JOIN albaranesprov ON albaranesprov.idalbaran = lineasfacturasprov.idalbaran
+		LEFT OUTER JOIN articulos ON lineasfacturasprov.referencia = articulos.referencia LEFT OUTER JOIN proveedores ON facturasprov.codproveedor = proveedores.codproveedor LEFT OUTER JOIN dirproveedores ON facturasprov.codproveedor = dirproveedores.codproveedor
+	</from>
+
+	<where>
+	</where>
+	
+</QRY>

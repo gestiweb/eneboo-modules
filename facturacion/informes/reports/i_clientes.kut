@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+<KugarTemplate BottomMargin="10" TopMargin="20" RightMargin="10" LeftMargin="30" PageOrientation="1" PageSize="0" >
+
+<DetailHeader Height="85" Level="0" >
+
+
+<!--titulo-->
+<Label WordWrap="0" Width="300" X="0" Y="20" BorderStyle="0" Height="16" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" Listado de Clientes" FontWeight="75" FontSize="12" BorderWidth="0" FontFamily="Arial" />
+<!-- empresa -->
+<Field WordWrap="0" Width="378" X="300" Y="20" BorderStyle="0" NegValueColor="0,0,0" Height="16" HAlignment="0" DataType="0" Field="empresa.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.nombre]" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+<!--fecha-->
+<Label WordWrap="0" Width="40" X="680" Y="20" BorderStyle="0" Height="16" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" Fecha" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+<Special WordWrap="0" Width="48" X="720" Y="20" BorderStyle="0" Height="16" HAlignment="0" DateFormat="19" BorderColor="0,0,0" BackgroundColor="220,220,220" Type="0" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+
+<!--pagina-->
+<Label WordWrap="0" Width="60" X="770" Y="20" BorderStyle="0" Height="16" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="página" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+<Special WordWrap="0" Width="20" X="830" Y="20" BorderStyle="0" Height="16" HAlignment="1" DateFormat="19" BorderColor="0,0,0" BackgroundColor="220,220,220" Type="1" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+
+<CalculatedField WordWrap="0" CalculationType="6" Width="850" X="0" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="22" HAlignment="0" DataType="0" FunctionName="flfactinfo.pub_cabeceraClientes" Field="fecha" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="0" Precision="2" FontFamily="Arial" />
+	
+<Label WordWrap="0" Width="58" X="0" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Código" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="168" X="60" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Nombre" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="158" X="230" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Tel/Fax/Email" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="188" X="390" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Dirección" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="118" X="580" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Población" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="48" X="700" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="C.P." FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="58" X="750" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Provincia" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="40" X="810" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Pais" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  
+</DetailHeader>
+  
+<AddOnHeader Height="85" Level="0" >
+	
+<!--titulo-->
+<Label WordWrap="0" Width="300" X="0" Y="20" BorderStyle="0" Height="16" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" Listado de Clientes" FontWeight="75" FontSize="12" BorderWidth="0" FontFamily="Arial" />
+<!-- empresa -->
+<Field WordWrap="0" Width="378" X="300" Y="20" BorderStyle="0" NegValueColor="0,0,0" Height="16" HAlignment="0" DataType="0" Field="empresa.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.nombre]" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+<!--fecha-->
+<Label WordWrap="0" Width="40" X="680" Y="20" BorderStyle="0" Height="16" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" Fecha" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+<Special WordWrap="0" Width="48" X="720" Y="20" BorderStyle="0" Height="16" HAlignment="0" DateFormat="19" BorderColor="0,0,0" BackgroundColor="220,220,220" Type="0" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+
+<!--pagina-->
+<Label WordWrap="0" Width="60" X="770" Y="20" BorderStyle="0" Height="16" HAlignment="2" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="página" FontWeight="50" FontSize="10" BorderWidth="0" FontFamily="Arial Narrow" />
+<Special WordWrap="0" Width="20" X="830" Y="20" BorderStyle="0" Height="16" HAlignment="1" DateFormat="19" BorderColor="0,0,0" BackgroundColor="220,220,220" Type="1" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+
+<CalculatedField WordWrap="0" CalculationType="6" Width="850" X="0" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="22" HAlignment="0" DataType="0" FunctionName="flfactinfo.pub_cabeceraClientes" Field="fecha" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="0" Precision="2" FontFamily="Arial" />
+
+<Label WordWrap="0" Width="58" X="0" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Código" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="168" X="60" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Nombre" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="158" X="230" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Tel/Fax/Email" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="188" X="390" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Dirección" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="118" X="580" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Población" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="48" X="700" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="C.P." FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="58" X="750" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Provincia" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+<Label WordWrap="0" Width="40" X="810" Y="70" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Pais" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	
+</AddOnHeader>
+
+<Detail Height="30" Level="0">
+	
+<Line Width="1" Y1="0" Y2="0" X1="0" X2="850" Style="1" Color="150,150,150" />
+
+<Field WordWrap="0" Width="90" X="0" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="28" HAlignment="0" DataType="0" Field="clientes.codcliente" DateFormat="11" Currency="32" BorderColor="255,255,255" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="1" Width="165" X="60" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="28" HAlignment="0" DataType="0" Field="clientes.nombre" DateFormat="11" Currency="32" BorderColor="255,255,255" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="1" Width="75" X="230" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="13" HAlignment="0" DataType="0" Field="clientes.telefono1" DateFormat="11" Currency="32" BorderColor="255,255,255" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="1" Width="75" X="310" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="13" HAlignment="0" DataType="0" Field="clientes.fax" DateFormat="11" Currency="32" BorderColor="255,255,255" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="1" Width="155" X="230" Y="15" BorderStyle="0" NegValueColor="0,0,0" Height="13" HAlignment="0" DataType="0" Field="clientes.email" DateFormat="11" Currency="32" BorderColor="255,255,255" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="1" Width="185" X="390" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="28" HAlignment="0" DataType="0" Field="dirclientes.direccion" DateFormat="11" Currency="32" BorderColor="255,255,255" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="1" Width="115" X="580" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="28" HAlignment="0" DataType="0" Field="dirclientes.ciudad" DateFormat="11" Currency="32" BorderColor="255,255,255" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="0" Width="45" X="700" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="28" HAlignment="0" DataType="0" Field="dirclientes.codpostal" DateFormat="11" Currency="32" BorderColor="255,255,255" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="1" Width="55" X="750" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="28" HAlignment="0" DataType="0" Field="dirclientes.provincia" DateFormat="11" Currency="32" BorderColor="255,255,255" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+<Field WordWrap="1" Width="40" X="810" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="28" HAlignment="0" DataType="0" Field="dirclientes.codpais" DateFormat="11" Currency="32" BorderColor="255,255,255" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+</Detail>
+
+<AddOnFooter Height="12" Level="0" >
+	<Line Width="2" Y1="10" Y2="10" X1="0" X2="850" Style="1" Color="150,150,150" />
+</AddOnFooter>
+
+<DetailFooter Height="12" Level="0" >
+	<Line Width="2" Y1="10" Y2="10" X1="0" X2="850" Style="1" Color="150,150,150" />
+</DetailFooter>
+
+<PageFooter Height="5" PrintFrequency="1" />
+</KugarTemplate>

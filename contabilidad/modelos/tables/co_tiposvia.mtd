@@ -1,0 +1,44 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_tiposvia</name>
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de vía urbana")</alias>
+
+	<field>
+		<name>codtipovia</name>
+		<!--Código del tipo de vía-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo vía")</alias>
+		<null>true</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>5</length>
+		
+		<relation>
+			<table>co_datosfiscales</table>
+			<field>codtipovia</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_modelo347_registro2i</table>
+			<field>codtipovia</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_modelo349</table>
+			<field>codtipoviapres</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>150</length>
+	</field>
+
+</TMD>

@@ -1,0 +1,38 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>tpv_i_comandas</name>
+
+	<tables>empresa,tpv_comandas,tpv_lineascomanda,tpv_agentes</tables>
+
+	<group>
+		<level>0</level>
+		<field>tpv_comandas.idtpv_comanda</field>
+	</group>
+
+	<select>
+		empresa.nombre, empresa.cifnif, empresa.direccion,
+		empresa.ciudad, empresa.telefono,
+		tpv_comandas.idtpv_comanda, tpv_comandas.codigo,
+		tpv_comandas.fecha, tpv_comandas.codtpv_agente,
+		tpv_comandas.neto, tpv_comandas.totaliva,
+		tpv_comandas.hora,
+		tpv_comandas.total, tpv_lineascomanda.referencia,
+		tpv_lineascomanda.pvpunitario, tpv_lineascomanda.cantidad,
+		tpv_lineascomanda.pvptotal, tpv_lineascomanda.descripcion,
+		tpv_agentes.descripcion,
+		(tpv_lineascomanda.cantidad*tpv_lineascomanda.pvpunitarioiva)
+	</select>
+
+	<from>
+		empresa, tpv_comandas 
+		INNER JOIN tpv_lineascomanda ON tpv_comandas.idtpv_comanda = tpv_lineascomanda.idtpv_comanda 
+		INNER JOIN tpv_agentes ON tpv_comandas.codtpv_agente = tpv_agentes.codtpv_agente
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		tpv_comandas.codigo
+	</order>
+</QRY>

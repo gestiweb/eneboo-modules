@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+<KugarTemplate BottomMargin="10" TopMargin="10" RightMargin="10" LeftMargin="20" PageOrientation="0" PageSize="0" >
+<ReportHeader Height="30" PrintFrequency="1" >
+  <Label WordWrap="0" Width="600" X="0" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="RELACIÓN DE OPERACIONES INTRACOMUNITARIAS" FontWeight="75" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+  </ReportHeader>
+  
+<Detail Height="0" Level="0" />
+
+<DetailHeader Height="70" Level="1" >
+	<CalculatedField CalculationType="6" FunctionName="flcontmode.iface.pub_iniciarPagina" WordWrap="0" Width="0" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="0" HAlignment="0" DataType="0" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="300" X="0" Y="0" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Datos identificativos de esta hoja interior" FontWeight="75" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="130" X="0" Y="20" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="NIF del declarante" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="130" X="0" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="co_datosfiscales.cifnif" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="60" X="140" Y="20" BorderStyle="0" Height="18" HAlignment="1" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="Ejercicio" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="60" X="140" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="1" DataType="0" Field="co_modelo349.codejercicio" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="40" X="210" Y="20" BorderStyle="0" Height="18" HAlignment="1" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="Período" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="40" X="210" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="1" DataType="0" Field="co_modelo349.periodo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="50" X="260" Y="20" BorderStyle="0" Height="18" HAlignment="1" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="Hoja Nº" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<CalculatedField CalculationType="6" FunctionName="flcontmode.iface.pub_numPagina" WordWrap="0" Width="50" X="260" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="1" DataType="0" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<CalculatedField CalculationType="6" FunctionName="flcontmode.iface.pub_iniciarOP349" WordWrap="0" Width="0" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="0" HAlignment="0" DataType="0" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Line Width="2" Y1="65" Y2="65" X1="0" X2="615" Style="1" Color="0,0,0" />
+</DetailHeader>
+
+<AddOnHeader Height="70" Level="1" >
+	<Label WordWrap="0" Width="300" X="0" Y="0" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Datos identificativos de esta hoja interior" FontWeight="75" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="130" X="0" Y="20" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="NIF del declarante" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="130" X="0" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="co_datosfiscales.cifnif" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="60" X="140" Y="20" BorderStyle="0" Height="18" HAlignment="1" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="Ejercicio" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="60" X="140" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="1" DataType="0" Field="co_modelo349.codejercicio" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="40" X="210" Y="20" BorderStyle="0" Height="18" HAlignment="1" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="Período" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="40" X="210" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="1" DataType="0" Field="co_modelo349.periodo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="50" X="260" Y="20" BorderStyle="0" Height="18" HAlignment="1" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="Hoja Nº" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<CalculatedField CalculationType="6" FunctionName="flcontmode.iface.pub_numPagina" WordWrap="0" Width="50" X="260" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="1" DataType="0" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Line Width="2" Y1="65" Y2="65" X1="0" X2="615" Style="1" Color="0,0,0" />
+</AddOnHeader>
+
+<Detail Height="57" Level="1">
+	<CalculatedField CalculationType="6" FunctionName="flcontmode.iface.pub_siguienteOP349" WordWrap="0" Width="100" X="0" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="1" DataType="0" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="100,100,100" FontItalic="0" VAlignment="1" ForegroundColor="255,255,255" CommaSeparator="44" Text="" FontWeight="65" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="50" X="0" Y="20" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="Cod.País" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="30" X="0" Y="35" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="op.codue" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="128" X="52" Y="20" BorderStyle="0" Height="15" HAlignment="1" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="N.I.F. comunitario" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="148" X="32" Y="35" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="op.cifnif" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="240" X="190" Y="20" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="Apellidos y nombre o Razón social" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="240" X="190" Y="35" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="op.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="30" X="440" Y="20" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="Clave" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="30" X="440" Y="35" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="1" DataType="0" Field="op.clave" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="120" X="480" Y="20" BorderStyle="0" Height="15" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="Base imponible" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="120" X="480" Y="35" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="2" Field="op.baseimponible" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Line Width="1" Y1="57" Y2="57" X1="0" X2="615" Style="1" Color="0,0,0" />
+ </Detail>
+ 
+ 
+ <AddOnFooter Height="40" Level="1">
+	 
+	 <Label WordWrap="0" Width="230" X="200" Y="20" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Total por hojas.........................................................................................." FontWeight="75" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+	 
+	 <Label WordWrap="0" Width="130" X="470" Y="10" BorderStyle="0" Height="10" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="Base imponible" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+	 <CalculatedField CalculationType="1" WordWrap="0" Width="130" X="470" Y="20" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="2" Field="op.baseimponible" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+ </AddOnFooter>
+
+ <DetailFooter Height="40" Level="1">
+	
+ <Label WordWrap="0" Width="230" X="200" Y="20" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Total por hojas.........................................................................................." FontWeight="75" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+ 
+ <Label WordWrap="0" Width="130" X="470" Y="10" BorderStyle="0" Height="10" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" Text="Base imponible" FontWeight="50" FontSize="9" BorderWidth="1" FontFamily="Arial" />
+ <CalculatedField CalculationType="1" WordWrap="0" Width="130" X="470" Y="20" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="2" Field="op.baseimponible" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="230,230,230" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+</DetailFooter>
+
+</KugarTemplate>

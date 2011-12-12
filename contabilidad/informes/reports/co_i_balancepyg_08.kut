@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?> <!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd"> 
+<KugarTemplate BottomMargin="30" TopMargin="10" RightMargin="10" LeftMargin="50" PageOrientation="1" PageSize="0" >
+
+<ReportHeader Height="35" PrintFrequency="1">
+</ReportHeader>
+
+<Detail Level="0" Height="0">
+</Detail>
+
+<DetailHeader Height="70" Level="1" NewPage="true">  
+
+<Label WordWrap="0" Width="560" X="10" Y="1" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" Cuenta de Pérdidas y Ganancias" FontWeight="75" FontSize="11" BorderWidth="0" fontfamily="Arial" />
+<CalculatedField WordWrap="0" CalculationType="6" Width="200" X="570" Y="1" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="fecha" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="0" Precision="2" FontFamily="Arial" />
+
+<CalculatedField WordWrap="0" CalculationType="6" Width="560" X="10" Y="20" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="balancepyg08" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+<Line Width="3" Y1="40" Y2="40" X1="10" X2="770" Style="1" Color="220,220,220" />
+
+<CalculatedField WordWrap="0" CalculationType="6" Width="385" X="10" Y="50" FunctionName="flcontinfo.labelBalances08" Field="naturaleza" BorderStyle="0" NegValueColor="0,0,0" Height="16" HAlignment="0" DataType="0" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+<Label WordWrap="0" Width="100" X="500" Y="50" BorderStyle="0" Height="16" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Notas" FontWeight="65" FontSize="9" BorderWidth="0" fontfamily="Arial" />
+
+<CalculatedField WordWrap="0" CalculationType="6" Width="85" X="600" Y="50" BorderStyle="0" NegValueColor="0,0,0" Height="16" HAlignment="2" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="act" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+<CalculatedField WordWrap="0" CalculationType="6" Width="85" X="685" Y="50" BorderStyle="0" NegValueColor="0,0,0" Height="16" HAlignment="2" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="ant" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+<CalculatedField WordWrap="0" CalculationType="6" Width="80" X="690" Y="20" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="numpag" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+
+<Line Width="1" Y1="70" Y2="70" X1="10" X2="770" Style="1" Color="220,220,220" />
+
+</DetailHeader>
+
+<AddOnHeader Height="30" Level="1" >  
+	<CalculatedField WordWrap="0" CalculationType="6" Width="80" X="690" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="numpag" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+</AddOnHeader>
+
+<DetailHeader Height="16" Level="2" DrawIf="cbl.descripcion1">  
+<Field WordWrap="0" Width="560" X="10" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="16" HAlignment="0" DataType="0" Field="cbl.descripcion1" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+</DetailHeader>
+
+<Detail Level="2" Height="0">
+</Detail>
+
+
+
+
+
+<DetailHeader Height="20" Level="3" DrawIf="cbl.descripcion2">  
+<Field WordWrap="0" Width="590" X="10" Y="5" BorderStyle="0" NegValueColor="0,0,0" Height="16" HAlignment="0" DataType="0" Field="cbl.descripcion2" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+</DetailHeader>
+
+<DetailFooter Level="3" Height="0" DrawIf="cbl.descripcion2">
+<CalculatedField DrawAtHeader="true" WordWrap="0" CalculationType="1" Width="85" X="600" Y="5" BorderStyle="0" NegValueColor="0,0,0" Height="16" HAlignment="2" DataType="2" Field="buf.saldoact" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+<CalculatedField DrawAtHeader="true" WordWrap="0" CalculationType="1" Width="85" X="685" Y="5" BorderStyle="0" NegValueColor="0,0,0" Height="16" HAlignment="2" DataType="2" Field="buf.saldoant" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+
+<CalculatedField WordWrap="1" ChangeHeight="1" Width="590" X="10" Y="1" CalculationType="6" FunctionName="flcontinfo.subTotalesBalances08" Field="labelpyg" BorderStyle="0" NegValueColor="0,0,0" Height="0" HAlignment="0" DataType="0" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+<CalculatedField WordWrap="1" ChangeHeight="1" Width="85" X="600" Y="1"  CalculationType="6" FunctionName="flcontinfo.subTotalesBalances08" Field="valoractpyg" BorderStyle="0" NegValueColor="0,0,0" Height="0" HAlignment="2" DataType="0" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+<CalculatedField WordWrap="1" ChangeHeight="1" Width="85" X="685" Y="1"  CalculationType="6" FunctionName="flcontinfo.subTotalesBalances08" Field="valorantpyg" BorderStyle="0" NegValueColor="0,0,0" Height="0" HAlignment="2" DataType="0" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+</DetailFooter>
+
+<Detail Level="3" Height="0">
+</Detail>
+
+<DetailHeader Height="15" Level="4" DrawIf="cbl.descripcion3">
+<Field WordWrap="0" Width="370" X="30" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="16" HAlignment="0" DataType="0" Field="cbl.descripcion3" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+</DetailHeader>
+
+<DetailFooter Level="4" Height="0" DrawIf="cbl.descripcion3">
+<CalculatedField DrawAtHeader="true" WordWrap="0" CalculationType="1" Width="85" X="600" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="15" HAlignment="2" DataType="2" Field="buf.saldoact" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+<CalculatedField DrawAtHeader="true" WordWrap="0" CalculationType="1" Width="85" X="685" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="15" HAlignment="2" DataType="2" Field="buf.saldoant" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+</DetailFooter>
+
+<Detail Height="15" Level="4" DrawIf="cbl.descripcion4">
+<Field WordWrap="0" Width="350" X="50" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="15" HAlignment="0" DataType="0" Field="cbl.descripcion4" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+<Field WordWrap="0" Width="85" X="600" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="15" HAlignment="2" DataType="2" Field="buf.saldoact" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+<Field WordWrap="0" Width="85" X="685" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="15" HAlignment="2" DataType="2" Field="buf.saldoant" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="2" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+</Detail>
+
+
+
+<Detail Level="1" Height="15">
+</Detail>
+
+
+
+</KugarTemplate>

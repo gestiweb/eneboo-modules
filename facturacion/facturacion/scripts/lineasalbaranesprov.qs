@@ -57,15 +57,30 @@ class oficial extends interna {
 	function filtrarArtProv() {
 		return this.ctx.oficial_filtrarArtProv();
 	}
+	function dameFiltroReferencia():String {
+		return this.ctx.oficial_dameFiltroReferencia();
+	}
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+class rappel extends oficial {
+    function rappel( context ) { oficial ( context ); }
+	function init() {
+		return this.ctx.rappel_init();
+	}
+}
+//// RAPPEL /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends rappel {
+    function head( context ) { rappel ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -109,40 +124,61 @@ function interna_init()
 	connect(form, "closed()", this, "iface.desconectar");
 
 	var codSerieAlbaran:String;
-
-	if(cursor.cursorRelation())
+	var codProveedor:String;
+	if(cursor.cursorRelation()) {
 		codSerieAlbaran = cursor.cursorRelation().valueBuffer("codserie");
-	else
+		codProveedor = cursor.cursorRelation().valueBuffer("codproveedor");
+	}
+	else {
 		codSerieAlbaran = util.sqlSelect("albaranesprov","codserie","idAlbaran = " + cursor.valueBuffer("idalbaran"));
+		codProveedor = util.sqlSelect("albaranesprov","codproveedor","idAlbaran = " + cursor.valueBuffer("idalbaran"));
+	}
 
 	var irpf:Number = util.sqlSelect("series", "irpf", "codserie = '" + codSerieAlbaran + "'");
 	if (!irpf)
 		irpf = 0;
 
+	var opcionIvaRec:Number = flfacturac.iface.pub_tieneIvaDocProveedor(codSerieAlbaran, codProveedor);
 	if (cursor.modeAccess() == cursor.Insert) {
+		switch (opcionIvaRec) {
+			case 0: {
+				this.child("fdbCodImpuesto").setValue("");
+				this.child("fdbIva").setValue(0);
+			}
+			case 1: {
+				this.child("fdbRecargo").setValue(0);
+				break;
+			}
+		}
+		
 		this.child("fdbIRPF").setValue(irpf);
 // 		this.child("fdbDtoPor").setValue(this.iface.calculateField("dtopor"));
 	}
 
 	this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
 	
-	if (cursor.modeAccess() == cursor.Insert || cursor.modeAccess() == cursor.Edit) {
-		var serie:String = cursor.cursorRelation().valueBuffer("codserie");
-		var siniva:Boolean = util.sqlSelect("series","siniva","codserie = '" + serie + "'");
-		if(siniva){
-			this.child("fdbCodImpuesto").setDisabled(true);
-			this.child("fdbIva").setDisabled(true);
-			this.child("fdbRecargo").setDisabled(true);
-			cursor.setValueBuffer("codimpuesto","");
-			cursor.setValueBuffer("iva",0);
-			cursor.setValueBuffer("recargo",0);
-		}
-	}
+// 	if (cursor.modeAccess() == cursor.Insert || cursor.modeAccess() == cursor.Edit) {
+// 		switch (opcionIvaRec) {
+// 			case 0: {
+// 				this.child("fdbCodImpuesto").setDisabled(true);
+// 				this.child("fdbIva").setDisabled(true);
+// 			}
+// 			case 1: {
+// 				this.child("fdbRecargo").setDisabled(true);
+// 				break;
+// 			}
+// 		}
+		
+// 		var serie:String = cursor.cursorRelation().valueBuffer("codserie");
+// 		var siniva:Boolean = util.sqlSelect("series","siniva","codserie = '" + serie + "'");
+// 		if(siniva){
+// 			cursor.setValueBuffer("codimpuesto","");
+// 			cursor.setValueBuffer("iva",0);
+// 			cursor.setValueBuffer("recargo",0);
+// 		}
+// 	}
 
-	this.child("fdbReferencia").setFilter("secompra");
-	if (this.child("chkFiltrarArtProv").checked) {
-		this.iface.filtrarArtProv();
-	}
+	this.iface.filtrarArtProv();
 }
 
 /** \C
@@ -229,6 +265,12 @@ function oficial_actualizarLineaPedido(idLineaPedido:Number, idPedido:Number, re
 */
 function oficial_filtrarArtProv()
 {
+	var filtroReferencia:String = this.iface.dameFiltroReferencia();
+	this.child("fdbReferencia").setFilter(filtroReferencia);
+}
+
+function oficial_dameFiltroReferencia():String
+{
 	var filtroReferencia:String = "secompra";
 	if (this.child("chkFiltrarArtProv").checked) {
 		var codProveedor:String = this.cursor().cursorRelation().valueBuffer("codproveedor");
@@ -237,16 +279,26 @@ function oficial_filtrarArtProv()
 	} else {
 		filtroReferencia = "secompra";
 	}
-
-	this.child("fdbReferencia").setFilter(filtroReferencia);
+	return filtroReferencia;
 }
 
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
+/** @class_definition rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+function rappel_init()
+{
+	this.iface.__init();
+	this.child("lblDtoRappel").setText(formRecordlineaspedidosprov.iface.pub_commonCalculateField("lbldtorappel", this.cursor()));
+}
+//// RAPPEL /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////

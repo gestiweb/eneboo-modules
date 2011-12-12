@@ -1,0 +1,31 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_proveedores</name>
+
+	<tables>proveedores,dirproveedores</tables>
+
+	<select>
+		proveedores.codproveedor, proveedores.nombre,
+		proveedores.telefono1, proveedores.fax,
+		dirproveedores.direccion, dirproveedores.ciudad,
+		dirproveedores.codpostal, dirproveedores.provincia, 
+		dirproveedores.codpais,
+		empresa.direccion, empresa.nombre,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais, empresa.cifnif,
+		empresa.telefono, empresa.fax
+	</select>
+
+	<from>
+		empresa,proveedores 
+		LEFT OUTER JOIN dirproveedores ON proveedores.codproveedor = dirproveedores.codproveedor
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		proveedores.codproveedor
+	</order>
+</QRY>

@@ -1,0 +1,23 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>qry_articulos_composed</name>
+	
+	<tables>articulos,articulosprov</tables>
+	
+	<select>
+		articulos.*,
+		articulos.stockmin - articulos.stockfis - articulos.stockord AS ZBE
+	</select>
+	
+	<from>
+		articulos 
+		LEFT OUTER JOIN articulosprov ON articulos.referencia = articulosprov.referencia
+	</from>
+	
+	<where>
+	</where>
+	
+	<order>
+		articulos.descripcion
+	</order>
+</QRY>

@@ -1,0 +1,255 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_modelo347_tipo2i</name>
+	<!--Modelo 347-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Modelo 347, registro de tipo 2 (Declarado)")</alias>
+
+	<field>
+		<name>idregistro</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>idmodelo</name>
+		<!--Identificador del modelo al que pertenece el registro-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Modelo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>co_modelo347</table>
+			<field>idmodelo</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+	
+	<field>
+		<name>nifarrendatario</name>
+		<!-- NIF del arrendatario-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","N.I.F")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>12</length>
+	</field>
+	
+	<field>
+		<name>nifreplegal</name>
+		<!-- NIF del representante legal-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","N.I.F del representante")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>12</length>
+	</field>
+
+	<field>
+		<name>apellidosnombrers</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apellidos y nombre, razón social o denominación")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>
+	</field>
+
+	<field>
+		<name>importe</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Importe de la operación")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>13</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>refcatastral</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Referencia catastral")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>25</length>
+	</field>
+	
+	<field>
+		<name>codprovincia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Provincia")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+	</field>
+
+	<field>
+		<name>localidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Localidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+	</field>
+	
+	<field>
+		<name>municipio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Municipio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+	</field>
+	
+	<field>
+		<name>codmunicipio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cod.Municipio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>
+	</field>
+	
+	<field>
+		<name>codpostal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cod.Postal")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>
+	</field>
+	
+	<field>
+		<name>codtipovia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo vía")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>
+		<default>CL</default>
+		
+		<relation>
+			<table>co_tiposvia</table>
+			<field>codtipovia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>nombrevia</name>
+		<!--Nombre de la vía pública-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>tiponumeracion</name>
+		<!--Número del inmueble en la vía pública-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo Numeración")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>numero</name>
+		<!--Número del inmueble en la vía pública-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Número")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>
+	</field>
+	
+	<field>
+		<name>califnumero</name>
+		<!--Calificación del número-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Calif.Núm.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>bloque</name>
+		<!--Bloque-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Bloque")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>portal</name>
+		<!--Portal-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Portal")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>escalera</name>
+		<!--Escalera del inmueble-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Escalera")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>piso</name>
+		<!--Piso del inmueble-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Piso")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>puerta</name>
+		<!--Puerta del inmueble-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Puerta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>complemento</name>
+		<!--Complemento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Complemento")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>40</length>
+	</field>
+	
+	<field>
+		<name>situacion</name>
+		<!--Situación del inmueble-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Situación")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>1</length>
+		<optionslist>1,2,3,4</optionslist>
+	</field>
+
+</TMD>

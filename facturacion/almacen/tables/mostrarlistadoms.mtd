@@ -1,0 +1,128 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>mostrarlistadoms</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Listado de movimientos de Stock")</alias>
+	
+	<field>
+		<name>id</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>idusuario</name>
+		<!--Identificador del usuario del sistema-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Usuario")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+	</field>
+	
+	<field>
+		<name>idstock</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Stock")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		
+		<relation>
+			<table>stocks</table>
+			<field>idstock</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>referencia</name>
+		<!-- Código de referencia del artículo	-->        <alias>QT_TRANSLATE_NOOP("MetaData","Referencia")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+        <length>18</length>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>codalmacen</name>
+		<!-- Código del almacén -->        <alias>QT_TRANSLATE_NOOP("MetaData","Almacén")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+        <length>4</length>
+		<editable>false</editable>
+		<relation>
+			<table>almacenes</table>
+			<field>codalmacen</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>desdeultimareg</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde la última regularización")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+	
+	<field>
+		<name>fechadesde</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fechahasta</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>horadesde</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","a las")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>time</type>
+	</field>
+	
+	<field>
+		<name>horahasta</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","a las")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>time</type>
+	</field>
+	
+	<field>
+		<name>pendiente</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Pte. Recibir")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+
+	<field>
+		<name>reservado</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Reservada")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+	
+	<field>
+		<name>hecho</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","En Almacén")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+	
+</TMD>

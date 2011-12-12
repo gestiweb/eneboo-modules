@@ -1,0 +1,46 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_identifpaisresidencia</name>
+	<!--Clave de identificación en el país de residencia-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Clave País residencia")</alias>
+
+	<field>
+		<name>codigo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>1</length>
+		<relation>
+			<table>co_facturasemi340</table>
+			<field>claveidentificacion</field>
+			<card>1M</card>
+		</relation>
+		<relation>
+			<table>co_facturasrec340</table>
+			<field>claveidentificacion</field>
+			<card>1M</card>
+		</relation>
+		<relation>
+			<table>co_bienesinv</table>
+			<field>claveidentificacion</field>
+			<card>1M</card>
+		</relation>
+		<relation>
+			<table>co_opintracomunitarias</table>
+			<field>claveidentificacion</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripcion")</alias>
+		<null>ture</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+</TMD>

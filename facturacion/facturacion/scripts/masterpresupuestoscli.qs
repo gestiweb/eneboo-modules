@@ -104,20 +104,110 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
+/** @class_declaration ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+class ivaIncluido extends oficial {
+    function ivaIncluido( context ) { oficial( context ); } 	
+	function datosLineaPedido(curLineaPresupuesto:FLSqlCursor):Boolean {
+		return this.ctx.ivaIncluido_datosLineaPedido(curLineaPresupuesto);
+	}
+	function totalesPedido():Boolean {
+		return this.ctx.ivaIncluido_totalesPedido();
+	}
+}
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+/** @class_declaration envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO_MAIL ////////////////////////////////////////////////
+class envioMail extends ivaIncluido {
+    function envioMail( context ) { ivaIncluido ( context ); }
+	function init() { 
+		return this.ctx.envioMail_init(); 
+	}
+	function enviarDocumento(codPresupuesto:String, codCliente:String) {
+		return this.ctx.envioMail_enviarDocumento(codPresupuesto, codCliente);
+	}
+	function imprimir(codPresupuesto:String) {
+		return this.ctx.envioMail_imprimir(codPresupuesto);
+	}
+}
+
+//// ENVIO_MAIL ////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+class rappel extends envioMail {
+    function rappel( context ) { envioMail ( context ); }
+	function datosLineaPedido(curLineaPresupuesto:FLSqlCursor):Boolean {
+		return this.ctx.rappel_datosLineaPedido(curLineaPresupuesto);
+	}
+}
+//// RAPPEL /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration clientesPot */
+/////////////////////////////////////////////////////////////////
+//// CLIENTESPOT //////////////////////////////////////////////////
+class clientesPot extends rappel {
+	function clientesPot( context ) { rappel ( context ); }
+	function generarPedido(cursor:FLSqlCursor):Number {
+		return this.ctx.clientesPot_generarPedido(cursor);
+	}
+}
+//// CLIENTESPOT //////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration dtoEspecial */
+/////////////////////////////////////////////////////////////////
+//// DTO ESPECIAL ///////////////////////////////////////////////
+class dtoEspecial extends clientesPot {
+    function dtoEspecial( context ) { clientesPot ( context ); }
+	function commonCalculateField(fN:String, cursor:FLSqlCursor):String {
+		return this.ctx.dtoEspecial_commonCalculateField(fN, cursor);
+	}
+	function totalesPedido():Boolean {
+		return this.ctx.dtoEspecial_totalesPedido();
+	}
+	function datosPedido(curPresupuesto:FLSqlCursor):Boolean {
+		return this.ctx.dtoEspecial_datosPedido(curPresupuesto);
+	}
+}
+//// DTO ESPECIAL ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends oficial {
-    function head( context ) { oficial ( context ); }
+class head extends dtoEspecial {
+    function head( context ) { dtoEspecial ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_declaration pubEnvioMail */
+/////////////////////////////////////////////////////////////////
+//// PUB_ENVIO_MAIL /////////////////////////////////////////////
+class pubEnvioMail extends head {
+    function pubEnvioMail( context ) { head( context ); }
+	function pub_enviarDocumento(codPresupuesto:String, codCliente:String) {
+		return this.enviarDocumento(codPresupuesto, codCliente);
+	}
+}
+
+//// PUB_ENVIO_MAIL /////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 /** @class_declaration ifaceCtx */
 /////////////////////////////////////////////////////////////////
 //// INTERFACE  /////////////////////////////////////////////////
-class ifaceCtx extends head {
-    function ifaceCtx( context ) { head( context ); }
+class ifaceCtx extends pubEnvioMail {
+    function ifaceCtx( context ) { pubEnvioMail( context ); }
 	function pub_commonCalculateField(fN:String, cursor:FLSqlCursor):String {
 		return this.commonCalculateField(fN, cursor);
 	}
@@ -129,10 +219,18 @@ class ifaceCtx extends head {
 	}
 }
 
-const iface = new ifaceCtx( this );
+const iface = new pubBatchDocs( this );
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+/** @class_declaration pubBatchDocs */
+/////////////////////////////////////////////////////////////////
+//// PUB_BATCH_DOCS /////////////////////////////////////////////
+class pubBatchDocs extends ifaceCtx {
+    function pubBatchDocs( context ) { ifaceCtx ( context ); }
+}
+//// PUB_BATCH_DOCS /////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 /** @class_definition interna */
 ////////////////////////////////////////////////////////////////////////////
 //// DEFINICION ////////////////////////////////////////////////////////////
@@ -815,9 +913,336 @@ function oficial_filtroTabla():String
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+/** @class_definition ivaIncluido */
+//////////////////////////////////////////////////////////////////
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+/** \D Copia los datos de una línea de presupuesto en una línea de pedido
+@param	curLineaPresupuesto: Cursor que contiene los datos a incluir en la línea de pedido
+@return	True si la copia se realiza correctamente, false en caso contrario
+\end */
+function ivaIncluido_datosLineaPedido(curLineaPresupuesto:FLSqlCursor):Boolean
+{
+	if (!this.iface.__datosLineaPedido(curLineaPresupuesto)) {
+		return false;
+	}
+	with (this.iface.curLineaPedido) {
+		setValueBuffer("ivaincluido", curLineaPresupuesto.valueBuffer("ivaincluido"));
+		setValueBuffer("pvpunitarioiva", curLineaPresupuesto.valueBuffer("pvpunitarioiva"));
+	}
+	/// El cambio puede deberse a que la fecha del nuevo documento esté asociada a un tipo de IVA distinto del documento origens
+	if (curLineaPresupuesto.valueBuffer("iva") != this.iface.curLineaPedido.valueBuffer("iva")) {
+		if (this.iface.curLineaPedido.valueBuffer("ivaincluido")) {
+			this.iface.curLineaPedido.setValueBuffer("pvpunitario", formRecordlineaspedidoscli.iface.pub_commonCalculateField("pvpunitario2", this.iface.curLineaPedido));
+			this.iface.curLineaPedido.setValueBuffer("pvpsindto", formRecordlineaspedidoscli.iface.pub_commonCalculateField("pvpsindto", this.iface.curLineaPedido));
+			this.iface.curLineaPedido.setValueBuffer("pvptotal", formRecordlineaspedidoscli.iface.pub_commonCalculateField("pvptotal", this.iface.curLineaPedido));
+		}
+	}
+	
+	return true;
+}
+
+function ivaIncluido_totalesPedido():Boolean
+{
+	this.iface.__totalesPedido();
+
+	// Comprobar redondeo y recalcular totales
+	formRecordfacturascli.iface.comprobarRedondeoIVA(this.iface.curPedido, "idpedido")
+	with (this.iface.curPedido) {
+		setValueBuffer("total", formpedidoscli.iface.pub_commonCalculateField("total", this));
+		setValueBuffer("totaleuros", formpedidoscli.iface.pub_commonCalculateField("totaleuros", this));
+	}
+	return true;
+}
+
+//// IVAINCLUIDO /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
+/** @class_definition envioMail */
+/////////////////////////////////////////////////////////////////
+//// ENVIO_MAIL /////////////////////////////////////////////////
+function envioMail_init()
+{
+	this.iface.__init();
+	//this.child("tbnEnviarMail").close();
+	connect(this.child("tbnEnviarMail"), "clicked()", this, "iface.enviarDocumento()");
+}
+
+function envioMail_enviarDocumento(codPresupuesto:String, codCliente:String)
+{
+	var cursor:FLSqlCursor = this.cursor();
+	var util:FLUtil = new FLUtil();
+
+	if (!codPresupuesto) {
+		codPresupuesto = cursor.valueBuffer("codigo");
+	}
+
+	if (!codCliente) {
+		codCliente = cursor.valueBuffer("codcliente");
+	}
+	var tabla:String = "clientes";
+	var emailCliente:String = flfactppal.iface.pub_componerListaDestinatarios(codCliente, tabla);
+	if (!emailCliente) {
+		return;
+	}
+
+	var rutaIntermedia:String = util.readSettingEntry("scripts/flfactinfo/dirCorreo");
+	if (!rutaIntermedia.endsWith("/")) {
+		rutaIntermedia += "/";
+	}
+
+	var cuerpo:String = "";
+	var asunto:String = util.translate("scripts", "Presupuesto %1").arg(codPresupuesto);
+
+	var rutaDocumento:String = rutaIntermedia + "Pr_" + codPresupuesto + ".pdf";
+	var codigo:String;
+	if (codPresupuesto) {
+		codigo = codPresupuesto;
+	} else {
+		if (!cursor.isValid()) {
+			return;
+		}
+		codigo = cursor.valueBuffer("codigo");
+	}
+	var numCopias:Number = util.sqlSelect("presupuestoscli p INNER JOIN clientes c ON c.codcliente = p.codcliente", "c.copiasfactura", "p.codigo = '" + codigo + "'", "presupuestoscli,clientes");
+	if (!numCopias) {
+		numCopias = 1;
+	}
+		
+	var curImprimir:FLSqlCursor = new FLSqlCursor("i_presupuestoscli");
+	curImprimir.setModeAccess(curImprimir.Insert);
+	curImprimir.refreshBuffer();
+	curImprimir.setValueBuffer("descripcion", "temp");
+	curImprimir.setValueBuffer("d_presupuestoscli_codigo", codigo);
+	curImprimir.setValueBuffer("h_presupuestoscli_codigo", codigo);
+	flfactinfo.iface.pub_lanzarInforme(curImprimir, "i_presupuestoscli", "", "", false, false, "", "i_presupuestoscli", 1, rutaDocumento, true);
+
+	var arrayDest:Array = [];
+	arrayDest[0] = [];
+	arrayDest[0]["tipo"] = "to";
+	arrayDest[0]["direccion"] = emailCliente;
+
+	var arrayAttach:Array = [];
+	arrayAttach[0] = rutaDocumento;
+
+	flfactppal.iface.pub_enviarCorreo(cuerpo, asunto, arrayDest, arrayAttach);
+}
+
+function envioMail_imprimir(codPresupuesto:String)
+{
+	var util:FLUtil = new FLUtil;
+	
+	var datosEMail:Array = [];
+	datosEMail["tipoInforme"] = "presupuestoscli";
+	var codCliente:String;
+	if (codPresupuesto && codPresupuesto != "") {
+		datosEMail["codDestino"] = util.sqlSelect("presupuestoscli", "codcliente", "codigo = '" + codPresupuesto + "'");
+		datosEMail["codDocumento"] = codPresupuesto;
+	} else {
+		var cursor:FLSqlCursor = this.cursor();
+		datosEMail["codDestino"] = cursor.valueBuffer("codcliente");
+		datosEMail["codDocumento"] = cursor.valueBuffer("codigo");
+	}
+	flfactinfo.iface.datosEMail = datosEMail;
+	this.iface.__imprimir(codPresupuesto);
+}
+
+//// ENVIO_MAIL /////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition rappel */
+/////////////////////////////////////////////////////////////////
+//// RAPPEL /////////////////////////////////////////////////////
+/** \D Copia los datos de una línea de presupuesto en una línea de pedido añadiendo el dato de descuento por rappel a una línea de pedido
+@param	curLineaPresupuesto: Cursor que contiene los datos a incluir en la línea de pedido
+@return	True si la copia se realiza correctamente, false en caso contrario
+\end */
+function rappel_datosLineaPedido(curLineaPresupuesto:FLSqlCursor):Boolean
+{
+	if(!this.iface.__datosLineaPedido(curLineaPresupuesto))
+		return false;
+
+	with (this.iface.curLineaPedido) {
+		setValueBuffer("dtorappel", curLineaPresupuesto.valueBuffer("dtorappel"));
+	}
+	return true;
+}
+
+//// RAPPEL /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/** @class_definition clientesPot */
+/////////////////////////////////////////////////////////////////
+//// CLIENTESPOT //////////////////////////////////////////////////
+
+/** \D Si el cliente del presupuesto es potencial, se pregunta la posibilidad de
+pasarlo a cliente real
+*/
+function clientesPot_generarPedido(curPresupuesto:FLSqlCursor):Number
+{
+	if (!curPresupuesto.valueBuffer("clientepot"))
+		return this.iface.__generarPedido(curPresupuesto);
+	
+	var codigo:String =  curPresupuesto.valueBuffer("codclientepot");
+	if (!codigo)
+		return this.iface.__generarPedido(curPresupuesto);
+	
+	var util:FLUtil = new FLUtil;
+	var res:Object = MessageBox.information(util.translate("scripts",  "Este presupuesto está asociado a un cliente potencial\nA continuación se va a crear un cliente real a partir del cliente potencial\n\n¿Continuar?"), MessageBox.Yes, MessageBox.No, MessageBox.NoButton);
+	
+	if (res != MessageBox.Yes) 
+		return false;
+		
+	var curTab:FLSqlCursor = new FLSqlCursor("clientespot");
+	curTab.select("codigo = '" + codigo + "'");
+	
+	// Código no válido
+	if (!curTab.first())
+		MessageBox.information(util.translate("scripts",  "El código del cliente potencial del presupuesto no es válido"), MessageBox.Ok, MessageBox.Cancel, MessageBox.NoButton);		
+	
+	var codCliente:String = formclientespot.iface.pub_aprobarCliente(curTab);
+	if (!codCliente)
+		return false;
+	
+	var curPres:FLSqlCursor = new FLSqlCursor("presupuestoscli");
+	curPres.select("idpresupuesto = " + curPresupuesto.valueBuffer("idpresupuesto"));
+	if (!curPres.first()) {
+		return false;
+	}
+	curPres.setActivatedCommitActions(false);
+	curPres.setModeAccess(curPres.Edit);
+	curPres.refreshBuffer();
+	curPres.setValueBuffer("codcliente", codCliente);
+	if (!curPres.commitBuffer()) {
+		return false;
+	}
+	return this.iface.__generarPedido(curPresupuesto);
+}
+//// CLIENTESPOT //////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+/** @class_definition dtoEspecial */
+/////////////////////////////////////////////////////////////////
+//// DTO ESPECIAL ///////////////////////////////////////////////
+function dtoEspecial_commonCalculateField(fN:String, cursor:FLSqlCursor):String
+{
+	var util = new FLUtil();
+	var valor;
+
+	switch (fN) {
+	/** \C
+	El --totaliva-- es la suma del iva correspondiente a las líneas de factura
+	*/
+	case "totaliva": {
+			var porDto:Number = cursor.valueBuffer("pordtoesp");
+			if (!porDto || porDto == 0) {
+				valor = this.iface.__commonCalculateField(fN, cursor);
+				break;
+			}
+			valor = util.sqlSelect("lineaspresupuestoscli", "SUM((pvptotal * iva * (100 - " + porDto + ")) / 100 / 100)", "idpresupuesto = " + cursor.valueBuffer("idpresupuesto"));
+			valor = parseFloat(util.roundFieldValue(valor, "presupuestoscli", "totaliva"));
+			break;
+		}
+	/** \C
+	El --totarecargo-- es la suma del recargo correspondiente a las líneas de factura
+	\end */
+	case "totalrecargo":{
+			var porDto:Number = cursor.valueBuffer("pordtoesp");
+			if (!porDto || porDto == 0) {
+				valor = this.iface.__commonCalculateField(fN, cursor);
+				break;
+			}
+			valor = util.sqlSelect("lineaspresupuestoscli", "SUM((pvptotal * recargo * (100 - " + porDto + ")) / 100 / 100)", "idpresupuesto = " + cursor.valueBuffer("idpresupuesto"));
+			valor = parseFloat(util.roundFieldValue(valor, "presupuestoscli", "totalrecargo"));
+			break;
+		}
+	/** \C
+	El --netosindtoesp-- es la suma del pvp total de las líneas de factura
+	\end */
+	case "netosindtoesp":{
+			valor = this.iface.__commonCalculateField("neto", cursor); 
+			break;
+		}
+	/** \C
+	El --neto-- es el --netosindtoesp-- menos el --dtoesp--
+	\end */
+	case "neto": {
+			valor = parseFloat(cursor.valueBuffer("netosindtoesp")) - parseFloat(cursor.valueBuffer("dtoesp"));
+			valor = parseFloat(util.roundFieldValue(valor, "presupuestoscli", "neto"));
+			break;
+		}
+	/** \C
+	El --dtoesp-- es el --netosindtoesp-- menos el porcentaje que marca el --pordtoesp--
+	\end */
+	case "dtoesp": {
+			valor = (parseFloat(cursor.valueBuffer("netosindtoesp")) * parseFloat(cursor.valueBuffer("pordtoesp"))) / 100;
+			valor = parseFloat(util.roundFieldValue(valor, "presupuestoscli", "dtoesp"));
+			break;
+		}
+	/** \C
+	El --pordtoesp-- es el --dtoesp-- entre el --netosindtoesp-- por 100
+	\end */
+	case "pordtoesp": {
+			if (parseFloat(cursor.valueBuffer("netosindtoesp")) != 0) {
+				valor = (parseFloat(cursor.valueBuffer("dtoesp")) / parseFloat(cursor.valueBuffer("netosindtoesp"))) * 100;
+			} else {
+				valor = cursor.valueBuffer("pordtoesp");
+			}
+			valor = parseFloat(util.roundFieldValue(valor, "presupuestoscli", "pordtoesp"));
+			break;
+		}
+	default: {
+			valor = this.iface.__commonCalculateField(fN, cursor);
+			break;
+		}
+	}
+	return valor;
+}
+
+/** \D Informa los datos de un pedido a partir de los de un presupuesto
+@param	curPresupuesto: Cursor que contiene los datos a incluir en el pedido
+@return	True si el cálculo se realiza correctamente, false en caso contrario
+\end */
+function dtoEspecial_datosPedido(curPresupuesto:FLSqlCursor):Boolean
+{
+	var fecha:String;
+	if (curPresupuesto.action() == "pedidoscli") {
+		var hoy:Date = new Date();
+		fecha = hoy.toString();
+	} else
+		fecha = curPresupuesto.valueBuffer("fecha");
+			
+	with (this.iface.curPedido) {
+		setValueBuffer("pordtoesp", curPresupuesto.valueBuffer("pordtoesp"));
+	}
+	
+	if(!this.iface.__datosPedido(curPresupuesto))
+		return false;
+	
+	return true;
+}
+
+/** \D Informa los datos de un pedido referentes a totales (I.V.A., neto, etc.)
+@return	True si el cálculo se realiza correctamente, false en caso contrario
+\end */
+function dtoEspecial_totalesPedido():Boolean
+{
+	with (this.iface.curPedido) {
+		setValueBuffer("netosindtoesp", formpedidoscli.iface.pub_commonCalculateField("netosindtoesp", this));
+		setValueBuffer("dtoesp", formpedidoscli.iface.pub_commonCalculateField("dtoesp", this));
+		setValueBuffer("neto", formpedidoscli.iface.pub_commonCalculateField("neto", this));
+		setValueBuffer("totaliva", formpedidoscli.iface.pub_commonCalculateField("totaliva", this));
+		setValueBuffer("totalirpf", formpedidoscli.iface.pub_commonCalculateField("totalirpf", this));
+		setValueBuffer("totalrecargo", formpedidoscli.iface.pub_commonCalculateField("totalrecargo", this));
+		setValueBuffer("total", formpedidoscli.iface.pub_commonCalculateField("total", this));
+		setValueBuffer("totaleuros", formpedidoscli.iface.pub_commonCalculateField("totaleuros", this));
+	}
+	return true;
+}
+//// DTO ESPECIAL ///////////////////////////////////////////////
+//////////////////////////////////////////////////////////
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
