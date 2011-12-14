@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+<KugarTemplate BottomMargin="10" TopMargin="50" RightMargin="10" LeftMargin="20" PageOrientation="1" PageSize="0" >
+ <Detail Height="125" Level="0" >
+ 
+	<!-- EMPRESA -->
+  <Line Width="1" Y1="0" Y2="0" X1="0" X2="370" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="80" Y2="80" X1="0" X2="370" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="80" X1="0" X2="0" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="80" X1="370" X2="370" Style="1" Color="100,100,100" />
+	
+	<Label WordWrap="0" Width="150" X="1" Y="100" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Previsiones de venta" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+  
+	<CalculatedField CalculationType="6" FunctionName="formcrm_i_previsionesventa.pub_datosCabecera" WordWrap="0" Width="400" X="350" Y="100" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="intervalo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Field WordWrap="1" Width="260" X="2" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="35" HAlignment="1" DataType="0" Field="empresa.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.nombre]" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+ 
+	<CalculatedField FunctionName="flfactinfo.pub_logo" WordWrap="0" Width="109" X="260" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="34" HAlignment="0" DataType="5" Field="empresa.logo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.logo]" FontWeight="50" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  
+	<Label WordWrap="0" Width="60" X="5" Y="40" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="CIF/NIF" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="80" X="45" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.cifnif" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.cifnif]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+ 
+  <Field WordWrap="0" Width="235" X="125" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.direccion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.direccion]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="45" X="5" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.codpostal" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.codpostal]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="150" X="65" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.ciudad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.ciudad]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="100" X="215" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.provincia" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.provincia]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+ 
+ </Detail>
+ 
+ <Detail Height="30" Level="1" >
+ 
+	<!-- RESPONSABLE -->
+  <Line Width="1" Y1="0" Y2="0" X1="0" X2="601" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="22" Y2="22" X1="0" X2="601" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="22" X1="0" X2="0" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="22" X1="601" X2="601" Style="1" Color="100,100,100" />
+  
+	<Label WordWrap="0" Width="100" X="1" Y="1" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Responsable" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="100" X="100" Y="1" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="crm_oportunidadventa.idusuario" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	
+	<Field WordWrap="0" Width="400" X="200" Y="1" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="usuarios.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[almacenes.nombre]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	
+ </Detail>
+ 
+ <DetailHeader Height="20" Level="2" >
+ 
+	 <Label WordWrap="0" Width="59" X="0" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Código" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	 <Label WordWrap="0" Width="199" X="60" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Oportunidad" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	 <Label WordWrap="0" Width="199" X="260" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Cliente" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	 <Label WordWrap="0" Width="79" X="460" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Importe" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	 <Label WordWrap="0" Width="99" X="540" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Estado" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	 <Label WordWrap="0" Width="59" X="640" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Prob(%)" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	 <Label WordWrap="0" Width="79" X="700" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Estimado" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	 <Label WordWrap="0" Width="79" X="780" Y="0" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="F.Cierre" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+ </DetailHeader>
+ 
+ 
+ <Detail Height="20" Level="2" >
+	 <Field WordWrap="0" Width="60" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="crm_oportunidadventa.codoportunidad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	 <Field WordWrap="0" Width="200" X="60" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="crm_oportunidadventa.descripcion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	 <Field WordWrap="0" Width="200" X="260" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="crm_oportunidadventa.nomcliente" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	 <Field WordWrap="0" Width="80" X="460" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="crm_oportunidadventa.totalventa" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	 <Field WordWrap="0" Width="100" X="540" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="crm_oportunidadventa.codestado" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	 <Field WordWrap="0" Width="60" X="640" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="crm_oportunidadventa.probabilidad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	 <Field WordWrap="0" Width="80" X="700" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="crm_oportunidadventa.totalventa*crm_oportunidadventa.probabilidad/100" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	 <Field WordWrap="0" Width="80" X="780" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="1" DataType="3" Field="crm_oportunidadventa.fechacierre" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+ </Detail>
+ 
+ <DetailFooter Height="25" Level="2" >
+	 <Label WordWrap="0" Width="100" X="360" Y="0" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Subtotales" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow"/>
+	 <CalculatedField CalculationType="1" WordWrap="0" Width="80" X="460" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="crm_oportunidadventa.totalventa" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	 <CalculatedField CalculationType="1" WordWrap="0" Width="80" X="700" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="crm_oportunidadventa.totalventa*crm_oportunidadventa.probabilidad/100" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	 
+	 <Line Width="1" Y1="23" Y2="23" X1="0" X2="860" Style="1" Color="0,0,0" />
+ </DetailFooter>
+ 
+ <DetailFooter Height="25" Level="1" >
+	 <Label WordWrap="0" Width="100" X="360" Y="0" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Totales" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial Narrow"/>
+	 <CalculatedField CalculationType="1" WordWrap="0" Width="80" X="460" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="crm_oportunidadventa.totalventa" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	 <CalculatedField CalculationType="1" WordWrap="0" Width="80" X="700" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="crm_oportunidadventa.totalventa*crm_oportunidadventa.probabilidad/100" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	 
+	 <Line Width="2" Y1="23" Y2="23" X1="0" X2="860" Style="1" Color="0,0,0" />
+ </DetailFooter>
+ 	 
+<PageFooter Height="5" PrintFrequency="1" >
+ </PageFooter>
+</KugarTemplate>

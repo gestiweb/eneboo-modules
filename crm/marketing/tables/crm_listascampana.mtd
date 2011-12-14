@@ -1,0 +1,88 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>crm_listascampana</name>
+	<!--Listas asociadas a una campaña-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Listas de campaña")</alias>
+
+	<field>
+		<name>idlista</name>
+		<!--Identificador interno del criterio-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>crm_valoresalias</table>
+			<field>idlista</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>orden</name>
+		<!--Orden de ejecucución la lista -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<ck>true</ck>
+		<type>int</type>
+	</field>
+	
+	<field>
+		<name>codlista</name>
+		<!--Identificador de la lista-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Lista")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+		
+		<relation>
+			<table>crm_listasmark</table>
+			<field>codlista</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codcampana</name>
+		<!--Código de la Campaña-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Campaña")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<ck>true</ck>
+		<type>string</type>
+		<length>10</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>crm_campanas</table>
+			<field>codcampana</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>tipo</name>
+		<!--Tipo de la lista-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+		<optionslist>Normal,De exclusión</optionslist>
+		<default>Normal</default>
+	</field>
+	
+</TMD>

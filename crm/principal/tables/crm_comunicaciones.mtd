@@ -1,0 +1,241 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>crm_comunicaciones</name>
+	<!--Registran comunicaciones mantenidas entre usuarios, clientes, prescriptores o contactos-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Comunicaciones")</alias>
+
+	<field>
+		<name>codcomunicacion</name>
+		<!--Código de las Comunicaciones-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+	</field>
+	
+	<field>
+		<name>fecha</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>asunto</name>
+		<!--Asunto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asunto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>canal</name>
+		<!--Por que vía se desarrolla la comunicación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Canal")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<optionslist>Teléfono,E-mail</optionslist>
+		<default>E-mail</default>
+		<type>string</type>
+		<length>10</length>
+	</field>
+	
+	<field>
+		<name>origen</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Origen")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>destino</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Destino")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>300</length>
+	</field>
+	
+	<field>
+		<name>contenido</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contenido")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+	
+	<field>
+		<name>estado</name>
+		<!--Estado en que se encuentra la comunicación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<optionslist>Borrador,Enviado,Recibido</optionslist>
+		<default>Enviado</default>
+		<type>string</type>
+		<length>10</length>
+	</field>
+	
+	<field>
+		<name>codcliente</name>
+		<!--Código identificativo del cliente-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cliente")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<relation>
+			<table>clientes</table>
+			<field>codcliente</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codcontacto</name>
+		<!--Código identificativo de los contactos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contacto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<relation>
+			<table>crm_contactos</table>
+			<field>codcontacto</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codtarjeta</name>
+		<!--Código de la Tarjeta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tarjeta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>crm_tarjetas</table>
+			<field>codtarjeta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codincidencia</name>
+		<!--Código de la Incidencia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Incidencia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+		
+		<relation>
+			<table>crm_incidencias</table>
+			<field>codincidencia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codoportunidad</name>
+		<!--Código de la Oportunidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Oportunidad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+		
+		<relation>
+			<table>crm_oportunidadventa</table>
+			<field>codoportunidad</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>idusuario</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Responsable")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+		<relation>
+			<table>flusers</table>
+			<field>iduser</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codproyecto</name>
+		<!--Código del proyecto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Proyecto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>cl_proyectos</table>
+			<field>codproyecto</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codsubproyecto</name>
+		<!--Código del subproyecto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subproyecto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>cl_subproyectos</table>
+			<field>codsubproyecto</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codcampana</name>
+		<!--Campaña de marketing-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Campaña")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		
+		<relation>
+			<table>crm_campanas</table>
+			<field>codcampana</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>iddestinatario</name>
+		<!--Destinatario de campaña-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Destinatario de campaña")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>crm_destinacampana</table>
+			<field>iddestinatario</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+</TMD>

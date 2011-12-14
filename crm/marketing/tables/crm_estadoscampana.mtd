@@ -1,0 +1,42 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>crm_estadoscampana</name>
+	<!--Los estados reflejan los posibles estados de una campaña de márketing-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Estados de Campaña")</alias>
+
+	<field>
+		<name>codestado</name>
+		<!--Identificador interno del Estado de la campaña-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>20</length>
+		
+		<relation>
+			<table>crm_campanas</table>
+			<field>codestado</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>valordefecto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor por defecto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+		<editable>true</editable>
+	</field>
+	
+</TMD>
