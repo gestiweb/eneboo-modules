@@ -152,9 +152,7 @@ function oficial_bufferChanged(fN:String)
 		}
 	}
 }
-/** @class_definition oficial */
-//// OFICIAL /////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+
 /** \D Comprueba si el país es España que el código postal sea el equivalente a la provincia
 \end */
 function oficial_comprobarCPProvincia():Boolean
