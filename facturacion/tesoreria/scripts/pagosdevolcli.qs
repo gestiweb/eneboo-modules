@@ -49,8 +49,8 @@ class oficial extends interna {
 	var curFacturaCli:FLSqlCursor;
 	var curFacturaProv:FLSqlCursor;
 	var curRelacionado:FLSqlCursor;
-	
-	function oficial( context ) { interna( context ); } 
+
+	function oficial( context ) { interna( context ); }
 	function desconexion() {
 		return this.ctx.oficial_desconexion();
 	}
@@ -119,17 +119,17 @@ const iface = new ifaceCtx( this );
 function interna_init()
 {
 	var cursor:FLSqlCursor = this.cursor();
-	
+
 	if (!this.iface.curRelacionado)
 		this.iface.curRelacionado = cursor.cursorRelation();
-	
+
 	var util:FLUtil = new FLUtil();
 	this.iface.bngTasaCambio = this.child("bngTasaCambio");
 	this.iface.divisaEmpresa = util.sqlSelect("empresa", "coddivisa", "1 = 1");
 	this.iface.noGenAsiento = false;
 
 	this.iface.contabActivada = sys.isLoadedModule("flcontppal") && util.sqlSelect("empresa", "contintegrada", "1 = 1");
-			
+
 	this.iface.ejercicioActual = flfactppal.iface.pub_ejercicioActual();
 	if (this.iface.contabActivada) {
 		this.iface.longSubcuenta = util.sqlSelect("ejercicios", "longsubcuenta", "codejercicio = '" + this.iface.ejercicioActual + "'");
@@ -148,7 +148,7 @@ function interna_init()
 	connect(this.iface.bngTasaCambio, "clicked(int)", this, "iface.bngTasaCambio_clicked()");
 	connect(this.child("toolButtonInsertFC"), "clicked()", this, "iface.insertarFacturaDevolCli");
 	connect(this.child("toolButtonInsertFP"), "clicked()", this, "iface.insertarFacturaDevolProv");
-	
+
 	var curPagosDevol:FLSqlCursor = new FLSqlCursor("pagosdevolcli");
 	curPagosDevol.select("idrecibo = " + this.iface.curRelacionado.valueBuffer("idrecibo") + " ORDER BY fecha, idpagodevol");
 	var last:Boolean = false;
@@ -228,8 +228,8 @@ function interna_validateForm():Boolean
 	if (this.iface.contabActivada && this.iface.noGenAsiento && this.cursor().valueBuffer("tipo") == "Devolución" && !this.child("fdbNoGenerarAsiento").value()) {
 		MessageBox.warning(util.translate("scripts", "No se puede generar el asiento de una devolución cuyo pago no tiene asiento asociado"), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
 		return false;
-	}	
-	
+	}
+
 	/** \C
 	Si la contabilidad está integrada, se debe seleccionar una subcuenta válida a la que asignar el asiento de pago o devolución
 	\end */
@@ -239,7 +239,7 @@ function interna_validateForm():Boolean
 	}
 /*
 	La fecha de un pago o devolución debe ser siempre igual o posterior\na la fecha de emisión del recibo
-	\end 
+	\end
 	if (util.daysTo(this.iface.curRelacionado.valueBuffer("fecha"), cursor.valueBuffer("fecha")) < 0) {
 		MessageBox.warning(util.translate("scripts", "La fecha de un pago o devolución debe ser siempre igual o posterior\na la fecha de emisión del recibo."), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
 		return false;
@@ -268,7 +268,7 @@ function interna_validateForm():Boolean
 		if (respuesta != MessageBox.Yes)
 			return false;
 	}
-	
+
 	return true;
 }
 
@@ -325,7 +325,7 @@ function interna_calculateField(fN:String):String
 								qrySubcuenta.setFrom("co_cuentas c INNER JOIN co_subcuentas s ON c.idcuenta = s.idcuenta");
 								qrySubcuenta.setWhere("c.codejercicio = '" + this.iface.ejercicioActual + "'" +
 										" AND c.idcuentaesp = 'CAJA'");
-								
+
 								if (!qrySubcuenta.exec())
 										return false;
 								if (!qrySubcuenta.first())
@@ -343,7 +343,7 @@ function interna_calculateField(fN:String):String
 																 "'");
 				break;
 				/** \C
-				La cuenta bancaria por defecto será la asociada al cliente (Cuenta 'Remesar en'). Si el cliente no está informado o no tiene especificada la cuenta, se tomará la cuenta asociada a la forma de pago asignada a la factura del recibo. 
+				La cuenta bancaria por defecto será la asociada al cliente (Cuenta 'Remesar en'). Si el cliente no está informado o no tiene especificada la cuenta, se tomará la cuenta asociada a la forma de pago asignada a la factura del recibo.
 				\end */
 		case "codcuenta":
 				res = false;
@@ -359,7 +359,7 @@ function interna_calculateField(fN:String):String
 				var entidad:String = cursor.valueBuffer("ctaentidad");
 				var agencia:String = cursor.valueBuffer("ctaagencia");
 				var cuenta:String = cursor.valueBuffer("cuenta");
-				if ( !entidad.isEmpty() && !agencia.isEmpty() && ! cuenta.isEmpty() 
+				if ( !entidad.isEmpty() && !agencia.isEmpty() && ! cuenta.isEmpty()
 						&& entidad.length == 4 && agencia.length == 4 && cuenta.length == 10 ) {
 					var util:FLUtil = new FLUtil();
 					var dc1:String = util.calcularDC(entidad + agencia);
@@ -415,7 +415,7 @@ function oficial_bufferChanged(fN:String)
 		}
 		break;
 	}
-	
+
 }
 
 /** \D
@@ -444,7 +444,7 @@ function oficial_insertarFacturaDevolCli()
 	curFactura.setModeAccess(curFactura.Insert);
 	if (!curFactura.commitBufferCursorRelation())
 		return false;
-	
+
 	if (!this.iface.curFacturaCli)
 		this.iface.curFacturaCli = new FLSqlCursor ("facturascli");
 
@@ -458,11 +458,11 @@ function oficial_insertarFacturaDevolCli()
 	qryFacturaCli.setForwardOnly(true);
 	if (!qryFacturaCli.exec()) {
 		MessageBox.critical(util.translate("scripts", "Error al obtener los datos del cliente %1").arg(codCliente), MessageBox.Ok, MessageBox.NoButton);
-		return false; 
+		return false;
 	}
 	if (!qryFacturaCli.first()) {
 		MessageBox.warning(util.translate("scripts", "No se encuentran los datos de facturación del cliente %1").arg(codCliente), MessageBox.Ok, MessageBox.NoButton);
-		return false; 
+		return false;
 	}
 /*
 	var refGastosCli:String = flfactppal.iface.pub_valorDefectoEmpresa("gastosdevolcli");
@@ -492,7 +492,7 @@ function oficial_insertarFacturaDevolCli()
 
 		this.iface.curFacturaCli.setModeAccess(this.iface.curFacturaCli.Edit);
 		this.iface.curFacturaCli.refreshBuffer();
-		
+
 		if (!this.iface.totalesFacturaCli())
 			return false;
 
@@ -547,7 +547,7 @@ function oficial_lineaFacturaCli(idFactura:String, refGastosCli:String):Boolean
 
 	if (!curLinea.commitBuffer())
 		return false;
-	
+
 	return true;
 }
 */
@@ -605,7 +605,7 @@ function oficial_insertarFacturaDevolProv()
 	curFactura.setModeAccess(curFactura.Insert);
 	if (!curFactura.commitBufferCursorRelation())
 		return false;
-	
+
 	if (!this.iface.curFacturaProv)
 		this.iface.curFacturaProv = new FLSqlCursor ("facturasprov");
 
@@ -629,11 +629,11 @@ function oficial_insertarFacturaDevolProv()
 	qryFacturaProv.setForwardOnly(true);
 	if (!qryFacturaProv.exec()) {
 		MessageBox.critical(util.translate("scripts", "Error al obtener los datos del proveedor %1").arg(codProveedor), MessageBox.Ok, MessageBox.NoButton);
-		return false; 
+		return false;
 	}
 	if (!qryFacturaProv.first()) {
 		MessageBox.warning(util.translate("scripts", "No se encuentran los datos de facturación del proveedor %1").arg(codProveedor), MessageBox.Ok, MessageBox.NoButton);
-		return false; 
+		return false;
 	}
 
 	this.iface.curFacturaProv.setModeAccess(this.iface.curFacturaProv.Insert);
@@ -698,4 +698,5 @@ function oficial_comprobarRemesaPagada(idRemesa:String):Boolean
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+

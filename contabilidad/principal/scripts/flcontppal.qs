@@ -29,7 +29,7 @@ class interna {
 	function interna( context ) { this.ctx = context; }
 	function init() { this.ctx.interna_init(); }
 	function beforeCommit_co_regiva(curRegIVA:FLSqlCursor):Boolean {
-		return this.ctx.interna_beforeCommit_co_regiva(curRegIVA); 
+		return this.ctx.interna_beforeCommit_co_regiva(curRegIVA);
 	}
 	function afterCommit_co_regiva(curRegiva:FLSqlCursor):Boolean {
 		return this.ctx.interna_afterCommit_co_regiva(curRegiva);
@@ -90,7 +90,7 @@ class oficial extends interna {
 		return this.ctx.oficial_calcularSaldo(idSubcuenta);
 	}
 	function formatearCodSubcta(curFormSubcuenta:Object, campoSubcuenta:String, longSubcuenta:Number,  posPuntoActual:Number):Number {
-		return this.ctx.oficial_formatearCodSubcta(curFormSubcuenta, campoSubcuenta, longSubcuenta, posPuntoActual); 
+		return this.ctx.oficial_formatearCodSubcta(curFormSubcuenta, campoSubcuenta, longSubcuenta, posPuntoActual);
 	}
 	function rellenarSubcuentas() {
 		return this.ctx.oficial_rellenarSubcuentas();
@@ -272,27 +272,27 @@ function interna_beforeCommit_co_regiva(curRegIVA):Boolean
 
 				var iniRegIVA:Date = new Date(Date.parse(curRegIVA.valueBuffer("fechainicio").toString()));
 				var finRegIVA:Date = new Date(Date.parse(curRegIVA.valueBuffer("fechafin").toString()));
-				
+
 				/** \C El período no puede superponerse a ningún otro período de regularización
 				\end \end */
 				if (util.sqlSelect("co_regiva", "idregiva",
-						"fechainicio <= '" + iniRegIVA + "' AND fechafin >= '" + iniRegIVA + "'" + 
+						"fechainicio <= '" + iniRegIVA + "' AND fechafin >= '" + iniRegIVA + "'" +
 						" AND idregiva <> " + curRegIVA.valueBuffer("idregiva"))) {
-						MessageBox.warning(util.translate("scripts", 
+						MessageBox.warning(util.translate("scripts",
 								"La fecha de inicio del período se superpone a un período ya existente"),
 								MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
 						return false;
 				}
 				if (util.sqlSelect("co_regiva", "idregiva",
-						"fechainicio <= '" + finRegIVA + "' AND fechafin >= '" + iniRegIVA + "'"  + 
+						"fechainicio <= '" + finRegIVA + "' AND fechafin >= '" + iniRegIVA + "'"  +
 						" AND idregiva <> " + curRegIVA.valueBuffer("idregiva"))) {
-						MessageBox.warning(util.translate("scripts", 
+						MessageBox.warning(util.translate("scripts",
 								"La fecha de fin del período se superpone a un período ya existente"),
 								MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
 						return false;
 				}
 		}
-		
+
 		return true;
 }
 
@@ -316,8 +316,8 @@ function interna_beforeCommit_co_subcuentas(curSubcuenta):Boolean
 function interna_beforeCommit_co_asientos(curAsiento):Boolean
 {
 	var util:FLUtil = new FLUtil();
-	
-	/** \C La fecha del asiento debe pertenecer a un ejercicio abierto				
+
+	/** \C La fecha del asiento debe pertenecer a un ejercicio abierto
 		\end \end */
 	switch(curAsiento.modeAccess()) {
 		case curAsiento.Edit: {
@@ -428,8 +428,8 @@ function interna_afterCommit_co_regiva(curRegiva):Boolean
 			break;
 		}
 	}
-	
-	return true;	
+
+	return true;
 }
 
 function interna_beforeCommit_co_dotaciones(curDotacion:FLSqlCursor):Boolean
@@ -437,7 +437,7 @@ function interna_beforeCommit_co_dotaciones(curDotacion:FLSqlCursor):Boolean
 	if (!this.iface.generarAsientoDotacion(curDotacion)) {
 		return false;
 	}
-	
+
 	return true;
 }
 
@@ -471,8 +471,8 @@ function interna_afterCommit_co_dotaciones(curDotacion:FLSqlCursor):Boolean
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 /** \D Ejecuta una query especificada
- 
-@param tabla Argumento de setTablesList 
+
+@param tabla Argumento de setTablesList
 @param campo Argumento de setSelect
 @param tabla Argumento de setWhere
 @param tabla Argumento de setFrom
@@ -545,7 +545,7 @@ function oficial_valoresIniciales()
 				["INGRF","Ingresos por recargo financiero"],
 				["DEVCOM","Devoluciones de compras"],
 				["DEVVEN","Devoluciones de ventas"]];
-				
+
 		var cursor:FLSqlCursor = new FLSqlCursor("co_cuentasesp");
 		for (i = 0; i < datos.length; i++) {
 				cursor.setModeAccess(cursor.Insert);
@@ -553,7 +553,7 @@ function oficial_valoresIniciales()
 				cursor.setValueBuffer("idcuentaesp", datos[i][0]);
 				cursor.setValueBuffer("descripcion", datos[i][1]);
 				cursor.commitBuffer();
-		} 
+		}
 		this.iface.generarCodigosBalance();
 }
 
@@ -565,21 +565,21 @@ function oficial_comprobarEjercicios()
 		var q:FLSqlQuery = new FLSqlQuery();
 		q.setTablesList("empresa,ejercicios,co_epigrafes");
 		q.setSelect("ej.codejercicio, ej.nombre, ej.longsubcuenta");
-		q.setFrom("empresa em INNER JOIN ejercicios ej" + 
+		q.setFrom("empresa em INNER JOIN ejercicios ej" +
 				" ON em.codejercicio = ej.codejercicio" +
 				" LEFT OUTER JOIN co_epigrafes ep" +
 				" ON em.codejercicio = ep.codejercicio");
 		q.setWhere("ep.codejercicio IS NULL");
 		try { q.setForwardOnly( true ); } catch (e) {}
-		
+
 		if (!q.exec())
 				return;
-		
+
 		var res;
 		if (q.next()) {
 				res = MessageBox.information(util.translate("scripts", "El ejercicio actual: ") +
 						q.value(0) + "-" + q.value(1) +
-						util.translate("scripts", 
+						util.translate("scripts",
 						" no tiene Plan General Contable asociado\n¿desea crearlo ahora?"),
 						MessageBox.Yes, MessageBox.No, MessageBox.NoButton);
 
@@ -587,14 +587,14 @@ function oficial_comprobarEjercicios()
 						var dialog:Dialog = new Dialog;
 						dialog.okButtonText = util.translate("scripts", "Aceptar");
 						dialog.cancelButtonText = util.translate("scripts", "Cancelar");
-						
+
 						var ledLongSubcuenta:SpinBox = new SpinBox;
 						ledLongSubcuenta.value = q.value(2);
 						ledLongSubcuenta.minimum = 5;
 						ledLongSubcuenta.maximum = 15;
 						ledLongSubcuenta.label = "Número de dígitos de subcuenta: ";
 						dialog.add(ledLongSubcuenta);
-						
+
 						if(dialog.exec()) {
 								var curEjercicio:FLSqlCursor = new FLSqlCursor("ejercicios");
 								curEjercicio.select("codejercicio = '" + q.value(0) + "'");
@@ -619,13 +619,13 @@ function oficial_comprobarEjercicios()
 function oficial_generarPGC(codEjercicio)
 {
 		var util:FLUtil = new FLUtil();
-		
+
 		var numCuentasEsp:Number = this.iface.valorPorClave("co_cuentasesp", "count(idcuentaesp)", "1 = 1");
 		if (numCuentasEsp == 0) this.iface.valoresIniciales();
-		
+
 		var curEpi:FLSqlCursor = new FLSqlCursor("co_epigrafes");
 		var curCue:FLSqlCursor = new FLSqlCursor("co_cuentas");
-		
+
 		var datos =	[["1","1. FINANCIACION BASICA","EPI","1","","1","",""],
 				["2","10. CAPITAL","EPI","10","1","10","",""],
 				["1","100. Capital social","CUE","100","2","10","","P-A-I"],
@@ -1312,7 +1312,7 @@ function oficial_generarPGC(codEjercicio)
 
 		var idEpigrafeIni:Number = util.sqlSelect("co_epigrafes", "MAX(idepigrafe)","idepigrafe <> 0");
 		var idCuentaIni:Number = util.sqlSelect("co_cuentas", "MAX(idcuenta)","idcuenta <> 0");
-		idEpigrafeIni = parseFloat (idEpigrafeIni);  
+		idEpigrafeIni = parseFloat (idEpigrafeIni);
 		idCuentaIni = parseFloat (idCuentaIni);
 		if (!idEpigrafeIni)
 				idEpigrafeIni = 0;
@@ -1329,16 +1329,16 @@ function oficial_generarPGC(codEjercicio)
 				if (datos[i][2] == "EPI") {
 						if (idPadre == 0)
 								idPadre = "";
-								
+
 						curEpi.setModeAccess(curEpi.Insert);
 						curEpi.refreshBuffer();
 						curEpi.setValueBuffer("descripcion", datos[i][1]);
 						curEpi.setValueBuffer("codepigrafe", datos[i][3]);
 						curEpi.setValueBuffer("codejercicio", codEjercicio);
-						
+
 						if (parseFloat(datos[i][4]) == 0)
 								idPadre = "";
-						else 
+						else
 								idPadre = idEpigrafeIni + parseFloat(datos[i][4]);
 						curEpi.setValueBuffer("idpadre", idPadre);
 						idEpigrafe = idEpigrafeIni + parseFloat(datos[i][0]);
@@ -1347,7 +1347,7 @@ function oficial_generarPGC(codEjercicio)
 				} else {
 						idCuenta = idCuentaIni + parseFloat(datos[i][0]);
 						idEpigrafe = idEpigrafeIni + parseFloat(datos[i][4]);
-								
+
 						curCue.setModeAccess(curCue.Insert);
 						curCue.refreshBuffer();
 						curCue.setValueBuffer("descripcion", datos[i][1]);
@@ -1358,7 +1358,7 @@ function oficial_generarPGC(codEjercicio)
 						curCue.setValueBuffer("idcuentaesp", datos[i][6]);
 						curCue.setValueBuffer("codbalance", datos[i][7]);
 						curCue.commitBuffer();
-				
+
 				}
 				if (j++ > 50) {
 						j = 0;
@@ -1376,7 +1376,7 @@ function oficial_generarCodigosBalance()
 
 		var curCbl:FLSqlCursor = new FLSqlCursor("co_codbalances");
 		curCbl.setActivatedCheckIntegrity(false);
-		
+
 		var datos =
 				[["A","A","ACTIVO","","","","","",""],
 				["A-A","A","ACTIVO","A","A) ACCIONISTAS ( SOCIOS ) POR DESEMBOLSOS NO EXIGIDOS","","","",""],
@@ -1597,7 +1597,7 @@ function oficial_generarCodigosBalance()
 				["P-E-VII","P","PASIVO","E","E) ACREEDORES A CORTO PLAZO","VII","VII. Ajustes por periodificación","",""],
 				["P-F","P","PASIVO","F","F) PROVISIONES PARA RIESGOS Y GASTOS A CORTO PLAZO","","","",""],
 				["P-G","P","PASIVO","G","TOTAL  PASIVO","","","",""]];
-		
+
 		for (i = 0; i < datos.length; i++) {
 				with(curCbl) {
 						setModeAccess(curCbl.Insert);
@@ -1622,14 +1622,14 @@ function oficial_generarCodigosBalance()
 function oficial_generarSubcuentas(codEjercicio, longSubcuenta)
 {
 		var util:FLUtil = new FLUtil();
-		var i,j:Number; 
+		var i,j:Number;
 		var numCuentas:Number = this.iface.valorPorClave("co_cuentas", "count(codcuenta)", "codejercicio = '" + codEjercicio + "'");
-		
+
 		var cont1:Number = 0
 		var cont2:Number = 0;
 		util.createProgressDialog(util.translate("scripts", "Generando Subcuentas"), numCuentas);
 		util.setProgress(0);
-		
+
 		var curCuenta:FLSqlCursor = new FLSqlCursor("co_cuentas");
 		var curSubcuenta:FLSqlCursor = new FLSqlCursor("co_subcuentas");
 		curCuenta.setActivatedCheckIntegrity(false);
@@ -1637,28 +1637,28 @@ function oficial_generarSubcuentas(codEjercicio, longSubcuenta)
 		curCuenta.select("codejercicio = '" + codEjercicio + "'");
 		var codSubcuenta:String;
 		var numCeros:Number;
-		
+
 		while (curCuenta.next()) {
 				curCuenta.setModeAccess(curCuenta.Browse);
 				curCuenta.refreshBuffer();
 				codSubcuenta = curCuenta.valueBuffer("codcuenta");
-				
+
 				//D Para evitar duplicados en las subcuentas cuando hay dos cuentas con el código x00 y x000
 				var auxCSC:String = codSubcuenta.toString();
-				
+
 				numCeros = longSubcuenta - codSubcuenta.toString().length;
 				for (var i = 0; i < numCeros; i++)
 						codSubcuenta += "0";
-						
-				if (auxCSC.length > 3 && auxCSC.right(1) == "0") 
+
+				if (auxCSC.length > 3 && auxCSC.right(1) == "0")
 						codSubcuenta = codSubcuenta.left(codSubcuenta.length-1) + "1";
-						
+
 				//D Para evitar duplicados en las subcuentas durante las importaciones
 				curSubcuenta.select("codsubcuenta = '" + codSubcuenta + "' AND codejercicio = '" + codEjercicio + "'");
 				if (curSubcuenta.first()) {
 					continue;
 				}
-				
+
 				with(curSubcuenta) {
 						setModeAccess(curSubcuenta.Insert);
 						refreshBuffer();
@@ -1671,7 +1671,7 @@ function oficial_generarSubcuentas(codEjercicio, longSubcuenta)
 						setValueBuffer("coddivisa", util.sqlSelect("empresa", "coddivisa", "1 = 1"));
 						commitBuffer();
 				}
-				
+
 				cont1++;
 				cont2++;
 				if (cont2 > 20) {
@@ -1684,7 +1684,7 @@ function oficial_generarSubcuentas(codEjercicio, longSubcuenta)
 
 /** \D Utilizado para realizar una consulta sencilla rápidamente con un sólo valor como resultado. Se realiza mediante un FLSqlQuery
 
-@param tabla Argumento de setTablesList 
+@param tabla Argumento de setTablesList
 @param campo Argumento de setSelect
 @param tabla Argumento de setWhere
 @param tabla Argumento de setFrom
@@ -1781,7 +1781,7 @@ function oficial_calcularSaldo(idSubcuenta):Boolean
 	}
 	if (!curSubcuenta.commitBuffer())
 		return false;
-	
+
 	return true;
 }
 
@@ -1802,25 +1802,25 @@ function oficial_formatearCodSubcta(curFormSubcuenta:Object, campoSubcuenta:Stri
 	var valCodSubcta:String = curFormSubcuenta.child(campoSubcuenta).value().toString();
 	var lenValCodSubcta:Number = valCodSubcta.length;
 	var nuevoPunto:Number = valCodSubcta.find(".");
-	
-	if (nuevoPunto < 0 && lenValCodSubcta > longSubcuenta) { 
+
+	if (nuevoPunto < 0 && lenValCodSubcta > longSubcuenta) {
 		// En caso de superar el nº de dígitos, se eliminarán los ceros insertados por el "."
 		if (posPuntoActual >= 0) {
-			if (valCodSubcta.mid(posPuntoActual,1) == "0") 
+			if (valCodSubcta.mid(posPuntoActual,1) == "0")
 				// Sólo en caso de que sigan existiendo "0" insertados
 				valCodSubcta = valCodSubcta.left(posPuntoActual) + valCodSubcta.right(longSubcuenta - posPuntoActual);
 		}
-		if (valCodSubcta.length > longSubcuenta) { 
+		if (valCodSubcta.length > longSubcuenta) {
 			// Pero si ya se eliminaron los "0" insertados, se elimina el último dígito tecleado.
 			valCodSubcta = valCodSubcta.left(longSubcuenta);
-		} 
+		}
 		cambiado = true;
 	}
 	if (nuevoPunto > -1 && posPuntoActual > -1) {
 		// El punto pulsado por segunda vez debe sustituir al anterior
 		posPuntoActual = -1;
 	}
-	
+
 	if (posPuntoActual == -1)
 		posPuntoActual = nuevoPunto;
 	if (nuevoPunto > -1) {
@@ -2157,7 +2157,7 @@ function oficial_generarAsientoDotacion(curDotacion:FLSqlCursor):Boolean
 	var datosAsiento:Array = [];
 	var valoresDefecto:Array;
 	var fecha:Date = curDotacion.valueBuffer("fecha");
-	
+
 	var idAsiento:Number = curDotacion.valueBuffer("idasiento");
 	var ejercicio:String = "";
 	if (idAsiento) {
@@ -2169,11 +2169,11 @@ function oficial_generarAsientoDotacion(curDotacion:FLSqlCursor):Boolean
 // 		qryEjercicio.setSelect("codejercicio");
 // 		qryEjercicio.setFrom("ejercicios");
 // 		qryEjercicio.setWhere("fechainicio <= '" + fecha + "' AND fechafin >= '" + fecha + "'");
-// 		
+//
 // 		if (!qryEjercicio.exec()) {
 // 			return false;
 // 		}
-// 	
+//
 // 		while (qryEjercicio.next()) {
 // 			ejercicios[ejercicios.length] = qryEjercicio.value("codejercicio");
 // 		}
@@ -2198,11 +2198,11 @@ function oficial_generarAsientoDotacion(curDotacion:FLSqlCursor):Boolean
 // 				opciones[j].text = ejercicios[j] + " - " + nombreEjercicio;
 // 				gbx.add( opciones[j] );
 // 			}
-// 			
+//
 // 			if (!dialog.exec() ) {
 // 				return false;
 // 			}
-// 			
+//
 // 			for (var j=0; j < ejercicios.length; j++) {
 // 				if (opciones[j].checked) {
 // 					seleccion = j;
@@ -2248,7 +2248,7 @@ function oficial_generarPartidasDotacion(curDotacion:FLSqlCursor, idAsiento:Numb
 	var tasaConv:Number = parseFloat(util.sqlSelect("divisas","tasaconv","coddivisa = '" + codDivisa + "'"));
 
 	var importe:Number = curDotacion.valueBuffer("importe");
-	var importeME:Number = importe * tasaConv;		
+	var importeME:Number = importe * tasaConv;
 	importe = util.roundFieldValue(importe, "co_partidas", "haber");
 	importeME = util.roundFieldValue(importeME, "co_partidas", "haberme");
 
@@ -2274,7 +2274,7 @@ function oficial_generarPartidasDotacion(curDotacion:FLSqlCursor, idAsiento:Numb
 		setValueBuffer("haberME", importeME);
 		setValueBuffer("concepto", util.translate("scripts", "Dotación de ") + util.sqlSelect("co_amortizaciones","elemento","codamortizacion = '" + curDotacion.valueBuffer("codamortizacion") + "'") + " - " + util.dateAMDtoDMA(fecha));
 	}
-	
+
 	if (!curPartida.commitBuffer())
 			return false;
 
@@ -2301,7 +2301,7 @@ function oficial_generarPartidasDotacion(curDotacion:FLSqlCursor, idAsiento:Numb
 		setValueBuffer("haberME", 0);
 		setValueBuffer("concepto", util.translate("scripts", "Dotación de ") + util.sqlSelect("co_amortizaciones","elemento","codamortizacion = '" + curDotacion.valueBuffer("codamortizacion") + "'") + " - " + util.dateAMDtoDMA(fecha));
 	}
-	
+
 	if (!curPartida.commitBuffer())
 		return false;
 
@@ -2378,7 +2378,7 @@ function oficial_copiarCuenta(codCuenta:String, codEjercicioAnt:String, codEjerc
 	}
 	curCuentaOrigen.setModeAccess(curCuentaOrigen.Browse);
 	curCuentaOrigen.refreshBuffer();
-	
+
 
 	var codEpigrafe:String = curCuentaOrigen.valueBuffer("codepigrafe");
 	var idEpigrafe:String = util.sqlSelect("co_epigrafes", "idepigrafe", "codepigrafe = '" + codEpigrafe + "' AND codejercicio = '" + codEjercicio + "'");
@@ -2386,7 +2386,7 @@ function oficial_copiarCuenta(codCuenta:String, codEjercicioAnt:String, codEjerc
 		MessageBox.warning(util.translate("scripts", "El epígrafe %1 no existe en el ejercicio %2.").arg(codEpigrafe).arg(codEjercicio), MessageBox.Ok, MessageBox.NoButton);
 		return false;
 	}
-	
+
 	var curCuenta:FLSqlCursor = new FLSqlCursor("co_cuentas");
 	curCuenta.setModeAccess(curCuenta.Insert);
 	curCuenta.refreshBuffer();
@@ -2412,4 +2412,5 @@ function oficial_copiarCuenta(codCuenta:String, codEjercicioAnt:String, codEjerc
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+

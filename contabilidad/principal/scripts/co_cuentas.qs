@@ -39,7 +39,7 @@ class interna {
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
 	var ejercicioActual:String;
-    function oficial( context ) { interna( context ); } 
+    function oficial( context ) { interna( context ); }
 	function desconexion() { return this.ctx.oficial_desconexion(); }
 	function bufferChanged(fN) { return this.ctx.oficial_bufferChanged(fN); }
 }
@@ -80,7 +80,7 @@ function interna_init()
 	var util:FLUtil = new FLUtil();
 	var cursor:FLSqlCursor = this.cursor();
 	this.iface.ejercicioActual = flfactppal.iface.pub_ejercicioActual();
-	
+
 	switch(cursor.modeAccess()) {
 		case cursor.Insert:
 			cursor.setValueBuffer("codejercicio", this.iface.ejercicioActual);
@@ -90,7 +90,7 @@ function interna_init()
 			this.child("fdbCodEpigrafe").setDisabled(true);
 			break;
 	}
-	
+
 	this.child("fdbIdEpigrafe").setFilter("codejercicio = '" + this.iface.ejercicioActual + "'");
 	connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
 	connect(this, "closed()", this, "iface.desconexion");
@@ -101,7 +101,7 @@ function interna_calculateField(fN):String
 	var util:FLUtil = new FLUtil();
 	var res:Object;
 	var cursor:FLSqlCursor = this.cursor();
-	
+
 	switch(fN) {
 		/** \D El --codcuenta-- toma como prefijo el --codepigrafe-- al que pertenece
 		\end */
@@ -121,18 +121,18 @@ function interna_validateForm():Boolean
 {
 		var cursor:FLSqlCursor = this.cursor();
 		var util:FLUtil = new FLUtil();
-		
+
 		/** \C El código de cuenta tendrá como prefijo el código del epígrafe al que pertenece
 		\end */
 		var codEpigrafe:String = cursor.valueBuffer("codepigrafe");
 		var codCuenta:String = cursor.valueBuffer("codcuenta");
 		if (codEpigrafe != codCuenta.substring(0, codEpigrafe.length)) {
-				MessageBox.critical(util.translate("scripts", 
+				MessageBox.critical(util.translate("scripts",
 						"El código de la cuenta debe tener como prefijo el de su epígrafe padre"),
 						 MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
 				return false;
 		}
-				
+
 		return true;
 }
 
@@ -168,4 +168,5 @@ function oficial_bufferChanged(fN)
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+

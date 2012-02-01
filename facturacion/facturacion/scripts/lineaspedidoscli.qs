@@ -57,6 +57,9 @@ class oficial extends interna {
 	function datosTablaPadre(cursor:FLSqlCursor):Array {
 		return this.ctx.oficial_datosTablaPadre(cursor);
 	}
+	function dameFiltroReferencia():String {
+		return this.ctx.oficial_dameFiltroReferencia();
+	}
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -166,11 +169,7 @@ function interna_init()
 	this.child("lblComision").setText(this.iface.calculateField("lblComision"));
 	this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
 	
-	var filtroReferencia:String = ""; //this.child("fdbReferencia").filter();
-	if (filtroReferencia != "") {
-		filtroReferencia += " AND ";
-	}
-	filtroReferencia += "sevende";
+	var filtroReferencia:String = this.iface.dameFiltroReferencia();
 	this.child("fdbReferencia").setFilter(filtroReferencia);
 }
 
@@ -472,6 +471,10 @@ function oficial_datosTablaPadre(cursor:FLSqlCursor):Array
 	return datos;
 }
 
+function oficial_dameFiltroReferencia():String
+{
+	return "sevende";
+}
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 

@@ -42,7 +42,8 @@ class oficial extends interna {
 	var tbnAbrirCerrar:Object;
 	var curAlbaran:FLSqlCursor;
 	var curLineaAlbaran:FLSqlCursor;
-
+	var ignorarAvisoStock_:Boolean;
+	
     function oficial( context ) { interna( context ); } 
 	function imprimir(codPedido:String) {
 		return this.ctx.oficial_imprimir(codPedido);
@@ -582,6 +583,7 @@ function oficial_copiaLineas(idPedido:Number, idAlbaran:Number):Boolean
 	var util:FLUtil = new FLUtil;
 	var cantidad:Number;
 	var totalEnAlbaran:Number;
+	this.iface.ignorarAvisoStock_ = false;
 	var curLineaPedido:FLSqlCursor = new FLSqlCursor("lineaspedidoscli");
 	curLineaPedido.select("idpedido = " + idPedido + " AND (cerrada = false or cerrada IS NULL)");
 	while (curLineaPedido.next()) {
@@ -710,13 +712,25 @@ function oficial_comprobarStockEnAlbaranado(curLineaPedido:FLSqlCursor, cantidad
 
 			if (cantidadStock < cantidad) {
 				res["haystock"] = false;
-				var resCuestion:Number = MessageBox.warning(util.translate("scripts", "El artículo %1 no permite ventas sin stocks.\nEstá albaranando más cantidad (%2) que la disponible (%3) ahora mismo en el almacén %4.\n¿Desea continuar dejando el pedido parcialmente albaranado?").arg(referencia).arg(cantidad).arg(cantidadStock).arg(codAlmacen), MessageBox.No, MessageBox.Yes);
-				if (resCuestion != MessageBox.Yes) {
-					res["ok"] = false;
-					return res;
+				if (!this.iface.ignorarAvisoStock_) {
+					var resCuestion:Number = MessageBox.warning(util.translate("scripts", "El artículo %1 no permite ventas sin stocks.\nEstá albaranando más cantidad (%2) que la disponible (%3) ahora mismo en el almacén %4.\n¿Desea continuar dejando el pedido parcialmente albaranado?\n(pulse Ignorar para evitar esta pregunta en el resto de las líneas)").arg(referencia).arg(cantidad).arg(cantidadStock).arg(codAlmacen), MessageBox.No, MessageBox.Yes, MessageBox.Ignore);
+					switch (resCuestion) {
+						case MessageBox.Yes: {
+							break;
+						}
+						case MessageBox.Ignore: {
+							this.iface.ignorarAvisoStock_ = true;
+							break;
+						}
+						default: {
+							res["ok"] = false;
+							return res;
+						}
+					}
 				}
-				if (cantidadStock < 0)
+				if (cantidadStock < 0) {
 					cantidadStock = 0;
+				}
 				res["cantidad"] = cantidadStock;
 			}
 		}

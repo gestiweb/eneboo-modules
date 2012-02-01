@@ -127,7 +127,7 @@ function oficial_tbnCerrar_clicked():Boolean
 
 		if (!this.iface.validarCierre())
 				return false;
-			
+
  		if (!this.iface.comprobarSaldos())
  			return false;
 
@@ -307,7 +307,7 @@ function oficial_asientoCierre():Boolean
 		qryAsientoCierre.setWhere("c.codejercicio = '" + cursor.valueBuffer("codejercicio") + "'" +
 				" AND s.saldo <> 0" +
 				" AND b.naturaleza IN ('ACTIVO', 'PASIVO')");
-		
+
 		if (!qryAsientoCierre.exec())
 				return false;
 
@@ -541,7 +541,7 @@ function oficial_rollbackCierre()
 function oficial_comprobarSaldos():Boolean
 {
 	var util:FLUtil = new FLUtil;
-	
+
 	var qrySaldos:FLSqlQuery = new FLSqlQuery;
 	qrySaldos.setTablesList("co_subcuentas");
 	qrySaldos.setSelect("idsubcuenta");
@@ -550,7 +550,7 @@ function oficial_comprobarSaldos():Boolean
 	try { qrySaldos.setForwardOnly( true ); } catch (e) {}
 	if (!qrySaldos.exec())
 		return false;
-		
+
 	util.createProgressDialog( util.translate( "scripts", "Revisando saldos" ), qrySaldos.size() );
 	var progress:Number = 0;
 	while (qrySaldos.next()) {
@@ -615,4 +615,5 @@ function oficial_crearSubcuentaApertura(codSubcuenta:String, ejNuevo:String):Num
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
