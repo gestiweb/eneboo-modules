@@ -408,46 +408,24 @@ function oficial_controlStockPedidosCli(curLP:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil;
 	
-	if (util.sqlSelect("articulos", "nostock", "referencia = '" + curLP.valueBuffer("referencia") + "'"))
+	if (util.sqlSelect("articulos", "nostock", "referencia = '" + curLP.valueBuffer("referencia") + "'")) {
 		return true;
-
-	var codAlmacen:String = util.sqlSelect("pedidoscli", "codalmacen", "idpedido = " + curLP.valueBuffer("idpedido"));
-	if (!codAlmacen || codAlmacen == "")
-		return true;
-	
-	var stockPedidos:Boolean = flfactppal.iface.pub_valorDefectoEmpresa("stockpedidos");/*
-
-	if(stockPedidos) {
-		if (!this.iface.controlStock(curLP, "cantidad", -1, codAlmacen))
-			return false;
 	}
-	else {*/
-		if (!this.iface.controlStockReservado(curLP, codAlmacen)) {
-			return false;
-		}
-// 	}
 
-	return true;
-}
-
-/** \C
-Actualiza el stock correspondiente al artículo seleccionado en la línea
-\end */
-function oficial_controlStockPedidosProv(curLP:FLSqlCursor):Boolean
-{
-	var util:FLUtil = new FLUtil;
-	
-	if (util.sqlSelect("articulos", "nostock", "referencia = '" + curLP.valueBuffer("referencia") + "'"))
+	var codAlmacen:String;
+	var curRel:FLSqlCursor = curLP.cursorRelation();
+	if (curRel && curRel.table() == "pedidoscli") {
+		codAlmacen = curRel.valueBuffer("codalmacen");
+	} else {
+		codAlmacen = util.sqlSelect("pedidoscli", "codalmacen", "idpedido = " + curLP.valueBuffer("idpedido"));
+	}
+	if (!codAlmacen || codAlmacen == "") {
 		return true;
-
-	var codAlmacen:String = util.sqlSelect("pedidosprov", "codalmacen", "idpedido = " + curLP.valueBuffer("idpedido"));
-	if (!codAlmacen || codAlmacen == "")
-		return true;
+	}
 	
-	if (!this.iface.controlStockPteRecibir(curLP, codAlmacen)) {
+	if (!this.iface.controlStockReservado(curLP, codAlmacen)) {
 		return false;
 	}
-	
 	return true;
 }
 
@@ -460,15 +438,25 @@ function oficial_controlStockAlbaranesCli(curLA:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil();
 
-	var codAlmacen:String = util.sqlSelect("albaranescli", "codalmacen", "idalbaran = " + curLA.valueBuffer("idalbaran"));
-	if (!codAlmacen || codAlmacen == "")
+	if (util.sqlSelect("articulos", "nostock", "referencia = '" + curLA.valueBuffer("referencia") + "'")) {
 		return true;
+	}
 
-	if (util.sqlSelect("articulos", "nostock", "referencia = '" + curLA.valueBuffer("referencia") + "'"))
+	var codAlmacen:String;
+	var curRel:FLSqlCursor = curLA.cursorRelation();
+	if (curRel && curRel.table() == "albaranescli") {
+		codAlmacen = curRel.valueBuffer("codalmacen");
+	} else {
+		codAlmacen = util.sqlSelect("albaranescli", "codalmacen", "idalbaran = " + curLA.valueBuffer("idalbaran"));
+	}
+	if (!codAlmacen || codAlmacen == "") {
 		return true;
-
-	if (!this.iface.controlStock( curLA, "cantidad", -1, codAlmacen ))
+	}
+	
+	
+	if (!this.iface.controlStock( curLA, "cantidad", -1, codAlmacen )) {
 		return false;
+	}
 
 	return true;
 }
@@ -480,19 +468,26 @@ function oficial_controlStockFacturasCli(curLF:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil();
 
-	if (util.sqlSelect("articulos", "nostock", "referencia = '" + curLF.valueBuffer("referencia") + "'"))
+	if (util.sqlSelect("articulos", "nostock", "referencia = '" + curLF.valueBuffer("referencia") + "'")) {
 		return true;
+	}
+	if (util.sqlSelect("facturascli", "automatica", "idfactura = " + curLF.valueBuffer("idfactura"))) {
+		return true;
+	}
 
-	if(util.sqlSelect("facturascli", "automatica", "idfactura = " + curLF.valueBuffer("idfactura")))
+	var codAlmacen:String;
+	var curRel:FLSqlCursor = curLF.cursorRelation();
+	if (curRel && curRel.table() == "facturascli") {
+		codAlmacen = curRel.valueBuffer("codalmacen");
+	} else {
+		codAlmacen = util.sqlSelect("facturascli", "codalmacen", "idfactura = " + curLF.valueBuffer("idfactura"));
+	}
+	if (!codAlmacen || codAlmacen == "") {
 		return true;
-
-	var codAlmacen = util.sqlSelect("facturascli", "codalmacen", "idfactura = " + curLF.valueBuffer("idfactura"));
-	if (!codAlmacen || codAlmacen == "")
-		return true;
-		
-	if (!this.iface.controlStock(curLF, "cantidad", -1, codAlmacen))
+	}
+	if (!this.iface.controlStock(curLF, "cantidad", -1, codAlmacen)) {
 		return false;
-
+	}
 	return true;
 }
 
@@ -522,23 +517,56 @@ function oficial_controlStockComandasCli(curLV:FLSqlCursor):Boolean
 /** \C
 Actualiza el stock correspondiente al artículo seleccionado en la línea
 \end */
+function oficial_controlStockPedidosProv(curLP:FLSqlCursor):Boolean
+{
+	var util:FLUtil = new FLUtil;
+	
+	if (util.sqlSelect("articulos", "nostock", "referencia = '" + curLP.valueBuffer("referencia") + "'")) {
+		return true;
+	}
+
+	var codAlmacen:String;
+	var curRel:FLSqlCursor = curLP.cursorRelation();
+	if (curRel && curRel.table() == "pedidosprov") {
+		codAlmacen = curRel.valueBuffer("codalmacen");
+	} else {
+		codAlmacen = util.sqlSelect("pedidosprov", "codalmacen", "idpedido = " + curLP.valueBuffer("idpedido"));
+	}
+	if (!codAlmacen || codAlmacen == "") {
+		return true;
+	}
+	
+	if (!this.iface.controlStockPteRecibir(curLP, codAlmacen)) {
+		return false;
+	}
+	
+	return true;
+}
+
+/** \C
+Actualiza el stock correspondiente al artículo seleccionado en la línea
+\end */
 function oficial_controlStockAlbaranesProv(curLA:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil();
 
-	if (util.sqlSelect("articulos", "nostock", "referencia = '" + curLA.valueBuffer("referencia") + "'"))
+	if (util.sqlSelect("articulos", "nostock", "referencia = '" + curLA.valueBuffer("referencia") + "'")) {
 		return true;
-
-	var codAlmacen:String = util.sqlSelect("albaranesprov", "codalmacen", "idalbaran = " + curLA.valueBuffer("idalbaran"));
-	if (!codAlmacen || codAlmacen == "")
+	}
+	var codAlmacen:String;
+	var curRel:FLSqlCursor = curLA.cursorRelation();
+	if (curRel && curRel.table() == "albaranesprov") {
+		codAlmacen = curRel.valueBuffer("codalmacen");
+	} else {
+		codAlmacen = util.sqlSelect("albaranesprov", "codalmacen", "idalbaran = " + curLA.valueBuffer("idalbaran"));
+	}
+	if (!codAlmacen || codAlmacen == "") {
 		return true;
+	}
 	
-	if (!this.iface.controlStock(curLA, "cantidad", 1, codAlmacen))
-			return false;
-
-// 	if (!this.iface.controlStock(curLA, "pterecibir", -1, codAlmacen))
-// 			return false;
-
+	if (!this.iface.controlStock(curLA, "cantidad", 1, codAlmacen)) {
+		return false;
+	}
 	return true;
 }
 
@@ -549,19 +577,26 @@ function oficial_controlStockFacturasProv(curLF:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil;
 
-	if (util.sqlSelect("articulos", "nostock", "referencia = '" + curLF.valueBuffer("referencia") + "'"))
+	if (util.sqlSelect("articulos", "nostock", "referencia = '" + curLF.valueBuffer("referencia") + "'")) {
 		return true;
-
-	if(util.sqlSelect("facturasprov", "automatica", "idfactura = " + curLF.valueBuffer("idfactura")))
+	}
+	if (util.sqlSelect("facturasprov", "automatica", "idfactura = " + curLF.valueBuffer("idfactura"))) {
 		return true;
-
-	var codAlmacen:String = util.sqlSelect("facturasprov", "codalmacen", "idfactura = " + curLF.valueBuffer("idfactura"));
-	if (!codAlmacen || codAlmacen == "")
+	}
+	var codAlmacen:String;
+	var curRel:FLSqlCursor = curLF.cursorRelation();
+	if (curRel && curRel.table() == "facturasprov") {
+		codAlmacen = curRel.valueBuffer("codalmacen");
+	} else {
+		codAlmacen = util.sqlSelect("facturasprov", "codalmacen", "idfactura = " + curLF.valueBuffer("idfactura"));
+	}
+	if (!codAlmacen || codAlmacen == "") {
 		return true;
+	}
 
-	if (!this.iface.controlStock(curLF, "cantidad", 1, codAlmacen))
-			return false;
-
+	if (!this.iface.controlStock(curLF, "cantidad", 1, codAlmacen)) {
+		return false;
+	}
 	return true;
 }
 

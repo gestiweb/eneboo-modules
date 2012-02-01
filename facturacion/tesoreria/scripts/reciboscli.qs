@@ -40,7 +40,7 @@ class interna {
 class oficial extends interna {
     var importeInicial:Number;
 	var curReciboDiv:FLSqlCursor;
-    function oficial( context ) { interna( context ); } 
+    function oficial( context ) { interna( context ); }
 	function bufferChanged(fN:String) {
 		return this.ctx.oficial_bufferChanged(fN);
 	}
@@ -99,7 +99,7 @@ const iface = new ifaceCtx( this );
 
 //////////////////////////////////////////////////////////////////
 //// INTERNA /////////////////////////////////////////////////////
-/** 
+/**
 \D Se almacena el valor del importe inicial del recibo
 \end
 \C Los campos --fechav--, --importe--, --codcuenta-- y --coddir-- estarán deshabilitados.
@@ -198,7 +198,7 @@ function oficial_cambiarEstado()
 		this.child("fdbImporte").setDisabled(true);
 	else
 		this.child("fdbImporte").setDisabled(false);
-	
+
 	if (util.sqlSelect("pagosdevolcli", "idremesa", "idrecibo = " + cursor.valueBuffer("idrecibo") + " ORDER BY fecha DESC, idpagodevol DESC") != 0) {
 		this.child("lblRemesado").text = "REMESADO";
 		this.child("fdbFechav").setDisabled(true);
@@ -246,7 +246,7 @@ function oficial_divisionRecibo()
 	if (importeActual != this.iface.importeInicial) {
 		var cursor = form.cursor();
 		var tasaConv = parseFloat(util.sqlSelect("facturascli", "tasaconv", "idfactura = " + cursor.valueBuffer("idfactura")));
-		
+
 		cursor.setValueBuffer("importeeuros", importeActual * tasaConv);
 
 		if (!this.iface.curReciboDiv) {
@@ -347,7 +347,7 @@ function oficial_copiarCampoReciboDiv(nombreCampo:String, cursor:FLSqlCursor, ca
 		this.iface.curReciboDiv.setValueBuffer(nombreCampo, valor);
 	}
 	campoInformado[nombreCampo] = true;
-	
+
 	return true;
 }
 
@@ -391,11 +391,11 @@ function oficial_commonCalculateField(fN:String, cursor:FLSqlCursor):String
 		var entidad:String = cursor.valueBuffer("ctaentidad");
 		var agencia:String = cursor.valueBuffer("ctaagencia");
 		var cuenta:String = cursor.valueBuffer("cuenta");
-		
+
 		if (!entidad) entidad = "";
 		if (!agencia) agencia = "";
 		if (!cuenta) cuenta = "";
-		
+
 		if ( !entidad.isEmpty() && !agencia.isEmpty() && ! cuenta.isEmpty() && entidad.length == 4 && agencia.length == 4 && cuenta.length == 10 ) {
 			var dc1:String = util.calcularDC(entidad + agencia);
 			var dc2:String = util.calcularDC(cuenta);
@@ -407,8 +407,10 @@ function oficial_commonCalculateField(fN:String, cursor:FLSqlCursor):String
 }
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+

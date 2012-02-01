@@ -162,6 +162,8 @@ class oficial extends interna {
 	function validarProvincia(cursor:FLSqlCursor, mtd:Array):Boolean {
 		return this.ctx.oficial_validarProvincia(cursor, mtd);
 	}
+  function  simplify(str)     { return this.ctx.oficial_simplify(str); }
+  function  escapeQuote(str)  { return this.ctx.oficial_escapeQuote(str); }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -264,6 +266,8 @@ class ifaceCtx extends head {
 	function pub_validarProvincia(cursor:FLSqlCursor, mtd:Array):Boolean {
 		return this.validarProvincia(cursor, mtd);
 	}
+  function pub_simplify(str)     { return this.simplify(str); }
+  function pub_escapeQuote(str)  { return this.escapeQuote(str); }
 }
 
 const iface = new ifaceCtx( this );
@@ -715,22 +719,22 @@ function oficial_valoresIniciales()
 	with(cursor) {
 		setModeAccess(cursor.Insert);
 		refreshBuffer();
-		setValueBuffer("codimpuesto", "IVA16");
-		setValueBuffer("descripcion", "I.V.A. 16%");
-		setValueBuffer("iva", "16");
+		setValueBuffer("codimpuesto", "GEN");
+		setValueBuffer("descripcion", "I.V.A. General");
+		setValueBuffer("iva", "18");
 		setValueBuffer("recargo", "4");
 		commitBuffer();
 		setModeAccess(cursor.Insert);
 		refreshBuffer();
-		setValueBuffer("codimpuesto", "IVA7");
-		setValueBuffer("descripcion", "I.V.A. 7%");
-		setValueBuffer("iva", "7");
+		setValueBuffer("codimpuesto", "RED");
+		setValueBuffer("descripcion", "I.V.A. Reducido");
+		setValueBuffer("iva", "8");
 		setValueBuffer("recargo", "1");
 		commitBuffer();
 		setModeAccess(cursor.Insert);
 		refreshBuffer();
-		setValueBuffer("codimpuesto", "IVA4");
-		setValueBuffer("descripcion", "I.V.A. 4%");
+		setValueBuffer("codimpuesto", "SRED");
+		setValueBuffer("descripcion", "I.V.A. Superreducido");
 		setValueBuffer("iva", "4");
 		setValueBuffer("recargo", "0.5");
 		commitBuffer();
@@ -1595,7 +1599,7 @@ function oficial_actualizarContactos20070525():Boolean
 		}
 
 		if ((qryClientes.value("contacto") && qryClientes.value("contacto") != "") && (!qryClientes.value("codcontacto") || qryClientes.value("codcontacto") == "")) {
-				codContacto = util.sqlSelect("crm_contactos", "codcontacto", "nombre = '" + qryClientes.value("contacto") + "'");
+				codContacto = util.sqlSelect("crm_contactos", "codcontacto", "nombre = '" +  this.iface.escapeQuote(qryClientes.value("contacto")) + "'");
 				if (codContacto)
 					this.iface.actualizarContactosDeAgenda20070525(codCliente,codContacto,qryClientes.value("contacto"));
 				else
@@ -2203,6 +2207,22 @@ function oficial_validarProvincia(cursor:FLSqlCursor, mtd:Array):Boolean
 		}
 	}
 	return true;
+}
+
+function oficial_simplify(str)
+{
+  var regExp = new RegExp("( |\n|\r|\t|\f)");
+  regExp.global = true;
+  str = str.replace(regExp, "");
+  return str;
+}
+
+function oficial_escapeQuote(str)
+{
+  var regExp = new RegExp("'");
+  regExp.global = true;
+  str = str.replace(regExp, "''");
+  return str;
 }
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////

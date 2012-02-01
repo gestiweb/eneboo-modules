@@ -43,6 +43,9 @@ class oficial extends interna {
 	function desconectar() {
 		return this.ctx.oficial_desconectar();
 	}
+	function dameFiltroReferencia():String {
+		return this.ctx.oficial_dameFiltroReferencia();
+	}
 	function bufferChanged(fN:String) {
 		return this.ctx.oficial_bufferChanged(fN);
 	}
@@ -142,11 +145,7 @@ function interna_init()
 	this.child("lblComision").setText(this.iface.calculateField("lblComision"));
 	this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
 	
-	var filtroReferencia:String = ""; //this.child("fdbReferencia").filter();
-	if (filtroReferencia != "") {
-		filtroReferencia += " AND ";
-	}
-	filtroReferencia += "sevende";
+	var filtroReferencia:String = this.iface.dameFiltroReferencia();
 	this.child("fdbReferencia").setFilter(filtroReferencia);
 }
 
@@ -182,6 +181,12 @@ function oficial_desconectar()
 {
 		disconnect(this.cursor(), "bufferChanged(QString)", this, "iface.bufferChanged");
 }
+
+function oficial_dameFiltroReferencia():String
+{
+	return "sevende";
+}
+
 
 /** \C
 Las dependencias entre controles de este formulario son las mismas que las del formulario de líneas de pedido a cliente

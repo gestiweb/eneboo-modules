@@ -56,7 +56,7 @@ class oficial extends interna {
 	var tbEditContacto:Object;
 	var tbnMayor:Object;
 	var curContacto_:FLSqlCursor;
-	function oficial( context ) { interna( context ); } 
+	function oficial( context ) { interna( context ); }
 	function cambiarDireccion() { return this.ctx.oficial_cambiarDireccion(); }
 	function cargarDireccion() { return this.ctx.oficial_cargarDireccion(); }
 	function bufferChanged(fN:String) { return this.ctx.oficial_bufferChanged(fN); }
@@ -163,13 +163,13 @@ const iface = new ifaceCtx( this );
 /** \C En caso de que el módulo principal de contabilidad esté cargado, la pestaña 'contabilidad' del formulario queda habilitada. Al crearse un proveedor se creará automáticamente una subcuenta asociada, cuyo código por defecto estará formado por el código de la cuenta especial de proveedores + ceros de relleno para completar la longitud de subcuenta + código del proveedor
 
 En la pestaña 'documentos' se encuentran los listados de documentos asociados al proveedor. Todos estos datos se presentan en módo de solo lectura
- 
+
 Cada proveedor puede tener un conjunto de direcciones, una de las cuales se establece como principal. La dirección principal aparecerá por defecto en los documentos de facturación (albaranes, facturas, etc). No podrá haber más de una dirección principal.
 \end */
 function interna_init()
 {
 	var util:FLUtil = new FLUtil;
-	
+
 	if (sys.isLoadedModule("flfacturac")) {
 		this.child("tdbFacturas").setEditOnly(true);
 		this.child("tdbAlbaranes").setEditOnly(true);
@@ -177,7 +177,7 @@ function interna_init()
 	}
 	this.iface.toolButtonInsertSub = this.child("toolButtonInsertSub");
 	this.iface.toolButtonDelSub = this.child("toolButtonDeleteSub");
-	
+
 	this.iface.toolButtonInsertContacto = this.child("tbInsertContacto");
 	this.iface.toolButtonDeleteContacto = this.child("tbDeleteContacto");
 	this.iface.tbEditContacto = this.child("tbEditContacto");
@@ -185,7 +185,7 @@ function interna_init()
 	this.iface.toolButtonInsertContactoProveedor = this.child("toolButtonInsertContactoProveedor");
 	this.iface.toolButtonBuscarContacto = this.child("toolButtonBuscarContacto");
 	this.iface.tbnMayor = this.child("tbnMayor");
-	
+
 	this.iface.ejercicioActual = flfactppal.iface.pub_ejercicioActual();
 	this.iface.posActualPuntoSubcuenta = -1;
 	this.iface.longSubcuenta = util.sqlSelect("ejercicios", "longsubcuenta", "codejercicio = '" + this.iface.ejercicioActual + "'");
@@ -203,7 +203,7 @@ function interna_init()
 	connect(this.child("toolButtonPrintAlb"), "clicked()", this, "iface.imprimirAlbaran()");
 	connect(this.child("toolButtonPrintFac"), "clicked()", this, "iface.imprimirFactura()");
 	connect(this.iface.tbEditContacto, "clicked()", this, "iface.editarContacto()");
-	
+
 	connect(this.child("pbDireccion"), "clicked()", this, "iface.cambiarDireccion()");
 	connect(this.child("tdbDirecciones").cursor(), "cursorUpdated()", this, "iface.cargarDireccion()");
 	connect(this.child("pbNuevaDireccion"), "clicked()", this.child("tdbDirecciones"), "insertRecord()");
@@ -235,7 +235,7 @@ function interna_init()
 			break;
 		}
 	}
-	
+
 	if (sys.isLoadedModule("flcontppal")) {
 		this.iface.establecerSubcuenta();
 		this.child("tdbPartidas").setReadOnly(true);
@@ -398,14 +398,14 @@ function oficial_calcularSubcuentaPro(cursor:FLSqlCursor, longSubcuenta:Number):
 	var codProveedor:String = cursor.valueBuffer("codproveedor");
 	if (!codProveedor)
 		codProveedor = "";
-		
+
 	var numCeros:Number = longSubcuenta - codSubcuenta.length - codProveedor.length;
 	for (var i:Number = 0; i < numCeros; i++)
 		codSubcuenta += "0";
-	
+
 	if (codSubcuenta.length + codProveedor.length > this.iface.longSubcuenta)
 		codProveedor = codProveedor.right(this.iface.longSubcuenta - codSubcuenta.length);
-	
+
 	codSubcuenta += codProveedor;
 	return codSubcuenta;
 }
@@ -415,7 +415,7 @@ function oficial_establecerSubcuenta()
 {
 	if (!sys.isLoadedModule("flcontppal"))
 		return false;
-	
+
 	var util:FLUtil = new FLUtil;
 	var curSubcuenta:FLSqlCursor = this.child("tdbSubcuentas").cursor();
 
@@ -423,7 +423,7 @@ function oficial_establecerSubcuenta()
 		this.cursor().setNull("idsubcuenta");
 	else
 		this.cursor().setValueBuffer("idsubcuenta", curSubcuenta.valueBuffer("idsubcuenta"));
-	
+
 	this.child("tdbPartidas").refresh();
 }
 
@@ -458,7 +458,7 @@ function oficial_toolButtonInsertSub_clicked()
 			MessageBox.warning(util.translate("scripts", "No existe plan general contable para el ejercicio seleccionado"), MessageBox.Ok, MessageBox.NoButton);
 			return;
 		}
-		
+
 		var longSubcuenta:Number = util.sqlSelect("ejercicios", "longsubcuenta", "codejercicio = '" + codEjercicio + "'");
 		if (!longSubcuenta || longSubcuenta != codSubcuenta.length) {
 			MessageBox.warning(util.translate("scripts", "La longitud de la subcuenta no coincide con la establecida para el ejercicio seleccionado"), MessageBox.Ok, MessageBox.NoButton);
@@ -475,7 +475,7 @@ function oficial_toolButtonInsertSub_clicked()
 	}
 }
 
-/** \D Borra la vinculación proveedor - subcuenta seleccionada, ofreciendo la posibilidad de borrar también la subcuenta si ésta está vacía 
+/** \D Borra la vinculación proveedor - subcuenta seleccionada, ofreciendo la posibilidad de borrar también la subcuenta si ésta está vacía
 \end */
 function oficial_toolButtonDelSub_clicked()
 {
@@ -483,12 +483,12 @@ function oficial_toolButtonDelSub_clicked()
 	if (!curTablaSub.isValid())
 		return;
 	var idSubcuenta:String = curTablaSub.valueBuffer("idsubcuenta");
-	
+
 	var util:FLUtil = new FLUtil;
 	var res = MessageBox.information(util.translate("scripts", "Va a eliminar la vinculación de la subcuenta seleccionada al proveedor actual."), MessageBox.Ok, MessageBox.Cancel);
 	if (res != MessageBox.Ok)
 		return;
-	
+
 	var saldo:Number = util.sqlSelect("co_subcuentas", "saldo", "idsubcuenta = " + idSubcuenta);
 	if (saldo == 0) {
 		if (!util.sqlSelect("co_partidas", "idpartida", "idsubcuenta = " + idSubcuenta)) {
@@ -503,7 +503,7 @@ function oficial_toolButtonDelSub_clicked()
 			}
 		}
 	}
-	
+
 	util.sqlDelete("co_subcuentasprov", "id = " + curTablaSub.valueBuffer("id"));
 	this.child("tdbSubcuentas").refresh();
 	this.iface.establecerSubcuenta();
@@ -568,7 +568,7 @@ function oficial_asociarContactoProveedor()
 		curContactoProv.refreshBuffer();
 		curContactoProv.setValueBuffer("codcontacto", this.iface.curContacto_.valueBuffer("codcontacto"));
 		curContactoProv.setValueBuffer("codproveedor", cursor.valueBuffer("codproveedor"));
-		
+
 		if (!curContactoProv.commitBuffer()) {
 			return false;
 		}
@@ -607,7 +607,7 @@ function oficial_deleteContacto()
 	if (util.sqlSelect("contactosproveedores","codcontacto","codcontacto = '" + codContacto + "' AND codproveedor <> '" + codAsociado + "'") || util.sqlSelect("contactosclientes","codcontacto","1 = 1")) {
 		preguntar = true;
 	}
-	
+
 	if (preguntar) {
 		var res:String = MessageBox.information(util.translate("scripts", "El contacto seleccionado está vinculado a otros registros. Si lo elimina se eliminarán todas las vinculaciones. ¿Desea continuar?"), MessageBox.Yes, MessageBox.No);
 		if (res != MessageBox.Yes) {
@@ -679,7 +679,7 @@ function oficial_insertContactoAsociado()
 		curContactoProv.refreshBuffer();
 		curContactoProv.setValueBuffer("codcontacto",codContacto);
 		curContactoProv.setValueBuffer("codproveedor",codAsociado);
-		
+
 		if (!curContactoProv.commitBuffer())
 			return false;
 	}
@@ -758,7 +758,7 @@ function oficial_mostrarMovEjerActual(nombre:String)
 {
 	var cursor:FLSqlCursor = this.cursor();
 	var util:FLUtil = new FLUtil();
-	
+
 	switch (nombre) {
 		case "contabilidad": {
 			var codEjercicioActual = flfactppal.iface.pub_ejercicioActual();
@@ -809,7 +809,7 @@ function oficial_validarNifIva():Boolean
 {
 	var util:FLUtil = new FLUtil;
 	var cursor:FLSqlCursor = this.cursor();
-	
+
 	var tipoIdFiscal:String = cursor.valueBuffer("tipoidfiscal");
 	if (tipoIdFiscal == "NIF/IVA") {
 		var error:String = flfactppal.iface.pub_validarNifIva(cursor.valueBuffer("cifnif"));
@@ -830,17 +830,17 @@ function oficial_cambiarCuentaDom()
 	var curCuenta:FLSqlCursor = this.child("tdbCuentas").cursor();
 	var codCuentaDom = curCuenta.valueBuffer("codcuenta");
 	var desCuentaDom = curCuenta.valueBuffer("descripcion");
-	
+
 	if (!codCuentaDom) {
 		return false;
 	}
-	
+
 	var cursor:FLSqlCursor = this.cursor();
 	cursor.setValueBuffer("codcuentadom", codCuentaDom);
 	this.iface.mostrarDesCuentaDom();
-	
+
 	var util:FLUtil = new FLUtil;
-    
+
 	var codProveedor:String = cursor.valueBuffer("codproveedor");
 }
 
@@ -869,4 +869,5 @@ function oficial_borrarCuentaDom()
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+

@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-/** @file */ 
+/** @file */
 
 /** @class_declaration interna */
 ////////////////////////////////////////////////////////////////////////////
@@ -426,8 +426,8 @@ const iface = new ifaceCtx( this );
 
 //////////////////////////////////////////////////////////////////
 //// INTERNA /////////////////////////////////////////////////////
-/** \C 
-Se calcula el número del pedido como el siguiente de la secuencia asociada a su ejercicio y serie. 
+/** \C
+Se calcula el número del pedido como el siguiente de la secuencia asociada a su ejercicio y serie.
 
 Se actualiza el estado del pedido.
 
@@ -437,7 +437,7 @@ function interna_beforeCommit_pedidoscli(curPedido:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil();
 	var numero:String;
-	
+
 	switch (curPedido.modeAccess()) {
 		case curPedido.Insert: {
 			if (!flfactppal.iface.pub_clienteActivo(curPedido.valueBuffer("codcliente"), curPedido.valueBuffer("fecha")))
@@ -473,17 +473,17 @@ function interna_beforeCommit_pedidoscli(curPedido:FLSqlCursor):Boolean
 			break;
 		}
 	}
-	
+
 	return true;
 }
 
-/** \C 
+/** \C
 Si se borra la linea de albarán se actualiza la línea y el estado del pedido asociado a la misma.
 \end */
 function interna_beforeCommit_lineasalbaranescli(curLinea:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil();
-	
+
 	switch (curLinea.modeAccess()) {
 		case curLinea.Del: {
 			break;
@@ -493,8 +493,8 @@ function interna_beforeCommit_lineasalbaranescli(curLinea:FLSqlCursor):Boolean
 }
 
 
-/** \C 
-Se calcula el número del pedido como el siguiente de la secuencia asociada a su ejercicio y serie. 
+/** \C
+Se calcula el número del pedido como el siguiente de la secuencia asociada a su ejercicio y serie.
 
 Se actualiza el estado del pedido.
 
@@ -504,7 +504,7 @@ function interna_beforeCommit_pedidosprov(curPedido:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil();
 	var numero:String;
-	
+
 	switch (curPedido.modeAccess()) {
 		case curPedido.Insert: {
 			if (curPedido.valueBuffer("numero") == 0) {
@@ -549,7 +549,7 @@ function interna_beforeCommit_facturascli(curFactura:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil();
 	var numero:String;
-	
+
 	if (curFactura.modeAccess() == curFactura.Insert || curFactura.modeAccess() == curFactura.Edit) {
 		if (!this.iface.comprobarFacturaAbonoCli(curFactura)) {
 			return false;
@@ -611,7 +611,7 @@ function interna_beforeCommit_facturasprov(curFactura:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil();
 	var numero:String;
-	
+
 	if (curFactura.valueBuffer("deabono") == true) {
 		if (!curFactura.valueBuffer("idfacturarect")){
 			MessageBox.warning(util.translate("scripts", "Debe seleccionar la factura que desea abonar"),MessageBox.Ok, MessageBox.NoButton,MessageBox.NoButton);
@@ -666,14 +666,14 @@ function interna_beforeCommit_facturasprov(curFactura:FLSqlCursor):Boolean
 }
 
 
-/* \C Se calcula el número del albarán como el siguiente de la secuencia asociada a su ejercicio y serie. 
+/* \C Se calcula el número del albarán como el siguiente de la secuencia asociada a su ejercicio y serie.
 Se recalcula el estado de los pedidos asociados al albarán
 \end */
 function interna_beforeCommit_albaranescli(curAlbaran:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil();
 	var numero:String;
-	
+
 	switch (curAlbaran.modeAccess()) {
 		case curAlbaran.Insert: {
 			if (!flfactppal.iface.pub_clienteActivo(curAlbaran.valueBuffer("codcliente"), curAlbaran.valueBuffer("fecha")))
@@ -703,7 +703,7 @@ function interna_beforeCommit_albaranescli(curAlbaran:FLSqlCursor):Boolean
 			break;
 		}
 	}
-	
+
 	return true;
 }
 
@@ -738,7 +738,7 @@ function interna_afterCommit_albaranesprov(curAlbaran:FLSqlCursor):Boolean
 }
 
 
-/* \C Se calcula el número del albarán como el siguiente de la secuencia asociada a su ejercicio y serie. 
+/* \C Se calcula el número del albarán como el siguiente de la secuencia asociada a su ejercicio y serie.
 
 Se recalcula el estado de los pedidos asociados al albarán
 \end */
@@ -746,7 +746,7 @@ function interna_beforeCommit_albaranesprov(curAlbaran:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil();
 	var numero:String;
-	
+
 	switch (curAlbaran.modeAccess()) {
 		case curAlbaran.Insert: {
 			if (curAlbaran.valueBuffer("numero") == 0) {
@@ -772,13 +772,13 @@ function interna_beforeCommit_albaranesprov(curAlbaran:FLSqlCursor):Boolean
 	return true;
 }
 
-/* \C Se calcula el número del presupuesto como el siguiente de la secuencia asociada a su ejercicio y serie. 
+/* \C Se calcula el número del presupuesto como el siguiente de la secuencia asociada a su ejercicio y serie.
 \end */
 function interna_beforeCommit_presupuestoscli(curPresupuesto:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil();
 	var numero:String;
-	
+
 	switch (curPresupuesto.modeAccess()) {
 		case curPresupuesto.Insert: {
 			if (!flfactppal.iface.pub_clienteActivo(curPresupuesto.valueBuffer("codcliente"), curPresupuesto.valueBuffer("fecha")))
@@ -800,7 +800,7 @@ function interna_beforeCommit_presupuestoscli(curPresupuesto:FLSqlCursor):Boolea
 			break;
 		}
 	}
-	
+
 	return true;
 }
 
@@ -836,7 +836,7 @@ function interna_afterCommit_facturascli(curFactura:FLSqlCursor):Boolean
 			break;
 		}
 	}
-	
+
 	var util:FLUtil = new FLUtil();
 	if (sys.isLoadedModule("flfactteso") && curFactura.valueBuffer("tpv") == false) {
 		if (curFactura.modeAccess() == curFactura.Insert || curFactura.modeAccess() == curFactura.Edit) {
@@ -948,7 +948,7 @@ Actualiza también el coste medio de los artículos afectados por el cambio.
 function interna_afterCommit_lineasfacturasprov(curLF:FLSqlCursor):Boolean
 {
 	var util:FLUtil = new FLUtil();
-	
+
 	if (sys.isLoadedModule("flfactalma")) {
 		if (!flfactalma.iface.pub_controlStockFacturasProv(curLF)) {
 			return false;
@@ -966,7 +966,7 @@ function interna_afterCommit_lineaspedidoscli(curLP:FLSqlCursor):Boolean
  	if (sys.isLoadedModule("flfactalma"))
 		if (!flfactalma.iface.pub_controlStockPedidosCli(curLP))
 			return false;
-	
+
 	return true;
 }
 
@@ -992,13 +992,13 @@ function interna_afterCommit_lineasalbaranescli(curLA:FLSqlCursor):Boolean
 	if (!this.iface.actualizarPedidosLineaAlbaranCli(curLA)) {
 		return false;
 	}
-		
+
 	if (sys.isLoadedModule("flfactalma")) {
 		if (!flfactalma.iface.pub_controlStockAlbaranesCli(curLA)) {
 			return false;
 		}
 	}
-	
+
 	return true;
 }
 
@@ -1007,10 +1007,10 @@ En el caso de que la factura no sea automática (no provenga de un albarán), real
 \end */
 function interna_afterCommit_lineasfacturascli(curLF:FLSqlCursor):Boolean
 {
-	if (sys.isLoadedModule("flfactalma")) 
+	if (sys.isLoadedModule("flfactalma"))
 		if (!flfactalma.iface.pub_controlStockFacturasCli(curLF))
 			return false;
-	
+
 	return true;
 }
 //// INTERNA /////////////////////////////////////////////////////
@@ -1026,7 +1026,7 @@ function oficial_actualizarPedidosLineaAlbaranCli(curLA:FLSqlCursor):Boolean
 	if (idLineaPedido == 0) {
 		return true;
 	}
-	
+
 	switch (curLA.modeAccess()) {
 		case curLA.Insert: {
 			if (!this.iface.actualizarLineaPedidoCli(curLA.valueBuffer("idlineapedido"), curLA.valueBuffer("idpedido") , curLA.valueBuffer("referencia"), curLA.valueBuffer("idalbaran"), curLA.valueBuffer("cantidad"))) {
@@ -1215,7 +1215,7 @@ function oficial_siguienteNumero(codSerie:String, codEjercicio:String, fN:String
 				numero = cursorSecs.valueBuffer( "valorout" );
 			else
 				numero = cursorSecs.valueBuffer( "valor" );
-			cursorSecs.setValueBuffer( "valorout", this.iface.establecerNumeroSecuencia( fN, numero ) );		
+			cursorSecs.setValueBuffer( "valorout", this.iface.establecerNumeroSecuencia( fN, numero ) );
 			cursorSecs.commitBuffer();
 		}
 		cursorSecs.setActivatedCheckIntegrity( true );
@@ -1316,32 +1316,32 @@ function oficial_generarAsientoFacturaCli(curFactura:FLSqlCursor):Boolean
 		datosAsiento = this.iface.regenerarAsiento(curFactura, valoresDefecto);
 		if (datosAsiento.error == true)
 			throw util.translate("scripts", "Error al regenerar el asiento");
-	
+
 		var ctaCliente = this.iface.datosCtaCliente(curFactura, valoresDefecto);
 		if (ctaCliente.error != 0)
 			throw util.translate("scripts", "Error al leer los datos de subcuenta de cliente");
-	
+
 		if (!this.iface.generarPartidasCliente(curFactura, datosAsiento.idasiento, valoresDefecto, ctaCliente))
 			throw util.translate("scripts", "Error al generar las partidas de cliente");
-	
+
 		if (!this.iface.generarPartidasIRPF(curFactura, datosAsiento.idasiento, valoresDefecto))
 			throw util.translate("scripts", "Error al generar las partidas de IRPF");
-	
+
 		if (!this.iface.generarPartidasIVACli(curFactura, datosAsiento.idasiento, valoresDefecto, ctaCliente))
 			throw util.translate("scripts", "Error al generar las partidas de IVA");
-	
+
 		if (!this.iface.generarPartidasRecFinCli(curFactura, datosAsiento.idasiento, valoresDefecto))
 			throw util.translate("scripts", "Error al generar las partidas de recargo financiero");
-				
+
 		if (!this.iface.generarPartidasVenta(curFactura, datosAsiento.idasiento, valoresDefecto))
 			throw util.translate("scripts", "Error al generar las partidas de venta");
-		
+
 		curFactura.setValueBuffer("idasiento", datosAsiento.idasiento);
-		
+
 		if (curFactura.valueBuffer("deabono") == true)
 			if (!this.iface.asientoFacturaAbonoCli(curFactura, valoresDefecto))
 				throw util.translate("scripts", "Error al generar el asiento correspondiente a la factura de abono");
-	
+
 		if (!flcontppal.iface.pub_comprobarAsiento(datosAsiento.idasiento))
 			throw util.translate("scripts", "Error al comprobar el asiento");
 	} catch (e) {
@@ -1395,9 +1395,9 @@ function oficial_generarPartidasVenta(curFactura:FLSqlCursor, idAsiento:Number, 
 		setValueBuffer("debeME", 0);
 		setValueBuffer("haberME", haberME);
 	}
-	
+
 	this.iface.datosPartidaFactura(curPartida, curFactura, "cliente")
-	
+
 	if (!curPartida.commitBuffer())
 		return false;
 	return true;
@@ -1427,13 +1427,13 @@ function oficial_generarPartidasIVACli(curFactura:FLSqlCursor, idAsiento:Number,
 	var baseImponible:Number = 0;
 	var recargo:Number;
 	var iva:Number;
-	
+
 	var regimenIVA:String = this.iface.regimenIVACliente(curFactura);
 	if (!regimenIVA) {
 		MessageBox.warning(util.translate("scripts", "Error al obtener el régimen de IVA asociado a la factura %1.\nCompruebe que el cliente tiene un régimen de IVA establecido").arg(curFactura.valueBuffer("codigo")), MessageBox.Ok, MessageBox.NoButton);
 		return false;
 	}
-	
+
 	var monedaSistema:Boolean = (valoresDefecto.coddivisa == curFactura.valueBuffer("coddivisa"));
 	var qryIva:FLSqlQuery = new FLSqlQuery();
 	qryIva.setTablesList("lineasivafactcli");
@@ -1493,7 +1493,7 @@ function oficial_generarPartidasIVACli(curFactura:FLSqlCursor, idAsiento:Number,
 			MessageBox.information(util.translate("scripts", "La cuenta especial de %1 no tiene asignada subcuenta.\nDebe asociarla en el módulo Principal del área Financiera").arg(textoError), MessageBox.Ok, MessageBox.NoButton);
 			return false;
 		}
-		
+
 		var curPartida:FLSqlCursor = new FLSqlCursor("co_partidas");
 		with (curPartida) {
 			setModeAccess(curPartida.Insert);
@@ -1515,9 +1515,9 @@ function oficial_generarPartidasIVACli(curFactura:FLSqlCursor, idAsiento:Number,
 			setValueBuffer("codserie", curFactura.valueBuffer("codserie"));
 			setValueBuffer("cifnif", curFactura.valueBuffer("cifnif"));
 		}
-		
+
 		this.iface.datosPartidaFactura(curPartida, curFactura, "cliente")
-		
+
 		if (!curPartida.commitBuffer())
 			return false;
 
@@ -1558,9 +1558,9 @@ function oficial_generarPartidasIVACli(curFactura:FLSqlCursor, idAsiento:Number,
 				setValueBuffer("codserie", curFactura.valueBuffer("codserie"));
 				setValueBuffer("cifnif", curFactura.valueBuffer("cifnif"));
 			}
-			
+
 			this.iface.datosPartidaFactura(curPartida, curFactura, "cliente")
-			
+
 			if (!curPartida.commitBuffer())
 				return false;
 		}
@@ -1631,9 +1631,9 @@ function oficial_generarPartidasIRPF(curFactura:FLSqlCursor, idAsiento:Number, v
 				setValueBuffer("debeME", debeME);
 				setValueBuffer("haberME", 0);
 		}
-		
+
 		this.iface.datosPartidaFactura(curPartida, curFactura, "cliente")
-		
+
 		if (!curPartida.commitBuffer())
 				return false;
 
@@ -1687,9 +1687,9 @@ function oficial_generarPartidasRecFinCli(curFactura:FLSqlCursor, idAsiento:Numb
 		setValueBuffer("haberME", haberME);
 		setValueBuffer("debeME", 0);
 	}
-	
+
 	this.iface.datosPartidaFactura(curPartida, curFactura, "cliente")
-	
+
 	if (!curPartida.commitBuffer())
 			return false;
 
@@ -1757,9 +1757,9 @@ function oficial_generarPartidasIRPFProv(curFactura:FLSqlCursor, idAsiento:Numbe
 		setValueBuffer("debeME", 0);
 		setValueBuffer("haberME", haberME);
 	}
-	
+
 	this.iface.datosPartidaFactura(curPartida, curFactura, "proveedor")
-	
+
 	if (!curPartida.commitBuffer())
 			return false;
 
@@ -1789,7 +1789,7 @@ function oficial_generarPartidasCliente(curFactura:FLSqlCursor, idAsiento:Number
 		}
 		debe = util.roundFieldValue(debe, "co_partidas", "debe");
 		debeME = util.roundFieldValue(debeME, "co_partidas", "debeme");
-		
+
 		var curPartida:FLSqlCursor = new FLSqlCursor("co_partidas");
 
 		with (curPartida) {
@@ -1805,9 +1805,9 @@ function oficial_generarPartidasCliente(curFactura:FLSqlCursor, idAsiento:Number
 				setValueBuffer("debeME", debeME);
 				setValueBuffer("haberME", 0);
 		}
-		
+
 		this.iface.datosPartidaFactura(curPartida, curFactura, "cliente")
-		
+
 		if (!curPartida.commitBuffer())
 				return false;
 
@@ -1844,7 +1844,8 @@ function oficial_regenerarAsiento(cur:FLSqlCursor, valoresDefecto:Array):Array
 		this.iface.curAsiento_.setValueBuffer("tipodocumento", datosAsiento.tipoDocumento);
 		this.iface.curAsiento_.setValueBuffer("documento", datosAsiento.documento);
 		if (!this.iface.datosAsientoRegenerado(cur, valoresDefecto)) {
-			return false;
+			asiento.error = true;
+			return asiento;
 		}
 
 		if (!this.iface.curAsiento_.commitBuffer()) {
@@ -1858,7 +1859,7 @@ function oficial_regenerarAsiento(cur:FLSqlCursor, valoresDefecto:Array):Array
 		asiento.tipodocumento = this.iface.curAsiento_.valueBuffer("tipodocumento");
 		asiento.documento = this.iface.curAsiento_.valueBuffer("documento");
 
-		this.iface.curAsiento_.select("idasiento = " + this.iface.curAsiento_.idasiento);
+		this.iface.curAsiento_.select("idasiento = " + asiento.idasiento);
 		this.iface.curAsiento_.first();
 		this.iface.curAsiento_.setUnLock("editable", false);
 	} else {
@@ -1891,7 +1892,8 @@ function oficial_regenerarAsiento(cur:FLSqlCursor, valoresDefecto:Array):Array
 		this.iface.curAsiento_.setValueBuffer("tipodocumento", datosAsiento.tipoDocumento);
 		this.iface.curAsiento_.setValueBuffer("documento", datosAsiento.documento);
 		if (!this.iface.datosAsientoRegenerado(cur, valoresDefecto)) {
-			return false;
+			asiento.error = true;
+			return asiento;
 		}
 		if (!this.iface.curAsiento_.commitBuffer()) {
 			asiento.error = true;
@@ -1957,7 +1959,7 @@ function oficial_datosConceptoAsiento(cur:FLSqlCursor):Array
 		case "pagosdevolcli": {
 			var codRecibo:String = util.sqlSelect("reciboscli", "codigo", "idrecibo = " + cur.valueBuffer("idrecibo"));
 			var nombreCli:String = util.sqlSelect("reciboscli", "nombrecliente", "idrecibo = " + cur.valueBuffer("idrecibo"));
-			
+
 			if (cur.valueBuffer("tipo") == "Pago") {
 				datosAsiento.concepto = "Pago recibo " + codRecibo + " - " + nombreCli;
 			} else {
@@ -1981,7 +1983,7 @@ function oficial_datosConceptoAsiento(cur:FLSqlCursor):Array
 			datosAsiento.tipoDocumento = "";
 			break;
 		}
-		default: 
+		default:
 			datosAsiento.concepto = "";
 			datosAsiento.documento = "";
 			datosAsiento.tipoDocumento = "";
@@ -2044,7 +2046,7 @@ function oficial_generarAsientoFacturaProv(curFactura:FLSqlCursor):Boolean
 		if (datosAsiento.error == true) {
 			throw util.translate("scripts", "Error al regenerar el asiento");
 		}
-	
+
 		var numProveedor:String = curFactura.valueBuffer("numproveedor");
 		var concepto:String = "";
 		if (!numProveedor || numProveedor == "") {
@@ -2053,15 +2055,15 @@ function oficial_generarAsientoFacturaProv(curFactura:FLSqlCursor):Boolean
 			concepto = util.translate("scripts", "Su factura ") + numProveedor;
 		}
 		concepto += " - " + curFactura.valueBuffer("nombre");
-	
+
 		var ctaProveedor:Array = this.iface.datosCtaProveedor(curFactura, valoresDefecto);
 		if (ctaProveedor.error != 0) {
 			throw util.translate("scripts", "Error al obtener la subcuenta del proveedor");
 		}
-	
+
 		// Las partidas generadas dependen del régimen de IVA del proveedor
 		var regimenIVA:String = util.sqlSelect("proveedores", "regimeniva", "codproveedor = '" + curFactura.valueBuffer("codproveedor") + "'");
-		
+
 		switch(regimenIVA) {
 			case "UE": {
 				if (!this.iface.generarPartidasProveedor(curFactura, datosAsiento.idasiento, valoresDefecto, ctaProveedor, concepto, true)) {
@@ -2075,7 +2077,7 @@ function oficial_generarAsientoFacturaProv(curFactura:FLSqlCursor):Boolean
 				}
 				if (!this.iface.generarPartidasIVAProv(curFactura, datosAsiento.idasiento, valoresDefecto, ctaProveedor, concepto)) {
 					throw util.translate("scripts", "Error al generar la partida de IVA");
-				}			
+				}
 				if (!this.iface.generarPartidasCompra(curFactura, datosAsiento.idasiento, valoresDefecto, concepto)) {
 					throw util.translate("scripts", "Error al generar la partida de compras");
 				}
@@ -2117,14 +2119,14 @@ function oficial_generarAsientoFacturaProv(curFactura:FLSqlCursor):Boolean
 				}
 			}
 		}
-			
+
 		curFactura.setValueBuffer("idasiento", datosAsiento.idasiento);
 		if (curFactura.valueBuffer("deabono") == true) {
 			if (!this.iface.asientoFacturaAbonoProv(curFactura, valoresDefecto)) {
 				throw util.translate("scripts", "Error al modificar el asiento de abono");
 			}
 		}
-	
+
 		if (!flcontppal.iface.pub_comprobarAsiento(datosAsiento.idasiento)) {
 			throw util.translate("scripts", "Error al comprobar el asiento");
 		}
@@ -2164,7 +2166,7 @@ function oficial_generarPartidasCompra(curFactura:FLSqlCursor, idAsiento:Number,
 		setWhere("idfactura = " + curFactura.valueBuffer("idfactura") + " GROUP BY codsubcuenta");
 	}
 	try { qrySubcuentas.setForwardOnly( true ); } catch (e) {}
-	
+
 	if (!qrySubcuentas.exec())
 			return false;
 
@@ -2184,7 +2186,7 @@ function oficial_generarPartidasCompra(curFactura:FLSqlCursor, idAsiento:Number,
 		}
 		debe = util.roundFieldValue(debe, "co_partidas", "debe");
 		debeME = util.roundFieldValue(debeME, "co_partidas", "debeme");
-		
+
 		var curPartida:FLSqlCursor = new FLSqlCursor("co_partidas");
 		with (curPartida) {
 			setModeAccess(curPartida.Insert);
@@ -2199,9 +2201,9 @@ function oficial_generarPartidasCompra(curFactura:FLSqlCursor, idAsiento:Number,
 			setValueBuffer("debeME", debeME);
 			setValueBuffer("haberME", 0);
 		}
-			
+
 		this.iface.datosPartidaFactura(curPartida, curFactura, "proveedor", concepto);
-		
+
 		if (!curPartida.commitBuffer())
 			return false;
 		idUltimaPartida = curPartida.valueBuffer("idpartida");
@@ -2229,7 +2231,7 @@ function oficial_generarPartidasCompra(curFactura:FLSqlCursor, idAsiento:Number,
 			}
 			debe = util.roundFieldValue(debe, "co_partidas", "debe");
 			debeME = util.roundFieldValue(debeME, "co_partidas", "debeme");
-			
+
 			var curPartida:FLSqlCursor = new FLSqlCursor("co_partidas");
 			with (curPartida) {
 				setModeAccess(curPartida.Insert);
@@ -2244,9 +2246,9 @@ function oficial_generarPartidasCompra(curFactura:FLSqlCursor, idAsiento:Number,
 				setValueBuffer("debeME", debeME);
 				setValueBuffer("haberME", 0);
 			}
-			
+
 			this.iface.datosPartidaFactura(curPartida, curFactura, "proveedor", concepto);
-			
+
 			if (!curPartida.commitBuffer())
 				return false;
 			idUltimaPartida = curPartida.valueBuffer("idpartida");
@@ -2284,25 +2286,25 @@ function oficial_generarPartidasIVAProv(curFactura:FLSqlCursor, idAsiento:Number
 	var monedaSistema:Boolean = (valoresDefecto.coddivisa == curFactura.valueBuffer("coddivisa"));
 	var recargo:Number;
 	var iva:Number;
-	
+
 	var regimenIVA:String = util.sqlSelect("proveedores","regimeniva","codproveedor = '" + curFactura.valueBuffer("codproveedor") + "'");
 	var codCuentaEspIVA:String;
-	
+
 	var qryIva:FLSqlQuery = new FLSqlQuery();
 	qryIva.setTablesList("lineasivafactprov");
-	
+
 	if (regimenIVA == "UE")
 		qryIva.setSelect("neto, iva, neto*iva/100, recargo, neto*recargo/100, codimpuesto");
 	else
-		qryIva.setSelect("neto, iva, totaliva, recargo, totalrecargo, codimpuesto");	
-	
+		qryIva.setSelect("neto, iva, totaliva, recargo, totalrecargo, codimpuesto");
+
 	qryIva.setFrom("lineasivafactprov");
 	qryIva.setWhere("idfactura = " + curFactura.valueBuffer("idfactura"));
 	try { qryIva.setForwardOnly( true ); } catch (e) {}
 	if (!qryIva.exec())
 		return false;
 
-		
+
 	while (qryIva.next()) {
 		iva = parseFloat(qryIva.value("iva"));
 		if (isNaN(iva)) {
@@ -2324,7 +2326,7 @@ function oficial_generarPartidasIVAProv(curFactura:FLSqlCursor, idAsiento:Number
 		debe = util.roundFieldValue(debe, "co_partidas", "debe");
 		debeME = util.roundFieldValue(debeME, "co_partidas", "debeme");
 		baseImponible = util.roundFieldValue(baseImponible, "co_partidas", "baseimponible");
-		
+
 		switch(regimenIVA) {
 			case "UE": {
 				codCuentaEspIVA = "IVASUE";
@@ -2351,7 +2353,7 @@ function oficial_generarPartidasIVAProv(curFactura:FLSqlCursor, idAsiento:Number
 				codCuentaEspIVA = "IVASOP";
 			}
 		}
-		
+
 		var ctaIvaSop:Array = this.iface.datosCtaIVA(codCuentaEspIVA, valoresDefecto.codejercicio, qryIva.value(5));
 		if (ctaIvaSop.error != 0) {
 			MessageBox.warning(util.translate("scripts", "Esta factura pertenece al régimen IVA tipo %1.\nNo existe ninguna cuenta contable marcada como tipo especial %2\n\nDebe asociar una cuenta contable a dicho tipo especial en el módulo Principal del área Financiera").arg(regimenIVA).arg(codCuentaEspIVA), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
@@ -2378,16 +2380,16 @@ function oficial_generarPartidasIVAProv(curFactura:FLSqlCursor, idAsiento:Number
 			setValueBuffer("codserie", curFactura.valueBuffer("codserie"));
 			setValueBuffer("cifnif", curFactura.valueBuffer("cifnif"));
 		}
-		
+
 		this.iface.datosPartidaFactura(curPartida, curFactura, "proveedor")
-		
+
 		if (!curPartida.commitBuffer())
 			return false;
 
-		
+
 		// Otra partida de haber de IVA sobre una cuenta 477 para compensar en UE
 		if (regimenIVA == "UE") {
-			
+
 			haber = debe;
 			haberME = debeME;
 			codCuentaEspIVA = "IVARUE";
@@ -2417,13 +2419,13 @@ function oficial_generarPartidasIVAProv(curFactura:FLSqlCursor, idAsiento:Number
 				setValueBuffer("codserie", curFactura.valueBuffer("codserie"));
 				setValueBuffer("cifnif", curFactura.valueBuffer("cifnif"));
 			}
-		
+
 			this.iface.datosPartidaFactura(curPartida, curFactura, "proveedor", concepto)
-			
+
 			if (!curPartida.commitBuffer())
 				return false;
 		}
-			
+
 		if (monedaSistema) {
 			debe = parseFloat(qryIva.value(4));
 			debeME = 0;
@@ -2459,9 +2461,9 @@ function oficial_generarPartidasIVAProv(curFactura:FLSqlCursor, idAsiento:Number
 				setValueBuffer("codserie", curFactura.valueBuffer("codserie"));
 				setValueBuffer("cifnif", curFactura.valueBuffer("cifnif"));
 			}
-		
+
 			this.iface.datosPartidaFactura(curPartida, curFactura, "proveedor", concepto)
-			
+
 			if (!curPartida.commitBuffer())
 				return false;
 		}
@@ -2483,10 +2485,10 @@ function oficial_generarPartidasProveedor(curFactura:FLSqlCursor, idAsiento:Numb
 		var haber:Number = 0;
 		var haberME:Number = 0;
 		var totalIVA:Number = 0;
-		
+
 		if (sinIVA)
 			totalIVA = parseFloat(curFactura.valueBuffer("totaliva"));
-		
+
 		var monedaSistema:Boolean = (valoresDefecto.coddivisa == curFactura.valueBuffer("coddivisa"));
 		if (monedaSistema) {
 				haber = parseFloat(curFactura.valueBuffer("total"));
@@ -2513,9 +2515,9 @@ function oficial_generarPartidasProveedor(curFactura:FLSqlCursor, idAsiento:Numb
 				setValueBuffer("debeME", 0);
 				setValueBuffer("haberME", haberME);
 		}
-		
+
 		this.iface.datosPartidaFactura(curPartida, curFactura, "proveedor", concepto);
-		
+
 		if (!curPartida.commitBuffer())
 				return false;
 		return true;
@@ -2568,9 +2570,9 @@ function oficial_generarPartidasRecFinProv(curFactura:FLSqlCursor, idAsiento:Num
 		setValueBuffer("debeME", debeME);
 		setValueBuffer("haberME", 0);
 	}
-		
+
 	this.iface.datosPartidaFactura(curPartida, curFactura, "proveedor");
-	
+
 	if (!curPartida.commitBuffer())
 			return false;
 
@@ -2589,7 +2591,7 @@ function oficial_datosCtaEspecial(ctaEsp:String, codEjercicio:String):Array
 {
 	var datos:Array = [];
 	var q:FLSqlQuery = new FLSqlQuery();
-	
+
 	with(q) {
 		setTablesList("co_subcuentas,co_cuentasesp");
 		setSelect("s.idsubcuenta, s.codsubcuenta");
@@ -2607,7 +2609,7 @@ function oficial_datosCtaEspecial(ctaEsp:String, codEjercicio:String):Array
 		datos["codsubcuenta"] = q.value(1);
 		return datos;
 	}
-	
+
 	with(q) {
 		setTablesList("co_cuentas,co_subcuentas,co_cuentasesp");
 		setSelect("s.idsubcuenta, s.codsubcuenta");
@@ -2886,7 +2888,7 @@ function oficial_asientoFacturaAbonoCli(curFactura:FLSqlCursor, valoresDefecto:A
 	var haberME:Number = 0;
 	var aux:Number;
 	var util:FLUtil = new FLUtil;
-	
+
 	curPartidas.select("idasiento = '" + idAsiento + "'");
 	while (curPartidas.next()) {
 		curPartidas.setModeAccess(curPartidas.Edit);
@@ -2914,7 +2916,7 @@ function oficial_asientoFacturaAbonoCli(curFactura:FLSqlCursor, valoresDefecto:A
 		if (!curPartidas.commitBuffer())
 			return false;
 	}
-	
+
 	var qryPartidasVenta:FLSqlQuery = new FLSqlQuery();
 	qryPartidasVenta.setTablesList("co_partidas,co_subcuentas,co_cuentas");
 	qryPartidasVenta.setSelect("p.idsubcuenta, p.codsubcuenta");
@@ -2977,9 +2979,9 @@ function oficial_asientoFacturaAbonoProv(curFactura:FLSqlCursor, valoresDefecto:
 	var debeME:Number = 0;
 	var haberME:Number = 0;
 	var aux:Number;
-	
+
 	var util:FLUtil = new FLUtil;
-	
+
 	curPartidas.select("idasiento = '" + idAsiento + "'");
 	while (curPartidas.next()) {
 		curPartidas.setModeAccess(curPartidas.Edit);
@@ -3007,7 +3009,7 @@ function oficial_asientoFacturaAbonoProv(curFactura:FLSqlCursor, valoresDefecto:
 		if (!curPartidas.commitBuffer())
 			return false;
 	}
-	
+
 	var qryPartidasCompra:FLSqlQuery = new FLSqlQuery();
 	qryPartidasCompra.setTablesList("co_partidas,co_subcuentas,co_cuentas");
 	qryPartidasCompra.setSelect("p.idsubcuenta,p.codsubcuenta");
@@ -3022,7 +3024,7 @@ function oficial_asientoFacturaAbonoProv(curFactura:FLSqlCursor, valoresDefecto:
 	if (qryPartidasCompra.size() == 0) {
 		return true;
 	}
-	
+
 	var curPartidasCompra:FLSqlCursor = new FLSqlCursor("co_partidas");
 	var ctaDevolCompra:Array = false;
 	var codSubcuentaDev:String;
@@ -3121,18 +3123,18 @@ codEjercicio: Nuevo valor para el ejercicio modificado
 \end */
 function oficial_datosDocFacturacion(fecha:String, codEjercicio:String, tipoDoc:String):Array
 {
-	
+
 	var res:Array = [];
 	res["ok"] = true;
 	res["modificaciones"] = false;
-	
+
 	var util:FLUtil = new FLUtil;
 	if (util.sqlSelect("ejercicios", "codejercicio", "codejercicio = '" + codEjercicio + "' AND '" + fecha + "' BETWEEN fechainicio AND fechafin"))
 		return res;
-		
+
 	var f:Object = new FLFormSearchDB("fechaejercicio");
 	var cursor:FLSqlCursor = f.cursor();
-	
+
 	cursor.select();
 	if (!cursor.first())
 		cursor.setModeAccess(cursor.Insert);
@@ -3156,7 +3158,7 @@ function oficial_datosDocFacturacion(fecha:String, codEjercicio:String, tipoDoc:
 	cursor.refreshBuffer();
 
 	f.setMainWidget();
-	
+
 	var acpt:String = f.exec("codejercicio");
 	if (!acpt) {
 		res["ok"] = false;
@@ -3165,13 +3167,13 @@ function oficial_datosDocFacturacion(fecha:String, codEjercicio:String, tipoDoc:
 	res["modificaciones"] = true;
 	res["fecha"] = cursor.valueBuffer("fecha");
 	res["codEjercicio"] = cursor.valueBuffer("codejercicio");
-	
+
 	if (res.codEjercicio != flfactppal.iface.pub_ejercicioActual()) {
 		if (tipoDoc != "pagosdevolcli" && tipoDoc != "pagosdevolprov") {
 			MessageBox.information(util.translate("scripts", "Ha seleccionado un ejercicio distinto del actual.\nPara visualizar los documentos generados debe cambiar el ejercicio actual en la ventana\nde empresa y volver a abrir el formulario maestro correspondiente a los documentos generados"), MessageBox.Ok, MessageBox.NoButton);
 		}
 	}
-	
+
 	return res;
 }
 
@@ -3187,7 +3189,7 @@ function oficial_tieneIvaDocCliente(codSerie:String, codCliente:String, codEjerc
 {
 	var util:FLUtil = new FLUtil;
 	var conIva:Boolean = true;
-	
+
 	if (util.sqlSelect("series", "siniva", "codserie = '" + codSerie + "'"))
 		return 0;
 	else {
@@ -3198,7 +3200,7 @@ function oficial_tieneIvaDocCliente(codSerie:String, codCliente:String, codEjerc
 			if (!util.sqlSelect("clientes", "recargo", "codcliente = '" + codCliente + "'"))
 				return 1;
 	}
-	
+
 	return 2;
 }
 
@@ -3237,10 +3239,10 @@ function oficial_automataActivado():Boolean
 {
 	if (!sys.isLoadedModule("flautomata"))
 		return false;
-	
+
 	if (formau_automata.iface.pub_activado())
 		return true;
-	
+
 	return false;
 }
 
@@ -3312,12 +3314,12 @@ function oficial_recalcularHuecos( serie:String, ejercicio:String, fN:String ):B
 
 			while ( qryFac.next() ) {
 				nFac = qryFac.value( 0 );
-				
+
 				// Por si hay duplicados, que no debería haberlos...
 				if (ultFac == nFac)
 					continue;
 				ultFac = nFac;
-				
+
 				util.setProgress( ++nSec );
 				while ( nSec < nFac ) {
 					cursorHuecos.setModeAccess( cursorHuecos.Insert );
@@ -3330,7 +3332,7 @@ function oficial_recalcularHuecos( serie:String, ejercicio:String, fN:String ):B
 					util.setProgress( ++nSec );
 				}
 			}
-			
+
 			util.setProgress( ++nSec );
 			util.sqlUpdate( "secuencias", "valorout", nSec, "id = " + idSec + " AND nombre='" + fN + "'" );
 
@@ -3379,10 +3381,10 @@ Se ponen datos de concepto, tipo de documento, documento y factura
 @param	tipo: cliente / proveedor
 @param	concepto: Concepto, opcional
 */
-function oficial_datosPartidaFactura(curPartida:FLSqlCursor, curFactura:FLSqlCursor, tipo:String, concepto:String) 
+function oficial_datosPartidaFactura(curPartida:FLSqlCursor, curFactura:FLSqlCursor, tipo:String, concepto:String)
 {
 	var util:FLUtil = new FLUtil();
-	
+
 	if (tipo == "cliente") {
 		if (concepto) {
 			curPartida.setValueBuffer("concepto", concepto);
@@ -3404,13 +3406,13 @@ function oficial_datosPartidaFactura(curPartida:FLSqlCursor, curFactura:FLSqlCur
 			}
 			curPartida.setValueBuffer("concepto", util.translate("scripts", "Su factura") + " " + numFactura + " - " + curFactura.valueBuffer("nombre"));
 		}
-		
+
 		// Si es de IVA
 		if (curPartida.valueBuffer("cifnif")) {
 			curPartida.setValueBuffer("tipodocumento", "Factura de proveedor");
 		}
 	}
-	
+
 	// Si es de IVA
 	if (curPartida.valueBuffer("cifnif")) {
 		curPartida.setValueBuffer("documento", curFactura.valueBuffer("codigo"));
@@ -3424,20 +3426,20 @@ cuando se edita la misma. Para sobrecargar en extensiones
 @param	masCampos: Array con los nombres de campos adicionales. Opcional
 @return	VERDADERO si hay que regenerar, FALSO en otro caso
 \end */
-function oficial_siGenerarRecibosCli(curFactura:FLSqlCursor, masCampos:Array):Boolean 
+function oficial_siGenerarRecibosCli(curFactura:FLSqlCursor, masCampos:Array):Boolean
 {
 	var camposAcomprobar = new Array("codcliente","total","codpago","fecha");
-	
+
 	for (var i:Number = 0; i < camposAcomprobar.length; i++)
 		if (curFactura.valueBuffer(camposAcomprobar[i]) != curFactura.valueBufferCopy(camposAcomprobar[i]))
 			return true;
-	
+
 	if (masCampos) {
 		for (i = 0; i < masCampos.length; i++)
 			if (curFactura.valueBuffer(masCampos[i]) != curFactura.valueBufferCopy(masCampos[i]))
 				return true;
 	}
-	
+
 	return false;
 }
 
@@ -3450,13 +3452,13 @@ function oficial_validarIvaRecargoCliente(codCliente:String,id:Number,tabla:Stri
 
 	var regimenIva = util.sqlSelect("clientes","regimeniva","codcliente = '" + codCliente + "'");
 	var aplicarRecargo = util.sqlSelect("clientes","recargo","codcliente = '" + codCliente + "'");
-	
+
 	var q:FLSqlQuery = new FLSqlQuery();
 	q.setTablesList(tabla);
 	q.setSelect("iva,recargo");
 	q.setFrom(tabla);
 	q.setWhere(identificador + " = " + id);
-	
+
 	if (!q.exec())
 		return false;
 
@@ -3516,17 +3518,17 @@ function oficial_validarIvaRecargoProveedor(codProveedor:String,id:Number,tabla:
 	var util:FLUtil;
 
 	if(!codProveedor)
-		return true;	
+		return true;
 
 	var regimenIva = util.sqlSelect("proveedores","regimeniva","codproveedor = '" + codProveedor + "'");
 	var aplicarRecargo = util.sqlSelect("empresa","recequivalencia","1 = 1");
-	
+
 	var q:FLSqlQuery = new FLSqlQuery();
 	q.setTablesList(tabla);
 	q.setSelect("iva,recargo");
 	q.setFrom(tabla);
 	q.setWhere(identificador + " = " + id);
-	
+
 	if (!q.exec())
 		return false;
 
@@ -3604,13 +3606,13 @@ function oficial_comprobarFacturaAbonoCli(curFactura:FLSqlCursor):Boolean
 function oficial_crearCtaEspecial(codCtaEspecial:String, tipo:String, codEjercicio:String, desCta:String):Boolean
 {
 	var util:FLUtil = new FLUtil();
-	
+
 	var codSubcuenta:String;
 	if (tipo == "subcuenta") {
 		var f:Object = new FLFormSearchDB("co_subcuentas");
 		var curSubcuenta:FLSqlCursor = f.cursor();
 		curSubcuenta.setMainFilter("codejercicio = '" + codEjercicio + "'");
-		
+
 		f.setMainWidget();
 		codSubcuenta = f.exec("codsubcuenta");
 		if (!codSubcuenta)
@@ -3661,14 +3663,14 @@ function oficial_subcuentaVentas(referencia:String, codEjercicio:String):Array
 // 	var idLineaAlbaran:Number;
 // 	var idLineaPedido:Number;
 // 	var numeroPedido:Number;
-// 
+//
 // 	var query:FLSqlQuery = new FLSqlQuery();
 // 	query.setTablesList("lineasalbaranescli");
 // 	query.setSelect("idlineapedido, idlinea");
 // 	query.setFrom("lineasalbaranescli");
 // 	query.setWhere("idalbaran = " + curAlbaran.valueBuffer("idalbaran") + " AND idlineapedido <> 0;");
 // 	query.exec();
-// 
+//
 // 	while (query.next()) {
 // 		idLineaPedido = query.value("idlineapedido");
 // 		idLineaAlbaran = query.value("idlinea");
@@ -3676,7 +3678,7 @@ function oficial_subcuentaVentas(referencia:String, codEjercicio:String):Array
 // 			return false;
 // 		}
 // 	}
-// 
+//
 // 	var qryPedido:FLSqlQuery = new FLSqlQuery();
 // 	qryPedido.setTablesList("lineasalbaranescli");
 // 	qryPedido.setSelect("idpedido");
@@ -3695,14 +3697,14 @@ function oficial_subcuentaVentas(referencia:String, codEjercicio:String):Array
 // 	var idLineaAlbaran:Number;
 // 	var idLineaPedido:Number;
 // 	var numeroPedido:Number;
-// 
+//
 // 	var query:FLSqlQuery = new FLSqlQuery();
 // 	query.setTablesList("lineasalbaranesprov");
 // 	query.setSelect("idlineapedido, idlinea");
 // 	query.setFrom("lineasalbaranesprov");
 // 	query.setWhere("idalbaran = " + curAlbaran.valueBuffer("idalbaran") + " AND idlineapedido <> 0;");
 // 	query.exec();
-// 
+//
 // 	while (query.next()) {
 // 		idLineaPedido = query.value("idlineapedido");
 // 		idLineaAlbaran = query.value("idlinea");
@@ -3710,7 +3712,7 @@ function oficial_subcuentaVentas(referencia:String, codEjercicio:String):Array
 // 			return false;
 // 		}
 // 	}
-// 
+//
 // 	var qryPedido = new FLSqlQuery();
 // 	qryPedido.setTablesList("lineasalbaranesprov");
 // 	qryPedido.setSelect("idpedido");
@@ -3792,7 +3794,7 @@ function oficial_actualizarPedidosCli(curAlbaran:FLSqlCursor):Boolean
 		if (!this.iface.actualizarLineaPedidoCli(query.value(0), query.value(1), query.value(2), query.value(3), query.value(4))) {
 			return false;
 		}
-			
+
 		if (idPedido != query.value(1)) {
 			if (!this.iface.actualizarEstadoPedidoCli(query.value(1), curAlbaran))
 				return false;
@@ -3806,7 +3808,7 @@ function oficial_actualizarPedidosProv(curAlbaran:FLSqlCursor):Boolean
 {
 return true;
 // 	var util:FLUtil = new FLUtil();
-// 
+//
 // 	var query:FLSqlQuery = new FLSqlQuery();
 // 	query.setTablesList("lineasalbaranesprov");
 // 	query.setSelect("idlineapedido, idpedido, referencia, idalbaran, cantidad");
@@ -3842,7 +3844,7 @@ function oficial_actualizarLineaPedidoProv(idLineaPedido:Number, idPedido:Number
 	if (idLineaPedido == 0) {
 		return true;
 	}
-	
+
 	var cantidadServida:Number;
 	var curLineaPedido:FLSqlCursor = new FLSqlCursor("lineaspedidosprov");
 	curLineaPedido.select("idlinea = " + idLineaPedido);
@@ -3868,12 +3870,12 @@ function oficial_actualizarLineaPedidoProv(idLineaPedido:Number, idPedido:Number
 	}
 	if (cantidadServida > cantidadPedido)
 		cantidadServida = cantidadPedido;
-	
+
 	curLineaPedido.setValueBuffer("totalenalbaran", cantidadServida);
 	if (!curLineaPedido.commitBuffer()) {
 		return false;
 	}
-		
+
 	return true;
 }
 
@@ -3897,7 +3899,7 @@ function oficial_actualizarEstadoPedidoProv(idPedido:Number, curAlbaran:FLSqlCur
 		}
 		curPedido.setUnLock("editable", true);
 	}
-	
+
 	curPedido.select("idpedido = " + idPedido);
 	curPedido.setModeAccess(curPedido.Edit);
 	if (curPedido.first()) {
@@ -3959,7 +3961,7 @@ function oficial_obtenerEstadoPedidoProv(idPedido:Number):String
 			}
 		}
 	}
-	
+
 	var totalAServir:Number = totalLineas - totalCerradas;
 	if (parcial) {
 		estado = "Parcial";
@@ -3991,7 +3993,7 @@ function oficial_actualizarLineaPedidoCli(idLineaPedido:Number, idPedido:Number,
 	if (idLineaPedido == 0) {
 		return true;
 	}
-		
+
 	var cantidadServida:Number;
 	var curLineaPedido:FLSqlCursor = new FLSqlCursor("lineaspedidoscli");
 	curLineaPedido.select("idlinea = " + idLineaPedido);
@@ -4019,12 +4021,12 @@ function oficial_actualizarLineaPedidoCli(idLineaPedido:Number, idPedido:Number,
 	if (cantidadServida > cantidadPedido) {
 		cantidadServida = cantidadPedido;
 	}
-		
+
 	curLineaPedido.setValueBuffer("totalenalbaran", cantidadServida);
 	if (!curLineaPedido.commitBuffer()) {
 		return false;
 	}
-	
+
 	return true;
 }
 
@@ -4040,7 +4042,7 @@ function oficial_actualizarEstadoPedidoCli(idPedido:Number, curAlbaran:FLSqlCurs
 	if (!estado) {
 		return false;
 	}
-		
+
 	var curPedido:FLSqlCursor = new FLSqlCursor("pedidoscli");
 	curPedido.select("idpedido = " + idPedido);
 	if (curPedido.first()) {
@@ -4049,7 +4051,7 @@ function oficial_actualizarEstadoPedidoCli(idPedido:Number, curAlbaran:FLSqlCurs
 		}
 		curPedido.setUnLock("editable", true);
 	}
-	
+
 	curPedido.select("idpedido = " + idPedido);
 	curPedido.setModeAccess(curPedido.Edit);
 	if (curPedido.first()) {
@@ -4106,7 +4108,7 @@ function oficial_obtenerEstadoPedidoCli(idPedido:Number):String
 			}
 		}
 	}
-	
+
 	var totalAServir:Number = totalLineas - totalCerradas;
 	if (parcial) {
 		estado = "Parcial";
@@ -4223,13 +4225,13 @@ function oficial_aplicarComisionLineas(codAgente:String,tblHija:String,where:Str
 
 	var referencia:String = "";
 	var comision:Number = 0;
-	
+
 	if(!codAgente || codAgente == "")
 		return false;
 
 	var curLineas:FLSqlCursor = new FLSqlCursor(tblHija);
 	curLineas.select(where);
-	
+
 	util.createProgressDialog(util.translate( "scripts", "Actualizando comisión ..." ), numLineas);
 
 	var i:Number = 0;
@@ -4249,7 +4251,7 @@ function oficial_aplicarComisionLineas(codAgente:String,tblHija:String,where:Str
 		}
 	}
 	util.setProgress(numLineas);
-	util.destroyProgressDialog();	
+	util.destroyProgressDialog();
 	return true;
 }
 
@@ -4263,7 +4265,7 @@ function oficial_calcularComisionLinea(codAgente:String,referencia:String):Numbe
 		if(id)
 			valor = parseFloat(util.sqlSelect("articulosagen", "comision", "id = " + id));
 	}
-		
+
 	if(valor == -1)
 		valor = parseFloat(util.sqlSelect("agentes", "porcomision", "codagente = '" + codAgente + "'"));
 
@@ -4292,7 +4294,7 @@ function oficial_arrayCostesAfectados(arrayInicial:Array, arrayFinal:Array):Arra
 
 	arrayInicial.sort(this.iface.compararArrayCoste);
 	arrayFinal.sort(this.iface.compararArrayCoste);
-	
+
 // debug("ARRAY INICIAL ORDENADO");
 // for (var i:Number = 0; i < arrayInicial.length; i++) {
 // 	debug(" " + arrayInicial[i]["idarticulo"] + "-" + arrayInicial[i]["cantidad"]);
@@ -4377,11 +4379,11 @@ function oficial_datosImpuesto(codImpuesto:String, fecha:String):Array
 
 	if (!qryImpuesto.first()) {
 		return false;
-	} 
+	}
 
 	datosImpuesto.iva = qryImpuesto.value("iva");
 	datosImpuesto.recargo = qryImpuesto.value("recargo");
-	return datosImpuesto;	
+	return datosImpuesto;
 }
 //// OFICIAL ////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -4391,4 +4393,5 @@ function oficial_datosImpuesto(codImpuesto:String, fecha:String):Array
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+
