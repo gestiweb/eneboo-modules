@@ -56,6 +56,9 @@ class oficial extends interna {
 	function datosTablaPadre(cursor:FLSqlCursor):Array {
 		return this.ctx.oficial_datosTablaPadre(cursor);
 	}
+	function dameFiltroReferencia():String {
+		return this.ctx.oficial_dameFiltroReferencia();
+	}
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -126,10 +129,12 @@ function interna_init()
 		cursor.setValueBuffer("recargo",0);
 	}
 
-	this.child("fdbReferencia").setFilter("secompra");
-	if (this.child("chkFiltrarArtProv").checked) {
-		this.iface.filtrarArtProv();
-	}
+	this.iface.filtrarArtProv();
+	
+// 	this.child("fdbReferencia").setFilter("secompra");
+// 	if (this.child("chkFiltrarArtProv").checked) {
+// 		this.iface.filtrarArtProv();
+// 	}
 }
 
 function interna_calculateField(fN:String):String
@@ -303,6 +308,12 @@ function oficial_commonCalculateField(fN:String, cursor:FLSqlCursor):String
 */
 function oficial_filtrarArtProv()
 {
+	var filtroReferencia:String = this.iface.dameFiltroReferencia();
+	this.child("fdbReferencia").setFilter(filtroReferencia);
+}
+
+function oficial_dameFiltroReferencia():String
+{
 	var filtroReferencia:String = "secompra";
 	if (this.child("chkFiltrarArtProv").checked) {
 		var codProveedor:String = this.cursor().cursorRelation().valueBuffer("codproveedor");
@@ -311,8 +322,7 @@ function oficial_filtrarArtProv()
 	} else {
 		filtroReferencia = "secompra";
 	}
-
-	this.child("fdbReferencia").setFilter(filtroReferencia);
+	return filtroReferencia;
 }
 
 /** \D Devuelve la tabla padre de la tabla parámetro, así como la cláusula where necesaria para localizar el registro padre

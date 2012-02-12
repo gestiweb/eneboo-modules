@@ -1,8 +1,8 @@
 /***************************************************************************
-                 co_epigrafes.qs  -  description
+                 familias.qs  -  description
                              -------------------
-    begin                : lun jul 11 2004
-    copyright            : (C) 2004 by InfoSiAL S.L.
+    begin                : vie jun 28 2010
+    copyright            : (C) 2010 by InfoSiAL S.L.
     email                : mail@infosial.com
  ***************************************************************************/
 
@@ -27,8 +27,15 @@
 class interna {
     var ctx:Object;
     function interna( context ) { this.ctx = context; }
-    function init() { this.ctx.interna_init(); }
-    function validateForm():Boolean { return this.ctx.interna_validateForm(); }
+    function init() {
+		return this.ctx.interna_init();
+	}
+	function calculateField(fN:String):String {
+		return this.ctx.interna_calculateField(fN);
+	}
+	function validateForm():Boolean {
+		return this.ctx.interna_validateForm();
+	}
 }
 //// INTERNA /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -37,11 +44,10 @@ class interna {
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
-	var tbnBuscarEpigrafe:Object;
-	var ejercicioActual:String;
-    function oficial( context ) { interna( context ); }
-	function desconexion() { return this.ctx.oficial_desconexion(); }
-	function tbnBuscarEpigrafe_clicked() { return this.ctx.oficial_tbnBuscarEpigrafe_clicked(); }
+	function oficial( context ) { interna( context ); } 
+	function bufferChanged(fN:String) {
+		return this.ctx.oficial_bufferChanged(fN);
+	}
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -73,48 +79,23 @@ const iface = new ifaceCtx( this );
 
 //////////////////////////////////////////////////////////////////
 //// INTERNA /////////////////////////////////////////////////////
-/** \C
-	En modo edición los campos referentes al epígrafe padre del actual estarán inhabilitados
-\end */
 function interna_init()
 {
 	var util:FLUtil = new FLUtil();
 	var cursor:FLSqlCursor = this.cursor();
-	this.iface.tbnBuscarEpigrafe = this.child("tbnBuscarEpigrafe");
-	this.iface.ejercicioActual = flfactppal.iface.pub_ejercicioActual();
 
-	switch(cursor.modeAccess()) {
-	case cursor.Insert:
-		cursor.setValueBuffer("codejercicio", this.iface.ejercicioActual);
-		break;
-	case cursor.Edit:
-		this.iface.tbnBuscarEpigrafe.enabled = false;
-		break;
-	}
-	connect(this.iface.tbnBuscarEpigrafe, "clicked()", this, "iface.tbnBuscarEpigrafe_clicked");
-	connect(form, "closed()", this, "iface.desconexion");
+	connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
 }
 
-function interna_validateForm():Boolean
+function interna_calculateField(nombreCampo:String):String
 {
-		var cursor:FLSqlCursor = this.cursor();
-		var util:FLUtil = new FLUtil();
-
-		/** \C El código de epígrafe tendrá como prefijo el código del epígrafe padre
-		\end */
-		var codEpigrafePadre:String = this.child("fdbCodPadre").value();
-		var codEpigrafe:String = cursor.valueBuffer("codepigrafe");
-		if (codEpigrafePadre != codEpigrafe.substring(0, codEpigrafePadre.length)) {
-				MessageBox.critical(util.translate("scripts",
-						"El código del epígrafe debe tener como prefijo el de su epígrafe padre"),
-						 MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
-				return false;
-		}
-
-		return true;
+	return "";
 }
 
-
+function interna_validateForm():Boolean 
+{
+	return true;
+}
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
@@ -122,24 +103,17 @@ function interna_validateForm():Boolean
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 
-function oficial_desconexion()
+function oficial_bufferChanged(fN:String)
 {
-		disconnect(this.cursor(), "bufferChanged(QString)", this, "bufferChanged");
-		disconnect(this.iface.tbnBuscarEpigrafe, "clicked()", this, "iface.tbnBuscarEpigrafe_clicked");
-}
-
-function oficial_tbnBuscarEpigrafe_clicked()
-{
-		var cursor:FLSqlCursor = this.cursor();
-		var f:Object = new FLFormSearchDB("co_epigrafes");
-		f.setMainWidget();
-		f.cursor().setMainFilter("codejercicio = '" + this.iface.ejercicioActual + "'");
-		var idEpigrafe:String = f.exec("idepigrafe");
-		if (idEpigrafe) {
-				cursor.setValueBuffer("idpadre", idEpigrafe);
+	var cursor:FLSqlCursor = this.cursor();
+	
+	switch (fN) {
+		case "": {
+			
+			break;
 		}
+	}
 }
-
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
@@ -148,5 +122,4 @@ function oficial_tbnBuscarEpigrafe_clicked()
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-
+/////////////////////////////////////////////////////////////////

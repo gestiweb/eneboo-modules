@@ -162,6 +162,8 @@ class oficial extends interna {
 	function validarProvincia(cursor:FLSqlCursor, mtd:Array):Boolean {
 		return this.ctx.oficial_validarProvincia(cursor, mtd);
 	}
+  function  simplify(str)     { return this.ctx.oficial_simplify(str); }
+  function  escapeQuote(str)  { return this.ctx.oficial_escapeQuote(str); }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -264,6 +266,8 @@ class ifaceCtx extends head {
 	function pub_validarProvincia(cursor:FLSqlCursor, mtd:Array):Boolean {
 		return this.validarProvincia(cursor, mtd);
 	}
+  function pub_simplify(str)     { return this.simplify(str); }
+  function pub_escapeQuote(str)  { return this.escapeQuote(str); }
 }
 
 const iface = new ifaceCtx( this );
@@ -1623,7 +1627,7 @@ function oficial_actualizarContactos20070525():Boolean
 		}
 
 		if ((qryClientes.value("contacto") && qryClientes.value("contacto") != "") && (!qryClientes.value("codcontacto") || qryClientes.value("codcontacto") == "")) {
-				codContacto = util.sqlSelect("crm_contactos", "codcontacto", "nombre = '" + qryClientes.value("contacto") + "'");
+				codContacto = util.sqlSelect("crm_contactos", "codcontacto", "nombre = '" +  this.iface.escapeQuote(qryClientes.value("contacto")) + "'");
 				if (codContacto)
 					this.iface.actualizarContactosDeAgenda20070525(codCliente,codContacto,qryClientes.value("contacto"));
 				else
@@ -2231,6 +2235,22 @@ function oficial_validarProvincia(cursor:FLSqlCursor, mtd:Array):Boolean
 		}
 	}
 	return true;
+}
+
+function oficial_simplify(str)
+{
+  var regExp = new RegExp("( |\n|\r|\t|\f)");
+  regExp.global = true;
+  str = str.replace(regExp, "");
+  return str;
+}
+
+function oficial_escapeQuote(str)
+{
+  var regExp = new RegExp("'");
+  regExp.global = true;
+  str = str.replace(regExp, "''");
+  return str;
 }
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////

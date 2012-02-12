@@ -60,7 +60,7 @@ class interna {
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
 	var curReciboCli:FLSqlCursor;
-	
+
     function oficial( context ) { interna( context ); }
 	function actualizarRiesgoCliente(codCliente:String) {
 		return this.ctx.oficial_actualizarRiesgoCliente(codCliente);
@@ -172,7 +172,7 @@ class ifaceCtx extends head {
 	}
 }
 
-const iface = new ifaceCtx( this );
+const iface = new pubProveed( this );
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
@@ -269,11 +269,11 @@ function interna_afterCommit_pagosdevolcli(curPD:FLSqlCursor):Boolean
 			break;
 		}
 	}
-	
+
 	if (!this.iface.calcularEstadoFacturaCli(idRecibo))
 		return false;
-	
-	
+
+
 	var util:FLUtil = new FLUtil();
 	if (sys.isLoadedModule("flcontppal") == false || util.sqlSelect("empresa", "contintegrada", "1 = 1") == false)
 		return true;
@@ -282,11 +282,11 @@ function interna_afterCommit_pagosdevolcli(curPD:FLSqlCursor):Boolean
 		case curPD.Del: {
 			if (curPD.isNull("idasiento"))
 				return true;
-	
+
 			var idAsiento:Number = curPD.valueBuffer("idasiento");
 			if (flfacturac.iface.pub_asientoBorrable(idAsiento) == false)
 				return false;
-	
+
 			var curAsiento:FLSqlCursor = new FLSqlCursor("co_asientos");
 			curAsiento.select("idasiento = " + idAsiento);
 			if (curAsiento.first()) {
@@ -309,7 +309,7 @@ function interna_afterCommit_pagosdevolcli(curPD:FLSqlCursor):Boolean
 			break;
 		}
 	}
-	
+
 	return true;
 }
 
@@ -323,7 +323,7 @@ function interna_beforeCommit_pagosdevolcli(curPD:FLSqlCursor):Boolean
 			return false;
 		}
 	}
-	
+
 	return true;
 }
 
@@ -333,7 +333,7 @@ function interna_afterCommit_reciboscli(curR:FLSqlCursor):Boolean
 {
 	if (curR.valueBuffer("codcliente"))
 		this.iface.actualizarRiesgoCliente(curR.valueBuffer("codcliente"));
-	
+
 	return true;
 }
 
@@ -385,7 +385,7 @@ function interna_beforeCommit_pagosdevolrem(curPR:FLSqlCursor):Boolean
 		if (!this.iface.generarAsientoPagoRemesa(curPR))
 			return false;
 	}
-	
+
 	return true;
 }
 
@@ -401,11 +401,11 @@ function interna_afterCommit_pagosdevolrem(curPD:FLSqlCursor):Boolean
 		case curPD.Del: {
 			if (curPD.isNull("idasiento"))
 				return true;
-	
+
 			var idAsiento:Number = curPD.valueBuffer("idasiento");
 			if (flfacturac.iface.pub_asientoBorrable(idAsiento) == false)
 				return false;
-	
+
 			var curAsiento:FLSqlCursor = new FLSqlCursor("co_asientos");
 			curAsiento.select("idasiento = " + idAsiento);
 			if (curAsiento.first()) {
@@ -428,7 +428,7 @@ function interna_afterCommit_pagosdevolrem(curPD:FLSqlCursor):Boolean
 			break;
 		}
 	}
-	
+
 	return true;
 }
 //// INTERNA /////////////////////////////////////////////////////
@@ -544,7 +544,7 @@ function oficial_regenerarRecibosCli(cursor:FLSqlCursor, emitirComo:String):Bool
 
 	if (!this.iface.borrarRecibosCli(idFactura))
 		return false;
-		
+
 	if (total == 0)
 		return true;
 
@@ -587,7 +587,7 @@ function oficial_regenerarRecibosCli(cursor:FLSqlCursor, emitirComo:String):Bool
 	}
 	while (curPlazos.next()) {
 		diasAplazado = curPlazos.valueBuffer("dias");
-		
+
 		if ( curPlazos.at() == ( curPlazos.size() - 1 ) )
 			importe = parseFloat(total) - parseFloat(importeAcumulado);
 		else
@@ -631,7 +631,7 @@ function oficial_generarReciboCli(curFactura:FLSqlCursor, numRecibo:String, impo
 {
 	if (!this.iface.curReciboCli)
 		this.iface.curReciboCli = new FLSqlCursor("reciboscli");
-		
+
 	var util:FLUtil = new FLUtil();
 	var importeEuros:Number  = importe * parseFloat(curFactura.valueBuffer("tasaconv"));
 	var divisa:String = util.sqlSelect("divisas", "descripcion", "coddivisa = '" + curFactura.valueBuffer("coddivisa") + "'");
@@ -673,7 +673,7 @@ function oficial_generarReciboCli(curFactura:FLSqlCursor, numRecibo:String, impo
 	}
 	if (!this.iface.datosReciboCli(curFactura))
 		return false;
-		
+
 	if (!this.iface.curReciboCli.commitBuffer())
 		return false;
 
@@ -794,7 +794,7 @@ function oficial_obtenerDatosCuentaEmp(codCliente:String, codPago:String):Array
 	var codCuentaEmp:String = util.sqlSelect("clientes", "codcuentarem", "codcliente = '" + codCliente + "'");
 	if (!codCuentaEmp)
 		codCuentaEmp = util.sqlSelect("formaspago", "codcuenta", "codpago = '" + codPago + "'");
-		
+
 	if (!codCuentaEmp.toString().isEmpty()) {
 		datosCuentaEmp = flfactppal.iface.pub_ejecutarQry("cuentasbanco", "descripcion,ctaentidad,ctaagencia,cuenta,codsubcuenta,codcuenta", "codcuenta = '" + codCuentaEmp + "'");
 		switch (datosCuentaEmp.result) {
@@ -871,7 +871,7 @@ function oficial_calcularEstadoFacturaCli(idRecibo:String, idFactura:String):Boo
 	var util:FLUtil = new FLUtil();
 	if (!idFactura)
 		idFactura = util.sqlSelect("reciboscli", "idfactura", "idrecibo = " + idRecibo);
-	
+
 	var qryPagos:FLSqlQuery = new FLSqlQuery();
 	qryPagos.setTablesList("reciboscli,pagosdevolcli");
 	qryPagos.setSelect("p.idpagodevol");
@@ -880,7 +880,7 @@ function oficial_calcularEstadoFacturaCli(idRecibo:String, idFactura:String):Boo
 	try { qryPagos.setForwardOnly( true ); } catch (e) {}
 	if (!qryPagos.exec())
 		return false;
-	
+
 	var curFactura:FLSqlCursor = new FLSqlCursor("facturascli");
 	curFactura.select("idfactura = " + idFactura);
 	curFactura.first();
@@ -903,7 +903,7 @@ function oficial_cambiaUltimoPagoCli(idRecibo:String, idPagoDevol:String, unlock
 	curPagosDevol.select("idrecibo = " + idRecibo + " AND idpagodevol <> " + idPagoDevol + " ORDER BY fecha, idpagodevol");
 	if (curPagosDevol.last())
 		curPagosDevol.setUnLock("editable", unlock);
-		
+
 	return true;
 }
 
@@ -931,12 +931,12 @@ function oficial_generarAsientoPagoDevolCli(curPD:FLSqlCursor):Boolean
 		codEjercicio = datosDoc.codEjercicio;
 		curPD.setValueBuffer("fecha", datosDoc.fecha);
 	}
-	
+
 	var datosAsiento:Array = [];
 	var valoresDefecto:Array;
 	valoresDefecto["codejercicio"] = codEjercicio;
 	valoresDefecto["coddivisa"] = util.sqlSelect("empresa", "coddivisa", "1 = 1");
-	
+
 	var curTransaccion:FLSqlCursor = new FLSqlCursor("empresa");
 	curTransaccion.transaction(false);
 	try {
@@ -944,7 +944,7 @@ function oficial_generarAsientoPagoDevolCli(curPD:FLSqlCursor):Boolean
 		if (datosAsiento.error == true) {
 			throw util.translate("scripts", "Error al regenerar el asiento");
 		}
-	
+
 		if (curPD.valueBuffer("tipo") == "Pago") {
 			var recibo:Array = flfactppal.iface.pub_ejecutarQry("reciboscli", "coddivisa,importe,importeeuros,idfactura,codigo,nombrecliente", "idrecibo = " + curPD.valueBuffer("idrecibo"));
 			if (recibo.result != 1) {
@@ -974,9 +974,9 @@ function oficial_generarAsientoPagoDevolCli(curPD:FLSqlCursor):Boolean
 				throw util.translate("scripts", "Error al obtener la partida de diferencias por cambio");
 			}
 		}
-	
+
 		curPD.setValueBuffer("idasiento", datosAsiento.idasiento);
-	
+
 		if (!flcontppal.iface.pub_comprobarAsiento(datosAsiento.idasiento)) {
 			throw util.translate("scripts", "Error al comprobar el asiento");
 		}
@@ -1020,7 +1020,7 @@ function oficial_generarPartidasCli(curPD:FLSqlCursor, valoresDefecto:Array, dat
 			"s.codsubcuenta",
 			"p.idasiento = " + idAsientoFactura + " AND c.idcuentaesp = 'CLIENT'",
 			"co_partidas,co_subcuentas,co_cuentas");
-	
+
 		if (!ctaHaber.codsubcuenta) {
 			MessageBox.warning(util.translate("scripts", "No se ha encontrado la subcuenta de cliente del asiento contable correspondiente a la factura a pagar"), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
 			return false;
@@ -1062,10 +1062,10 @@ function oficial_generarPartidasCli(curPD:FLSqlCursor, valoresDefecto:Array, dat
 	}
 	haber = util.roundFieldValue(haber, "co_partidas", "haber");
 	haberME = util.roundFieldValue(haberME, "co_partidas", "haberme");
-	
+
 	var esAbono:Boolean = util.sqlSelect("reciboscli r INNER JOIN facturascli f ON r.idfactura = f.idfactura", "deabono", "idrecibo = " + curPD.valueBuffer("idrecibo"), "reciboscli,facturascli");
 	var esPago:Boolean = this.iface.esPagoEstePagoDevol(curPD);
-	
+
 	var curPartida:FLSqlCursor = new FLSqlCursor("co_partidas");
 	with(curPartida) {
 		setModeAccess(curPartida.Insert);
@@ -1140,7 +1140,7 @@ function oficial_generarPartidasBanco(curPD:FLSqlCursor, valoresDefecto:Array, d
 
 	var esAbono:Boolean = util.sqlSelect("reciboscli r INNER JOIN facturascli f ON r.idfactura = f.idfactura", "deabono", "idrecibo = " + curPD.valueBuffer("idrecibo"), "reciboscli,facturascli");
 	var esPago:Boolean = this.iface.esPagoEstePagoDevol(curPD);
-	
+
 	var curPartida:FLSqlCursor = new FLSqlCursor("co_partidas");
 	with(curPartida) {
 		setModeAccess(curPartida.Insert);
@@ -1170,7 +1170,7 @@ function oficial_generarPartidasBanco(curPD:FLSqlCursor, valoresDefecto:Array, d
 				setValueBuffer("debe", 0);
 			}
 		}
-		
+
 		setValueBuffer("coddivisa", recibo.coddivisa);
 		setValueBuffer("tasaconv", tasaconvDebe);
 		setValueBuffer("debeME", debeME);
@@ -1202,7 +1202,7 @@ function oficial_generarPartidasCambio(curPD:FLSqlCursor, valoresDefecto:Array, 
 	var tasaconvDebe:Number = 1;
 	var tasaconvHaber:Number = 1;
 	var diferenciaCambio:Number = 0;
-		
+
 	tasaconvDebe = curPD.valueBuffer("tasaconv");
 	tasaconvHaber = util.sqlSelect("reciboscli r INNER JOIN facturascli f ON r.idfactura = f.idfactura ", "tasaconv", "idrecibo = " + curPD.valueBuffer("idrecibo"), "reciboscli,facturascli");
 	debe = parseFloat(recibo.importe) * parseFloat(tasaconvDebe);
@@ -1216,7 +1216,7 @@ function oficial_generarPartidasCambio(curPD:FLSqlCursor, valoresDefecto:Array, 
 		diferenciaCambio = 0;
 		return true;
 	}
-	
+
 	diferenciaCambio = util.roundFieldValue(diferenciaCambio, "co_partidas", "debe");
 
 	var ctaDifCambio:Array = [];
@@ -1243,7 +1243,7 @@ function oficial_generarPartidasCambio(curPD:FLSqlCursor, valoresDefecto:Array, 
 // 		haberDifCambio = aux;
 // 	}
 	var esPago:Boolean = this.iface.esPagoEstePagoDevol(curPD);
-	
+
 	var curPartida:FLSqlCursor = new FLSqlCursor("co_partidas");
 	with(curPartida) {
 		setModeAccess(curPartida.Insert);
@@ -1282,7 +1282,7 @@ function oficial_esPagoEstePagoDevol(curPD:FLSqlCursor):Boolean
 function oficial_comprobarCuentasDom(idRemesa:String):Boolean
 {
 	var util:FLUtil = new FLUtil();
-	
+
 	var qryRecibos:FLSqlQuery = new FLSqlQuery;
 	qryRecibos.setTablesList("pagosdevolcli,reciboscli,cuentasbcocli");
 	qryRecibos.setSelect("r.codigo, r.codcliente, r.nombrecliente");
@@ -1312,10 +1312,10 @@ function oficial_automataActivado():Boolean
 {
 	if (!sys.isLoadedModule("flautomata"))
 		return false;
-	
+
 	if (formau_automata.iface.pub_activado())
 		return true;
-	
+
 	return false;
 }
 
@@ -1341,19 +1341,19 @@ function oficial_generarAsientoPagoRemesa(curPR:FLSqlCursor):Boolean
 		codEjercicio = datosDoc.codEjercicio;
 		curPR.setValueBuffer("fecha", datosDoc.fecha);
 	}
-	
+
 	var datosAsiento:Array = [];
 	var valoresDefecto:Array;
 	valoresDefecto["codejercicio"] = codEjercicio;
 	valoresDefecto["coddivisa"] = util.sqlSelect("empresa", "coddivisa", "1 = 1");
-	
+
 	var curTransaccion:FLSqlCursor = new FLSqlCursor("empresa");
 	curTransaccion.transaction(false);
 	try {
 		datosAsiento = flfacturac.iface.pub_regenerarAsiento(curPR, valoresDefecto);
 		if (datosAsiento.error == true) {
 			throw util.translate("scripts", "Error al regenerar el asiento");
-		}	
+		}
 		var remesa:Array = flfactppal.iface.pub_ejecutarQry("remesas", "coddivisa,total,fecha,idremesa,codsubcuenta,codcuenta", "idremesa = " + curPR.valueBuffer("idremesa"));
 		if (remesa.result != 1) {
 			throw util.translate("scripts", "Error al obtener los datos de la remesa");
@@ -1424,7 +1424,7 @@ function oficial_generarPartidasEFCOGC(curPR:FLSqlCursor, valoresDefecto:Array, 
 		setValueBuffer("debeME", 0);
 		setValueBuffer("haberME", haberME);
 	}
-		
+
 	if (!curPartida.commitBuffer())
 		return false;
 
@@ -1491,4 +1491,5 @@ function oficial_generarPartidasBancoRem(curPR:FLSqlCursor, valoresDefecto:Array
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+

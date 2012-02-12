@@ -52,6 +52,9 @@ class oficial extends interna {
 	function filtrarArtProv() {
 		return this.ctx.oficial_filtrarArtProv();
 	}
+	function dameFiltroReferencia():String {
+		return this.ctx.oficial_dameFiltroReferencia();
+	}
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -112,13 +115,11 @@ function interna_init()
 		this.iface.bloqueoSubcuenta = false;
 		this.iface.posActualPuntoSubcuenta = -1;
 		this.child("fdbIdSubcuenta").setFilter("codejercicio = '" + this.iface.ejercicioActual + "'");
-	} else
+	} else {
 		this.child("gbxContabilidad").enabled = false;
-		
-	this.child("fdbReferencia").setFilter("secompra");
-	if (this.child("chkFiltrarArtProv").checked) {
-		this.iface.filtrarArtProv();
 	}
+		
+	this.iface.filtrarArtProv();
 }
 
 /** \C
@@ -203,6 +204,12 @@ function oficial_bufferChanged(fN:String)
 */
 function oficial_filtrarArtProv()
 {
+	var filtroReferencia:String = this.iface.dameFiltroReferencia();
+	this.child("fdbReferencia").setFilter(filtroReferencia);
+}
+
+function oficial_dameFiltroReferencia():String
+{
 	var filtroReferencia:String = "secompra";
 	if (this.child("chkFiltrarArtProv").checked) {
 		var codProveedor:String = this.cursor().cursorRelation().valueBuffer("codproveedor");
@@ -211,8 +218,7 @@ function oficial_filtrarArtProv()
 	} else {
 		filtroReferencia = "secompra";
 	}
-
-	this.child("fdbReferencia").setFilter(filtroReferencia);
+	return filtroReferencia;
 }
 
 //// OFICIAL /////////////////////////////////////////////////////

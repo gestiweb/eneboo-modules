@@ -44,6 +44,9 @@ class oficial extends interna {
 	function bufferChanged(fN:String) {
 		return this.ctx.oficial_bufferChanged(fN);
 	}
+	function dameFiltroReferencia():String {
+		return this.ctx.oficial_dameFiltroReferencia();
+	}
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -123,11 +126,7 @@ function interna_init()
 		}
 	}
 
-	var filtroReferencia:String = "";
-	if (filtroReferencia != "") {
-		filtroReferencia += " AND ";
-	}
-	filtroReferencia += "sevende";
+	var filtroReferencia:String = this.iface.dameFiltroReferencia();
 	this.child("fdbReferencia").setFilter(filtroReferencia);
 }
 
@@ -177,6 +176,11 @@ Las dependencias entre controles de este formulario son las mismas que las del f
 function oficial_bufferChanged(fN:String)
 {
 		formRecordlineaspedidoscli.iface.pub_commonBufferChanged(fN, form);
+}
+
+function oficial_dameFiltroReferencia():String
+{
+	return "sevende";
 }
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////

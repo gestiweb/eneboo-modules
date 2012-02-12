@@ -40,7 +40,7 @@ class oficial extends interna {
 	function oficial( context ) { interna( context ); }
 	function buscarPlanContable(cursor:FLSqlCursor):Boolean {
 		return this.ctx.oficial_buscarPlanContable(cursor);
-	} 
+	}
 	function copiarSubcuentasCliProv(codEjFuente:String, codEjDestino:String):Boolean {
 		return this.ctx.oficial_copiarSubcuentasCliProv(codEjFuente, codEjDestino);
 	}
@@ -109,8 +109,10 @@ function interna_init()
 
 	if (sys.isLoadedModule("flcontppal")) {
 		this.child("tbwSecuencias").setTabEnabled("secuenciascon", true);
+		this.child("tbwSecuencias").setTabEnabled("asientos", true);
 	} else {
 		this.child("tbwSecuencias").setTabEnabled("secuenciascon", false);
+		this.child("tbwSecuencias").setTabEnabled("asientos", false);
 	}
 }
 
@@ -189,7 +191,7 @@ function oficial_buscarPlanContable(cursor:FLSqlCursor):Boolean
 		}
 
 		var dialog:Object = new Dialog(util.translate("scripts", "Generar Plan Contable"), 0, "gerenarPGC");
-		
+
 		dialog.OKButtonText = util.translate ("scripts","Aceptar");
 		dialog.cancelButtonText = util.translate ("scripts","Cancelar");
 
@@ -230,7 +232,7 @@ function oficial_buscarPlanContable(cursor:FLSqlCursor):Boolean
 			f.setMainWidget();
 			f.cursor().setMainFilter("codejercicio <> '" + ejercicio + "'");
 			var ejeranterior:String = f.exec("codejercicio");
-			
+
 			if (!ejeranterior)
 				return false;
 			cursor.setValueBuffer("longsubcuenta", util.sqlSelect("ejercicios", "longsubcuenta", "codejercicio = '" + ejeranterior + "'"));
@@ -335,7 +337,7 @@ function oficial_buscarPlanContable(cursor:FLSqlCursor):Boolean
 			}
 			util.setProgress(totalEpigrafes);
 			util.destroyProgressDialog();
-			
+
 			if (!this.iface.copiarSubcuentasCliProv(ejeranterior, ejercicio))
 				return false;
 		}
@@ -351,10 +353,10 @@ function oficial_buscarPlanContable(cursor:FLSqlCursor):Boolean
 function oficial_copiarSubcuentasCliProv(codEjFuente:String, codEjDestino:String):Boolean
 {
 	var util:FLUtil = new FLUtil;
-	
+
 	var idSubcuenta:String;
 	var paso:Number = 0;
-	
+
 	var qryCli:FLSqlQuery = new FLSqlQuery;
 	qryCli.setTablesList("co_subcuentascli,clientes");
 	qryCli.setSelect("s.codsubcuenta, s.codcliente, c.nombre");
@@ -364,7 +366,7 @@ function oficial_copiarSubcuentasCliProv(codEjFuente:String, codEjDestino:String
 	if (!qryCli.exec()) {
 		return false;
 	}
-	
+
 	util.createProgressDialog(util.translate("scripts", "Copiando subcuentas por cliente"), qryCli.size());
 	util.setProgress(0);
 	while (qryCli.next()) {
@@ -377,7 +379,7 @@ function oficial_copiarSubcuentasCliProv(codEjFuente:String, codEjDestino:String
 	}
 	util.setProgress(qryCli.size());
 	util.destroyProgressDialog();
-	
+
 	var qryProv:FLSqlQuery = new FLSqlQuery;
 	qryProv.setTablesList("co_subcuentasprov,proveedores");
 	qryProv.setSelect("s.codsubcuenta, s.codproveedor, p.nombre");
@@ -400,7 +402,7 @@ function oficial_copiarSubcuentasCliProv(codEjFuente:String, codEjDestino:String
 	}
 	util.setProgress(qryProv.size());
 	util.destroyProgressDialog();
-	
+
 	return true;
 }
 //// OFICIAL /////////////////////////////////////////////////////

@@ -14,7 +14,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
- 
+
 /** @file */
 
 /** @class_declaration interna */
@@ -81,7 +81,7 @@ class oficial extends interna {
 	var totalImp:Number;
 
 
-    function oficial( context ) { interna( context ); } 
+    function oficial( context ) { interna( context ); }
 	function lanzarInforme(cursor:FLSqlCursor, nombreInforme:String, nombreReport:String, orderBy:String, groupBy:String, masWhere:String, idInforme:Number) {
 			return this.ctx.oficial_lanzarInforme(cursor, nombreInforme, nombreReport, orderBy, groupBy, masWhere, idInforme);
 	}
@@ -179,7 +179,7 @@ class oficial extends interna {
 
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
- 
+
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
@@ -314,7 +314,7 @@ function oficial_lanzarInforme(cursor:FLSqlCursor, nombreInforme:String, nombreR
 		this.iface.nombreInformeActual = nombreInforme;
 		if(nombreInforme.endsWith("_mes")) {
 			this.iface.nombreInformeActual = nombreInforme.left(nombreInforme.length-4);
-			
+
 		}
 
 /** \D A la hora de establecer condiciones lógicas en las consultas de los informes, los campos que definen estas condiciones son denominados en la tabla con:
@@ -327,7 +327,7 @@ Estos tres valores se separan por '_', si existe un '_' en alguno de ellos, éste
 
 Ejemplo: d_co__asientos_numero en el informe de diario indica que ese campo en la tabla del informe contiene el valor del número de asiento menor que saldrá en el informe. 'd' indice 'desde' o 'mayor o igual que', 'co_asientos' es el nombre de la tabla y 'numero' el nombre del campo
 \end */
-		
+
 		var q:FLSqlQuery = new FLSqlQuery(nombreInforme);
 		var util:FLUtil = new FLUtil();
 		var fieldList:String = util.nombreCampos(cursor.table());
@@ -371,8 +371,8 @@ Ejemplo: d_co__asientos_numero en el informe de diario indica que ese campo en l
 
 		util.createProgressDialog(util.translate("scripts", "Preparando informe..."), 100);
 		util.setProgress(5);
-		
-debug(q.sql());	
+
+debug(q.sql());
 		if (!q.exec()) {
 				MessageBox.critical(util.translate("scripts", "Falló la consulta"),
 														MessageBox.Ok, MessageBox.NoButton,
@@ -497,7 +497,7 @@ function oficial_parcialesPyG(nodo:FLDomNode, campo:String):String
 
 		var select:String, where:String;
 
-		if (campo == 0) 
+		if (campo == 0)
 			select = "sumaact";
 		else
 			select = "sumaant";
@@ -736,18 +736,18 @@ function oficial_descuadreDiario(nodo:FLDomNode, campo:String):Number
 		q.setFrom
 				("co_subcuentas INNER JOIN co_partidas ON co_subcuentas.idsubcuenta = co_partidas.idsubcuenta INNER JOIN co_asientos ON co_partidas.idasiento = co_asientos.idasiento");
 
-		var where = "co_subcuentas.codejercicio = '" + condEjercicio + "'" + 
-				" AND co_subcuentas.codsubcuenta >= '" + condCtaDesde + "'" + 
-				" AND co_subcuentas.codsubcuenta <= '" + condCtaHasta + "'" + 
+		var where = "co_subcuentas.codejercicio = '" + condEjercicio + "'" +
+				" AND co_subcuentas.codsubcuenta >= '" + condCtaDesde + "'" +
+				" AND co_subcuentas.codsubcuenta <= '" + condCtaHasta + "'" +
 				" AND co_asientos.numero >= " + condAsiDesde +
 				" AND co_asientos.numero <= " + condAsiHasta +
-				" AND co_asientos.fecha >= '" + condFecDesde + "'" + 
+				" AND co_asientos.fecha >= '" + condFecDesde + "'" +
 				" AND co_asientos.fecha <= '" + condFecHasta + "'";
 
 		q.setWhere(where);
 
 		q.setSelect("SUM(co_partidas.debe), SUM(co_partidas.haber)");
-		
+
 		if (!q.exec())
 				return 0;
 		if (!q.first())
@@ -833,12 +833,12 @@ function oficial_cabeceraInforme(nodo:FLDomNode, campo:String):String
 
 				desc = qCondiciones.value(0);
 				ejAct = qCondiciones.value(1);
-				
+
 				fchDesde = qCondiciones.value(2).toString().left(10);
 				fchHasta = qCondiciones.value(3).toString().left(10);
 				fchDesde = util.dateAMDtoDMA(fchDesde);
 				fchHasta = util.dateAMDtoDMA(fchHasta);
-				
+
 				sctDesde = qCondiciones.value(4);
 				sctHasta = qCondiciones.value(5);
 				asiDesde = qCondiciones.value(6);
@@ -917,12 +917,12 @@ function oficial_cabeceraInforme(nodo:FLDomNode, campo:String):String
 
 				desc = qCondiciones.value(0);
 				ejAct = qCondiciones.value(1);
-				
+
 				fchDesde = qCondiciones.value(2).toString().left(10);
 				fchHasta = qCondiciones.value(3).toString().left(10);
 				fchDesde = util.dateAMDtoDMA(fchDesde);
 				fchHasta = util.dateAMDtoDMA(fchHasta);
-				
+
 				sctDesde = qCondiciones.value(4);
 				sctHasta = qCondiciones.value(5);
 				ejAnt = qCondiciones.value(6);
@@ -960,12 +960,12 @@ function oficial_cabeceraInforme(nodo:FLDomNode, campo:String):String
 
 				desc = qCondiciones.value(0);
 				ejAct = qCondiciones.value(1);
-				
+
 				fchDesde = qCondiciones.value(2).toString().left(10);
 				fchHasta = qCondiciones.value(3).toString().left(10);
 				fchDesde = util.dateAMDtoDMA(fchDesde);
 				fchHasta = util.dateAMDtoDMA(fchHasta);
-				
+
 				ejAnt = qCondiciones.value(4);
 				fchDesdeAnt = qCondiciones.value(5);
 				fchHastaAnt = qCondiciones.value(6);
@@ -1026,7 +1026,7 @@ function oficial_resultadosEjercicio(AB:Array, ej:String, desde:String, hasta:St
 		var dat:Array = [];
 
 		var util:FLUtil = new FLUtil();
-		
+
 /** \D En primer lugar se realiza una consulta para obtener los totales de saldos de subcuentas agrupadas por cuenta, para aquellas cuentas cuyo código de balance sea 'DEBE' o 'HABER'
 \end */
 		var asientoPyG:Number = -1;
@@ -1035,7 +1035,7 @@ function oficial_resultadosEjercicio(AB:Array, ej:String, desde:String, hasta:St
 			asientoPyG = util.sqlSelect("ejercicios", "idasientopyg", "codejercicio = '" + ej + "'");
 			asientoCierre = util.sqlSelect("ejercicios", "idasientocierre", "codejercicio = '" + ej + "'");
 		}
-		
+
 		var q:FLSqlQuery = new FLSqlQuery();
 
 		q.setTablesList
@@ -1082,7 +1082,7 @@ function oficial_resultadosEjercicio(AB:Array, ej:String, desde:String, hasta:St
 				dat[registro]["desccuenta"] = q.value(9);
 				dat[registro]["suma"] = q.value(10);
 				dat[registro]["codejercicio"] = q.value(11);
-				
+
 				// Control de variación de existencias.
 				codCuenta = dat[registro]["codcuenta"];
 				if (codCuenta.left(2) == "71") {
@@ -1186,7 +1186,7 @@ BVI RESULTADO DEL EJERCICIO (PERDIDAS) (BV+A15+A16)
 		AB["BI"] =
 				A[1] + A[2] + A[3] + A[4] + A[5] + A[6] - B[1] - B[2] - B[3] -
 				B[4];
-						
+
 		AB["BII"] = A[7] + A[8] + A[9] - B[5] - B[6] - B[7] - B[8];
 		if (AB["BI"] < 0)
 				AB["BI"] = 0;
@@ -1220,10 +1220,10 @@ BVI RESULTADO DEL EJERCICIO (PERDIDAS) (BV+A15+A16)
 
 		AB["AVI"] = AB["AV"] - A[15] - A[16];
 		AB["BVI"] = AB["BV"] + A[15] + A[16];
-		
+
 		if (AB["AV"] == 0)
 			AB["AVI"] = 0;
-		
+
 		if (AB["AVI"] < 0)
 				AB["AVI"] = 0;
 		if (AB["BVI"] < 0 || AB["AVI"] > 0)
@@ -1286,7 +1286,7 @@ function oficial_sumarPyGNoAbs(dat:Array, naturaleza:String, nivel1:String, nive
 }
 
 /** \D
-Comprueba que la longitud de las subcuentas es la misma para dos ejercicios 
+Comprueba que la longitud de las subcuentas es la misma para dos ejercicios
 que han de consolidarse en un balance
 
 @param ej1 Código del ejericio 1
@@ -1349,14 +1349,14 @@ function oficial_mudarCuentasExistencias(registro:Array):Number
 
 	var util:FLUtil = new FLUtil();
 	var codEjercicio:String = flfactppal.iface.pub_ejercicioActual();
-	
+
 	// Nuevos valores
 	var codBalance:String;
 	var naturaleza:String;
 	var nivel1:String;
 	var nivel2:String;
 	var cambio:Boolean = false;
-	
+
 	// Del debe al haber
 	if (registro["codbalance"] == "D-A-1" && registro["suma"] < 0) {
 		codBalance = "H-B-2";
@@ -1365,7 +1365,7 @@ function oficial_mudarCuentasExistencias(registro:Array):Number
 		nivel2 = "2";
 		cambio = true;
 	}
-		
+
 	// Del haber al debe
 	if (registro["codbalance"] == "H-B-2" && registro["suma"] > 0) {
 		codBalance = "D-A-1";
@@ -1375,10 +1375,10 @@ function oficial_mudarCuentasExistencias(registro:Array):Number
 		suma = 0 - suma;
 		cambio = true;
 	}
-		
+
 	if (!cambio)
 		return suma;
-		
+
 	// Mudamos las cuentas
 	var curCue:FLSqlCursor = new FLSqlCursor("co_cuentas");
 	curCue.select("codbalance = '" + registro["codbalance"] + "' AND codejercicio = '" + codEjercicio + "'");
@@ -1391,18 +1391,18 @@ function oficial_mudarCuentasExistencias(registro:Array):Number
 			return suma;
 		}
 	}
-	
+
 	return suma;
 }
 
-function oficial_vaciarBuffer(tabla:String):Boolean 
+function oficial_vaciarBuffer(tabla:String):Boolean
 {
 	var util:FLUtil = new FLUtil();
-	
+
 	var util:FLUtil = new FLUtil();
 	if (util.sqlDelete(tabla, "1=1"))
 		return true;
-	
+
 	return false
 }
 
@@ -1533,7 +1533,7 @@ function oficial_acumularValoresEmi(nodo:FLDomNode, campo:String):String
 	var util:FLUtil = new FLUtil;
 	var idCuentaEsp:String = nodo.attributeValue("sc1.idcuentaesp");
 	var valor:String;
-	
+
 	var recargo:Number;
 	var regimen:String;
 	switch (idCuentaEsp) {
@@ -1852,15 +1852,15 @@ function oficial_mostrarValores(nodo:FLDomNode, campo:String):String
 			valor = this.iface.total16;
 			break;
 		}
-	
+
 		case "ivaEX" :
 		case "reEX" :
 			valor = 0;
 			break;
-		
+
 	}
 	return valor;
-} 
+}
 
 function oficial_nombreEmpresa(nodo:FLDomNode, campo:String):String
 {
@@ -1875,4 +1875,5 @@ function oficial_nombreEmpresa(nodo:FLDomNode, campo:String):String
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+

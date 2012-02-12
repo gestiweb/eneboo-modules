@@ -242,25 +242,25 @@ function oficial_datosPieFactura(nodo:FLDomNode, campo:String):Number
 		if (campo == "BI4") {
 				res = util.sqlSelect(tablaIva, "neto", "idfactura = " + idFactura + " AND iva = 4");
 		} else if (campo == "BI7") {
-				res = util.sqlSelect(tablaIva, "neto", "idfactura = " + idFactura + " AND iva = 7");
+				res = util.sqlSelect(tablaIva, "neto", "idfactura = " + idFactura + " AND (iva = 7 OR iva = 8)");
 		} else if (campo == "BI16") {
-				res = util.sqlSelect(tablaIva, "neto", "idfactura = " + idFactura + " AND iva = 16");
+				res = util.sqlSelect(tablaIva, "neto", "idfactura = " + idFactura + " AND (iva = 16 OR iva = 18)");
 		} else if (campo == "IVA4") {
 				res = util.sqlSelect(tablaIva, "totaliva", "idfactura = " + idFactura + " AND iva = 4");
 		} else if (campo == "IVA7") {
-				res = util.sqlSelect(tablaIva, "totaliva", "idfactura = " + idFactura + " AND iva = 7");
+				res = util.sqlSelect(tablaIva, "totaliva", "idfactura = " + idFactura + " AND (iva = 7 OR iva = 8)");
 		} else if (campo == "IVA16") {
-				res = util.sqlSelect(tablaIva, "totaliva", "idfactura = " + idFactura + " AND iva = 16");
+				res = util.sqlSelect(tablaIva, "totaliva", "idfactura = " + idFactura + " AND (iva = 16 OR iva = 18)");
 		} else if (campo == "POR_RE4") {
 				res = util.sqlSelect(tablaIva, "recargo", "idfactura = " + idFactura + " AND iva = 4");
 				if (res && parseFloat(res) != 0)
 						res += "%";
 		} else if (campo == "POR_RE7") {
-				res = util.sqlSelect(tablaIva, "recargo", "idfactura = " + idFactura + " AND iva = 7");
+				res = util.sqlSelect(tablaIva, "recargo", "idfactura = " + idFactura + " AND (iva = 7 OR iva = 8)");
 				if (res && parseFloat(res) != 0)
 						res += "%";
 		} else if (campo == "POR_RE16") {
-				res = util.sqlSelect(tablaIva, "recargo", "idfactura = " + idFactura + " AND iva = 16");
+				res = util.sqlSelect(tablaIva, "recargo", "idfactura = " + idFactura + " AND (iva = 16 OR iva = 18)");
 				if (res && parseFloat(res) != 0)
 						res += "%";
 		} else if (campo == "RE4") {
@@ -268,19 +268,19 @@ function oficial_datosPieFactura(nodo:FLDomNode, campo:String):Number
 				if (parseFloat(res) != 0)
 						res = util.buildNumber(res, "f", 2);
 		} else if (campo == "RE7") {
-				res = util.sqlSelect(tablaIva, "totalrecargo", "idfactura = " + idFactura + " AND iva = 7");
+				res = util.sqlSelect(tablaIva, "totalrecargo", "idfactura = " + idFactura + " AND (iva = 7 OR iva = 8)");
 				if (parseFloat(res) != 0)
 						res = util.buildNumber(res, "f", 2);
 		} else if (campo == "RE16") {
-				res = util.sqlSelect(tablaIva, "totalrecargo", "idfactura = " + idFactura + " AND iva = 16");
+				res = util.sqlSelect(tablaIva, "totalrecargo", "idfactura = " + idFactura + " AND (iva = 16 OR iva = 18)");
 				if (parseFloat(res) != 0)
 						res = util.buildNumber(res, "f", 2);
 		} else if (campo == "T4") {
 				res = util.sqlSelect(tablaIva, "totallinea", "idfactura = " + idFactura + " AND iva = 4");
 		} else if (campo == "T7") {
-				res = util.sqlSelect(tablaIva, "totallinea", "idfactura = " + idFactura + " AND iva = 7");
+				res = util.sqlSelect(tablaIva, "totallinea", "idfactura = " + idFactura + " AND (iva = 7 OR iva = 8)");
 		} else if (campo == "T16") {
-				res = util.sqlSelect(tablaIva, "totallinea", "idfactura = " + idFactura + " AND iva = 16");
+				res = util.sqlSelect(tablaIva, "totallinea", "idfactura = " + idFactura + " AND (iva = 16 OR iva = 18)");
 		}
 		if (parseFloat(res) == 0 || !res)
 				res = "";
@@ -372,32 +372,32 @@ function oficial_establecerConsulta(cursor:FLSqlCursor, nombreConsulta:String, o
 			}
 		}
 	}
-	
+
 	if (whereFijo && whereFijo != "") {
 		if (where == "")
 			where = whereFijo;
 		else
 			where = whereFijo + " AND (" + where + ")";
 	}
-		
+
 	var ampliarWhere:String = this.iface.ampliarWhere(nombreConsulta);
 	if (ampliarWhere)
 		if (where)
 			where += " AND " + ampliarWhere;
 		else
 			where += ampliarWhere;
-	
+
 	if (groupBy && groupBy != "") {
 		if (where == "")
 			where = "1 = 1";
 		where += " GROUP BY " + groupBy;
 	}
-	
+
 	q.setWhere(where);
-	
+
 	if (orderBy)
 		q.setOrderBy(orderBy);
-	
+
 	return q;
 }
 
@@ -487,7 +487,7 @@ function oficial_lanzarInforme(cursor:FLSqlCursor, nombreInforme:String, orderBy
 		etiquetaInicial["fila"] = 0;
 		etiquetaInicial["col"] = 0;
 	}
-	
+
 	this.iface.ultIdDocPagina = "";
 
 	var q:FLSqlQuery = this.iface.establecerConsulta(cursor, nombreInforme, orderBy, groupBy, whereFijo);
@@ -502,28 +502,54 @@ debug("------ CONSULTA -------" + q.sql());
 		}
 	}
 
-	if (!nombreReport) 
+	var tipoReport:String = "";
+	if (!nombreReport || nombreReport == "") {
 		nombreReport = nombreInforme;
-			
-	var rptViewer:FLReportViewer = new FLReportViewer();
-	rptViewer.setReportTemplate(nombreReport);
-	rptViewer.setReportData(q);
-	rptViewer.renderReport(etiquetaInicial.fila, etiquetaInicial.col);
-	if (numCopias)
-		rptViewer.setNumCopies(numCopias);
-	if (impresora) {
-		try {
-			rptViewer.setPrinterName(impresora);
-		}
-		catch (e) {}
-	}
-	if (impDirecta) {
-		rptViewer.printReport();
-	} else if (pdf) { 
-		//Si pdf es true, en el parámetro impresora está la ruta completa del fichero pdf
-		rptViewer.printReportToPDF(impresora);
 	} else {
-		this.iface.mostrarInformeVisor(rptViewer);
+		var extension:String;
+		var iPunto:Number = nombreReport.findRev(".");
+		if (iPunto > -1) {
+			extension = nombreReport.right(nombreReport.length - (iPunto + 1));
+			nombreReport = nombreReport.left(iPunto);
+			if (extension.toLowerCase() == "jxml") {
+				tipoReport = "Jasper";
+			}
+		}
+		debug("extension = '" + extension + "'");
+		debug("nombreReport = '" + nombreReport + "'");
+		debug("tipoReport = '" + tipoReport + "'");
+	}
+
+	switch (tipoReport) {
+		case "Jasper": {
+			var jpViewer = new FLJasperViewer;
+			jpViewer.setReportData(q);
+			jpViewer.setReportTemplate(nombreReport);
+			jpViewer.exec();
+			break;
+		}
+		default: {
+			var rptViewer:FLReportViewer = new FLReportViewer();
+			rptViewer.setReportTemplate(nombreReport);
+			rptViewer.setReportData(q);
+			rptViewer.renderReport(etiquetaInicial.fila, etiquetaInicial.col);
+			if (numCopias)
+				rptViewer.setNumCopies(numCopias);
+			if (impresora) {
+				try {
+					rptViewer.setPrinterName(impresora);
+				}
+				catch (e) {}
+			}
+			if (impDirecta) {
+				rptViewer.printReport();
+			} else if (pdf) {
+				//Si pdf es true, en el parámetro impresora está la ruta completa del fichero pdf
+				rptViewer.printReportToPDF(impresora);
+			} else {
+				this.iface.mostrarInformeVisor(rptViewer);
+			}
+		}
 	}
 }
 
@@ -576,7 +602,7 @@ function oficial_fieldName(s:String):String
 /** \D Devuelve el valor del acumulado para el la variable indicada
 @param	campo: Identificador del acumulado a devolver
 */
-function oficial_obtenerAcumulado(nodo:FLDomNode, campo:String):String 
+function oficial_obtenerAcumulado(nodo:FLDomNode, campo:String):String
 {
 	return this.iface.acumulados[campo];
 }
@@ -592,7 +618,7 @@ function oficial_acumularValor(nodo:FLDomNode, campo:String):String
 	var valor:Number = parseFloat(campos[1]);
 	if (isNaN(valor))
 		valor = parseFloat(nodo.attributeValue(campos[1]));
-	
+
 	if (!this.iface.acumulados[campos[0]]) {
 		this.iface.acumulados[campos[0]] = valor;
 		this.iface.cuentaAcum[campos[0]] = 1;
@@ -610,7 +636,7 @@ function oficial_restaurarAcumulado(nodo:FLDomNode, campo:String):String
 {
 	this.iface.acumulados[campo] = 0;
 	this.iface.cuentaAcum[campo] = 0;
-	
+
 	return "0";
 }
 
@@ -652,12 +678,16 @@ function oficial_porIVA(nodo:FLDomNode, campo:String):String
 	if (!porIva)
 		porIva = 0;
 
-	if (util.sqlSelect(tabla, "iva", campoClave + " = " + idDocumento + " AND iva <> " + porIva)) {
+	if (util.sqlSelect(tabla, campoClave, campoClave + " = " + idDocumento + " AND iva <> " + porIva)) {
 		this.iface.variosIvas_ = true;
 		porIva = 0;
 	}
-	
-	return "I.V.A. " + porIva.toString() + "%";
+
+	if (porIva.toString() == "0") {
+		return "I.V.A.";
+	} else {
+		return "I.V.A. " + porIva.toString() + "%";
+	}
 }
 
 
@@ -665,7 +695,7 @@ function oficial_desgloseIva(nodo:FLDomNode, campo:String):String
 {
 	if (!this.iface.variosIvas_)
 		return "";
-	
+
 	var util:FLUtil = new FLUtil;
 	var idDocumento:String;
 	var tabla:String;
@@ -685,7 +715,7 @@ function oficial_desgloseIva(nodo:FLDomNode, campo:String):String
 		}
 	}
 	idDocumento = nodo.attributeValue(tablaPadre + "." + campoClave);
-	
+
 	var qryIvas:FLSqlQuery = new FLSqlQuery();
 	with (qryIvas) {
 		setTablesList(tabla);
@@ -708,7 +738,7 @@ function oficial_desgloseBaseImponible(nodo:FLDomNode, campo:String):String
 {
 	if (!this.iface.variosIvas_)
 		return "";
-	
+
 	var util:FLUtil = new FLUtil;
 	var idDocumento:String;
 	var tabla:String;
@@ -728,7 +758,7 @@ function oficial_desgloseBaseImponible(nodo:FLDomNode, campo:String):String
 		}
 	}
 	idDocumento = nodo.attributeValue(tablaPadre + "." + campoClave);
-	
+
 	var qryIvas:FLSqlQuery = new FLSqlQuery();
 	with (qryIvas) {
 		setTablesList(tabla);
@@ -751,7 +781,7 @@ function oficial_desgloseRecargo(nodo:FLDomNode, campo:String):String
 {
 	if (!this.iface.variosIvas_)
 		return "";
-	
+
 	var util:FLUtil = new FLUtil;
 	var idDocumento:String;
 	var tabla:String;
@@ -771,7 +801,7 @@ function oficial_desgloseRecargo(nodo:FLDomNode, campo:String):String
 		}
 	}
 	idDocumento = nodo.attributeValue(tablaPadre + "." + campoClave);
-	
+
 	var qryIvas:FLSqlQuery = new FLSqlQuery();
 	with (qryIvas) {
 		setTablesList(tabla);
@@ -798,7 +828,7 @@ function oficial_desgloseTotal(nodo:FLDomNode, campo:String):String
 {
 	if (!this.iface.variosIvas_)
 		return "";
-	
+
 	var util:FLUtil = new FLUtil;
 	var idDocumento:String;
 	var tabla:String;
@@ -818,7 +848,7 @@ function oficial_desgloseTotal(nodo:FLDomNode, campo:String):String
 		}
 	}
 	idDocumento = nodo.attributeValue(tablaPadre + "." + campoClave);
-	
+
 	var qryIvas:FLSqlQuery = new FLSqlQuery();
 	with (qryIvas) {
 		setTablesList(tabla);
@@ -854,7 +884,7 @@ function oficial_vencimiento(nodo:FLDomNode, campo:String):String
 			codPago = nodo.attributeValue("facturasprov.codpago");
 			fecha = nodo.attributeValue("facturasprov.fecha");
 		}
-		
+
 		var qryDias:FLSqlQuery = new FLSqlQuery();
 		var vencimientos:String = "";
 		with(qryDias){
@@ -865,7 +895,7 @@ function oficial_vencimiento(nodo:FLDomNode, campo:String):String
 		}
 		if (!qryDias.exec())
 			return "";
-			
+
 		while (qryDias.next()) {
 			if (vencimientos != "")
 					vencimientos += ", ";
@@ -874,19 +904,19 @@ function oficial_vencimiento(nodo:FLDomNode, campo:String):String
 		var res:String = this.iface.reemplazar(vencimientos, '-', '/')
 		return res;
 	}
-	
+
 	var tabla:String;
 	var idFactura:FLDomNode;
-	
+
 	if (campo == "reciboscli"){
 		tabla = "reciboscli";
 		idFactura = nodo.attributeValue("facturascli.idfactura");
 	}
-	else if (campo == "recibosprov"){	
+	else if (campo == "recibosprov"){
 		tabla = "recibosprov";
 		idFactura = nodo.attributeValue("facturasprov.idfactura");
 	}
-	
+
 	var qryRecibos:FLSqlQuery = new FLSqlQuery();
 	var vencimientos:String = "";
 	with (qryRecibos) {
@@ -926,90 +956,90 @@ function oficial_cuentaFacturaCli(nodo:FLDomNode, campo:String):String
 	var codPago:String = nodo.attributeValue("facturascli.codpago");
 	var domiciliado:Boolean = util.sqlSelect("formaspago", "domiciliado", "codpago = '" + codPago + "'");
 	var codCuenta:String
-	
+
 	var tipoCuenta:String;
-	
+
 	// Si no hay cliente, se busca la forma de pago
 	if (!codCliente)
 		tipoCuenta = "formaPago";
-	
+
 	else
 		if (domiciliado)
-			tipoCuenta = "domiciliado";		
-		else 
+			tipoCuenta = "domiciliado";
+		else
 			tipoCuenta = "formaPago";
-	
-	
+
+
 	if (tipoCuenta == "domiciliado") {
 		codCuenta = util.sqlSelect("clientes", "codcuentadom", "codcliente = '" + codCliente + "'");
 		if (codCuenta)
 			datosCuenta = flfactppal.iface.pub_ejecutarQry("cuentasbcocli", "ctaentidad,ctaagencia,cuenta", "codcuenta = '" + codCuenta + "'");
 	}
-	
+
 	if (!codCuenta) {
-		codCuenta = util.sqlSelect("formaspago", "codcuenta", "codpago = '" + codPago + "'");		
+		codCuenta = util.sqlSelect("formaspago", "codcuenta", "codpago = '" + codPago + "'");
 		if (!codCuenta)
 			return "";
 		datosCuenta = flfactppal.iface.pub_ejecutarQry("cuentasbanco", "ctaentidad,ctaagencia,cuenta", "codcuenta = '" + codCuenta + "'");
 	}
-	
+
 	if (datosCuenta.result != 1)
 		return "";
 	var dc:String = util.calcularDC(datosCuenta.ctaentidad + datosCuenta.ctaagencia) + util.calcularDC(datosCuenta.cuenta);
 	ret = datosCuenta.ctaentidad + " " + datosCuenta.ctaagencia + " " + dc + " " + datosCuenta.cuenta;
 	return ret;
-	
-	
-	
-	
-	
+
+
+
+
+
 	// Si no hay cliente, se busca la forma de pago
 	if (!codCliente) {
-		codCuenta = util.sqlSelect("formaspago", "codcuenta", "codpago = '" + codPago + "'");		
+		codCuenta = util.sqlSelect("formaspago", "codcuenta", "codpago = '" + codPago + "'");
 		if (!codCuenta)
 			return "";
 		datosCuenta = flfactppal.iface.pub_ejecutarQry("cuentasbanco", "ctaentidad,ctaagencia,cuenta", "codcuenta = '" + codCuenta + "'");
 	}
-	
+
 	else {
-	
+
 		if (domiciliado) {
 			codCuenta = util.sqlSelect("clientes", "codcuentadom", "codcliente = '" + codCliente + "'");
 			if (codCuenta)
 				datosCuenta = flfactppal.iface.pub_ejecutarQry("cuentasbcocli", "ctaentidad,ctaagencia,cuenta", "codcuenta = '" + codCuenta + "'");
 			else {
-				codCuenta = util.sqlSelect("formaspago", "codcuenta", "codpago = '" + codPago + "'");		
+				codCuenta = util.sqlSelect("formaspago", "codcuenta", "codpago = '" + codPago + "'");
 				if (!codCuenta)
 					return "";
 				datosCuenta = flfactppal.iface.pub_ejecutarQry("cuentasbcocli", "ctaentidad,ctaagencia,cuenta", "codcuenta = '" + codCuenta + "'");
 			}
 		}
-		
+
 		else {
-			codCuenta = util.sqlSelect("formaspago", "codcuenta", "codpago = '" + codPago + "'");		
+			codCuenta = util.sqlSelect("formaspago", "codcuenta", "codpago = '" + codPago + "'");
 			if (!codCuenta)
 				return "";
 			datosCuenta = flfactppal.iface.pub_ejecutarQry("cuentasbcocli", "ctaentidad,ctaagencia,cuenta", "codcuenta = '" + codCuenta + "'");
 		}
-	
+
 	}
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
 	var codCuenta:String = util.sqlSelect("clientes", "codcuentadom", "codcliente = '" + codCliente + "'");
 	if (codCuenta) {
 		datosCuenta = flfactppal.iface.pub_ejecutarQry("cuentasbcocli", "ctaentidad,ctaagencia,cuenta", "codcuenta = '" + codCuenta + "'");
 	} else {
 		codCuenta = util.sqlSelect("clientes", "codcuentarem", "codcliente = '" + codCliente + "'");
 		if (!codCuenta)
-			codCuenta = util.sqlSelect("formaspago", "codcuenta", "codpago = '" + codPago + "'");		
+			codCuenta = util.sqlSelect("formaspago", "codcuenta", "codpago = '" + codPago + "'");
 		if (!codCuenta)
 			return "";
-		
+
 		datosCuenta = flfactppal.iface.pub_ejecutarQry("cuentasbanco", "ctaentidad,ctaagencia,cuenta", "codcuenta = '" + codCuenta + "'");
 	}
 	if (datosCuenta.result != 1)
@@ -1025,14 +1055,14 @@ function oficial_valorIRPF(nodo:FLDomNode, campo:String):String
 {
 	var util:FLUtil = new FLUtil();
 	debug(campo);
-	
+
 	var partesCampo:Array = campo.split(".");
 	if (!partesCampo.length)
 		return "";
-		
+
 	var tabla:String = partesCampo[0];
 	var campoClave:String = partesCampo[1];
-	
+
 	var q:FLSqlQuery = new FLSqlQuery();
 	with (q) {
 		setTablesList("lineas" + tabla);
@@ -1042,18 +1072,18 @@ function oficial_valorIRPF(nodo:FLDomNode, campo:String):String
 	}
 	if (!q.exec())
 		return "";
-		
+
 	if (!q.size())
 		return "";
-	
+
 	var valor:Number = nodo.attributeValue(tabla + ".totalirpf");
 	valor = util.formatoMiles(util.buildNumber(valor, "f", 2));
 	if (valor == "0,00")
 		return valor;
-	
+
 	if (q.size() > 1)
 		return valor;
-	
+
 	q.first();
 	return q.value(0) + "%  " + valor;
 }
@@ -1066,12 +1096,12 @@ del informe
 function oficial_numPagina(nodo:FLDomNode, campo:String):String
 {
 	var codigo:String = nodo.attributeValue(campo);
-	
+
 	if (codigo != this.iface.ultIdDocPagina)
 		this.iface.paginaActual = 1;
 	else
 		this.iface.paginaActual++;
-		
+
 	this.iface.ultIdDocPagina = codigo;
 	return this.iface.paginaActual;
 }
@@ -1104,14 +1134,14 @@ function oficial_ampliarWhere(nombreConsulta:String):String
 	var where:String = "";
 
 	switch (nombreConsulta)	{
-	
+
 		case "i_pedidosprov":
 		case "i_albaranesprov":
 		case "i_facturasprov":
 			where += "(dirproveedores.direccionppal = true OR dirproveedores.direccion IS NULL)";
 		break;
 	}
-	
+
 	return where;
 }
 
@@ -1122,7 +1152,7 @@ Formato de xmlDatos:
 */
 
 // FORMATO DE xmlDatos:
-// 
+//
 // 	<Grafico Tipo='2d_barras' Informe='1' Alto='' Ancho='' MargenDerecho='0' MargenInferior='0' MargenIzquierdo='0' MargenSuperior='0'>
 // 		<EjeX Min='0' Max='' MarcarCada='1' MargenLabels = '30' MarcarLabels='0'/>
 // 		<EjeY Min='0' Max='' MarcarCada='1' MargenLabels = '20' MarcarLabels='1'/>
@@ -1167,7 +1197,7 @@ function oficial_dameColor(color:String):Color
 		rgb = color.split(",");
 	}
 
-	var clr = new Color(); 
+	var clr = new Color();
 	clr.setRgb(rgb[0],rgb[1],rgb[2]);
 
 	return clr;
@@ -1175,14 +1205,14 @@ function oficial_dameColor(color:String):Color
 
 function oficial_dameFuente(family:String, size:Number):Font
 {
-	var clf = new Font(); 
+	var clf = new Font();
 	if(!family || family == "") {
 		family = "Arial";
 	}
 	if(!size || size == "") {
 		size = 10;
 	}
-  
+
 	clf.pointSize = size;
 	clf.family = family;
 
@@ -1196,7 +1226,7 @@ debug("oficial_dibujarGrafico2DBarras");
 	var clr = new Color();
 	var clf = new Font();
 	pic.begin();
-	
+
 	var eGrafico:FLDomElement = xmlDatos.firstChild().toElement();
 
 	var tipoGrafico:String = eGrafico.attribute("Tipo");
@@ -1212,7 +1242,7 @@ debug("oficial_dibujarGrafico2DBarras");
 	if (isNaN(margenIzquierdo)) { margenIzquierdo = 0;}
 	var margenDerecho:Number = parseInt(eGrafico.attribute("MargenDerecho"));
 	if (isNaN(margenDerecho)) { margenDerecho = 0;}
-	
+
 	var x:Array = [];
 	var y:Array = [];
 
@@ -1236,7 +1266,7 @@ debug("oficial_dibujarGrafico2DBarras");
 	if (eEjeX.attribute("MarcarLabels") == "true" || eEjeX.attribute("MarcarLabels") == "1") {
 		marcarLabelsX = true;
 	}
-	
+
 	var eEjeY:FLDomElement = eGrafico.namedItem("EjeY").toElement();
 	var minY:Number = parseFloat(eEjeY.attribute("Min"));
 	if (isNaN(minY)) {
@@ -1281,7 +1311,7 @@ debug("oficial_dibujarGrafico2DBarras");
 		}
 	}
 
-// PINTANDO EJE Y	
+// PINTANDO EJE Y
 	var marcarCadaY:Number = parseFloat(eEjeY.attribute("MarcarCada"));
 	var colorLineaMarcaY:String = eEjeY.attribute("ColorLineaMarca");
 	var estiloLineaMarcaY:Number = parseInt(eEjeY.attribute("EstiloLineaMarca"));
@@ -1330,7 +1360,7 @@ debug("oficial_dibujarGrafico2DBarras");
 		var labelY:String = valor.attribute("LabelY");
 		var altoRect:Number = (parseFloat(valor.attribute("Y")) * parseFloat(factorY));
 		pic.fillRect(x, y, anchoRect, altoRect, clrBarras);
-		
+
 		if (labelX && labelX != "") {
 debug("Rotando1 " + parseInt(x).toString());
 			if (anguloLabelX != 0) {
@@ -1355,7 +1385,7 @@ debug("Rotando1 " + parseInt(x).toString());
 				pic.drawText(x, parseFloat(fMaxY) + parseFloat(margenLabelsX), labelX);
 			}
 		}
-	
+
 		if(labelY && labelY != "") {
 			pic.drawText(parseInt(margenIzquierdo), y, labelY);
 		}
@@ -1369,7 +1399,7 @@ function oficial_dibujarGrafico2DMapaProvEs(xmlDatos:FLDomDocument):Picture
 {
 	var util:FLUtil = new FLUtil;
 	var eGrafico:FLDomElement = xmlDatos.firstChild().toElement();
-	
+
 	var mapa = new Picture();
 	var pic = new Picture();
 	var clr = new Color();
@@ -1438,8 +1468,8 @@ function oficial_dibujarGrafico2DMapaProvEs(xmlDatos:FLDomDocument):Picture
 	/*VIZCAYA*/ provincias["48"] = [205, 11];
 	/*ZAMORA*/ provincias["49"] = [85, 95];
 	/*ZARAGOZA*/ provincias["50"] = [253, 104];
-	
-	
+
+
 // debug(File.read("/home/arodriguez/dib.svg"));
 // 	pic.setWindow( devRect );
 // 	pic.setViewport( devRect );
@@ -1465,7 +1495,7 @@ function oficial_dibujarGrafico2DMapaProvEs(xmlDatos:FLDomDocument):Picture
 
 	var clf = this.iface.dameFuente(family, size); // FUENTE DE LAS ETIQUETAS EN LOS EJES
 	var clfValor = this.iface.dameFuente(family, sizeValor); // FUENTE DE LAS ETIQUETAS EN LOS EJES
-	
+
 	var valores:FLDomElement = eGrafico.namedItem("Valores").toElement();
 	var eValor:FLDomElement;
 	var idProvincia:String;
@@ -1473,7 +1503,7 @@ function oficial_dibujarGrafico2DMapaProvEs(xmlDatos:FLDomDocument):Picture
 	var provincia:String;
 	clr.setRgb( 100, 100, 100 );
 	clrValor.setRgb( 0, 0, 255 );
-	
+
 	var valor:String = "";
 	var aProvincia:Array = [];
 	for (var nodoValor:FLDomNode = valores.firstChild(); nodoValor; nodoValor = nodoValor.nextSibling()) {
@@ -1497,7 +1527,7 @@ function oficial_dibujarGrafico2DMapaProvEs(xmlDatos:FLDomDocument):Picture
 		pic.setPen( clrValor, 1);
 		pic.drawText(aProvincia[0], aProvincia[1] + (parseInt(size) * 2), valor);
 	}
-	
+
 	return pic;
 }
 
@@ -1506,7 +1536,7 @@ function oficial_dibujarGrafico2DMapaPaisesEu(xmlDatos:FLDomDocument):Picture
 debug("oficial_dibujarGrafico2DMapaPaisesEu");
 	var util:FLUtil = new FLUtil;
 	var eGrafico:FLDomElement = xmlDatos.firstChild().toElement();
-	
+
 	var mapa = new Picture();
 	var pic = new Picture();
 	var clr = new Color();
@@ -1566,8 +1596,8 @@ debug("oficial_dibujarGrafico2DMapaPaisesEu");
 	/* BIELORUSIA */ paises["BY"] = [333, 155];
 	/* RUMANÍA */ paises["RO"] = [333, 265];
 	/* ANDORRA */ paises["AD"] = [118, 311];
-	
-	
+
+
 
 
 	pic.drawPicture( mapa );
@@ -1592,7 +1622,7 @@ debug("oficial_dibujarGrafico2DMapaPaisesEu4");
 
 	var clf = this.iface.dameFuente(family, size); // FUENTE DE LAS ETIQUETAS EN LOS EJES
 	var clfValor = this.iface.dameFuente(family, sizeValor); // FUENTE DE LAS ETIQUETAS EN LOS EJES
-	
+
 	var valores:FLDomElement = eGrafico.namedItem("Valores").toElement();
 	var eValor:FLDomElement;
 	var idPais:String;
@@ -1600,7 +1630,7 @@ debug("oficial_dibujarGrafico2DMapaPaisesEu4");
 	var pais:String;
 	clr.setRgb( 100, 100, 100 );
 	clrValor.setRgb( 0, 0, 255 );
-	
+
 	var valor:String = "";
 	var aPais:Array = [];
 debug("oficial_dibujarGrafico2DMapaPaisesEu5");
@@ -1626,7 +1656,7 @@ debug("oficial_dibujarGrafico2DMapaPaisesEu4 " + eValor.attribute("Pais"));
 		pic.setPen( clrValor, 1);
 		pic.drawText(aPais[0], aPais[1] + (parseInt(size) * 2), valor);
 	}
-	
+
 	return pic;
 }
 
@@ -1651,7 +1681,7 @@ function oficial_formatearValor(valor:String,formatValor:String):String
 				result = n.toString().split(".")[0] + "K";
 				break;
 			}
-			
+
 			if(numero < 1000) {
 				n = numero / 1000;
 				result = n.toString().split(".")[0] + "." + n.toString().split(".")[1].left(1) + "K";
@@ -1663,7 +1693,7 @@ function oficial_formatearValor(valor:String,formatValor:String):String
 			break;
 		}
 	}
-	
+
 	return result;
 }
 
@@ -1680,4 +1710,5 @@ function oficial_mostrarInformeVisor(visor:FLReportViewer):Boolean
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
