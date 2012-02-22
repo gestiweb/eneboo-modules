@@ -1,0 +1,116 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>se_docmantenim</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Documentos de Mantenimiento")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador del documento -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>fechacreacion</name>
+		<!-- Fecha de creación del documento -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha de Creación")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<!-- Versión -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>codcontrato</name>
+		<!-- Código del contrato -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contrato")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>se_contratosman</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>estado</name>
+		<!-- Estado en el que se encuentra el envio -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		<optionslist>Pendiente,Enviada</optionslist>
+		<default>Pendiente</default>
+	</field>
+	
+	<field>
+		<name>fechaenvio</name>
+		<!-- Fecha de envío del documento al cliente -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha de Envío")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>modoenvio</name>
+		<!-- Modo de envío: un fichero zip con todo el contenido del 
+		directorio de documentación o selección de fichero(s) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Modo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<optionslist>Selección de Ficheros,Todo en un Paquete</optionslist>
+		<default>Selección de Ficheros</default>
+	</field>
+	
+	<field>
+		<name>revision</name>
+		<!-- Revisión de subversion -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Revisión")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>contenido</name>
+		<!-- Contenido del documento -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contenido")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>textomensaje</name>
+		<!-- Texto del mensaje enviado junto con la documentación -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Texto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+</TMD>
+

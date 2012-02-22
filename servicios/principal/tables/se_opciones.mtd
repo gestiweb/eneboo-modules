@@ -1,0 +1,56 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>se_opciones</name>
+	<!--Opciones de los servicios-->
+			
+	<alias>QT_TRANSLATE_NOOP("MetaData","Opciones")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Código identificador -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+	</field>
+	
+	<field>
+		<name>urlrepositoriodoc</name>
+		<!-- Ruta al repositorio de documentación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","URL documentación")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>costehora</name>
+		<!-- Coste actual por hora de trabajo -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Coste/Hora")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>5</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>refcostehora</name>
+		<!--Referencia del artículo Hora de desarrollo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Coste hora")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>18</length>
+		<visible>true</visible>
+		
+		<relation>
+			<table>articulos</table>
+			<field>referencia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+</TMD>

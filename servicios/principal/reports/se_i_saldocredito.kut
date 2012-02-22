@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+<KugarTemplate BottomMargin="50" TopMargin="50" RightMargin="30" LeftMargin="30" PageOrientation="0" PageSize="0" >
+	<!--<Detail Height="0" Level="0" ></Detail>-->
+	
+	<PageHeader Height="25" PrintFrequency="1">
+		<Label WordWrap="0" Width="500" X="0" Y="0" BorderStyle="0" Height="22" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" Movimientos en Bolsa de Créditos" FontWeight="75" FontSize="12" BorderWidth="0" fontfamily="Verdana" />
+		<Special WordWrap="0" Width="90" X="500" Y="0" BorderStyle="0" Height="22" HAlignment="2" DateFormat="19" BorderColor="0,0,0" BackgroundColor="220,220,220" Type="0" FontItalic="0" VAlignment="1" ForegroundColor="20,20,20" Text="" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+	</PageHeader>
+	
+	<PageFooter Height="20" PrintFrequency="1">
+		<Label WordWrap="0" Width="50" X="500" Y="0" BorderStyle="0" Height="19" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" Text=" Pág." FontWeight="50" FontSize="10" BorderWidth="0" fontfamily="Verdana" />
+		<Special WordWrap="0" Width="30" X="550" Y="0" BorderStyle="0" Height="19" HAlignment="2" DateFormat="11" BorderColor="0,0,0" BackgroundColor="255,255,255" Type="1" FontItalic="0" VAlignment="1" ForegroundColor="20,20,20" Text="" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+	</PageFooter>
+	
+	<DetailHeader Height="85" Level="0" >
+		
+		<CalculatedField WordWrap="1" CalculationType="6" Width="500" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="40" HAlignment="0" DataType="0" FunctionName="formse_clientes.pub_cabeceraInforme" Field="nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		
+		<Field WordWrap="0" Width="450" X="00" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="0" DataType="" Field="empresa.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		
+		<CalculatedField CalculationType="6" FunctionName="flfactinfo.pub_logo" WordWrap="0" Width="100" X="480" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="40" HAlignment="0" DataType="5" Field="empresa.logo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.logo]" FontWeight="50" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<CalculatedField CalculationType="6" FunctionName="formse_clientes.pub_initSaldoInforme" WordWrap="0" Width="0" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="0" HAlignment="2" DataType="2" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="100" X="410" Y="65" BorderStyle="0" Height="19" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" Text="Saldo previo:" FontWeight="65" FontSize="9" BorderWidth="1" FontFamily="Verdana" />
+		<CalculatedField CalculationType="6" FunctionName="formse_clientes.pub_totalSaldoInforme" WordWrap="0" Width="70" X="510" Y="65" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="2" DataType="2" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+	</DetailHeader>
+	
+	<Detail Height="0" Level="0" />
+	
+	<DetailHeader Height="25" Level="1" >
+		<Label WordWrap="0" Width="60" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="1" DateFormat="19" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" Text="Proyecto" FontWeight="65" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<Field WordWrap="0" Width="40" X="60" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="1" DataType="0" Field="se_incidencias.codproyecto" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<CalculatedField CalculationType="6" FunctionName="formse_clientes.pub_desTitulo" WordWrap="0" Width="300" X="100" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="0" DataType="0" Field="se_proyectos" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<CalculatedField CalculationType="6" FunctionName="formse_clientes.pub_initSaldoProyecto" WordWrap="0" Width="0" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="0" HAlignment="2" DataType="2" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+	</DetailHeader>
+	
+	<Detail Height="0" Level="1" />
+	
+	<DetailHeader Height="45" Level="2" >
+		<Label WordWrap="0" Width="70" X="40" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="1" DateFormat="19" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="1" VAlignment="0" ForegroundColor="0,0,0" Text="Subproyecto" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<Field WordWrap="0" Width="40" X="110" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="1" DataType="0" Field="se_incidencias.codsubproyecto" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="1" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<CalculatedField CalculationType="6" FunctionName="formse_clientes.pub_desTitulo" WordWrap="0" Width="300" X="150" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="0" DataType="0" Field="se_subproyectos" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="1" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+	
+		<Label WordWrap="0" Width="69" X="0" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Fecha" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="49" X="70" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Código" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="229" X="120" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Movimiento" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="49" X="350" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Estado" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="59" X="400" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Importe" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="59" X="460" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="S.Proy." FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="69" X="520" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Saldo" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+	</DetailHeader>
+	
+	<AddOnHeader Height="45" Level="2" >
+		<Label WordWrap="0" Width="70" X="40" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="1" DateFormat="19" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="1" VAlignment="0" ForegroundColor="0,0,0" Text="Subproyecto" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<Field WordWrap="0" Width="40" X="110" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="1" DataType="0" Field="se_incidencias.codsubproyecto" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="1" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<CalculatedField CalculationType="6" FunctionName="formse_clientes.pub_desTitulo" WordWrap="0" Width="300" X="150" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="0" DataType="0" Field="se_subproyectos" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="1" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+	
+		<Label WordWrap="0" Width="69" X="0" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Fecha" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="49" X="70" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Código" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="229" X="120" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Movimiento" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="49" X="350" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Estado" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="59" X="400" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Importe" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="59" X="460" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="S.Proy." FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="69" X="520" Y="25" BorderStyle="0" Height="19" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Saldo" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Verdana" />
+	</AddOnHeader>
+	
+	<!--<Detail Height="0" Level="1" />-->
+	
+	<Detail Height="18" Level="2" >
+		<Field WordWrap="0" Width="70" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="1" DataType="3" Field="se_incidencias.fechaapertura" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<Field WordWrap="0" Width="50" X="70" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="1" DataType="0" Field="se_incidencias.codigo" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<Field WordWrap="1" ChangeHeight="1" Width="230" X="120" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="0" DataType="0" Field="se_incidencias.desccorta" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="0" FontFamily="Verdana" />
+		<Field WordWrap="0" Width="50" X="350" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="0" DataType="0" Field="se_incidencias.estado" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<Field WordWrap="1" Width="60" X="400" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="2" DataType="2" Field="se_incidencias.precio" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<CalculatedField CalculationType="6" FunctionName="formse_clientes.pub_saldoProyecto" WordWrap="0" Width="60" X="460" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="2" DataType="2" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<CalculatedField CalculationType="6" FunctionName="formse_clientes.pub_saldoInforme" WordWrap="0" Width="70" X="520" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="2" DataType="2" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+	</Detail>
+	
+	<DetailFooter Height="30" Level="2" DrawIf="se_incidencias.codsubproyecto">
+		<Line Width="1" Y1="5" Y2="5" X1="390" X2="460" Style="1" Color="100,100,100" />
+			
+		<Label WordWrap="0" Width="100" X="290" Y="10" BackgroundColor="255,255,255" Height="19" HAlignment="2" VAlignment="0" ForegroundColor="0,0,0" Text="Saldo subproyecto:" FontWeight="50" FontSize="9" FontFamily="Verdana" />
+		<CalculatedField CalculationType="1" WordWrap="0" Width="70" X="390" Y="10" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="2" DataType="2" Field="se_incidencias.precio" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+	</DetailFooter>
+	
+	<DetailFooter Height="0" Level="1" NewPage="true">
+		<!--<Line Width="1" Y1="5" Y2="5" X1="445" X2="510" Style="1" Color="100,100,100" />
+			
+		<Label WordWrap="0" Width="100" X="340" Y="10" BackgroundColor="255,255,255" Height="19" HAlignment="2" VAlignment="0" ForegroundColor="0,0,0" Text="Saldo proyecto:" FontWeight="50" FontSize="9" FontFamily="Verdana" />
+		<CalculatedField CalculationType="1" WordWrap="0" Width="70" X="440" Y="10" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="2" DataType="2" Field="se_incidencias.precio" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Verdana" />-->
+	</DetailFooter>
+	
+	<AddOnFooter Height="0" Level="0">
+	</AddOnFooter>
+
+	<DetailFooter Height="30" Level="0" >
+		<Line Width="1" Y1="5" Y2="5" X1="0" X2="580" Style="1" Color="100,100,100" />
+			
+		<Label WordWrap="0" Width="100" X="10" Y="10" BackgroundColor="255,255,255" Height="19" HAlignment="2" VAlignment="0" ForegroundColor="0,0,0" Text="Resueltas:" FontWeight="65" FontSize="10" FontFamily="Verdana" />
+		<CalculatedField CalculationType="6" FunctionName="formse_clientes.pub_totalSaldoResueltas" WordWrap="0" Width="70" X="110" Y="10" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="2" DataType="2" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="100" X="210" Y="10" BackgroundColor="255,255,255" Height="19" HAlignment="2" VAlignment="0" FqoregroundColor="0,0,0" Text="Pendientes:" FontWeight="65" FontSize="10" FontFamily="Verdana" />
+		<CalculatedField CalculationType="6" FunctionName="formse_clientes.pub_totalSaldoPendientes" WordWrap="0" Width="70" X="310" Y="10" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="2" DataType="2" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+		<Label WordWrap="0" Width="100" X="410" Y="10" BackgroundColor="255,255,255" Height="19" HAlignment="2" VAlignment="0" ForegroundColor="0,0,0" Text="Saldo actual:" FontWeight="65" FontSize="10" FontFamily="Verdana" />
+		<CalculatedField CalculationType="6" FunctionName="formse_clientes.pub_totalSaldoInforme" WordWrap="0" Width="70" X="510" Y="10" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="2" DataType="2" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Verdana" />
+	</DetailFooter>
+
+</KugarTemplate>

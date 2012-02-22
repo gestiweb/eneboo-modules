@@ -1,0 +1,328 @@
+<ACTIONS>
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Proyectos")</alias>
+		<description>Un proyecto es un conjunto de funcionalidades comunes para un 
+		determinado cliente. Puede estar formado por uno o varios subproyectos.
+		</description>
+		<name>se_proyectos</name>
+		<table>se_proyectos</table>
+		<form>master</form>
+		<formrecord>se_proyectos</formrecord>
+		<scriptform>se_masterproyectos</scriptform>
+		<scriptformrecord>se_proyectos</scriptformrecord>
+	</action>	
+	
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subproyectos")</alias>
+		<description>Cada subproyecto responde a una solicitud de un conjunto de funcionalidades
+		por parte de un cliente en un momento determinado.
+		Un subproyecto implicará la creación de un conjunto de especificaciones y un 
+		presupuesto que deberá ser aprobado por el cliente.
+		Los subproyectos siempre pertenecen a un proyecto
+		</description>
+		<name>se_subproyectos</name>
+		<table>se_subproyectos</table>
+		<form>se_mastersubproyectos</form>
+		<formrecord>se_subproyectos</formrecord>
+		<scriptform>se_mastersubproyectos</scriptform>
+		<scriptformrecord>se_subproyectos</scriptformrecord>
+	</action>	
+	
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Incidencias")</alias>
+		<description>Las incidencias pueden ser anomalías, bugs u otros problemas que se producen
+		puntualmente en el FacturaLUX de un cliente. Cada incidencia será estudiada
+		y resuelta por InfoSiAL y tendrá un seguimiento. Generalmente la resolución de una
+		incidencia implica el envío del software afectado corregido.
+		</description>
+		<name>se_incidencias</name>
+		<table>se_incidencias</table>
+		<form>se_masterincidencias</form>
+		<formrecord>se_incidencias</formrecord>
+		<scriptform>se_masterincidencias</scriptform>
+		<scriptformrecord>se_incidencias</scriptformrecord>
+	</action>	
+	
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Documentos de Subproyecto")</alias>
+		<description>Documentos relativos al subproyecto. Pueden ser los requerimientos que
+		envia el cliente, las estimaciones iniciales, un fichero PDF con el presupuesto, un
+		documento de especificaciones, etc.
+		Los documentos de especificaciones suponen el esqueleto de la implementación
+		de un subproyecto. En él se muestran las tablas con todos sus campos y los formularios. 
+		Los scripts serán creados aunque vacíos de código salvo por las definiciones de clases.
+		Generalmente las especificaciones tendrán formato HTML y podrán ser enviadas como PDF
+		al cliente.
+		</description>
+		<name>se_docespec</name>
+		<table>se_docespec</table>
+		<form>se_masteredicion</form>
+		<formrecord>se_docespec</formrecord>
+		<scriptformrecord>se_docespec</scriptformrecord>
+	</action>	
+	
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Envíos de Software")</alias>
+		<description>Los envíos de software realizados directamente por InfoSiAL a sus clientes
+		quedarán registrados aquí. Generalmente se trata de módulos personalizados, bien dentro
+		de un proyecto, o bien como consecuencia de una actualización dentro del servicio de 
+		actualizaciones. En el envío quedarán registrados datos como fecha y 
+		contenidos del envío, importantes para el control.
+		</description>
+		<name>se_enviossw</name>
+		<table>se_enviossw</table>
+		<form>se_masteredicion</form>
+		<formrecord>se_enviossw</formrecord>
+		<scriptformrecord>se_enviossw</scriptformrecord>
+	</action>	
+	
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contratos de mantenimiento")</alias>
+		<description>Los contratos de mantenimiento son documentos por los que InfoSiAL se compromete a actualizar los módulos de un cliente y dar soporte a un determinado número de incidencias por una cantidad fija que el cliente paga periódicamente.
+		</description>
+		<name>se_contratosman</name>
+		<table>se_contratosman</table>
+		<scriptformrecord>se_contratosman</scriptformrecord>
+		<form>master</form>
+		<formrecord>se_contratosman</formrecord>
+	</action>	
+	
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Períodos de Actualización")</alias>
+		<description>Los períodos de actualización son intervalos (generalmente mensuales) en los
+		que InfoSiAL garantiza a un cliente con algún proyecto realizado previamente la 
+		actualización de los módulos de dicho proyecto a las últimas versiones del motor y los
+		módulos públicos. También se da soporte a un número determinado de incidencias
+		</description>
+		<name>se_pactualizacion</name>
+		<table>se_pactualizacion</table>
+		<form>se_masterpactualizacion</form>
+		<formrecord>se_pactualizacion</formrecord>
+		<scriptform>se_masterpactualizacion</scriptform>
+		<scriptformrecord>se_pactualizacion</scriptformrecord>
+	</action>	
+	
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Documentos de Mantenimiento")</alias>
+		<description>Son documentos referentes a un contrato de mantenimiento: el texto del
+		propio contrato, la topología de la red del cliente, etc
+		</description>
+		<name>se_docmantenim</name>
+		<table>se_docmantenim</table>
+		<form>se_masteredicion</form>
+		<formrecord>se_docmantenim</formrecord>
+		<scriptformrecord>se_docmantenim</scriptformrecord>
+	</action>	
+	
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Usuarios")</alias>
+		<description>Los usuarios somos los empleados de InfoSiAL. Cada incidencia, comunicación,
+		etc puede tener un usuario encargado. De este modo realizamos un seguimiento de quién 
+		hace qué.
+		</description>
+		<name>se_usuarios</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Usuarios")</alias>
+		<table>se_usuarios</table>
+		<form>master</form>
+		<formrecord>se_usuarios</formrecord>
+		<scriptformrecord>se_usuarios</scriptformrecord>
+	</action>	
+	
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Históricos")</alias>
+		<description>Para los subproyectos, cada paso realizado en el proceso de creación e
+		implementación del mismo es una anotación en el histórico e implica un cambio en el
+		estado del subproyecto.
+		</description>
+		<name>se_historicos</name>
+		<table>se_historicos</table>
+		<form>master</form>
+		<formrecord>se_historicos</formrecord>
+		<scriptformrecord>se_historicos</scriptformrecord>
+	</action>	
+	
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Comunicaciones")</alias>
+		<description>Una comunicación es cualquier pregunta, respuesta o intercambio de 
+		información entre el cliente e InfoSiAL, generalemente por correo electrónico. Estas
+		comunicaciones quedan registradas con la fecha para referencias y consultas futuras.
+		</description>
+		<name>se_comunicaciones</name>
+		<table>se_comunicaciones</table>
+		<form>master</form>
+		<formrecord>se_comunicaciones</formrecord>
+		<scriptformrecord>se_comunicaciones</scriptformrecord>
+	</action>	
+	
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Clientes")</alias>
+		<description>Para cada cliente es posible consultar toda la información de
+		incidencias, subproyectos y servicio de actualizaciones
+		</description>
+		<name>se_clientes</name>
+		<table>clientes</table>
+		<form>se_masteredicion</form>
+		<formrecord>se_clientes</formrecord>
+		<scriptform>se_masterclientes</scriptform>
+		<scriptformrecord>se_clientes</scriptformrecord>
+	</action>	
+	
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuotas")</alias>
+		<description>Las cuotas son cada uno de los segmentos de peso de un parche para un 
+		cliente, se utilizan para calcular el coste mensual del servicio de actualizaciones.
+		</description>
+		<name>se_cuotas</name>
+		<table>se_cuotas</table>
+		<form>master</form>
+		<formrecord>se_cuotas</formrecord>
+		<scriptformrecord>se_cuotas</scriptformrecord>
+	</action>	
+
+	<action>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de contrato")</alias>
+		<description>Los tipos de contrato distinguen el modo en que se aplican las cuotas y los
+		intervalos de peso del parche
+		</description>
+		<name>se_tiposcontrato</name>
+		<table>se_tiposcontrato</table>
+		<form>master</form>
+		<formrecord>se_tiposcontrato</formrecord>
+	</action>	
+
+	<action>
+		<name>se_opciones</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Opciones generales")</alias>
+		<scriptform>se_opciones</scriptform>
+		<table>se_opciones</table>
+		<form>se_opciones</form>
+		<formrecord>se_opciones</formrecord>
+	</action>
+
+	<action>
+		<name>se_plantillastexto</name>
+		<description>Son textos estándar acerca de los procedimiento de trabajo de InfoSiAL, disclaimers, recomendaciones a la hora de instalar módulos, referencias a la web, etc.
+		</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Plantillas de texto")</alias>
+		<table>se_plantillastexto</table>
+		<form>master</form>
+		<formrecord>se_plantillastexto</formrecord>
+	</action>
+
+	<action>
+		<name>se_factincidencias</name>
+		<description>Son facturas de clientes en las que cada línea se corresponde con una incidencia.
+		</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Facturas de incidencias")</alias>
+		<scriptform>se_masterfactincidencias</scriptform>
+		<scriptformrecord>se_factincidencias</scriptformrecord>
+		<table>facturascli</table>
+		<form>master_print</form>
+		<formrecord>se_factincidencias</formrecord>
+	</action>
+	
+	<action>
+		<name>se_soporte</name>
+		<description>Soporte a la Instalación.</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Soporte a la Instalación")</alias>
+		<scriptformrecord>se_soporte</scriptformrecord>
+		<table>se_soporte</table>
+		<form>master</form>
+		<formrecord>se_soporte</formrecord>
+	</action>
+	
+	<action>
+		<name>se_partners</name>
+		<description>Partners de InfoSiAL</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Partners de InfoSiAL")</alias>
+		<table>se_partners</table>
+		<form>master_copy</form>
+		<formrecord>se_partners</formrecord>
+		<scriptformrecord>se_partners</scriptformrecord>
+	</action>
+
+	<action>
+		<name>se_zonaspartners</name>
+		<description>Zonas de Partners de InfoSiAL</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Zonas de Partners de InfoSiAL")</alias>
+		<table>se_zonaspartners</table>
+		<form>master</form>
+		<formrecord>se_zonaspartners</formrecord>
+	</action>
+	
+	<action>
+		<name>se_facthoras</name>
+		<description>Facturación de horas por cliente</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Facturación de horas")</alias>
+		<table>se_facthoras</table>
+		<form>master</form>
+		<formrecord>se_facthoras</formrecord>
+		<scriptformrecord>se_facthoras</scriptformrecord>
+	</action>
+	
+	<action>
+		<name>se_horastrabajadas</name>
+		<description>Horas trabajadas de cada usuario</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Horas trabajadas")</alias>
+		<table>se_horastrabajadas</table>
+		<form>se_masterhorastrabajadas</form>
+		<formrecord>se_horastrabajadas</formrecord>
+		<scriptform>se_masterhorastrabajadas</scriptform>
+		<scriptformrecord>se_horastrabajadas</scriptformrecord>
+	</action>
+	
+	<action>
+		<name>se_informehorastrabajadas</name>
+		<description>Informe de horas trabajadas de cada usuario</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Informe Horas trabajadas")</alias>
+		<table>se_informehorastrabajadas</table>
+		<form>master_print</form>
+		<formrecord>se_informehorastrabajadas</formrecord>
+		<scriptform>se_masterinformehorastrabajadas</scriptform>
+		<scriptformrecord>se_informehorastrabajadas</scriptformrecord>
+	</action>
+	
+	<action>
+		<name>se_zonasporpartner</name>
+		<description>Horas por incidencia de cada usuario</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Zonas por partner")</alias>
+		<table>se_zonasporpartner</table>
+		<form>master</form>
+		<formrecord>se_zonasporpartner</formrecord>
+	</action>
+		
+	<action>
+		<name>se_tipostrabajo</name>
+		<description>Tipos de trabajo realizados por cada usuario</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de trabajo")</alias>
+		<table>se_tipostrabajo</table>
+		<form>master</form>
+		<formrecord>se_tipostrabajo</formrecord>
+	</action>
+	<action>
+		<name>se_secuencias</name>
+		<description>Secuencias</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Secuencias")</alias>
+		<table>se_secuencias</table>
+		<form>master</form>
+		<formrecord>se_secuencias</formrecord>
+	</action>
+	<action>
+		<name>se_mail</name>
+		<description>Mail</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Carga automática de emails")</alias>
+		<table>empresa</table>
+		<form>master</form>
+		<scriptform>se_mastermail</scriptform>
+	</action>
+	<action>
+		<name>se_horasfacturadas</name>
+		<description>Horas facturadas</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Horas facturadas")</alias>
+		<table>se_horasfacturadas</table>
+		<form>master</form>
+		<formrecord>se_horasfacturadas</formrecord>
+		<scriptformrecord>se_horasfacturadas</scriptformrecord>
+	</action>
+	
+</ACTIONS>

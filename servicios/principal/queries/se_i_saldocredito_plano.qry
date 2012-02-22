@@ -1,0 +1,38 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>se_i_saldocredito_plano</name>
+
+	<tables>empresa,se_incidencias,clientes</tables>
+
+	<select>
+		se_incidencias.codigo,
+		se_incidencias.fechaapertura,
+		se_incidencias.desccorta,
+		se_incidencias.estado, se_incidencias.codcliente,
+		se_incidencias.precio, se_incidencias.codfuncional,
+		se_incidencias.codproyecto,
+		se_incidencias.codsubproyecto,
+		clientes.codcliente, clientes.nombre,
+		clientes.cifnif,
+		se_proyectos.descripcion,
+		se_subproyectos.descripcion,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa, se_incidencias
+		INNER JOIN clientes ON se_incidencias.codcliente = clientes.codcliente
+		LEFT OUTER JOIN se_proyectos ON se_proyectos.codigo = se_incidencias.codproyecto
+		LEFT OUTER JOIN se_subproyectos ON se_subproyectos.codigo = se_incidencias.codsubproyecto
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+	</order>
+</QRY>

@@ -1,0 +1,23 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>se_qry_incidencias_usuario</name>
+	
+	<tables>se_incidencias,se_subproyectos</tables>
+	
+	<select>
+		se_incidencias.codigo, se_incidencias.fechaapertura, se_incidencias.desccorta, se_incidencias.tipo, se_incidencias.prioridad, se_incidencias.codcliente, 
+		se_incidencias.codsubproyecto, se_incidencias.idpactualizacion, se_incidencias.estado, se_incidencias.fechacierre, se_incidencias.descripcion,
+		se_incidencias.facturar, se_incidencias.horas, se_incidencias.idfactura, se_incidencias.idlinea, se_incidencias.facturada,
+		se_subproyectos.codigo,
+		se_subproyectos.descripcion,
+		se_subproyectos.estado
+	</select>
+	
+	<from>
+		se_incidencias
+		INNER JOIN se_subproyectos ON se_incidencias.codsubproyecto = se_subproyectos.codigo
+	</from>
+	
+	<where>
+	</where>
+</QRY>

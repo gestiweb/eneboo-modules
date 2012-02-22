@@ -1,0 +1,33 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>se_tipostrabajo</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de trabajo")</alias>
+
+	<field>
+		<name>codtipotrabajo</name>
+		<!--Código del tipo de trabajo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>25</length>
+		
+		<relation>
+			<table>se_horastrabajadas</table>
+			<field>codtipotrabajo</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!--Descripción del tipo de trabajo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+</TMD>
+

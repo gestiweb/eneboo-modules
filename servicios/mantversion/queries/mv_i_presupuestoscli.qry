@@ -1,0 +1,41 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>mv_i_presupuestoscli</name>
+
+	<tables>empresa,mv_presupuestoscli,mv_puntopresupuesto,mv_funcional</tables>
+
+	<group>
+		<level>0</level>
+		<field>mv_presupuestoscli.idpresupuesto</field>
+	</group>
+
+	<select>
+		mv_presupuestoscli.idpresupuesto, mv_puntopresupuesto.idpresupuesto,
+		mv_presupuestoscli.codigo, mv_presupuestoscli.codserie,
+		mv_presupuestoscli.fecha, mv_presupuestoscli.total,
+		mv_presupuestoscli.totaliva, mv_presupuestoscli.neto, mv_presupuestoscli.coddivisa,
+		mv_presupuestoscli.codejercicio, mv_presupuestoscli.codpago,
+		mv_presupuestoscli.codalmacen, mv_presupuestoscli.codcliente,
+		mv_presupuestoscli.nombrecliente, mv_presupuestoscli.cifnif,
+		mv_presupuestoscli.tasaconv, mv_presupuestoscli.coddir,
+		mv_presupuestoscli.direccion, mv_presupuestoscli.codpostal,
+		mv_presupuestoscli.ciudad, mv_presupuestoscli.provincia,
+		mv_presupuestoscli.apartado, mv_presupuestoscli.codpais,
+		mv_puntopresupuesto.nhoras, mv_funcional.descripcion,
+		mv_puntopresupuesto.valorhora, mv_puntopresupuesto.total,
+		mv_puntopresupuesto.desclarga, mv_puntopresupuesto.solpropuesta,
+		mv_puntopresupuesto.estado, mv_puntopresupuesto.codfuncional,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion, empresa.logo,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa,mv_presupuestoscli INNER JOIN mv_puntopresupuesto INNER JOIN mv_funcional ON mv_funcional.codfuncional = mv_puntopresupuesto.codfuncional ON mv_presupuestoscli.idpresupuesto = mv_puntopresupuesto.idpresupuesto
+	</from>
+
+	<where>
+	</where>
+</QRY>

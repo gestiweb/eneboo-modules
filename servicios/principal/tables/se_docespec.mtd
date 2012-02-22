@@ -1,0 +1,160 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>se_docespec</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Documentos del subproyecto")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador del documento -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>codsubproyecto</name>
+		<!-- Código del subproyecto al que se refiere -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subproyecto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>se_subproyectos</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>fechacreacion</name>
+		<!-- Fecha de creación del documento -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha de Creación")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción de los contenidos -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>250</length>
+	</field>
+	
+	<field>
+		<name>ubicacion</name>
+		<!-- Ruta relativa desde el directorio de documentación al directorio/fichero del documento -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fichero/Directorio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<ck>true</ck>
+		<type>string</type>
+		<length>250</length>
+	</field>
+	
+	<field>
+		<name>version</name>
+		<!-- Versión -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Versión")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<ck>true</ck>
+		<type>string</type>
+		<length>5</length>
+		<default>1</default>
+	</field>
+	
+	<field>
+		<name>estado</name>
+		<!-- Estado en el que se encuentra el envio -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<optionslist>Pendiente,Enviada,Recibida</optionslist>
+		<default>Pendiente</default>
+	</field>
+	
+	<field>
+		<name>fechaenvio</name>
+		<!-- Fecha de envío del documento al cliente -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha de Envío")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>revision</name>
+		<!-- Revisión de subversion -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Revisión")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>contenido</name>
+		<!-- Contenido del documento -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contenido")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>textomensaje</name>
+		<!-- Texto del mensaje enviado junto con la documentación -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Texto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>tipoubicacion</name>
+		<!-- Tipo: fichero o directorio -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo (F/D)")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<optionslist>Fichero,Directorio</optionslist>
+		<default>Fichero</default>
+	</field>
+	
+	<field>
+		<name>codcomunicacion</name>
+		<!-- Identificador de la comunicación ligada al documento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>para</name>
+		<!-- Destinatario -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Para")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>150</length>
+	</field>	
+</TMD>
+

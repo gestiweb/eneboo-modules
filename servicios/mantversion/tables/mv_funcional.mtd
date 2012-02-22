@@ -1,0 +1,216 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>mv_funcional</name> 
+	<alias>QT_TRANSLATE_NOOP("MetaData","Funcionalidades")</alias>
+	
+	<field>
+		<name>codfuncional</name>
+		<!-- Código -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>15</length>
+
+		<relation>
+			<table>mv_puntopresupuesto</table>
+			<field>codfuncional</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>mv_funcionalcli</table>
+			<field>codfuncional</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>mv_dependencias</table>
+			<field>codhijo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>mv_dependencias</table>
+			<field>codpadre</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>mv_modulosfun</table>
+			<field>codfuncional</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>mv_changelog</table>
+			<field>codfuncional</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>wi_usuarios</table>
+			<field>codfuncional</field>
+			<card>1M</card>
+		</relation>
+	
+		<relation>
+			<table>se_incidencias</table>
+			<field>codfuncional</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>desccorta</name>
+		<!-- Descripción de la versión-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>esproyecto</name>
+		<!-- Obsoleto Indica si la funcionalidad es un proyecto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Proyecto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>proyecto</name>
+		<!-- Indica si la funcionalidad es un proyecto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Proyecto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>nombreproyecto</name>
+		<!-- Nombre del proyecto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre P.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>codigo</name>
+		<!-- Código identificativo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<counter>true</counter>
+	</field>
+	
+	<field>
+		<name>fecha</name>
+		<!-- Indica la fecha de creación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Creación")</alias>
+		<null>flase</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fechamod</name>
+		<!-- Indica la última fecha de modificación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Última modificación")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción del funcionamiento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Funcionamiento")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+
+	<field>
+		<name>version</name>
+		<!-- Versión de la extensión-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Versión")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>
+		
+		<relation>
+			<table>mv_versmodexten</table>
+			<field>version</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>versionmodulos</name>
+		<!-- Versión mínima de los módulos para que funcione la extensión-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Versión mínima de los módulos")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+		
+		<relation>
+			<table>mv_versmodexten</table>
+			<field>version</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>versionbase</name>
+		<!-- Versión base-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Versión base")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+		
+		<relation>
+			<table>mv_versmodexten</table>
+			<field>version</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>publico</name>
+		<alias>QT_TRANSLATE_NOOP(&quot;MetaData&quot;,&quot;Activo en web&quot;)</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>docprivada</name>
+		<alias>QT_TRANSLATE_NOOP(&quot;MetaData&quot;,&quot;Documentación privada&quot;)</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>codigoweb</name>
+		<alias>QT_TRANSLATE_NOOP(&quot;MetaData&quot;,&quot;Código web&quot;)</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+</TMD>

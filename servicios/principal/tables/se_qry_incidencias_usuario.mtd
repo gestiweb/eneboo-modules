@@ -1,0 +1,206 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>se_incidencias</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Incidencias")</alias>
+	<query>se_qry_incidencias_usuario</query>
+
+	<field>
+		<name>codigo</name>
+		<!-- Código de incidencia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<counter>true</counter>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>se_enviossw</table>
+			<field>codincidencia</field>
+			<card>1M</card>
+		</relation>
+	
+		<relation>
+			<table>se_comunicaciones</table>
+			<field>codincidencia</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>fechaapertura</name>
+		<!-- Fecha de apertura-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha Apertura")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>desccorta</name>
+		<!-- Descripción corta de la incidencia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>tipo</name>
+		<!-- Indica si se trata de un error o una mejora -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<optionslist>Error,Mejora,Error de apreciacion</optionslist>
+		<default>Error</default>
+	</field>
+	
+	<field>
+		<name>prioridad</name>
+		<!-- Prioridad de la Incidecia -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Prioridad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+		<optionslist>1,2,3,4,5</optionslist>
+		<default>3</default>
+	</field>
+	
+	<field>
+		<name>codcliente</name>
+		<!-- Código del cliente relacionado con el proyecto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cliente")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>clientes</table>
+			<field>codcliente</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codsubproyecto</name>
+		<!-- Código del subproyecto al que se refiere -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subproyecto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>se_subproyectos</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>idpactualizacion</name>
+		<!-- Código del período de actualización de ese cliente -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","P. Actualización")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>se_pactualizacion</table>
+			<field>id</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>estado</name>
+		<!-- Estado en el que se encuentra la incidencia -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<optionslist>Pendiente,En desarrollo,En pruebas,Resuelta</optionslist>
+		<default>Pendiente</default>
+	</field>
+	
+	<field>
+		<name>fechacierre</name>
+		<!-- Fecha de cierre-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha Cierre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción de la incidencia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción Larga")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+	
+	<field>
+		<name>facturar</name>
+		<!--  Campo booleano que indica si la incidencia se puede facturar o no  -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Facturar")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>horas</name>
+		<!--Nº horas para esa inicencia  -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Horas")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>4</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>idfactura</name>
+		<!--Identificador de la factura-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Factura")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>int</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>idlinea</name>
+		<!--Identificado de la linea de factura -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Línea")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>int</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>facturada</name>
+		<!--  Campo booleano que indica si la incidencia se puede editar o no -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Facturada")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>unlock</type>
+		<default>true</default>
+	</field>
+</TMD>
+

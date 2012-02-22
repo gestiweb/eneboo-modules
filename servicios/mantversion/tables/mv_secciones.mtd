@@ -1,0 +1,48 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>mv_secciones</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Secciones")</alias>
+
+	<field>
+		<name>idseccion</name>
+		<!-- Identificador de la sección -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>mv_area</table>
+			<field>idseccion</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>mv_modulosfun</table>
+			<field>idseccion</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>directorio</name>
+		<!-- Nombre del directorio-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Directorio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción del módulo -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+
+</TMD>

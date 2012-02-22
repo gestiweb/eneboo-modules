@@ -1,0 +1,74 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>se_historicos</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Históricos")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador del envío-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>codsubproyecto</name>
+		<!-- Código del subproyecto al que se refiere -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subproyecto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>se_subproyectos</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>fecha</name>
+		<!-- Fecha -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>estado</name>
+		<!-- Nuevo estado consecuencia del cambio en el histórico -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nuevo estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<optionslist>Especificaciones,Rechazado,En desarrollo,En pruebas,En producción,Cancelado,Pospuesto</optionslist>
+		<default>Pendiente</default>
+	</field>
+
+	<field>
+		<name>texto</name>
+		<!-- Descripción -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Texto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+	
+	<field>
+		<name>codcomunicacion</name>
+		<!-- Código de la comunicacion-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Comunicacion")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+	</field>
+</TMD>
+
+

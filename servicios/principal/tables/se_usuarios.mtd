@@ -1,0 +1,79 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>se_usuarios</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Usuarios")</alias>
+
+	<field>
+		<name>codigo</name>
+		<!-- Código del usuario -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+
+		<relation>
+			<table>se_subproyectos</table>
+			<field>codencargado</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>se_soporte</table>
+			<field>codresponsable</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>se_incidencias</table>
+			<field>codencargado</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>idusuario</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Usuario")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+
+		<relation>
+			<table>usuarios</table>
+			<field>idusuario</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>nombre</name>
+		<!-- Descripción del usuario -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>email</name>
+		<!-- Email del usuario -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Email")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>horasplan</name>
+		<!-- Horas planificación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Horas Plan.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>4</default>
+	</field>
+</TMD>
+

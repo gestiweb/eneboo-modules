@@ -1,0 +1,107 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>se_proyectos</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Proyectos")</alias>
+
+	<field>
+		<name>codigo</name>
+		<!-- Código del proyecto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>4</length>
+		<counter>true</counter>
+		
+		<relation>
+			<table>se_subproyectos</table>
+			<field>codproyecto</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>se_enviossw</table>
+			<field>codproyecto</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>se_incidencias</table>
+			<field>codproyecto</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>se_comunicaciones</table>
+			<field>codproyecto</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>se_modulos</table>
+			<field>codproyecto</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>se_horastrabajadas</table>
+			<field>codproyecto</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción del proyecto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>estado</name>
+		<!-- Estado del proyecto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<optionslist>Especificaciones,Rechazado,En desarrollo,En pruebas,En producción,Cancelado,Pospuesto,Dormido</optionslist>
+		<default>Especificaciones</default>
+	</field>
+
+	<field>
+		<name>codcliente</name>
+		<!-- Código del cliente relacionado con el proyecto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cliente")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>clientes</table>
+			<field>codcliente</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codfuncional</name>
+		<!-- Funcionalidad o Rama-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Rama")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	
+		<relation>
+			<table>mv_funcional</table>
+			<field>codfuncional</field>
+			<card>M1</card>
+		</relation>
+	</field>
+</TMD>
+

@@ -1,0 +1,219 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>se_comunicaciones</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Comunicaciones")</alias>
+
+	<field>
+		<name>codigo</name>
+		<!-- Código-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+	</field>
+
+	<field>
+		<name>fechahora</name>
+		<!-- Fecha y hora del mensaje -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha/Hora")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>fecha</name>
+		<!-- Fecha -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>hora</name>
+		<!-- Hora -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hora")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+	</field>
+	
+	<field>
+		<name>asunto</name>
+		<!-- Asunto del mensaje -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asunto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>150</length>
+	</field>
+		
+	<field>
+		<name>enviadopor</name>
+		<!-- Persona que envio el mensaje -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Enviado por")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>150</length>
+	</field>
+		
+	<field>
+		<name>para</name>
+		<!-- Destinatario -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Para")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>150</length>
+	</field>
+		
+	<field>
+		<name>codincidencia</name>
+		<!-- Código de incidencia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Incidencia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>se_incidencias</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>estado</name>
+		<!-- Estado en el que se encuentra la comunicación -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+		<optionslist>Nuevo,Enviado,Recibido</optionslist>
+		<default>Nuevo</default>
+	</field>
+	
+	<field>
+		<name>texto</name>
+		<!-- Texto del mensaje -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Texto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+		
+	<field>
+		<name>codcliente</name>
+		<!-- Código del cliente relacionado con el proyecto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cliente")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>clientes</table>
+			<field>codcliente</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codproyecto</name>
+		<!-- Código del proyecto al que se refiere -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Proyecto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<associated>
+			<with>codcliente</with>
+			<by>codcliente</by>
+		</associated>
+		
+		<relation>
+			<table>se_proyectos</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codsubproyecto</name>
+		<!-- Código del subproyecto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subproyecto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<associated>
+			<with>codproyecto</with>
+			<by>codproyecto</by>
+		</associated>
+
+		<relation>
+			<table>se_subproyectos</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>idpactualizacion</name>
+		<!-- Código del período de actualización-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","P. Actualización")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>se_pactualizacion</table>
+			<field>id</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codcontrato</name>
+		<!-- Código del contrato -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contrato")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>se_contratosman</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>adjuntarpdf</name>
+		<!-- Indica si se adjunta un archivo PDF o no -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Adjuntar PDF")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+</TMD>
+

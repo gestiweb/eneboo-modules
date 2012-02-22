@@ -1,0 +1,62 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>se_tiposcontrato</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de contrato")</alias>
+
+	<field>
+		<name>nombre</name>
+		<!-- Nombre del tipo de contrato-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>100</length>
+		
+		<relation>
+			<table>se_contratosman</table>
+			<field>tipocontrato</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>se_cuotas</table>
+			<field>tipocontrato</field>
+			<card>1M</card>
+		</relation>
+		
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripcion")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+	
+	<field>
+		<name>coste</name>
+		<!-- Coste total de todo el periodo del contrato-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Coste")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>3</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>periodopago</name>
+		<!-- Periodo de pago (número de meses) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuota")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+		<optionslist>Mensual,Bimestral,Trimestral,Semestral,Anual</optionslist>
+		<default>Mensual</default>
+	</field>
+</TMD>
+

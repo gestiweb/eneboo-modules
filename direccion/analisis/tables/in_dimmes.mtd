@@ -1,0 +1,66 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>in_dimmes</name>
+	<!--Dimensión de meses-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Dimensión de meses")</alias>
+	
+	<in_Dimension name="Cliente" foreignKey="time_id">
+		<in_Hierarchy hasAll="true" allMemberName="All Periods" primaryKey="dateid">
+		<in_Level column="ano" uniqueMembers="true" levelType="TimeYears"/>
+<!-- 		<Level name="Quarter" column="quarter" uniqueMembers="false" levelType="TimeQuarters" /> -->
+		<in_Level column="mes" uniqueMembers="false" ordinalColumn="mes" nameColumn="nombremes" levelType="TimeMonths"/>
+<!-- 		<Level name="Week" column="week_in_month" uniqueMembers="false" levelType="TimeWeeks" /> -->
+<!-- 		<Level name="Day" column="day_in_month" uniqueMembers="false" ordinalColumn="day_in_month" nameColumn="day_name" levelType="TimeDays" type="Numeric"/> -->
+		</in_Hierarchy>
+	</in_Dimension>
+
+	<field>
+		<name>mesano</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mes y año")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>in_h_ventas</table>
+			<field>d_mes</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>mes</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mes")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+	</field>
+	
+	<field>
+		<name>nombremes</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre mes")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>trimestre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Trimestre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	
+	<field>
+		<name>ano</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Año")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+
+</TMD>

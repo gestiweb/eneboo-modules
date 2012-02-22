@@ -1,0 +1,144 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>se_contratosman</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Contratos de mantenimiento")</alias>
+
+	<field>
+		<name>codigo</name>
+		<!-- Código del del contrato -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>4</length>
+		<counter>true</counter>
+		
+		<relation>
+			<table>se_pactualizacion</table>
+			<field>codcontrato</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>se_docmantenim</table>
+			<field>codcontrato</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>se_comunicaciones</table>
+			<field>codcontrato</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción del proyecto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>estado</name>
+		<!-- Indica si el ocntrato es vigente -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>Vigente,Caducado</optionslist>
+		<default>Vigente</default>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>codcliente</name>
+		<!-- Código del cliente relacionado con el proyecto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cliente")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>clientes</table>
+			<field>codcliente</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>dirlocal</name>
+		<!-- Directorio de trabajo donde se alojan los datos del contrato de mantenimiento -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Directorio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>
+	</field>
+	
+	<field>
+		<name>codpago</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Forma de pago")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>formaspago</table>
+			<field>codpago</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>periodopago</name>
+		<!-- Periodo de pago (número de meses) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Periódo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<optionslist>Mensual,Bimestral,Trimestral,Semestral,Anual</optionslist>
+		<default>Mensual</default>
+	</field>
+	
+	<field>
+		<name>ultimopago</name>
+		<!-- Fecha de la última facturación -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Útimo pago")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>tipocontrato</name>
+		<!-- Tipo de contrato -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+		
+		<relation>
+			<table>se_tiposcontrato</table>
+			<field>nombre</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>notas</name>
+		<!-- Notas sobre el contrato -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Notas")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+
+</TMD>

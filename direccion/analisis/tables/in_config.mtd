@@ -1,0 +1,91 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>in_config</name>
+	<!--Datos de configuración-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Configuración")</alias>
+
+	<field>
+		<name>id</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+	</field>
+	
+	<field>
+		<name>basedatos</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Base de datos")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>driver</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Driver")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<optionslist>PostgreSQL,MySQL</optionslist>
+		<default>PostgreSQL</default>
+	</field>
+	
+	<field>
+		<name>puerto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Puerto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>servidor</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Servidor")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>basedatoslocal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","La base de datos local es")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<optionslist>Origen,Destino,Ambas</optionslist>
+		<default>Origen</default>
+	</field>
+	
+	<field>
+		<name>anomin</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde año")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>anomax</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta año")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>requierecontra</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Requiere contraseña")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+</TMD>

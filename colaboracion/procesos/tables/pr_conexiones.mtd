@@ -1,0 +1,75 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>pr_conexiones</name>
+	<!--Conexiones entre eventos y tareas-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Proceso")</alias>
+
+	<field>
+		<name>idconexion</name>
+		<!--Identificador de la conexión-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+	</field>
+
+	<field>
+		<name>tipoobjeto</name>
+		<!--Tipo del objeto emisor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo objeto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+	</field>
+	
+	<field>
+		<name>idobjeto</name>
+		<!--Id. del objeto emisor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id. objeto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+	</field>
+	
+	<field>
+		<name>evento</name>
+		<!--Evento asociado al objeto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Evento")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+	</field>
+	
+	<field>
+		<name>funcion</name>
+		<!--Función a llamar -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Función")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+	</field>
+	
+	<field>
+		<name>idtarea</name>
+		<!--Tipo del objeto emisor-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id Tarea")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+	</field>
+	
+	<field>
+		<name>estado</name>
+		<!--Estado del proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+</TMD>

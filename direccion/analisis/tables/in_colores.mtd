@@ -1,0 +1,86 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>in_colores</name>
+	<!--Colores-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Colores")</alias>
+
+	<field>
+		<name>idcolor</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>in_objetivosmedida</table>
+			<field>idcolortramo1</field>
+			<card>1M</card>
+		</relation>
+		<relation>
+			<table>in_objetivosmedida</table>
+			<field>idcolortramo2</field>
+			<card>1M</card>
+		</relation>
+		<relation>
+			<table>in_objetivosmedida</table>
+			<field>idcolortramo2</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>r</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Rojo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<type>string</type>
+		<length>3</length>
+		<regexp>^([01][0-9][0-9]|2[0-4][0-9]|25[0-5])$</regexp>
+		<default>000</default>
+	</field>
+	
+	<field>
+		<name>g</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Verde")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<type>string</type>
+		<length>3</length>
+		<regexp>^([01][0-9][0-9]|2[0-4][0-9]|25[0-5])$</regexp>
+		<default>000</default>
+	</field>
+	
+	<field>
+		<name>b</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Azul")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<type>string</type>
+		<length>3</length>
+		<regexp>^([01][0-9][0-9]|2[0-4][0-9]|25[0-5])$</regexp>
+		<default>000</default>
+	</field>
+	
+	<field>
+		<name>rgb</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+</TMD>
