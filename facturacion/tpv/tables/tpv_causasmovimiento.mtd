@@ -1,0 +1,75 @@
+<!DOCTYPE TMD>
+<TMD>
+
+	<name>tpv_causasmovimiento</name>
+	<!-- Causas de movimientos de caja -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Causas de movimientos de caja")</alias>
+
+	<field>
+		<name>codcausa</name>
+		<!-- Código -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>15</length>
+		
+		<relation>
+			<table>tpv_movimientos</table>
+			<field>codcausa</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>tpv_datosgenerales</table>
+			<field>codcausacierre</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>valordefecto</name>
+		<!-- Valor por defecto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor defecto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+	
+	<field>
+		<name>codsubcuenta</name>
+		<!-- Código de la subcuenta de contabilidad asociada a la causa de movimiento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subcuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>idsubcuenta</name>
+		<!-- Identificador interno de la subcuenta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+</TMD>
