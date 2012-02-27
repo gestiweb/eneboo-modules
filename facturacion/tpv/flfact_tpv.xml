@@ -1,0 +1,145 @@
+<ACTIONS>
+
+	<action>
+		<name>tpv_comandas</name>
+		<description>QT_TRANSLATE_NOOP("MetaData","En cada venta debe especificarse el agente de ventas que la llevó a cabo así como el punto de venta, la fecha, el tipo de pago la tarifa que se va a aplicar y una línea por cada artículo vendido.<br/>
+		Cada venta debe estar asociada a un arqueo del mismo terminal desde el cual ser realizó la venta y cuya fecha de venta esté dentro del periódo establecido para el arqueo.<br/>
+		Por cada venta se crea su factura, recibos, pagos y asientos contables correspondientes. Una vez pagada no podrá modificarse. Si queremos modificar una venta ya cerrada debemos abrirla pulsando el botón de Abrir Venta del formulario maestro de ventas.")</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ventas")</alias>
+		<scriptform>tpv_mastercomandas</scriptform>
+		<scriptformrecord>tpv_comandas</scriptformrecord>
+		<table>tpv_comandas</table>
+		<form>tpv_mastercomandas</form>
+		<formrecord>tpv_comandas</formrecord>
+	</action>
+
+	<action>
+		<name>tpv_agentes</name>
+		<description>QT_TRANSLATE_NOOP("MetaData","Los agentes son los encargados de gestionar las ventas. Cada agente está asociado a un punto de venta y aparece por defecto en todas las ventas de ese punto de venta.")</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Agentes de TPV")</alias>
+		<scriptformrecord>tpv_agentes</scriptformrecord>
+		<table>tpv_agentes</table>
+		<form>tpv_master</form>
+		<formrecord>tpv_agentes</formrecord>
+	</action>
+
+	<action>
+		<name>tpv_puntosventa</name>
+		<description>QT_TRANSLATE_NOOP("MetaData","Los puntos de venta son cada uno de los terminales desde los cuales se realizan las ventas.")</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Puntos de venta")</alias>
+		<scriptformrecord>tpv_puntosventa</scriptformrecord>
+		<scriptform>tpv_masterpuntosventa</scriptform>
+		<table>tpv_puntosventa</table>
+		<form>tpv_masterpuntosventa</form>
+		<formrecord>tpv_puntosventa</formrecord>
+		<scriptformrecord>tpv_puntosventa</scriptformrecord>
+	</action>
+
+	<action>
+		<name>tpv_lineascomanda</name>
+		<description>QT_TRANSLATE_NOOP("MetaData","Cada línea de venta refleja la cantidad y precio de un determinado artículo incluido en la venta")</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Lineas de venta")</alias>
+		<scriptformrecord>tpv_lineascomanda</scriptformrecord>
+		<table>tpv_lineascomanda</table>
+		<form>master</form>
+		<formrecord>tpv_lineascomanda</formrecord>
+	</action>
+
+	<action>
+		<name>tpv_arqueos</name>
+		<description>QT_TRANSLATE_NOOP("MetaData","Los arqueos son una forma de reflejar el estado de la caja. Recogen todas las ventas y movimientos realizados en un periódo de tiempo establecido para un terminal determinado, calculando la diferencia entre lo que se ha vendido y la cantidad que hay realmente en caja. Los pasos a seguir a la hora de gestionar un arqueo son:<br/><p/>
+		<ol><li>
+		<b>Crear el arqueo:</b> Al crear un arqueo debemos establecer el punto de venta, un importe inicial y una fecha de inicio. El punto de venta se establecerá por defecto como el punto de venta local, el importe inicial se calculará como el total en efectovo del último arqueo cerrado menos la cantidad establecida en el movimiento de cierre y la fecha será por defecto un día más de la fecha de finalización del último arqueo. Aunque estos valores pueden ser modificados.</li>
+		<li><b>Crear ventas y movimientos:</b> Una vez abierto un arqueo ya podemos empezar a crear ventas. Las nuevas ventas se asociarán al arqueo abierto para el mismo punto de venta y el periódo de tiempo que abarque la fecha de la venta (si hay más de un arqueo abierto que cumpla esas condiciones mostrará un mensaje de aviso).
+		<br/>También podemos crear los movimientos necesrios (meter cambio en la caja, dar cambio a otro punto de venta ...)</li>
+		<li><b>Cuadrar Arqueo:</b> Una ver realizadas todas las ventas del periódo del arqueo antes de cerrarlo debemos cuadrarlo. Debemos contar los billetes y monedes que haya en caja, así como sumar las cantidades de los tiques de pagos con tarjeta introduciendo los valores en los campos correspondientes. Haciendo esto se calculará automáticamente la diferencia entre lo que hay en caja y el total de ventas. Se calculan dos diferencias la diferencia que hay en efectivo y la que hay por pagos con tarjeta. Para que la caja esté cuadrada esta diferencia debe ser cero</li>
+		<li><b>Cerrar el arqueo:</b> Podemos cerrar el arqueo desde el formulario de edición introducióndo una cantidad en el movimiento de cierre y aceptándolo o pulsando el botón de Abrir/Cerrar Arqueo del formulario maestro.<br/>
+		No se podrá cerrar un arqueo si no están cerradas todas las ventas relacionadas.<br/>
+		Una vez cerrado el arqueo si queremos modificarlo podemos abrirlo desde el formulario maestro con el boton Abrir/Cerrar Arqueo</li></ol>")</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Arqueos")</alias>
+		<scriptformrecord>tpv_arqueos</scriptformrecord>
+		<scriptform>tpv_masterarqueos</scriptform>
+		<table>tpv_arqueos</table>
+		<form>tpv_masterarqueos</form>
+		<formrecord>tpv_arqueos</formrecord>
+	</action>
+	
+	<action>
+		<name>tpv_movimientos</name>
+		<description>QT_TRANSLATE_NOOP("MetaData","Movimientos de entrada o salida de caja.")</description>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Movimientos de caja")</alias>
+		<table>tpv_movimientos</table>
+		<formrecord>tpv_movimientos</formrecord>
+		<scriptformrecord>tpv_movimientos</scriptformrecord>
+	</action>
+	
+	<action>
+		<name>tpv_datosgenerales</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Datos Generales")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Los datos generales son una serie de valores que se utilizarán como valores por defecto en todas acciones de ventas")</description>
+		<scriptform>tpv_datosgenerales</scriptform>
+		<scriptformrecord>tpv_datosgenerales</scriptformrecord>
+		<table>tpv_datosgenerales</table>
+		<form>tpv_datosgenerales</form>
+		<formrecord>tpv_datosgenerales</formrecord>
+	</action>
+	
+	<action>
+		<name>tpv_pagoscomanda</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Pagos de venta")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Los pagos reflejan cuándo y cuánto ha pagado el cliente de una determinada venta. Cada pago tiene asociado automáticamente un recibo en estado Pagado, con su asiento contable correspondiente.")</description>
+		<scriptformrecord>tpv_pagoscomanda</scriptformrecord>
+		<table>tpv_pagoscomanda</table>
+		<formrecord>tpv_pagoscomanda</formrecord>
+	</action>
+	
+	<action>
+		<name>tpv_vales</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Devoluciones y vales de compra")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Los vales son documentos que se entregan a los clientes y mediante los cuales dichos clientes pueden abonar total o parcialmente sus compras.")</description>
+		<table>tpv_vales</table>
+		<form>master_print</form>
+		<formrecord>tpv_vales</formrecord>
+		<scriptform>tpv_mastervales</scriptform>
+		<scriptformrecord>tpv_vales</scriptformrecord>
+	</action>
+
+	<action>
+		<name>tpv_lineasvale</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Artículos devueltos")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Podemos detallar en cada vale los artículos que nos han devuelto. De esta forma podemos incluir otra vez en stock los artículos que el cliente devuelve")</description>
+		<table>tpv_lineasvale</table>
+		<form>master</form>
+		<formrecord>tpv_lineasvale</formrecord>
+		<scriptformrecord>tpv_lineasvale</scriptformrecord>
+	</action>
+
+	<action>
+		<name>tpv_cantidadpago</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Formulario para pedir la cantidad que el cliente paga")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Este formulario muestra la cantidad pendiente que queda por pagar. Al aparecer seleccionada, es sencillo sustituirla por la cantidad pagada real")</description>
+		<table>tpv_cantidadpago</table>
+		<form>tpv_cantidadpago</form>
+		<scriptform>tpv_cantidadpago</scriptform>
+	</action>
+
+	<action>
+		<name>tpv_causasmovimiento</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Causas de movimientos de caja")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Este formulario permite indicar las posibles causas que justifiquen movimientos de caja, así como establecer la cuenta contable en la que dichos movimientos se reflejarán")</description>
+		<table>tpv_causasmovimiento</table>
+		<form>tpv_mastercausasmovimiento</form>
+		<formrecord>tpv_causasmovimiento</formrecord>
+		<scriptform>tpv_mastercausasmovimiento</scriptform>
+		<scriptformrecord>tpv_causasmovimiento</scriptformrecord>
+	</action>
+
+	<action>
+        <name>tpv_secuenciascomanda</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Esta acción permite ver y modificar las secuencias de tique.")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Secuencias de Tiques")</alias>
+        <table>tpv_secuenciascomanda</table>
+        <form>master</form>
+        <formrecord>tpv_secuenciascomanda</formrecord>
+    </action>
+</ACTIONS>

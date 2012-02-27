@@ -1,0 +1,57 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>tpv_i_arqueos</name>	
+	<!-- Informe de arqueos	-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Informes de arqueos")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador interno	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Descripcion -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>200</length>
+	</field>
+
+	<field>
+		<name>d_tpv__arqueos_idtpv__arqueo</name>
+		<!-- Código del arqueo  -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+
+		<relation>
+			<table>tpv_arqueos</table>
+			<field>idtpv_arqueo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>h_tpv__arqueos_idtpv__arqueo</name>
+		<!-- Código del arqueo  -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+
+		<relation>
+			<table>tpv_arqueos</table>
+			<field>idtpv_arqueo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+</TMD>
