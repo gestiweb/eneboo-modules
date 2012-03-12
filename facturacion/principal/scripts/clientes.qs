@@ -146,8 +146,8 @@ class oficial extends interna {
 	function validarNifIva():Boolean {
 		return this.ctx.oficial_validarNifIva();
 	}
-	function asociarContactoCliente() {
-		return this.ctx.oficial_asociarContactoCliente();
+	function asociarContactoCliente(codContacto:String) {
+		return this.ctx.oficial_asociarContactoCliente(codContacto);
 	}
 	function obtenerCodigoCliente(cursor:FLSqlCursor):String {
 		return this.ctx.oficial_obtenerCodigoCliente(cursor);
@@ -763,13 +763,15 @@ function oficial_insertContacto(accion:String,codigo:String)
 	this.iface.curContacto_.insertRecord();
 }
 
-function oficial_asociarContactoCliente()
+function oficial_asociarContactoCliente(codContacto:String)
 {
 	var util:FLUtil = new FLUtil;
 	var cursor:FLSqlCursor = this.cursor();
 
 	var codCliente:String = cursor.valueBuffer("codcliente");
-	var codContacto:String = this.iface.curContacto_.valueBuffer("codcontacto");
+    if(!codContacto || codContacto == ""){
+        codContacto = this.iface.curContacto_.valueBuffer("codcontacto");
+    }
 	if (!util.sqlSelect("contactosclientes", "id", "codcontacto = '" + codContacto + "' AND codcliente = '" + codCliente + "'")) {
 		var curContactoCliente:FLSqlCursor = new FLSqlCursor("contactosclientes");
 		curContactoCliente.setModeAccess(curContactoCliente.Insert);
@@ -979,6 +981,10 @@ function oficial_lanzarEdicionContacto()
 function oficial_buscarContacto()
 {
 	var cursor:FLSqlCursor = this.cursor();
+    if (cursor.modeAccess() == cursor.Insert) {
+        if (!this.child("tdbDirecciones").cursor().commitBufferCursorRelation())
+            return false;
+    }
 	var f:Object;
 	if (sys.isLoadedModule("flcrm_ppal"))
 		f = new FLFormSearchDB("crm_contactos");
@@ -998,6 +1004,7 @@ function oficial_buscarContacto()
 	}
 
 	cursor.setValueBuffer("codcontacto", codContacto);
+    this.iface.asociarContactoCliente(codContacto);
 }
 
 function oficial_mostrarMovEjerActual(nombre:String)
