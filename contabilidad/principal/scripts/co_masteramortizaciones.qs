@@ -89,7 +89,7 @@ function interna_init()
 	this.iface.tdbRecords = this.child("tableDBRecords");
 	this.iface.pbnGenerar = this.child("pbnGenerar");
 
-	connect(this.iface.pbnGenerar, "clicked()", this, "iface.pbnGenerar_clicked"),
+	connect(this.iface.pbnGenerar, "clicked()", this, "iface.pbnGenerar_clicked");
 }
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
