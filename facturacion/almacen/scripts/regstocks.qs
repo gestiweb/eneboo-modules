@@ -42,6 +42,9 @@ class oficial extends interna {
 	function calcularCantidad() {
 		return this.ctx.oficial_calcularCantidad();
 	}
+	function calcularValoresUltReg() {
+                return this.ctx.oficial_calcularValoresUltReg();
+        	}
 	function commonCalculateField(fN:String, cursor:FLSqlCursor):String {
 		return this.ctx.oficial_commonCalculateField(fN, cursor);
 	}
@@ -174,6 +177,22 @@ function oficial_calcularCantidad()
 	var util:FLUtil = new FLUtil;
 	var cantidad:Number = util.sqlSelect("lineasregstocks", "cantidadfin", "idstock = " + cursor.valueBuffer("idstock") + " ORDER BY fecha DESC, hora DESC");
 	this.child("fdbCantidad").setValue(cantidad);
+}
+
+
+function oficial_calcularValoresUltReg()
+{
+        var cursor:FLSqlCursor = this.cursor();
+        var fechaUltReg:String = this.iface.calculateField("fechaultreg");
+        if (fechaUltReg) {
+                this.child("fdbFechaUltReg").setValue(fechaUltReg);
+                this.child("fdbHoraUltReg").setValue(this.iface.calculateField("horaultreg"));
+                this.child("fdbCantidadUltReg").setValue(this.iface.calculateField("cantidadultreg"));
+        } else {
+                cursor.setNull("fechaultreg");
+                cursor.setNull("horaultreg");
+                this.child("fdbCantidadUltReg").setValue(0);
+        }
 }
 
 //// OFICIAL /////////////////////////////////////////////////////
