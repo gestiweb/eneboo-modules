@@ -39,6 +39,18 @@ class interna {
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
     function oficial( context ) { interna( context ); } 
+    function habilitarPorModo() {
+        return this.ctx.oficial_habilitarPorModo();
+    }
+    function datosInsercion() {
+        return this.ctx.oficial_datosInsercion();
+    }
+    function bufferChanged(fN) {
+        return this.ctx.oficial_bufferChanged(fN);
+    }
+    function validarCantidades() {
+        return this.ctx.oficial_validarCantidades();
+    }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -77,39 +89,19 @@ En modo edición, no es posible cambiar los valores de --cantidadfin--, --fecha--
 \end */
 function interna_init()
 {
-		var cursor:FLSqlCursor = this.cursor();
-		if (cursor.modeAccess() == cursor.Insert) {
-				this.child("fdbCantidadIni").setValue(cursor.cursorRelation().valueBuffer("cantidad"));
-				this.child("fdbCantidadFin").setValue(cursor.cursorRelation().valueBuffer("cantidad"));
-		} else {
-				this.child("fdbCantidadFin").setDisabled(true);
-				this.child("fdbMotivo").setDisabled(true);
-				this.child("fdbFecha").setDisabled(true);
-		}
+    var cursor = this.cursor();
+    connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged()");
+    
+    this.iface.habilitarPorModo();
+    this.iface.datosInsercion();
 }
 
 function interna_validateForm():Boolean
 {
-/** \C
-El valor de --cantidadfin-- debe ser mayor que cero
-\end */
-		var util:FLUtil = new FLUtil();
-		var cantidadFin:Number = this.child("fdbCantidadFin").value();
-		
-		if (cantidadFin < 0) {
-				MessageBox.critical(util.translate("scripts", "La cantidad debe ser mayor que cero"),
-						MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
-				return false;
-		}
-/** \C
-El valor de --cantidadfin-- debe ser distinta de la --cantidadini--
-\end */
-		if (cantidadFin == this.child("fdbCantidadIni").value()) {
-				MessageBox.critical(util.translate("scripts", "Las cantidad nueva es igual a la inicial"),
-						MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
-				return false;
-		}
-		return true;
+    if (!this.iface.validarCantidades()) {
+        return false;
+    }
+    return true;
 }
 
 /** \D
@@ -122,6 +114,9 @@ function interna_acceptedForm()
 		if (cursor.modeAccess() == cursor.Insert)
 				formRecordregstocks.iface.pub_cambiarCantidad(cursor.valueBuffer("cantidadfin"));
 */
+    var cursor:FLSqlCursor = this.cursor();
+    if (cursor.modeAccess() == cursor.Insert)
+       formRecordregstocks.iface.pub_cambiarCantidad(cursor.valueBuffer("cantidadfin"));
 }
 
 //// INTERNA /////////////////////////////////////////////////////
@@ -130,6 +125,65 @@ function interna_acceptedForm()
 /** @class_definition oficial */
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
+function oficial_habilitarPorModo()
+{
+    var cursor = this.cursor();
+    var insercion = cursor.modeAccess() == cursor.Insert;
+    this.child("fdbCantidadFin").setDisabled(!insercion);
+    this.child("fdbFecha").setDisabled(!insercion);
+    this.child("fdbHora").setDisabled(!insercion);
+}
+ 
+function oficial_datosInsercion()
+{
+    var cursor = this.cursor();
+    if (cursor.modeAccess() != cursor.Insert) {
+        return;
+    }
+    var curRel = cursor.cursorRelation();
+    if (!curRel) return;
+    
+    switch (curRel.table()) {
+        case "stocks": {
+            this.child("fdbCantidadIni").setValue(curRel.valueBuffer("cantidad"));
+            this.child("fdbCantidadFin").setValue(curRel.valueBuffer("cantidad"));
+            break;
+        }
+        case "inventarios": {
+            this.child("fdbReferencia").setFocus();
+            break;
+        }
+    }
+}
+
+function oficial_bufferChanged(fN)
+{
+    
+}
+
+function oficial_validarCantidades()
+{
+    /** \C
+    El valor de --cantidadfin-- debe ser mayor que cero
+    \end */
+    var util = new FLUtil();
+    var cursor = this.cursor();
+    var cantidadFin = cursor.valueBuffer("cantidadfin");
+    
+    if (cantidadFin < 0) {
+        MessageBox.warning(util.translate("scripts", "La cantidad debe ser mayor que cero"), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
+        return false;
+    }
+    /** \C
+    El valor de --cantidadfin-- debe ser distinta de la --cantidadini--
+    \end */
+    var cantidadIni = cursor.valueBuffer("cantidadini")
+    if (cantidadFin == cantidadIni) {
+        MessageBox.warning(util.translate("scripts", "Las cantidad nueva es igual a la inicial"), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
+        return false;
+    }
+    return true;
+}
 
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
