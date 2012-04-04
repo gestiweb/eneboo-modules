@@ -36,7 +36,7 @@ class interna {
 	function afterCommit_lineastransstock(curLTS:FLSqlCursor):Boolean {
 		return this.ctx.interna_afterCommit_lineastransstock(curLTS);
 	}
-	function afterCommit_lineasregstocks(curLRS):Boolean {
+	function afterCommit_lineasregstocks(curLRS:FLSqlCursor):Boolean {
                 return this.ctx.interna_afterCommit_lineasregstocks(curLRS);
 	}
 }
@@ -105,7 +105,7 @@ class oficial extends interna {
 	function valorDefectoAlmacen(fN:String):String {
 		return this.ctx.oficial_valorDefectoAlmacen(fN);
 	}
-	function controlRegStock(curLRS):Boolean {
+	function controlRegStock(curLRS:FLSqlCursor):Boolean {
 		return this.ctx.oficial_controlRegStock(curLRS);
         }
 }
