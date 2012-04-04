@@ -36,6 +36,9 @@ class interna {
 	function afterCommit_lineastransstock(curLTS:FLSqlCursor):Boolean {
 		return this.ctx.interna_afterCommit_lineastransstock(curLTS);
 	}
+	function afterCommit_lineasregstocks(curLRS):Boolean {
+                return this.ctx.interna_afterCommit_lineasregstocks(curLRS);
+	}
 }
 //// INTERNA /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -102,6 +105,9 @@ class oficial extends interna {
 	function valorDefectoAlmacen(fN:String):String {
 		return this.ctx.oficial_valorDefectoAlmacen(fN);
 	}
+	function controlRegStock(curLRS):Boolean {
+		return this.ctx.oficial_controlRegStock(curLRS);
+        }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -261,6 +267,16 @@ function interna_beforeCommit_stocks(curStock:FLSqlCursor):Boolean
 
 function interna_afterCommit_lineastransstock(curLTS:FLSqlCursor):Boolean {
 	return this.iface.controlStockLineasTrans(curLTS);
+}
+
+
+function interna_afterCommit_lineasregstocks(curLRS:FLSqlCursor):Boolean
+{
+debug("interna_afterCommit_lineasregstocks");
+    if (!this.iface.controlRegStock(curLRS)) {
+        return false;
+    }
+    return true;
 }
 
 //// INTERNA /////////////////////////////////////////////////////
@@ -844,6 +860,43 @@ function oficial_valorDefectoAlmacen(fN:String):String
 
 	return "";
 }
+
+
+function oficial_controlRegStock(curLRS):Boolean
+{
+debug("oficial_controlRegStock");
+        var curRel = curLRS.cursorRelation();
+        if (curRel && curRel.table() == "stocks") {
+            return true;
+        }
+        var curStock = new FLSqlCursor("stocks");
+        curStock.select("idstock = " + curLRS.valueBuffer("idstock"));
+        if (!curStock.first()) {
+debug("idstock = " + curLRS.valueBuffer("idstock"));
+            return false;
+        }
+        curStock.setModeAccess(curStock.Edit);
+        curStock.refreshBuffer();
+        
+        var fechaUltReg:String = formRecordregstocks.iface.commonCalculateField("fechaultreg", curStock);
+        if (fechaUltReg) {
+                curStock.setValueBuffer("fechaultreg", fechaUltReg);
+                curStock.setValueBuffer("horaultreg", formRecordregstocks.iface.commonCalculateField("horaultreg", curStock));
+                curStock.setValueBuffer("cantidadultreg", formRecordregstocks.iface.commonCalculateField("cantidadultreg", curStock));
+        } else {
+                curStock.setNull("fechaultreg");
+                curStock.setNull("horaultreg");
+                curStock.setValueBuffer("cantidadultreg", 0);
+        }
+        curStock.setValueBuffer("cantidad", formRecordregstocks.iface.commonCalculateField("cantidad", curStock));
+        curStock.setValueBuffer("disponible", formRecordregstocks.iface.commonCalculateField("disponible", curStock));
+        if (!curStock.commitBuffer()) {
+                debug("!curStock.commitBuffer");
+                return false;
+        }
+        return true;
+}
+
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
