@@ -159,7 +159,8 @@ function oficial_bufferChanged(fN:String)
 
 function oficial_commonCalculateField(fN:String, cursor:FLSqlCursor):String
 {
-	var valor:String;
+	var util:FLUtil = new FLUtil;
+        var valor:String;
 	switch (fN) {
 		case "disponible": {
 			var cantidad:Number = parseFloat(cursor.valueBuffer("cantidad"));
@@ -167,6 +168,25 @@ function oficial_commonCalculateField(fN:String, cursor:FLSqlCursor):String
 			valor = cantidad - reservada;
 			break;
 		}
+		case "cantidadultreg": {
+                        valor = util.sqlSelect("lineasregstocks", "cantidadfin", "idstock = " + cursor.valueBuffer("idstock") + " ORDER BY fecha DESC, hora DESC");
+                        if (isNaN(valor)) {
+                                valor = 0;
+                        }
+                        break;
+                }
+                case "fechaultreg": {
+                        valor = util.sqlSelect("lineasregstocks", "fecha", "idstock = " + cursor.valueBuffer("idstock") + " ORDER BY fecha DESC, hora DESC");
+                        break;
+                }
+                case "horaultreg": {
+                        valor = util.sqlSelect("lineasregstocks", "hora", "idstock = " + cursor.valueBuffer("idstock") + " ORDER BY fecha DESC, hora DESC");
+                        break;
+                }
+                case "cantidad": {
+                        valor = this.iface.commonCalculateField("cantidadultreg", cursor);
+                        break;
+                }
 	}
 	return valor;
 }
