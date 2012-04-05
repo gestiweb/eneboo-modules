@@ -142,7 +142,7 @@ function interna_init()
 	this.iface.lblDatosFacturaAbono = this.child("lblDatosFacturaAbono");
 	this.iface.pbnAplicarComision = this.child("pbnAplicarComision");
 
-    connect(this.iface.pbnAplicarComision, "clicked()", this, "iface.aplicarComision_clicked()");
+	connect(this.iface.pbnAplicarComision, "clicked()", this, "iface.aplicarComision_clicked()");
 	connect(this.child("tdbLineasFacturasCli").cursor(), "bufferCommited()", this, "iface.calcularTotales");
 	connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
 	connect(this.child("tbnBuscarFactura"), "clicked()", this, "iface.buscarFactura()");
@@ -307,7 +307,13 @@ function oficial_bufferChanged(fN:String)
 		El --irpf-- es el asociado a la --codserie-- del albarán
 		\end */
 		case "codserie": {
-			this.cursor().setValueBuffer("irpf", this.iface.calculateField("irpf"));
+			if (cursor.modeAccess() == cursor.Insert) {
+			    this.cursor().setValueBuffer("irpf", this.iface.calculateField("irpf"));
+			} else {
+			    if (cursor.valueBuffer("codserie") != cursor.valueBufferCopy("codserie")) {
+				cursor.setValueBuffer("codserie", cursor.valueBufferCopy("codserie"));
+			    }
+			}
 			break;
 		}
 		/** \C
