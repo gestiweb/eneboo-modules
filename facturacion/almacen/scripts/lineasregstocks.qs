@@ -28,8 +28,8 @@ class interna {
     var ctx:Object;
     function interna( context ) { this.ctx = context; }
     function init() { this.ctx.interna_init(); }
-    function validateForm():Boolean { return this.ctx.interna_validateForm(); }
-    function acceptedForm() { return this.ctx.interna_acceptedForm(); }
+	function validateForm():Boolean { return this.ctx.interna_validateForm(); }
+	function acceptedForm() { return this.ctx.interna_acceptedForm(); }
 }
 //// INTERNA /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -158,29 +158,6 @@ function oficial_bufferChanged(fN)
     
 }
 
-function oficial_validarCantidades()
-{
-    /** \C
-    El valor de --cantidadfin-- debe ser mayor que cero
-    \end */
-    var util = new FLUtil();
-    var cursor = this.cursor();
-    var cantidadFin = cursor.valueBuffer("cantidadfin");
-    
-    if (cantidadFin < 0) {
-        MessageBox.warning(util.translate("scripts", "La cantidad debe ser mayor que cero"), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
-        return false;
-    }
-    /** \C
-    El valor de --cantidadfin-- debe ser distinta de la --cantidadini--
-    \end */
-    var cantidadIni = cursor.valueBuffer("cantidadini")
-    if (cantidadFin == cantidadIni) {
-        MessageBox.warning(util.translate("scripts", "Las cantidad nueva es igual a la inicial"), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
-        return false;
-    }
-    return true;
-}
 function oficial_validarCantidades()
 {
     /** \C
