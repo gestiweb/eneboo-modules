@@ -114,9 +114,6 @@ function interna_acceptedForm()
 		if (cursor.modeAccess() == cursor.Insert)
 				formRecordregstocks.iface.pub_cambiarCantidad(cursor.valueBuffer("cantidadfin"));
 */
-    var cursor:FLSqlCursor = this.cursor();
-    if (cursor.modeAccess() == cursor.Insert)
-       formRecordregstocks.iface.pub_cambiarCantidad(cursor.valueBuffer("cantidadfin"));
 }
 
 //// INTERNA /////////////////////////////////////////////////////
