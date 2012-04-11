@@ -160,6 +160,7 @@ function oficial_bufferChanged(fN:String)
 {
 	var util:FLUtil = new FLUtil();
 	var cursor:FLSqlCursor = this.cursor();
+	if (!this.child("fdbSaldo")) return;
 	switch (fN) {
 		/** \C
 		Al cambiar la --fechaemision-- se calcula la --fechacaducidad-- 
