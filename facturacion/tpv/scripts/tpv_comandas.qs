@@ -1090,7 +1090,7 @@ function oficial_crearPago(importe:Number):Boolean
 	
 	var util:FLUtil = new FLUtil;
 	var cursor:FLSqlCursor = this.cursor();
-	var fecha:Date = new Date;
+	var fecha:Date = cursor.valueBuffer("fecha");
 	var idComanda:String = cursor.valueBuffer("idtpv_comanda");
 	
 	var curPago:FLSqlCursor = this.child("tdbPagos").cursor();
