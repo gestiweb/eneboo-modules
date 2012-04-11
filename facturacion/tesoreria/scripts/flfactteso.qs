@@ -1022,7 +1022,7 @@ function oficial_generarPartidasCli(curPD:FLSqlCursor, valoresDefecto:Array, dat
 			"co_partidas,co_subcuentas,co_cuentas");
 
 		if (!ctaHaber.codsubcuenta) {
-			MessageBox.warning(util.translate("scripts", "No se ha encontrado la subcuenta de cliente del asiento contable correspondiente a la factura a pagar"), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
+			MessageBox.warning(util.translate("scripts", "No se ha encontrado la subcuenta de cliente del asiento contable correspondiente a la factura a pagar.\n Revise que la cuenta contable asociada a la subcuenta tenga el tipo especial 'CLIENT'."), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
 			return false;
 		}
 	} else {
