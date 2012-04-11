@@ -127,7 +127,10 @@ function interna_calculateField(fN:String):String
 			break;
 		}
 		case "saldo": {
-			valor = cursor.valueBuffer("importe");
+			var gastado:String = util.sqlSelect("tpv_pagoscomanda", "SUM(importe)", "refvale = '" + cursor.valueBuffer("referencia") + "'");
+			if (!gastado)
+				gastado = 0;
+			valor = cursor.valueBuffer("importe") - gastado;
 			break;
 		}
 		/** \C La --referencia-- del vale se construye como el código de la vena asociada más un secuencial
