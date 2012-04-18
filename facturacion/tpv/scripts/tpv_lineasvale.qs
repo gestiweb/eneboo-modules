@@ -134,7 +134,7 @@ function interna_calculateField(fN:String):String
 	var valor:String;
 	var util:FLUtil = new FLUtil;
 	var cursor:FLSqlCursor = this.cursor();
-	debug("BEGIN calculateField("+fN+")");
+
 	switch (fN) {
 		case "pvptotal.idlinea": {
 			var idLinea:String = cursor.valueBuffer("idtpv_linea");
@@ -182,7 +182,6 @@ function interna_calculateField(fN:String):String
 			break;
 		}
 	}
-	debug("/END calculateField("+fN+") -> " + valor);
 	
 	return valor;
 }
@@ -193,7 +192,7 @@ function interna_calculateField(fN:String):String
 function oficial_bufferChanged(fN:String)
 {
 	var cursor:FLSqlCursor = this.cursor();
-	debug("BEGIN bufferChanged("+fN+" = " + cursor.valueBuffer(fN) + ")");
+
 	switch (fN) {   
 		case "pvpmedio": 
 		case "cantidad": {
@@ -211,9 +210,8 @@ function oficial_bufferChanged(fN:String)
 			this.child("fdbPvpmedio").setValue(this.iface.calculateField("pvpmedio.referencia"));
 			break;
 		}
-
 	}
-	debug("/END bufferChanged("+fN+" = " + cursor.valueBuffer(fN) + ")");
+	
 }
 
 //// OFICIAL /////////////////////////////////////////////////////
