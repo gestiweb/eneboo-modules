@@ -27,8 +27,8 @@ class interna {
     var ctx:Object;
     function interna( context ) { this.ctx = context; }
     function validateForm():Boolean {
-				return this.ctx.interna_validateForm();
-		}
+                                return this.ctx.interna_validateForm();
+                }
 }
 //// INTERNA /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -37,7 +37,7 @@ class interna {
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
-    function oficial( context ) { interna( context ); } 
+    function oficial( context ) { interna( context ); }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -58,9 +58,11 @@ class ifaceCtx extends head {
     function ifaceCtx( context ) { head( context ); }
 }
 
-const iface = new ifaceCtx( this );
+
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
+const iface = new ifaceCtx( this );
 
 /** @class_definition interna */
 ////////////////////////////////////////////////////////////////////////////
@@ -71,34 +73,35 @@ const iface = new ifaceCtx( this );
 //// INTERNA /////////////////////////////////////////////////////
 function interna_validateForm():Boolean
 {
-		var cursor:FLSqlCursor = this.cursor();
-		var totalAplazado:Number = 0;
+                var cursor:FLSqlCursor = this.cursor();
+                var totalAplazado:Number = 0;
 
 /** \C La suma de los % aplazados debe ser igual al 100%"
 \end */
 
-		if (cursor.modeAccess() == cursor.Insert || cursor.modeAccess() == cursor.Edit) {
-				var query:FLSqlQuery = new FLSqlQuery();
-				query.setTablesList("plazos");
-				query.setSelect("SUM(aplazado)");
-				query.setFrom("plazos");
-				query.setWhere("upper(codpago)='" + cursor.valueBuffer("codpago").upper() + "';");
-				query.exec();
-				if (query.next())
-						totalAplazado = parseFloat(query.value(0));
+                if (cursor.modeAccess() == cursor.Insert || cursor.modeAccess() == cursor.Edit) {
+                                var query:FLSqlQuery = new FLSqlQuery();
+                                query.setTablesList("plazos");
+                                query.setSelect("SUM(aplazado)");
+                                query.setFrom("plazos");
+                                query.setWhere("upper(codpago)='" + cursor.valueBuffer("codpago").upper() + "';");
+                                query.exec();
+                                if (query.next())
+                                                totalAplazado = parseFloat(query.value(0));
 
-				if (totalAplazado != 100) {
-						MessageBox.critical("La suma de los % aplazados debe ser igual al 100%",
-								MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
-						return false;
-				}
-		}
+                                if (totalAplazado != 100) {
+                                                MessageBox.critical("La suma de los % aplazados debe ser igual al 100%",
+                                                                MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
+                                                return false;
+                                }
+                }
 
-		return true;
+                return true;
 }
 
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
 
 /** @class_definition oficial */
 //////////////////////////////////////////////////////////////////
@@ -112,4 +115,6 @@ function interna_validateForm():Boolean
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+

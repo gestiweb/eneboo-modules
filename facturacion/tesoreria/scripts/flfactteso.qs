@@ -176,6 +176,8 @@ class ifaceCtx extends head {
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+
+
 const iface = new ifaceCtx( this );
 
 /** @class_definition interna */
@@ -436,6 +438,7 @@ function interna_afterCommit_pagosdevolrem(curPD:FLSqlCursor):Boolean
 }
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
 
 
 /** @class_definition oficial */
@@ -1026,7 +1029,7 @@ function oficial_generarPartidasCli(curPD:FLSqlCursor, valoresDefecto:Array, dat
                         "co_partidas,co_subcuentas,co_cuentas");
 
                 if (!ctaHaber.codsubcuenta) {
-			MessageBox.warning(util.translate("scripts", "No se ha encontrado la subcuenta de cliente del asiento contable correspondiente a la factura a pagar.\n Revise que la cuenta contable asociada a la subcuenta tenga el tipo especial 'CLIENT'."), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
+                        MessageBox.warning(util.translate("scripts", "No se ha encontrado la subcuenta de cliente del asiento contable correspondiente a la factura a pagar"), MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
                         return false;
                 }
         } else {
@@ -1495,5 +1498,6 @@ function oficial_generarPartidasBancoRem(curPR:FLSqlCursor, valoresDefecto:Array
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 

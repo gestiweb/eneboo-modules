@@ -155,7 +155,7 @@
     </message>
     <message>
         <source>Area Financiera</source>
-        <translation>&#192;rea Financera</translation>
+        <translation>Àrea Financera</translation>
     </message>
     <message>
         <source>Principal</source>
@@ -172,6 +172,30 @@
     <message>
         <source>Ctrl+P</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>Amortizaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;mortizaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+M</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unnamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+W</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -222,7 +246,7 @@
     </message>
     <message>
         <source>%R.Equivalencia</source>
-        <translation>%R.Equival&#232;ncia</translation>
+        <translation>%R.Equivalència</translation>
     </message>
     <message>
         <source>Divisa</source>
@@ -318,7 +342,7 @@
     </message>
     <message>
         <source>Serie</source>
-        <translation>S&#232;rie</translation>
+        <translation>Sèrie</translation>
     </message>
     <message>
         <source>Factura</source>
@@ -530,7 +554,7 @@
     </message>
     <message>
         <source>Secuencias por Ejercicio</source>
-        <translation>Seq&#252;&#232;ncies per Exercici</translation>
+        <translation>Seqüències per Exercici</translation>
     </message>
     <message>
         <source>Identificador</source>
@@ -548,24 +572,188 @@
         <source>Valor sin bloqueo</source>
         <translation>Valor sense bloqueig</translation>
     </message>
+    <message>
+        <source>Dotaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amortizaci&#xf3;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fecha Inicio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fecha Fin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Importe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fecha Asiento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Acumulado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ignorar contabilidad</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amortizaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elemento de Inmovilizado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Estado</source>
+        <translation type="unfinished">Estat</translation>
+    </message>
+    <message>
+        <source>En Curso</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Terminada</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Suspendida</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fecha Adquisici&#xf3;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Valor de Adquisici&#xf3;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Valor Residual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Valor Amortizable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>M&#xe9;todo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lineal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Peri&#xf3;do</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mensual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trimestral</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Semestral</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>% Peri&#xf3;do</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>N&#xba; Peri&#xf3;dos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amortizaci&#xf3;n peri&#xf3;do</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amortizaci&#xf3;n primer peri&#xf3;do</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amortizaci&#xf3;n ultimo peri&#xf3;do</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Total amortizado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pendiente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ID Subcuenta Elemento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>S. Elemento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ID Subcuenta Amortizaci&#xf3;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>S. Amortizaci&#xf3;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Notas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saltar si el saldo es cero.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>---</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No hay ninguna partida seleccionada</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El c&#xf3;digo de cuenta no existe o no coincide con el idendentificador interno, borre dicho c&#xf3;digo y vu&#xe9;lvalo a escribir</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El c&#xf3;digo de subcuenta debe comenzar por el c&#xf3;digo de su cuenta asociada</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
-<context>
+<context encoding="UTF-8">
     <name>cambiarejer</name>
     <message>
         <source>Cambiar de ejercicio</source>
         <translation>Canvia d&apos;exercici</translation>
-    </message>
-    <message>
-        <source>codejercicio</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>nombre</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>ejercicios</source>
-        <translation></translation>
     </message>
     <message>
         <source>Ejercicio actual:</source>
@@ -578,6 +766,169 @@
     <message>
         <source>Valor Ejercicio Actual</source>
         <translation>Valor Exercici Actual</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Atención</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Una vez cambiado el ejercicio, recuerde cerrar y reabrir los formularios maestros de facturación y contabilidad para que los registros mostrados sean los del ejercicio seleccionado.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>co_amortizaciones</name>
+    <message>
+        <source>co_amortizaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>codamortizacion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>metodo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>periodo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>estado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Datos &amp;Generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>elemento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fecha</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>valoradquisicion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>valorresidual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>valoramortizable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subcuentas</source>
+        <translation type="unfinished">Subcomptes</translation>
+    </message>
+    <message>
+        <source>codsubcuentaelem</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>codsubcuenta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>idsubcuentaelem</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>descripcion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>co_subcuentas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>codsubcuentaamor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>idsubcuentaamor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amorperiodo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>porcentajeperiodo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>numperiodos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amorprimerperiodo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amorultimoperiodo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Dotaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crea un contacto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Para crear un nuevo registro en la tabla</source>
+        <translation type="unfinished">Per a crear un nou registre a la taula</translation>
+    </message>
+    <message>
+        <source>Edita el contacto selecionado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Para modificar el registro activo de la tabla</source>
+        <translation type="unfinished">Per a modificar el registre actiu de la taula</translation>
+    </message>
+    <message>
+        <source>Elimina el contacto seleccionado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elimina el registro actual de la tabla</source>
+        <translation type="unfinished">Elimina el registre actual de la taula</translation>
+    </message>
+    <message>
+        <source>Muestra el contacto seleccionado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Para ver registro, sin permitir editar</source>
+        <translation type="unfinished">Per a veure el registre sense permetre editar</translation>
+    </message>
+    <message>
+        <source>totalamortizado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pendiente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>co_dotaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Notas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>notas</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -669,6 +1020,22 @@
     <message>
         <source>codplanasiento</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>idconcepto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>concepto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>documento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tipodocumento</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -802,7 +1169,7 @@
     </message>
     <message encoding="UTF-8">
         <source>Asiento de Pérdidas y Ganancias</source>
-        <translation>Assentament de P&#232;rdues i Guanys</translation>
+        <translation>Assentament de Pèrdues i Guanys</translation>
     </message>
     <message>
         <source>codejercicio</source>
@@ -870,6 +1237,85 @@
     <message>
         <source>co_cuentasesp</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>co_dotaciones</name>
+    <message>
+        <source>co_dotaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>codamortizacion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>elemento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>co_amortizaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fechainicio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fechafin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fecha</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>importe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>porcentaje</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>acumulado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>resto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Asiento</source>
+        <translation type="unfinished">&amp;Assentament</translation>
+    </message>
+    <message>
+        <source>numero</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>co_asientos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>idasiento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ejercicio</source>
+        <translation type="unfinished">Exercici</translation>
+    </message>
+    <message>
+        <source>codejercicio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>nogenerarasiento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>co_partidas</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -963,6 +1409,61 @@
     </message>
 </context>
 <context>
+    <name>co_masteramortizaciones</name>
+    <message>
+        <source>co_masteramortizaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insertar registro (A)</source>
+        <translation type="unfinished">Insereix registre (A)</translation>
+    </message>
+    <message>
+        <source>Para crear un nuevo registro en la tabla</source>
+        <translation type="unfinished">Per a crear un nou registre a la taula</translation>
+    </message>
+    <message>
+        <source>Modificar registro (M)</source>
+        <translation type="unfinished">Modifica registre (M)</translation>
+    </message>
+    <message>
+        <source>Para modificar el registro activo de la tabla</source>
+        <translation type="unfinished">Per a modificar el registre actiu de la taula</translation>
+    </message>
+    <message>
+        <source>Eliminar registro (E)</source>
+        <translation type="unfinished">Elimina registre (E)</translation>
+    </message>
+    <message>
+        <source>Elimina el registro actual de la tabla</source>
+        <translation type="unfinished">Elimina el registre actual de la taula</translation>
+    </message>
+    <message>
+        <source>Ver registro (V)</source>
+        <translation type="unfinished">Veure registre (V)</translation>
+    </message>
+    <message>
+        <source>Para ver registro, sin permitir editar</source>
+        <translation type="unfinished">Per a veure el registre sense permetre editar</translation>
+    </message>
+    <message>
+        <source>&amp;Generar dotaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+G</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ver Libro Mayor de la Subcuenta (Alt+L)</source>
+        <translation type="unfinished">Veure el Llibre Major del Subcompte (Alt+L)</translation>
+    </message>
+    <message>
+        <source>Para imprimir los registros de la tabla</source>
+        <translation type="unfinished">Per a imprimir els registres de la taula</translation>
+    </message>
+</context>
+<context>
     <name>co_masterasientos</name>
     <message>
         <source>co_masterasientos</source>
@@ -1000,6 +1501,14 @@
         <source>Para ver registro, sin permitir editar</source>
         <translation>Per a veure el registre sense permetre editar</translation>
     </message>
+    <message>
+        <source>Rellenar conceptos de asientos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Rellena los conceptos vacíos de asientos con el concepto de la primera partida en cada asiento</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>co_masterregiva</name>
@@ -1030,6 +1539,18 @@
     <message>
         <source>co_masterregiva</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>Modificar registro (M)</source>
+        <translation type="unfinished">Modifica registre (M)</translation>
+    </message>
+    <message>
+        <source>Para modificar el registro activo de la tabla</source>
+        <translation type="unfinished">Per a modificar el registre actiu de la taula</translation>
+    </message>
+    <message>
+        <source>Editar manualmente el asiento</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1260,6 +1781,10 @@
     <message>
         <source>Haber</source>
         <translation>Haver</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Cálculo automático</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1495,6 +2020,10 @@
         <source>nbaseimponible</source>
         <translation></translation>
     </message>
+    <message>
+        <source>saltarsicero</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>co_secuencias</name>
@@ -1612,6 +2141,18 @@
     <message>
         <source>co_partidasmayor</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>idcuentaesp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>co_cuentasesp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ver asiento</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1848,7 +2389,7 @@ Voleu crear-lo ara?</translation>
     </message>
     <message>
         <source>El c&#xf3;digo de subcuenta debe tener como prefijo el c&#xf3;digo de la cuenta de la que depende:</source>
-        <translation>El codi de subcompte ha de tenir com a prefix el codi del compte del qual dep&#232;n:</translation>
+        <translation>El codi de subcompte ha de tenir com a prefix el codi del compte del qual depèn:</translation>
     </message>
     <message>
         <source>El c&#xf3;digo de la cuenta debe tener como prefijo el de su ep&#xed;grafe padre</source>
@@ -1884,7 +2425,7 @@ Voleu crear-lo ara?</translation>
     </message>
     <message>
         <source>Error al generar el asiento de regularizaci&#xf3;n de p&#xe9;rdidas y ganancias</source>
-        <translation>Hi ha un error a l&apos;assentament de regularització de p&#232;rdues i guanys</translation>
+        <translation>Hi ha un error a l&apos;assentament de regularització de pèrdues i guanys</translation>
     </message>
     <message>
         <source>Error al generar el asiento de cierre</source>
@@ -1900,7 +2441,7 @@ Voleu crear-lo ara?</translation>
     </message>
     <message>
         <source>Error en la b&#xfa;squeda de la cuenta de p&#xe9;rdidas y ganancias</source>
-        <translation>Hi ha un error en la cerca del compte de p&#232;rdues i guanys</translation>
+        <translation>Hi ha un error en la cerca del compte de pèrdues i guanys</translation>
     </message>
     <message>
         <source>Asiento de cierre de ejercicio </source>
@@ -1970,7 +2511,7 @@ L&apos;assentament d&apos;obertura per a l&apos;exercici seleccionat és el núm
     </message>
     <message>
         <source>No puede realizarse la modificaci&#xf3;n porque el asiento contable correspondiente pertenece a un ejercicio cerrado</source>
-        <translation>No pot aplicar-se la modificació perqu&#232; l&apos;assentament comptable corresponent pertany a un exercici tancat</translation>
+        <translation>No pot aplicar-se la modificació perquè l&apos;assentament comptable corresponent pertany a un exercici tancat</translation>
     </message>
     <message>
         <source>Creando asiento de regularizaci&#xf3;n...</source>
@@ -2007,7 +2548,7 @@ L&apos;assentament d&apos;obertura per a l&apos;exercici seleccionat és el núm
     <message>
         <source>Siguiente asiento:
 %1</source>
-        <translation>Seg&#252;ent assentament:
+        <translation>Següent assentament:
 %1</translation>
     </message>
     <message>
@@ -2017,16 +2558,6 @@ L&apos;assentament d&apos;obertura per a l&apos;exercici seleccionat és el núm
     <message>
         <source>Asiento descuadrado</source>
         <translation>Assentament desquadrat</translation>
-    </message>
-    <message>
-        <source>No existe la subcuenta %1 en el ejercicio %2.
-Debe crear la subcuenta para poder generar el asiento de apertura</source>
-        <translation>No existeix el subcompte %1 en l&apos;exercici %2.
-Ha de crear el subcompte per a poder generar l&apos;assentament d&apos;obertura</translation>
-    </message>
-    <message>
-        <source>Debe seleccionar una cuenta que exista en la tabla de cuentas </source>
-        <translation>Ha de seleccionar un compte que existeixi a la taula de comptes </translation>
     </message>
     <message>
         <source>
@@ -2051,6 +2582,149 @@ Asseguri&apos;s de ser a l&apos;exercici correcte i torni a generar l&apos;assen
     <message>
         <source>Error al cerrar el ejercicio: </source>
         <translation>Error al tancar l&apos;exercici: </translation>
+    </message>
+    <message>
+        <source>El importe a amortizar no puede ser mayor que la cantidad pendiente de amortizar.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La fecha de inicio debe ser mayor que la fecha de adquisici&#xf3;n y la fecha de fin de la &#xfa;ltima dotaci&#xf3;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La fecha de fin debe ser mayor que la fecha de inicio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La fecha del asiento debe estar comprendida en el intervalo de fechas de la dotaci&#xf3;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No existe la subcuenta %1 en el ejercicio %2.
+&#xbf;Desea crearla?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar la subcuenta %1 para el ejercicio %2.
+No existe la cuenta %3 asociada a la nueva subcuenta.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error de redondeo:
+Subcuenta<byte value="x9"/>DebeHaber 
+%2
+%3
+%4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No existe la subcuenta %1 para el ejercicio %2.
+Antes de crear la dotaci&#xf3;n para esta fecha debe crear la subcuenta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dotaci&#xf3;n de </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Actualizando cuentas especiales (1/2)...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Actualizando cuentas especiales (2/2)...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El ep&#xed;grafe %1 no existe en el ejercicio %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Contrapartida: No existe la subcuenta %1 para el ejercicio %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ha establecido una partida de IVA pero no ha indicado la contrapartida (subcuenta de cliente / proveedor).
+Esto puede provocar que el asiento no aparezca en los listados de facturas emitidas/recibidas.
+&#xbf;Desea continuar?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Debe establecer las fecha l&#xed;mite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La fecha indicada debe ser fin de mes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dotaciones generadas:
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar las dotaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar las dotaciones: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elemento: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dotaci&#xf3;n: Desde %1 hasta %2. Importe: %3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No es necesario generar dotaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&#xbf;Desea copiar los datos de la subcuenta en otro ejercicio?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ya hay una subcuenta con c&#xf3;digo %1 para el ejercicio %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Se ha creado la subcuenta %1 en el ejercicio %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La cuenta %1 no existe en el ejercicio %2.
+&#xbf;Desea crearla?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A continuaci&#xf3;n se rellenar&#xe1;n los conceptos vac&#xed;os de los asientos de este ejercicio
+Para ello se copiar&#xe1; el concepto de la primera partida de cada asiento
+
+&#xbf;Desea continuar?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rellenando conceptos...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proceso finalizado. Se actualizaron conceptos de %0 asientos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No hay ning&#xfa;n registro seleccionado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Va a editar el asiento correspondiente a la regularizaci&#xf3;n.
+&#xbf;Est&#xe1; seguro?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

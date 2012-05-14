@@ -1,6 +1,6 @@
 <!DOCTYPE QRY>
 <QRY>
-	<name>i_albaranescli_auto</name>
+	<name>i_albaranescli</name>
 
 	<tables>empresa,albaranescli</tables>
 
@@ -8,6 +8,7 @@
 		<level>0</level>
 		<field>albaranescli.idalbaran</field>
 	</group>
+
 	<group>
 		<level>1</level>
 		<field>lineasalbaranescli.idpedido</field>
@@ -26,13 +27,13 @@
 		albaranescli.tasaconv, albaranescli.coddir,
 		albaranescli.direccion, albaranescli.codpostal,
 		albaranescli.ciudad, albaranescli.provincia,
-		albaranescli.apartado, albaranescli.codpais,
-		albaranescli.observaciones,
+		albaranescli.apartado, albaranescli.codpais, albaranescli.observaciones,
 		lineasalbaranescli.referencia, lineasalbaranescli.descripcion,
 		lineasalbaranescli.cantidad, lineasalbaranescli.pvpunitario,
 		lineasalbaranescli.pvptotal, lineasalbaranescli.codimpuesto,
-		lineasalbaranescli.iva,lineasalbaranescli.idpedido,
+		lineasalbaranescli.iva, lineasalbaranescli.idpedido,
 		pedidoscli.codigo, pedidoscli.fecha, pedidoscli.idpedido,
+		articulos.codunidad,
 		empresa.nombre, empresa.cifnif,
 		empresa.direccion,
 		empresa.codpostal, empresa.ciudad,
@@ -41,9 +42,8 @@
 	</select>
 
 	<from>
-		empresa,albaranescli
-		INNER JOIN lineasalbaranescli ON albaranescli.idalbaran = lineasalbaranescli.idalbaran 
-		LEFT OUTER JOIN pedidoscli ON lineasalbaranescli.idpedido = pedidoscli.idpedido
+		empresa,albaranescli INNER JOIN lineasalbaranescli ON albaranescli.idalbaran = lineasalbaranescli.idalbaran LEFT OUTER JOIN pedidoscli ON lineasalbaranescli.idpedido = pedidoscli.idpedido
+		LEFT OUTER JOIN articulos ON lineasalbaranescli.referencia = articulos.referencia
 	</from>
 
 	<where>

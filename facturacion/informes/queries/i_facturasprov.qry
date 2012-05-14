@@ -1,6 +1,6 @@
 <!DOCTYPE QRY>
 <QRY>
-	<name>i_facturasprov</name>
+	<name>facturasprov</name>
 
 	<tables>empresa,facturasprov,lineasfacturasprov,albaranesprov</tables>
 
@@ -24,14 +24,14 @@
 		empresa.nombre, empresa.cifnif, empresa.direccion, empresa.codpostal, empresa.ciudad,
 		empresa.provincia, empresa.apartado, empresa.codpais,
 		facturasprov.neto+facturasprov.totaliva+facturasprov.totalrecargo,
-		proveedores.regimeniva
+		proveedores.regimeniva,
+		articulos.codunidad
 	</select>
 
 	<from>
-		empresa,facturasprov 
-		INNER JOIN lineasfacturasprov ON facturasprov.idfactura = lineasfacturasprov.idfactura  LEFT OUTER JOIN dirproveedores ON facturasprov.codproveedor = dirproveedores.codproveedor 
+		empresa,facturasprov INNER JOIN lineasfacturasprov ON facturasprov.idfactura = lineasfacturasprov.idfactura
 		LEFT OUTER JOIN albaranesprov ON albaranesprov.idalbaran = lineasfacturasprov.idalbaran
-		LEFT OUTER JOIN proveedores ON facturasprov.codproveedor = proveedores.codproveedor
+		LEFT OUTER JOIN articulos ON lineasfacturasprov.referencia = articulos.referencia LEFT OUTER JOIN proveedores ON facturasprov.codproveedor = proveedores.codproveedor LEFT OUTER JOIN dirproveedores ON facturasprov.codproveedor = dirproveedores.codproveedor
 	</from>
 
 	<where>

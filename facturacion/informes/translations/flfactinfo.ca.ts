@@ -185,6 +185,26 @@
         <source>Area de Facturaci&#xf3;n</source>
         <translation>Àrea de Facturació</translation>
     </message>
+    <message>
+        <source>&amp;General</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Datos generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Datos &amp;generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+W</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FLWidgetMasterTable</name>
@@ -527,6 +547,152 @@
         <source>Pte aprobar</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Tipo de informe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moneda original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moneda original y euros</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Euros</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>S&#xf3;lo facturas de abono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filtrar por importe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desde importe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hasta importe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>R&#xe9;gimen I.V.A.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Importaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>UE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pendiente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exportaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>U.E.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ficheros para informes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imagen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>F.Pago</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visor de informes personalizado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Datos Generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>customviewer</name>
+    <message>
+        <source>customviewer</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>factinfo_general</name>
+    <message>
+        <source>factinfo_general</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Datos &amp;generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ficheros</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insertar registro (A)</source>
+        <translation type="unfinished">Insereix registre (A)</translation>
+    </message>
+    <message>
+        <source>Para crear un nuevo registro en la tabla</source>
+        <translation type="unfinished">Per a crear un nou registre a la taula</translation>
+    </message>
+    <message>
+        <source>Modificar registro (M)</source>
+        <translation type="unfinished">Modifica registre (M)</translation>
+    </message>
+    <message>
+        <source>Para modificar el registro activo de la tabla</source>
+        <translation type="unfinished">Per a modificar el registre actiu de la taula</translation>
+    </message>
+    <message>
+        <source>Eliminar registro (E)</source>
+        <translation type="unfinished">Elimina registre (E)</translation>
+    </message>
+    <message>
+        <source>Elimina el registro actual de la tabla</source>
+        <translation type="unfinished">Elimina el registre actual de la taula</translation>
+    </message>
+    <message>
+        <source>Ver registro (V)</source>
+        <translation type="unfinished">Veure registre (V)</translation>
+    </message>
+    <message>
+        <source>Para ver registro, sin permitir editar</source>
+        <translation type="unfinished">Per a veure el registre sense permetre editar</translation>
+    </message>
+    <message>
+        <source>i_ficheros</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>formPaises_Imp</name>
@@ -723,10 +889,6 @@
         <translation></translation>
     </message>
     <message>
-        <source>pedidoscli_servido</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>i_pedidoscli_codcliente</source>
         <translation></translation>
     </message>
@@ -788,10 +950,6 @@
     </message>
     <message>
         <source>h_pedidosprov_codigo</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>pedidosprov_servido</source>
         <translation></translation>
     </message>
     <message>
@@ -884,6 +1042,77 @@
     </message>
     <message>
         <source>i_presupuestoscli_editable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tipoinforme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>i_pedidosprov_servido</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Código </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Régimen IVA </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>i_proveedores_regimeniva</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Importe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>filtrarimportes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>deabono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>desdeimporte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hastaimporte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>i_clientes_regimeniva</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>i_pedidoscli_servido</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>i_facturascli_codpago</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>i_ficheros</name>
+    <message>
+        <source>i_ficheros</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fichero</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>nombre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>imagen</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

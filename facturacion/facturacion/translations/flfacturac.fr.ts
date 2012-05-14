@@ -173,6 +173,34 @@
         <source>new item</source>
         <translation></translation>
     </message>
+    <message>
+        <source>Ejercicio</source>
+        <translation type="unfinished">Exercice</translation>
+    </message>
+    <message>
+        <source>Principal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cambiar de ejercicio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cambiar de ejercicio (Ctrl + J)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+J</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+W</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FLWidgetMasterTable</name>
@@ -296,6 +324,10 @@
         <source>Generar &amp;Albaran</source>
         <translation>Générer un &amp;Bon de Livraison</translation>
     </message>
+    <message>
+        <source>Abrir/Cerrar pedido</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MetaData</name>
@@ -326,10 +358,6 @@
     <message>
         <source>Cantidad</source>
         <translation>Quantité</translation>
-    </message>
-    <message>
-        <source>Precio Nominal</source>
-        <translation>Prix Nominal </translation>
     </message>
     <message>
         <source>Total</source>
@@ -390,10 +418,6 @@
     <message>
         <source>C.I.F./N.I.F</source>
         <translation>C.I.N</translation>
-    </message>
-    <message>
-        <source>Cod. proveedor</source>
-        <translation>Cod. Fournisseur</translation>
     </message>
     <message>
         <source>Observaciones</source>
@@ -474,10 +498,6 @@
     <message>
         <source>Pte. Pago</source>
         <translation>Pte. Paiement </translation>
-    </message>
-    <message>
-        <source>Cod. cliente</source>
-        <translation>Cod. client</translation>
     </message>
     <message>
         <source>% Comision</source>
@@ -734,10 +754,6 @@
         <translation>Ignorer la comptabilité </translation>
     </message>
     <message>
-        <source>De abono</source>
-        <translation>D&apos;abonnement</translation>
-    </message>
-    <message>
         <source>Rectifica a</source>
         <translation>Rectifie à</translation>
     </message>
@@ -787,6 +803,26 @@
     </message>
     <message>
         <source>Dir.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hora</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Importe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectificativa</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cerrada</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lineapresupuesto</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -971,6 +1007,10 @@
         <source>Alt+Z</source>
         <translation>Alt+Z</translation>
     </message>
+    <message>
+        <source>hora</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>agruparalbaranesprov</name>
@@ -1097,6 +1137,10 @@
     <message>
         <source>Alt+Z</source>
         <translation>Alt+Z</translation>
+    </message>
+    <message>
+        <source>hora</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1269,6 +1313,10 @@
         <source>Alt+Z</source>
         <translation>Alt+Z</translation>
     </message>
+    <message>
+        <source>hora</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context encoding="UTF-8">
     <name>agruparpedidosprov</name>
@@ -1396,6 +1444,37 @@
         <source>Alt+Z</source>
         <translation>Alt+Z</translation>
     </message>
+    <message>
+        <source>hora</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>cambiarejer</name>
+    <message>
+        <source>Cambiar de ejercicio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Atención</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Una vez cambiado el ejercicio, recuerde cerrar y reabrir los formularios maestros de facturación y contabilidad para que los registros mostrados sean los del ejercicio seleccionado.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ejercicio actual:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cambiar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Valor Ejercicio Actual</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>fechaejercicio</name>
@@ -1437,6 +1516,14 @@
     </message>
     <message>
         <source>fechafin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Aceptar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>F10</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1668,6 +1755,18 @@
     </message>
     <message>
         <source>idprovincia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hora</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplicar comisión</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplica la comisión del agente establecido en todas las líneas</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1957,6 +2056,18 @@
         <source>idprovincia</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>hora</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplicar comisión</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplica la comisión del agente establecido en todas las líneas</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>formLineasAlbaranesCli</name>
@@ -1967,10 +2078,6 @@
     <message encoding="UTF-8">
         <source>Artículo</source>
         <translation>Article</translation>
-    </message>
-    <message>
-        <source>Impuesto</source>
-        <translation>Impot</translation>
     </message>
     <message>
         <source>Cantidad</source>
@@ -2027,6 +2134,26 @@
     <message>
         <source>pvptotal</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>&amp;Impuestos</source>
+        <translation type="unfinished">&amp;Impots</translation>
+    </message>
+    <message>
+        <source>irpf</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión Agente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>porcomision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión</source>
+        <translation type="unfinished">Commission</translation>
     </message>
 </context>
 <context>
@@ -2040,10 +2167,6 @@
         <translation>Article</translation>
     </message>
     <message>
-        <source>Impuesto</source>
-        <translation>Impot</translation>
-    </message>
-    <message>
         <source>Cantidad</source>
         <translation>Quantité</translation>
     </message>
@@ -2099,6 +2222,26 @@
         <source>pvptotal</source>
         <translation></translation>
     </message>
+    <message>
+        <source>&amp;Impuestos</source>
+        <translation type="unfinished">&amp;Impots</translation>
+    </message>
+    <message>
+        <source>irpf</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión Agente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>porcomision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión</source>
+        <translation type="unfinished">Commission</translation>
+    </message>
 </context>
 <context>
     <name>formLineasPedidosCli</name>
@@ -2109,10 +2252,6 @@
     <message encoding="UTF-8">
         <source>Artículo</source>
         <translation>Article</translation>
-    </message>
-    <message>
-        <source>Impuesto</source>
-        <translation>Impot</translation>
     </message>
     <message>
         <source>Cantidad</source>
@@ -2173,6 +2312,30 @@
     <message>
         <source>pvptotal</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>&amp;Impuestos</source>
+        <translation type="unfinished">&amp;Impots</translation>
+    </message>
+    <message>
+        <source>irpf</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cerrada</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión Agente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>porcomision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión</source>
+        <translation type="unfinished">Commission</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -2244,6 +2407,22 @@
     <message>
         <source>pvptotal</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>irpf</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión Agente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>porcomision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión</source>
+        <translation type="unfinished">Commission</translation>
     </message>
 </context>
 <context>
@@ -2478,6 +2657,14 @@
     </message>
     <message>
         <source>idprovincia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplicar comisión</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplica la comisión del agente establecido en todas las líneas</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2735,6 +2922,14 @@
         <source>idprovincia</source>
         <translation type="unfinished"></translation>
     </message>
+    <message encoding="UTF-8">
+        <source>Aplicar comisión</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplica la comisión del agente establecido en todas las líneas</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>formalbaranesprov</name>
@@ -2916,6 +3111,10 @@
     </message>
     <message>
         <source>Documentos relacionados (alt + R)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hora</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3147,6 +3346,10 @@
     </message>
     <message>
         <source>Recalcula la tabla de IVAs a partir de los datos de la factura</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hora</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3435,6 +3638,14 @@
         <source>Mostrar sólo los artículos del proveedor</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>irpf</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cerrada</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>masterfacturascli</name>
@@ -3609,10 +3820,6 @@
         <translation>Impossible de réaliser la modification parce que l&apos;annotation comptable correspondant appartient à un exercice clos </translation>
     </message>
     <message>
-        <source>Nuestra factura </source>
-        <translation>Notre facture  </translation>
-    </message>
-    <message>
         <source>Su factura </source>
         <translation>Sa facture </translation>
     </message>
@@ -3743,13 +3950,6 @@ Debe asociar la cuenta a la cuenta especial en el m&#xf3;dulo Principal del &#xe
     <message>
         <source>Est&#xe1; intentando regenerar un asiento del ejercicio %1 en el ejercicio %2.
 Verifique que su ejercicio actual es correcto. Si lo es y est&#xe1; actualizando un pago, b&#xf3;rrelo y vu&#xe9;lvalo a crear.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Esta factura pertenece al r&#xe9;gimen IVA tipo %1.
-No existe ninguna cuenta contable marcada como tipo especial %1
-
-Debe asociar una cuenta contable a dicho tipo especial en el m&#xf3;dulo Principal del &#xe1;rea Financiera</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3952,6 +4152,325 @@ Debe asociar una cuenta contable a esta cuenta especial en el m&#xf3;dulo Princi
     </message>
     <message>
         <source>Su factura</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La fecha establecida debe estar comprendida en el intervalo del ejercicio especificado.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&#xbf;Seguro que desea actualizar la comisi&#xf3;n en todas las l&#xed;neas?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hubo un error al aplicarse la comisi&#xf3;n en las l&#xed;neas.
+%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La comisi&#xf3;n se actualiz&#xf3; correctamente.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La factura %1 para %2 a generar tiene recargo de equivalencia s&#xf3;lo en algunas de sus l&#xed;neas. &#xbf;Desea continuar?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar el albar&#xe1;n:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar la factura:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hubo un error en la copia de la factura:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copiando Factura....</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No hay ning&#xfa;n registro seleccionado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El pedido seleccionado tiene l&#xed;neas cerradas.
+&#xbf;Seguro que desa abrirlas?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El pedido ya ha sido servido completamente.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Se va a cerrar el pedido y no podr&#xe1; terminar de servirse.
+&#xbf;Desea continuar?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copiar l&#xed;neas de la factura</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copiar l&#xed;neas de la factura con cantidad negativa</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No copiar l&#xed;neas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El albar&#xe1;n generado no tiene ninguna l&#xed;nea.
+&#xbf;Desea generarlo de todas formas?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El art&#xed;culo %1 no permite ventas sin stocks.
+Est&#xe1; albaranando m&#xe1;s cantidad (%2) que la disponible (%3) ahora mismo en el almac&#xe9;n %4.
+&#xbf;Desea continuar dejando el pedido parcialmente albaranado?
+(pulse Ignorar para evitar esta pregunta en el resto de las l&#xed;neas)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El pedido seleccionado tiene l&#xed;neas cerradas.
+&#xbf;Seguro que desea abrirlas?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al regenerar el asiento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al leer los datos de subcuenta de cliente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar las partidas de cliente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar las partidas de IRPF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar las partidas de IVA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar las partidas de recargo financiero</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar las partidas de venta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar el asiento correspondiente a la factura de abono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al comprobar el asiento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar el asiento correspondiente a la factura %1:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al obtener el r&#xe9;gimen de IVA asociado a la factura %1.
+Compruebe que el cliente tiene un r&#xe9;gimen de IVA establecido</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I.V.A. entregas intracomunitarias (IVAEUE)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I.V.A. repercutido exento (IVAREX)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I.V.A. repercutido exportaciones (IVARXP)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I.V.A. repercutido R. General(IVAREP)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La cuenta especial de %1 no tiene asignada subcuenta.
+Debe asociarla en el m&#xf3;dulo Principal del &#xe1;rea Financiera</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No tiene definida cu&#xe1;l es la subcuenta  asociada al recargo de equivalencia en ventas.
+Para definirla vaya a Facturaci&#xf3;n-&gt;Principal-&gt;Impuestos e ind&#xed;quela en el/los impuestos correspondientes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al obtener la subcuenta del proveedor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de proveedor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de IRPF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar la partida recargo financiero</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de IVA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de compras</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de recargo financiero</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de compra</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al modificar el asiento de abono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No existe ninguna subcuenta marcada como cuenta especial de COMPRA para %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Esta factura pertenece al r&#xe9;gimen IVA tipo %1.
+No existe ninguna cuenta contable marcada como tipo especial %2
+
+Debe asociar una cuenta contable a dicho tipo especial en el m&#xf3;dulo Principal del &#xe1;rea Financiera</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No tiene establecida la subcuenta de IVA soportado para adquisiciones intracomunitaras (IVASUE).
+Esta subcuenta es necesaria para almacenar informaci&#xf3;n &#xfa;til para informes como el de facturas emitidas o el modelo 300.
+&#xbf;Desea indicar cu&#xe1;l es esta subcuenta ahora?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IVA soportado en adquisiciones intracomunitarias U.E.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No tiene establecida la subcuenta de IVA repercutido para adquisiciones intracomunitaras (IVARUE).
+Esta subcuenta es necesaria para almacenar informaci&#xf3;n &#xfa;til para informes como el de facturas emitidas o el modelo 300.
+&#xbf;Desea indicar cu&#xe1;l es esta subcuenta ahora?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IVA repercutido en adquisiciones intracomunitarias U.E.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No tiene establecida la subcuenta de IVA para entregas intracomunitaras (IVAEUE).
+Esta subcuenta es necesaria para almacenar informaci&#xf3;n &#xfa;til para informes como el de facturas emitidas o el modelo 300.
+&#xbf;Desea indicar cu&#xe1;l es esta subcuenta ahora?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IVA en entregas intracomunitarias U.E.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nuestra factura</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El cliente %1 tiene establecido un r&#xe9;gimen de I.V.A. %2
+y en alguna o varias de las lineas no hay establecido un % de I.V.A.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El cliente %1 tiene establecido un r&#xe9;gimen de I.V.A. %2
+y en alguna o varias de las lineas hay establecido un % de I.V.A.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Al cliente %1 se le debe aplicar Recargo de Equivalencia
+y en alguna o varias de las lineas no hay establecido un % de R. Equivalencia.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Al cliente %1 no se le debe aplicar Recargo de Equivalencia
+y en alguna o varias de las lineas hay establecido un % de R. Equivalencia.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El proveedor %1 tiene establecido un r&#xe9;gimen de I.V.A. %2
+y en alguna o varias de las lineas no hay establecido un % de I.V.A.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El proveedor %1 tiene establecido un r&#xe9;gimen de I.V.A. %2
+y en alguna o varias de las lineas hay establecido un % de I.V.A.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>En los datos de empresa est&#xe1; activa al opci&#xf3;n Aplicar Recargo de Equivalencia
+y en alguna o varias de las lineas no hay establecido un % de R. Equivalencia.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>En los datos de empresa no est&#xe1; activa al opci&#xf3;n Aplicar Recargo de Equivalencia
+y en alguna o varias de las lineas hay establecido un % de R. Equivalencia.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No ha indicado la factura que desea abonar.
+&#xbf;Desea continuar?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No se puede modificar la serie.
+Serie anterior:%1 - Serie actual:%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Actualizando comisi&#xf3;n ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ejercicio actual para </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Se ha copiado el presupuesto %1 con c&#xf3;digo %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hubo un error en la copia del presupuesto:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al cargar los datos de coste medio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hay otra factura con el mismo n&#xfa;mero de proveedor.
+&#xbf;Desea continuar?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

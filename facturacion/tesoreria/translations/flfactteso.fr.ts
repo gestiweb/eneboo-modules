@@ -53,6 +53,26 @@
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
+    <message>
+        <source>Datos generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Datos &amp;generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+G</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+W</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FLWidgetMasterTable</name>
@@ -297,6 +317,41 @@
     </message>
     <message>
         <source>Datos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>F. de cargo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pagos de remesas de recibos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Identificador Remesa</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Datos Generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pago indirecto de remesas</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>factteso_general</name>
+    <message>
+        <source>factteso_general</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Datos &amp;generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pagoindirecto</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -731,15 +786,55 @@ qu&apos;avec se génére la facture</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>R&amp;ecibos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>nogenerarasiento</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Resumen de &amp;asientos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fechacargo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>estado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Recibos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Pagos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insertar registro (A)</source>
+        <translation type="unfinished">Inserer l&apos;enregistrement (A)</translation>
+    </message>
+    <message>
+        <source>Para crear un nuevo registro en la tabla</source>
+        <translation type="unfinished">Pour créer un nouveau enregistrement dans la table</translation>
+    </message>
+    <message>
+        <source>Modificar registro (M)</source>
+        <translation type="unfinished">Modifier l&apos;enregistrement (M)</translation>
+    </message>
+    <message>
+        <source>Para modificar el registro activo de la tabla</source>
+        <translation type="unfinished">Pour modifier l&apos;enregistrement active de la table</translation>
+    </message>
+    <message>
+        <source>Eliminar registro (E)</source>
+        <translation type="unfinished">Eliminer l&apos;enregistrement (E)</translation>
+    </message>
+    <message>
+        <source>Elimina el registro actual de la tabla</source>
+        <translation type="unfinished">Elimine l&apos;enregistrement actuel de la table</translation>
+    </message>
+    <message>
+        <source>pagosdevolrem</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -792,6 +887,10 @@ qu&apos;avec se génére la facture</translation>
     <message>
         <source>Selecciona un archivo en disco para guardar los datos de la remesa</source>
         <translation>Sélectionner un dossier pour garder les données d&apos;envoi</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Agrupar recibos por cliente y cuenta de domiciliación</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -858,13 +957,46 @@ qu&apos;avec se génére la facture</translation>
     </message>
 </context>
 <context>
-    <name>scripts</name>
+    <name>pagosdevolrem</name>
     <message>
-        <source>El importe del recibo debe ser menor o igual del que ten&#xed;a anteriormente.
-Si es menor el recibo se fraccionar&#xe1;.</source>
-        <translation>Le montant du reçu(bon) doit être inférieur ou égal à la valeur précédente.
-Si c&apos;est inférieur le reçu se fractionnera.</translation>
+        <source>pagosdevolrem</source>
+        <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Datos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tipo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fecha</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Contabilidad</source>
+        <translation type="unfinished">&amp;Comptabilité</translation>
+    </message>
+    <message>
+        <source>nogenerarasiento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Asiento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>co_partidas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>idasiento</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>scripts</name>
     <message>
         <source>La fecha de vencimiento debe ser siempre igual o posterior
 a la fecha de emisi&#xf3;n del recibo.</source>
@@ -1056,6 +1188,93 @@ en el m&#xf3;dulo principal de contabilidad</source>
     </message>
     <message>
         <source>Total seleccionado: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El d&#xed;gito de control de la cuenta bancaria no es correcto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al regenerar el asiento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al obtener los datos del recibo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al obtener la partida de cliente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al obtener la partida de banco</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al obtener la partida de diferencias por cambio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al comprobar el asiento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar el asiento correspondiente a %1 del recibo %2:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al obtener los datos de la remesa</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al obtener la partida de efectos comerciales de gesti&#xf3;n de cobro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de banco</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar el asiento de la remesa:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No tiene definida de efectos comerciales de gesti&#xf3;n de cobro para la cuenta %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>remesa</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al generar el registro individual obigatorio para el cliente %1:
+La cuenta bancaria no tiene la longitud correcta: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Al incluir un recibo de cliente en una remesa, el correspondiente asiento de pago se asigna a la subcuenta de Efectos comerciales de gesti&#xf3;n de cobro (E.C.G.C.) asociada a la cuenta bancaria de la remesa. Cuando se recibe la confirmaci&#xf3;n del banco el usuario inserta un registro de pago para la remesa completa, que lleva las partidas de E.C.G.C. a la subcuenta de la cuenta bancaria.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Al incluir un recibo de cliente en una remesa, el correspondiente asiento de pago se asigna directamente a la subcuenta de la cuenta bancaria indicada en la remesa.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La cuenta bancaria seleccionada no tiene asociada una subcuenta de Efectos comerciales de gesti&#xf3;n de cobro.
+Debe asignar esta subcuenta o desactivar la opci&#xf3;n de pago indirecto de remesas en Datos generales.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>La cuenta bancaria seleccionada no tiene asociada una subcuenta contable.
+Debe asignar esta subcuenta en el m&#xf3;dulo principal de facturaci&#xf3;n (Cuentas bancarias).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hubo un error en la asociaci&#xf3;n del recibo a la remesa:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No se puede generar la devoluci&#xf3;n de un recibo remesado que no ha sido pagado.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

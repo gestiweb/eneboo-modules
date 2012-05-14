@@ -36,9 +36,9 @@ class interna {
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
     function oficial( context ) { interna( context ); }
-	function imprimir(codRecibo:String) {
-		return this.ctx.oficial_imprimir(codRecibo)
-	}
+        function imprimir(codRecibo:String) {
+                return this.ctx.oficial_imprimir(codRecibo)
+        }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -57,14 +57,16 @@ class head extends oficial {
 //// INTERFACE  /////////////////////////////////////////////////
 class ifaceCtx extends head {
     function ifaceCtx( context ) { head( context ); }
-	function pub_imprimir(codRecibo:String) {
-		return this.imprimir(codRecibo);
-	}
+        function pub_imprimir(codRecibo:String) {
+                return this.imprimir(codRecibo);
+        }
 }
 
-const iface = new ifaceCtx( this );
+
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
+const iface = new ifaceCtx( this );
 
 /** @class_definition interna */
 ////////////////////////////////////////////////////////////////////////////
@@ -75,11 +77,12 @@ const iface = new ifaceCtx( this );
 //// INTERNA /////////////////////////////////////////////////////
 function interna_init()
 {
-		this.child("tableDBRecords").setEditOnly(true);
-		connect(this.child("toolButtonPrint"), "clicked()", this, "iface.imprimir");
+                this.child("tableDBRecords").setEditOnly(true);
+                connect(this.child("toolButtonPrint"), "clicked()", this, "iface.imprimir");
 }
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
 
 /** @class_definition oficial */
 //////////////////////////////////////////////////////////////////
@@ -89,24 +92,24 @@ Crea un informe con el listado de registros de la remesa. Funciona cuando está c
 \end */
 function oficial_imprimir(codRecibo:String)
 {
-	if (sys.isLoadedModule("flfactinfo")) {
-		var codigo:String;
-		if (codRecibo) {
-			codigo = codRecibo;
-		} else {
-			if (!this.cursor().isValid())
-				return;
-			codigo = this.cursor().valueBuffer("codigo");
-		}
-		var curImprimir:FLSqlCursor = new FLSqlCursor("i_reciboscli");
-		curImprimir.setModeAccess(curImprimir.Insert);
-		curImprimir.refreshBuffer();
-		curImprimir.setValueBuffer("descripcion", "temp");
-		curImprimir.setValueBuffer("d_reciboscli_codigo", codigo);
-		curImprimir.setValueBuffer("h_reciboscli_codigo", codigo);
-		flfactinfo.iface.pub_lanzarInforme(curImprimir, "i_reciboscli");
-	} else
-			flfactppal.iface.pub_msgNoDisponible("Informes");
+        if (sys.isLoadedModule("flfactinfo")) {
+                var codigo:String;
+                if (codRecibo) {
+                        codigo = codRecibo;
+                } else {
+                        if (!this.cursor().isValid())
+                                return;
+                        codigo = this.cursor().valueBuffer("codigo");
+                }
+                var curImprimir:FLSqlCursor = new FLSqlCursor("i_reciboscli");
+                curImprimir.setModeAccess(curImprimir.Insert);
+                curImprimir.refreshBuffer();
+                curImprimir.setValueBuffer("descripcion", "temp");
+                curImprimir.setValueBuffer("d_reciboscli_codigo", codigo);
+                curImprimir.setValueBuffer("h_reciboscli_codigo", codigo);
+                flfactinfo.iface.pub_lanzarInforme(curImprimir, "i_reciboscli");
+        } else
+                        flfactppal.iface.pub_msgNoDisponible("Informes");
 }
 
 //// OFICIAL /////////////////////////////////////////////////////
@@ -117,5 +120,5 @@ function oficial_imprimir(codRecibo:String)
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 

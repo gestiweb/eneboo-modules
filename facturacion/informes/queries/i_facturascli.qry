@@ -17,7 +17,7 @@
 		facturascli.total, facturascli.coddivisa, facturascli.codejercicio, facturascli.codpago, facturascli.codalmacen, facturascli.totaliva,
 		facturascli.codcliente, facturascli.nombrecliente, facturascli.cifnif, facturascli.tasaconv, facturascli.coddir,
 		facturascli.direccion, facturascli.codpostal, facturascli.ciudad, facturascli.provincia, facturascli.apartado, facturascli.totalrecargo,
-		facturascli.codpais, facturascli.neto, lineasfacturascli.referencia,  lineasfacturascli.dtopor,
+		facturascli.codpais, facturascli.neto, lineasfacturascli.referencia,
 		facturascli.deabono, facturascli.idfacturarect,
 		lineasfacturascli.descripcion,
 		lineasfacturascli.cantidad,facturascli.irpf, facturascli.totalirpf,
@@ -28,15 +28,12 @@
 		empresa.provincia, empresa.apartado, empresa.codpais,
 		facturascli.neto+facturascli.totaliva+facturascli.totalrecargo,
 		formaspago.descripcion, facturascli.observaciones,
-		clientes.regimeniva
+		clientes.regimeniva, articulos.codunidad
 	</select>
 
 	<from>
-		empresa,facturascli 
-		INNER JOIN lineasfacturascli ON facturascli.idfactura = lineasfacturascli.idfactura
-		INNER JOIN formaspago on formaspago.codpago = facturascli.codpago
-		LEFT OUTER JOIN albaranescli ON albaranescli.idalbaran = lineasfacturascli.idalbaran
-		LEFT OUTER JOIN clientes ON facturascli.codcliente = clientes.codcliente
+		empresa,facturascli INNER JOIN lineasfacturascli ON facturascli.idfactura = lineasfacturascli.idfactura INNER JOIN formaspago on formaspago.codpago = facturascli.codpago LEFT OUTER JOIN albaranescli ON albaranescli.idalbaran = lineasfacturascli.idalbaran
+		LEFT OUTER JOIN articulos ON lineasfacturascli.referencia = articulos.referencia LEFT OUTER JOIN clientes ON facturascli.codcliente = clientes.codcliente
 	</from>
 
 	<where>

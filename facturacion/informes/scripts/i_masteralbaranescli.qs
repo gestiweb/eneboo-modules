@@ -14,7 +14,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
- 
+
 /** @file */
 
 /** @class_declaration interna */
@@ -36,16 +36,16 @@ class interna {
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
-    function oficial( context ) { interna( context ); } 
-	function lanzar() {
-		return this.ctx.oficial_lanzar();
-	}
-	function obtenerOrden(nivel:Number, cursor:FLSqlCursor, tabla:String):String {
-		return this.ctx.oficial_obtenerOrden(nivel, cursor, tabla);
-	}
-	function obtenerParamInforme():Array {
-		return this.ctx.oficial_obtenerParamInforme();
-	}
+    function oficial( context ) { interna( context ); }
+        function lanzar() {
+                return this.ctx.oficial_lanzar();
+        }
+        function obtenerOrden(nivel:Number, cursor:FLSqlCursor, tabla:String):String {
+                return this.ctx.oficial_obtenerOrden(nivel, cursor, tabla);
+        }
+        function obtenerParamInforme():Array {
+                return this.ctx.oficial_obtenerParamInforme();
+        }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -64,14 +64,16 @@ class head extends oficial {
 //// INTERFACE  /////////////////////////////////////////////////
 class ifaceCtx extends head {
     function ifaceCtx( context ) { head( context ); }
-		function pub_obtenerOrden(nivel:Number, cursor:FLSqlCursor, tabla:String):String {
-				return this.obtenerOrden(nivel, cursor, tabla);
-		}
+                function pub_obtenerOrden(nivel:Number, cursor:FLSqlCursor, tabla:String):String {
+                                return this.obtenerOrden(nivel, cursor, tabla);
+                }
 }
 
-const iface = new ifaceCtx( this );
+
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
+const iface = new ifaceCtx( this );
 
 /** @class_definition interna */
 ////////////////////////////////////////////////////////////////////////////
@@ -82,127 +84,128 @@ const iface = new ifaceCtx( this );
 //// INTERNA /////////////////////////////////////////////////////
 function interna_init()
 {
-	connect (this.child("toolButtonPrint"), "clicked()", this, "iface.lanzar()");
+        connect (this.child("toolButtonPrint"), "clicked()", this, "iface.lanzar()");
 }
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
 
 /** @class_definition oficial */
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 function oficial_lanzar()
 {
-	var cursor:FLSqlCursor = this.cursor();
-	var pI = this.iface.obtenerParamInforme();
-	if (!pI) {
-		return;
-	}
+        var cursor:FLSqlCursor = this.cursor();
+        var pI = this.iface.obtenerParamInforme();
+        if (!pI) {
+                return;
+        }
 
-	flfactinfo.iface.pub_lanzarInforme(cursor, pI.nombreInforme, pI.orderBy, "", false, false, pI.whereFijo);
+        flfactinfo.iface.pub_lanzarInforme(cursor, pI.nombreInforme, pI.orderBy, "", false, false, pI.whereFijo);
 }
 
 /** \D Obtiene un array con los parámetros necesarios para establecer el informe
-@return	array de parámetros o false si hay error
+@return        array de parámetros o false si hay error
 \end */
 function oficial_obtenerParamInforme():Array
 {
-	var paramInforme:Array = [];
-	paramInforme["nombreInforme"] = false;
-	paramInforme["orderBy"] = false;
-	paramInforme["groupBy"] = false;
-	paramInforme["etiquetas"] = false;
-	paramInforme["impDirecta"] = false;
-	paramInforme["whereFijo"] = false;
-	paramInforme["nombreReport"] = false;
-	paramInforme["numCopias"] = false;
+        var paramInforme:Array = [];
+        paramInforme["nombreInforme"] = false;
+        paramInforme["orderBy"] = false;
+        paramInforme["groupBy"] = false;
+        paramInforme["etiquetas"] = false;
+        paramInforme["impDirecta"] = false;
+        paramInforme["whereFijo"] = false;
+        paramInforme["nombreReport"] = false;
+        paramInforme["numCopias"] = false;
 
-	var cursor:FLSqlCursor = this.cursor();
-	var seleccion:String = cursor.valueBuffer("id");
-	if (!seleccion) {
-		return false;
-	}
+        var cursor:FLSqlCursor = this.cursor();
+        var seleccion:String = cursor.valueBuffer("id");
+        if (!seleccion) {
+                return false;
+        }
 
-	paramInforme.nombreInforme = cursor.action();
-	paramInforme.orderBy = "";
-	var o:String = "";
-	for (var i:Number = 1; i < 3; i++) {
-		o = formi_albaranescli.iface.pub_obtenerOrden(i, cursor, "albaranescli");
-		if (o) {
-			if (paramInforme.orderBy == "")
-				paramInforme.orderBy = o;
-			else
-				paramInforme.orderBy += ", " + o;
-		}
-	}
-	
-	var intervalo:Array = [];
-	if (cursor.valueBuffer("codintervalo")) {
-		intervalo = flfactppal.iface.pub_calcularIntervalo(cursor.valueBuffer("codintervalo"));
-		cursor.setValueBuffer("d_albaranescli_fecha",intervalo.desde);
-		cursor.setValueBuffer("h_albaranescli_fecha",intervalo.hasta);
-	}
-	
-	return paramInforme;
+        paramInforme.nombreInforme = cursor.action();
+        paramInforme.orderBy = "";
+        var o:String = "";
+        for (var i:Number = 1; i < 3; i++) {
+                o = formi_albaranescli.iface.pub_obtenerOrden(i, cursor, "albaranescli");
+                if (o) {
+                        if (paramInforme.orderBy == "")
+                                paramInforme.orderBy = o;
+                        else
+                                paramInforme.orderBy += ", " + o;
+                }
+        }
+
+        var intervalo:Array = [];
+        if (cursor.valueBuffer("codintervalo")) {
+                intervalo = flfactppal.iface.pub_calcularIntervalo(cursor.valueBuffer("codintervalo"));
+                cursor.setValueBuffer("d_albaranescli_fecha",intervalo.desde);
+                cursor.setValueBuffer("h_albaranescli_fecha",intervalo.hasta);
+        }
+
+        return paramInforme;
 }
 
 function oficial_obtenerOrden(nivel:Number, cursor:FLSqlCursor, tabla:String):String
 {
-	var ret:String = "";
-	var orden:String = cursor.valueBuffer("orden" + nivel.toString());
-	switch(nivel) {
-		case 1:
-		case 2: {
-			switch(orden) {
-				case "Código": {
-					ret += tabla + ".codigo";
-					break;
-				}
-				case "Cod.Cliente": {
-					ret += tabla + ".codcliente";
-					break;
-				}
-				case "Cliente": {
-					ret += tabla + ".nombrecliente";
-					break;
-				}
-				case "Fecha": {
-					ret += tabla + ".fecha";
-					break;
-				}
-				case "Total": {
-					ret += tabla + ".total";
-					break;
-				}
-			}
-			break;
-		}
-		break;
-	}
-// 	if (ret != "") {
-// 		var tipoOrden:String = cursor.valueBuffer("tipoorden" + nivel.toString());
-// 		switch(tipoOrden) {
-// 			case "Descendente": {
-// 				ret += " DESC";
-// 				break;
-// 			}
-// 			default: {
-// 				ret += " ASC";
-// 				break;
-// 			}
-// 		}
-// 	}
+        var ret:String = "";
+        var orden:String = cursor.valueBuffer("orden" + nivel.toString());
+        switch(nivel) {
+                case 1:
+                case 2: {
+                        switch(orden) {
+                                case "Código": {
+                                        ret += tabla + ".codigo";
+                                        break;
+                                }
+                                case "Cod.Cliente": {
+                                        ret += tabla + ".codcliente";
+                                        break;
+                                }
+                                case "Cliente": {
+                                        ret += tabla + ".nombrecliente";
+                                        break;
+                                }
+                                case "Fecha": {
+                                        ret += tabla + ".fecha";
+                                        break;
+                                }
+                                case "Total": {
+                                        ret += tabla + ".total";
+                                        break;
+                                }
+                        }
+                        break;
+                }
+                break;
+        }
+//         if (ret != "") {
+//                 var tipoOrden:String = cursor.valueBuffer("tipoorden" + nivel.toString());
+//                 switch(tipoOrden) {
+//                         case "Descendente": {
+//                                 ret += " DESC";
+//                                 break;
+//                         }
+//                         default: {
+//                                 ret += " ASC";
+//                                 break;
+//                         }
+//                 }
+//         }
 
-	if (nivel == 2 && cursor.valueBuffer("orden1") != "Código" && cursor.valueBuffer("orden2") != "Código") {
-		if (ret == "") {
-// 			ret += tabla + ".codigo ASC";
-			ret += tabla + ".codigo";
-		} else {
-// 			ret += ", " + tabla + ".codigo ASC";
-			ret += ", " + tabla + ".codigo";
-		}
-	}
+        if (nivel == 2 && cursor.valueBuffer("orden1") != "Código" && cursor.valueBuffer("orden2") != "Código") {
+                if (ret == "") {
+//                         ret += tabla + ".codigo ASC";
+                        ret += tabla + ".codigo";
+                } else {
+//                         ret += ", " + tabla + ".codigo ASC";
+                        ret += ", " + tabla + ".codigo";
+                }
+        }
 
-	return ret;
+        return ret;
 }
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -213,3 +216,4 @@ function oficial_obtenerOrden(nivel:Number, cursor:FLSqlCursor, tabla:String):St
 
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+

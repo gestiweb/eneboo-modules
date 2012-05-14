@@ -1,11 +1,10 @@
 /***************************************************************************
                  familias.qs  -  description
                              -------------------
-    begin                : vie jun 28 2010
-    copyright            : (C) 2010 by InfoSiAL S.L.
+    begin                : jue oct 22 2009
+    copyright            : (C) 2009 by InfoSiAL S.L.
     email                : mail@infosial.com
  ***************************************************************************/
-
 /***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -28,14 +27,8 @@ class interna {
     var ctx:Object;
     function interna( context ) { this.ctx = context; }
     function init() {
-		return this.ctx.interna_init();
-	}
-	function calculateField(fN:String):String {
-		return this.ctx.interna_calculateField(fN);
-	}
-	function validateForm():Boolean {
-		return this.ctx.interna_validateForm();
-	}
+                return this.ctx.interna_init();
+        }
 }
 //// INTERNA /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -44,10 +37,7 @@ class interna {
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
-	function oficial( context ) { interna( context ); } 
-	function bufferChanged(fN:String) {
-		return this.ctx.oficial_bufferChanged(fN);
-	}
+    function oficial( context ) { interna( context ); }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -68,9 +58,11 @@ class ifaceCtx extends head {
     function ifaceCtx( context ) { head( context ); }
 }
 
-const iface = new ifaceCtx( this );
+
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
+const iface = new ifaceCtx( this );
 
 /** @class_definition interna */
 ////////////////////////////////////////////////////////////////////////////
@@ -81,39 +73,16 @@ const iface = new ifaceCtx( this );
 //// INTERNA /////////////////////////////////////////////////////
 function interna_init()
 {
-	var util:FLUtil = new FLUtil();
-	var cursor:FLSqlCursor = this.cursor();
-
-	connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
 }
 
-function interna_calculateField(nombreCampo:String):String
-{
-	return "";
-}
-
-function interna_validateForm():Boolean 
-{
-	return true;
-}
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
 
 /** @class_definition oficial */
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 
-function oficial_bufferChanged(fN:String)
-{
-	var cursor:FLSqlCursor = this.cursor();
-	
-	switch (fN) {
-		case "": {
-			
-			break;
-		}
-	}
-}
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
@@ -122,4 +91,6 @@ function oficial_bufferChanged(fN:String)
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+

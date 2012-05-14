@@ -23,13 +23,13 @@
 		presupuestoscli.direccion, presupuestoscli.codpostal,
 		presupuestoscli.ciudad, presupuestoscli.provincia,
 		presupuestoscli.apartado, presupuestoscli.codpais,
-		presupuestoscli.observaciones,
 		lineaspresupuestoscli.referencia,
 		lineaspresupuestoscli.descripcion, lineaspresupuestoscli.cantidad,
 		lineaspresupuestoscli.pvpunitario, lineaspresupuestoscli.pvptotal,
 		lineaspresupuestoscli.codimpuesto, lineaspresupuestoscli.iva,
+		articulos.codunidad,
 		empresa.nombre, empresa.cifnif,
-		empresa.direccion,
+		empresa.direccion, empresa.logo,
 		empresa.codpostal, empresa.ciudad,
 		empresa.provincia, empresa.apartado,
 		empresa.codpais
@@ -37,6 +37,7 @@
 
 	<from>
 		empresa,presupuestoscli INNER JOIN lineaspresupuestoscli ON presupuestoscli.idpresupuesto = lineaspresupuestoscli.idpresupuesto
+		LEFT OUTER JOIN articulos ON lineaspresupuestoscli.referencia = articulos.referencia
 	</from>
 
 	<where>

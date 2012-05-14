@@ -22,13 +22,14 @@
 		pedidoscli.tasaconv, pedidoscli.coddir,
 		pedidoscli.direccion, pedidoscli.codpostal,
 		pedidoscli.ciudad, pedidoscli.provincia, pedidoscli.apartado,
-		pedidoscli.codpais, pedidoscli.observaciones,
+		pedidoscli.codpais,
 		lineaspedidoscli.referencia, lineaspedidoscli.descripcion,
 		lineaspedidoscli.cantidad, lineaspedidoscli.pvpunitario,
 		lineaspedidoscli.pvptotal, lineaspedidoscli.codimpuesto,
 		lineaspedidoscli.iva,
+		articulos.codunidad,
 		empresa.nombre, empresa.cifnif,
-		empresa.direccion,
+		empresa.direccion, empresa.logo,
 		empresa.codpostal, empresa.ciudad,
 		empresa.provincia, empresa.apartado,
 		empresa.codpais
@@ -36,6 +37,7 @@
 
 	<from>
 		empresa,pedidoscli INNER JOIN lineaspedidoscli ON pedidoscli.idpedido = lineaspedidoscli.idpedido
+		LEFT OUTER JOIN articulos ON lineaspedidoscli.referencia = articulos.referencia
 	</from>
 
 	<where>

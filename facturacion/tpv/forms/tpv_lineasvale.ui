@@ -59,8 +59,8 @@
                     </property>
                     <property name="minimumSize">
                         <size>
-                            <width>38</width>
-                            <height>24</height>
+                            <width>26</width>
+                            <height>22</height>
                         </size>
                     </property>
                     <property name="font">
@@ -145,7 +145,7 @@
                 </property>
                 <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>layoutLinea</cstring>
+                        <cstring>layout3</cstring>
                     </property>
                     <hbox>
                         <property name="name">
@@ -165,8 +165,8 @@
                             </property>
                             <property name="minimumSize">
                                 <size>
-                                    <width>24</width>
-                                    <height>22</height>
+                                    <width>31</width>
+                                    <height>24</height>
                                 </size>
                             </property>
                             <property name="maximumSize">
@@ -205,8 +205,8 @@
                             </property>
                             <property name="minimumSize">
                                 <size>
-                                    <width>4</width>
-                                    <height>21</height>
+                                    <width>16</width>
+                                    <height>23</height>
                                 </size>
                             </property>
                             <property name="font">
@@ -217,12 +217,6 @@
                             </property>
                             <property name="fieldName">
                                 <string>referencia</string>
-                            </property>
-                            <property name="foreignField">
-                                <string>referencia</string>
-                            </property>
-                            <property name="fieldRelation">
-                                <string>idtpv_linea</string>
                             </property>
                         </widget>
                         <widget class="FLFieldDB">
@@ -239,8 +233,8 @@
                             </property>
                             <property name="minimumSize">
                                 <size>
-                                    <width>4</width>
-                                    <height>21</height>
+                                    <width>16</width>
+                                    <height>23</height>
                                 </size>
                             </property>
                             <property name="font">
@@ -252,30 +246,35 @@
                             <property name="fieldName">
                                 <string>cantidad</string>
                             </property>
-                            <property name="foreignField">
-                                <string>cantidad</string>
-                            </property>
-                            <property name="fieldRelation">
-                                <string>idtpv_linea</string>
-                            </property>
                         </widget>
-                        <spacer>
+                        <widget class="FLFieldDB">
                             <property name="name">
-                                <cstring>spacerLinea</cstring>
+                                <cstring>fdbPvpmedio</cstring>
                             </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
                             </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
+                            <property name="minimumSize">
                                 <size>
-                                    <width>21</width>
-                                    <height>20</height>
+                                    <width>38</width>
+                                    <height>24</height>
                                 </size>
                             </property>
-                        </spacer>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>pvpmedio</string>
+                            </property>
+                        </widget>
                     </hbox>
                 </widget>
                 <widget class="QLayoutWidget">
@@ -473,6 +472,7 @@
 </tabstops>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
+    <includehint>flfielddb.h</includehint>
     <includehint>flfielddb.h</includehint>
     <includehint>flfielddb.h</includehint>
     <includehint>flfielddb.h</includehint>

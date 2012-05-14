@@ -28,7 +28,7 @@ class interna {
     var ctx:Object;
     function interna( context ) { this.ctx = context; }
     function init() { this.ctx.interna_init(); }
-	function calculateField(fN:String):String { return this.ctx.interna_calculateField(fN); }
+        function calculateField(fN:String):String { return this.ctx.interna_calculateField(fN); }
 }
 //// INTERNA /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -37,19 +37,19 @@ class interna {
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
-    function oficial( context ) { interna( context ); } 
-	function desconectar() {
-			return this.ctx.oficial_desconectar();
-	}
-	function bufferChanged(fN:String) {
-			return this.ctx.oficial_bufferChanged(fN);
-	}
-	function calcularPvpTarifa(referencia:String, codTarifa:String):Number {
-		return this.ctx.oficial_calcularPvpTarifa(referencia, codTarifa);
-	}
-	function commonCalculateField(fN:String, cursor:FLSqlCursor):String {
-		return this.ctx.oficial_commonCalculateField(fN, cursor);
-	}
+    function oficial( context ) { interna( context ); }
+        function desconectar() {
+                        return this.ctx.oficial_desconectar();
+        }
+        function bufferChanged(fN:String) {
+                        return this.ctx.oficial_bufferChanged(fN);
+        }
+        function calcularPvpTarifa(referencia:String, codTarifa:String):Number {
+                return this.ctx.oficial_calcularPvpTarifa(referencia, codTarifa);
+        }
+        function commonCalculateField(fN:String, cursor:FLSqlCursor):String {
+                return this.ctx.oficial_commonCalculateField(fN, cursor);
+        }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -68,17 +68,19 @@ class head extends oficial {
 //// INTERFACE  /////////////////////////////////////////////////
 class ifaceCtx extends head {
     function ifaceCtx( context ) { head( context ); }
-	function pub_calcularPvpTarifa(referencia:String, codTarifa:String):Number {
-		return this.calcularPvpTarifa(referencia, codTarifa);
-	}
-	function pub_commonCalculateField(fN:String, cursor:FLSqlCursor):String {
-		return this.commonCalculateField(fN, cursor);
-	}
+        function pub_calcularPvpTarifa(referencia:String, codTarifa:String):Number {
+                return this.calcularPvpTarifa(referencia, codTarifa);
+        }
+        function pub_commonCalculateField(fN:String, cursor:FLSqlCursor):String {
+                return this.commonCalculateField(fN, cursor);
+        }
 }
 
-const iface = new ifaceCtx( this );
+
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
+const iface = new ifaceCtx( this );
 
 /** @class_definition interna */
 ////////////////////////////////////////////////////////////////////////////
@@ -89,96 +91,90 @@ const iface = new ifaceCtx( this );
 //// INTERNA /////////////////////////////////////////////////////
 function interna_init()
 {
-	var cursor:FLSqlCursor = this.cursor();
-	connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
-	connect(form, "closed()", this, "iface.desconectar");
+        var cursor:FLSqlCursor = this.cursor();
+        connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
+        connect(form, "closed()", this, "iface.desconectar");
 
-	if (cursor.modeAccess() == cursor.Insert)
-		this.child("fdbDtoPor").setValue(this.iface.calculateField("dtopor"));
+        if (cursor.modeAccess() == cursor.Insert)
+                this.child("fdbDtoPor").setValue(this.iface.calculateField("dtopor"));
 
-	this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
+        this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
 }
 
 function interna_calculateField(fN:String):String
 {
-	return this.iface.commonCalculateField(fN, this.cursor());
+        return this.iface.commonCalculateField(fN, this.cursor());
 }
 
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
 
 /** @class_definition oficial */
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 function oficial_commonCalculateField(fN:String, cursor:FLSqlCursor):String
 {
-	var util:FLUtil = new FLUtil();
-	var valor:String;
+        var util:FLUtil = new FLUtil();
+        var valor:String;
 
-	switch (fN) {
-		/** \C
-		El --pvpunitario-- se calcula como el pvp establecido para el artículo seleccionado
-		*/
-		case "pvpunitario":{
-			valor = this.iface.calcularPvpTarifa(cursor.valueBuffer("referencia"), cursor.cursorRelation().valueBuffer("codtarifa"));
-			valor = util.roundFieldValue(valor, "tpv_lineascomanda", "pvpunitario");
-			break;
-		}
-		/** \C
-		El --pvpsindto-- es el el --pvpunitario-- multiplicado por la --cantidad--
-		*/
-		case "pvpsindto":{
-			valor = parseFloat(cursor.valueBuffer("pvpunitario")) * parseFloat(cursor.valueBuffer("cantidad"));
-			valor = util.roundFieldValue(valor, "tpv_lineascomanda", "pvpsindto");
-			break;
-		}
-		case "iva":{
-			var fecha:String;
-			var curComanda:FLSqlCursor = cursor.cursorRelation();
-			if (curComanda) {
-				fecha = curComanda.valueBuffer("fecha");
-			} else {
-				fecha = util.sqlSelect("tpv_comandas", "fecha", "idtpv_comanda = " + cursor.valueBuffer("idtpv_comanda"));
-			}
-			valor = flfacturac.iface.pub_campoImpuesto("iva", cursor.valueBuffer("codimpuesto"), fecha);
-			if (!valor) {
-				valor = 0;
-			}
-			break;
-		}
-		/** \C
-		El descuento se calcula como el --pvpsindto-- por el porcentaje de descuento
-		*/
-		case "lbldtopor":{
-			valor = (cursor.valueBuffer("pvpsindto") * cursor.valueBuffer("dtopor")) / 100;
-			valor = util.roundFieldValue(valor, "tpv_lineascomanda", "pvpsindto");
-			break;
-		}
-		/** \C
-		El --pvptotal-- es el --pvpsindto-- menos el descuento menos el descuento lineal
-		*/
-		case "pvptotal": {
-			var dtoPor:Number = (cursor.valueBuffer("pvpsindto") * cursor.valueBuffer("dtopor")) / 100;
-			dtoPor = util.roundFieldValue(dtoPor, "tpv_lineascomanda", "pvpsindto");
-			valor = cursor.valueBuffer("pvpsindto") - parseFloat(dtoPor) - cursor.valueBuffer("dtolineal");
-			break;
-		}
-		case "dtopor":{
-			valor = cursor.valueBuffer("dtopor");
-			break;
-		}
-		case "codimpuesto": {
-			var codSerie:String = "";
-			if (flfacturac.iface.pub_tieneIvaDocCliente(codSerie, cursor.cursorRelation().valueBuffer("codcliente"))) {
-				valor = util.sqlSelect("articulos", "codimpuesto", "referencia = '" + cursor.valueBuffer("referencia") + "'");
-			}
-			else {
-				valor = "";
-			}
-			break;
-		}
-	}
-	return valor;
+        switch (fN) {
+                /** \C
+                El --pvpunitario-- se calcula como el pvp establecido para el artículo seleccionado
+                */
+                case "pvpunitario":{
+                        valor = this.iface.calcularPvpTarifa(cursor.valueBuffer("referencia"), cursor.cursorRelation().valueBuffer("codtarifa"));
+                        valor = util.roundFieldValue(valor, "tpv_lineascomanda", "pvpunitario");
+                        break;
+                }
+                /** \C
+                El --pvpsindto-- es el el --pvpunitario-- multiplicado por la --cantidad--
+                */
+                case "pvpsindto":{
+                        valor = parseFloat(cursor.valueBuffer("pvpunitario")) * parseFloat(cursor.valueBuffer("cantidad"));
+                        valor = util.roundFieldValue(valor, "tpv_lineascomanda", "pvpsindto");
+                        break;
+                }
+                case "iva":{
+                        valor = util.sqlSelect("impuestos", "iva", "codimpuesto = '" + cursor.valueBuffer("codimpuesto") + "'");
+                        if (!valor) {
+                                valor = 0;
+                        }
+                        break;
+                }
+                /** \C
+                El descuento se calcula como el --pvpsindto-- por el porcentaje de descuento
+                */
+                case "lbldtopor":{
+                        valor = (cursor.valueBuffer("pvpsindto") * cursor.valueBuffer("dtopor")) / 100;
+                        valor = util.roundFieldValue(valor, "tpv_lineascomanda", "pvpsindto");
+                        break;
+                }
+                /** \C
+                El --pvptotal-- es el --pvpsindto-- menos el descuento menos el descuento lineal
+                */
+                case "pvptotal": {
+                        var dtoPor:Number = (cursor.valueBuffer("pvpsindto") * cursor.valueBuffer("dtopor")) / 100;
+                        dtoPor = util.roundFieldValue(dtoPor, "tpv_lineascomanda", "pvpsindto");
+                        valor = cursor.valueBuffer("pvpsindto") - parseFloat(dtoPor) - cursor.valueBuffer("dtolineal");
+                        break;
+                }
+                case "dtopor":{
+                        valor = cursor.valueBuffer("dtopor");
+                        break;
+                }
+                case "codimpuesto": {
+                        var codSerie:String = "";
+                        if (flfacturac.iface.pub_tieneIvaDocCliente(codSerie, cursor.cursorRelation().valueBuffer("codcliente"))) {
+                                valor = util.sqlSelect("articulos", "codimpuesto", "referencia = '" + cursor.valueBuffer("referencia") + "'");
+                        }
+                        else {
+                                valor = "";
+                        }
+                        break;
+                }
+        }
+        return valor;
 }
 
 /** \D
@@ -186,47 +182,47 @@ Desconecta la función bufferChanged conectada en el init
 */
 function oficial_desconectar()
 {
-		disconnect(this.cursor(), "bufferChanged(QString)", this, "iface.bufferChanged");
+                disconnect(this.cursor(), "bufferChanged(QString)", this, "iface.bufferChanged");
 }
 
 function oficial_bufferChanged(fN:String)
 {
-	switch (fN) {
-		/** \C
-		Al cambiar la referencia se recalculan el --pvpunitario-- y el --codimpuesto--
-		*/
-		case "referencia":{
-			this.child("fdbPvpUnitario").setValue(this.iface.calculateField("pvpunitario"));
-			this.child("fdbCodImpuesto").setValue(this.iface.calculateField("codimpuesto"));
-			break;
-		}
-		/** \C
-		Al cambiar el --codimpuesto-- se recalcula el porcentaje de iva que se aplicará
-		*/
-		case "codimpuesto":{
-			this.child("fdbIva").setValue(this.iface.calculateField("iva"));
-			break;
-		}
-		/** \C
-		Al cambiar la --cantidad-- o el --pvpunitario-- se recalcula el --pvpsindto--
-		*/
-		case "cantidad":
-		case "pvpunitario":{
-			this.child("fdbPvpSinDto").setValue(this.iface.calculateField("pvpsindto"));
-			break;
-		}
-		case "pvpsindto":
-		case "dtopor":{
-			this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
-		}
-		/** \C
-		Al cambiar el --dtolineal-- se recalcula el --pvptotal--
-		*/
-		case "dtolineal":{
-			this.child("fdbPvpTotal").setValue(this.iface.calculateField("pvptotal"));
-			break;
-		}
-	}
+        switch (fN) {
+                /** \C
+                Al cambiar la referencia se recalculan el --pvpunitario-- y el --codimpuesto--
+                */
+                case "referencia":{
+                        this.child("fdbPvpUnitario").setValue(this.iface.calculateField("pvpunitario"));
+                        this.child("fdbCodImpuesto").setValue(this.iface.calculateField("codimpuesto"));
+                        break;
+                }
+                /** \C
+                Al cambiar el --codimpuesto-- se recalcula el porcentaje de iva que se aplicará
+                */
+                case "codimpuesto":{
+                        this.child("fdbIva").setValue(this.iface.calculateField("iva"));
+                        break;
+                }
+                /** \C
+                Al cambiar la --cantidad-- o el --pvpunitario-- se recalcula el --pvpsindto--
+                */
+                case "cantidad":
+                case "pvpunitario":{
+                        this.child("fdbPvpSinDto").setValue(this.iface.calculateField("pvpsindto"));
+                        break;
+                }
+                case "pvpsindto":
+                case "dtopor":{
+                        this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
+                }
+                /** \C
+                Al cambiar el --dtolineal-- se recalcula el --pvptotal--
+                */
+                case "dtolineal":{
+                        this.child("fdbPvpTotal").setValue(this.iface.calculateField("pvptotal"));
+                        break;
+                }
+        }
 }
 
 /** \D
@@ -237,16 +233,16 @@ Calcula el --pvpunitario-- aplicandole la tarifa establecida el el formulario de
 */
 function oficial_calcularPvpTarifa(referencia:String, codTarifa:String):Number
 {
-	var util:FLUtil = new FLUtil();
-	var pvp:Number;
+        var util:FLUtil = new FLUtil();
+        var pvp:Number;
 
-	if (codTarifa)
-		pvp = util.sqlSelect("articulostarifas", "pvp", "referencia = '" + referencia + "' AND codtarifa = '" + codTarifa + "'");
-		
-	if (!pvp)
-		pvp = util.sqlSelect("articulos", "pvp", "referencia = '" + referencia + "'");
-	
-	return pvp;
+        if (codTarifa)
+                pvp = util.sqlSelect("articulostarifas", "pvp", "referencia = '" + referencia + "' AND codtarifa = '" + codTarifa + "'");
+
+        if (!pvp)
+                pvp = util.sqlSelect("articulos", "pvp", "referencia = '" + referencia + "'");
+
+        return pvp;
 }
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -257,3 +253,4 @@ function oficial_calcularPvpTarifa(referencia:String, codTarifa:String):Number
 
 //// DESARROLLO /////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
+

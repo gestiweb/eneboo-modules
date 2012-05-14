@@ -113,6 +113,26 @@
         <source>T&amp;ransferencias de Stock</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Datos Generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Datos &amp;Generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+G</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+W</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FLWidgetMasterTable</name>
@@ -276,18 +296,6 @@
         <translation>Abbildung</translation>
     </message>
     <message>
-        <source>Stock m&#xe1;ximo</source>
-        <translation>Max. Lagerbestand</translation>
-    </message>
-    <message>
-        <source>Stock m&#xed;nimo</source>
-        <translation>Min. Lagerbestand</translation>
-    </message>
-    <message>
-        <source>Stock f&#xed;sico</source>
-        <translation>Aktueller Lagerbestand</translation>
-    </message>
-    <message>
         <source>Permitir ventas sin stock</source>
         <translation>Abgabehöchstmenge</translation>
     </message>
@@ -447,6 +455,66 @@
         <source>Destino</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Reservada</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hora</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>C.Reg.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Datos Generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I.V.A. por defecto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source></source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Valorado seg&#xfa;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>% Sobre PVP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>% Dto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Se compra</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Se vende</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>S.M&#xe1;ximo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>S.M&#xed;nimo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>S.F&#xed;sico</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sin stock</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context encoding="UTF-8">
     <name>articulostarifas</name>
@@ -488,6 +556,33 @@
     </message>
     <message>
         <source>pvp</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>factalma_general</name>
+    <message>
+        <source>factalma_general</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Datos &amp;generales</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Valores por defecto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>codimpuesto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>descripcion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>impuestos</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -693,6 +788,26 @@
         <source>idsubcuentairpfcom</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>nostock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>secompra</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sevende</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proveedor por defecto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Establece el proveedor seleccionado como proveedor por defecto</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>formArticulosCli</name>
@@ -807,8 +922,24 @@
         <source>comision</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>dto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Pedidos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>plazo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pordefecto</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
-<context>
+<context encoding="UTF-8">
     <name>formFamilias</name>
     <message>
         <source>Familias</source>
@@ -820,6 +951,46 @@
     </message>
     <message>
         <source>descripcion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>&amp;Artículos</source>
+        <translation type="unfinished">&amp;Artikel</translation>
+    </message>
+    <message>
+        <source>Insertar registro (A)</source>
+        <translation type="unfinished">Neuer Eintrag (A)</translation>
+    </message>
+    <message>
+        <source>Para crear un nuevo registro en la tabla</source>
+        <translation type="unfinished">Einen neuen Eintrag der Tabelle hinzufügen</translation>
+    </message>
+    <message>
+        <source>Modificar registro (M)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Para modificar el registro activo de la tabla</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Eliminar registro (E)</source>
+        <translation type="unfinished">Eintrag löschen (E)</translation>
+    </message>
+    <message>
+        <source>Elimina el registro actual de la tabla</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ver registro (V)</source>
+        <translation type="unfinished">Eintrag betrachten (V)</translation>
+    </message>
+    <message>
+        <source>Para ver registro, sin permitir editar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>articulos</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -925,6 +1096,22 @@
         <source>hora</source>
         <translation type="unfinished"></translation>
     </message>
+    <message encoding="UTF-8">
+        <source>Última regularización:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fechaultreg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>horaultreg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cantidadultreg</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>formSucursales</name>
@@ -996,6 +1183,22 @@
         <source>observaciones</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>idprovincia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Inventario valorado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tipovaloracion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>porpvp</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context encoding="UTF-8">
     <name>lineastransstock</name>
@@ -1044,7 +1247,58 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
-<context>
+<context encoding="UTF-8">
+    <name>masterarticulos</name>
+    <message encoding="UTF-8">
+        <source>Artículos</source>
+        <translation type="unfinished">Artikel</translation>
+    </message>
+    <message>
+        <source>Insertar registro (A)</source>
+        <translation type="unfinished">Neuer Eintrag (A)</translation>
+    </message>
+    <message>
+        <source>Para crear un nuevo registro en la tabla</source>
+        <translation type="unfinished">Einen neuen Eintrag der Tabelle hinzufügen</translation>
+    </message>
+    <message>
+        <source>Modificar registro (M)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Para modificar el registro activo de la tabla</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Eliminar registro (E)</source>
+        <translation type="unfinished">Eintrag löschen (E)</translation>
+    </message>
+    <message>
+        <source>Elimina el registro actual de la tabla</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ver registro (V)</source>
+        <translation type="unfinished">Eintrag betrachten (V)</translation>
+    </message>
+    <message>
+        <source>Para ver registro, sin permitir editar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>C</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copiar registro (C)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Para copiar el contenido del registro actual a uno nuevo</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context encoding="UTF-8">
     <name>mastertarifas</name>
     <message>
         <source>mastertarifas</source>
@@ -1084,6 +1338,22 @@
     </message>
     <message>
         <source>tarifas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copiar registro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Para copiar el registro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Actualizar tarifas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Actualiza automáticamente las los precios de los artículos que están asociados a la tarifa seleccionada</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1143,10 +1413,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No hay stock suficiente para el art&#xed;culo %1 en el almac&#xe9;n %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Hubo un error al actualizar los precios por tarifa: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1158,6 +1424,62 @@ Esto sobreescribir&#xe1; cualquier precio que haya sido modificado manualmente.
     </message>
     <message>
         <source>Actualizando tarifa...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A continuaci&#xf3;n se van a actualizar los nuevos campos de los art&#xed;culos
+Esto puede llevar algunos segundos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proceso finalizado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cantidad disponible</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cantidad en stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>El art&#xed;culo %1 no permite ventas sin stock. Este movimiento dejar&#xed;a el stock de %2 con %3 %4.
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Existen valores de stock para este art&#xed;culo.
+Si lo que desea hacer es indicar que se permiten ventas sin stock de este material, pulse Cancelar e ind&#xed;quelo en la pesta&#xf1;a de Stocks.
+Si quiere eliminar completamente los datos de stock asociados a este art&#xed;culo pulse Aceptar. Esta acci&#xf3;n no es reversible.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error al eliminar los datos de stock para el art&#xed;culo %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No hay ning&#xfa;n registro seleccionado</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hubo un error al copiar el art&#xed;culo %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Introduzca la nueva referencia:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copiar art&#xed;culo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Debe introducir una referencia para crear el nuevo art&#xed;culo.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ya existe un art&#xed;culo con esa referencia</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

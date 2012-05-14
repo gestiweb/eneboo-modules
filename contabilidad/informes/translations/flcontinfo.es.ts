@@ -117,6 +117,18 @@
         <source>Area Financiera</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Principal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+W</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FLWidgetMasterTable</name>
@@ -388,14 +400,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sumas y Saldos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Comparativo Presupuesto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Borrador</source>
         <translation type="unfinished"></translation>
     </message>
@@ -424,15 +428,51 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Mostrar datos a nivel de</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ignorar asientos de cierre</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Calcular saldo inicial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Id Impresi&#xf3;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>C&#xf3;digo de subcuenta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>C&#xf3;digo de cuenta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Debe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Haber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saldo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Agrupar por meses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Digitos de agrupaci&#xf3;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Informe resumido</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ignorar facturas sin I.V.A.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -704,6 +744,10 @@
         <source>ignorarcierre</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>resumido</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context encoding="UTF-8">
     <name>co_i_diario</name>
@@ -819,6 +863,10 @@
         <source>tipoorden3</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>agruparmeses</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>co_i_facturasemi</name>
@@ -876,6 +924,10 @@
     </message>
     <message>
         <source>numdesde</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>coniva</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -939,6 +991,10 @@
     </message>
     <message>
         <source>numdesde</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>coniva</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1016,6 +1072,18 @@
         <source>saldoinicial</source>
         <translation type="unfinished"></translation>
     </message>
+    <message encoding="UTF-8">
+        <source>Criterios de ordenación</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>orden1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tipoorden1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>scripts</name>
@@ -1077,6 +1145,46 @@
     </message>
     <message>
         <source>La Serie no existe en la tabla de Series de Facturaci&#xf3;n</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>U.E.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import/Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>( U.E. )</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>( Exento )</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>( Export. )</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>( Gral. )</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>( Import. )</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>( R.A. )</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Recabando datos...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

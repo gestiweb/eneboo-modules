@@ -10,7 +10,7 @@
 	</group>
 
 	<select>
-		pedidosprov.idpedido, pedidosprov.codigo,
+	pedidosprov.idpedido, pedidosprov.codigo,
 		lineaspedidosprov.idpedido, pedidosprov.codserie,
 		pedidosprov.fecha, pedidosprov.total,
 		pedidosprov.coddivisa, pedidosprov.codejercicio,
@@ -28,12 +28,13 @@
 		empresa.direccion,
 		empresa.codpostal, empresa.ciudad,
 		empresa.provincia, empresa.apartado,
-		empresa.codpais
+		empresa.codpais,
+		articulos.codunidad
 	</select>
 
 	<from>
-		empresa,pedidosprov
-		INNER JOIN lineaspedidosprov ON pedidosprov.idpedido = lineaspedidosprov.idpedido
+		empresa,pedidosprov INNER JOIN lineaspedidosprov ON pedidosprov.idpedido = lineaspedidosprov.idpedido
+		LEFT OUTER JOIN articulos ON lineaspedidosprov.referencia = articulos.referencia
 		LEFT OUTER JOIN dirproveedores ON pedidosprov.codproveedor = dirproveedores.codproveedor
 	</from>
 

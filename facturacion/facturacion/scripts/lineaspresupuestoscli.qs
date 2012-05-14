@@ -27,8 +27,8 @@ class interna {
     var ctx:Object;
     function interna( context ) { this.ctx = context; }
     function init() { this.ctx.interna_init(); }
-	function calculateField(fN:String):String { return this.ctx.interna_calculateField(fN); }
-	function validateForm():Boolean { return this.ctx.interna_validateForm(); }
+        function calculateField(fN:String):String { return this.ctx.interna_calculateField(fN); }
+        function validateForm():Boolean { return this.ctx.interna_validateForm(); }
 }
 //// INTERNA /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -37,16 +37,16 @@ class interna {
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
-    function oficial( context ) { interna( context ); } 
-	function desconectar() {
-		return this.ctx.oficial_desconectar();
-	}
-	function bufferChanged(fN:String) {
-		return this.ctx.oficial_bufferChanged(fN); 
-	}
-	function dameFiltroReferencia():String {
-		return this.ctx.oficial_dameFiltroReferencia();
-	}
+    function oficial( context ) { interna( context ); }
+        function desconectar() {
+                return this.ctx.oficial_desconectar();
+        }
+        function bufferChanged(fN:String) {
+                return this.ctx.oficial_bufferChanged(fN);
+        }
+        function dameFiltroReferencia():String {
+                return this.ctx.oficial_dameFiltroReferencia();
+        }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -67,9 +67,11 @@ class ifaceCtx extends head {
     function ifaceCtx( context ) { head( context ); }
 }
 
-const iface = new ifaceCtx( this );
+
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
+const iface = new ifaceCtx( this );
 
 /** @class_definition interna */
 ////////////////////////////////////////////////////////////////////////////
@@ -83,50 +85,50 @@ Este formulario realiza la gestión de las líneas de presupuestos a clientes.
 \end */
 function interna_init()
 {
-	var util:FLUtil = new FLUtil();
-	var cursor:FLSqlCursor = this.cursor();
-	connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
-	connect(form, "closed()", this, "iface.desconectar");
+        var util:FLUtil = new FLUtil();
+        var cursor:FLSqlCursor = this.cursor();
+        connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
+        connect(form, "closed()", this, "iface.desconectar");
 
-	var irpf:Number = util.sqlSelect("series", "irpf", "codserie = '" + cursor.cursorRelation().valueBuffer("codserie") + "'");
-	if (!irpf) {
-		irpf = 0;
-	}
+        var irpf:Number = util.sqlSelect("series", "irpf", "codserie = '" + cursor.cursorRelation().valueBuffer("codserie") + "'");
+        if (!irpf) {
+                irpf = 0;
+        }
 
-	if (cursor.modeAccess() == cursor.Insert) {
-		var opcionIvaRec:Number = flfacturac.iface.pub_tieneIvaDocCliente(cursor.cursorRelation().valueBuffer("codserie"), cursor.cursorRelation().valueBuffer("codcliente"));
-		switch (opcionIvaRec) {
-			case 0: {
-				this.child("fdbCodImpuesto").setValue("");
-				this.child("fdbIva").setValue(0);
-			}
-			case 1: {
-				this.child("fdbRecargo").setValue(0);
-				break;
-			}
-		}
-		this.child("fdbIRPF").setValue(irpf);
-		this.child("fdbDtoPor").setValue(this.iface.calculateField("dtopor"));
-		if (cursor.cursorRelation().valueBuffer("porcomision")) {
-			this.child("fdbPorComision").setDisabled(true);
-		} else {
-			if (!cursor.cursorRelation().valueBuffer("codagente") || cursor.cursorRelation().valueBuffer("codagente") == "") {
-				this.child("fdbPorComision").setDisabled(true);
-			} else {
-				this.child("fdbPorComision").setValue(this.iface.calculateField("porcomision"));
-			}
-		}
-	}
+        if (cursor.modeAccess() == cursor.Insert) {
+                var opcionIvaRec:Number = flfacturac.iface.pub_tieneIvaDocCliente(cursor.cursorRelation().valueBuffer("codserie"), cursor.cursorRelation().valueBuffer("codcliente"));
+                switch (opcionIvaRec) {
+                        case 0: {
+                                this.child("fdbCodImpuesto").setValue("");
+                                this.child("fdbIva").setValue(0);
+                        }
+                        case 1: {
+                                this.child("fdbRecargo").setValue(0);
+                                break;
+                        }
+                }
+                this.child("fdbIRPF").setValue(irpf);
+                this.child("fdbDtoPor").setValue(this.iface.calculateField("dtopor"));
+                if (cursor.cursorRelation().valueBuffer("porcomision")) {
+                        this.child("fdbPorComision").setDisabled(true);
+                } else {
+                        if (!cursor.cursorRelation().valueBuffer("codagente") || cursor.cursorRelation().valueBuffer("codagente") == "") {
+                                this.child("fdbPorComision").setDisabled(true);
+                        } else {
+                                this.child("fdbPorComision").setValue(this.iface.calculateField("porcomision"));
+                        }
+                }
+        }
 
-	if (cursor.cursorRelation().valueBuffer("porcomision")) {
-		this.child("fdbPorComision").setDisabled(true);
-	}
+        if (cursor.cursorRelation().valueBuffer("porcomision")) {
+                this.child("fdbPorComision").setDisabled(true);
+        }
 
-	this.child("lblComision").setText(this.iface.calculateField("lblComision"));
-	this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
+        this.child("lblComision").setText(this.iface.calculateField("lblComision"));
+        this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
 
-	var filtroReferencia:String = this.iface.dameFiltroReferencia();
-	this.child("fdbReferencia").setFilter(filtroReferencia);
+        var filtroReferencia:String = this.iface.dameFiltroReferencia();
+        this.child("fdbReferencia").setFilter(filtroReferencia);
 }
 
 /** \C
@@ -134,24 +136,25 @@ Los campos calculados de este formulario son los mismos que los del formulario d
 \end */
 function interna_calculateField(fN:String):String
 {
-		return formRecordlineaspedidoscli.iface.pub_commonCalculateField(fN, this.cursor());
+                return formRecordlineaspedidoscli.iface.pub_commonCalculateField(fN, this.cursor());
 }
 
 /** \D Función a sobrecargar
 \end */
 function interna_validateForm():Boolean
 {
-	return true;
+        return true;
 }
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
 
 /** @class_definition oficial */
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 function oficial_desconectar()
 {
-		disconnect(this.cursor(), "bufferChanged(QString)", this, "iface.bufferChanged");
+                disconnect(this.cursor(), "bufferChanged(QString)", this, "iface.bufferChanged");
 }
 
 /** \C
@@ -159,12 +162,12 @@ Las dependencias entre controles de este formulario son las mismas que las del f
 \end */
 function oficial_bufferChanged(fN:String)
 {
-		formRecordlineaspedidoscli.iface.pub_commonBufferChanged(fN, form);
+                formRecordlineaspedidoscli.iface.pub_commonBufferChanged(fN, form);
 }
 
 function oficial_dameFiltroReferencia():String
 {
-	return "sevende";
+        return "sevende";
 }
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -174,4 +177,6 @@ function oficial_dameFiltroReferencia():String
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+

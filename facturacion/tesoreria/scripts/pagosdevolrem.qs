@@ -14,7 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
-/** @file */
+/** @ file */
 
 /** @class_declaration interna */
 ////////////////////////////////////////////////////////////////////////////
@@ -27,9 +27,9 @@ class interna {
     var ctx:Object;
     function interna( context ) { this.ctx = context; }
     function init() { this.ctx.interna_init(); }
-	function calculateField(fN:String):String {
-		return this.ctx.interna_calculateField(fN);
-	}
+        function calculateField(fN:String):String {
+                return this.ctx.interna_calculateField(fN);
+        }
 }
 //// INTERNA /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -39,12 +39,12 @@ class interna {
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
     var ejercicioActual:String;
-	var contabActivada:Boolean;
-	var noGenAsiento:Boolean;
-	function oficial( context ) { interna( context ); }
-	function bufferChanged(fN:String) {
-		return this.ctx.oficial_bufferChanged(fN);
-	}
+        var contabActivada:Boolean;
+        var noGenAsiento:Boolean;
+        function oficial( context ) { interna( context ); }
+        function bufferChanged(fN:String) {
+                return this.ctx.oficial_bufferChanged(fN);
+        }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -65,9 +65,11 @@ class ifaceCtx extends head {
     function ifaceCtx( context ) { head( context ); }
 }
 
-const iface = new ifaceCtx( this );
+
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
+const iface = new ifaceCtx( this );
 
 /** @class_definition interna */
 ////////////////////////////////////////////////////////////////////////////
@@ -80,48 +82,49 @@ const iface = new ifaceCtx( this );
 \end */
 function interna_init()
 {
-	var util:FLUtil = new FLUtil();
-	var cursor:FLSqlCursor = this.cursor();
-	this.iface.noGenAsiento = false;
+        var util:FLUtil = new FLUtil();
+        var cursor:FLSqlCursor = this.cursor();
+        this.iface.noGenAsiento = false;
 
-	connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
+        connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
 
-	this.iface.contabActivada = sys.isLoadedModule("flcontppal") && util.sqlSelect("empresa", "contintegrada", "1 = 1");
-	this.iface.ejercicioActual = flfactppal.iface.pub_ejercicioActual();
-	if (!this.iface.contabActivada) {
-		this.child("tbwPagDevProv").setTabEnabled("contabilidad", false);
-	}
+        this.iface.contabActivada = sys.isLoadedModule("flcontppal") && util.sqlSelect("empresa", "contintegrada", "1 = 1");
+        this.iface.ejercicioActual = flfactppal.iface.pub_ejercicioActual();
+        if (!this.iface.contabActivada) {
+                this.child("tbwPagDevProv").setTabEnabled("contabilidad", false);
+        }
 
-	this.child("fdbTipo").setDisabled(true);
-	this.child("fdbTipo").setValue("Pago");
+        this.child("fdbTipo").setDisabled(true);
+        this.child("fdbTipo").setValue("Pago");
 }
 
 function interna_calculateField(fN:String):String
 {
-	var util:FLUtil = new FLUtil();
-	var cursor:FLSqlCursor = this.cursor();
-	var valor:String;
-	switch (fN) {
-		default: {
-			valor = false;
-		}
-	}
-	return valor;
+        var util:FLUtil = new FLUtil();
+        var cursor:FLSqlCursor = this.cursor();
+        var valor:String;
+        switch (fN) {
+                default: {
+                        valor = false;
+                }
+        }
+        return valor;
 }
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
 
 /** @class_definition oficial */
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 function oficial_bufferChanged(fN:String)
 {
-	var cursor:FLSqlCursor = this.cursor();
-	switch (fN) {
-		default: {
-			
-		}
-	}
+        var cursor:FLSqlCursor = this.cursor();
+        switch (fN) {
+                default: {
+
+                }
+        }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -139,3 +142,4 @@ function oficial_bufferChanged(fN:String)
 
 //// INTERFACE  /////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
+

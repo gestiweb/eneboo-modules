@@ -36,16 +36,16 @@ class interna {
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
-    function oficial( context ) { interna( context ); } 
-	function lanzar() {
-		return this.ctx.oficial_lanzar();
-	}
-	function obtenerParamInforme():Array {
-		return this.ctx.oficial_obtenerParamInforme();
-	}
-	function facturaRectificada(nodo:FLDomNode, campo:String):String {
-		return this.ctx.oficial_facturaRectificada(nodo,campo);
-	}
+    function oficial( context ) { interna( context ); }
+        function lanzar() {
+                return this.ctx.oficial_lanzar();
+        }
+        function obtenerParamInforme():Array {
+                return this.ctx.oficial_obtenerParamInforme();
+        }
+        function facturaRectificada(nodo:FLDomNode, campo:String):String {
+                return this.ctx.oficial_facturaRectificada(nodo,campo);
+        }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -64,14 +64,16 @@ class head extends oficial {
 //// INTERFACE  /////////////////////////////////////////////////
 class ifaceCtx extends head {
     function ifaceCtx( context ) { head( context ); }
-	function pub_facturaRectificada(nodo:FLDomNode, campo:String):String {
-		return this.facturaRectificada(nodo, campo);
-	}
+        function pub_facturaRectificada(nodo:FLDomNode, campo:String):String {
+                return this.facturaRectificada(nodo, campo);
+        }
 }
 
-const iface = new ifaceCtx( this );
+
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
+const iface = new ifaceCtx( this );
 
 /** @class_definition interna */
 ////////////////////////////////////////////////////////////////////////////
@@ -82,102 +84,103 @@ const iface = new ifaceCtx( this );
 //// INTERNA /////////////////////////////////////////////////////
 function interna_init()
 {
-	connect (this.child("toolButtonPrint"), "clicked()", this, "iface.lanzar()");
+        connect (this.child("toolButtonPrint"), "clicked()", this, "iface.lanzar()");
 }
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
 
 /** @class_definition oficial */
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 function oficial_lanzar()
 {
-	var cursor:FLSqlCursor = this.cursor();
-	var pI = this.iface.obtenerParamInforme();
-	if (!pI) {
-		return;
-	}
+        var cursor:FLSqlCursor = this.cursor();
+        var pI = this.iface.obtenerParamInforme();
+        if (!pI) {
+                return;
+        }
 
-	flfactinfo.iface.pub_lanzarInforme(cursor, pI.nombreInforme, pI.orderBy, "", false, false, pI.whereFijo);
+        flfactinfo.iface.pub_lanzarInforme(cursor, pI.nombreInforme, pI.orderBy, "", false, false, pI.whereFijo);
 }
 
 /** \D Obtiene un array con los parámetros necesarios para establecer el informe
-@return	array de parámetros o false si hay error
+@return        array de parámetros o false si hay error
 \end */
 function oficial_obtenerParamInforme():Array
 {
-	var paramInforme:Array = [];
-	paramInforme["nombreInforme"] = false;
-	paramInforme["orderBy"] = false;
-	paramInforme["groupBy"] = false;
-	paramInforme["etiquetas"] = false;
-	paramInforme["impDirecta"] = false;
-	paramInforme["whereFijo"] = false;
-	paramInforme["nombreReport"] = false;
-	paramInforme["numCopias"] = false;
+        var paramInforme:Array = [];
+        paramInforme["nombreInforme"] = false;
+        paramInforme["orderBy"] = false;
+        paramInforme["groupBy"] = false;
+        paramInforme["etiquetas"] = false;
+        paramInforme["impDirecta"] = false;
+        paramInforme["whereFijo"] = false;
+        paramInforme["nombreReport"] = false;
+        paramInforme["numCopias"] = false;
 
-	var cursor:FLSqlCursor = this.cursor();
-	var seleccion:String = cursor.valueBuffer("id");
-	if (!seleccion)
-		return false;
-	paramInforme.nombreInforme = cursor.action();
-	paramInforme.orderBy = "";
-	var o:String = "";
-	for (var i:Number = 1; i < 3; i++) {
-		o = formi_albaranescli.iface.pub_obtenerOrden(i, cursor, "facturascli");
-		if (o) {
-			if (paramInforme.orderBy == "")
-				paramInforme.orderBy = o;
-			else
-				paramInforme.orderBy += ", " + o;
-		}
-	}
-	
-	if(paramInforme.nombreInforme != "i_resfacturascli") {
-		if (paramInforme.orderBy)
-			paramInforme.orderBy += ",";
-		paramInforme.orderBy += " lineasfacturascli.idalbaran, lineasfacturascli.referencia, lineasfacturascli.idlinea";
-	}
-	
-	if (cursor.valueBuffer("codintervalo")) {
-		var intervalo:Array = [];
-		intervalo = flfactppal.iface.pub_calcularIntervalo(cursor.valueBuffer("codintervalo"));
-		cursor.setValueBuffer("d_facturascli_fecha", intervalo.desde);
-		cursor.setValueBuffer("h_facturascli_fecha", intervalo.hasta);
-	}
+        var cursor:FLSqlCursor = this.cursor();
+        var seleccion:String = cursor.valueBuffer("id");
+        if (!seleccion)
+                return false;
+        paramInforme.nombreInforme = cursor.action();
+        paramInforme.orderBy = "";
+        var o:String = "";
+        for (var i:Number = 1; i < 3; i++) {
+                o = formi_albaranescli.iface.pub_obtenerOrden(i, cursor, "facturascli");
+                if (o) {
+                        if (paramInforme.orderBy == "")
+                                paramInforme.orderBy = o;
+                        else
+                                paramInforme.orderBy += ", " + o;
+                }
+        }
 
-	var where:String = "";
-	if (cursor.valueBuffer("deabono")) {
-		where = "facturascli.deabono";
-	}
-	if (cursor.valueBuffer("filtrarimportes")) {
-		if (!cursor.isNull("desdeimporte")) {
-			if (where != "") {
-				where += " AND ";
-			}
-			where += "facturascli.total >= " + cursor.valueBuffer("desdeimporte");
-		}
-		if (!cursor.isNull("hastaimporte")) {
-			if (where != "") {
-				where += " AND ";
-			}
-			where += "facturascli.total <= " + cursor.valueBuffer("hastaimporte");
-		}
-	}
-	paramInforme.whereFijo = where;
-	
-	return paramInforme;
+        if(paramInforme.nombreInforme != "i_resfacturascli") {
+                if (paramInforme.orderBy)
+                        paramInforme.orderBy += ",";
+                paramInforme.orderBy += " lineasfacturascli.idalbaran, lineasfacturascli.referencia, lineasfacturascli.idlinea";
+        }
+
+        if (cursor.valueBuffer("codintervalo")) {
+                var intervalo:Array = [];
+                intervalo = flfactppal.iface.pub_calcularIntervalo(cursor.valueBuffer("codintervalo"));
+                cursor.setValueBuffer("d_facturascli_fecha", intervalo.desde);
+                cursor.setValueBuffer("h_facturascli_fecha", intervalo.hasta);
+        }
+
+        var where:String = "";
+        if (cursor.valueBuffer("deabono")) {
+                where = "facturascli.deabono";
+        }
+        if (cursor.valueBuffer("filtrarimportes")) {
+                if (!cursor.isNull("desdeimporte")) {
+                        if (where != "") {
+                                where += " AND ";
+                        }
+                        where += "facturascli.total >= " + cursor.valueBuffer("desdeimporte");
+                }
+                if (!cursor.isNull("hastaimporte")) {
+                        if (where != "") {
+                                where += " AND ";
+                        }
+                        where += "facturascli.total <= " + cursor.valueBuffer("hastaimporte");
+                }
+        }
+        paramInforme.whereFijo = where;
+
+        return paramInforme;
 }
 
 function oficial_facturaRectificada(nodo:FLDomNode, campo:String):String
 {
-	var util:FLUtil = new FLUtil;
-	var idFacturaRect:String = nodo.attributeValue("facturascli.idfacturarect");
-	var coFacturaRect:String = util.sqlSelect("facturascli", "codigo", "idfactura = " + idFacturaRect);
-	if (coFacturaRect)
-		return util.translate("scripts", "**** Rectifica a la factura %1 ****").arg(coFacturaRect);
-	else
-		return "";
+        var util:FLUtil = new FLUtil;
+        var idFacturaRect:String = nodo.attributeValue("facturascli.idfacturarect");
+        var coFacturaRect:String = util.sqlSelect("facturascli", "codigo", "idfactura = " + idFacturaRect);
+        if (coFacturaRect)
+                return util.translate("scripts", "**** Rectifica a la factura %1 ****").arg(coFacturaRect);
+        else
+                return "";
 }
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -188,3 +191,4 @@ function oficial_facturaRectificada(nodo:FLDomNode, campo:String):String
 
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
