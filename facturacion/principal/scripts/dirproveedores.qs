@@ -16,43 +16,41 @@
 
 /** @file */
 
-
+/** @class_declaration interna */
 ////////////////////////////////////////////////////////////////////////////
 //// DECLARACION ///////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
 
-/** @class_declaration interna */
 //////////////////////////////////////////////////////////////////
 //// INTERNA /////////////////////////////////////////////////////
 class interna {
     var ctx:Object;
     function interna( context ) { this.ctx = context; }
     function init() {
-		this.ctx.interna_init();
-	}
-	function calculateField(fN:String):String {
-		return this.ctx.interna_calculateField(fN);
-	}
-	function validateForm():Boolean {
-		return this.ctx.interna_validateForm();
-	}
+                this.ctx.interna_init();
+        }
+        function calculateField(fN:String):String {
+                return this.ctx.interna_calculateField(fN);
+        }
+        function validateForm():Boolean {
+                return this.ctx.interna_validateForm();
+        }
 }
 //// INTERNA /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
-/** @class_declaration oficial */
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
-
+/** @class_declaration oficial */
 class oficial extends interna {
     var bloqueoProvincia:Boolean = false;
     function oficial( context ) { interna( context ); }
-	function bufferChanged(fN:String) {
-		return this.ctx.oficial_bufferChanged(fN);
-	}
-	function comprobarProvincia():Boolean {
-		return this.ctx.oficial_comprobarProvincia();
-	}
+        function bufferChanged(fN:String) {
+                return this.ctx.oficial_bufferChanged(fN);
+        }
+        function comprobarProvincia():Boolean {
+                return this.ctx.oficial_comprobarProvincia();
+        }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -73,113 +71,90 @@ class ifaceCtx extends head {
     function ifaceCtx( context ) { head( context ); }
 }
 
-const iface = new ifaceCtx( this );
+
 //// INTERFACE  /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+const iface = new ifaceCtx( this );
 
+/** @class_definition interna */
 ////////////////////////////////////////////////////////////////////////////
 //// DEFINICION ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
 
-/** @class_definition interna */
 //////////////////////////////////////////////////////////////////
 //// INTERNA /////////////////////////////////////////////////////
 /** \C Si en la tabla de direcciones de proveedores no hay todavía ninguna dirección asociada al proveedor, la primera dirección introducida se tomará como dirección principal
 \end */
 function interna_init()
 {
-	var cursor:FLSqlCursor = this.cursor();
-	if (cursor.modeAccess() == cursor.Insert) {
-		var cursorProv:FLSqlCursor = new FLSqlCursor("dirproveedores");
-		cursorProv.select("codproveedor = '" + cursor.valueBuffer("codproveedor") + "'");
-		if (!cursorProv.first())
-			cursor.setValueBuffer("direccionppal", "true");
-	}
-	connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
+        var cursor:FLSqlCursor = this.cursor();
+        if (cursor.modeAccess() == cursor.Insert) {
+                var cursorProv:FLSqlCursor = new FLSqlCursor("dirproveedores");
+                cursorProv.select("codproveedor = '" + cursor.valueBuffer("codproveedor") + "'");
+                if (!cursorProv.first())
+                        cursor.setValueBuffer("direccionppal", "true");
+        }
+        connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
 }
 
 function interna_calculateField(fN:String):String
 {
-	var util:FLUtil = new FLUtil;
-	var cursor:FLSqlCursor = this.cursor();
-	var valor:String;
+        var util:FLUtil = new FLUtil;
+        var cursor:FLSqlCursor = this.cursor();
+        var valor:String;
 
-	return valor;
+        return valor;
 }
 
 function interna_validateForm():Boolean
 {
-	var util:FLUtil = new FLUtil;
-	var cursor:FLSqlCursor = this.cursor();
-	
-	if (!this.iface.comprobarProvincia()) {
-		return false;
-	}
+        var util:FLUtil = new FLUtil;
+        var cursor:FLSqlCursor = this.cursor();
 
-	return true;
-	
+        if (!this.iface.comprobarProvincia()) {
+                return false;
+        }
+
+        return true;
+
 }
 
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
 
 /** @class_definition oficial */
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 function oficial_bufferChanged(fN:String)
 {
-	var util:FLUtil = new FLUtil();
-	var cursor:FLSqlCursor = this.cursor();
+        var util:FLUtil = new FLUtil();
+        var cursor:FLSqlCursor = this.cursor();
 
-	var cursor:FLSqlCursor = this.cursor();
-	switch (fN) {
-		case "provincia": {
-			if (!this.iface.bloqueoProvincia) {
-				this.iface.bloqueoProvincia = true;
-				flfactppal.iface.pub_obtenerProvincia(this);
-				this.iface.bloqueoProvincia = false;
-			}
-			break;
-		}
-		case "idprovincia": {
-			if (cursor.valueBuffer("idprovincia") == 0) {
-				cursor.setNull("idprovincia");
-			}
-			break;
-		}
-	}
+        var cursor:FLSqlCursor = this.cursor();
+        switch (fN) {
+                case "provincia": {
+                        if (!this.iface.bloqueoProvincia) {
+                                this.iface.bloqueoProvincia = true;
+                                flfactppal.iface.pub_obtenerProvincia(this);
+                                this.iface.bloqueoProvincia = false;
+                        }
+                        break;
+                }
+                case "idprovincia": {
+                        if (cursor.valueBuffer("idprovincia") == 0) {
+                                cursor.setNull("idprovincia");
+                        }
+                        break;
+                }
+        }
 }
-
-/** \D Comprueba si el país es España que el código postal sea el equivalente a la provincia
-\end */
-function oficial_comprobarProvincia():Boolean
-{
-	var util:FLUtil = new FLUtil();
-    var cursor:FLSqlCursor = this.cursor();
-	
-	var codPais:String = cursor.valueBuffer("codpais");
-	var codPostal:String = cursor.valueBuffer("codpostal");
-	var codIso:String = util.sqlSelect("paises", "codiso", "codpais = '" + codPais + "'");
-	var idProvincia:String = cursor.valueBuffer("idprovincia");
-	
-	if (codIso == "ES" && codPostal && codPostal != "" && !cursor.isNull("idprovincia") && idProvincia != 0) {
-		var codPostal2:String = cursor.valueBuffer("codpostal").left(2);
-		var codProvincia:String = util.sqlSelect("provincias", "codigo" , "idprovincia = " + idProvincia);
-		if (codPostal2 != codProvincia) {
-			MessageBox.warning(util.translate("scripts", "El código postal no corresponde a la provincia"), MessageBox.Ok, MessageBox.NoButton);
-			return false;
-		}
-	}
-	return true;
-}
-//// OFICIAL /////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
+
 

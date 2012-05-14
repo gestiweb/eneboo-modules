@@ -1,4 +1,5 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<!DOCTYPE UI>
+<UI version="3.3" stdsetdef="1">
 <class>mastertarifas</class>
 <comment>Acceso general a una tabla.</comment>
 <author>InfoSiAL, S.L.</author>
@@ -107,7 +108,7 @@
                         <enum>NoFocus</enum>
                     </property>
                     <property name="text">
-                        <string></string>
+                        <string/>
                     </property>
                     <property name="iconSet">
                         <iconset>image12200</iconset>
@@ -141,7 +142,7 @@
                         <enum>NoFocus</enum>
                     </property>
                     <property name="text">
-                        <string></string>
+                        <string/>
                     </property>
                     <property name="iconSet">
                         <iconset>image15455</iconset>
@@ -175,7 +176,7 @@
                         <enum>NoFocus</enum>
                     </property>
                     <property name="text">
-                        <string></string>
+                        <string/>
                     </property>
                     <property name="iconSet">
                         <iconset>image32297</iconset>
@@ -209,7 +210,7 @@
                         <enum>NoFocus</enum>
                     </property>
                     <property name="text">
-                        <string></string>
+                        <string/>
                     </property>
                     <property name="iconSet">
                         <iconset>image40664</iconset>
@@ -243,7 +244,7 @@
                         <enum>NoFocus</enum>
                     </property>
                     <property name="text">
-                        <string></string>
+                        <string/>
                     </property>
                     <property name="iconSet">
                         <iconset>image63471</iconset>
@@ -294,7 +295,7 @@
                         <enum>NoFocus</enum>
                     </property>
                     <property name="text">
-                        <string></string>
+                        <string/>
                     </property>
                     <property name="iconSet">
                         <iconset>image30566</iconset>
@@ -369,28 +370,28 @@
         <slot>setDisabled(bool)</slot>
     </connection>
     <connection>
-        <sender>toolButtonInsert</sender>
-        <signal>clicked()</signal>
-        <receiver>tdbTarifas</receiver>
-        <slot>insertRecord()</slot>
-    </connection>
-    <connection>
         <sender>toolButtonEdit</sender>
         <signal>clicked()</signal>
         <receiver>tdbTarifas</receiver>
         <slot>editRecord()</slot>
     </connection>
     <connection>
-        <sender>toolButtonDelete</sender>
+        <sender>toolButtonInsert</sender>
         <signal>clicked()</signal>
         <receiver>tdbTarifas</receiver>
-        <slot>deleteRecord()</slot>
+        <slot>insertRecord()</slot>
     </connection>
     <connection>
         <sender>toolButtonZoom</sender>
         <signal>clicked()</signal>
         <receiver>tdbTarifas</receiver>
         <slot>browseRecord()</slot>
+    </connection>
+    <connection>
+        <sender>toolButtonDelete</sender>
+        <signal>clicked()</signal>
+        <receiver>tdbTarifas</receiver>
+        <slot>deleteRecord()</slot>
     </connection>
     <connection>
         <sender>toolButtonCopy</sender>

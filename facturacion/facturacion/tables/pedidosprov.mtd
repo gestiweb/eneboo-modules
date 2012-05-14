@@ -3,7 +3,6 @@
 	<name>pedidosprov</name>
 	<!--Pedidos de proveedores-->
 	<alias>QT_TRANSLATE_NOOP("MetaData","Pedidos a Proveedores")</alias>
-
 	<field>
 		<name>idpedido</name>
 		<!--Identificador interno de la tabla-->
@@ -19,7 +18,6 @@
 			<card>1M</card>
 		</relation>
 	</field>
-
 	<field>
 		<name>codigo</name>
 		<!--Código del pedido-->
@@ -31,7 +29,6 @@
 		<default>0</default>
 		<editable>false</editable>
 	</field>
-
 	<field>
 		<name>servido</name>
 		<!--Indicador de si el pedido se ha servido total o parcialmente-->
@@ -43,7 +40,6 @@
 		<default>No</default>
 		<editable>false</editable>
 	</field>
-
 	<field>
 		<name>editable</name>
 		<!--Indica si el pedido puede ser modificado-->
@@ -54,7 +50,6 @@
 		<default>true</default>
 		<visiblegrid>true</visiblegrid>
 	</field>
-
 	<field>
 		<name>fecha</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
@@ -62,7 +57,6 @@
 		<pk>false</pk>
 		<type>date</type>
 	</field>
-
 	<field>
 		<name>nombre</name>
 		<!--Nombre del proveedor-->
@@ -72,7 +66,6 @@
 		<type>string</type>
 		<length>100</length>
 	</field>
-
 	<field>
 		<name>cifnif</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","C.I.F./N.I.F")</alias>
@@ -81,7 +74,6 @@
 		<type>string</type>
 		<length>20</length>
 	</field>
-
 	<field>
 		<name>total</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Total")</alias>
@@ -93,7 +85,6 @@
 		<default>0</default>
 		<editable>false</editable>
 	</field>
-
 	<field>
 		<name>codproveedor</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Proveedor")</alias>
@@ -108,7 +99,6 @@
 			<card>M1</card>
 		</relation>
 	</field>
-
 	<field>
 		<name>observaciones</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Observaciones")</alias>
@@ -116,7 +106,6 @@
 		<pk>false</pk>
 		<type>stringlist</type>
 	</field>
-
 	<field>
 		<name>numproveedor</name>
 		<!--Número asignado al pedido por el proveedor-->
@@ -126,7 +115,6 @@
 		<type>string</type>
 		<length>12</length>
 	</field>
-
 	<field>
 		<name>coddivisa</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Divisa")</alias>
@@ -141,7 +129,6 @@
 			<card>M1</card>
 		</relation>
 	</field>
-
 	<field>
 		<name>recfinanciero</name>
 		<!--Recargo financiero-->
@@ -153,7 +140,6 @@
 		<partD>2</partD>
 		<default>0</default>
 	</field>
-
 	<field>
 		<name>neto</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Neto")</alias>
@@ -165,7 +151,6 @@
 		<default>0</default>
 		<editable>false</editable>
 	</field>
-
 	<field>
 		<name>totaliva</name>
 		<!--Total de IVA-->
@@ -178,7 +163,6 @@
 		<default>0</default>
 		<editable>false</editable>
 	</field>
-
 	<field>
 		<name>totalrecargo</name>
 		<!--Total de recargo de equivalencia-->
@@ -191,8 +175,6 @@
 		<default>0</default>
 		<editable>false</editable>
 	</field>
-
-
 	<field>
 		<name>totaleuros</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Valor en euros")</alias>
@@ -204,7 +186,6 @@
 		<default>0</default>
 		<editable>false</editable>
 	</field>
-
 	<field>
 		<name>codpago</name>
 		<!--Forma de pago-->
@@ -220,7 +201,6 @@
 			<card>M1</card>
 		</relation>
 	</field>
-
 	<field>
 		<name>codalmacen</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Almacén")</alias>
@@ -235,7 +215,6 @@
 			<card>M1</card>
 		</relation>
 	</field>
-
 	<field>
 		<name>tasaconv</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Tasa de conversión")</alias>
@@ -245,7 +224,6 @@
 		<partI>6</partI>
 		<partD>3</partD>
 	</field>
-
 	<field>
 		<name>codejercicio</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
@@ -262,7 +240,6 @@
 			<card>M1</card>
 		</relation>
 	</field>
-
 	<field>
 		<name>codserie</name>
 		<!--Serie de facturación-->
@@ -279,7 +256,6 @@
 			<card>M1</card>
 		</relation>
 	</field>
-
 	<field>
 		<name>numero</name>
 		<!--Número secuencial relativo a la serie de facturación asociado al pedido-->
@@ -293,7 +269,6 @@
 		<editable>false</editable>
 		<visiblegrid>false</visiblegrid>
 	</field>
-	
 	<field>
 		<name>totalirpf</name>
 		<!--Total de IRPF-->
@@ -306,7 +281,6 @@
 		<default>0</default>
 		<editable>false</editable>
 	</field>
-	
 	<field>
 		<name>irpf</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","% IRPF")</alias>
@@ -317,5 +291,13 @@
 		<partD>2</partD>
 		<editable>false</editable>
 	</field>
-
+	<field>
+		<name>fechaentrada</name>
+		<!--Fecha prevista de recepción del pedido-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","F. Entrada")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
 </TMD>
+
