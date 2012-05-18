@@ -1,5 +1,4 @@
-<!DOCTYPE UI>
-<UI version="3.3" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>formFacturasCli</class>
 <widget class="QWidget">
     <property name="name">
@@ -68,8 +67,8 @@
                     </property>
                     <property name="minimumSize">
                         <size>
-                            <width>82</width>
-                            <height>23</height>
+                            <width>26</width>
+                            <height>22</height>
                         </size>
                     </property>
                     <property name="paletteForegroundColor">
@@ -119,8 +118,8 @@
                     </property>
                     <property name="minimumSize">
                         <size>
-                            <width>108</width>
-                            <height>23</height>
+                            <width>26</width>
+                            <height>22</height>
                         </size>
                     </property>
                     <property name="fieldName">
@@ -141,8 +140,8 @@
                     </property>
                     <property name="minimumSize">
                         <size>
-                            <width>67</width>
-                            <height>23</height>
+                            <width>4</width>
+                            <height>21</height>
                         </size>
                     </property>
                     <property name="fieldName">
@@ -169,8 +168,8 @@
                     </property>
                     <property name="minimumSize">
                         <size>
-                            <width>84</width>
-                            <height>23</height>
+                            <width>26</width>
+                            <height>22</height>
                         </size>
                     </property>
                     <property name="fieldName">
@@ -194,7 +193,7 @@
                         </size>
                     </property>
                     <property name="text">
-                        <string/>
+                        <string></string>
                     </property>
                     <property name="accel">
                         <string>Alt+R</string>
@@ -238,11 +237,343 @@
                 <attribute name="title">
                     <string>&amp;Cliente</string>
                 </attribute>
-                <vbox>
+                <grid>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="QGroupBox">
+                    <widget class="QGroupBox" row="1" column="0">
+                        <property name="name">
+                            <cstring>groupBox30</cstring>
+                        </property>
+                        <property name="font">
+                            <font>
+                                <bold>0</bold>
+                            </font>
+                        </property>
+                        <property name="title">
+                            <string></string>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>layoutDir1</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="FLFieldDB">
+                                        <property name="name">
+                                            <cstring>fdbCodDir</cstring>
+                                        </property>
+                                        <property name="minimumSize">
+                                            <size>
+                                                <width>24</width>
+                                                <height>22</height>
+                                            </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                            <size>
+                                                <width>79</width>
+                                                <height>32767</height>
+                                            </size>
+                                        </property>
+                                        <property name="fieldName">
+                                            <string>coddir</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="FLFieldDB">
+                                        <property name="name">
+                                            <cstring>fdbDireccion</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="minimumSize">
+                                            <size>
+                                                <width>12</width>
+                                                <height>23</height>
+                                            </size>
+                                        </property>
+                                        <property name="fieldName">
+                                            <string>direccion</string>
+                                        </property>
+                                        <property name="foreignField">
+                                            <string>direccion</string>
+                                        </property>
+                                        <property name="fieldRelation">
+                                            <string>coddir</string>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>layoutDir2</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <spacer>
+                                        <property name="name">
+                                            <cstring>spacerDir2</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Fixed</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>79</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                    <widget class="FLFieldDB">
+                                        <property name="name">
+                                            <cstring>fdbCiudad</cstring>
+                                        </property>
+                                        <property name="minimumSize">
+                                            <size>
+                                                <width>12</width>
+                                                <height>23</height>
+                                            </size>
+                                        </property>
+                                        <property name="fieldName">
+                                            <string>ciudad</string>
+                                        </property>
+                                        <property name="foreignField">
+                                            <string>ciudad</string>
+                                        </property>
+                                        <property name="fieldRelation">
+                                            <string>coddir</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="FLFieldDB">
+                                        <property name="name">
+                                            <cstring>fdbProvincia</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>1</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="minimumSize">
+                                            <size>
+                                                <width>4</width>
+                                                <height>21</height>
+                                            </size>
+                                        </property>
+                                        <property name="fieldName">
+                                            <string>provincia</string>
+                                        </property>
+                                        <property name="tableName">
+                                            <string></string>
+                                        </property>
+                                        <property name="foreignField">
+                                            <string>provincia</string>
+                                        </property>
+                                        <property name="fieldRelation">
+                                            <string>idprovincia</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="FLFieldDB">
+                                        <property name="name">
+                                            <cstring>fdbIdProvincia</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>1</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="minimumSize">
+                                            <size>
+                                                <width>0</width>
+                                                <height>0</height>
+                                            </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                            <size>
+                                                <width>79</width>
+                                                <height>32767</height>
+                                            </size>
+                                        </property>
+                                        <property name="font">
+                                            <font>
+                                            </font>
+                                        </property>
+                                        <property name="focusPolicy">
+                                            <enum>StrongFocus</enum>
+                                        </property>
+                                        <property name="fieldName">
+                                            <string>idprovincia</string>
+                                        </property>
+                                        <property name="foreignField">
+                                            <string>idprovincia</string>
+                                        </property>
+                                        <property name="fieldRelation">
+                                            <string>coddir</string>
+                                        </property>
+                                        <property name="showAlias">
+                                            <bool>false</bool>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>layoutDir3</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <spacer>
+                                        <property name="name">
+                                            <cstring>spacerDir3</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Fixed</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>79</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                    <widget class="FLFieldDB">
+                                        <property name="name">
+                                            <cstring>fdbCodPostal</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="minimumSize">
+                                            <size>
+                                                <width>4</width>
+                                                <height>21</height>
+                                            </size>
+                                        </property>
+                                        <property name="fieldName">
+                                            <string>codpostal</string>
+                                        </property>
+                                        <property name="foreignField">
+                                            <string>codpostal</string>
+                                        </property>
+                                        <property name="fieldRelation">
+                                            <string>coddir</string>
+                                        </property>
+                                    </widget>
+                                    <spacer>
+                                        <property name="name">
+                                            <cstring>spacerCP</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Expanding</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>54</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                    <widget class="FLFieldDB">
+                                        <property name="name">
+                                            <cstring>fdbCodPais</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="minimumSize">
+                                            <size>
+                                                <width>4</width>
+                                                <height>21</height>
+                                            </size>
+                                        </property>
+                                        <property name="fieldName">
+                                            <string>codpais</string>
+                                        </property>
+                                        <property name="foreignField">
+                                            <string>codpais</string>
+                                        </property>
+                                        <property name="fieldRelation">
+                                            <string>idprovincia</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="FLFieldDB">
+                                        <property name="name">
+                                            <cstring>fdbBandera</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="minimumSize">
+                                            <size>
+                                                <width>4</width>
+                                                <height>21</height>
+                                            </size>
+                                        </property>
+                                        <property name="focusPolicy">
+                                            <enum>StrongFocus</enum>
+                                        </property>
+                                        <property name="fieldName">
+                                            <string>bandera</string>
+                                        </property>
+                                        <property name="tableName">
+                                            <string>paises</string>
+                                        </property>
+                                        <property name="foreignField">
+                                            <string>codpais</string>
+                                        </property>
+                                        <property name="fieldRelation">
+                                            <string>codpais</string>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                        </vbox>
+                    </widget>
+                    <widget class="QGroupBox" row="0" column="0">
                         <property name="name">
                             <cstring>groupBox30_2</cstring>
                         </property>
@@ -252,13 +583,13 @@
                             </font>
                         </property>
                         <property name="title">
-                            <string/>
+                            <string></string>
                         </property>
-                        <hbox>
+                        <grid>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="FLFieldDB">
+                            <widget class="FLFieldDB" row="0" column="0">
                                 <property name="name">
                                     <cstring>fdbCodCliente</cstring>
                                 </property>
@@ -272,8 +603,8 @@
                                 </property>
                                 <property name="minimumSize">
                                     <size>
-                                        <width>98</width>
-                                        <height>23</height>
+                                        <width>34</width>
+                                        <height>24</height>
                                     </size>
                                 </property>
                                 <property name="maximumSize">
@@ -290,7 +621,7 @@
                                     <string>codcliente</string>
                                 </property>
                             </widget>
-                            <widget class="FLFieldDB">
+                            <widget class="FLFieldDB" row="0" column="1">
                                 <property name="name">
                                     <cstring>fdbNombreCliente</cstring>
                                 </property>
@@ -304,8 +635,8 @@
                                 </property>
                                 <property name="minimumSize">
                                     <size>
-                                        <width>98</width>
-                                        <height>23</height>
+                                        <width>4</width>
+                                        <height>21</height>
                                     </size>
                                 </property>
                                 <property name="font">
@@ -322,7 +653,7 @@
                                     <string>codcliente</string>
                                 </property>
                             </widget>
-                            <widget class="FLFieldDB">
+                            <widget class="FLFieldDB" row="0" column="2">
                                 <property name="name">
                                     <cstring>fdbCifNif</cstring>
                                 </property>
@@ -336,8 +667,8 @@
                                 </property>
                                 <property name="minimumSize">
                                     <size>
-                                        <width>45</width>
-                                        <height>23</height>
+                                        <width>4</width>
+                                        <height>21</height>
                                     </size>
                                 </property>
                                 <property name="maximumSize">
@@ -360,9 +691,9 @@
                                     <string>codcliente</string>
                                 </property>
                             </widget>
-                        </hbox>
+                        </grid>
                     </widget>
-                </vbox>
+                </grid>
             </widget>
             <widget class="QWidget">
                 <property name="name">
@@ -419,8 +750,8 @@
                                         </property>
                                         <property name="minimumSize">
                                             <size>
-                                                <width>80</width>
-                                                <height>25</height>
+                                                <width>25</width>
+                                                <height>22</height>
                                             </size>
                                         </property>
                                         <property name="maximumSize">
@@ -447,8 +778,8 @@
                                         </property>
                                         <property name="minimumSize">
                                             <size>
-                                                <width>75</width>
-                                                <height>25</height>
+                                                <width>25</width>
+                                                <height>22</height>
                                             </size>
                                         </property>
                                         <property name="maximumSize">
@@ -485,8 +816,8 @@
                                         </property>
                                         <property name="minimumSize">
                                             <size>
-                                                <width>113</width>
-                                                <height>23</height>
+                                                <width>25</width>
+                                                <height>22</height>
                                             </size>
                                         </property>
                                         <property name="fieldName">
@@ -545,8 +876,8 @@
                                         </property>
                                         <property name="minimumSize">
                                             <size>
-                                                <width>109</width>
-                                                <height>23</height>
+                                                <width>25</width>
+                                                <height>22</height>
                                             </size>
                                         </property>
                                         <property name="fieldName">
@@ -567,8 +898,8 @@
                                         </property>
                                         <property name="minimumSize">
                                             <size>
-                                                <width>18</width>
-                                                <height>23</height>
+                                                <width>22</width>
+                                                <height>22</height>
                                             </size>
                                         </property>
                                         <property name="fieldName">
@@ -611,8 +942,8 @@
                                         </property>
                                         <property name="minimumSize">
                                             <size>
-                                                <width>68</width>
-                                                <height>23</height>
+                                                <width>25</width>
+                                                <height>22</height>
                                             </size>
                                         </property>
                                         <property name="fieldName">
@@ -639,8 +970,8 @@
                                         </property>
                                         <property name="minimumSize">
                                             <size>
-                                                <width>18</width>
-                                                <height>23</height>
+                                                <width>22</width>
+                                                <height>22</height>
                                             </size>
                                         </property>
                                         <property name="fieldName">
@@ -684,7 +1015,7 @@
                                     </font>
                                 </property>
                                 <property name="title">
-                                    <string/>
+                                    <string></string>
                                 </property>
                                 <vbox>
                                     <property name="name">
@@ -712,8 +1043,8 @@
                                                 </property>
                                                 <property name="minimumSize">
                                                     <size>
-                                                        <width>78</width>
-                                                        <height>23</height>
+                                                        <width>25</width>
+                                                        <height>22</height>
                                                     </size>
                                                 </property>
                                                 <property name="fieldName">
@@ -732,8 +1063,8 @@
                                                 </property>
                                                 <property name="minimumSize">
                                                     <size>
-                                                        <width>70</width>
-                                                        <height>23</height>
+                                                        <width>25</width>
+                                                        <height>22</height>
                                                     </size>
                                                 </property>
                                                 <property name="fieldName">
@@ -766,7 +1097,7 @@
                                                     </size>
                                                 </property>
                                                 <property name="text">
-                                                    <string/>
+                                                    <string></string>
                                                 </property>
                                                 <property name="iconSet">
                                                     <iconset>image38276</iconset>
@@ -819,8 +1150,8 @@
                                                 </property>
                                                 <property name="minimumSize">
                                                     <size>
-                                                        <width>109</width>
-                                                        <height>23</height>
+                                                        <width>25</width>
+                                                        <height>22</height>
                                                     </size>
                                                 </property>
                                                 <property name="fieldName">
@@ -914,7 +1245,7 @@
                                     </font>
                                 </property>
                                 <property name="title">
-                                    <string/>
+                                    <string></string>
                                 </property>
                                 <vbox>
                                     <property name="name">
@@ -942,8 +1273,8 @@
                                                 </property>
                                                 <property name="minimumSize">
                                                     <size>
-                                                        <width>72</width>
-                                                        <height>23</height>
+                                                        <width>25</width>
+                                                        <height>22</height>
                                                     </size>
                                                 </property>
                                                 <property name="fieldName">
@@ -970,8 +1301,8 @@
                                                 </property>
                                                 <property name="minimumSize">
                                                     <size>
-                                                        <width>66</width>
-                                                        <height>23</height>
+                                                        <width>25</width>
+                                                        <height>22</height>
                                                     </size>
                                                 </property>
                                                 <property name="fieldName">
@@ -1028,15 +1359,15 @@
                                                 </property>
                                                 <property name="minimumSize">
                                                     <size>
-                                                        <width>69</width>
-                                                        <height>23</height>
+                                                        <width>25</width>
+                                                        <height>22</height>
                                                     </size>
                                                 </property>
                                                 <property name="fieldName">
                                                     <string>tasaconv</string>
                                                 </property>
                                                 <property name="tableName">
-                                                    <string/>
+                                                    <string></string>
                                                 </property>
                                                 <property name="foreignField">
                                                     <string>tasaconv</string>
@@ -1076,8 +1407,8 @@
                                                 </property>
                                                 <property name="minimumSize">
                                                     <size>
-                                                        <width>96</width>
-                                                        <height>23</height>
+                                                        <width>25</width>
+                                                        <height>22</height>
                                                     </size>
                                                 </property>
                                                 <property name="fieldName">
@@ -1122,7 +1453,7 @@
                                     </size>
                                 </property>
                                 <property name="text">
-                                    <string/>
+                                    <string></string>
                                 </property>
                                 <property name="iconSet">
                                     <iconset>image57526</iconset>
@@ -1231,7 +1562,7 @@
                             </size>
                         </property>
                         <property name="title">
-                            <string/>
+                            <string></string>
                         </property>
                         <hbox>
                             <property name="name">
@@ -1251,7 +1582,7 @@
                                 </property>
                                 <property name="minimumSize">
                                     <size>
-                                        <width>24</width>
+                                        <width>25</width>
                                         <height>22</height>
                                     </size>
                                 </property>
@@ -1284,7 +1615,7 @@
                                 </property>
                                 <property name="minimumSize">
                                     <size>
-                                        <width>24</width>
+                                        <width>25</width>
                                         <height>22</height>
                                     </size>
                                 </property>
@@ -1320,7 +1651,7 @@
                                 </property>
                                 <property name="minimumSize">
                                     <size>
-                                        <width>24</width>
+                                        <width>25</width>
                                         <height>22</height>
                                     </size>
                                 </property>
@@ -1380,7 +1711,7 @@
                                     <enum>StrongFocus</enum>
                                 </property>
                                 <property name="text">
-                                    <string/>
+                                    <string></string>
                                 </property>
                                 <property name="iconSet">
                                     <iconset>image53321</iconset>
@@ -1402,7 +1733,7 @@
                                     </font>
                                 </property>
                                 <property name="text">
-                                    <string/>
+                                    <string></string>
                                 </property>
                             </widget>
                             <spacer>
@@ -1472,7 +1803,7 @@
                                 </property>
                                 <property name="minimumSize">
                                     <size>
-                                        <width>24</width>
+                                        <width>25</width>
                                         <height>22</height>
                                     </size>
                                 </property>
@@ -1528,7 +1859,7 @@
                                 </property>
                                 <property name="minimumSize">
                                     <size>
-                                        <width>24</width>
+                                        <width>25</width>
                                         <height>22</height>
                                     </size>
                                 </property>
@@ -1584,7 +1915,7 @@
                                 </property>
                                 <property name="minimumSize">
                                     <size>
-                                        <width>24</width>
+                                        <width>25</width>
                                         <height>22</height>
                                     </size>
                                 </property>
@@ -1600,13 +1931,13 @@
                                     <string>nogenerarasiento</string>
                                 </property>
                                 <property name="tableName">
-                                    <string/>
+                                    <string></string>
                                 </property>
                                 <property name="foreignField">
-                                    <string/>
+                                    <string></string>
                                 </property>
                                 <property name="fieldRelation">
-                                    <string/>
+                                    <string></string>
                                 </property>
                             </widget>
                             <spacer>
@@ -1706,8 +2037,8 @@
                     </property>
                     <property name="minimumSize">
                         <size>
-                            <width>66</width>
-                            <height>23</height>
+                            <width>26</width>
+                            <height>22</height>
                         </size>
                     </property>
                     <property name="font">
@@ -1732,8 +2063,8 @@
                     </property>
                     <property name="minimumSize">
                         <size>
-                            <width>82</width>
-                            <height>23</height>
+                            <width>26</width>
+                            <height>22</height>
                         </size>
                     </property>
                     <property name="font">
@@ -1758,8 +2089,8 @@
                     </property>
                     <property name="minimumSize">
                         <size>
-                            <width>81</width>
-                            <height>23</height>
+                            <width>26</width>
+                            <height>22</height>
                         </size>
                     </property>
                     <property name="font">
@@ -1801,8 +2132,8 @@
                     </property>
                     <property name="minimumSize">
                         <size>
-                            <width>107</width>
-                            <height>23</height>
+                            <width>26</width>
+                            <height>22</height>
                         </size>
                     </property>
                     <property name="font">
@@ -1844,8 +2175,8 @@
                     </property>
                     <property name="minimumSize">
                         <size>
-                            <width>66</width>
-                            <height>22</height>
+                            <width>26</width>
+                            <height>25</height>
                         </size>
                     </property>
                     <property name="font">
@@ -1929,7 +2260,7 @@
                                         <enum>NoFocus</enum>
                                     </property>
                                     <property name="text">
-                                        <string/>
+                                        <string></string>
                                     </property>
                                     <property name="iconSet">
                                         <iconset>image64308</iconset>
@@ -1963,7 +2294,7 @@
                                         <enum>NoFocus</enum>
                                     </property>
                                     <property name="text">
-                                        <string/>
+                                        <string></string>
                                     </property>
                                     <property name="iconSet">
                                         <iconset>image40729</iconset>
@@ -1997,7 +2328,7 @@
                                         <enum>NoFocus</enum>
                                     </property>
                                     <property name="text">
-                                        <string/>
+                                        <string></string>
                                     </property>
                                     <property name="iconSet">
                                         <iconset>image58420</iconset>
@@ -2031,7 +2362,7 @@
                                         <enum>NoFocus</enum>
                                     </property>
                                     <property name="text">
-                                        <string/>
+                                        <string></string>
                                     </property>
                                     <property name="iconSet">
                                         <iconset>image3730</iconset>
@@ -2112,6 +2443,8 @@
         </widget>
     </vbox>
 </widget>
+<customwidgets>
+</customwidgets>
 <images>
     <image name="image23154">
         <data format="PNG" length="2704">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af400000a5749444154789cbd97717093f779c73f92657805864a8993f94decd65aec60ab76c01a64b59a2db5d22cb5e9ae9d74692e76b9742869574c6fe999bb3633bb2dc5dcd63ab4970db7d7ace68e0e7b29207125b5c94211291c320741f61923f930b33c702c9d712d0514eb87fc5acffe102ec99275cbb6ebf79fe7bdf7bdf7fd7e9feff3bccff3bef0bb413160f9b00b45ffcf4445b7c9acc0bd9aa63d505a56bac9c819bf6718c64d60e13fdfb0acca0a94008b80098b766f5979479556122ab397b6dbb004d77a692d0e1afd26f08a32fa17bd99969b7daa370b184aa5963a4adb570e950f95763477940fab61bdfd4fdb7540c7c6ddba53ff4e32999cf830c5cb02567b3fef7dbeb3be735dafea5f6d2fed78104b70a55f1bd00296a0c95f1230052d01d399fa00fd1703e26f18281a4886ac5d8f448a137309745d7fdf43ddb87f733c706c007b99be219d51d52a937efbbfb26ee589974fbc221f1197660af1705864feaac8ae8322274e8978bf2b726954446644e4aa88f7e9add79a5e3cf17ae393db76576ee8febc5662bb6b99d8b41c1b3fd3b42b7c32d4198da7b01b76825752786becf48da568a9b4b3ef7c8294d249a7e3a49483b48a024e948a82e1246b44b05a5c648d08ce4a172d9bb2b43f6e25743c8463d8610c964766bcf5bea9aed77a33c964e33bb1f3db4fc4ce9eec332f0bf05afce5c4c1e9b0e3fe9b015e8ad97177c3beb89dcd3f8aa2299da13188db1c24d351bc554e50a0d539d12c11fc1b5d6816b06f7461d360eb462b5c03cf460f5dc93e1a75df5dba467dcf73fefb6cb6c115ad25fe0660b519c0565a764fd01eba1b8d9bd92c38ca36c34808bb05b812c16e71121c8fa059408d45d070d23f1201408d4450b8e81f89a000c6226040ff185001d1a9088079c7914071db7156bafe2eb42a966cbb77cff8ce11e0dd8203166d8556d3b6d87bac6fde6a85da72a0ca83ca8468ad72a11450e5421911bc1b5ca4006a5c2815a6b5ce050668752e3022b4d6b9482b68a982c804381b5ce836cdb4b3d967aead20dfd1e4298aabf07de9b49a007266003597bc9e3edf938c4dc533d92cec2883f4d800d9120fbdd35128078c145a9d8b602685b51252990429c34dff5b0368801a0ba3e1a2ffb603bd6f657155433c16a5556ba3e7741fd46056a5a9fbb9e97a9b4cf22a902f0830944a689df990b6b33c7805da80ae1736a36f007bb393ac05bc2576526703a44e43ea6c2f5dcd3a580264cb3d28234c6b8dbb50823a172915c55b6965e022386a9d9c2c19c45be5c53e85d9536e3725a7bbae0073707b12566e99f9e69f6c7ff0dba6f5ac3a3794a022b786a3830324a215647ef50ac67405c3d11f63c96dc6301fa5f6513fc5ab534c841d903848f1ea2f70713e8c46052a19415bf110d716523cdf64253a9d60b3fec7a617065fc97feb0b0ff3b7a7a38bc3aff7bfc6fcd49b40deac55edddd0f64dbdbb0dfe3df2d5b6d1bd3ad9be6ab0953a51a97d688ded68d53afa5777a037eb747dc78fdd0683c31a2ad54b5b831f00adc68de24e4f782aecf48d83d3a1c31c6cad6b31f58d4470599d19e6e2170103c04c5562634ca3e8b12fb95e51e3836f0e4ef42dd10454da68f85e3bce7a703e07daf5042a095d3f08103e942075b207fb3ded04a7426029f400b8e91f09a314ec1b8ad3520ee1892c7c0a86a603e6f47597b9eb58ef1c99647c7910994937a662c781127f493a9d3ee6b1b9670762d05e6f27f92f109d80c85ff5123f0289f32f41ca83660de16fda012556d8e001c2b4d6b90b39d5b849a9100d36073b8f80bbda4af44a94cee676537caaa748c56bff0d43cd2e0b2832d2a11b257fb8e3cf71585cac782637b438bc6ecf571eb61b33518287ae9319df8fb6a20dcb9a53acb13f8b610d615de523361f064b0524c36076736e3a84917390990a60316fe64a32407ad649fc7a84a73ef71043636f9806dfaa657ce4f9d7999f7e0d582a34612e7353cd4fa852dff6e692bb2b1e497ffce1127d22b0f4c4e71e2d8a4e9f2336fb15d6d8ad146f74423acc33758f717116a82b907b6bdc44ae82f541070f69217efeb5cd34d4c2cbdf70d2f84094a73efd109c03c7ef3fc8d1b33dc4ce858fa1d2bf0264791798815568b64d68b6fb31a8d9faf581bfecdded284159d1fd01ec253eb084c0e201a350ebac1102e5010278ea7cb43527f034e82426a2e8254efa4e0648a8164967fa6951de7c500b327836f6ebd8a19e6f60a8c3409edbe4022ca0d26f52aa4f57ee89d4e8e543c5145b4183dacffac81a03b4d6780a35ae7293ca0cd056e5c15307f15e1fbd5f074f834e5f7f80c49443fc87faf28e6adf52d26e5df23ee9370637d96f756cf12f250c6d0c439d5b26e7f61806cd069f6a5ddf14957f9d5c9085f9abf2f62f4267722222bbf65f90b227452ab79c90b2a7451a9e3b2c9d3d2267460bbbf852e482ccef17d9b6e7407edb7e59ea7c6372b13b27b9eea8e4264572bba2a216446eed3a3593e391d61f52f8627a0ff60bbc20c5b653b2ebd282bc2322a71b83b2f7c41b322b0b857d5ff6c503d2f46391bd072f144ecc8ac882c8defd07f2674292df76508c4bf3b2d87d59723322b9bd93929b14b9b5ebb2281131e486c881737283aac6e7f800f65c823db2b66cffe43f89c825efa8ec699997ef35bef89351c989484e64e1b2c8ccd53b192f8c8a6cdbbd37dfda23466778b2407ab540de7d9bbc7b526e8948fec2cc82b4f649962f76bc4a4959d507051c15d87de663da297969eba4fcc361911f7847e5efbbc3727457ef61f5de8c0f1c3c9cbff0c6fc52ebcb0716cf4ccae2ae51b9352392ebbe437e6b46e4d62f66c51011e90e8bd4f6cec7a8697a1e8b76ef07c9a188f27a504f60cc4736688fe98bc96934631d72652aa5a6a38e728765786d45ae821d7d3d4bc3c633c6f0ead852c5d34fe4afdd20dfb60ef6c711e313c8f035e4db9fa0e8628a62f7dd981ffd7e606edf3feefee9dc4f9edd49f2cacfc91b990f17f0b59fc16c6089f58f3d904962fbd61fc0c538c55f5a6f55e7e2436b1d37aa577f377a34f7d49ff94dc97bc8b73faacbc4556873405f1c697340e63a45db752c81384573d3bcfbe9bf683f3ef56acf8b8c9feec530e2cbeffc87c1c40b87011f10584f9defe9867aaed7d673bfba460e1b15a923a18dfae39ebc2393bd8f6aab8989acc95b6d2538913575545b2db19b14bbd7606e3b12ce0dbe3618491f0bfe33c9d800f036b717ce6f83853a1f8c05a0ce778924efc41f6749bfc68dad15aced8f33eb6ff6bc1b1cc3ec6db266fb6368adb556d35082e2ae6aeb0a129895c2d03b5fba9c3cce41c6770781cb80fa6d59bfdf81bffe8d0360f1ada72afae5ca279d975d7354a1833a9ff82465fac72bd3a9555df5f6fb866fb2c2b30653fbf148fee4497d3a76ac6d80f1a19fa1d4287093f70d99ff89808302b100d4fae0620036f9b660a1bab699e9da14551d76d6c5e2fc91df8116b8866687a5ed3fea49264edb7e991ed97e884cfa3c90a6f057f591612116008baf2042f3c1f9c0abd87ced3112773536ebe5a9eb59b7a7dc5ab4f9a7a1c5e8586d2279fad9338c858fa84cfa2cf06b20f7bf21bee340500a99d7fbde1b57b2c9b7c59660131524d3dff74f69637a96b93d09a5d40485efb9ff13f11d012f1e2e386004de1f551fd0b616a3ef5dbabfbc74bb9fcd7cc41aff77f80fd1d786d2af2fc9320000000049454e44ae426082</data>
@@ -2231,9 +2564,6 @@
     <includehint>flfielddb.h</includehint>
     <includehint>flfielddb.h</includehint>
     <includehint>flfielddb.h</includehint>
-    <includehint>fltabledb.h</includehint>
-    <includehint>fltabledb.h</includehint>
-    <includehint>fltabledb.h</includehint>
     <includehint>fltabledb.h</includehint>
     <includehint>flfielddb.h</includehint>
     <includehint>flfielddb.h</includehint>

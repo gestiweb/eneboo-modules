@@ -301,8 +301,8 @@ Verifica que los campos --codalmacen--, --coddivisa-- y ..tasaconv-- estén habil
 function oficial_verificarHabilitaciones()
 {
 		var util:FLUtil = new FLUtil();
-		var idLinea:Number = util.sqlSelect("lineaspedidoscli", "idpedido", "idpedido = " + this.cursor().valueBuffer("idpedido"));
-		if (!idLinea) {
+
+		if (!util.sqlSelect("lineaspedidoscli", "idpedido", "idpedido = " + this.cursor().valueBuffer("idpedido"))) {
 				this.child("fdbCodAlmacen").setDisabled(false);
 				this.child("fdbCodDivisa").setDisabled(false);
 				this.child("fdbTasaConv").setDisabled(false);
@@ -311,6 +311,7 @@ function oficial_verificarHabilitaciones()
 				this.child("fdbCodDivisa").setDisabled(true);
 				this.child("fdbTasaConv").setDisabled(true);
 		}
+		
 }
 
 function oficial_mostrarTraza()
