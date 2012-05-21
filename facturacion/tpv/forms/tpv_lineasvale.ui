@@ -1,5 +1,4 @@
-<!DOCTYPE UI>
-<UI version="3.3" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>tpv_lineasvale</class>
 <widget class="QWidget">
     <property name="name">
@@ -24,11 +23,11 @@
     <property name="caption">
         <string>tpv_lineasvale</string>
     </property>
-    <vbox>
+    <grid>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QGroupBox">
+        <widget class="QGroupBox" row="0" column="0">
             <property name="name">
                 <cstring>gbxVale</cstring>
             </property>
@@ -39,7 +38,7 @@
                 </font>
             </property>
             <property name="title">
-                <string/>
+                <string></string>
             </property>
             <hbox>
                 <property name="name">
@@ -59,8 +58,8 @@
                     </property>
                     <property name="minimumSize">
                         <size>
-                            <width>38</width>
-                            <height>24</height>
+                            <width>26</width>
+                            <height>22</height>
                         </size>
                     </property>
                     <property name="font">
@@ -73,10 +72,10 @@
                         <string>refvale</string>
                     </property>
                     <property name="foreignField">
-                        <string/>
+                        <string></string>
                     </property>
                     <property name="fieldRelation">
-                        <string/>
+                        <string></string>
                     </property>
                 </widget>
                 <spacer>
@@ -126,239 +125,7 @@
                 </widget>
             </hbox>
         </widget>
-        <widget class="QGroupBox">
-            <property name="name">
-                <cstring>gbxArticulo</cstring>
-            </property>
-            <property name="font">
-                <font>
-                    <bold>1</bold>
-                    <italic>1</italic>
-                </font>
-            </property>
-            <property name="title">
-                <string>&amp;Artículo</string>
-            </property>
-            <vbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLayoutWidget">
-                    <property name="name">
-                        <cstring>layoutLinea</cstring>
-                    </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="FLFieldDB">
-                            <property name="name">
-                                <cstring>fdbIdLinea</cstring>
-                            </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>1</hsizetype>
-                                    <vsizetype>0</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="minimumSize">
-                                <size>
-                                    <width>24</width>
-                                    <height>22</height>
-                                </size>
-                            </property>
-                            <property name="maximumSize">
-                                <size>
-                                    <width>79</width>
-                                    <height>32767</height>
-                                </size>
-                            </property>
-                            <property name="font">
-                                <font>
-                                    <bold>0</bold>
-                                    <italic>0</italic>
-                                </font>
-                            </property>
-                            <property name="fieldName">
-                                <string>idtpv_linea</string>
-                            </property>
-                            <property name="foreignField">
-                                <string/>
-                            </property>
-                            <property name="fieldRelation">
-                                <string/>
-                            </property>
-                        </widget>
-                        <widget class="FLFieldDB">
-                            <property name="name">
-                                <cstring>fdbReferencia</cstring>
-                            </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>1</hsizetype>
-                                    <vsizetype>0</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="minimumSize">
-                                <size>
-                                    <width>4</width>
-                                    <height>21</height>
-                                </size>
-                            </property>
-                            <property name="font">
-                                <font>
-                                    <bold>0</bold>
-                                    <italic>0</italic>
-                                </font>
-                            </property>
-                            <property name="fieldName">
-                                <string>referencia</string>
-                            </property>
-                            <property name="foreignField">
-                                <string>referencia</string>
-                            </property>
-                            <property name="fieldRelation">
-                                <string>idtpv_linea</string>
-                            </property>
-                        </widget>
-                        <widget class="FLFieldDB">
-                            <property name="name">
-                                <cstring>fdbCantidad</cstring>
-                            </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>1</hsizetype>
-                                    <vsizetype>0</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="minimumSize">
-                                <size>
-                                    <width>4</width>
-                                    <height>21</height>
-                                </size>
-                            </property>
-                            <property name="font">
-                                <font>
-                                    <bold>0</bold>
-                                    <italic>0</italic>
-                                </font>
-                            </property>
-                            <property name="fieldName">
-                                <string>cantidad</string>
-                            </property>
-                            <property name="foreignField">
-                                <string>cantidad</string>
-                            </property>
-                            <property name="fieldRelation">
-                                <string>idtpv_linea</string>
-                            </property>
-                        </widget>
-                        <spacer>
-                            <property name="name">
-                                <cstring>spacerLinea</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>21</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                    </hbox>
-                </widget>
-                <widget class="QLayoutWidget">
-                    <property name="name">
-                        <cstring>layoutDesArticulo</cstring>
-                    </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="FLFieldDB">
-                            <property name="name">
-                                <cstring>fdbDesArticulo</cstring>
-                            </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>1</hsizetype>
-                                    <vsizetype>0</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="minimumSize">
-                                <size>
-                                    <width>4</width>
-                                    <height>21</height>
-                                </size>
-                            </property>
-                            <property name="font">
-                                <font>
-                                    <bold>0</bold>
-                                    <italic>0</italic>
-                                </font>
-                            </property>
-                            <property name="fieldName">
-                                <string>desarticulo</string>
-                            </property>
-                            <property name="foreignField">
-                                <string>descripcion</string>
-                            </property>
-                            <property name="fieldRelation">
-                                <string>referencia</string>
-                            </property>
-                        </widget>
-                        <widget class="FLFieldDB">
-                            <property name="name">
-                                <cstring>fdbPvpTotal</cstring>
-                            </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>1</hsizetype>
-                                    <vsizetype>0</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="minimumSize">
-                                <size>
-                                    <width>26</width>
-                                    <height>22</height>
-                                </size>
-                            </property>
-                            <property name="font">
-                                <font>
-                                    <bold>0</bold>
-                                    <italic>0</italic>
-                                </font>
-                            </property>
-                            <property name="fieldName">
-                                <string>pvptotal</string>
-                            </property>
-                            <property name="foreignField">
-                                <string/>
-                            </property>
-                            <property name="fieldRelation">
-                                <string/>
-                            </property>
-                        </widget>
-                    </hbox>
-                </widget>
-            </vbox>
-        </widget>
-        <widget class="QGroupBox">
+        <widget class="QGroupBox" row="2" column="0">
             <property name="name">
                 <cstring>gbxAlmacen</cstring>
             </property>
@@ -403,10 +170,10 @@
                         <string>codalmacen</string>
                     </property>
                     <property name="foreignField">
-                        <string/>
+                        <string></string>
                     </property>
                     <property name="fieldRelation">
-                        <string/>
+                        <string></string>
                     </property>
                 </widget>
                 <widget class="FLFieldDB">
@@ -465,14 +232,246 @@
                 </spacer>
             </hbox>
         </widget>
-    </vbox>
+        <widget class="QGroupBox" row="1" column="0">
+            <property name="name">
+                <cstring>gbxArticulo</cstring>
+            </property>
+            <property name="font">
+                <font>
+                    <bold>1</bold>
+                    <italic>1</italic>
+                </font>
+            </property>
+            <property name="title">
+                <string>&amp;Artículo</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget" row="0" column="0">
+                    <property name="name">
+                        <cstring>layout3</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbIdLinea</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>24</width>
+                                    <height>22</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>79</width>
+                                    <height>32767</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>idtpv_linea</string>
+                            </property>
+                            <property name="foreignField">
+                                <string></string>
+                            </property>
+                            <property name="fieldRelation">
+                                <string></string>
+                            </property>
+                        </widget>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbReferencia</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>26</width>
+                                    <height>22</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>referencia</string>
+                            </property>
+                        </widget>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbCantidad</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>38</width>
+                                    <height>24</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>cantidad</string>
+                            </property>
+                        </widget>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbPvpmedio</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>26</width>
+                                    <height>22</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>pvpmedio</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLayoutWidget" row="1" column="0">
+                    <property name="name">
+                        <cstring>layoutDesArticulo</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbDesArticulo</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>4</width>
+                                    <height>21</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>desarticulo</string>
+                            </property>
+                            <property name="foreignField">
+                                <string>descripcion</string>
+                            </property>
+                            <property name="fieldRelation">
+                                <string>referencia</string>
+                            </property>
+                        </widget>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbPvpTotal</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>38</width>
+                                    <height>24</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <bold>0</bold>
+                                    <italic>0</italic>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>pvptotal</string>
+                            </property>
+                            <property name="foreignField">
+                                <string></string>
+                            </property>
+                            <property name="fieldRelation">
+                                <string></string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+            </grid>
+        </widget>
+    </grid>
 </widget>
+<customwidgets>
+</customwidgets>
 <tabstops>
-    <tabstop>fdbIdLinea</tabstop>
-    <tabstop>fdbDesArticulo</tabstop>
 </tabstops>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
+    <includehint>flfielddb.h</includehint>
     <includehint>flfielddb.h</includehint>
     <includehint>flfielddb.h</includehint>
     <includehint>flfielddb.h</includehint>
