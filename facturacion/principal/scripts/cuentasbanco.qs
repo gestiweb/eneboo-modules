@@ -46,7 +46,6 @@ class interna {
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
-	var pbnBuscarSubcuenta:Object;
 	var ejercicioActual:String;
 	var longSubcuenta:Number;
 	var posActualPuntoSubcuenta:Number;
@@ -91,7 +90,6 @@ function interna_init()
 {
 	this.iface.contabilidadCargada = false;
 	var util:FLUtil = new FLUtil();
-	this.iface.pbnBuscarSubcuenta = this.child("pbnBuscarSubcuenta");
 	var cursor:FLSqlCursor = this.cursor();
 	if (cursor.table() == "cuentasbcopro")
 		this.child("fdbSufijo").close();
