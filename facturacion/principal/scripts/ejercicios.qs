@@ -98,7 +98,7 @@ function interna_init()
                 } else {
                                 var hoy:Date = new Date()
                                 var fechaInicio:Date = new Date(hoy.getYear(), 1, 1);
-                                this.child("dedFechaInicio").setValue(fechaInicio);
+                                this.child("fdbFechaInicio").setValue(fechaInicio);
                 }
                 var fechaInicio:Date = new Date(Date.parse(cursor.valueBuffer("fechainicio").toString().substring(0, 10)));
                 var fechaFin:Date = new Date(fechaInicio.getYear(), 12, 31);
