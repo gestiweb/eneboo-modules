@@ -1,0 +1,58 @@
+<ACTIONS>
+
+	<action>
+		<name>flacls</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Listas de control de acceso")</alias>
+		<description>Las listas de control de acceso definen los permisos que los usuarios y grupos tienen sobre los distintos elementos que componen el sistema. Cada entrada de la lista es una Regla de Control de Acceso.</description>
+		<table>flacls</table>
+		<form>flmasteracls</form>
+		<formrecord>flacls</formrecord>
+		<scriptform>flmasteracls</scriptform>
+		<scriptformrecord>flacls</scriptformrecord>
+	</action>
+	
+	<action>
+		<name>flacs</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Reglas de control de acceso")</alias>
+		<description>Las reglas de control de acceso conforman las listas de control de acceso, y se definen por:<ul>
+		<li>El usuario o grupo de usuarios afectados por la regla</li>
+		<li>El tipo y nombre del elemento considerado (por ejemplo: una tabla, un formulario, etc.)</li>
+		<li>Los permisos que se dan al usuario / grupo sobre el elemento y sus componentes (por ejemplo: los campos de una tabla). Estos componentes de los elementos afectados por la regla se denominan Objetos de Control de Acceso</li>
+		</ul>
+		Los posibles valores de permisos son:
+		<ul>
+		<li><b>--</b> No accesible</li>
+		<li><b>r-</b> Sólo lectura</li>
+		<li><b>-w</b> Sólo escritura (no habitual)</li>
+		<li><b>rw</b> Acceso total (lectura/escritura)</li>
+		</ul>
+		</description>
+		<table>flacs</table>
+		<form>FLWidgetMasterTable</form>
+		<formrecord>flacs</formrecord>
+		<scriptformrecord>flacs</scriptformrecord>
+	</action>
+	
+	<action>
+		<name>flacos</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Objetos de Control de Acceso")</alias>
+		<description>Los objetos de control de acceso son los componentes de los elementos de control de acceso que tienen permisos distintos de los definidos de forma global para el elemento. Por ejemplo, podemos dar a una tabla un permiso global de sólo lectura, pero marcar uno de sus campos con permisos nulos (ni lectura ni escritura).<br/> Según el tipo de elemento, los objetos son de un tipo u otro:<ul>
+		<li>Para los elementos <b>mainwindow</b> (ventana principal del módulo), los objetos son las acciones (opciones de menú del módulo).</li>
+		<li>Para los elementos <b>table</b> (tabla), los objetos son los campos de la tabla.</li>
+		<li>Para los elementos <b>form</b> (formulario), los objetos son los controles (botones, etiquetas, pestañas, etc.).</li>
+		</ul>
+		Los posibles valores de permisos son:
+		<ul>
+		<li><b>--</b> No accesible</li>
+		<li><b>r-</b> Sólo lectura</li>
+		<li><b>-w</b> Sólo escritura (no habitual)</li>
+		<li><b>rw</b> Acceso total (lectura/escritura)</li>
+		</ul>
+		</description>
+		<table>flacos</table>
+		<form>FLWidgetMasterTable</form>
+		<formrecord>flacos</formrecord>
+		<scriptformrecord>flacos</scriptformrecord>
+	</action>
+	
+</ACTIONS>

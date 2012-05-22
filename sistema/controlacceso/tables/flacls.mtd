@@ -1,0 +1,93 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>flacls</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Listas de Control de Acceso")</alias>
+	
+	<field>
+		<name>idacl</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<!--Identificador de la lista-->
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>15</length>
+		
+		<relation>
+			<table>flacs</table>
+			<field>idacl</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<!--Descripción de la lista-->
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	<field>
+		<name>instalada</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Instalada")</alias>
+		<!--Lista instalada-->
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>idgroupintro</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Grupo")</alias>
+		<!--Grupo al que se aplica la restricción-->
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+		
+		<relation>
+			<table>flgroups</table>
+			<field>idgroup</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>iduserintro</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Usuario")</alias>
+		<!--Grupo al que se aplica la restricción-->
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+		
+		<relation>
+			<table>flusers</table>
+			<field>iduser</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>prioridadgrupointro</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Prioridad por defecto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>2</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>prioridadusuariointro</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Prioridad por defecto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>1</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+</TMD>
