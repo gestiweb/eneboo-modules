@@ -155,6 +155,25 @@ function oficial_bufferChanged(fN:String)
                 }
         }
 }
+
+function oficial_comprobarCPProvincia():Boolean
+{
+	var util:FLUtil = new FLUtil();
+    var cursor:FLSqlCursor = this.cursor();
+	
+	var codPais:String = cursor.valueBuffer("codpais");
+	var codIso:String = util.sqlSelect("paises", "codiso", "codpais = '" + codPais + "'");
+	if (codIso == "ES") {
+		var codPostal2:String = cursor.valueBuffer("codpostal").left(2);
+		var idProvincia:String = cursor.valueBuffer("idprovincia");
+		var codProvincia:String = util.sqlSelect("provincias", "codigo" , "idprovincia = " + idProvincia);
+		if (codPostal2 != codProvincia) {
+			MessageBox.warning(util.translate("scripts", "El código postal no corresponde a la provincia"), MessageBox.Ok, MessageBox.NoButton);
+			return false;
+		}
+	}
+	return true;
+}
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
