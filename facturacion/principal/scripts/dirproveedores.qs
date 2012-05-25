@@ -48,8 +48,8 @@ class oficial extends interna {
         function bufferChanged(fN:String) {
                 return this.ctx.oficial_bufferChanged(fN);
         }
-        function comprobarProvincia():Boolean {
-                return this.ctx.oficial_comprobarProvincia();
+        function comprobarCPProvincia():Boolean {
+                return this.ctx.oficial_comprobarCPProvincia();
         }
 }
 //// OFICIAL /////////////////////////////////////////////////////
@@ -112,7 +112,7 @@ function interna_validateForm():Boolean
         var util:FLUtil = new FLUtil;
         var cursor:FLSqlCursor = this.cursor();
 
-        if (!this.iface.comprobarProvincia()) {
+        if (!this.iface.comprobarCPProvincia()) {
                 return false;
         }
 
@@ -150,6 +150,32 @@ function oficial_bufferChanged(fN:String)
                 }
         }
 }
+
+/** \D Comprueba si el país es España que el código postal sea el equivalente a la provincia
+\end */
+function oficial_comprobarCPProvincia():Boolean
+{
+	var util:FLUtil = new FLUtil();
+    var cursor:FLSqlCursor = this.cursor();
+	
+	var codPais:String = cursor.valueBuffer("codpais");
+	var codIso:String = util.sqlSelect("paises", "codiso", "codpais = '" + codPais + "'");
+	if (codIso == "ES") {
+		var codPostal2:String = cursor.valueBuffer("codpostal").left(2);
+		var idProvincia:String = cursor.valueBuffer("idprovincia");
+		var codProvincia:String = util.sqlSelect("provincias", "codigo" , "idprovincia = " + idProvincia);
+		if (codPostal2 != codProvincia) {
+			MessageBox.warning(util.translate("scripts", "El código postal no corresponde a la provincia"), MessageBox.Ok, MessageBox.NoButton);
+			return false;
+		}
+	}
+	return true;
+}
+
+//// OFICIAL /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
+
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
