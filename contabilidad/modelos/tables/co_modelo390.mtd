@@ -1,0 +1,3302 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_modelo390</name>
+	<!--Modelo 390-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Modelo 390")</alias>
+
+	<field>
+		<name>id</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>codejercicio</name>
+		<!--Código del ejercicio asociado al modelo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codadmon</name>
+		<!--Administración-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Admón.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>
+		<regexp>([0-9]){5}</regexp>
+	</field>
+	
+	<field>
+		<name>anno</name>
+		<!--Año fiscal asociado al modelo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Año")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>numgrupo</name>
+		<!--Nº Grupo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº Grupo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>7</length>
+	</field>
+	
+	<field>
+		<name>regexportadores</name>
+		<!--Registro exportadores y otros operadores económicos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Registro Exportadores y otros Operadores Económicos")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>regespgrupoenti</name>
+		<!--Régimen especial del grupo de entidades-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Régimen especial del grupo de entidades")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>tiporegsi</name>
+		<!--Tipo regimen especial aplicable: SI-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","SI")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>tiporegno</name>
+		<!--Tipo regimen especial aplicable: NO-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","NO")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>dominante</name>
+		<!--Dominante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Dominante")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>dependiente</name>
+		<!--Dependiente-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Dependiente")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>nifentidomin</name>
+		<!--NIF entidad dominante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","NIF entidad dominante")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+
+	<field>
+		<name>actividadesp3</name>
+		<!--Descripción de la actividad principal de la empresa-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>40</length>
+	</field>
+	
+	<field>
+		<name>actividadeso13</name>
+		<!--Descripción de otra actividad de la empresa (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>actividadeso23</name>
+		<!--Descripción de otra actividad de la empresa (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>actividadeso33</name>
+		<!--Descripción de otra actividad de la empresa (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>actividadeso43</name>
+		<!--Descripción de otra actividad de la empresa (4)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>actividadeso53</name>
+		<!--Descripción de otra actividad de la empresa (5)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>clavep3</name>
+		<!--Clave asociada a la actividad principal de la empresa-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>1</length>
+	</field>
+	
+	<field>
+		<name>claveo13</name>
+		<!--Clave asociada a otra actividad de la empresa (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>1</length>
+	</field>
+	
+	<field>
+		<name>claveo23</name>
+		<!--Clave asociada a otra actividad de la empresa (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>1</length>
+	</field>
+	
+	<field>
+		<name>claveo33</name>
+		<!--Clave asociada a otra actividad de la empresa (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>1</length>
+	</field>
+	
+	<field>
+		<name>claveo43</name>
+		<!--Clave asociada a otra actividad de la empresa (4)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>1</length>
+	</field>
+	
+	<field>
+		<name>claveo53</name>
+		<!--Clave asociada a otra actividad de la empresa (5)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>1</length>
+	</field>
+	
+	<field>
+		<name>epigrafep3</name>
+		<!--Epígrafe del I.A.E. asociado a la actividad principal de la empresa-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>
+	</field>
+	
+	<field>
+		<name>epigrafeo13</name>
+		<!--Epígrafe del I.A.E. asociado a otra actividad de la empresa (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+	</field>
+	
+	<field>
+		<name>epigrafeo23</name>
+		<!--Epígrafe del I.A.E. asociado a otra actividad de la empresa (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+	</field>
+	
+	<field>
+		<name>epigrafeo33</name>
+		<!--Epígrafe del I.A.E. asociado a otra actividad de la empresa (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+	</field>
+	
+	<field>
+		<name>epigrafeo43</name>
+		<!--Epígrafe del I.A.E. asociado a otra actividad de la empresa (4)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+	</field>
+	
+	<field>
+		<name>epigrafeo53</name>
+		<!--Epígrafe del I.A.E. asociado a otra actividad de la empresa (5)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+	</field>
+	
+	<field>
+		<name>declaracionopterceros3</name>
+		<!--Indica si ha efectuado operaciones por las que tenga obligación de presentar la declaración anual de operaciones con terceras personas-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>False</default>
+	</field>
+		
+	<field>
+		<name>nifdecconj</name>
+		<!--NIF del sujeto pasivo acogido a la declaración conjunta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","NIF")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+	
+	<field>
+		<name>rsdecconj</name>
+		<!--Razón social del sujeto pasivo acogido a la declaración conjunta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Razón social")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>37</length>
+	</field>
+	
+	<field>
+		<name>nifpf4</name>
+		<!--NIF del representante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+	
+	<field>
+		<name>apellidosnombrepf4</name>
+		<!--Apellidos y nombre del representante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>36</length>
+	</field>
+	
+	<field>
+		<!--Tipo de la vía del domicilio del representante-->
+		<name>tipoviapf4</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>7</length>
+	</field>
+	
+	<field>
+		<name>nombreviapf4</name>
+		<!--Nombre de la vía del domicilio del representante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>17</length>
+	</field>
+	
+	<field>
+		<name>numeropf4</name>
+		<!--Número de la vía del domicilio del representante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>escalerapf4</name>
+		<!--Escalera del domicilio del representante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>pisopf4</name>
+		<!--Piso del domicilio del representante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>puertapf4</name>
+		<!--Puerta del domicilio del representante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>codpospf4</name>
+		<!--Código postal del domicilio del representante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>5</length>
+	</field>
+	
+	<field>
+		<name>telefonopf4</name>
+		<!--Teléfono del representante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>municipiopf4</name>
+		<!--Municipio del domicilio del representante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>provinciapf4</name>
+		<!--Provincia del domicilio del representante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>codprovinciapf4</name>
+		<!--código de la provincia del domicilio del representante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cod.Prov.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	
+	<field>
+		<name>fechapf4</name>
+		<!--Fecha de emisión del modelo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>notariapf4</name>
+		<!--Notaria cuando el representante es Jurídica-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Notaria")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>12</length>
+	</field>
+
+	<field>
+		<name>baseimponiblero0</name>
+		<!--Base imponible de régimen ordinario para IVA devengado al 4%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","01")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblero1</name>
+		<!--Base imponible de régimen ordinario para IVA devengado al 7%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","03")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblero2</name>
+		<!--Base imponible de régimen ordinario para IVA devengado al 16%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","05")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleoi0</name>
+		<!--Base imponible de operaciones intragrupo para IVA devengado al 4%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","500")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleoi1</name>
+		<!--Base imponible de operaciones intragrupo para IVA devengado al 7%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","502")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleoi2</name>
+		<!--Base imponible de operaciones intragrupo para IVA devengado al 16%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","504")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblere0</name>
+		<!--Base imponible de régimen especial para IVA devengado al 4%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","07")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblere1</name>
+		<!--Base imponible de régimen especial para IVA devengado al 7%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","09")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblere2</name>
+		<!--Base imponible de régimen especial para IVA devengado al 16%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","11")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleav</name>
+		<!--Base imponible de régimen especial de agencias de viaje para IVA devengado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","13")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleai0</name>
+		<!--Base imponible de adquisiciones intracomunitarias de bienes para IVA devengado al 4%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","21")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleai1</name>
+		<!--Base imponible de adquisiciones intracomunitarias de bienes para IVA devengado al 7%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","23")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleai2</name>
+		<!--Base imponible de adquisiciones intracomunitarias de bienes para IVA devengado al 16%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","25")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaro0</name>
+		<!--Cuota de régimen general para IVA devengado al 4%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","02")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaro1</name>
+		<!--Cuota de régimen general para IVA devengado al 7%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","04")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaro2</name>
+		<!--Cuota de régimen general para IVA devengado al 16%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","06")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaoi0</name>
+		<!--Cuota de operaciones intragrupo para IVA devengado al 4%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","501")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaoi1</name>
+		<!--Cuota de operaciones intragrupo para IVA devengado al 7%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","503")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaoi2</name>
+		<!--Cuota de operaciones intragrupo para IVA devengado al 16%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","505")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotare0</name>
+		<!--Cuota de régimen especial para IVA devengado al 4%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","08")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotare1</name>
+		<!--Cuota de régimen especial para IVA devengado al 7%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","10")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotare2</name>
+		<!--Cuota de régimen especial para IVA devengado al 16%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","12")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaav</name>
+		<!--Cuota de régimen especial de agencias de viaje para IVA devengado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","14")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaai0</name>
+		<!--Cuota de adquisiciones intracomunitarias de bienes para IVA devengado al 4%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","22")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaai1</name>
+		<!--Cuota de adquisiciones intracomunitarias de bienes para IVA devengado al 7%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","24")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaai2</name>
+		<!--Cuota de adquisiciones intracomunitarias de bienes para IVA devengado al 16%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","26")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleis</name>
+		<!--Base imponible por inversión del sujeto pasivo para IVA devengado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","27")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblebc</name>
+		<!--Base imponible por modificación de bases y cuotas para IVA devengado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","29")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleqs</name>
+		<!--Base imponible por modificación de bases y cuotas por quiebras y suspensiones para IVA devengado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","31")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibletotalbc</name>
+		<!--Total de base imponible para IVA devengado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","33")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleeq0</name>
+		<!--Base imponible por recargo de equivalencia al 0.5%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","35")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleeq1</name>
+		<!--Base imponible por recargo de equivalencia al 1%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","37")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleeq2</name>
+		<!--Base imponible por recargo de equivalencia al 4%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","39")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleeq3</name>
+		<!--Base imponible por recargo de equivalencia al 4%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","41")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblemodeq</name>
+		<!--Base imponible por modificación del recargo de equivalencia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","43")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblemodeqqs</name>
+		<!--Base imponible por modificación del recargo de equivalencia por quiebras y suspensiones-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","45")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotais</name>
+		<!--Cuota por inversión del sujeto pasivo para IVA devengado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","28")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotabc</name>
+		<!--Cuota por modificación de bases y cuotas para IVA devengado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","30")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaqs</name>
+		<!--Cuota por modificación de bases y cuotas por quiebras y suspensiones para IVA devengado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","32")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotatotalbc</name>
+		<!--Total de cuotas para IVA devengado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","34")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaeq0</name>
+		<!--Cuota por recargo de equivalencia al 0.5%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","36")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaeq1</name>
+		<!--Cuota por recargo de equivalencia al 1%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","38")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaeq2</name>
+		<!--Cuota por recargo de equivalencia al 4%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","40")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaeq3</name>
+		<!--Cuota por recargo de equivalencia al 4%-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","42")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotamodeq</name>
+		<!--Cuota por modificación del recargo de equivalencia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","44")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotamodeqqs</name>
+		<!--Cuota por modificación del recargo de equivalencia por quiebras y suspensiones-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","46")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+		
+	<field>
+		<name>totalivadev</name>
+		<!--Total de cuotas de IVA y de recargo de equivalencia (34 + 36 + 38 + 40 + 42 + 44 + 46)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","47")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleoibc</name>
+		<!--Base imponible de bienes y servicios corrientes para IVA deducible en operaciones interiores-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","48")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleoibi</name>
+		<!--Base imponible de bienes de inversion para IVA deducible en operaciones interiores-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","50")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleoioibc</name>
+		<!--Base imponible operaciones intragrupo con bienes y servicios corrientes para IVA deducible en operaciones interiores-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","512")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleoioibi</name>
+		<!--Base imponible operaciones intragrupo con bienes de inversión para IVA deducible en operaciones interiores-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","520")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleimbc</name>
+		<!--Base imponible de bienes y servicios corrientes para IVA deducible en importaciones-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","52")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleimbi</name>
+		<!--Base imponible de bienes de inversion para IVA deducible en importaciones-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","54")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleaibc</name>
+		<!--Base imponible de bienes y servicios corrientes para IVA deducible en adquisiciones intracomunitarias-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","56")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponibleaibi</name>
+		<!--Base imponible de bienes de inversión para IVA deducible en adquisiciones intracomunitarias-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","58")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>baseimponiblere</name>
+		<!--Base imponible por compensación en régimen especial de agricultura, ganadería y pesca para IVA deducible-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","60")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaoibc</name>
+		<!--Cuota de bienes y servicios corrientes para IVA deducible en operaciones interiores-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","49")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<!--Cuota de bienes de inversión para IVA deducible en operaciones interiores-->
+		<name>cuotaoibi</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","51")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<!--Cuota de operaciones intragrupo con bienes y servicios corrientes para IVA deducible en operaciones interiores-->
+		<name>cuotaoioibc</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","513")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<!--Cuota de operaciones intragrupo con bienes de inversión para IVA deducible en operaciones interiores-->
+		<name>cuotaoioibi</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","521")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaimbc</name>
+		<!--Cuota de bienes y servicios corrientes para IVA deducible en importaciones-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","53")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaimbi</name>
+		<!--Cuota de bienes de inversión para IVA deducible en importaciones-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","55")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field> 
+		<name>cuotaaibc</name>
+		<!--Cuota de bienes y servicios corrientes para IVA deducible en adquisiciones intracomunitarias-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","57")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaaibi</name>
+		<!--Cuota de bienes de inversión para IVA deducible en adquisiciones intracomunitarias-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","59")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotare</name>
+		<!--Cuota por compensación en régimen especial de agricultura, ganadería y pesca para IVA deducible-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","61")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotard</name>
+		<!--Cuota por rectificación de deducciones para IVA deducible-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","62")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotarbi</name>
+		<!--Cuota por regularización de bienes de inversión para IVA deducible-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","63")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotarpdpro</name>
+		<!--Cuota por regularización por aplicación de porcentaje definitivo de prorrata-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","522")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>sumaded</name>
+		<!--Suma de deducciones para IVA deducible (49 + 51+ 53 + 55 + 57 + 59 + 61 + 62 + 63)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","64")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>resrg</name>
+		<!--Resultado del régimen general (47 - 64)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","65")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>unimod1</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Número de unidades del módulo 1-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>unimod2</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Número de unidades del módulo 2-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>unimod3</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Número de unidades del módulo 3-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>unimod4</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Número de unidades del módulo 4-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>unimod5</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Número de unidades del módulo 5-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>unimod6</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Número de unidades del módulo 6-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>unimod7</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Número de unidades del módulo 7-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>importe1</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Importe del módulo 1-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importe2</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Importe del módulo 2-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importe3</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Importe del módulo 3-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importe4</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Importe del módulo 4-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importe5</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Importe del módulo 5-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importe6</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Importe del módulo 6-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importe7</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Importe del módulo 7-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>epigrafe1</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Epígrafe asociado a la actividad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","66")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+	</field>
+	
+	<field>
+		<name>epigrafe2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","66")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+	</field>
+	
+	<field>
+		<name>cuotadevopc</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Cuota devengada en operaciones corrientes-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","C")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotassopopc</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Cuota soportada en operaciones corrientes-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","D")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>indicecorrector</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Índice corrector-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","E")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>resultado</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Resultado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","F")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>porcuotaminima</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Porcentaje de cuota mínima-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","G")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>devcuotassopop</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Devolución de cuotas soportadas otros países-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","H")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaminima</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Cuota mínima-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","  I")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaregsimpl</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 1: Cuota derivada del régimen simplificado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","J1")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>unimod12</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Unidades del módulo 1-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>unimod22</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Unidades del módulo 2-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>unimod32</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Unidades del módulo 3-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>unimod42</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Unidades del módulo 4-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>unimod52</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Unidades del módulo 5-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>unimod62</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Unidades del módulo 6-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>unimod72</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Unidades del módulo 7-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Importe del módulo 1-->
+		<name>importe12</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importe22</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Importe del módulo 2-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importe32</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Importe del módulo 3-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importe42</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Importe del módulo 4-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importe52</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Importe del módulo 5-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importe62</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Importe del módulo 6-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importe72</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Importe del módulo 7-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>epigrafe12</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Epígrafe de la actividad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","66")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+	</field>
+	
+	<field>
+		<name>cuotadevopc2</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Cuota devengada en operaciones corrientes-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","C")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotassopopc2</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Cuota soportada en operaciones corrientes-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","D")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>indicecorrector2</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Índice corrector-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","E")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>resultado2</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Resultado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","F")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>porcuotaminima2</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Porcentaje de cuota mínima-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","G")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>devcuotassopop2</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Devolución de cuotas soportadas otros países-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","H")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaminima2</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Cuota mínima-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","  I")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cuotaregsimpl2</name>
+		<!--Régimen simplificado: Actividades no agrículas, ganaderas y forestales: Actividad 2: Cuota derivada del régimen simplificado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","J2")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>codigo1</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Código 1-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","1")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>codigo2</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Código 2-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","2")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>codigo3</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Código 3-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","3")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>codigo4</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Código 4-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","4")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>codigo5</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Código 5-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","5")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>volingresos1</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Volumen de ingresos 1-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>volingresos2</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Volumen de ingresos 2-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>volingresos3</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Volumen de ingresos 3-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>volingresos4</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Volumen de ingresos 4-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>volingresos5</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Volumen de ingresos 5-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>indicecuota1</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Índice cuota 1-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>indicecuota2</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Índice cuota 2-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>indicecuota3</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Índice cuota 3-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>indicecuota4</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Índice cuota 4-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>indicecuota5</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Índice cuota 5-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+	
+	<field>
+		<name>cdevengada1</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota devengada 1-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cdevengada2</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota devengada 2-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cdevengada3</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota devengada 3-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cdevengada4</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota devengada 4-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cdevengada5</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota devengada 5-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>csoportada1</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota soportada 1-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>csoportada2</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota soportada 2-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>csoportada3</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota soportada 3-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>csoportada4</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota soportada 4-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>csoportada5</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota soportada 5-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cderivadars1</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota derivada para el régimen simplificado 1-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","K1")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cderivadars2</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota derivada para el régimen simplificado 2-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","K2")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cderivadars3</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota derivada para el régimen simplificado 3-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","K3")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cderivadars4</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota derivada para el régimen simplificado 4-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","K4")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>cderivadars5</name>
+		<!--Régimen simplificado: Actividades agrículas, ganaderas y forestales: Cuota derivada para el régimen simplificado 5-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","K5")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>sumacdan</name>
+		<!--Régimen simplificado: IVA devengado: Suma de cuotas derivadas régimen simplificado [Act. no agricolas, ganaderas y forestales (J1 + J2)]-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","74")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>sumacda</name>
+		<!--Régimen simplificado: IVA devengado: Suma de cuotas derivadas régimen simplificado [Act. agricolas, ganaderas y forestales (K1 + K2 + K3 + K4 + K5)]-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","75")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>ivadevai</name>
+		<!--Régimen simplificado: IVA devengado: Cuotas por adquisiciones intracomunitarias-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","76")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>ivadevis</name>
+		<!--Régimen simplificado: IVA devengado: Cuotas por inversión del sujeto pasivo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","77")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>ivadevea</name>
+		<!--Régimen simplificado: IVA devengado: Cuotas por entregas de activos fijos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","78")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>totalcres</name>
+		<!--Régimen simplificado: IVA devengado: Total cuota resultante (74 + 75 + 76 + 77 + 78)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","79")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>ivasopaf</name>
+		<!--Régimen simplificado: IVA deducido: IVA soportado en adquisición de activos fijos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","80")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>regbienesi</name>
+		<!--Régimen simplificado: IVA deducido: Regularización de bienes de inversión-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","81")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>sumadeducciones</name>
+		<!--Régimen simplificado: IVA deducido: Suma de deducciones (80 + 81)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","82")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>ressimpl</name>
+		<!--Régimen simplificado: Resultado del régimen simplificado (79 - 82)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","83")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>sumares</name>
+		<!--Resultado liquidación anual: Suma de resultados (65 + 83)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","84")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>comcuotasea</name>
+		<!--Resultado liquidación anual: Compensación de cuotas del ejercicio anterior-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","85")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>resliquidacion</name>
+		<!--Resultado liquidación anual: Resultado de la liquidación (84 - 85)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","86")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>portc</name>
+		<!--Tributación por razón de territorio: Porcentaje de territorio común-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","87")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>pora</name>
+		<!--Tributación por razón de territorio: Porcentaje de territorio para Álava-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","88")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>porg</name>
+		<!--Tributación por razón de territorio: Porcentaje de territorio para Guipúzcoa-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","89")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>porv</name>
+		<!--Tributación por razón de territorio: Porcentaje de territorio para Vizcaya-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","90")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>porn</name>
+		<!--Tributación por razón de territorio: Porcentaje de territorio para Navarra-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","91")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>resultadotc</name>
+		<!--Tributación por razón de territorio: Resultado atribuible al territorio común-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","92")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>compcuotaseatc</name>
+		<!--Tributación por razón de territorio: Compensación de cuotas del ejercicio anterior atribuible al territorio común-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","93")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>resliqtc</name>
+		<!--Tributación por razón de territorio: Resultado de la liquidación anual atribuible al territorio común (92 - 93)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","94")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>totalingresos</name>
+		<!--Resultado de las liquidaciones: Total de ingresos realizados en las declaraciones-liquidaciones por IVA del ejercicio-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","95")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	 
+	<field>
+		<name>totaldevoluciones</name>
+		<!--Resultado de las liquidaciones: Total de devoluciones mensuales por IVA sujetos pasivos inscritos en el Registro de Exportaciones y otros Operadores Económicos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","96")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>totalacompensar</name>
+		<!--Resultado de las liquidaciones: Total a compensar (si el resultado de la declaración-liquidación del último período es a compensar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","97")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>totaladevolver</name>
+		<!--Resultado de las liquidaciones: Total a devolver (si el resultado de la declaración-liquidación del último período es a devolver-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","98")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>operacionesre</name>
+		<!--Volumen de operaciones: Operaciones en régimen general-->
+		<alias>QT_TRANSLATE_NOOP("MetaData"," 99")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>operacionesrs</name>
+		<!--Volumen de operaciones: Operaciones en régimen simplificado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","100")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>operacionesreagp</name>
+		<!--Volumen de operaciones: Operaciones en régimen especial de agricultura, ganadería y pesca-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","101")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>operacionesrere</name>
+		<!--Volumen de operaciones: Operaciones en régimen especial de recargo de equivalencia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","102")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>entregasintraex</name>
+		<!--Volumen de operaciones: Entregas intracomunitarias externas-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","103")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>entregasintraexcondd</name>
+		<!--Volumen de operaciones: Exportaciones y otras operaciones exentas con derecho a deducción-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","104")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>entregasintraexsinndd</name>
+		<!--Volumen de operaciones: Operaciones externas sin derecho a deducción-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","105")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>entregasbinmuebles</name>
+		<!--Volumen de operaciones: Entregas de bienes inmuebles y operaciones financieras no habituales-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","106")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>entregasbinversion</name>
+		<!--Volumen de operaciones: Entregas de bienes de inversión-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","107")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>totalvoloperaciones</name>
+		<!--Volumen de operaciones: Total volumen de operaciones (99 + 100 + 101 + 102 + 103 + 104 + 105 - 106 - 107)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","108")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<!--Operaciones específicas: Adquisiciones intracomunitarias exentas-->
+		<name>adquiintraex</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","109")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<!--Operaciones específicas: Adquisiciones interiores exentas-->
+		<name>adquiinterex</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","230")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<!--Operaciones específicas: Importaciones exentas-->
+		<name>importacionesex</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","231")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<!--Operaciones específicas: Servicios realizados en el territorio de aplicacion del impuesto por inversión del sujeto pasivo -->
+		<name>serlocalizados</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","523")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>opnsdm</name>
+		<!--Volumen operaciones: Operaciones no sujetas o con inversión del sujeto pasivo que originan derecho a la devolución mensual-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","110")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>opsyedm</name>
+		<!--Operaciones específicas: Operaciones sujetas y no exentas que originan derecho a la devolución mensual-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","111")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>entregasbo</name>
+		<!--Volumen operaciones: Entrega de bienes objeto de instalación o montaje en otros estados miembros-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","112")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>entregasbs</name>
+		<!--Operaciones específicas: Entregas interiores de bienes subsiguientes a adquisiciones intracomunitarias de bienes exentas en el marco de operaciones triangulares-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","113")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>opregespbius</name>
+		<!--Volumen de operaciones: Operaciones en regimen especial de bienes usados, objetos de arte, antigüedades y objetos de colección -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","227")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>opregesagenvia</name>
+		<!--Volumen de operaciones: Operaciones en regimen especial de Agencias de Viajes -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","228")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>actividaddesarollada</name>
+		<!--Prorratas: Descripción de la actividad desarrollada (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>cane</name>
+		<!--Prorratas: CNAE asociado a la actividad (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","114")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+
+	<field>
+		<!--Prorratas: Importe total de operaciones de la actividad (1)-->
+		<name>importetotalop</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","115")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importetotalopdd</name>
+		<!--Prorratas: Importe de operaciones con derecho a deducción de la actividad (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","116")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tipoprorrata</name>
+		<!--Prorratas: Tipo de la prorrata (especial o general) de la actividad (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","117")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>porprorrata</name>
+		<!--Prorratas: Porcentaje de prorrata de la actividad (1)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","118")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>actividaddesarollada2</name>
+		<!--Prorratas: Descripción de la actividad desarrollada (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>cane2</name>
+		<!--Prorratas: CNAE asociado a la actividad (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","114")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>importetotalop2</name>
+		<!--Prorratas: Importe total de operaciones de la actividad (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","115")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importetotalopdd2</name>
+		<!--Prorratas: Importe de operaciones con derecho a deducción de la actividad (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","116")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tipoprorrata2</name>
+		<!--Prorratas: Tipo de la prorrata (especial o general) de la actividad (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","117")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>porprorrata2</name>
+		<!--Prorratas: Porcentaje de prorrata de la actividad (2)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","118")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>actividaddesarollada3</name>
+		<!--Prorratas: Descripción de la actividad desarrollada (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>cane3</name>
+		<!--Prorratas: CNAE asociado a la actividad (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","114")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>importetotalop3</name>
+		<!--Prorratas: Importe total de operaciones de la actividad (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","115")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importetotalopdd3</name>
+		<!--Prorratas: Importe de operaciones con derecho a deducción de la actividad (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","116")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tipoprorrata3</name>
+		<!--Prorratas: Tipo de la prorrata (especial o general) de la actividad (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","117")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>porprorrata3</name>
+		<!--Prorratas: Porcentaje de prorrata de la actividad (3)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","118")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>actividaddesarollada4</name>
+		<!--Prorratas: Descripción de la actividad desarrollada (4)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>cane4</name>
+		<!--Prorratas: CNAE asociado a la actividad (4)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","114")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>importetotalop4</name>
+		<!--Prorratas: Importe total de operaciones de la actividad (4)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","115")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importetotalopdd4</name>
+		<!--Prorratas: Importe de operaciones con derecho a deducción de la actividad (4)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","116")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tipoprorrata4</name>
+		<!--Prorratas: Tipo de la prorrata (especial o general) de la actividad (4)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","117")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>porprorrata4</name>
+		<!--Prorratas: Porcentaje de prorrata de la actividad (4)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","118")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>actividaddesarollada5</name>
+		<!--Prorratas: Descripción de la actividad desarrollada (5)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>cane5</name>
+		<!--Prorratas: CNAE asociado a la actividad (5)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","114")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>importetotalop5</name>
+		<!--Prorratas: Importe total de operaciones de la actividad (5)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","115")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importetotalopdd5</name>
+		<!--Prorratas: Importe de operaciones con derecho a deducción de la actividad (5)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","116")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tipoprorrata5</name>
+		<!--Prorratas: Tipo de la prorrata (especial o general) de la actividad (5)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","117")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>porprorrata5</name>
+		<!--Prorratas: Porcentaje de prorrata de la actividad (5)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","118")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>actividaddesarollada6</name>
+		<!--Prorratas: Descripción de la actividad desarrollada (6)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>cane6</name>
+		<!--Prorratas: CNAE asociado a la actividad (6)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","114")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>importetotalop6</name>
+		<!--Prorratas: Importe total de operaciones de la actividad (6)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","115")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importetotalopdd6</name>
+		<!--Prorratas: Importe de operaciones con derecho a deducción de la actividad (6)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","116")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tipoprorrata6</name>
+		<!--Prorratas: Tipo de la prorrata (especial o general) de la actividad (6)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","117")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>porprorrata6</name>
+		<!--Prorratas: Porcentaje de prorrata de la actividad (6)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","118")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>actividaddesarollada7</name>
+		<!--Prorratas: Descripción de la actividad desarrollada (7)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>cane7</name>
+		<!--Prorratas: CNAE asociado a la actividad (7)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","114")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>importetotalop7</name>
+		<!--Prorratas: Importe total de operaciones de la actividad (7)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","115")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importetotalopdd7</name>
+		<!--Prorratas: Importe de operaciones con derecho a deducción de la actividad (7)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","116")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tipoprorrata7</name>
+		<!--Prorratas: Tipo de la prorrata (especial o general) de la actividad (7)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","117")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>porprorrata7</name>
+		<!--Prorratas: Porcentaje de prorrata de la actividad (7)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","118")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>actividaddesarollada8</name>
+		<!--Prorratas: Descripción de la actividad desarrollada (8)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>cane8</name>
+		<!--Prorratas: CNAE asociado a la actividad (8)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","114")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+	</field>
+	
+	<field>
+		<name>importetotalop8</name>
+		<!--Prorratas: Importe total de operaciones de la actividad (8)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","115")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>importetotalopdd8</name>
+		<!--Prorratas: Importe de operaciones con derecho a deducción de la actividad (8)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","116")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tipoprorrata8</name>
+		<!--Prorratas: Tipo de la prorrata (especial o general) de la actividad (8)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","117")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+	</field>
+	
+	<field>
+		<name>porprorrata8</name>
+		<!--Prorratas: Porcentaje de prorrata de la actividad (8)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","118")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>tipopersona</name>
+		<!--Tipo de persona declarante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Persona")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+		<optionslist>Física,Jurídica</optionslist>
+		<default>Física</default>
+	</field>
+	
+	<field>
+		<name>cifnif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","N.I.F")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+
+	<field>
+		<name>apellido1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apellido 1")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>apellido2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apellido 2")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>razonsocial</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Razón social")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>37</length>
+	</field>
+
+	<field>
+		<name>numjustificante</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Num.Justificante")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>13</length>
+	</field>
+
+    <field>
+        <name>codpos</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Código postal")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>5</length>
+    </field>
+    <field>
+        <name>municipio</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Municipio")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>20</length>
+    </field>
+    <field>
+        <name>idprovincia</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>uint</type>
+        <visiblegrid>false</visiblegrid>
+        <relation>
+            <table>provincias</table>
+            <field>idprovincia</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>codprovincia</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Cod. provincia")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>2</length>
+    </field>
+    <field>
+        <name>provincia</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Provincia")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>15</length>
+    </field>
+    <field>
+        <name>codtipovia</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Tipo vía")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>2</length>
+        <default>CL</default>
+        <relation>
+            <table>co_tiposvia</table>
+            <field>codtipovia</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>nombrevia</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Nombre de la Vía Pública")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>17</length>
+    </field>
+    <field>
+        <name>numero</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Nº")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>4</length>
+    </field>
+    <field>
+        <name>escalera</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Esc.")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>2</length>
+    </field>
+    <field>
+        <name>piso</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Piso")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>2</length>
+    </field>
+    <field>
+        <name>puerta</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Prta.")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>2</length>
+    </field>
+    <field>
+        <name>telefono</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Teléfono")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>9</length>
+    </field>
+
+	<field>
+		<name>sustitutiva</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Declaración sustitutiva")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>numjustificanteant</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Num.Justificante Ant.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>13</length>
+	</field>
+
+	<field>
+		<name>tributacionterr</name>
+		<!--Check indicador para declarar datos de las administraciones por territorio-->		<alias>QT_TRANSLATE_NOOP("MetaData","Declarar")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+</TMD>

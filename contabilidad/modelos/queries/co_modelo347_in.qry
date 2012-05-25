@@ -1,0 +1,30 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_modelo347_in</name>
+
+	<tables>co_datosfiscales,co_modelo347</tables>
+	
+	<select>
+		co_modelo347.codejercicio, co_modelo347.idmodelo,
+		co_datosfiscales.cifnif,
+		co_modelo347_tipo2i.nifarrendatario, co_modelo347_tipo2i.nifreplegal,
+		co_modelo347_tipo2i.apellidosnombrers, co_modelo347_tipo2i.importe,
+		co_modelo347_tipo2i.refcatastral, co_modelo347_tipo2i.codprovincia,
+		co_modelo347_tipo2i.codtipovia, co_modelo347_tipo2i.municipio,
+		co_modelo347_tipo2i.nombrevia, co_modelo347_tipo2i.numero,
+		co_modelo347_tipo2i.escalera, co_modelo347_tipo2i.piso,
+		co_modelo347_tipo2i.puerta, co_modelo347_tipo2i.idmodelo 
+		
+	</select>
+	
+	<from>
+		co_datosfiscales, co_modelo347 INNER JOIN co_modelo347_tipo2i ON co_modelo347.idmodelo=co_modelo347_tipo2i.idmodelo
+		
+	</from>
+
+	<where>
+	</where>
+
+	<order>
+	</order>
+</QRY>

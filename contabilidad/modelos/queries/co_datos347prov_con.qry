@@ -1,0 +1,26 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_datos347prov_con</name>
+	
+	<tables>empresa,proveedores,co_asientos,co_partidas,co_subcuentasprov</tables>
+	
+	<select>
+		empresa.nombre, empresa.cifnif, empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		proveedores.cifnif, proveedores.nombre,
+		SUM(pprov.haber - pprov.debe)
+	</select>
+	
+	<from>
+		empresa, 
+		co_partidas pprov
+		INNER JOIN co_subcuentasprov scp ON pprov.idsubcuenta = scp.idsubcuenta
+		INNER JOIN proveedores ON scp.codproveedor = proveedores.codproveedor
+		INNER JOIN co_asientos ON pprov.idasiento = co_asientos.idasiento
+		INNER JOIN dirproveedores ON proveedores.codproveedor = dirproveedores.codproveedor AND direccionppal = true
+		INNER JOIN paises ON dirproveedores.codpais = paises.codpais
+	</from>
+	
+	<where>
+	</where>
+</QRY>

@@ -1,0 +1,27 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_datos347_con</name>
+
+	<tables>empresa,clientes,co_asientos,co_partidas,co_subcuentascli</tables>
+	
+	<select>
+		empresa.nombre, empresa.cifnif, empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		clientes.cifnif, clientes.nombre,
+		SUM(pcli.debe - pcli.haber)
+	</select>
+	
+	<from>
+		empresa,
+		co_partidas pcli
+		INNER JOIN co_subcuentascli scc ON pcli.idsubcuenta = scc.idsubcuenta
+		INNER JOIN clientes ON scc.codcliente = clientes.codcliente
+		INNER JOIN co_asientos ON pcli.idasiento = co_asientos.idasiento
+		INNER JOIN dirclientes ON clientes.codcliente = dirclientes.codcliente AND dirclientes.domfacturacion = true
+		INNER JOIN paises ON dirclientes.codpais = paises.codpais
+	</from>
+
+	<where>
+	</where>
+
+</QRY>
