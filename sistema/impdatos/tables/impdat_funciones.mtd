@@ -1,0 +1,39 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>impdat_funciones</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Funciones")</alias>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>
+	</field>
+	
+	<field>
+		<name>id</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>4</length>
+		<counter>true</counter>
+		
+		<relation>
+			<table>impdat_esquemas</table>
+			<field>idfuncion</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codigo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+</TMD>
