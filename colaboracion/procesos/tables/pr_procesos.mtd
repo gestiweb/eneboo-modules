@@ -1,0 +1,185 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>pr_procesos</name>
+	<!--Procesos de producción-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Proceso")</alias>
+
+	<field>
+		<name>idproceso</name>
+		<!--Identificador del proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código proceso")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+
+		<relation>
+			<table>pr_tareas</table>
+			<field>idproceso</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!--Descripcion del proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripcion")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>1000</length>
+	</field>
+	
+	<field>
+		<name>estado</name>
+		<!--Estado del proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+	
+	<field>
+		<name>subestado</name>
+		<!--Subestado del proceso cuando se halla en estado EN CURSO, DETENIDO o CANCELADO-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subestado")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+	
+	<field>
+		<name>idobjeto</name>
+		<!--Identificador del objeto asociado al proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>25</length>
+	</field>
+
+	<field>
+		<name>tipoobjeto</name>
+		<!--Identificador del tipo de objeto asociado al proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo objeto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>25</length>
+	</field>
+	
+	<field>
+		<name>estadoprevio</name>
+		<!--Estado inicial del objeto asociado al proceso, usado para restaurar el objeto en caso de cancelación del proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado previo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>idtipoproceso</name>
+		<!--Tipo de proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+
+		<relation>
+			<table>pr_tiposproceso</table>
+			<field>idtipoproceso</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>tiempoinicio</name>
+		<!--Hora de inicio del proceso (paso a EN CURSO)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hora inicio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>time</type>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>diainicio</name>
+		<!--Fecha de inicio del proceso (paso a EN CURSO)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Día inicio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>tiempofin</name>
+		<!--Hora de fin del proceso (paso a TERMINADO)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hora fin")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>time</type>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>diafin</name>
+		<!--Fecha de fin del proceso (paso a TERMINADO)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Día fin")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>intervalo</name>
+		<!--Duración en segundos del proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Intervalo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>9</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>tiempoprevisto</name>
+		<!--Tiempo previsto para realizar la tarea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","T. Previsto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>9</partI>
+		<partD>2</partD>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>tiempoinvertido</name>
+		<!--Tiempo invertido en realizar la tarea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","T. Invertido")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>9</partI>
+		<partD>2</partD>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>xmlparametros</name>
+		<!--Parámetros xml-->
+		<alias>QT_TRANSLATE_NOOP(&quot;MetaData&quot;,&quot;Parámetros&quot;)</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+</TMD>
