@@ -1,0 +1,97 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>crm_criteriocampana</name>
+	<!--Criterios de búsqueda para realización de campañas-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Criterios de Campañas")</alias>
+
+	<field>
+		<name>idcriterio</name>
+		<!--Identificador interno del Criterio de Campaña-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<counter>true</counter>
+		<length>10</length>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>campana</name>
+		<!--Código identificativo de la campaña-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código de la campaña")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		<relation>
+			<table>crm_campanas</table>
+			<field>idcampanas</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>tipoobjetivo</name>
+		<!--Objetivo de la campaña-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo de Objetivo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<optionslist>Cliente,Tarjeta,Contacto</optionslist>
+		<default>Cliente</default>
+		<type>string</type>
+		<length>12</length>
+	</field>	
+	
+	<field>
+		<name>campo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Campo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>condicion</name>
+		<!--Condición de la Campaña-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Condición de la Campaña")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<optionslist>Igual,Mayor,Mayor ó Igual,Menor,Menor ó Igual,Como,Contiene,Entre</optionslist>
+		<default>Igual</default>
+		<type>string</type>
+		<length>15</length>
+	</field>	
+	
+	<field>
+		<name>valor1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor 1")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>valor2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor 2")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>tipo</name>
+		<!--Incluír o excluíir de la Campaña-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Inclusión o Exclusión de la Campaña")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<optionslist>Incluír,Excluír</optionslist>
+		<default>Incluír</default>
+		<type>string</type>
+		<length>10</length>
+	</field>
+	
+</TMD>

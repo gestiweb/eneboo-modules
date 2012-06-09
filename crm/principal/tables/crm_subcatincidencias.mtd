@@ -1,0 +1,48 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>crm_subcatincidencias</name>
+	<!--Subcategorías de incidencia-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Subcategorías de Incidencia")</alias>
+
+	<field>
+		<name>codsubcategoria</name>
+		<!--Código de la Subcategoría-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>25</length>
+		
+		<relation>
+			<table>crm_incidencias</table>
+			<field>codsubcategoria</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codcategoria</name>
+		<!--Código de la Categoría-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Categoría")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>25</length>
+		
+		<relation>
+			<table>crm_catincidencias</table>
+			<field>codcategoria</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<!--Descripción de la categoría-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+</TMD>
