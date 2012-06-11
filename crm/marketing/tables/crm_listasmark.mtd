@@ -1,0 +1,90 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>crm_listasmark</name>
+	<!--Listas de destinatarios de las campañas-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Listas de márketing")</alias>
+
+	<field>
+		<name>codlista</name>
+		<!--Identificador de la lista-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>30</length>
+		
+		<relation>
+			<table>crm_criterioslista</table>
+			<field>codlista</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>crm_listascampana</table>
+			<field>codlista</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>codconsulta</name>
+		<!--Consulta relacionada-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Consulta")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+		
+		<relation>
+			<table>crm_consultasmark</table>
+			<field>codconsulta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>manual</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Manual")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>importanalisis</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Importada")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>posanalisis</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Posición")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>cuboanalisis</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cubo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+	</field>
+	
+</TMD>
