@@ -1,0 +1,28 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>crm_i_incidencias</name>
+
+	<tables>crm_incidencias,clientes,proveedores</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.cifnif</field>
+	</group>
+	
+	<select>
+		crm_incidencias.codincidencia,crm_incidencias.estado,crm_incidencias.prioridad,crm_incidencias.codcliente,crm_incidencias.codproveedor,crm_incidencias.fecha,crm_incidencias.descripcion,clientes.nombre, proveedores.nombre,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion, empresa.codpostal,
+		empresa.ciudad,empresa.codpais,
+		empresa.provincia, empresa.apartado
+	</select>
+
+	<from>
+		empresa, crm_incidencias 
+		LEFT OUTER JOIN clientes ON crm_incidencias.codcliente = clientes.codcliente
+		LEFT OUTER JOIN proveedores ON crm_incidencias.codproveedor = proveedores.codproveedor
+	</from>
+
+	<where>
+	</where>
+</QRY>
