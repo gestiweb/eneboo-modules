@@ -1,0 +1,234 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>rh_nominas</name>
+	<!-- Nómina del empleado-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Nómina")</alias>
+
+	<field>
+		<name>codnomina</name>
+		<!-- Código -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<counter>true</counter>
+		
+		<relation>
+			<table>rh_pagosnomina</table>
+			<field>codnomina</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>rh_dietas</table>
+			<field>codnomina</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>estadonomina</name>
+		<!--Estado de la nómina-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<!--<optionslist>QT_TRANSLATE_NOOP("MetaData","Emitida");QT_TRANSLATE_NOOP("MetaData","Pagada")</optionslist>-->
+		<length>7</length>
+		<default>Emitida</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>codempleado</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Empleado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>rh_empleados</table>
+			<field>codempleado</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>fechanomina</name>
+		<!-- Fecha en la que se origina el gasto para la empresa-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>sueldobruto</name>
+		<!-- Sueldo bruto en nómina-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Sueldo Bruto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>segsocial</name>
+		<!--Aportación del empleado a la Seguridad Social-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","S.S.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>irpf</name>
+		<!--Retención de irpf-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","IRPF")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>dietas</name>
+		<!--Dietas a incluir en la nómina-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Dietas")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>sueldoneto</name>
+		<!--Líquido percibido por el empleado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","A percibir")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>codejercicio</name>
+		<!-- Código del ejercicio contable-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<editable>false</editable>
+	
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codsubcuenta</name>
+		<!-- Código de la subcuenta contable a la que se aplica el asiento ......-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subcuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>idasiento</name>
+		<!-- Identificador del asiento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asiento")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>co_asientos</table>
+			<field>idasiento</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	
+	<field>
+		<name>fecha</name>
+		<!--Fecha de la nómina-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","F.Emisión")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>codrecibo</name>
+		<!-- Recibo de la seguridad social asociado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Recibo SS")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<editable>false</editable>
+		
+		<relation>
+			<table>rh_recibossegsocial</table>
+			<field>codrecibo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>idretencion</name>
+		<!-- Registro de retenciones asociado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Retenciones")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<editable>false</editable>
+		
+		<relation>
+			<table>rh_retenciones</table>
+			<field>idretencion</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>nogenerarasiento</name>
+		<!--Si la validación de la nómina va a generar un asiento contable-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ignorar contabilidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+
+</TMD>

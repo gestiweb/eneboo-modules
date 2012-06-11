@@ -1,0 +1,137 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>rh_recibossegsocial</name>
+	<!--Lista de recibos de la seguridad social-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Recibos Seguridad Social")</alias>
+
+	<field>
+		<name>codrecibo</name>
+		<!--Código del recibo -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<counter>true</counter>
+		
+		<relation>
+			<table>rh_nominas</table>
+			<field>codrecibo</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codejercicio</name>
+		<!-- Código del ejercicio contable-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!--Descripción-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>total</name>
+		<!--Total gasto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>fecha</name>
+		<!--Fecha-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>idasiento</name>
+		<!--Identificador del asiento que se origina-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asiento")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>co_asientos</table>
+			<field>idasiento</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>fechanomina</name>
+		<!--Fecha que deben tener las nóminas incluidas en el recibo de la seguridad social-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","F.Nómina")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+		
+	</field>
+
+	<field>
+		<name>totalnominas</name>
+		<!--Suma de la aportación a la seguridad social de todas las nóminas incluidas en el recibo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","T.Nóminas")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>resto</name>
+		<!--Diferencia entre el total gasto y el total de las nóminas-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Resto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>codcuenta</name>
+		<!--Código de la cuenta bancaria de la empresa donde se carga el recibo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>cuentasbanco</table>
+			<field>codcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+</TMD>
