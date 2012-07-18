@@ -915,6 +915,7 @@ function oficial_valoresIniciales()
 	delete cursor;
 	
 	cursor = new FLSqlCursor("empresa");
+        cursor.setActivatedCheckIntegrity(false);
 	var milogo:String = "";
 	milogo+='/* XPM */\n';
 	milogo+='static char * logo_xpm[] = {\n';
