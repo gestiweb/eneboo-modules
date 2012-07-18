@@ -572,8 +572,7 @@ function oficial_comprobarEjercicios()
 		q.setWhere("ep.codejercicio IS NULL");
 		try { q.setForwardOnly( true ); } catch (e) {}
 
-		if (!q.exec())
-				return;
+		if (!q.exec())	return false;
 
 		var res;
 		if (q.next()) {
@@ -608,9 +607,13 @@ function oficial_comprobarEjercicios()
 								return false;
 
 						this.iface.generarPGC(q.value(0));
-						this.iface.generarSubcuentas(q.value(0), ledLongSubcuenta.value);
-				}
-		}
+						this.iface.generarSubcuentas(q.value(0), parseFloat(ledLongSubcuenta.value));
+                                                return true;
+				} else { return false; }
+		} else {
+                        return true;
+                }
+                
 }
 
 /** \D Se comienza la creación de un nuevo plan general contable. Se introducen cuentas y epígrafes
@@ -2314,6 +2317,7 @@ function oficial_rellenarCuentaEsp()
 	if (util.sqlSelect("co_subcuentas", "idsubcuenta", "idcuentaesp IS NOT NULL AND idsubcuenta <> 0")) {
 		return;
 	}
+        debug("rellenarCuentaEsp - Asignando cuentas especiales para subcuentas genericas ...");
 	var qryCuentas:FLSqlQuery = new FLSqlQuery;
 	with (qryCuentas) {
 		setTablesList("co_cuentas");
@@ -2331,7 +2335,7 @@ function oficial_rellenarCuentaEsp()
 	var idCuentaEsp:String;
 	while (qryCuentas.next()) {
 		util.setProgress(++paso);
-debug("codcuenta " + qryCuentas.value("codcuenta"))
+//debug("codcuenta " + qryCuentas.value("codcuenta"))
 		idCuentaEsp = qryCuentas.value("idcuentaesp");
 		if (!util.sqlUpdate("co_subcuentas", "idcuentaesp", idCuentaEsp, "idcuenta = " + qryCuentas.value("idcuenta"))) {
 			util.destroyProgressDialog();
@@ -2366,6 +2370,8 @@ debug("codcuenta " + qryCuentas.value("codcuenta"))
 		}
 	}
 	util.destroyProgressDialog();
+        debug("rellenarCuentaEsp - hecho.");
+        
 }
 
 function oficial_copiarCuenta(codCuenta:String, codEjercicioAnt:String, codEjercicio:String):String
