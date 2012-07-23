@@ -942,7 +942,6 @@ function oficial_valoresIniciales()
 	milogo+='"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",\n';
 	milogo+='"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",\n';
 	milogo+='"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"};\n';
-	milogo+='");\n';
 	with(cursor) {
 		setModeAccess(cursor.Insert);
 		refreshBuffer();
