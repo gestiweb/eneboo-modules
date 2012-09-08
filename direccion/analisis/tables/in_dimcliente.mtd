@@ -1,0 +1,36 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>in_dimcliente</name>
+	<!--Dimensión de clientes-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Dimensión de clientes")</alias>
+
+	<in_Dimension name="Time" foreignKey="time_id">
+		<in_Hierarchy hasAll="true" allMemberName="All clients" >
+			<in_Level column="codcliente" uniqueMembers="true" ordinalColumn="nombre" nameColumn="nombre" />
+		</in_Hierarchy>
+	</in_Dimension>
+	
+	<field in_property="true" >
+		<name>codcliente</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>in_h_ventas</table>
+			<field>d_codcliente</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+</TMD>

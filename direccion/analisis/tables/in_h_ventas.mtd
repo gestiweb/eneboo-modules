@@ -1,0 +1,229 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>in_h_ventas</name>
+	<!--Hipercubo de ventas-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Cubo de ventas")</alias>
+
+	<field>
+		<name>id</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>m_venta</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Venta")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>m_cantidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cantidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+    <field>
+        <name>m_coste</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Coste")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>double</type>
+        <partI>8</partI>
+        <partD>2</partD>
+        <default>0</default>
+    </field>
+    <field>
+        <name>m_ganancia</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Ganancia")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>double</type>
+        <partI>8</partI>
+        <partD>2</partD>
+        <default>0</default>
+    </field>
+
+	<field>
+		<name>d_codcliente</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cliente")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>in_dimcliente</table>
+			<field>codcliente</field>
+			<card>M1</card>
+			<checkIn>false</checkIn>
+		</relation>
+	</field>
+
+	<field>
+		<name>d_codagente</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Agente")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		
+		<relation>
+			<table>in_dimagente</table>
+			<field>codagente</field>
+			<card>M1</card>
+			<checkIn>false</checkIn>
+		</relation>
+	</field>
+
+	<field>
+		<name>d_idprovincia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Provincia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>in_dimprovincia</table>
+			<field>idprovincia</field>
+			<card>M1</card>
+			<checkIn>false</checkIn>
+		</relation>
+	</field>
+
+	<field>
+		<name>d_codejercicio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>in_dimejercicio</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+			<checkIn>false</checkIn>
+		</relation>
+	</field>
+
+	<field>
+		<name>d_mes</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mes")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>in_dimmes</table>
+			<field>mesano</field>
+			<card>M1</card>
+			<checkIn>false</checkIn>
+		</relation>
+	</field>
+
+	<field>
+		<name>d_referencia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Artículo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>18</length>
+		
+		<relation>
+			<table>in_dimarticulo</table>
+			<field>referencia</field>
+			<card>M1</card>
+			<checkIn>false</checkIn>
+		</relation>
+	</field>
+	
+	<field>
+		<name>d_codpais</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","País")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		
+		<relation>
+			<table>in_dimpais</table>
+			<field>codpais</field>
+			<card>M1</card>
+			<checkIn>false</checkIn>
+		</relation>
+	</field>
+
+	<Schema>
+		<Cube name="ventas" alias="QT_TRANSLATE_NOOP('MetaData','Ventas')" >
+			<Table name="in_h_ventas"/>
+			<Dimension name="articulo" foreignKey="d_referencia">
+				<Hierarchy hasAll="true" allMemberName="All Genders" primaryKey="referencia" primaryKeyTable="in_dimarticulo">
+					<Join leftKey="codfamilia" rightKey="codfamilia">
+						<Table name="in_dimarticulo"/>
+						<Table name="in_dimfamilia"/>
+					</Join>
+					<Level name="referencia" table="in_dimarticulo" column="referencia" ordinalColumn="descripcion" nameColumn="descripcion" uniqueMembers="true" sourceTable="articulos" alias="QT_TRANSLATE_NOOP('MetaData', 'Artículo')"/>
+					<Level name="familia" table="in_dimfamilia" column="codfamilia" nameColumn="descripcion" uniqueMembers="true" sourceTable="familias" alias="QT_TRANSLATE_NOOP('MetaData', 'Familia')"/>
+				</Hierarchy>
+			</Dimension>
+			<Dimension name="tiempo" foreignKey="d_mes">
+				<Hierarchy hasAll="false" primaryKey="mesano">
+					<Table name="in_dimmes"/>
+					<Level name="mes" column="mes" uniqueMembers="true" ordinalColumn="mes" nameColumn="nombremes" levelType="TimeMonths" alias="QT_TRANSLATE_NOOP('MetaData',  'Mes')"/>
+					<Level name="trimestre" column="trimestre" uniqueMembers="true" ordinalColumn="trimestre" nameColumn="trimestre" levelType="TimeTerms" alias="QT_TRANSLATE_NOOP('MetaData',  'Trimestre')"/>
+					<Level name="ano" column="ano" uniqueMembers="false" levelType="TimeYears" alias="QT_TRANSLATE_NOOP('MetaData', 'Año')"/>
+				</Hierarchy>
+			</Dimension>
+			<Dimension name="ejercicio" foreignKey="d_codejercicio">
+				<Hierarchy hasAll="false" primaryKey="codejercicio">
+					<Table name="in_dimejercicio"/>
+					<Level name="ejercicio" column="codejercicio" uniqueMembers="true" sourceTable="ejercicios" alias="QT_TRANSLATE_NOOP('MetaData', 'Ejercicio')"/>
+				</Hierarchy>
+			</Dimension>
+			<Dimension name="provincia" foreignKey="d_idprovincia">
+				<Hierarchy hasAll="false" primaryKey="idprovincia">
+					<Table name="in_dimprovincia"/>
+					<Level name="provincia" column="idprovincia" ordinalColumn="codigo" nameColumn="provincia" uniqueMembers="true" sourceTable="provincias" alias="QT_TRANSLATE_NOOP('MetaData', 'Provincia')"/>
+				</Hierarchy>
+			</Dimension>
+			<Dimension name="cliente" foreignKey="d_codcliente">
+				<Hierarchy hasAll="false" primaryKey="codcliente">
+					<Table name="in_dimcliente"/>
+					<Level name="cliente" column="codcliente" nameColumn="nombre" uniqueMembers="true" sourceTable="clientes" alias="QT_TRANSLATE_NOOP('MetaData', 'Cliente')"/>
+				</Hierarchy>
+			</Dimension>
+			<Dimension name="agente" foreignKey="d_codagente">
+				<Hierarchy hasAll="false" primaryKey="codagente">
+					<Table name="in_dimagente"/>
+					<Level name="agente" column="codagente" nameColumn="nombreap" uniqueMembers="true" sourceTable="agentes" alias="QT_TRANSLATE_NOOP('MetaData', 'Agente')"/>
+				</Hierarchy>
+			</Dimension>
+			<Dimension name="pais" foreignKey="d_codpais">
+				<Hierarchy hasAll="false" primaryKey="codpais">
+					<Table name="in_dimpais"/>
+					<Level name="pais" column="codpais" nameColumn="nombre" uniqueMembers="true" sourceTable="paises" alias="QT_TRANSLATE_NOOP('MetaData', 'País')"/>
+				</Hierarchy>
+			</Dimension>
+			<Measure name="ventas" alias="QT_TRANSLATE_NOOP('MetaData', 'Ventas')" measureName="QT_TRANSLATE_NOOP('MetaData', 'Euros')" column="m_venta" aggregator="sum" formatString="#.###,00"/>
+			<Measure name="cantidad" alias="QT_TRANSLATE_NOOP('MetaData', 'Cantidad')" measureName="QT_TRANSLATE_NOOP('MetaData', 'Unidades')" column="m_cantidad" aggregator="sum" formatString="#.###"/>
+			<Measure name="coste" alias="QT_TRANSLATE_NOOP('MetaData', 'Coste')" measureName="QT_TRANSLATE_NOOP('MetaData', 'Euros')" column="m_coste" aggregator="sum" formatString="#.###,00"/>
+			<Measure name="ganancia" alias="QT_TRANSLATE_NOOP('MetaData', 'Ganancia')" measureName="QT_TRANSLATE_NOOP('MetaData', 'Euros')" column="m_ganancia" aggregator="sum" formatString="#.###,00"/>
+		</Cube>
+	</Schema>
+</TMD>
