@@ -1,0 +1,64 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>in_cuadros</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Cuadros de mando")</alias>
+
+	<field>
+		<name>codcuadro</name>
+		<!--Código del cuadro de mandos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>25</length>
+		
+		<relation>
+			<table>in_posicionescuadro</table>
+			<field>codcuadro</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripcion")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>numpaginas</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Páginas")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>1</default>
+	</field>
+	
+	<field>
+		<name>ancho</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ancho")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>alto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Alto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>xml</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","xml")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>200</visiblegrid>
+	</field>
+</TMD>

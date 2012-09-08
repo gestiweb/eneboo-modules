@@ -1,0 +1,74 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>in_agregadas</name>
+	<!--Tablas agregadas-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Tablas agregadas")</alias>
+
+	<field>
+		<name>id</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>lista</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Campos")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>hits</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hits")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>fichero</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fichero")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>cubo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cubo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<optionslist>in_h_ventas</optionslist>
+		<default>in_h_ventas</default>
+	</field>
+	
+	<field>
+		<name>registros</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Registros")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<editable>false</editable>
+	</field>
+</TMD>
