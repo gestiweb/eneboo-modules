@@ -1,0 +1,163 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>gf_2dmapa</name>
+	<!--Mapa-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Mapa")</alias>
+
+	<field>
+		<name>codmapa</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mapa")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>tabla</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tabla")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<optionslist>provincias,paises</optionslist>
+		<default>provincias</default>
+	</field>
+	
+	<field>
+		<name>imagen</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Imagen")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>pixmap</type>
+	</field>
+	
+	<field>
+		<name>xml</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","XML")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>famfuenten</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fam.Fuente F.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<optionslist>Arial,Times New Roman,Verdana</optionslist>
+	</field>
+	
+	<field>
+		<name>idcolorn</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color N")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		<relation>
+			<table>gf_colores</table>
+			<field>idcolor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>colorn</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color N")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+	
+	<field>
+		<name>famfuentev</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fam.Fuente V.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<optionslist>Arial,Times New Roman,Verdana</optionslist>
+	</field>
+	
+	<field>
+		<name>idcolorv</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color V")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		<relation>
+			<table>gf_colores</table>
+			<field>idcolor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>colorv</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color V")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+	
+	<field>
+		<name>formatov</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Formato V.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<optionslist>Entero,2D,KM</optionslist>
+		<default>Entero</default>
+	</field>
+	
+	<field>
+		<name>famfuentet</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fam.Fuente T.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<optionslist>Arial,Times New Roman,Verdana</optionslist>
+	</field>
+	
+	<field>
+		<name>idcolort</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color T")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		<relation>
+			<table>gf_colores</table>
+			<field>idcolor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>colort</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color T")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+	
+	<field>
+		<name>altot</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Alto T")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<default>20</default>
+	</field>
+	
+</TMD>

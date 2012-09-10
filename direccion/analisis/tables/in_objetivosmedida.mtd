@@ -1,0 +1,167 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>in_objetivosmedida</name>
+	<!--Objetivos por medida-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Objetivos por medida")</alias>
+
+	<field>
+		<name>id</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>idusuario</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Usuario")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>mintramo1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mínimo 1")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>maxtramo1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Máximo 1")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>idcolortramo1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color 1")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		<relation>
+			<table>in_colores</table>
+			<field>idcolor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>colortramo1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color 1")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+	
+	<field>
+		<name>mintramo2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mínimo 2")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>maxtramo2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Máximo 2")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>idcolortramo2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color 2")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		<relation>
+			<table>in_colores</table>
+			<field>idcolor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>colortramo2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color 2")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+	
+	<field>
+		<name>mintramo3</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mínimo 3")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>maxtramo3</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Máximo 3")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>idcolortramo3</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color 3")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		<relation>
+			<table>in_colores</table>
+			<field>idcolor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>colortramo3</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color 3")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+	
+	<field>
+		<name>idmedida</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id.Medida")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+	</field>
+</TMD>

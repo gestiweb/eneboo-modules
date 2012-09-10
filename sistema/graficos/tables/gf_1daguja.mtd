@@ -1,0 +1,322 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>gf_1daguja</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Aguja")</alias>
+	<!--Gráfico de aguja 1D-->
+
+	<field>
+		<name>id</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+	</field>
+	
+	<field>
+		<name>xml</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","XML")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+	
+	<field>
+		<name>ancho</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ancho")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>alto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Alto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>margensup</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","M.Superior")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>margeninf</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","M.Inferior")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>margenizq</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","M.Izquierdo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>margender</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","M.Derecho")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>familiafuente</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Familia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<optionslist>Arial,Times New Roman,Verdana</optionslist>
+	</field>
+	
+	<field>
+		<name>tamanofuente</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tamaño")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	<field>
+		<name>marco</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Marco")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+	
+	<field>
+		<name>dimfijas</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Dim.Fijas")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+	
+	<field>
+		<name>familiafuentevalor</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Familia V.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<optionslist>Arial,Times New Roman,Verdana</optionslist>
+	</field>
+	
+	<field>
+		<name>tamanofuenteValor</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tamaño V.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>idcolorvalor</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color V.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		<relation>
+			<table>gf_colores</table>
+			<field>idcolor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>colorvalor</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color Valor")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+	
+	<field>
+		<name>posicionvalor</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Posición V.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>titulo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Título")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	
+	<field>
+		<name>marcarlabel</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Marcar Valores")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+	
+	<field>
+		<name>marcarcada</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Intervalo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>margenlabel</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Margen Valores")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>anguloinicio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Angulo Inicial")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>angulofin</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Angulo Final")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>radio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Radio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>valor1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor Mínimo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>valor2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor 1")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>valor3</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor 2")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>valor4</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor Máximo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+		
+	<field>
+		<name>idcolorseccion1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color S1")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		<relation>
+			<table>gf_colores</table>
+			<field>idcolor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>colorseccion1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color S1")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+	
+	<field>
+		<name>idcolorseccion2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color S2")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		<relation>
+			<table>gf_colores</table>
+			<field>idcolor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>colorseccion2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color S2")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+	
+	<field>
+		<name>idcolorseccion3</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color S3")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		<relation>
+			<table>gf_colores</table>
+			<field>idcolor</field>
+			<card>M1</card>
+		</relation>
+	</field>	
+	
+	<field>
+		<name>colorseccion3</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Color S3")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+	
+	  <field>
+		<name>formatov</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Formato V")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<optionslist>Entero,2D,KM</optionslist>
+		<default>Entero</default>
+	</field>
+</TMD>

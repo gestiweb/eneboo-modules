@@ -1,0 +1,30 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>in_dimpais</name>
+	<!--Dimensión de paises-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Dimensión de paises")</alias>
+
+	<field in_property="true">
+		<name>codpais</name>
+		<!--Código del país -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","País")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+		
+		<relation>
+			<table>in_h_ventas</table>
+			<field>dim_codpais</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+</TMD>
