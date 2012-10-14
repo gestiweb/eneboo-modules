@@ -1,0 +1,50 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>cl_estadosproyecto</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Estados de proyecto")</alias>
+
+	<field>
+		<name>codestado</name>
+		<!-- Código del estado -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+				
+		<relation>
+			<table>cl_proyectos</table>
+			<field>codestado</field>
+			<card>1M</card>
+		</relation>
+	
+		<relation>
+			<table>cl_subproyectos</table>
+			<field>codestado</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción del proyecto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>pordefecto</name>
+		<!-- Estado marcado por defecto -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado por defecto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+        <default>false</default>
+		<editable>false</editable>
+	</field>
+	
+</TMD>
+
