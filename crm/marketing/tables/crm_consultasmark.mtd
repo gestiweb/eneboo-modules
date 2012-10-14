@@ -1,0 +1,117 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>crm_consultasmark</name>
+	<!--Consultas para elaborar listas de campañas-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Consultas")</alias>
+
+	<field>
+		<name>codconsulta</name>
+		<!--Identificador de la consulta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>30</length>
+		
+		<relation>
+			<table>crm_listasmark</table>
+			<field>codconsulta</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>listatablas</name>
+		<!--Lista de tablas-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tablas")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>500</length>
+	</field>
+	
+	<field>
+		<name>campos</name>
+		<!--Campos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Campos")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+	
+	<field>
+		<name>desde</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+	
+	<field>
+		<name>donde</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Donde")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>500</length>
+	</field>
+	
+	<field>
+		<!--Este campo, en formato tabla.campo, identifica el campo único de la consulta (generalmente es el código del cliente/proveedor/contacto) --> 
+		<name>campoclave</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Campo clave")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<!--Este campo, en formato tabla.campo, identifica el campo más descriptivo de la consulta, que será el usado como nombre del destinatario en la tabla de destinatarios de campaña-->
+		<name>camponombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Campo nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<!--Este campo, en formato tabla.campo, identifica el campo que contiene la dirección de email a usar en campañas por canal E-mail-->
+		<name>campoemail</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Campo E-mail")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<!--Este campo, en formato tabla.campo, identifica el campo que contiene el teléfono a usar en campañas por canal telefónico-->
+		<name>campotel</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Campo Tel.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<!--Este campo, en formato XXX, identifica el campo que contiene la dirección a usar en campañas por correo ordinario-->
+		<name>campodir</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Campo Dir.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>500</length>
+	</field>
+</TMD>
