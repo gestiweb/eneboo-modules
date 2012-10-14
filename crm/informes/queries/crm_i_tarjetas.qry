@@ -1,0 +1,21 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>crm_i_tarjetas</name>
+
+	<tables>crm_tarjetas,empresa,crm_fuentestarjeta</tables>
+
+	<select>
+		empresa.nombre, empresa.logo, crm_tarjetas.nombre, crm_tarjetas.email, crm_tarjetas.telefono1, crm_tarjetas.codtarjeta, crm_tarjetas.codfuente, crm_tarjetas.contacto, crm_tarjetas.codestado, crm_tarjetas.emailcon, crm_tarjetas.telefono1con, crm_tarjetas.codcontacto, crm_fuentestarjeta.codfuente, crm_tarjetas.codfuente
+	</select>
+
+	<from>
+		empresa,crm_tarjetas INNER JOIN crm_fuentestarjeta ON crm_tarjetas.codfuente = crm_fuentestarjeta.codfuente
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		crm_tarjetas.codtarjeta
+	</order>
+</QRY>
