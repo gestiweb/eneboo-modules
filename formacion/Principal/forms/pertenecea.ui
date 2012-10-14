@@ -15,88 +15,67 @@
     <property name="caption">
         <string>Añadir Formaciones</string>
     </property>
-    <widget class="FLFieldDB">
+    <grid>
         <property name="name">
-            <cstring>fLFieldDB1</cstring>
+            <cstring>unnamed</cstring>
         </property>
-        <property name="geometry">
-            <rect>
-                <x>20</x>
-                <y>30</y>
-                <width>230</width>
-                <height>27</height>
-            </rect>
-        </property>
-        <property name="fieldName">
-            <string>idformacion</string>
-        </property>
-    </widget>
-    <widget class="FLFieldDB">
-        <property name="name">
-            <cstring>fLFieldDB4_2</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>260</x>
-                <y>30</y>
-                <width>230</width>
-                <height>27</height>
-            </rect>
-        </property>
-        <property name="fieldName">
-            <string>titulo</string>
-        </property>
-        <property name="tableName">
-            <string>accionesformativas</string>
-        </property>
-        <property name="foreignField">
-            <string>idformacion</string>
-        </property>
-        <property name="fieldRelation">
-            <string>idformacion</string>
-        </property>
-    </widget>
-    <widget class="FLFieldDB">
-        <property name="name">
-            <cstring>fLFieldDB4</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>20</x>
-                <y>70</y>
-                <width>230</width>
-                <height>27</height>
-            </rect>
-        </property>
-        <property name="fieldName">
-            <string>idfs</string>
-        </property>
-    </widget>
-    <widget class="FLFieldDB">
-        <property name="name">
-            <cstring>fLFieldDB5</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>260</x>
-                <y>70</y>
-                <width>230</width>
-                <height>27</height>
-            </rect>
-        </property>
-        <property name="fieldName">
-            <string>titulo</string>
-        </property>
-        <property name="tableName">
-            <string>accionesformativas</string>
-        </property>
-        <property name="foreignField">
-            <string>idformacion</string>
-        </property>
-        <property name="fieldRelation">
-            <string>idfs</string>
-        </property>
-    </widget>
+        <widget class="FLFieldDB" row="0" column="0">
+            <property name="name">
+                <cstring>fLFieldDB1</cstring>
+            </property>
+            <property name="fieldName">
+                <string>idformacion</string>
+            </property>
+        </widget>
+        <widget class="FLFieldDB" row="0" column="1">
+            <property name="name">
+                <cstring>fLFieldDB4_2</cstring>
+            </property>
+            <property name="fieldName">
+                <string>titulo</string>
+            </property>
+            <property name="tableName">
+                <string>accionesformativas</string>
+            </property>
+            <property name="foreignField">
+                <string>idformacion</string>
+            </property>
+            <property name="fieldRelation">
+                <string>idformacion</string>
+            </property>
+        </widget>
+        <widget class="FLFieldDB" row="1" column="0">
+            <property name="name">
+                <cstring>fLFieldDB4</cstring>
+            </property>
+            <property name="fieldName">
+                <string>idfs</string>
+            </property>
+        </widget>
+        <widget class="FLFieldDB" row="1" column="1">
+            <property name="name">
+                <cstring>fLFieldDB5</cstring>
+            </property>
+            <property name="fieldName">
+                <string>titulo</string>
+            </property>
+            <property name="tableName">
+                <string>accionesformativas</string>
+            </property>
+            <property name="foreignField">
+                <string>idformacion</string>
+            </property>
+            <property name="fieldRelation">
+                <string>idfs</string>
+            </property>
+        </widget>
+    </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>flfielddb.h</includehint>
+    <includehint>flfielddb.h</includehint>
+    <includehint>flfielddb.h</includehint>
+    <includehint>flfielddb.h</includehint>
+</includehints>
 </UI>
