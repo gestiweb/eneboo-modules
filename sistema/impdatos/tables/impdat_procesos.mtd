@@ -1,0 +1,59 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>impdat_procesos</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Importaciones")</alias>
+	
+	<field>
+		<name>codproceso</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>128</length>
+	</field>
+	
+	<field>
+		<name>codesquema</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Esquema")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>128</length>
+		
+		<relation>
+			<table>impdat_esquemas</table>
+			<field>codesquema</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>ficherocsv</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fichero de datos")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>sinoexiste_crear</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Crear registros inexistentes")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>siexiste_actualizar</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Actualizar registros existentes")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+</TMD>
