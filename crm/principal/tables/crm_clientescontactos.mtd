@@ -1,0 +1,53 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>crm_clientescontactos</name>
+	<!--Almacena la relacion entre contactos y clientes-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Contactos")</alias>
+
+	<field>
+		<name>idclientescontactos</name>
+		<!--Identificador interno del contacto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>codcliente</name>
+		<!--Código del cliente (no visible)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cliente")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>true</visiblegrid>
+		
+		<relation>
+			<table>clientes</table>
+			<field>codcliente</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codcontacto</name>
+		<!--Código de contacto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contacto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>true</visiblegrid>
+		
+		<relation>
+			<table>crm_contactos</table>
+			<field>codcontacto</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+	
+</TMD>
