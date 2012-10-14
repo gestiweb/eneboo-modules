@@ -1,0 +1,38 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>crm_i_previsionesventa</name>
+
+	<tables>crm_oportunidadventa,empresa,usuarios,crm_tarjetas,crm_estadostarjeta,crm_fuentestarjeta</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.cifnif</field>
+	</group>
+	<group>
+		<level>1</level>
+		<field>crm_oportunidadventa.idusuario</field>
+	</group>
+
+	<select>
+		crm_oportunidadventa.codoportunidad, crm_oportunidadventa.descripcion,
+		crm_oportunidadventa.nomcliente, crm_oportunidadventa.codestado,
+		crm_oportunidadventa.totalventa, crm_oportunidadventa.probabilidad,
+		crm_oportunidadventa.totalventa*crm_oportunidadventa.probabilidad/100,
+		crm_oportunidadventa.fechacierre, crm_oportunidadventa.idusuario,
+		usuarios.nombre,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion, empresa.codpostal,
+		empresa.ciudad,empresa.codpais,
+		empresa.provincia, empresa.apartado
+	</select>
+
+	<from>
+		empresa, crm_oportunidadventa 
+		LEFT OUTER JOIN usuarios ON crm_oportunidadventa.idusuario = usuarios.idusuario
+		LEFT OUTER JOIN crm_tarjetas ON crm_tarjetas.codtarjeta = crm_oportunidadventa.codtarjeta LEFT OUTER JOIN crm_estadostarjeta ON crm_tarjetas.codestado = crm_estadostarjeta.codestado LEFT OUTER JOIN crm_fuentestarjeta ON crm_tarjetas.codfuente = crm_fuentestarjeta.codfuente
+	</from>
+
+	<where>
+		crm_oportunidadventa.idusuario, crm_oportunidadventa.codoportunidad
+	</where>
+</QRY>

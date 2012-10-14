@@ -1,0 +1,201 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>pr_tipostareapro</name>
+	<!--Tipos de tarea asociados a tipo de proceso-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Tipo de tarea asociado a tipo de proceso")</alias>
+
+	<field>
+		<name>idtipotareapro</name>
+		<!--Identificador-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>pr_secuencias</table>
+			<field>tareainicio</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>pr_secuencias</table>
+			<field>tareafin</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>pr_tareas</table>
+			<field>idtipotareapro</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>ordenlista</name>
+		<!--Orden en la lista-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>int</type>
+	</field>
+	
+	<field>
+		<name>idtipotarea</name>
+		<!--Identificador del tipo de tarea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tarea")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+
+  		<relation>
+			<table>pr_tipostarea</table>
+			<field>idtipotarea</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!--Descripción del tipo de tarea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>idtipoproceso</name>
+		<!--Tipo de proceso al que pertenece-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Proceso")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+
+		<relation>
+			<table>pr_tiposproceso</table>
+			<field>idtipoproceso</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>subestadoproceso</name>
+		<!--Subestado al que pasa el proceso cuando la tarea pasa a TERMINADA-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subestado proceso")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>estadoobjeto</name>
+		<!--Estado al que pasa el objeto asociado al proceso cuando la tarea pasa a TERMINADA-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado objeto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>tareainicial</name>
+		<!--Indicador de si las tareas de este tipo son tareas iniciales de proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tarea inicial")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+
+	<field>
+		<name>tareafinal</name>
+		<!--Indicador de si las tareas de este tipo son tareas finales de proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tarea final")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+
+	<field>
+		<name>idalias</name>
+		<!--Alias (responsable) de la tarea -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Alias")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>pr_aliasproceso</table>
+			<field>idalias</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>alias</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Alias")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>notificarasignacion</name>
+		<!--Notificar asignación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Notificar asignación")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>terminaenunpaso</name>
+		<!--Indica si la tarea pasa directamente de PTE a TERMINADA-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Termina en un paso")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>tiempopteencurso</name>
+		<!--Tiempo desde que la tarea está PTE hasta que pasa a EN CURSO-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","PTE-EN CURSO")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>tiempopteterminada</name>
+		<!--Tiempo desde que la tarea está PTE hasta que pasa a TERMINADA-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","PTE-TERMINADA")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>codtipotareapro</name>
+		<!--Código de tipo de tarea por proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<unique>true</unique>
+		<type>string</type>
+		<length>40</length>
+	</field>
+</TMD>

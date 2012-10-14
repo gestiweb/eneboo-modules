@@ -1,0 +1,104 @@
+<!DOCTYPE TMD>
+<TMD>
+    <name>cl_subproyectos</name>
+    <alias>QT_TRANSLATE_NOOP("MetaData","Subproyectos")</alias>
+    <field>
+        <name>codsubproyecto</name>
+<!-- Código del subproyecto -->        <alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+        <null>false</null>
+        <pk>true</pk>
+        <type>string</type>
+        <length>8</length>
+        <counter>true</counter>
+        <relation>
+            <table>cl_incidencias</table>
+            <field>codsubproyecto</field>
+            <card>1M</card>
+        </relation>
+        <relation>
+            <table>cl_comunicaciones</table>
+            <field>codsubproyecto</field>
+            <card>1M</card>
+        </relation>
+    </field>
+    <field>
+        <name>codsubcentro</name>
+<!--Código del subcentro-->        <alias>QT_TRANSLATE_NOOP("MetaData","Subcentro Coste")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>8</length>
+        <editable>false</editable>
+        <relation>
+            <table>subcentroscoste</table>
+            <field>codsubcentro</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>descripcion</name>
+<!-- Descripción del subproyecto -->        <alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>200</length>
+    </field>
+    <field>
+        <name>codproyecto</name>
+<!-- Código del proyecto relacionado-->        <alias>QT_TRANSLATE_NOOP("MetaData","Proyecto")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>8</length>
+        <relation>
+            <table>cl_proyectos</table>
+            <field>codproyecto</field>
+            <card>M1</card>
+            <delC>true</delC>
+        </relation>
+    </field>
+    <field>
+        <name>codestado</name>
+<!-- Código del estado del subproyecto -->        <alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>10</length>
+        <relation>
+            <table>cl_estadosproyecto</table>
+            <field>codestado</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>finicio</name>
+<!-- Fecha de inicio del subproyecto -->        <alias>QT_TRANSLATE_NOOP("MetaData","Fecha inicio")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>date</type>
+    </field>
+    <field>
+        <name>idusuario</name>
+<!-- Identificador del usuario responsable del proyecto-->        <alias>QT_TRANSLATE_NOOP("MetaData","Responsable")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>30</length>
+        <relation>
+            <table>usuarios</table>
+            <field>idusuario</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>tiempototal</name>
+<!--Tiempo total invertido en realizar el subproyecto-->        <alias>QT_TRANSLATE_NOOP("MetaData","Tiempo total")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>double</type>
+        <partI>1</partI>
+        <partD>2</partD>
+        <default>0</default>
+        <editable>false</editable>
+    </field>
+</TMD>

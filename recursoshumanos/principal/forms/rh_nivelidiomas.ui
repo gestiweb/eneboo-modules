@@ -1,0 +1,184 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>formIdiomas</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>formIdiomas</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>234</width>
+            <height>205</height>
+        </rect>
+    </property>
+    <property name="sizePolicy">
+        <sizepolicy>
+            <hsizetype>1</hsizetype>
+            <vsizetype>5</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+    </property>
+    <property name="caption">
+        <string>Nivel de Idiomas</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>6</number>
+        </property>
+        <property name="spacing">
+            <number>6</number>
+        </property>
+        <widget class="QFrame">
+            <property name="name">
+                <cstring>frmFamilia</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>7</hsizetype>
+                    <vsizetype>5</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="frameShape">
+                <enum>GroupBoxPanel</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Sunken</enum>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbCodIdioma</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>1</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>180</width>
+                            <height>25</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>codidioma</string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbNombre</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>7</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>200</width>
+                            <height>25</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>nombre</string>
+                    </property>
+                    <property name="tableName">
+                        <string>rh_idiomas</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>codidioma</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>codidioma</string>
+                    </property>
+                    <property name="showAlias">
+                        <bool>false</bool>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>groupBox11</cstring>
+            </property>
+            <property name="title">
+                <string></string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbNivelEscritura</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>1</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="fieldName">
+                        <string>nivelescritura</string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbNivelLectura</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>1</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="fieldName">
+                        <string>nivellectura</string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fdbNivelConversacion</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>1</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="fieldName">
+                        <string>nivelconversacion</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </vbox>
+</widget>
+<slots>
+    <slot>eliminarGruposImpuestos()</slot>
+    <slot>traspasarGruposImpuestos()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
