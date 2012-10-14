@@ -1,0 +1,22 @@
+<!DOCTYPE QRY>
+<QRY>
+ <name>informexunta</name>
+
+ <tables>actividadeslaborales,accionesformativas,esasistentea,personas</tables>
+
+ <select>
+  actividadeslaborales.nombre, count(asistentes.idpersona)
+ </select>
+
+        <from>
+                actividadeslaborales,accionesformativas,(select 
+esasistentea.idformacion,personas.idpersona,personas.nombre 
+from esasistentea,personas where esasistentea.idpersona=personas.idpersona) as asistentes
+        </from>
+
+ <where>
+  actividadeslaborales.idactividad=accionesformativas.idactividad and 
+accionesformativas.idformacion=asistentes.idformacion group by actividadeslaborales.nombre
+ </where>
+
+</QRY> 

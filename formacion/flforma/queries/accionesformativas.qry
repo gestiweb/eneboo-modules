@@ -1,0 +1,34 @@
+<!DOCTYPE QRY>
+<QRY>
+ <name>accionesformativas</name>
+
+ <tables>accionesformativas,autorizaciones,empresa,esasistentea,personas,esempleadode,clientes,tipoformacion,actividadeslaborales</tables>
+
+<param>
+  <name>from</name>
+  <alias>QT_TRANSLATE_NOOP("Queries","Desde:")</alias>
+  <type>date</type>
+ </param>
+
+<param>
+  <name>to</name>
+  <alias>QT_TRANSLATE_NOOP("Queries","Hasta:")</alias>
+  <type>date</type>
+ </param>
+
+ <select>
+distinct(accionesformativas.idformacion),accionesformativas.idformacion, accionesformativas.titulo, accionesformativas.fechainicio,
+accionesformativas.fechafin, accionesformativas.esCompuesta,accionesformativas.tipo, accionesformativas.estado, empresa.nombre, actividadeslaborales.nombreact, tipoformacion.nombre
+</select>
+        <from>
+                accionesformativas,empresa,tipoformacion,actividadeslaborales
+        </from>
+<where>
+actividadeslaborales.idactividad=accionesformativas.idactividad AND
+tipoformacion.tipo=accionesformativas.tipo AND
+accionesformativas.fechainicio&gt;=[from] AND
+accionesformativas.fechafin&lt;=[to]
+</where>
+
+ 
+</QRY> 

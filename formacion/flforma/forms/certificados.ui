@@ -1,0 +1,344 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>Form1</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>Form1</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>723</width>
+            <height>285</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Imprimir Certificados</string>
+    </property>
+    <widget class="QGroupBox">
+        <property name="name">
+            <cstring>groupBox2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>20</x>
+                <y>60</y>
+                <width>660</width>
+                <height>51</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string></string>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout4</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>10</y>
+                    <width>640</width>
+                    <height>29</height>
+                </rect>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>flidformacion</cstring>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>173</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>idformacion</string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fLFieldDB8</cstring>
+                    </property>
+                    <property name="fieldName">
+                        <string>titulo</string>
+                    </property>
+                    <property name="tableName">
+                        <string>accionesformativas</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>idformacion</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>idformacion</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </widget>
+    <widget class="QGroupBox">
+        <property name="name">
+            <cstring>groupBox3</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>20</x>
+                <y>10</y>
+                <width>660</width>
+                <height>50</height>
+            </rect>
+        </property>
+        <property name="focusPolicy">
+            <enum>NoFocus</enum>
+        </property>
+        <property name="title">
+            <string></string>
+        </property>
+        <widget class="FLFieldDB">
+            <property name="name">
+                <cstring>fLFieldDB9</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>10</y>
+                    <width>640</width>
+                    <height>27</height>
+                </rect>
+            </property>
+            <property name="fieldName">
+                <string>descripcion</string>
+            </property>
+        </widget>
+    </widget>
+    <widget class="QGroupBox">
+        <property name="name">
+            <cstring>groupBox1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>20</x>
+                <y>110</y>
+                <width>660</width>
+                <height>130</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string></string>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout3</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>7</y>
+                    <width>640</width>
+                    <height>120</height>
+                </rect>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="FLFieldDB" row="0" column="1">
+                    <property name="name">
+                        <cstring>flidPersona</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>150</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>150</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>idpersona</string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB" row="0" column="2">
+                    <property name="name">
+                        <cstring>fLFieldDB4</cstring>
+                    </property>
+                    <property name="fieldName">
+                        <string>nombre</string>
+                    </property>
+                    <property name="tableName">
+                        <string>personas</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>idpersona</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>idpersona</string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB" row="0" column="3">
+                    <property name="name">
+                        <cstring>fLFieldDB10</cstring>
+                    </property>
+                    <property name="fieldName">
+                        <string>apellidos</string>
+                    </property>
+                    <property name="tableName">
+                        <string>personas</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>idpersona</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>idpersona</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="2" column="0">
+                    <property name="name">
+                        <cstring>cbcodcliente</cstring>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>16</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB" row="1" column="2" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>fLFieldDB5</cstring>
+                    </property>
+                    <property name="fieldName">
+                        <string>nombre</string>
+                    </property>
+                    <property name="tableName">
+                        <string>personas</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>idPonente</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>idpersona</string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB" row="1" column="1">
+                    <property name="name">
+                        <cstring>flidPonente</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>150</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>150</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>idPonente</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="1" column="0">
+                    <property name="name">
+                        <cstring>cbidPonente</cstring>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>16</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB" row="2" column="2" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>fLFieldDB6</cstring>
+                    </property>
+                    <property name="fieldName">
+                        <string>nombre</string>
+                    </property>
+                    <property name="tableName">
+                        <string>clientes</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>codcliente</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>codcliente</string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB" row="2" column="1">
+                    <property name="name">
+                        <cstring>flcodcliente</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>150</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>150</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>codcliente</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="0" column="0">
+                    <property name="name">
+                        <cstring>cbidPersona</cstring>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>16</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+    </widget>
+</widget>
+<connections>
+    <connection>
+        <sender>cbidPersona</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>flidPersona</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbidPonente</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>flidPonente</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbcodcliente</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>flcodcliente</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+</connections>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

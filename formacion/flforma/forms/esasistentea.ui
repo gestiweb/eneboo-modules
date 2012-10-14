@@ -1,0 +1,229 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>esasistentea</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>esasistentea</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>771</width>
+            <height>305</height>
+        </rect>
+    </property>
+    <property name="sizePolicy">
+        <sizepolicy>
+            <hsizetype>1</hsizetype>
+            <vsizetype>5</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+    </property>
+    <property name="caption">
+        <string>Es Asistente a</string>
+    </property>
+    <property name="icon">
+        <pixmap>image0</pixmap>
+    </property>
+    <widget class="QGroupBox">
+        <property name="name">
+            <cstring>groupBox3</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>120</y>
+                <width>750</width>
+                <height>101</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string></string>
+        </property>
+        <widget class="FLFieldDB">
+            <property name="name">
+                <cstring>fLFieldDB6_2</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>12</x>
+                    <y>34</y>
+                    <width>113</width>
+                    <height>40</height>
+                </rect>
+            </property>
+            <property name="fieldName">
+                <string>pagado</string>
+            </property>
+        </widget>
+        <widget class="FLFieldDB">
+            <property name="name">
+                <cstring>fLFieldDB6</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>140</x>
+                    <y>20</y>
+                    <width>600</width>
+                    <height>70</height>
+                </rect>
+            </property>
+            <property name="fieldName">
+                <string>observaciones</string>
+            </property>
+        </widget>
+    </widget>
+    <widget class="QGroupBox">
+        <property name="name">
+            <cstring>groupBox1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>12</x>
+                <y>22</y>
+                <width>747</width>
+                <height>90</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string></string>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout3</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>50</y>
+                    <width>730</width>
+                    <height>29</height>
+                </rect>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>idFormacion</cstring>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>200</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>idformacion</string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fLFieldDB5_2</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>5</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>140</width>
+                            <height>25</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>titulo</string>
+                    </property>
+                    <property name="tableName">
+                        <string>accionesformativas</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>idformacion</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>idformacion</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout3</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>11</x>
+                    <y>11</y>
+                    <width>730</width>
+                    <height>29</height>
+                </rect>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>idPersona</cstring>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>200</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="fieldName">
+                        <string>idpersona</string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fLFieldDB5</cstring>
+                    </property>
+                    <property name="fieldName">
+                        <string>nombre</string>
+                    </property>
+                    <property name="tableName">
+                        <string>personas</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>idpersona</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>idpersona</string>
+                    </property>
+                </widget>
+                <widget class="FLFieldDB">
+                    <property name="name">
+                        <cstring>fLFieldDB7</cstring>
+                    </property>
+                    <property name="fieldName">
+                        <string>apellidos</string>
+                    </property>
+                    <property name="tableName">
+                        <string>personas</string>
+                    </property>
+                    <property name="foreignField">
+                        <string>idpersona</string>
+                    </property>
+                    <property name="fieldRelation">
+                        <string>idpersona</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </widget>
+</widget>
+<images>
+    <image name="image0">
+        <data format="PNG" length="1142">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000043d49444154789c95d45b68db551c07f0737ee7fcf3cf3f4df26f9226599b5e97d63659dbf54247c79852c4e99863030b9b1351c109e28b0fee4da53e0d36a888f44d1415159c13c12b1dc5a115b7558a5b595b4d5adba697b4c99ae6f2bfe47f3b3ed587269dedeffdfbe1f03de77730630c3d6c5eba70d625ba6c8f06ebdbbb6c14f762628bc567266f2e2e2ffcf1e1275fa482c18365737837389148a0375ebdd024c9eaa5e38f9f7c21dad1e3a86f68448aaaa2895be3b9dbe3377ec428f7faa7d77e4f96cbc36e277debd2cb9e7426f7ae49858b36874bd8ca6ea17f16e6516a2389448fcfedf4d40c22ecf8f8f9677a3cfb8275ad7086013da9691a999dbe8ffe9a9d6685f4df869fdc53486142b5d322765556f757070e9cb9faf6f9128796432f5f1e04a753382b9a4ecaf33666834d23ecdb544f1c1214c121a016cfba75ac69c57c9003bcb2966dfde85bcb8e1092ff178ec7e7b8c6da903bd26ae5835e49eb0eafe64341625267af1d381fa54241172a143510dc3425d5aa3fe0c5ce3dc12c09b8f7f89f73fd7d9a87e7748b808110a9a1c84e01730e84292922ca54a4eba6c5334536386b4f55541d6ad53673b145b74f6bdf7e330c4b0c71690d036380333a2292aec8bab6a5e05826ef93761a652fefca95cfadf54df24b620d171930820823080a08b184c5acb881d08a8540c6d91c5326ef7153dddd5dc53dc108219448fa276edfe17e78b0464da6520ea93a65f21a6352c2b2a40d945937d9e8283f965cf08fbd73f59b922ac8d0d05059d8edad3326c66fc4739b185c1c3e2c202ae0a20586ac7333b360bffe93fdd6dd59febd0fae2d66cae577ddbced79f2a92704bfcff37e4fb4b25794e2ae5cde6155f69c5b9a9a9ecfde9dbcf3dad8d8f7fbdbbced49a7b2759ddd03c1cea3afc44395a796c215ed697f309c6e6989d874c3e8db2df75038dadeed686e6e7f361a3dac020559c49626e65705c0a61a0856e75a5a228f8542a18a7dc1c3c3c3d8ebf5f775f51c69e36ca44000cb687559a8cc25dd1cb3540a20b7453bfd81406d472c16db3b7cfdebefbc6d91ce730d8dcd16009100a0c0a7d72bec4ad64990a9608225b1d20bcd8f74749c3a7d9adb332c389cc72291ce1abb60cf138c250a58122b1c3ed08a36604c068c55d12d6a55814037e1ecde3dc1a1dafaaaa68391a76b42751200c89840010348626b5b15314c0e9029130099729ce272ba3c75b58d253d97c05353532810ac3d1a8976fa290585122c63840b7a3e6bf28d0d82c6d914d3b4644c4025048a3ccf139ee3f99d4ec95f313232823d5ebf07636401609500a840b0642637aa52807ece0e0cde246e6f06e9965755243393495b1ba96449c725703e9f47e98dd5c5df7e1d9d4986c30225c033a6b930b27204e0aba25644c6d297a2242b8e586c66717969feb3fe23d1fb3b9db29bf7dc601f373797a8d174d24629f199baee360cd3691a8693314ba704b628c7525e918bb95cf6b44b74675ebcf8a63470e2fc7fd8bf8f75d8e54ac50c850000000049454e44ae426082</data>
+    </image>
+</images>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
