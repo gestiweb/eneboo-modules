@@ -1,0 +1,31 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>horasope</name>
+
+	<tables>empresa,horasope</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.nombre</field>
+	</group>
+
+	<select>
+		empresa.nombre,
+		lineashorasope.codoperario, lineashorasope.apellidos, lineashorasope.nombre, 
+		sum(lineashorasope.horasjornada), 
+		sum(lineashorasope.horastrabajadas), 
+		sum(lineashorasope.horasextra)
+	</select>
+
+	<from>
+		empresa,horasope
+		inner join lineashorasope on lineashorasope.idparte = horasope.idparte
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		lineashorasope.codoperario	
+	</order>
+</QRY>

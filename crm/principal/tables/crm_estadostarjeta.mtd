@@ -1,0 +1,42 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>crm_estadostarjeta</name>
+	<!--Los estados reflejan los posibles estados de una tarjeta-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Estados de Tarjeta")</alias>
+
+	<field>
+		<name>codestado</name>
+		<!--Identificador interno del Estado de la Oportunidad de Venta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+		
+		<relation>
+			<table>crm_tarjetas</table>
+			<field>codestado</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>valordefecto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor por defecto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+		<editable>false</editable>
+	</field>
+	
+</TMD>

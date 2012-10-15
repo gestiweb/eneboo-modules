@@ -1,0 +1,156 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>crm_oportunidadventa</name>
+	<!--Las oportunidades monitorizan el proceso de una posible venta a un cliente-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Oportunidad de Venta")</alias>
+
+	<field>
+		<name>codoportunidad</name>
+		<!--Código de la Oportunidad de Venta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<counter>true</counter>
+		<length>8</length>
+		
+		<relation>
+			<table>presupuestoscli</table>
+			<field>codoportunidad</field>
+			<card>1M</card>
+		</relation>
+
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>nomcliente</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cliente")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>totalventa</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<calculated>true</calculated>
+		<editable>true</editable>
+	</field>
+	
+	<field>
+		<name>codestado</name>
+		<!--Estado de la oportunidad de venta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+		<relation>
+			<table>crm_estadosoportunidad</table>
+			<field>codestado</field>
+			<card>M1</card>
+		</relation>
+	</field>	
+	
+	<field>
+		<name>probabilidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Probabilidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>fechacierre</name>
+		<!--Fecha de Cierre-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha Cierre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>codcliente</name>
+		<!--Código identificativo del cliente-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","C.Cliente")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<relation>
+			<table>clientes</table>
+			<field>codcliente</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codcontacto</name>
+		<!--Contacto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contacto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<relation>
+			<table>crm_contactos</table>
+			<field>codcontacto</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codtarjeta</name>
+		<!--Tarjeta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tarjeta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<relation>
+			<table>crm_tarjetas</table>
+			<field>codtarjeta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>idusuario</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Responsable")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+
+		<relation>
+			<table>flusers</table>
+			<field>iduser</field>
+			<card>M1</card>
+		</relation>
+	</field>	
+	
+	<field>
+		<name>observaciones</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Observaciones")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+</TMD>

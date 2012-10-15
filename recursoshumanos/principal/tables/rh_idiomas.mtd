@@ -1,0 +1,35 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>rh_idiomas</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Idiomas")</alias>
+	
+	<field>
+		<name>codidioma</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>3</length>
+	
+		<relation>
+			<table>rh_nivelidiomas</table>
+			<field>codidioma</field>
+			<card>1M</card>
+		</relation>
+	
+		<relation>
+			<table>rh_nivelidiomascan</table>
+			<field>codidioma</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+</TMD>

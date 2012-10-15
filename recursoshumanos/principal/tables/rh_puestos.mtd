@@ -1,0 +1,32 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>rh_puestos</name>
+	<!--Puestos de trabajo-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Puestos de trabajo")</alias>
+
+	<field>
+		<name>codpuesto</name>
+		<!--Código del puesto de trabajo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>rh_empleados</table>
+			<field>puesto</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descpuesto</name>
+		<!--Descripcion del puesto de trabajo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripcion")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+</TMD>

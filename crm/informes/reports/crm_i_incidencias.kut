@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+<KugarTemplate TopMargin="50" BottomMargin="30" LeftMargin="20" RightMargin="20" PageSize="0" PageOrientation="1" >
+
+<DetailHeader Level="1" Height="31">
+<Label  X="345" Y="10" Width="56" Height="16" FontFamily="Arial" FontSize="9" FontWeight="65" BackgroundColor = "218,218,218" Text ="FECHA" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="575" Y="10" Width="236" Height="16" FontFamily="Arial" FontSize="9" FontWeight="65" BackgroundColor = "218,218,218" Text ="CLIENTE / PROVEEODR" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="5" Y="10" Width="61" Height="16" FontFamily="Arial" FontSize="9" FontWeight="65" BackgroundColor = "218,218,218" Text ="CÓDIGO" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="405" Y="10" Width="66" Height="16" FontFamily="Arial" FontSize="9" FontWeight="65" BackgroundColor = "218,218,218" Text ="PRIORIDAD" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="475" Y="10" Width="96" Height="16" FontFamily="Arial" FontSize="9" FontWeight="65" BackgroundColor = "218,218,218" Text ="ESTADO" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="70" Y="10" Width="271" Height="16" FontFamily="Arial" FontSize="9" FontWeight="65" BackgroundColor = "218,218,218" Text ="DESCRIPCIÓN" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+</DetailHeader>
+
+<Detail Level="1" Height="16">
+<Field  X="405" Y="0" Width="66" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" Text ="" HAlignment="0" VAlignment="0" WordWrap ="0" DataType="0" Field="crm_incidencias.prioridad" ForegroundColor="0,0,0"/>
+<CalculatedField  X="575" Y="0" Width="236" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" Text ="" HAlignment="0" VAlignment="0" WordWrap ="0" BackgroundColor="255255255" DataType="0" Field="" CalculationType="6" FunctionName ="flcrm_info.pub_mostrarClienteProveedorIncidencia" ForegroundColor="0,0,0"/>
+<Field  X="345" Y="0" Width="56" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" Text ="" HAlignment="1" VAlignment="0" WordWrap ="0" BackgroundColor="255255255" DataType="3" Field="crm_incidencias.fecha" WordWrap="0" ChangeHeight="0" DateFormat="19" ForegroundColor="0,0,0"/>
+<Field  X="475" Y="0" Width="96" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" Text ="" HAlignment="0" VAlignment="0" WordWrap ="0" DataType="0" Field="crm_incidencias.estado" ForegroundColor="0,0,0"/>
+<Field  X="70" Y="0" Width="271" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" Text ="" HAlignment="0" VAlignment="0" WordWrap ="0" DataType="0" Field="crm_incidencias.descripcion" WordWrap="1" ChangeHeight="1" ForegroundColor="0,0,0"/>
+<Field  X="5" Y="0" Width="61" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" Text ="" HAlignment="0" VAlignment="0" WordWrap ="0" DataType="0" Field="crm_incidencias.codincidencia" WordWrap="0" ChangeHeight="0" ForegroundColor="0,0,0"/>
+</Detail>
+
+<Detail Level="0" Height="91">
+<CalculatedField  X="5" Y="5" Width="96" Height="41" FontFamily="Century Gothic" FontSize="40" FontWeight="65" BackgroundColor = "255,255,255" ForegroundColor = "120,120,120" frameShape="QFrame::StyledPanel" Text ="" HAlignment="1" VAlignment="0" WordWrap ="0" DataType="5" Field="" CalculationType="6" FunctionName ="flfactinfo.pub_logo"/>
+<Line Style="1" X1="5" X2="811" Y1="88" Y2="88" Color="0,0,0" Width="1"/>
+<CalculatedField  X="5" Y="65" Width="806" Height="21" FontFamily="Arial" FontSize="13" FontWeight="65" BackgroundColor = "255,255,255" frameShape="QFrame::StyledPanel" Text ="" HAlignment="0" VAlignment="1" WordWrap ="0" BackgroundColor="255255255" CalculationType="6" FunctionName ="flcrm_info.pub_mostrarTituloIncidencias" DataType="0" ForegroundColor="0,0,0"/>
+<Field  X="100" Y="5" Width="711" Height="41" FontFamily="Arial" FontSize="13" FontWeight="65" BackgroundColor = "220,220,220" frameShape="QFrame::StyledPanel" Text ="" HAlignment="1" VAlignment="1" WordWrap ="0" Field="empresa.nombre" DataType="0" ForegroundColor="0,0,0"/>
+</Detail>
+</KugarTemplate>

@@ -1,0 +1,123 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>pr_tiposproceso</name>
+	<!--Tipos de proceso de producción-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Tipo proceso")</alias>
+
+	<field>
+		<name>idtipoproceso</name>
+		<!--Identificador del tipo de proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>15</length>
+
+		<relation>
+			<table>pr_procesos</table>
+			<field>idtipoproceso</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>pr_tipostareapro</table>
+			<field>idtipoproceso</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>pr_secuencias</table>
+			<field>idtipoproceso</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>pr_aliasproceso</table>
+			<field>idtipoproceso</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>gd_tiposdoc</table>
+			<field>idtipoproceso</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<!--Descripción del tipo de proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>tiempomedio</name>
+		<!--Duración media de los procesos de este tipo en segundos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tiempo Medio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>10</partI>
+		<partD>0</partD>
+		<editable>false</editable>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>tiempounidad</name>
+		<!--Duración media de los procesos en la unidad establecida-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tiempo Medio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>10</partI>
+		<partD>2</partD>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>unidad</name>
+		<!--Unidad de medida del tiempo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Unidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Segundos");QT_TRANSLATE_NOOP("MetaData","Minutos");QT_TRANSLATE_NOOP("MetaData","Horas");QT_TRANSLATE_NOOP("MetaData","Días")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Segundos")</default>
+	</field>
+
+	<field>
+		<name>tipoobjeto</name>
+		<!--Metadato que identifica el objeto (tabla) asociado al tipo de proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo de Objeto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>25</length>
+	</field>
+	
+	<field>
+		<name>accesiblecrm</name>
+		<!--Indica si el proceso puede lanzarse desde el módulo de CRM-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Accesible desde CRM")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>generartodas</name>
+		<!--Generar todas las tareas al crear el proceso-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Generar todas las tareas al crear el proceso")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+	</field>
+</TMD>
