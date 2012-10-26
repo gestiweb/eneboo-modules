@@ -1,0 +1,26 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>pr_i_trabajadores</name>
+
+	<tables>pr_trabajadores,pr_secciones</tables>
+
+	<group>
+		<level>0</level>
+		<field>pr_secciones.idseccion</field>
+	</group>
+	
+	<select>
+		pr_trabajadores.idtrabajador, pr_trabajadores.nombre, pr_trabajadores.idseccion, pr_secciones.descripcion, pr_secciones.idseccion
+	</select>
+
+	<from>
+		pr_trabajadores INNER JOIN pr_secciones ON pr_trabajadores.idseccion = pr_secciones.idseccion
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		pr_secciones.idseccion,pr_trabajadores.nombre
+	</order>
+</QRY>

@@ -1,0 +1,50 @@
+<!DOCTYPE TMD>
+<TMD>
+	
+	<name>pr_centroscoste</name>
+	<!--Distintas centros de coste que hay en la empresa-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Centros de coste")</alias>
+	
+	<field>
+		<name>codcentro</name>
+		<!--Identificador de ls máquina-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>25</length>
+		
+		<relation>
+			<table>pr_tareas</table>
+			<field>codcentro</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codtipocentro</name>
+		<!--Tipo de máquina-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>25</length>
+		
+		<relation>
+			<table>pr_tiposcentrocoste</table>
+			<field>codtipocentro</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<!--Descripción de la máquina-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+		<visible>true</visible>
+	</field>	
+</TMD>
