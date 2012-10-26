@@ -1,0 +1,16 @@
+<!DOCTYPE QRY>
+<QRY>
+		<name>pr_i_pegasprod</name>
+		<tables>pr_ordenesproduccion,lotesstock</tables>
+
+	<select>
+		lotesstock.codlote,articulos.configuracion
+	</select>
+
+	<from>
+		pr_ordenesproduccion INNER JOIN lotesstock ON pr_ordenesproduccion.codorden = lotesstock.codordenproduccion INNER JOIN articulos ON lotesstock.referencia = articulos.referencia
+	</from>
+
+	<where>
+	</where>
+</QRY>

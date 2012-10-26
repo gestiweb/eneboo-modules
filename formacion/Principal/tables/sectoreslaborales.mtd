@@ -1,0 +1,38 @@
+<!DOCTYPE TMD>
+<TMD>
+ <name>sectoreslaborales</name>
+ <alias>QT_TRANSLATE_NOOP("MetaData","Sectores laborales")</alias>
+
+ <field>
+  <name>idsector</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+  <null>false</null>
+  <pk>true</pk>
+  <type>serial</type>
+  <visible>true</visible>
+  <relation>
+   <table>actividadeslaborales</table>
+   <field>idsector</field>
+   <card>1M</card>
+  </relation>
+ </field>
+
+ <field>
+  <name>nombresector</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+  <null>false</null>
+  <pk>false</pk>
+  <type>string</type>
+  <length>100</length>
+  <unique>true</unique>
+ </field>
+
+ <field>
+  <name>observaciones</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Observaciones")</alias>
+  <null>true</null>
+  <pk>false</pk>
+  <type>stringlist</type>
+ </field>
+
+</TMD>

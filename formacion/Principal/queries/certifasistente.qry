@@ -1,0 +1,19 @@
+<!DOCTYPE QRY>
+<QRY>
+ <name>certificado</name>
+
+ <tables>actividadeslaborales,accionesformativas</tables>
+
+ <select>
+    actividadeslaborales.nombre,accionesformativas.titulo, accionesformativas.duracion,accionesformativas.fechainicio,accionesformativas.lugar
+ </select>
+
+ <from>
+ accionesformativas,actividadeslaborales
+ </from>
+
+ <where>
+ accionesformativas.idactividad=actividadeslaborales.idactividad
+ </where>
+
+</QRY> 

@@ -1,0 +1,17 @@
+<!DOCTYPE QRY>
+<QRY>
+ <name>autorizaciones,empresa</name>
+
+ <tables>autorizaciones,empresa</tables>
+
+ <select>
+  autorizaciones.idautorizacion, autorizaciones.autorizacion, autorizaciones.id, autorizaciones.especialidad, autorizaciones.precio, autorizaciones.fechainicio, autorizaciones.fechafin, empresa.nombre, empresa.id
+ </select>
+
+<from>
+ autorizaciones
+</from>
+<where>
+ autorizaciones.id=empresa.id ORDER BY autorizaciones.idautorizacion
+</where>
+</QRY> 
