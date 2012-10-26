@@ -1,0 +1,33 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>pr_i_tareascc</name>
+
+	<tables>empresa,pr_ordenesproduccion,pr_tareas,pedidoscli,lineaspedidoscli,clientes,pr_i_tareas,pr_centroscoste</tables>
+
+	<group>
+		<level>0</level>
+		<field>pr_tareas.codcentro</field>
+	</group>
+	
+	<group>
+		<level>1</level>
+		<field>pr_tareas.idtarea</field>
+	</group>
+	
+	<select>
+		empresa.logo,
+		pr_ordenesproduccion.codorden, pedidoscli.codigo, clientes.codcliente, clientes.nombre, pr_tareas.idtarea, pr_procesos.idobjeto, pr_tareas.tiempoinvertido, pr_tareas.estado, pedidoscli.nombrecliente, pr_tareas.tiempoprevisto,pr_tareas.tiempoprevisto-pr_tareas.tiempoinvertido,pr_tareas.fechainicioprev, pr_tareas.horainicioprev, pr_tareas.descripcion, pr_tareas.codcentro, pr_centroscoste.descripcion, pr_centroscoste.codtipocentro, pr_i_tareas.d_pr__tareas_fechainicioprev, pr_i_tareas.h_pr__tareas_fechainicioprev,
+		pr_i_tareas.d_pr__tareas_diafin, pr_i_tareas.h_pr__tareas_diafin
+	</select>
+
+	<from>
+		empresa, pr_i_tareas, pr_ordenesproduccion INNER JOIN pr_procesos ON pr_ordenesproduccion.codorden = pr_procesos.codordenproduccion INNER JOIN pr_tareas ON pr_procesos.idproceso = pr_tareas.idproceso LEFT OUTER JOIN lineaspedidoscli ON pr_procesos.idlineapedidocli = lineaspedidoscli.idlinea LEFT OUTER JOIN pedidoscli ON pedidoscli.idpedido = lineaspedidoscli.idpedido LEFT OUTER JOIN clientes ON pedidoscli.codcliente = clientes.codcliente
+		LEFT OUTER JOIN pr_centroscoste ON pr_tareas.codcentro = pr_centroscoste.codcentro
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+	</order>
+</QRY>

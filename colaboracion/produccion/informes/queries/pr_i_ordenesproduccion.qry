@@ -1,0 +1,29 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_ordenesproduccion</name>
+
+	<tables>pr_ordenesproduccion,lotesstock,pr_procesos,pr_tareas,pr_centroscoste,pr_tiposproceso</tables>
+
+	<group>
+		<level>0</level>
+		<field>pr_centroscoste.codcentro</field>
+	</group>
+	
+	<select>
+		pr_ordenesproduccion.codorden, pr_ordenesproduccion.fecha,
+		pr_ordenesproduccion.fechaentrega, pr_ordenesproduccion.estado,
+		pr_centroscoste.codcentro, pr_centroscoste.descripcion,
+		pr_tareas.idtarea, pr_tareas.fechainicioprev, pr_tareas.horainicioprev, pr_tareas.descripcion,lotesstock.referencia,lotesstock.codlote
+	</select>
+
+	<from>
+		pr_ordenesproduccion INNER JOIN pr_procesos ON pr_ordenesproduccion.codorden = pr_procesos.codordenproduccion  INNER JOIN lotesstock ON pr_procesos.idobjeto = lotesstock.codlote INNER JOIN pr_tiposproceso ON pr_tiposproceso.idtipoproceso = pr_procesos.idtipoproceso AND pr_tiposproceso.tipoobjeto = 'lotesstock' LEFT OUTER JOIN pr_tareas ON pr_procesos.idproceso = pr_tareas.idproceso LEFT OUTER JOIN pr_centroscoste ON pr_tareas.codcentro = pr_centroscoste.codcentro
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		pr_ordenesproduccion.codorden,pr_centroscoste.codcentro,pr_tareas.fechainicioprev, pr_tareas.horainicioprev
+	</order>
+</QRY>

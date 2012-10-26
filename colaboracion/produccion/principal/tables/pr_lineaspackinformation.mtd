@@ -1,0 +1,76 @@
+<!DOCTYPE TMD>
+<TMD>
+	
+	<name>pr_lineaspackinformation</name>
+	<!--Lineas Packaging Information-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Lineas Packaging Information")</alias>
+	
+	<field>
+		<name>id</name>
+		<!--Identificador-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>idconfigprod</name>
+		<!--Identificador-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>pr_configprod</table>
+			<field>id</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>description</name>
+		<!--Descripcion-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Description")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>	
+	
+	<field>
+		<name>priceunit</name>
+		<!--Precio Unidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Price Unit")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>2</partI>
+		<partD>5</partD>
+	</field>
+	
+	<field>
+		<name>quantity</name>
+		<!--Cantidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","quantity")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>2</partI>
+		<partD>5</partD>
+	</field>
+	
+	<field>
+		<name>subtotal</name>
+		<!--Subtotal-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subtotal")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>2</partI>
+		<partD>4</partD>
+	</field>
+</TMD>

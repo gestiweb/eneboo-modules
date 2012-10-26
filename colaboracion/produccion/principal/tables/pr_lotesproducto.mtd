@@ -1,0 +1,97 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>pr_lotesproducto</name>
+	<!--Lotes de producto -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Lotes de Producto")</alias>
+
+	<field>
+		<name>idlote</name>
+		<!--Identificador de la unidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+		<counter>true</counter>
+	</field>
+
+	<field>
+		<name>referencia</name>
+		<!--Referencia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Referencia")</alias>
+		<editable>false</editable>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>18</length>
+		
+		<relation>
+			<table>articulos</table>
+			<field>referencia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>estado</name>
+		<!--Estado actual del lote -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>idlinea</name>
+		<!--Línea de pedido a la que se asocia la unidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Linea de pedido")</alias>
+		<editable>false</editable>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<editable>false</editable>
+		
+		<relation>
+			<table>lineaspedidoscli</table>
+			<field>idlinea</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>idpedido</name>
+		<!--Pedido al que se asocia la unidad-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Pedido")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		<editable>false</editable>
+		
+		<relation>
+			<table>pedidoscli</table>
+			<field>idpedido</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>idordenproduccion</name>
+		<!--Orden de producción en la que se incluye el lote-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden de producción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+		<editable>false</editable>
+
+		<relation>
+			<table>pr_ordenesproduccion</table>
+			<field>idorden</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+</TMD>

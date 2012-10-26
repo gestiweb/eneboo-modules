@@ -1,0 +1,87 @@
+<!DOCTYPE TMD>
+<TMD>
+ <name>imprimircertificados</name>
+ <alias>QT_TRANSLATE_NOOP("MetaData","Imprimir Certificados")</alias>
+
+ <field>
+  <name>idimprimircert</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+  <null>false</null>
+  <pk>true</pk>
+  <type>serial</type>
+  <visible>true</visible>
+ </field>
+
+ <field>
+  <name>descripcion</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Descripcion")</alias>
+  <null>false</null>
+  <pk>false</pk>
+  <type>string</type>
+  <length>100</length>
+ </field>
+  
+ <field>
+  <name>codcliente</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Cliente")</alias>
+  <null>true</null>
+  <pk>false</pk>
+  <type>string</type>
+  <length>6</length>
+  <visible>true</visible>
+  <editable>false</editable>
+     <relation>
+       <table>clientes</table>
+       <field>codcliente</field>
+       <card>M1</card>
+    </relation>
+ </field>
+
+ <field>
+  <name>idpersona</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Asistente")</alias>
+  <null>true</null>
+  <pk>false</pk>
+  <type>uint</type>
+  <visible>true</visible>
+  <editable>false</editable>
+     <relation>
+       <table>personas</table>
+       <field>idpersona</field>
+       <card>M1</card>
+       <delC>true</delC>
+     </relation>
+ </field>
+
+<field>
+  <name>idPonente</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Ponente")</alias>
+  <null>true</null>
+  <pk>false</pk>
+  <type>uint</type>
+  <visible>true</visible>
+  <editable>false</editable>
+     <relation>
+       <table>personas</table>
+       <field>idpersona</field>
+       <card>M1</card>
+       <delC>true</delC>
+     </relation>
+ </field>
+
+<field>
+  <name>idformacion</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Formación")</alias>
+  <null>false</null>
+  <pk>false</pk>
+  <type>uint</type>
+  <visible>true</visible>
+     <relation>
+       <table>accionesformativas</table>
+       <field>idformacion</field>
+       <card>M1</card>
+       <delC>true</delC>
+     </relation>
+ </field>
+
+</TMD>
