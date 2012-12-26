@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd"><KugarTemplate BottomMargin="20" LeftMargin="20" PageOrientation="0" PageSize="0" RightMargin="20" TopMargin="20">
+	<ReportHeader Height="100">
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="16" FontWeight="80"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="50"
+		   Text="CONTROL DE ASISTENCIA" VAlignment="1" Width="300"
+		   WordWrap="0" X="250" Y="70" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="11" FontWeight="25"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="19"
+		   Text="S" VAlignment="1" Width="12"
+		   WordWrap="0" X="735" Y="7" />
+	</ReportHeader>
+
+	<PageHeader Height="20">
+	</PageHeader>
+
+	<DetailHeader Height="20" Level="0">
+	</DetailHeader>
+
+	<Detail Height="260" Level="0">
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="ENTIDAD ORGANIZADORA:" VAlignment="1" Width="204"
+		   WordWrap="0" X="100" Y="20" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="EMPRESA:" VAlignment="1" Width="80"
+		   WordWrap="0" X="100" Y="0" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="RESPONSABLE DE FORMACION:" VAlignment="1" Width="250"
+		   WordWrap="0" X="10" Y="130" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="SESION Nº:" VAlignment="1" Width="90"
+		   WordWrap="0" X="10" Y="180" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="FECHA:" VAlignment="1" Width="60"
+		   WordWrap="0" X="157" Y="180" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="DENOMINACION DE LA ACCION FORMATIVA:" VAlignment="1" Width="340"
+		   WordWrap="0" X="10" Y="90" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="empresa.nombre" FontFamily="Helvetica" FontItalic="0"
+		   FontSize="10" FontWeight="25" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="22" NegValueColor="0,0,0"
+		   Precision="2" Text="[empresa.nombre]" VAlignment="1"
+		   Width="270" WordWrap="0" X="310"
+		   Y="20" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="CIF:" VAlignment="1" Width="40"
+		   WordWrap="0" X="587" Y="20" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="empresa.cifnif" FontFamily="Helvetica" FontItalic="0"
+		   FontSize="10" FontWeight="25" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="22" NegValueColor="0,0,0"
+		   Precision="2" Text="[empresa.cifnif]" VAlignment="1"
+		   Width="100" WordWrap="0" X="628"
+		   Y="20" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="ponente.nombre" FontFamily="Helvetica" FontItalic="0"
+		   FontSize="10" FontWeight="25" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="22" NegValueColor="0,0,0"
+		   Precision="2" Text="[ponente.nombre]" VAlignment="1"
+		   Width="400" WordWrap="0" X="273"
+		   Y="130" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="accionesformativas.titulo" FontFamily="Helvetica" FontItalic="0"
+		   FontSize="10" FontWeight="70" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="22" NegValueColor="0,0,0"
+		   Precision="2" Text="[accionesformativas.titulo]" VAlignment="1"
+		   Width="350" WordWrap="0" X="359"
+		   Y="90" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="25"
+		   Text="CODIGO DE AGRUPACION: ________________________________________________________" VAlignment="1" Width="584"
+		   WordWrap="0" X="100" Y="37" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="OPCION A:" VAlignment="1" Width="80"
+		   WordWrap="0" X="10" Y="0" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="OPCION B:" VAlignment="1" Width="80"
+		   WordWrap="0" X="10" Y="20" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="Nº:" VAlignment="1" Width="30"
+		   WordWrap="0" X="10" Y="110" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="GRUPO:" VAlignment="1" Width="70"
+		   WordWrap="0" X="69" Y="110" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="FECHA INICIO:" VAlignment="1" Width="110"
+		   WordWrap="0" X="186" Y="110" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="accionesformativas.fechainicio" FontFamily="Helvetica" FontItalic="0"
+		   FontSize="10" FontWeight="70" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="22" NegValueColor="0,0,0"
+		   Precision="2" Text="[accionesformativas.fechainicio]" VAlignment="1"
+		   Width="90" WordWrap="0" X="301"
+		   Y="110" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="FECHA FIN:" VAlignment="1" Width="90"
+		   WordWrap="0" X="405" Y="110" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="accionesformativas.fechafin" FontFamily="Helvetica" FontItalic="0"
+		   FontSize="10" FontWeight="70" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="22" NegValueColor="0,0,0"
+		   Precision="2" Text="[accionesformativas.fechafin]" VAlignment="1"
+		   Width="90" WordWrap="0" X="496"
+		   Y="110" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="22"
+		   Text="Firmado:" VAlignment="1" Width="65"
+		   WordWrap="0" X="10" Y="220" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="8" FontWeight="60"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="20"
+		   Text="(Formador/Resp. Formación)" VAlignment="1" Width="180"
+		   WordWrap="0" X="10" Y="240" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="clientes.nombre" FontFamily="Helvetica" FontItalic="0"
+		   FontSize="10" FontWeight="25" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="22" NegValueColor="0,0,0"
+		   Precision="2" Text="[clientes.nombre]" VAlignment="1"
+		   Width="550" WordWrap="0" X="190"
+		   Y="0" />
+	</Detail>
+
+	<DetailFooter Height="50" Level="0">
+	</DetailFooter>
+
+	<DetailHeader Height="4" Level="1">
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="1" Height="25"
+		   Text="DATOS DE LOS ASISTENTES" VAlignment="1" Width="400"
+		   WordWrap="0" X="0" Y="9" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="1" Height="25"
+		   Text="NOMBRE" VAlignment="1" Width="150"
+		   WordWrap="0" X="150" Y="34" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="1" Height="25"
+		   Text="N.I.F." VAlignment="1" Width="100"
+		   WordWrap="0" X="300" Y="34" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="1" Height="50"
+		   Text="FIRMAS" VAlignment="1" Width="180"
+		   WordWrap="0" X="400" Y="9" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="1" Height="50"
+		   Text="OBSERVACIONES" VAlignment="1" Width="173"
+		   WordWrap="0" X="580" Y="9" />
+	</DetailHeader>
+
+	<Detail Height="5" Level="1">
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="personas.nombre" FontFamily="personas.nombre" FontItalic="0"
+		   FontSize="10" FontWeight="70" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="50" NegValueColor="0,0,0"
+		   Precision="2" Text="[personas.nombre]" VAlignment="1"
+		   Width="150" WordWrap="0" X="150"
+		   Y="55" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="personas.cifnif" FontFamily="Helvetica" FontItalic="0"
+		   FontSize="10" FontWeight="70" ForegroundColor="0,0,0"
+		   HAlignment="1" Height="50" NegValueColor="0,0,0"
+		   Precision="2" Text="[personas.cifnif]" VAlignment="1"
+		   Width="100" WordWrap="0" X="300"
+		   Y="55" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="11" FontWeight="50"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="50"
+		   Text="" VAlignment="1" Width="180"
+		   WordWrap="0" X="400" Y="55" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="11" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="50"
+		   Text="" VAlignment="1" Width="173"
+		   WordWrap="0" X="580" Y="55" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="0" FontSize="10" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="1" Height="25"
+		   Text="APELLIDOS" VAlignment="1" Width="150"
+		   WordWrap="0" X="0" Y="30" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="personas.apellidos" FontFamily="Helvetica" FontItalic="0"
+		   FontSize="10" FontWeight="70" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="50" NegValueColor="0,0,0"
+		   Precision="2" Text="[personas.apellidos]" VAlignment="1"
+		   Width="150" WordWrap="0" X="0"
+		   Y="55" />
+	</Detail>
+
+	<PageFooter Height="50">
+	</PageFooter>
+
+	<ReportFooter Height="50">
+	</ReportFooter>
+
+</KugarTemplate>

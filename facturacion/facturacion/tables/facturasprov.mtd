@@ -20,11 +20,6 @@
             <card>1M</card>
         </relation>
         <relation>
-            <table>recibosprov</table>
-            <field>idfactura</field>
-            <card>1M</card>
-        </relation>
-        <relation>
             <table>facturasprov</table>
             <field>idfacturarect</field>
             <card>1M</card>
@@ -39,14 +34,6 @@
         <length>12</length>
         <default>0</default>
         <editable>false</editable>
-    </field>
-    <field>
-        <name>editable</name>
-<!--Indicador de si la factura está pagada-->        <alias>QT_TRANSLATE_NOOP("MetaData","Pte. Pago")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>unlock</type>
-        <default>true</default>
     </field>
     <field>
         <name>fecha</name>
@@ -285,37 +272,6 @@
         </relation>
     </field>
     <field>
-        <name>netosindtoesp</name>
-<!--Total de IRPF-->        <alias>QT_TRANSLATE_NOOP("MetaData","Neto sin Dto")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>8</partI>
-        <partD>2</partD>
-        <calculated>true</calculated>
-        <editable>false</editable>
-    </field>
-    <field>
-        <name>pordtoesp</name>
-<!--Porcentaje de desciento especial-->        <alias>QT_TRANSLATE_NOOP("MetaData","% Dto")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>3</partI>
-        <partD>2</partD>
-        <default>0</default>
-    </field>
-    <field>
-        <name>dtoesp</name>
-<!--Descuento especial-->        <alias>QT_TRANSLATE_NOOP("MetaData","Dto especial")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>8</partI>
-        <partD>2</partD>
-        <default>0</default>
-    </field>
-    <field>
         <name>deabono</name>
 <!--Si la factura es de abono-->        <alias>QT_TRANSLATE_NOOP("MetaData","Rectificativa")</alias>
         <null>false</null>
@@ -379,79 +335,10 @@
         </relation>
     </field>
     <field>
-        <name>excluir303</name>
-<!--Indica si la factura no se incluirá en el modelo 303-->        <alias>QT_TRANSLATE_NOOP("MetaData","Excluir de modelo 303")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>bool</type>
-        <default>false</default>
-    </field>
-    <field>
         <name>hora</name>
         <alias>QT_TRANSLATE_NOOP("MetaData","Hora")</alias>
         <null>false</null>
         <pk>false</pk>
         <type>time</type>
-    </field>
-    <field>
-        <name>idfacturaimport</name>
-<!--Identificador de la factura de importación-->        <alias>QT_TRANSLATE_NOOP("MetaData","Factura")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>20</length>
-        <visiblegrid>false</visiblegrid>
-    </field>
-    <field>
-        <name>dua</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","DUA")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>20</length>
-    </field>
-    <field>
-        <name>fechadua</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Fecha DUA")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>date</type>
-    </field>
-    <field>
-        <name>baseimport</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Base")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-    </field>
-    <field>
-        <name>tipoivaimport</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","%I.V.A.")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>3</partI>
-        <partD>2</partD>
-        <default>0</default>
-    </field>
-    <field>
-        <name>cuotaimport</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Cuota")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-    </field>
-    <field>
-        <name>nomodelo347</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Excluir de 347")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>bool</type>
     </field>
 </TMD>

@@ -46,6 +46,9 @@ class oficial extends interna {
 	function tbnBuscarObjeto_clicked() {
 		return this.ctx.oficial_tbnBuscarObjeto_clicked();
 	}
+	function iniciar() {
+		return this.ctx.oficial_iniciar();
+	}
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -85,11 +88,8 @@ function interna_init()
 
 	connect(this.iface.bgrTipoObjeto, "clicked(int)", this, "iface.grupoBotones_clicked");
 	connect(this.iface.tbnBuscarObjeto, "clicked()", this, "iface.tbnBuscarObjeto_clicked");
-	var datosS:Array;
-	datosS["tipoObjeto"] = "todos";
-	datosS["idObjeto"] = "0";
-	datosS["formulario"] = "crm_mastertareas";
-	flcolaproc.iface.pub_seguimientoOn(this, datosS);
+	
+	this.iface.iniciar();
 }
 
 //// INTERNA /////////////////////////////////////////////////////
@@ -101,7 +101,7 @@ function interna_init()
 function oficial_grupoBotones_clicked(idBoton:Number)
 {
 	this.iface.lblNombreObjeto.text = "";
-	flcolaproc.iface.pub_filtroFormularioS("");
+	flcrm_ppal.iface.pub_filtroFormularioS("");
 }
 
 function oficial_tbnBuscarObjeto_clicked()
@@ -132,6 +132,11 @@ function oficial_tbnBuscarObjeto_clicked()
 			nombreClave = "codincidencia";
 			break;
 		}
+		case 4: { // Servicios
+			tipoObjeto = "servicioscli";
+			nombreClave = "numservicio";
+			break;
+		}
 		default: {
 			return;
 		}
@@ -142,7 +147,7 @@ function oficial_tbnBuscarObjeto_clicked()
 	var clave:String = f.exec(nombreClave);
 
 	if (clave) {
-		flcolaproc.iface.pub_filtroFormularioS("tipoobjeto = '" + tipoObjeto + "' AND idobjeto = '" + clave + "'");
+		flcrm_ppal.iface.pub_filtroFormularioS("tipoobjeto = '" + tipoObjeto + "' AND idobjeto = '" + clave + "'");
 		var texto:String = "";
 		switch (tipoObjeto) {
 			case "clientes": {
@@ -159,6 +164,10 @@ function oficial_tbnBuscarObjeto_clicked()
 			}
 			case "crm_incidencias": {
 				texto = util.translate("scripts", "Incidencia %1 - %2").arg(clave).arg(util.sqlSelect("crm_incidencias", "descripcion", "codincidencia = '" + clave + "'"));
+				break;
+			}
+			case "servicioscli": {
+				texto = util.translate("scripts", "Servicio %1 - %2").arg(clave).arg(util.sqlSelect("servicioscli", "nombre", "numservicio = '" + clave + "'"));
 				break;
 			}
 		}

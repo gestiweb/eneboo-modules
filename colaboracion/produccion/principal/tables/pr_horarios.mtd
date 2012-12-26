@@ -1,0 +1,86 @@
+<!DOCTYPE TMD>
+<TMD>
+	
+	<name>pr_horarios</name>
+	<!--Distintos horarios que puede llevar la empresa por día-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Horarios")</alias>
+	
+	<field>
+		<name>codhorario</name>
+		<!--Identificador-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>8</length>
+		<calculated>true</calculated>
+		
+		<relation>
+			<table>pr_calendario</table>
+			<field>codhorario</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<!--Descripción del horario-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+		<visible>true</visible>
+	</field>	
+	
+	<field>
+		<name>horaentradamanana</name>
+		<!--Hora a la que se comienza a trabajar por la mañana-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hora de entrada mañana")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>time</type>
+		<default>null</default>
+	</field>
+	
+	<field>
+		<name>horasalidamanana</name>
+		<!--Hora a la que se deja de trabajar por la mañana-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hora de salida mañana")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>time</type>
+		<default>null</default>
+	</field>
+	
+	<field>
+		<name>horaentradatarde</name>
+		<!--Hora a la que se comienza a trabajar por la tarde-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hora de entrada tarde")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>time</type>
+		<default>null</default>
+	</field>
+	
+	<field>
+		<name>horasalidatarde</name>
+		<!--Hora a la que se deja de trabajar por la tarde-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hora de salida tarde")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>time</type>
+		<default>null</default>
+	</field>
+	
+	<field>
+		<name>tiempo</name>
+		<!--Tiempo en milisegundos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tiempo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>10</partI>
+		<visiblegrid>false</visiblegrid>
+	</field>
+</TMD>

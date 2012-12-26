@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>452</width>
-            <height>363</height>
+            <height>357</height>
         </rect>
     </property>
     <property name="sizePolicy">
@@ -23,52 +23,28 @@
     <property name="caption">
         <string>Cambiar de ejercicio</string>
     </property>
-    <vbox>
+    <grid>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QGroupBox">
+        <spacer row="2" column="0">
             <property name="name">
-                <cstring>groupBox14_2</cstring>
+                <cstring>spacer5</cstring>
             </property>
-            <property name="font">
-                <font>
-                    <bold>1</bold>
-                    <italic>1</italic>
-                </font>
+            <property name="orientation">
+                <enum>Vertical</enum>
             </property>
-            <property name="frameShadow">
-                <enum>Sunken</enum>
+            <property name="sizeType">
+                <enum>Expanding</enum>
             </property>
-            <property name="lineWidth">
-                <number>1</number>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>111</height>
+                </size>
             </property>
-            <property name="title">
-                <string>Atención</string>
-            </property>
-            <vbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel">
-                    <property name="name">
-                        <cstring>textLabel1</cstring>
-                    </property>
-                    <property name="font">
-                        <font>
-                            <bold>0</bold>
-                        </font>
-                    </property>
-                    <property name="text">
-                        <string>Una vez cambiado el ejercicio, recuerde cerrar y reabrir los formularios maestros de facturación y contabilidad para que los registros mostrados sean los del ejercicio seleccionado.</string>
-                    </property>
-                    <property name="alignment">
-                        <set>WordBreak|AlignVCenter</set>
-                    </property>
-                </widget>
-            </vbox>
-        </widget>
-        <widget class="QGroupBox">
+        </spacer>
+        <widget class="QGroupBox" row="1" column="0">
             <property name="name">
                 <cstring>groupBox14</cstring>
             </property>
@@ -95,11 +71,11 @@
             <property name="title">
                 <string>Cambiar de ejercicio</string>
             </property>
-            <vbox>
+            <grid>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QLayoutWidget">
+                <widget class="QLayoutWidget" row="0" column="0">
                     <property name="name">
                         <cstring>layout36</cstring>
                     </property>
@@ -201,26 +177,50 @@
                         </spacer>
                     </hbox>
                 </widget>
+            </grid>
+        </widget>
+        <widget class="QGroupBox" row="0" column="0">
+            <property name="name">
+                <cstring>groupBox14_2</cstring>
+            </property>
+            <property name="font">
+                <font>
+                    <bold>1</bold>
+                    <italic>1</italic>
+                </font>
+            </property>
+            <property name="frameShadow">
+                <enum>Sunken</enum>
+            </property>
+            <property name="lineWidth">
+                <number>1</number>
+            </property>
+            <property name="title">
+                <string>Atención</string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="font">
+                        <font>
+                            <bold>0</bold>
+                        </font>
+                    </property>
+                    <property name="text">
+                        <string>Una vez cambiado el ejercicio, recuerde cerrar y reabrir los formularios maestros de facturación y contabilidad para que los registros mostrados sean los del ejercicio seleccionado.</string>
+                    </property>
+                    <property name="alignment">
+                        <set>WordBreak|AlignVCenter</set>
+                    </property>
+                </widget>
             </vbox>
         </widget>
-        <spacer>
-            <property name="name">
-                <cstring>spacer2</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>51</height>
-                </size>
-            </property>
-        </spacer>
-    </vbox>
+    </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

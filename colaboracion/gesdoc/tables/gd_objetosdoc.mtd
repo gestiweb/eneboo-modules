@@ -1,0 +1,51 @@
+<!DOCTYPE TMD>
+<TMD>
+	<!--Relaciones entre objetos y documentos -->
+	<name>gd_objetosdoc</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Relaciones entre objetos y documentos")</alias>
+
+	<field>
+		<name>idrelacion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id.Relación")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>iddocumento</name>
+		<!--Documento asociado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Documento")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>gd_documentos</table>
+			<field>iddocumento</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>tipoobjeto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo objeto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	
+	<field>
+		<name>clave</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Clave")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+</TMD>

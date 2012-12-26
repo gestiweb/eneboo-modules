@@ -1,0 +1,21 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>in_dimtrimestre</name>
+	<!--Dimensión de trimestres-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Dimensión de Trimestres")</alias>
+
+	<field>
+		<name>trimestre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Trimestre")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>2</length>
+		
+		<relation>
+			<table>in_h_ventas</table>
+			<field>d_trimestre</field>
+			<card>1M</card>
+		</relation>
+	</field>
+</TMD>

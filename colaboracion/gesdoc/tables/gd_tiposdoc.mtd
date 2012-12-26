@@ -1,0 +1,99 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>gd_tiposdoc</name>
+	<!--Tipos de documento-->
+			
+	<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de documento")</alias>
+
+	<field>
+		<name>codtipo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>20</length>
+		
+		<relation>
+			<table>gd_documentos</table>
+			<field>codtipo</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>gd_camposplantilla</table>
+			<field>codtipo</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>contenedor</name>
+		<!--Indica si este tipo de documentos puede contener otros documentos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Contenedor")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>icono</name>
+		<!--Gráfico que corresponde al tipo de documento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Icono")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>pixmap</type>
+	</field>
+
+	<field>
+		<name>idplantilla</name>
+		<!--Indica si este tipo de documento usa una determinada plantilla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Plantilla")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		
+		<relation>
+			<table>gd_documentos</table>
+			<field>iddocumento</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>idtipoproceso</name>
+		<!--Tipo de proceso asociado al documento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Proceso asociado")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>pr_tiposproceso</table>
+			<field>idtipoproceso</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>estadoinicial</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado inicial")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	
+</TMD>

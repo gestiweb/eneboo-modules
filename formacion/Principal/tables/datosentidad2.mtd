@@ -1,0 +1,80 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>datosentidad</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Entidad")</alias>
+
+	<field>
+		<name>numentidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Numero Entidad")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+	</field>
+
+	<field>
+		<name>nombreentidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>	100</length>
+	</field>
+
+	<field>
+		<name>logo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Logo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>pixmap</type>
+	</field>
+
+        	<field>
+                	<name>idPersona</name>
+                	<alias>QT_TRANSLATE_NOOP("MetaData","Director")</alias>
+                	<null>true</null>
+                	<pk>false</pk>
+		<type>uint</type>
+		<visible>true</visible>
+		<relation>
+			<table>personas</table>
+			<field>idPersona</field>
+			<card>1M</card>
+		</relation>
+        	</field>
+
+	<field>
+		<name>observaciones</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Observ.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+
+	<field>
+		<name>lugar</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Lugar")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>especialidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Especialidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>nif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","NIF")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+
+</TMD>

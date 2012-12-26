@@ -1,0 +1,78 @@
+<!DOCTYPE TMD>
+<TMD>
+	
+	<name>pr_transportes</name>
+	<!--Transportes-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Transportes")</alias>
+	
+	<field>
+		<name>codtransporte</name>
+		<!--Identificador-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>50</length>
+		
+		<relation>
+			<table>pr_configprod</table>
+			<field>unloadingpoint</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>transporte</name>
+		<!--Transporte-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Transporte")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>5</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>gestionpallet</name>
+		<!--Gestión pallet-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Gestión pallet")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>5</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>porrmhandling</name>
+		<!--RM Handling-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","%R.M. HANDLING")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>5</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>porscrapreturn</name>
+		<!--SCRAP RETURN -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","%SCRAP RETURN")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>5</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>todo</name>
+		<!--Todo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Todo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>5</partI>
+		<partD>2</partD>
+	</field>
+</TMD>

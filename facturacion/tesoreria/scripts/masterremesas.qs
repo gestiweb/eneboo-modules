@@ -36,7 +36,7 @@ class interna {
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
-    function oficial( context ) { interna( context ); } 
+    function oficial( context ) { interna( context ); }
 		function imprimir() {
 				return this.ctx.oficial_imprimir();
 		}
@@ -134,7 +134,7 @@ function oficial_imprimir()
 {
 	if (this.cursor().size() == 0)
 		return;
-		
+
 	if (sys.isLoadedModule("flfactinfo")) {
 		var idRemesa:Number = this.cursor().valueBuffer("idremesa");
 		var curImprimir:FLSqlCursor = new FLSqlCursor("i_remesascli");
@@ -165,4 +165,5 @@ function oficial_volcarADisco()
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+

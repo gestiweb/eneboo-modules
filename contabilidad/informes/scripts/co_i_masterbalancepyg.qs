@@ -39,10 +39,10 @@ class oficial extends interna {
 	var nombreInforme:String;
 	var idInforme:Number;
 	/** \D @var datos
-	Array que almacena los datos para el informe antes de introducirlos en la tabla buffer 
+	Array que almacena los datos para el informe antes de introducirlos en la tabla buffer
 	\end */
 	var datos:Array;;
-	
+
 	/** \D @var AB
 	Array que almacena los datos de subtotales de pérdidas o ganancias que serán agregados al final del informe (valores AI - BVI)
 	\end */
@@ -50,7 +50,7 @@ class oficial extends interna {
 	var ejAct:String;
 	var ejAnt:String;
 	var mostrarEjAnt:Boolean;
-	function oficial( context ) { interna( context ); } 
+	function oficial( context ) { interna( context ); }
 	function lanzar() {
 			return this.ctx.oficial_lanzar();
 	}
@@ -70,23 +70,11 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
-/** @class_declaration pgc2008 */
-/////////////////////////////////////////////////////////////////
-//// PGC2008 ////////////////////////////////////////////////////
-class pgc2008 extends oficial {
-    function pgc2008( context ) { oficial ( context ); }
-	function lanzar() {
-		return this.ctx.pgc2008_lanzar();
-	}
-}
-//// PGC2008 ////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends pgc2008 {
-    function head( context ) { pgc2008 ( context ); }
+class head extends oficial {
+    function head( context ) { oficial ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -129,7 +117,7 @@ PROCESO GENERAL. El informe de pérdidas y ganancias es relativamente complejo. E
 /** \C El botón de impresión lanza el informe
 \end */
 function interna_init()
-{ 
+{
 		connect(this.child("toolButtonPrint"), "clicked()", this, "iface.lanzar()");
 }
 //// INTERNA /////////////////////////////////////////////////////
@@ -160,7 +148,7 @@ function oficial_lanzar()
 
 	var consolidar:Boolean = false;
 	var tipoSuma:Number = 0;
-	
+
 	if (cursor.valueBuffer("consolidar") == 1)
 		consolidar = true;
 	if (consolidar)
@@ -173,27 +161,27 @@ function oficial_lanzar()
 	if (!this.iface.mostrarEjAnt)
 		this.iface.nombreInforme += "_u";
 
-	flcontinfo.iface.pub_vaciarBuffer("co_i_balancepyg_buffer");	
-	
+	flcontinfo.iface.pub_vaciarBuffer("co_i_balancepyg_buffer");
+
 	if (!this.iface.crearPyG())
 		return;
-		
+
 	this.iface.informarTablaPyG();
 
 	// Datos de pérdidas y ganancias
 	this.iface.datos = [];
-	
+
 	if (consolidar)
 		this.iface.resultadosPyG(2);
 	else
 		this.iface.resultadosPyG(0);
 	this.iface.rellenarDatosPyG(this.iface.ejAct);
-	
+
 	if (!consolidar && this.iface.mostrarEjAnt) {
 		this.iface.resultadosPyG(1);
 		this.iface.rellenarDatosPyG(this.iface.ejAnt);
 	}
-	
+
 	this.iface.informarTablaPyG();
 
 /** \D
@@ -207,7 +195,7 @@ Una segunda query es necesaria para elaborar el informe, y se elecuta sobre la t
 	if (q.exec() == false) {
 		MessageBox.critical(util.translate("scripts", "Falló la 2ª consulta"),MessageBox.Ok, MessageBox.NoButton,MessageBox.NoButton);
 			return;
-	} 
+	}
 	else {
 		if (q.first() == false) {
 			MessageBox.warning(util.translate("scripts", "No hay registros que cumplan los criterios de búsqueda establecidos"),MessageBox.Ok, MessageBox.NoButton,MessageBox.NoButton);
@@ -237,7 +225,7 @@ function oficial_crearPyG():Boolean
 		var hastaAct:String;
 		var asientoPyG:Number = -1;
 		var asientoPyGAnt:Number = -1;
-		
+
 		var desdeAnt:String;
 		var hastaAnt:String;
 
@@ -248,7 +236,7 @@ function oficial_crearPyG():Boolean
 		if (cursor.valueBuffer("ignorarcierre")) {
 			asientoPyG = util.sqlSelect("ejercicios", "idasientopyg", "codejercicio = '" + this.iface.ejAct + "'");
 		}
-		
+
 		if (this.iface.mostrarEjAnt) {
 			desdeAnt = cursor.valueBuffer("d_co__asientos_fechaant");
 			hastaAnt = cursor.valueBuffer("h_co__asientos_fechaant");
@@ -256,7 +244,7 @@ function oficial_crearPyG():Boolean
 			if (cursor.valueBuffer("ignorarcierre"))
 				asientoPyGAnt = util.sqlSelect("ejercicios", "idasientopyg", "codejercicio = '" + this.iface.ejAnt + "'");
 		}
-		
+
 		flcontinfo.iface.pub_establecerEjerciciosPYG(this.iface.ejAct, this.iface.ejAnt, this.iface.mostrarEjAnt);
 
 /** \D
@@ -295,7 +283,7 @@ La consulta es compleja y se ejecuta sobre varias tablas. Las líneas obtenidas s
 						 " GROUP BY co_codbalances.codbalance, co_codbalances.naturaleza, co_codbalances.nivel1, co_codbalances.nivel2, co_codbalances.nivel3, co_codbalances.descripcion1, co_codbalances.descripcion2, co_codbalances.descripcion3, co_cuentas.codcuenta, co_cuentas.descripcion,  co_asientos.codejercicio ORDER BY co_codbalances.naturaleza, co_codbalances.nivel1, co_codbalances.nivel2, co_codbalances.nivel3, co_cuentas.codcuenta");
 		}
 
-		
+
 		var util:FLUtil = new FLUtil();
 		if (q.exec() == false) {
 				MessageBox.critical(util.
@@ -433,12 +421,12 @@ function oficial_informarTablaPyG()
 		var cursor:FLSqlCursor = new FLSqlCursor("co_i_balancepyg_buffer");
 
 		for (var i:Number = 0; i < this.iface.datos.length; i++) {
-				
+
 				cursor.select("codcuenta = '" + this.iface.datos[i]["codcuenta"] + "' " +
 					"AND naturaleza = '" + this.iface.datos[i]["naturaleza"] + "' " +
 					"AND nivel1 = '" + this.iface.datos[i]["nivel1"] + "' " +
 					"AND nivel2 = '" + this.iface.datos[i]["nivel2"] + "'");
-					
+
 				if (cursor.first()) {
 					cursor.setModeAccess(cursor.Edit);
 					cursor.refreshBuffer();
@@ -456,8 +444,8 @@ function oficial_informarTablaPyG()
 					cursor.setValueBuffer("descripcion2", this.iface.datos[i]["descripcion2"]);
 					cursor.setValueBuffer("descripcion3", this.iface.datos[i]["descripcion3"]);
 					cursor.setValueBuffer("desccuenta", this.iface.datos[i]["desccuenta"]);
-				}		
-				
+				}
+
 				// Balance consolidado
 				if (this.cursor().valueBuffer("consolidar")) {
 					suma = parseFloat(cursor.valueBuffer("sumaact")) + parseFloat(this.iface.datos[i]["suma"]);
@@ -470,9 +458,9 @@ function oficial_informarTablaPyG()
 					else
 						cursor.setValueBuffer("sumaant", this.iface.datos[i]["suma"]);
 				}
-				
+
 				cursor.commitBuffer();
-				
+
 		}
 }
 
@@ -491,7 +479,7 @@ function oficial_resultadosPyG(tipo:Number):Boolean
 		A[i] = 0;
 		B[i] = 0;
 	}
-	
+
 	var suma:String;
 	switch(tipo) {
 		case 0:
@@ -504,9 +492,9 @@ function oficial_resultadosPyG(tipo:Number):Boolean
 			suma = "sumaact+sumaant";
 		break;
 	}
-	
+
 	var util:FLUtil = new FLUtil();
-	
+
 	q = new FLSqlQuery();
 	q.setTablesList("co_i_balancepyg_buffer");
 	q.setFrom("co_i_balancepyg_buffer");
@@ -515,12 +503,12 @@ function oficial_resultadosPyG(tipo:Number):Boolean
 	var util:FLUtil = new FLUtil();
 	if (!q.exec())
 		return false;
-	
+
 	if (!q.size())
 		return false;
-		
+
 	while(q.next()) {
-	
+
 		if (q.value(3) == "DEBE") {
 			A[q.value(1)] += parseFloat(q.value(2));
 		}
@@ -531,35 +519,35 @@ function oficial_resultadosPyG(tipo:Number):Boolean
 
 
 	/** \D Se aplican las fórmulas contables para calcular los valores AI - BVI que aparecerán en el informe de pérdidas y ganancias:
-	
+
 	AI BENEFICIOS DE EXPLOTACION (B1+B2+B3+B4-A1-A2-A3-A4-A5-A6)
-	
+
 	AII RESULTADOS FINANCIEROS POSITIVOS (B5+B6+B7+B8-A7-A8-A9)
-	
+
 	AIII BENEFICIOS DE LAS ACTIVIDADES ORDINARIAS (AI+AII-BI-BII)
-	
+
 	AIV RESULTADOS EXTRAORDINARIOS POSITIVOS(B9+B10+B11+B12+B13-A10-A11-A12-A13-A14)
-	
+
 	AV BENEFICIOS ANTES DE IMPUESTOS (AIII+AIV-BIII-BIV)
-	
+
 	AVI RESULTADOS DEL EJERCICIO (BENEFICIOS) (AV-A15-A16)
-	
+
 	BI PERDIDAS DE EXPLOTACION (A1+A2+A3+A4+A5+A6-B1-B2-B3-B4)
-	
+
 	BII RESULTADOS FINANCIEROS NEGATIVOS (A7+A8+A9-B5-B6-B7-B8)
-	
+
 	BIII PERDIDAS DE LAS ACTIVIDADES ORDINARIAS (BI+BII-AI-AII)
-	
+
 	BIV RESULTADOS EXTRAORDINARIOS NEGATIVOS (A10+A11+A12+A13+A14-B9-B10-B11-B12-B13)
-	
+
 	BV PERDIDAS ANTES DE IMPUESTOS (BIII+BIV-AIII-AIV)
-	
+
 	BVI RESULTADO DEL EJERCICIO (PERDIDAS) (BV+A15+A16)
 	\end */
 	this.iface.AB["AI"] =
 			B[1] + B[2] + B[3] + B[4] - A[1] - A[2] - A[3] - A[4] - A[5] -
 			A[6];
-			
+
 	this.iface.AB["AII"] = B[5] + B[6] + B[7] + B[8] - A[7] - A[8] - A[9];
 	if (this.iface.AB["AI"] < 0)
 			this.iface.AB["AI"] = 0;
@@ -569,7 +557,7 @@ function oficial_resultadosPyG(tipo:Number):Boolean
 	this.iface.AB["BI"] =
 			A[1] + A[2] + A[3] + A[4] + A[5] + A[6] - B[1] - B[2] - B[3] -
 			B[4];
-					
+
 	this.iface.AB["BII"] = A[7] + A[8] + A[9] - B[5] - B[6] - B[7] - B[8];
 	if (this.iface.AB["BI"] < 0)
 			this.iface.AB["BI"] = 0;
@@ -603,7 +591,7 @@ function oficial_resultadosPyG(tipo:Number):Boolean
 
 	this.iface.AB["AVI"] = this.iface.AB["AV"] - A[15] - A[16];
 	this.iface.AB["BVI"] = this.iface.AB["BV"] + A[15] + A[16];
-	
+
 	if (this.iface.AB["AV"] == 0)
 		this.iface.AB["AVI"] = 0;
 
@@ -618,33 +606,10 @@ function oficial_resultadosPyG(tipo:Number):Boolean
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
-/** @class_definition pgc2008 */
-/////////////////////////////////////////////////////////////////
-//// PGC2008 ////////////////////////////////////////////////////
-function pgc2008_lanzar()
-{
-	var util:FLUtil = new FLUtil();
-	var cursor:FLSqlCursor = this.cursor()
-	if (!cursor.isValid()) {
-		return;
-	}
-
-	var ejercicioActual:String = cursor.valueBuffer("i_co__subcuentas_codejercicioact");
-	var planContable:String = util.sqlSelect("ejercicios", "plancontable", "codejercicio = '" + ejercicioActual + "'");
-	if (planContable == "08") {
-		MessageBox.information(util.translate("scripts", "El plan contable del ejercicio actual es 2008.\nPara mostrar este informe deberá hacerlo desde la opción 'Cuentas anuales' seleccionando el tipo 'Perdidas y ganancias'"), MessageBox.Ok, MessageBox.NoButton);
-		return false;
-	} else {
-		this.iface.__lanzar();
-	}
-}
-
-//// PGC2008 ////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
+

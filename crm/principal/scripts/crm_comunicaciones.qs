@@ -156,6 +156,10 @@ function interna_init()
 						this.child("fdbCodCliente").setValue(curRelation.valueBuffer("codcliente"));
 						break;
 					}
+					case "servicioscli": {
+						this.child("fdbCodCliente").setValue(curRelation.valueBuffer("codcliente"));
+						break;
+					}
 				}
 			}
 			var codContacto:String = this.child("fdbCodContacto").value();

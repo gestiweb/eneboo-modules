@@ -121,7 +121,7 @@ function interna_init()
 /** \C Si el módulo de contabilidad está cargado, se habilita el campo de cuenta de ventas
 \end */
 	if (!sys.isLoadedModule("flcontppal"))
-		this.child("gbxContabilidad").enabled = false;
+		this.child("tbwContabilidad").enabled = false;
 	else {
 		this.iface.longSubcuenta = util.sqlSelect("ejercicios", "longsubcuenta",  "codejercicio = '" + ejercicioActual + "'");
 		this.iface.posActualPuntoSubRep = -1;

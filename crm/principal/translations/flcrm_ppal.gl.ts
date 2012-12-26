@@ -125,6 +125,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Intervalo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fecha Desde</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fecha Hasta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resposable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grupo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Propietario</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Estados de Oportunidad de Venta</source>
         <translation type="unfinished"></translation>
     </message>
@@ -312,66 +336,6 @@
         <source>Estados de Contacto</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Configuraci&#xf3;n general</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Host correo saliente</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>C.Proveedor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Categor&#xed;a</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Subcategor&#xed;a</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Proyecto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Subproyecto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tipo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Proveedor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Dir. Cli</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Dir. Prov</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Categor&#xed;as de Incidencia</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Campa&#xf1;a</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Destinatario de campa&#xf1;a</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Subcategor&#xed;as de Incidencia</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>crm_adjuntoscom</name>
@@ -393,69 +357,6 @@
     </message>
     <message>
         <source>nombre</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>crm_catincidencias</name>
-    <message>
-        <source>crm_catincidencias</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codcategoria</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>descripcion</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Incidencias</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Insertar registro (A)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Para crear un nuevo registro en la tabla</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Modificar registro (M)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Para modificar el registro activo de la tabla</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Eliminar registro (E)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Elimina el registro actual de la tabla</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ver registro (V)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Para ver registro, sin permitir editar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>crm_incidencias</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>&amp;Subcategorías</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>crm_subcatincidencias</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -606,6 +507,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>&amp;Oportinudades</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>crm_oportunidadventa</source>
         <translation type="unfinished"></translation>
     </message>
@@ -727,50 +632,6 @@
     </message>
     <message>
         <source>Elimana la asociacion de un contacto con el cliente</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Buscar contacto (F2)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Para buscar un contacto de la agenda y establecerlo como contacto principal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>I</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enviar email</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Envar un email al contacto principal del cliente</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Acceso web</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enviar por email</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>Envía un email al contacto seleccionado</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Oportunidades</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Proyectos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>cl_proyectos</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -971,44 +832,13 @@
         <source>crm_adjuntoscom</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>&amp;Proyectos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codproyecto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>cl_proyectos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codsubproyecto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>cl_subproyectos</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>crm_configppal</name>
-    <message>
-        <source>crm_configppal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Correo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>hostcorreosaliente</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>crm_contactos</name>
+    <message>
+        <source>crm_contactos</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>codcontacto</source>
         <translation type="unfinished"></translation>
@@ -1226,55 +1056,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>crm_qry_contactoscliente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Oportunidades de venta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>crm_oportunidadventa</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Contactos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codpostal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>I</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enviar email</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Envar un email al contacto principal del cliente</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>admitemarketing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Asocia un contacto (A)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Asocia un cliente ya existente al contacto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Eliminar una asociacion (E)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Elimana la asociacion de un cliente con el contacto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>clientes</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1298,113 +1088,6 @@
     </message>
     <message>
         <source>crm_contactos</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>crm_dashboard</name>
-    <message>
-        <source>crm_dashboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mis oportunidades</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>crm_oportunidadventa</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mis tarjetas</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>crm_tarjetas</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>Gráfico 2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>Gráfico 1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mis tareas</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lanza un proceso del tipo seleccionado</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Modificar registro (M)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Para modificar el registro activo de la tabla</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Eliminar registro (E)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Elimina el registro actual de la tabla</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ver registro (V)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Para ver registro, sin permitir editar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Iniciar / Completar tarea</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Inicia o completa una tarea</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Deshacer tarea</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Deshace la tarea seleccionada</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Reanudar proceso</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Reanuda el proceso asociado a la tarea seleccionada</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Detener proceso</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Detiene el proceso asociado a la tarea seleccionada</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancelar proceso</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancela el proceso asociado a la tarea seleccionada</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>pr_tareas</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1488,6 +1171,77 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
+<context encoding="UTF-8">
+    <name>crm_i_previsionesventa</name>
+    <message>
+        <source>crm_i_previsionesventa</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>&amp;Criterios de búsqueda</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>descripcion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fecha</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>d_crm__oportunidadventa_fechacierre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>h_crm__oportunidadventa_fechacierre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>codintervalo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>intervalo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>intervalos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>codigo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>i_crm__oportunidadventa_idusuario</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>flusers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>iduser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>idgrupo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>flgroups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>idgroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>idusuario</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 <context>
     <name>crm_incidencias</name>
     <message>
@@ -1532,6 +1286,10 @@
     </message>
     <message>
         <source>nomcliente</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>nombre</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1652,42 +1410,6 @@
     </message>
     <message>
         <source>pr_tareas</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>fecha</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codcategoria</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codsubcategoria</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codproveedor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Proyectos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codproyecto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>cl_proyectos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codsubproyecto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>cl_subproyectos</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2092,19 +1814,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Crear &amp;oportinidad</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Alt+O</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Crear &amp;proveedor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+P</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Crear &amp;oportunidad</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2271,69 +1985,6 @@
     </message>
 </context>
 <context>
-    <name>crm_subcatincidencias</name>
-    <message>
-        <source>crm_subcatincidencias</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codcategoria</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>descripcion</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>crm_catincidencias</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codsubcategoria</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Incidencias</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Insertar registro (A)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Para crear un nuevo registro en la tabla</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Modificar registro (M)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Para modificar el registro activo de la tabla</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Eliminar registro (E)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Elimina el registro actual de la tabla</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ver registro (V)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Para ver registro, sin permitir editar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>crm_incidencias</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>crm_tarjetas</name>
     <message>
         <source>crm_tarjetas</source>
@@ -2425,6 +2076,10 @@
     </message>
     <message>
         <source>codpais</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cliente</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2659,48 +2314,8 @@
         <source>crm_oportunidadventa</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Buscar contacto (F2)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Para buscar un contacto de la agenda y establecerlo como contacto principal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>I</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enviar por email</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>Envía un email al contacto seleccionado</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Cliente/Proveedor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>tipo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codproveedor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>coddirp</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Acceso web</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
-<context encoding="UTF-8">
+<context>
     <name>flcrm_ppal</name>
     <message>
         <source>flcrm_ppal</source>
@@ -2756,6 +2371,14 @@
     </message>
     <message>
         <source>Estados &amp;Oportunidad de Venta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pervisiones de Venta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+P</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2820,38 +2443,6 @@
     </message>
     <message>
         <source>&amp;Secuencias</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>Categorías de Incidencia</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>&amp;Categorías de Incidencia</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>Subcategorías de Incidencia</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Dashboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Dashboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Widgets</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>Configuración</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3051,56 +2642,6 @@ La oportunidad no aparecer&#xe1; en los informes de previsi&#xf3;n de ventas.
     </message>
     <message>
         <source>Reorganizando Contactos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Esta opci&#xf3;n no est&#xe1; disponible. Es necesario tener
- cargada la extensi&#xf3;n de env&#xed;o mail para el m&#xf3;dulo de CRM.
-Para m&#xe1;s informaci&#xf3;n consulte con InfoSiAL (www.infosial.com).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ya se ha generado un proveedor para la tarjeta seleccionada</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Se ha creado el proveedor %1 - %2 en la tabla de proveedores</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hubo un error en la generaci&#xf3;n del proveedor:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No hay ning&#xfa;n registro seleccionado</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No hay ning&#xfa;n contacto seleccionado</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Se va a desvincular el contacto seleccionado del cliente. &#xbf;Est&#xe1; seguro?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No hay ning&#xfa;n registro seleccionado.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Se eliminar&#xe1; la asociaci&#xf3;n del cliente seleccionado con el contacto %1 &#xbf;Desea continuar?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>El contacto indicado no existe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>El contacto por defecto de la tarjeta no est&#xe1; incluido en la lista de contactos. &#xbf;Desea incluirlo ahora?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Se va a desvincular el contacto seleccionado de la tarjeta. &#xbf;Est&#xe1; seguro?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

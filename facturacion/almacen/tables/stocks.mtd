@@ -1,198 +1,167 @@
 <!DOCTYPE TMD>
 <TMD>
-    <name>stocks</name>
-<!-- Listado de stocks (cantidades por artículo en los almacenes) -->    <alias>QT_TRANSLATE_NOOP("MetaData","Stocks")</alias>
-    <field>
-        <name>idstock</name>
-<!-- Identificador interno -->        <alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
-        <null>false</null>
-        <pk>true</pk>
-        <type>serial</type>
-        <visiblegrid>false</visiblegrid>
-        <relation>
-            <table>lineasregstocks</table>
-            <field>idstock</field>
-            <card>1M</card>
-        </relation>
-    </field>
-    <field>
-        <name>codalmacen</name>
-<!-- Código del almacén -->        <alias>QT_TRANSLATE_NOOP("MetaData","Almacén")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>4</length>
-        <ck>true</ck>
-        <relation>
-            <table>almacenes</table>
-            <field>codalmacen</field>
-            <card>M1</card>
-        </relation>
-    </field>
-    <field>
-        <name>nombre</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","N. Almacén")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>100</length>
-    </field>
-    <field>
-        <name>referencia</name>
-<!-- Código de referencia del artículo -->        <alias>QT_TRANSLATE_NOOP("MetaData","Referencia")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>18</length>
-        <ck>true</ck>
-        <relation>
-            <table>articulos</table>
-            <field>referencia</field>
-            <card>M1</card>
-            <delC>true</delC>
-        </relation>
-    </field>
-    <field>
-        <name>cantidad</name>
-<!-- Valor del stock -->        <alias>QT_TRANSLATE_NOOP("MetaData","Cantidad")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-        <editable>false</editable>
-    </field>
-    <field>
-        <name>disponible</name>
-<!-- Cantidad menos movimientos pendientes negativos -->        <alias>QT_TRANSLATE_NOOP("MetaData","Disponible")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-        <editable>false</editable>
-    </field>
-    <field>
-        <name>reservada</name>
-<!-- Cantidad reservada -->        <alias>QT_TRANSLATE_NOOP("MetaData","Reservada")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-        <editable>false</editable>
-    </field>
-    <field>
-        <name>pterecibir</name>
-<!-- Movimientos pendientes positivos-->        <alias>QT_TRANSLATE_NOOP("MetaData","Pte.Recibir")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-        <editable>false</editable>
-    </field>
-    <field>
-        <name>cantidadac</name>
-<!-- Cantidad de albaranes de cliente-->        <alias>QT_TRANSLATE_NOOP("MetaData","Cantidad A.C.")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-        <editable>false</editable>
-        <visiblegrid>false</visiblegrid>
-    </field>
-    <field>
-        <name>cantidadap</name>
-<!-- Cantidad de albaranes de proveedor-->        <alias>QT_TRANSLATE_NOOP("MetaData","Cantidad A.P.")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-        <editable>false</editable>
-        <visiblegrid>false</visiblegrid>
-    </field>
-    <field>
-        <name>cantidadfc</name>
-<!-- Cantidad de facturas de cliente-->        <alias>QT_TRANSLATE_NOOP("MetaData","Cantidad F.C.")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-        <editable>false</editable>
-        <visiblegrid>false</visiblegrid>
-    </field>
-    <field>
-        <name>cantidadfp</name>
-<!-- Cantidad de facturas de proveedor-->        <alias>QT_TRANSLATE_NOOP("MetaData","Cantidad F.P.")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-        <editable>false</editable>
-        <visiblegrid>false</visiblegrid>
-    </field>
-    <field>
-        <name>cantidadts</name>
-<!-- Cantidad de transferencias de stock-->        <alias>QT_TRANSLATE_NOOP("MetaData","Cantidad T.S.")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-        <editable>false</editable>
-        <visiblegrid>false</visiblegrid>
-    </field>
-    <field>
-        <name>cantidadtpv</name>
-<!-- Cantidad de ventas de TPV de cliente-->        <alias>QT_TRANSLATE_NOOP("MetaData","Cantidad TPV")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-        <editable>false</editable>
-        <visiblegrid>false</visiblegrid>
-    </field>
-    <field>
-        <name>fechaultreg</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>date</type>
-        <editable>false</editable>
-    </field>
-    <field>
-        <name>horaultreg</name>
-<!-- hora de la última regularización -->        <alias>QT_TRANSLATE_NOOP("MetaData","Hora")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>time</type>
-        <editable>false</editable>
-    </field>
-    <field>
-        <name>cantidadultreg</name>
-<!-- Cantidad del artículo tras la última regularización  -->        <alias>QT_TRANSLATE_NOOP("MetaData","C.Reg.")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>10</partI>
-        <partD>2</partD>
-        <default>0</default>
-        <editable>false</editable>
-    </field>
+	<name>stocks</name>
+	<!-- Listado de stocks (cantidades por artículo en los almacenes) -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Stocks")</alias>
+
+	<field>
+		<name>idstock</name>
+		<!-- Identificador interno -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>lineasregstocks</table>
+			<field>idstock</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>codalmacen</name>
+		<!-- Código del almacén -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Almacén")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<ck>true</ck>
+
+		<relation>
+			<table>almacenes</table>
+			<field>codalmacen</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","N. Almacén")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>referencia</name>
+		<!-- Código de referencia del artículo -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Referencia")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>18</length>
+		<ck>true</ck>
+
+		<relation>
+			<table>articulos</table>
+			<field>referencia</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>cantidad</name>
+		<!-- Valor del stock -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cantidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>10</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>disponible</name>
+		<!-- Cantidad menos movimientos pendientes negativos -->
+		<alias>QT_TRANSLATE_NOOP(&quot;MetaData&quot;,&quot;Disponible&quot;)</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>10</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	 <field>
+		<name>reservada</name>
+		<!-- Cantidad reservada -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Reservada")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>10</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>pterecibir</name>
+		<!-- Movimientos pendientes positivos-->
+		<alias>QT_TRANSLATE_NOOP(&quot;MetaData&quot;,&quot;Pte.Recibir&quot;)</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>10</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	<field>
+                <name>stockmin</name>
+                <!-- Stock mínimo-->        
+                <alias>QT_TRANSLATE_NOOP("MetaData","Stock mínimo")</alias>
+                <null>false</null>
+                <pk>false</pk>
+                <type>double</type>
+                <partI>10</partI>
+                <partD>2</partD>
+                <default>0</default>
+        </field>
+        <field>
+                <name>stockmax</name>
+                <!-- Stock máximo-->        
+                <alias>QT_TRANSLATE_NOOP("MetaData","Stock máximo")</alias>
+                <null>false</null>
+                <pk>false</pk>
+                <type>double</type>
+                <partI>10</partI>
+                <partD>2</partD>
+                <default>0</default>
+        </field>
+	<field>
+	    <name>fechaultreg</name>
+	    <alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+	    <null>true</null>
+	    <pk>false</pk>
+	    <type>date</type>
+	    <editable>false</editable>
+	</field>
+	<field>
+	    <name>horaultreg</name>
+    <!-- hora de la última regularización -->        <alias>QT_TRANSLATE_NOOP("MetaData","Hora")</alias>
+	    <null>true</null>
+	    <pk>false</pk>
+	    <type>time</type>
+	    <editable>false</editable>
+	</field>
+	<field>
+	    <name>cantidadultreg</name>
+    <!-- Cantidad del artículo tras la última regularización  -->        <alias>QT_TRANSLATE_NOOP("MetaData","C.Reg.")</alias>
+	    <null>false</null>
+	    <pk>false</pk>
+	    <type>double</type>
+	    <partI>10</partI>
+	    <partD>2</partD>
+	    <default>0</default>
+	    <editable>false</editable>
+	</field>	
 </TMD>

@@ -56,7 +56,7 @@ class oficial extends interna {
 	var tbEditContacto:Object;
 	var tbnMayor:Object;
 	var curContacto_:FLSqlCursor;
-	function oficial( context ) { interna( context ); } 
+	function oficial( context ) { interna( context ); }
 	function cambiarDireccion() { return this.ctx.oficial_cambiarDireccion(); }
 	function cargarDireccion() { return this.ctx.oficial_cargarDireccion(); }
 	function bufferChanged(fN:String) { return this.ctx.oficial_bufferChanged(fN); }
@@ -130,95 +130,11 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
-/** @class_declaration envioMail */
-/////////////////////////////////////////////////////////////////
-//// ENVIO MAIL /////////////////////////////////////////////////
-class envioMail extends oficial {
-    function envioMail( context ) { oficial ( context ); }
-    function init() { 
-		return this.ctx.envioMail_init(); 
-	}
-    function enviarEmail() { 
-		return this.ctx.envioMail_enviarEmail(); 
-	}
-    function enviarEmailPedido() { 
-		return this.ctx.envioMail_enviarEmailPedido(); 
-	}
-    function accesoWeb():Boolean { 
-		return this.ctx.envioMail_accesoWeb(); 
-	}
-    function enviarEmailContacto() { 
-		return this.ctx.envioMail_enviarEmailContacto(); 
-	}
-}
-//// ENVIO MAIL /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
-/** @class_declaration personaFisica */
-/////////////////////////////////////////////////////////////////
-//// PERSONA_FISICA /////////////////////////////////////////////
-class personaFisica extends envioMail {
-    function personaFisica( context ) { envioMail ( context ); }
-	function init() {
-		return this.ctx.personaFisica_init();
-	}
-	function bufferChanged(fN:String) {
-		return this.ctx.personaFisica_bufferChanged(fN);
-	}
-	function habilitarNombre() {
-		return this.ctx.personaFisica_habilitarNombre();
-	}
-	function copiarNombre() {
-		return this.ctx.personaFisica_copiarNombre();
-	}
-	function insertarNombre() {
-		return this.ctx.personaFisica_insertarNombre();
-	}
-	function eliminarNombre() {
-		return this.ctx.personaFisica_eliminarNombre();
-	}
-	function informarNombreJuridico() {
-		return this.ctx.personaFisica_informarNombreJuridico();
-	}
-}
-//// PERSONA_FISICA /////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
-/** @class_declaration diasPagoProv */
-/////////////////////////////////////////////////////////////////
-//// DIAS_PAGO_PROV /////////////////////////////////////////////
-class diasPagoProv extends personaFisica {
-    function diasPagoProv( context ) { personaFisica ( context ); }
-	function validateForm():Boolean {
-		return this.ctx.diasPagoProv_validateForm();
-	}
-	function validarDiasPagoProv():Boolean {
-		return this.ctx.diasPagoProv_validarDiasPagoProv();
-	}
-}
-//// DIAS_PAGO_PROV /////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
-/** @class_declaration recibosProv */
-/////////////////////////////////////////////////////////////////
-//// RECIBOS PROV ///////////////////////////////////////////////
-class recibosProv extends diasPagoProv {
-    function recibosProv( context ) { diasPagoProv ( context ); }
-	function init() {
-		this.ctx.recibosProv_init();
-	}
-	function imprimirRecibo() {
-		this.ctx.recibosProv_imprimirRecibo();
-	}
-}
-//// RECIBOS PROV ///////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends recibosProv {
-    function head( context ) { recibosProv ( context ); }
+class head extends oficial {
+    function head( context ) { oficial ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -247,13 +163,13 @@ const iface = new ifaceCtx( this );
 /** \C En caso de que el módulo principal de contabilidad esté cargado, la pestaña 'contabilidad' del formulario queda habilitada. Al crearse un proveedor se creará automáticamente una subcuenta asociada, cuyo código por defecto estará formado por el código de la cuenta especial de proveedores + ceros de relleno para completar la longitud de subcuenta + código del proveedor
 
 En la pestaña 'documentos' se encuentran los listados de documentos asociados al proveedor. Todos estos datos se presentan en módo de solo lectura
- 
+
 Cada proveedor puede tener un conjunto de direcciones, una de las cuales se establece como principal. La dirección principal aparecerá por defecto en los documentos de facturación (albaranes, facturas, etc). No podrá haber más de una dirección principal.
 \end */
 function interna_init()
 {
 	var util:FLUtil = new FLUtil;
-	
+
 	if (sys.isLoadedModule("flfacturac")) {
 		this.child("tdbFacturas").setEditOnly(true);
 		this.child("tdbAlbaranes").setEditOnly(true);
@@ -261,7 +177,7 @@ function interna_init()
 	}
 	this.iface.toolButtonInsertSub = this.child("toolButtonInsertSub");
 	this.iface.toolButtonDelSub = this.child("toolButtonDeleteSub");
-	
+
 	this.iface.toolButtonInsertContacto = this.child("tbInsertContacto");
 	this.iface.toolButtonDeleteContacto = this.child("tbDeleteContacto");
 	this.iface.tbEditContacto = this.child("tbEditContacto");
@@ -269,7 +185,7 @@ function interna_init()
 	this.iface.toolButtonInsertContactoProveedor = this.child("toolButtonInsertContactoProveedor");
 	this.iface.toolButtonBuscarContacto = this.child("toolButtonBuscarContacto");
 	this.iface.tbnMayor = this.child("tbnMayor");
-	
+
 	this.iface.ejercicioActual = flfactppal.iface.pub_ejercicioActual();
 	this.iface.posActualPuntoSubcuenta = -1;
 	this.iface.longSubcuenta = util.sqlSelect("ejercicios", "longsubcuenta", "codejercicio = '" + this.iface.ejercicioActual + "'");
@@ -287,7 +203,7 @@ function interna_init()
 	connect(this.child("toolButtonPrintAlb"), "clicked()", this, "iface.imprimirAlbaran()");
 	connect(this.child("toolButtonPrintFac"), "clicked()", this, "iface.imprimirFactura()");
 	connect(this.iface.tbEditContacto, "clicked()", this, "iface.editarContacto()");
-	
+
 	connect(this.child("pbDireccion"), "clicked()", this, "iface.cambiarDireccion()");
 	connect(this.child("tdbDirecciones").cursor(), "cursorUpdated()", this, "iface.cargarDireccion()");
 	connect(this.child("pbNuevaDireccion"), "clicked()", this.child("tdbDirecciones"), "insertRecord()");
@@ -319,7 +235,7 @@ function interna_init()
 			break;
 		}
 	}
-	
+
 	if (sys.isLoadedModule("flcontppal")) {
 		this.iface.establecerSubcuenta();
 		this.child("tdbPartidas").setReadOnly(true);
@@ -482,14 +398,14 @@ function oficial_calcularSubcuentaPro(cursor:FLSqlCursor, longSubcuenta:Number):
 	var codProveedor:String = cursor.valueBuffer("codproveedor");
 	if (!codProveedor)
 		codProveedor = "";
-		
+
 	var numCeros:Number = longSubcuenta - codSubcuenta.length - codProveedor.length;
 	for (var i:Number = 0; i < numCeros; i++)
 		codSubcuenta += "0";
-	
+
 	if (codSubcuenta.length + codProveedor.length > this.iface.longSubcuenta)
 		codProveedor = codProveedor.right(this.iface.longSubcuenta - codSubcuenta.length);
-	
+
 	codSubcuenta += codProveedor;
 	return codSubcuenta;
 }
@@ -499,7 +415,7 @@ function oficial_establecerSubcuenta()
 {
 	if (!sys.isLoadedModule("flcontppal"))
 		return false;
-	
+
 	var util:FLUtil = new FLUtil;
 	var curSubcuenta:FLSqlCursor = this.child("tdbSubcuentas").cursor();
 
@@ -507,7 +423,7 @@ function oficial_establecerSubcuenta()
 		this.cursor().setNull("idsubcuenta");
 	else
 		this.cursor().setValueBuffer("idsubcuenta", curSubcuenta.valueBuffer("idsubcuenta"));
-	
+
 	this.child("tdbPartidas").refresh();
 }
 
@@ -542,7 +458,7 @@ function oficial_toolButtonInsertSub_clicked()
 			MessageBox.warning(util.translate("scripts", "No existe plan general contable para el ejercicio seleccionado"), MessageBox.Ok, MessageBox.NoButton);
 			return;
 		}
-		
+
 		var longSubcuenta:Number = util.sqlSelect("ejercicios", "longsubcuenta", "codejercicio = '" + codEjercicio + "'");
 		if (!longSubcuenta || longSubcuenta != codSubcuenta.length) {
 			MessageBox.warning(util.translate("scripts", "La longitud de la subcuenta no coincide con la establecida para el ejercicio seleccionado"), MessageBox.Ok, MessageBox.NoButton);
@@ -559,7 +475,7 @@ function oficial_toolButtonInsertSub_clicked()
 	}
 }
 
-/** \D Borra la vinculación proveedor - subcuenta seleccionada, ofreciendo la posibilidad de borrar también la subcuenta si ésta está vacía 
+/** \D Borra la vinculación proveedor - subcuenta seleccionada, ofreciendo la posibilidad de borrar también la subcuenta si ésta está vacía
 \end */
 function oficial_toolButtonDelSub_clicked()
 {
@@ -567,12 +483,12 @@ function oficial_toolButtonDelSub_clicked()
 	if (!curTablaSub.isValid())
 		return;
 	var idSubcuenta:String = curTablaSub.valueBuffer("idsubcuenta");
-	
+
 	var util:FLUtil = new FLUtil;
 	var res = MessageBox.information(util.translate("scripts", "Va a eliminar la vinculación de la subcuenta seleccionada al proveedor actual."), MessageBox.Ok, MessageBox.Cancel);
 	if (res != MessageBox.Ok)
 		return;
-	
+
 	var saldo:Number = util.sqlSelect("co_subcuentas", "saldo", "idsubcuenta = " + idSubcuenta);
 	if (saldo == 0) {
 		if (!util.sqlSelect("co_partidas", "idpartida", "idsubcuenta = " + idSubcuenta)) {
@@ -587,7 +503,7 @@ function oficial_toolButtonDelSub_clicked()
 			}
 		}
 	}
-	
+
 	util.sqlDelete("co_subcuentasprov", "id = " + curTablaSub.valueBuffer("id"));
 	this.child("tdbSubcuentas").refresh();
 	this.iface.establecerSubcuenta();
@@ -652,7 +568,7 @@ function oficial_asociarContactoProveedor()
 		curContactoProv.refreshBuffer();
 		curContactoProv.setValueBuffer("codcontacto", this.iface.curContacto_.valueBuffer("codcontacto"));
 		curContactoProv.setValueBuffer("codproveedor", cursor.valueBuffer("codproveedor"));
-		
+
 		if (!curContactoProv.commitBuffer()) {
 			return false;
 		}
@@ -691,7 +607,7 @@ function oficial_deleteContacto()
 	if (util.sqlSelect("contactosproveedores","codcontacto","codcontacto = '" + codContacto + "' AND codproveedor <> '" + codAsociado + "'") || util.sqlSelect("contactosclientes","codcontacto","1 = 1")) {
 		preguntar = true;
 	}
-	
+
 	if (preguntar) {
 		var res:String = MessageBox.information(util.translate("scripts", "El contacto seleccionado está vinculado a otros registros. Si lo elimina se eliminarán todas las vinculaciones. ¿Desea continuar?"), MessageBox.Yes, MessageBox.No);
 		if (res != MessageBox.Yes) {
@@ -763,7 +679,7 @@ function oficial_insertContactoAsociado()
 		curContactoProv.refreshBuffer();
 		curContactoProv.setValueBuffer("codcontacto",codContacto);
 		curContactoProv.setValueBuffer("codproveedor",codAsociado);
-		
+
 		if (!curContactoProv.commitBuffer())
 			return false;
 	}
@@ -842,7 +758,7 @@ function oficial_mostrarMovEjerActual(nombre:String)
 {
 	var cursor:FLSqlCursor = this.cursor();
 	var util:FLUtil = new FLUtil();
-	
+
 	switch (nombre) {
 		case "contabilidad": {
 			var codEjercicioActual = flfactppal.iface.pub_ejercicioActual();
@@ -893,7 +809,7 @@ function oficial_validarNifIva():Boolean
 {
 	var util:FLUtil = new FLUtil;
 	var cursor:FLSqlCursor = this.cursor();
-	
+
 	var tipoIdFiscal:String = cursor.valueBuffer("tipoidfiscal");
 	if (tipoIdFiscal == "NIF/IVA") {
 		var error:String = flfactppal.iface.pub_validarNifIva(cursor.valueBuffer("cifnif"));
@@ -914,17 +830,17 @@ function oficial_cambiarCuentaDom()
 	var curCuenta:FLSqlCursor = this.child("tdbCuentas").cursor();
 	var codCuentaDom = curCuenta.valueBuffer("codcuenta");
 	var desCuentaDom = curCuenta.valueBuffer("descripcion");
-	
+
 	if (!codCuentaDom) {
 		return false;
 	}
-	
+
 	var cursor:FLSqlCursor = this.cursor();
 	cursor.setValueBuffer("codcuentadom", codCuentaDom);
 	this.iface.mostrarDesCuentaDom();
-	
+
 	var util:FLUtil = new FLUtil;
-    
+
 	var codProveedor:String = cursor.valueBuffer("codproveedor");
 }
 
@@ -948,313 +864,10 @@ function oficial_borrarCuentaDom()
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
-/** @class_definition envioMail */
-/////////////////////////////////////////////////////////////////
-//// ENVIO MAIL /////////////////////////////////////////////////
-function envioMail_init()
-{
-	this.iface.__init();
-	connect(this.child("tbnEnviarMail"), "clicked()", this, "iface.enviarEmail()");
-	connect(this.child("tbnEnviarMailPed"), "clicked()", this, "iface.enviarEmailPedido()");
-	connect(this.child("tbnWeb"), "clicked()", this, "iface.accesoWeb()");
-	connect(this.child("tbnEnviarMailContacto"), "clicked()", this, "iface.enviarEmailContacto()");
-	//this.child("tbnEnviarMailPed").close();
-}
-
-function envioMail_enviarEmail()
-{
-	var cursor:FLSqlCursor = this.cursor();
-	var util:FLUtil = new FLUtil();
-
-	var codProveedor:String = cursor.valueBuffer("codproveedor");
-	var tabla:String = "proveedores";
-	var emailProveedor:String = flfactppal.iface.pub_componerListaDestinatarios(codProveedor, tabla);
-	if (!emailProveedor) {
-		return;
-	}
-
-	var cuerpo:String = "";
-	var asunto:String = "";
-
-	var arrayDest:Array = [];
-	arrayDest[0] = [];
-	arrayDest[0]["tipo"] = "to";
-	arrayDest[0]["direccion"] = emailProveedor;
-
-	var arrayAttach:Array = [];
-
-	flfactppal.iface.pub_enviarCorreo(cuerpo, asunto, arrayDest, arrayAttach);
-}
-
-function envioMail_enviarEmailPedido()
-{
-	var codPedido:String = this.child("tdbPedidos").cursor().valueBuffer("codigo");
-	if (!codPedido) {
-		return;
-	}
-
-	var codProveedor:String = this.child("tdbPedidos").cursor().valueBuffer("codproveedor");
-	if (!codProveedor) {
-		return;
-	}
-	formpedidosprov.iface.pub_enviarDocumento(codPedido, codProveedor);
-}
-
-function envioMail_accesoWeb():Boolean
-{
-	var cursor:FLSqlCursor = this.cursor();
-	var util:FLUtil = new FLUtil();
-
-	var nombreNavegador = util.readSettingEntry("scripts/flfactinfo/nombrenavegador");
-	if (!nombreNavegador || nombreNavegador == "") {
-		MessageBox.warning(util.translate("scripts", "No tiene establecido el nombre del navegador.\nDebe establecer este valor en la pestaña Correo del formulario de empresa"), MessageBox.Ok, MessageBox.NoButton);
-		return false;
-	}
-
-	var webProveedor:String = cursor.valueBuffer("web");
-	if (!webProveedor) {
-		MessageBox.warning(util.translate("scripts", "Debe informar la web del proveedor"), MessageBox.Ok, MessageBox.NoButton);
-		return false;
-	}
-
-	var comando:Array = [nombreNavegador, webProveedor];
-	var res:Array = flfactppal.iface.pub_ejecutarComandoAsincrono(comando);
-
-	return true;
-}
-
-function envioMail_enviarEmailContacto()
-{
-	var cursor:FLSqlCursor = this.cursor();
-	var util:FLUtil = new FLUtil();
-
-	var emailContacto:String = this.child("tdbContactos").cursor().valueBuffer("email");
-	if (!emailContacto || emailContacto == "") {
-		MessageBox.warning(util.translate("scripts", "El contacto no tiene el campo email informado."), MessageBox.Ok, MessageBox.NoButton);
-		return false;
-	}
-	var cuerpo:String = "";
-	var asunto:String = "";
-
-	var arrayDest:Array = [];
-	arrayDest[0] = [];
-	arrayDest[0]["tipo"] = "to";
-	arrayDest[0]["direccion"] = emailContacto;
-
-	var arrayAttach:Array = [];
-
-	flfactppal.iface.pub_enviarCorreo(cuerpo, asunto, arrayDest, arrayAttach);
-}
-
-//// ENVIO MAIL /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
-/** @class_definition personaFisica */
-/////////////////////////////////////////////////////////////////
-//// PERSONA_FISICA /////////////////////////////////////////////
-function personaFisica_init()
-{
-	this.iface.__init();
-
-	connect(this.child("tbnInsertarNombre"), "clicked()", this, "iface.insertarNombre()");
-	connect(this.child("tbnEliminarNombre"), "clicked()", this, "iface.eliminarNombre()");
-	this.iface.habilitarNombre();
-}
-
-function personaFisica_bufferChanged(fN)
-{
-	var cursor:FLSqlCursor = this.cursor();
-	switch(fN) {
-		case "personafisica": {
-			this.iface.habilitarNombre();
-			this.iface.copiarNombre();
-			break;
-		}
-		case "nombrepila": 
-		case "apellidos": {
-			this.iface.informarNombreJuridico();
-			break;
-		}
-		default: {
-			this.iface.__bufferChanged(fN);
-			break;
-		}
-	}
-}
-
-function personaFisica_habilitarNombre()
-{
-	var cursor:FLSqlCursor = this.cursor();
-	if (cursor.valueBuffer("personafisica")) {
-		this.child("gbxNombre").close();
-		this.child("gbxNombreApellidos").show();
-	} else {
-		this.child("gbxNombre").show();
-		this.child("gbxNombreApellidos").close();
-	}
-}
-
-function personaFisica_copiarNombre()
-{
-	var cursor:FLSqlCursor = this.cursor();
-	if (cursor.valueBuffer("personafisica") && cursor.valueBuffer("apellidos") == "") {
-		this.child("fdbApellidos").setValue(cursor.valueBuffer("nombre"));
-	}
-}
-
-function personaFisica_insertarNombre()
-{
-	var cursor:FLSqlCursor = this.cursor();
-	var i:Number;
-	var nombrePila:String = cursor.valueBuffer("nombrepila");
-	var apellidos:String = cursor.valueBuffer("apellidos");
-	if (!apellidos) {
-		apellidos = "";
-		return;
-	}
-	if (!nombrePila) {
-		nombrePila = "";
-	}
-	var palabra:String;
-	var iEspacio:Number = apellidos.find(" ");
-	if (iEspacio != - 1) {
-		palabra = apellidos.substring(0, iEspacio);
-		apellidos = apellidos.right(apellidos.length - iEspacio -1);
-	} else {
-		palabra = cursor.valueBuffer("apellidos");
-		apellidos = "";
-	}
-
-	if (nombrePila == "") {
-		nombrePila = palabra;
-	} else {
-		nombrePila = nombrePila + " " + palabra;
-	}
-
-	this.child("fdbNombrePila").setValue(nombrePila);
-	this.child("fdbApellidos").setValue(apellidos);
-}
-
-function personaFisica_eliminarNombre()
-{
-	var cursor:FLSqlCursor = this.cursor();
-	var i:Number;
-	var nombrePila:String = cursor.valueBuffer("nombrepila");
-	var apellidos:String = cursor.valueBuffer("apellidos");
-	if (!nombrePila) {
-		nombrePila = "";
-		return;
-	}
-	if (!apellidos) {
-		apellidos = "";
-	}
-	var iEspacio:Number = nombrePila.findRev(" ");
-	var palabra:String = nombrePila.substring(iEspacio + 1, nombrePila.length);
-	if (apellidos == "") {
-		apellidos = palabra;
-	} else {
-		apellidos = palabra + " " + apellidos;
-	}
-	if (iEspacio == -1) {
-		nombrePila = "";
-	} else {
-		nombrePila = nombrePila.left(iEspacio);
-	}
-	this.child("fdbNombrePila").setValue(nombrePila);
-	this.child("fdbApellidos").setValue(apellidos);
-}
-
-function personaFisica_informarNombreJuridico()
-{
-	var cursor:FLSqlCursor = this.cursor();
-	var nombrePila:String = cursor.valueBuffer("nombrepila");
-	if (!nombrePila) {
-		nombrePila = "";
-	}
-	var apellidos:String = cursor.valueBuffer("apellidos");
-	if (!apellidos) {
-		apellidos = "";
-	}
-	if (cursor.valueBuffer("personafisica")) {
-		var nombre:String = apellidos + " " + nombrePila;
-		this.child("fdbNombre").setValue(nombre);
-	}
-}
-
-//// PERSONA_FISICA /////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
-/** @class_definition diasPagoProv */
-/////////////////////////////////////////////////////////////////
-//// DIAS_PAGO_PROV /////////////////////////////////////////////
-function diasPagoProv_validateForm():Boolean
-{
-	try {
-		if (!this.iface.__validateForm())
-			return false;
-	}
-	catch(e) {
-	}
-	return this.iface.validarDiasPagoProv();
-}
-/** \D
-Comprueba que el valor del campo --diaspago-- es una lista de días válido ordenada de forma ascentente
-@return	Verdadero si se cumplo, falso en caso contrario
-\end */
-function diasPagoProv_validarDiasPagoProv():Boolean
-{
-	var util = new FLUtil(); 
-	var cursor:FLSqlCursor = form.cursor();
-	var diasPago:String = cursor.valueBuffer("diaspago");
-	if (!diasPago || diasPago == "")
-			return true;
-	var dia:Array = diasPago.split(",");
-	var numDias = dia.length;
-	if (numDias == 0) {
-		MessageBox.warning(util.translate("scripts", "El formato de los días de pago no es válido"), MessageBox.Ok, MessageBox.NoButton);
-		return false;
-	}
-	var diaAnterior:Number = 0;
-	for (var i:Number = 0; i < numDias; i++) {
-		if (parseFloat(dia[i]) <= parseFloat(diaAnterior)) {
-			MessageBox.warning(util.translate("scripts", "Los días de pago deben formar una lista ascendente"), MessageBox.Ok, MessageBox.NoButton);
-			return false;
-		}
-		if (dia[i] > 31) {
-			MessageBox.warning(util.translate("scripts", "El formato de los días de pago no es válido"), MessageBox.Ok, MessageBox.NoButton);
-			return false;
-		}
-		diaAnterior = dia[i];
-	}
-	return true;
-}
-//// DIAS_PAGO_PROV /////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-
-/** @class_definition recibosProv */
-/////////////////////////////////////////////////////////////////
-//// RECIBOS PROV ///////////////////////////////////////////////
-function recibosProv_init()
-{
-	this.iface.__init();
-
-	connect(this.child("toolButtonPrintRec"), "clicked()", this, "iface.imprimirRecibo()");
-}
-
-function recibosProv_imprimirRecibo()
-{
-	var codRecibo:String = this.child("tdbRecibos").cursor().valueBuffer("codigo");
-	if (!codRecibo)
-		return;
-	formrecibosprov.iface.pub_imprimir(codRecibo);
-
-}
-//// RECIBOS PROV ///////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+

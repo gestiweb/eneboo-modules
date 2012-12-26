@@ -1,0 +1,311 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>rh_candidatos</name>
+	<!--Candidatos-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Candidatos")</alias>
+
+	<field>
+		<name>codcandidato</name>
+		<!--Código del empleado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<counter>true</counter>
+		
+		<relation>
+			<table>rh_nivelidiomascan</table>
+			<field>codcandidato</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<!--Nombre del empleado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>apellidos</name>
+		<!--Apellidos del empleado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apellidos")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>fnacimiento</name>
+		<!--Fecha de nacimiento del empleado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","F.Nacimiento")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>lugarnacimiento</name>
+		<!--Lugar de nacimiento del empleado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Lugar nacimiento")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>provincianacimiento</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Provincia de nacimiento")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>codpaisnacimiento</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","País de nacimiento")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+        <relation>
+            <table>paises</table>
+            <field>codpais</field>
+            <card>M1</card>
+        </relation>
+	</field>
+	
+	<field>
+		<name>nacionalidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nacionalidad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+        <relation>
+            <table>paises</table>
+            <field>codpais</field>
+            <card>M1</card>
+        </relation>
+	</field>
+	
+	<field>
+		<name>cifnif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","C.I.F./N.I.F")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>sexo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Sexo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Hombre");QT_TRANSLATE_NOOP("MetaData","Mujer")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Hombre")</default>
+	</field>
+
+	<field>
+		<name>direccion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Dirección")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>codpostal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código Postal")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+	</field>
+
+	<field>
+		<name>localidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Localidad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>provincia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Provincia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>telefono</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Teléfono")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>movil</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Móvil")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>fax</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fax")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>email</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","E-mail")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>sueldoneto</name>
+		<!--Líquido percibido por el empleado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Sueldo Neto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>nivelestudios</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nivel de estudios")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Primaria");QT_TRANSLATE_NOOP("MetaData","Media");QT_TRANSLATE_NOOP("MetaData","Superior");QT_TRANSLATE_NOOP("MetaData","Segundo ciclo");QT_TRANSLATE_NOOP("MetaData","Tercer ciclo")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Secundaria")</default>
+	</field>
+
+	<field>
+		<name>areasestudios</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Áreas")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>carneconducir</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Carné de conducir")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+
+	<field>
+		<name>tipocarneconducir</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo de Carné")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>vehiculopropio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Vehículo propio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+
+	<field>
+		<name>marcavehiculopropio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Marca")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>25</length>
+	</field>
+
+	<field>
+		<name>modelovehiculopropio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Modelo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>agnovehiculopropio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Año")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>float</type>
+		<partI>4</partI>
+		<partD>0</partD>
+	</field>
+
+	<field>
+		<name>femisioncarne</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","F. Emisión")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fcaducidadcarne</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","F. Caducidad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>estadocivil</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado civil")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Soltero/a");QT_TRANSLATE_NOOP("MetaData","Casado/a");QT_TRANSLATE_NOOP("MetaData","Divorciado/a");QT_TRANSLATE_NOOP("MetaData","Viudo/a")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Soltero/a")</default>
+	</field>
+
+	<field>
+		<name>observaciones</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Observaciones")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+</TMD>

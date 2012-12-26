@@ -1,0 +1,37 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>rh_tiposcontrato</name>
+	<!--Empleados-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de Contrato")</alias>
+
+	<field>
+		<name>codtipocontrato</name>
+		<!--Código del tipo de contrato-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>rh_empleados</table>
+			<field>tipocontrato</field>
+			<card>1M</card>
+		</relation>
+		<relation>
+			<table>rh_historicoempleados</table>
+			<field>tipocontrato</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>desctipocontrato</name>
+		<!--Descripcion del tipo de contrato-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripcion")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+</TMD>

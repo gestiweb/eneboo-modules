@@ -44,6 +44,10 @@ class oficial extends interna {
 	function refrescarStock() {
 		return this.ctx.oficial_refrescarStock();
 	}
+	function validateForm():Boolean {
+		return this.ctx.oficial_validateForm();
+	}
+	
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -154,6 +158,11 @@ function oficial_refrescarStock()
 
 	this.child("lblCanInicialDestino").text = cantidadDestino;
 	this.child("lblCanFinalDestino").text = cantidadDestino + cantidad;
+}
+
+function oficial_validateForm()
+{
+    return true;
 }
 
 //// OFICIAL /////////////////////////////////////////////////////

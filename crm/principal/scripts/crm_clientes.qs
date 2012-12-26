@@ -352,10 +352,7 @@ function oficial_enviarEmailContacto()
 
 function oficial_accionesAutomaticas()
 {
-	if (!sys.isLoadedModule("flcolaproc")) {
-		return;
-	}
-
+debug("oficial_accionesAutomaticas");
 	var util:FLUtil = new FLUtil;
 	var cursor:FLSqlCursor = this.cursor();
 	var acciones:Array = flcolaproc.iface.pub_accionesAuto();

@@ -14,11 +14,6 @@
             <field>idpedido</field>
             <card>1M</card>
         </relation>
-        <relation>
-            <table>anticiposcli</table>
-            <field>idpedido</field>
-            <card>1M</card>
-        </relation>
     </field>
     <field>
         <name>codigo</name>
@@ -26,18 +21,9 @@
         <null>false</null>
         <pk>false</pk>
         <type>string</type>
-        <length>12</length>
+        <length>13</length>
         <default>0</default>
         <editable>false</editable>
-    </field>
-    <field>
-        <name>pedido</name>
-<!--Indicador de si el pedido se ha pedido a proveedor total o parcialmente-->        <alias>QT_TRANSLATE_NOOP("MetaData","Pedido")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>10</length>
-        <default>No</default>
     </field>
     <field>
         <name>servido</name>
@@ -114,7 +100,7 @@
     <field>
         <name>fechasalida</name>
 <!--Fecha prevista de envío del pedido-->        <alias>QT_TRANSLATE_NOOP("MetaData","F. Salida")</alias>
-        <null>true</null>
+        <null>false</null>
         <pk>false</pk>
         <type>date</type>
     </field>
@@ -261,7 +247,7 @@
     </field>
     <field>
         <name>coddir</name>
-<!--Código de dirección asociada al cliente-->        <alias>QT_TRANSLATE_NOOP("MetaData","Dir.")</alias>
+<!--Código de dirección asociada al cliente-->        <alias>QT_TRANSLATE_NOOP("MetaData","Dirección")</alias>
         <null>true</null>
         <pk>false</pk>
         <type>uint</type>
@@ -286,7 +272,7 @@
     </field>
     <field>
         <name>codpostal</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","C.P.")</alias>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Código Postal")</alias>
         <null>true</null>
         <pk>false</pk>
         <type>string</type>
@@ -395,52 +381,5 @@
         <default>0</default>
         <editable>false</editable>
         <visiblegrid>false</visiblegrid>
-    </field>
-    <field>
-        <name>codpedidoprov</name>
-<!--Código del pedido de provedor-->        <alias>QT_TRANSLATE_NOOP("MetaData","P. Proveedor")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>12</length>
-        <editable>false</editable>
-    </field>
-    <field>
-        <name>idpedidoprov</name>
-<!--Id del pedido de provedor-->        <alias>QT_TRANSLATE_NOOP("MetaData","Id Proveedor")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>uint</type>
-        <visiblegrid>false</visiblegrid>
-    </field>
-    <field>
-        <name>netosindtoesp</name>
-<!--Total de IRPF-->        <alias>QT_TRANSLATE_NOOP("MetaData","Neto sin Dto")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>8</partI>
-        <partD>2</partD>
-        <editable>false</editable>
-    </field>
-    <field>
-        <name>pordtoesp</name>
-<!--Porcentaje de desciento especial-->        <alias>QT_TRANSLATE_NOOP("MetaData","% Dto")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>3</partI>
-        <partD>2</partD>
-        <default>0</default>
-    </field>
-    <field>
-        <name>dtoesp</name>
-<!--Descuento especial-->        <alias>QT_TRANSLATE_NOOP("MetaData","Dto especial")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>8</partI>
-        <partD>2</partD>
-        <default>0</default>
     </field>
 </TMD>

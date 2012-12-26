@@ -242,7 +242,8 @@ function oficial_verAsiento()
 	var util:FLUtil = new FLUtil();
 	var curAsiento:FLSqlCursor = new FLSqlCursor("co_asientos");
 	var curPartidas:FLSqlCursor = this.child("tdbPartidas").cursor();
-	
+		
+	if (!curPartidas.first()) return;
 	curAsiento.select("idasiento = " + curPartidas.valueBuffer("idasiento"));
 	if (curAsiento.first()) {
 		curAsiento.browseRecord();
@@ -251,6 +252,7 @@ function oficial_verAsiento()
 		MessageBox.information(util.translate("MetaData", "No hay ninguna partida seleccionada"),
 			MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
 	}
+	
 }
 
 function oficial_validarSubcuenta()

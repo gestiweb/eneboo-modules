@@ -1,0 +1,100 @@
+<!DOCTYPE TMD>
+<TMD>
+ <name>dirpersonas</name>
+ <alias>QT_TRANSLATE_NOOP("MetaData","Direcciones de Personas")</alias>
+
+ <field>
+  <name>id</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+  <null>false</null>
+  <pk>true</pk>
+  <type>serial</type>
+  <visible>false</visible>
+ </field>
+
+ <field>
+  <name>idpersona</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Persona")</alias>
+  <null>false</null>
+  <pk>false</pk>
+  <type>string</type>
+  <length>6</length>
+  <visible>false</visible>
+
+  <relation>
+   <table>personas</table>
+   <field>idpersona</field>
+   <card>M1</card>
+   <delC>true</delC>
+  </relation>
+ </field>
+
+ <field>
+  <name>descripcion</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+  <null>true</null>
+  <pk>false</pk>
+  <type>string</type>
+  <length>100</length>
+ </field>
+
+ <field>
+  <name>direccion</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Dirección")</alias>
+  <null>false</null>
+  <pk>false</pk>
+  <type>string</type>
+  <length>100</length>
+ </field>
+
+ <field>
+  <name>codPostal</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Código Postal")</alias>
+  <null>true</null>
+  <pk>false</pk>
+  <type>string</type>
+  <length>10</length>
+ </field>
+
+ <field>
+  <name>ciudad</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Ciudad")</alias>
+  <null>true</null>
+  <pk>false</pk>
+  <type>string</type>
+  <length>100</length>
+ </field>
+
+ <field>
+  <name>provincia</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Provincia")</alias>
+  <null>true</null>
+  <pk>false</pk>
+  <type>string</type>
+  <length>100</length>
+ </field>
+
+ <field>
+  <name>apartado</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Apartado de Correos")</alias>
+  <null>true</null>
+  <pk>false</pk>
+  <type>string</type>
+  <length>10</length>
+ </field>
+
+ <field>
+  <name>codPais</name>
+  <alias>QT_TRANSLATE_NOOP("MetaData","Pais")</alias>
+  <null>true</null>
+  <pk>false</pk>
+  <type>string</type>
+  <length>20</length>
+
+  <relation>
+   <table>paises</table>
+   <field>codpais</field>
+   <card>M1</card>
+  </relation>
+ </field>
+</TMD>

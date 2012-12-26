@@ -1,7 +1,8 @@
 <!DOCTYPE TMD>
 <TMD>
     <name>divisas</name>
-<!--Listado de divisas-->    <alias>QT_TRANSLATE_NOOP("MetaData","Divisas")</alias>
+    <!--Listado de divisas-->
+    <alias>QT_TRANSLATE_NOOP("MetaData","Divisas")</alias>
     <field>
         <name>coddivisa</name>
         <alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
@@ -110,17 +111,7 @@
             <card>1M</card>
         </relation>
         <relation>
-            <table>pagosmulticli</table>
-            <field>coddivisa</field>
-            <card>1M</card>
-        </relation>
-        <relation>
             <table>co_planpartidas</table>
-            <field>coddivisa</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>pagosmultiprov</table>
             <field>coddivisa</field>
             <card>1M</card>
         </relation>
@@ -165,4 +156,14 @@
         <type>string</type>
         <length>3</length>
     </field>
+    <field>
+        <name>simbolo</name>
+        <!--Simbolo-->
+        <alias>QT_TRANSLATE_NOOP("MetaData","Símbolo")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>10</length>
+    </field>
 </TMD>
+

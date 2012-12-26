@@ -410,11 +410,12 @@ function oficial_calcularFechaFinPeriodo(fecha:Date,tipoPeriodo:String):Date
 	var dia:Number = fecha.getDate();
 	var mes:Number = fecha.getMonth();
 	var ano:Number = fecha.getYear();
-	var res:Number = ano / 4;
-	if (res == 502)
-		res = 1
-	else
-		res = 0;
+	var res:Number;
+		
+	var bisiesto:Boolean = (ano%4==0) && ((ano%100!= 0) || (ano%400==0));
+	
+	if (bisiesto) res = 1;
+	else res = 0;
 	
 	switch (tipoPeriodo) {
 		case "Mensual": {

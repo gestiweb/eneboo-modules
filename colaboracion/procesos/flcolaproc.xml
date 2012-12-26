@@ -1,0 +1,126 @@
+<ACTIONS>
+
+	<action>
+		<name>pr_procesos</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Procesos de producción")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Modelan los distintos procesos que los trabajadores llevan a cabo. Cada proceso está asociado a un objeto. Por ejemplo, cada proceso de corte está asociado a una determinada orden de corte, de forma que cuando el proceso cambia su estado (p.e. pasa a TERMINADO), la orden también pueda cambiar el suyo (p.e. pasar a CORTADA). El tipo de objeto asociado al proceso se especifica en la definición de los tipos de proceso.")</description>
+		<table>pr_procesos</table>
+		<form>pr_masterprocesos</form>
+		<formrecord>pr_procesos</formrecord>
+		<scriptform>pr_masterprocesos</scriptform>
+		<scriptformrecord>pr_procesos</scriptformrecord>
+	</action>
+
+	<action>
+		<name>pr_tareas</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tareas")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Son las actividades que forman los procesos. Cada tarea tiene cuatro estados: OFF: La tarea no puede comenzar (generalmente porque sus predecesoras no han terminado), PTE: La tarea puede comenzar, EN CURSO: La tarea ya ha comenzado, TERMINADA: La tarea ha terminado")</description>
+		<table>pr_tareas</table>
+		<form>master</form>
+		<formrecord>pr_tareas</formrecord>
+		<scriptformrecord>pr_tareas</scriptformrecord>
+	</action>
+	
+	<action>
+		<name>pr_inbox</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tareas")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Son las actividades que forman los procesos. Cada tarea tiene cuatro estados: OFF: La tarea no puede comenzar (generalmente porque sus predecesoras no han terminado), PTE: La tarea puede comenzar, EN CURSO: La tarea ya ha comenzado, TERMINADA: La tarea ha terminado")</description>
+		<table>pr_tareas</table>
+		<form>pr_mastertareas</form>
+		<formrecord>pr_tareas</formrecord>
+		<scriptform>pr_mastertareas</scriptform>
+		<scriptformrecord>pr_tareas</scriptformrecord>
+	</action>
+	
+	<action>
+		<name>pr_tiposproceso</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de proceso")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Los tipos de proceso definen los distintos procedimientos de producción que se realizan (p.e. procesos de corte, de producción, de carga, etc...). Cada tipo de proceso está ligado a un determinado tipo de objeto (p.e. cada proceso de producción está ligado a una unidad de producto")</description>
+		<table>pr_tiposproceso</table>
+		<form>pr_mastertiposproceso</form>
+		<scriptform>pr_mastertiposproceso</scriptform>
+		<formrecord>pr_tiposproceso</formrecord>
+		<scriptformrecord>pr_tiposproceso</scriptformrecord>
+	</action>
+
+	<action>
+		<name>pr_tipostarea</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de tarea")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Los tipos de tarea definen las distintas actividades de producción (p.e. corte, revestido, embalado, etc...). Algunos tipos de tarea (p.e. las tareas de tipo corte) usan formularios personalizados, en los que el usuario debe insertar ciertos valores para que el sistema la realice correctamente")</description>
+		<table>pr_tipostarea</table>
+		<form>master</form>
+		<formrecord>pr_tipostarea</formrecord>
+		<scriptformrecord>pr_tipostarea</scriptformrecord>
+	</action>
+
+	<action>
+		<name>pr_tipostareapro</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de tarea asociados a tipos de proceso")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Los tipos de tarea asociados a procesos identifican qué tareas componen qué procesos. Un determinado tipo de tarea (por ejemplo la tarea de cosido) puede formar parte de más de un tipo proceso")</description>
+		<table>pr_tipostareapro</table>
+		<form>master</form>
+		<formrecord>pr_tipostareapro</formrecord>
+		<scriptformrecord>pr_tipostareapro</scriptformrecord>
+	</action>
+
+	<action>
+		<name>pr_secuencias</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Secuencias")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Una secuencia modela una relación de precedencia entre dos tareas. Una tarea pasa de estado OFF a PTE cuando todas sus tareas predecesoras han sido completadas (excepto las tareas marcadas como tarea inicial, que comienzan ya en estado PTE)")</description>
+		<table>pr_secuencias</table>
+		<form>master</form>
+		<formrecord>pr_secuencias</formrecord>
+		<scriptformrecord>pr_secuencias</scriptformrecord>
+	</action>
+	
+	<action>
+		<name>pr_aliasproceso</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Alias de procesos")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Un alias identifica a un rol que realizará una o más tareas en un proceso. Los valores (usuarios y/o grupos) de los alias deben ser establecidos en la creación del proceso")</description>
+		<table>pr_aliasproceso</table>
+		<form>master</form>
+		<formrecord>pr_aliasproceso</formrecord>
+	</action>
+
+	<action>
+		<name>pr_asignartarea</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asignar tarea")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Esta acción permite asignar tareas a usuarios y grupos")</description>
+		<table>pr_tareas</table>
+		<form>pr_tareas</form>
+		<scriptform>pr_tareas</scriptform>
+	</action>
+
+	<action>
+		<name>pr_asignaralias</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Asignar alias")</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","Esta acción permite asignar usuarios y grupos a los alias definidos para cada proceso")</description>
+		<table>pr_asignaralias</table>
+		<form>pr_asignaralias</form>
+		<scriptformrecord>pr_asignaralias</scriptformrecord>
+	</action>
+	
+	<action>
+		<name>pr_config</name>
+		<alias>Configuración</alias>
+		<description>QT_TRANSLATE_NOOP("MetaData","La configuración consta de un dato:
+			<ul>
+				<li>Dirección de E-mail de origen para enviar notificaciones de asignación de tareas.
+				</li>
+			</ul>")
+		</description>
+		<table>pr_config</table>
+		<form>pr_config</form>
+		<scriptform>pr_config</scriptform>
+	</action>
+	
+	<action>
+        <name>pr_secuenciastareas</name>
+        <description>QT_TRANSLATE_NOOP("MetaData","Esta acción permite ver y modificar las secuencias de tareas para impedir su bloqueo.")</description>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Secuencias de Tareas")</alias>
+        <table>pr_secuenciastareas</table>
+        <form>master</form>
+        <formrecord>pr_secuenciastareas</formrecord>
+    </action>
+    
+</ACTIONS>

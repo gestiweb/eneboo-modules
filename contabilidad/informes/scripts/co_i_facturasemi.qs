@@ -119,20 +119,20 @@ function interna_validateForm():Boolean
 //// OFICIAL /////////////////////////////////////////////////////
 function oficial_bufferChanged(fN:String)
 {
-		switch (fN) {
-
-		case "todosivarecargo":
-				if (this.child("fdbTodosIvaRecargo").value()) {
-						this.child("fdbIva").setValue(0);
-						this.child("fdbRecargo").setValue(0);
-						this.child("fdbIva").setDisabled(true);
-						this.child("fdbRecargo").setDisabled(true);
-				} else {
-						this.child("fdbIva").setDisabled(false);
-						this.child("fdbRecargo").setDisabled(false);
-				}
-
-		}
+//		switch (fN) {
+//
+//		case "todosivarecargo":
+//				if (this.child("fdbTodosIvaRecargo").value()) {
+//						this.child("fdbIva").setValue(0);
+//						this.child("fdbRecargo").setValue(0);
+//						this.child("fdbIva").setDisabled(true);
+//						this.child("fdbRecargo").setDisabled(true);
+//				} else {
+//						this.child("fdbIva").setDisabled(false);
+//						this.child("fdbRecargo").setDisabled(false);
+//				}
+//
+//		}
 }
 
 //// OFICIAL /////////////////////////////////////////////////////
