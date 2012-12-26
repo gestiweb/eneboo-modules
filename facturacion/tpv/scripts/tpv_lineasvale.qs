@@ -134,8 +134,9 @@ function interna_calculateField(fN:String):String
 	var valor:String;
 	var util:FLUtil = new FLUtil;
 	var cursor:FLSqlCursor = this.cursor();
+
 	switch (fN) {
-		case "pvptotal": {
+		case "pvptotal.idlinea": {
 			var idLinea:String = cursor.valueBuffer("idtpv_linea");
 			var porIva:Number = util.sqlSelect("tpv_lineascomanda", "iva", "idtpv_linea = " + idLinea);
 			if (!porIva || isNaN(porIva))
@@ -147,7 +148,41 @@ function interna_calculateField(fN:String):String
 			valor = util.roundFieldValue(valor, "tpv_lineasvale", "pvptotal");
 			break;
 		}
+		case "pvpmedio.referencia": {
+			var referencia:String = cursor.valueBuffer("referencia");
+			var codimpuesto:Number = util.sqlSelect("articulos", "codimpuesto", "referencia = '" + referencia + "'");
+			var porIva:Number = util.sqlSelect("impuestos", "iva", "codimpuesto = '" + codimpuesto + "'");
+			if (!porIva || isNaN(porIva))
+				porIva = 0;
+			var netoTotal:Number = util.sqlSelect("articulos", "pvp", "referencia = '" + referencia + "'");
+			if (!netoTotal || isNaN(netoTotal))
+				netoTotal = 0;
+			valor = parseFloat(netoTotal) * (100 + parseFloat(porIva)) / 100;
+			valor = util.roundFieldValue(valor, "tpv_lineasvale", "pvpmedio");
+			break;
+		}
+		case "cantidad.idlinea": {
+			var idLinea:String = cursor.valueBuffer("idtpv_linea");
+			var cantidad:Number = util.sqlSelect("tpv_lineascomanda", "cantidad", "idtpv_linea = " + idLinea);
+			valor = cantidad;
+			break;
+		}
+		case "referencia.idlinea": {
+			var idLinea:String = cursor.valueBuffer("idtpv_linea");
+			var referencia:Number = util.sqlSelect("tpv_lineascomanda", "referencia", "idtpv_linea = " + idLinea);
+			valor = referencia;
+			break;
+		}
+		case "pvpmedio": {
+			valor = parseFloat(cursor.valueBuffer("pvptotal") / cursor.valueBuffer("cantidad"));
+			break;
+		}
+		case "pvptotal": {
+			valor = parseFloat(cursor.valueBuffer("pvpmedio") * cursor.valueBuffer("cantidad"));
+			break;
+		}
 	}
+	
 	return valor;
 }
 
@@ -157,13 +192,28 @@ function interna_calculateField(fN:String):String
 function oficial_bufferChanged(fN:String)
 {
 	var cursor:FLSqlCursor = this.cursor();
-	switch (fN) {
-		case "idtpv_linea": {
+
+	switch (fN) {   
+		case "pvpmedio": 
+		case "cantidad": {
 			this.child("fdbPvpTotal").setValue(this.iface.calculateField("pvptotal"));
 			break;
 		}
+		case "idtpv_linea": {
+			this.child("fdbReferencia").setValue(this.iface.calculateField("referencia.idlinea"));
+			this.child("fdbCantidad").setValue(this.iface.calculateField("cantidad.idlinea"));
+			this.child("fdbPvpTotal").setValue(this.iface.calculateField("pvptotal.idlinea"));
+			this.child("fdbPvpmedio").setValue(this.iface.calculateField("pvpmedio"));
+			break;
+		}
+		case "referencia": {
+			this.child("fdbPvpmedio").setValue(this.iface.calculateField("pvpmedio.referencia"));
+			break;
+		}
 	}
+	
 }
+
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 

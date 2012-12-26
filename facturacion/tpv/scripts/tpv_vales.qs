@@ -127,7 +127,10 @@ function interna_calculateField(fN:String):String
 			break;
 		}
 		case "saldo": {
-			valor = cursor.valueBuffer("importe");
+			var gastado:String = util.sqlSelect("tpv_pagoscomanda", "SUM(importe)", "refvale = '" + cursor.valueBuffer("referencia") + "'");
+			if (!gastado)
+				gastado = 0;
+			valor = cursor.valueBuffer("importe") - gastado;
 			break;
 		}
 		/** \C La --referencia-- del vale se construye como el código de la vena asociada más un secuencial
@@ -157,6 +160,7 @@ function oficial_bufferChanged(fN:String)
 {
 	var util:FLUtil = new FLUtil();
 	var cursor:FLSqlCursor = this.cursor();
+	//if (!this.child("fdbSaldo")) return;
 	switch (fN) {
 		/** \C
 		Al cambiar la --fechaemision-- se calcula la --fechacaducidad-- 
@@ -173,6 +177,7 @@ function oficial_bufferChanged(fN:String)
 			break;
 		}
 		case "idtpv_comanda": {
+			if (!this.child("fdbReferencia")) return;
 			this.child("fdbReferencia").setValue(this.iface.calculateField("referencia"));
 			break;
 		}

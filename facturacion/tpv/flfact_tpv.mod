@@ -4,7 +4,7 @@
 	<alias>QT_TRANSLATE_NOOP("FLWidgetApplication","TPV")</alias>
 	<area>F</area>
 	<areaname>QT_TRANSLATE_NOOP("FLWidgetApplication","Area de Facturación")</areaname>
-	<version>2.3</version>
+	<version>232</version>
 	<icon>flfact_tpv.xpm</icon>
 	<flversion>2.3</flversion>
 	<dependencies>

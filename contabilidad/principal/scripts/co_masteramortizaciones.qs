@@ -89,7 +89,7 @@ function interna_init()
 	this.iface.tdbRecords = this.child("tableDBRecords");
 	this.iface.pbnGenerar = this.child("pbnGenerar");
 
-	connect(this.iface.pbnGenerar, "clicked()", this, "iface.pbnGenerar_clicked"),
+	connect(this.iface.pbnGenerar, "clicked()", this, "iface.pbnGenerar_clicked");
 }
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -141,7 +141,7 @@ function oficial_pbnGenerar_clicked()
 	try {
 		if (this.iface.generarDotaciones(fechaLimite)) {
 			var res:Number = MessageBox.information(util.translate("scripts", "Dotaciones generadas:\n") + this.iface.msgDotaciones_, MessageBox.Ok, MessageBox.Cancel);
-			res == MessageBox.Ok ? curTransaccion.commit() : curTransaccion.rollback();
+			if (res == MessageBox.Ok) curTransaccion.commit(); else curTransaccion.rollback();
 		} else {
 			curTransaccion.rollback();
 			MessageBox.warning(util.translate("scripts", "Error al generar las dotaciones"), MessageBox.Ok, MessageBox.NoButton);

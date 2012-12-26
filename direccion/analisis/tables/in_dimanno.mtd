@@ -1,0 +1,21 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>in_dimanno</name>
+	<!--Dimensión de años-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Dimensión de años")</alias>
+
+	<field>
+		<name>anno</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Año")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>in_h_ventas</table>
+			<field>dim_anno</field>
+			<card>1M</card>
+		</relation>
+	</field>
+</TMD>

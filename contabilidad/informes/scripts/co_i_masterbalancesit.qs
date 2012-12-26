@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-/** @file */ 
+/** @file */
 
 /** @class_declaration interna */
 ////////////////////////////////////////////////////////////////////////////
@@ -39,16 +39,16 @@ class oficial extends interna {
 	var nombreInforme:String;
 	var idInforme:Number;
 	/** \D @var datos
-	Array que almacena los datos para el informe antes de introducirlos en la tabla buffer 
+	Array que almacena los datos para el informe antes de introducirlos en la tabla buffer
 	\end */
 	var datos:Array;
 	/*D
-	Arrays auxiliares para guardar los totales intermedios del balance: A1, A2, ... 
+	Arrays auxiliares para guardar los totales intermedios del balance: A1, A2, ...
 	\end */
 	var ejAct:String;
 	var ejAnt:String;
 	var mostrarEjAnt:Boolean;
-	function oficial( context ) { interna( context ); } 
+	function oficial( context ) { interna( context ); }
 	function lanzar() {
 		return this.ctx.oficial_lanzar();
 	}
@@ -65,23 +65,11 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
-/** @class_declaration pgc2008 */
-/////////////////////////////////////////////////////////////////
-//// PGC2008 ////////////////////////////////////////////////////
-class pgc2008 extends oficial {
-    function pgc2008( context ) { oficial ( context ); }
-	function lanzar() {
-		return this.ctx.pgc2008_lanzar();
-	}
-}
-//// PGC2008 ////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends pgc2008 {
-    function head( context ) { pgc2008 ( context ); }
+class head extends oficial {
+    function head( context ) { oficial ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -153,7 +141,7 @@ function oficial_lanzar()
 	this.iface.mostrarEjAnt = false;
 	if (cursor.valueBuffer("ejercicioanterior"))
 		this.iface.mostrarEjAnt = true;
-	
+
 	if (!this.iface.mostrarEjAnt)
 		this.iface.nombreInforme += "_u";
 
@@ -211,20 +199,20 @@ function oficial_crearSit():Boolean
 	var hastaAct:String;
 	var asientoCierreAct:Number = -1;
 	var asientoPygAct:Number = -1;
-	
+
 	var desdeAnt:String;
 	var hastaAnt:String;
 	var asientoCierreAnt:Number = -1;
 	var asientoPygAnt:Number = -1;
 	var asientoApeAct:Number = -1;
 	var asientoApeAnt:Number = -1;
-	
+
 	desdeAct = cursor.valueBuffer("d_co__asientos_fechaact");
 	hastaAct = cursor.valueBuffer("h_co__asientos_fechaact");
 	this.iface.ejAct = cursor.valueBuffer("i_co__subcuentas_codejercicioact");
-	
+
 	// No tendremos en cuenta los asientos de cierre en el balance
-	if (cursor.valueBuffer("ignorarcierre")) {	
+	if (cursor.valueBuffer("ignorarcierre")) {
 		asientoCierreAct = util.sqlSelect("ejercicios", "idasientocierre", "codejercicio = '" + this.iface.ejAct + "'");
 		asientoPygAct = util.sqlSelect("ejercicios", "idasientopyg", "codejercicio = '" + this.iface.ejAct + "'");
 		asientoApeAct = util.sqlSelect("ejercicios", "idasientoapertura", "codejercicio = '" + this.iface.ejAct + "'");
@@ -298,7 +286,7 @@ Los datos procedentes de la consulta se almacenan temporalmente en el array Dato
 		encontrados = true;
 
 		this.iface.datos[registro] = new Array(3);
-				
+
 		this.iface.datos[registro]["codcuenta"] = q.value(0);
 		this.iface.datos[registro]["codejercicio"] = q.value(1);
 		this.iface.datos[registro]["suma"] = q.value(2);
@@ -335,7 +323,7 @@ function oficial_informarTablaSit()
 	}
 
 	for (var i:Number = 0; i < this.iface.datos.length; i++) {
-	
+
 		cursor.select("codcuenta = '" + this.iface.datos[i]["codcuenta"] + "'");
 		if (cursor.first()) {
 			cursor.setModeAccess(cursor.Edit);
@@ -362,17 +350,17 @@ function oficial_informarTablaSit()
 				cursor.setValueBuffer("sumaant", suma);
 			}
 		}
-		
+
 		cursor.commitBuffer();
 	}
-	
+
 /** \D
 Para cada ejercicio se calcula el valor de pérdidas y ganancias, que irá a la cuenta de pérdidas y ganancias del informe (cuenta 129)
 \end */
 	desdeAct = this.cursor().valueBuffer("d_co__asientos_fechaact");
 	hastaAct = this.cursor().valueBuffer("h_co__asientos_fechaact");
 	this.iface.calcularValorPyG(this.iface.ejAct, desdeAct, hastaAct);
-	
+
 	if (this.iface.mostrarEjAnt) {
 		desdeAnt = this.cursor().valueBuffer("d_co__asientos_fechaant");
 		hastaAnt = this.cursor().valueBuffer("h_co__asientos_fechaant");
@@ -402,14 +390,14 @@ function oficial_calcularValorPyG(ej:String, desde:String, hasta:String)
 					valorPyG = AVI
 					else
 					valorPyG = 0 - BVI;
-					
+
 	}
-		
+
 // 		var registro:Number = this.iface.datos.length;
 // 		this.iface.datos[registro] = new Array(3);
 // 		this.iface.datos[registro]["codcuenta"] = 129;
 // 		this.iface.datos[registro]["suma"] = valorPyG;
-// 		this.iface.datos[registro]["codejercicio"] = ej;		
+// 		this.iface.datos[registro]["codejercicio"] = ej;
 
 	var cursor:FLSqlCursor = new FLSqlCursor("co_i_balancesit_buffer");
 
@@ -428,35 +416,11 @@ function oficial_calcularValorPyG(ej:String, desde:String, hasta:String)
 		cursor.setValueBuffer("sumaact", valorPyG);
 	else
 		cursor.setValueBuffer("sumaant", valorPyG);
-	
+
 	cursor.commitBuffer();
 }
 
 //// OFICIAL /////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
-/** @class_definition pgc2008 */
-/////////////////////////////////////////////////////////////////
-//// PGC2008 ////////////////////////////////////////////////////
-function pgc2008_lanzar()
-{
-	var util:FLUtil = new FLUtil();
-	var cursor:FLSqlCursor = this.cursor()
-	if (!cursor.isValid()) {
-			return;
-	}
-
-	var ejercicioActual:String = cursor.valueBuffer("i_co__subcuentas_codejercicioact");
-	var planContable:String = util.sqlSelect("ejercicios", "plancontable", "codejercicio = '" + ejercicioActual + "'");
-	if (planContable == "08") {
-		MessageBox.information(util.translate("scripts", "El plan contable del ejercicio actual es 2008.\nPara mostrar este informe deberá hacerlo desde la opción Cuentas anuales seleccionando el tipo Situacion"), MessageBox.Ok, MessageBox.NoButton);
-		return false;
-	} else {
-		this.iface.__lanzar();
-	}
-}
-
-//// PGC2008 ////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 /** @class_definition head */
@@ -465,3 +429,4 @@ function pgc2008_lanzar()
 
 //// DESARROLLO /////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
+

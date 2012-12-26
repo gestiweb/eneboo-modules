@@ -103,8 +103,9 @@ function interna_init()
 			this.child("fdbIdUsuario").setValue(sys.nameUser());
 			this.child("fdbCodIncidencia").setValue(this.iface.calculateCounter());
 			var curRel:FLSqlCursor = cursor.cursorRelation();
-			if (curRel && (curRel.table() == "clientes" || curRel.table() == "proveedores")) {
+			if (curRel && (curRel.table() == "clientes" || curRel.table() == "proveedores" || curRel.table () == "servicioscli" )) {
 				this.child("fdbNomCliente").setValue(curRel.valueBuffer("nombre"));
+				this.child("fdbCodCliente").setValue(curRel.valueBuffer("codCliente"));
 			}
 			break;
 		}

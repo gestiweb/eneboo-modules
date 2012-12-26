@@ -3,7 +3,6 @@
 	<name>remesas</name>
 	<!-- Listado de remesas de recibos	-->
 	<alias>QT_TRANSLATE_NOOP("MetaData","Remesas")</alias>
-
 	<field>
 		<name>idremesa</name>
 		<!-- Identificador -->
@@ -19,7 +18,6 @@
 			<card>1M</card>
 		</relation>
 	</field>
-
 	<field>
 		<name>total</name>
 		<!-- Suma del importe de los recibos de la remesa	-->
@@ -32,7 +30,6 @@
 		<editable>false</editable>
 		<default>0</default>
 	</field>
-
 	<field>
 		<name>coddivisa</name>
 		<!-- Código de la divisa de los recibos de la remesa -->
@@ -48,7 +45,6 @@
 			<card>M1</card>
 		</relation>
 	</field>
-
 	<field>
 		<name>fecha</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
@@ -78,7 +74,6 @@
 			<card>M1</card>
 		</relation>
 	</field>
-	
 	<field>
         <name>estado</name>
 <!-- Estado -->        <alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
@@ -89,7 +84,6 @@
         <default>Emitida</default>
         <editable>false</editable>
     </field>
-	
 	<field>
 		<name>codsubcuenta</name>
 		<!-- Código de la subcuenta contable a la que se aplica el asiento de la remesa -->
@@ -99,7 +93,6 @@
 		<type>string</type>
 		<length>15</length>
 	</field>
-	
 	<field>
 		<name>idsubcuenta</name>
 		<!-- Identificador de la subcuenta-->
@@ -115,7 +108,6 @@
 			<card>M1</card>
 		</relation>
 	</field>
-	
 	<field>
 		<name>nogenerarasiento</name>
 		<!--Indica si se debe generar asiento contable o no para los pedidos incluidos en la remesa-->
@@ -125,4 +117,13 @@
 		<type>bool</type>
 		<default>false</default>
 	</field>
+	<field>
+		<name>conceptofichero</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Concepto auxiliar en fichero")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
 </TMD>
+

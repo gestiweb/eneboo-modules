@@ -1,7 +1,7 @@
 <!DOCTYPE TMD>
 <TMD>
     <name>co_epigrafes</name>
-<!--Listado de epígrafes del plan general contable-->    <alias>QT_TRANSLATE_NOOP("MetaData","Subgrupos")</alias>
+<!--Listado de epígrafes del plan general contable-->    <alias>QT_TRANSLATE_NOOP("MetaData","Epígrafes")</alias>
     <field>
         <name>idepigrafe</name>
 <!-- Identificador interno del epígrafe -->        <alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
@@ -39,20 +39,6 @@
         <relation>
             <table>co_epigrafes</table>
             <field>idepigrafe</field>
-            <card>M1</card>
-            <delC>true</delC>
-        </relation>
-    </field>
-    <field>
-        <name>idgrupo</name>
-<!-- Identificador del epígrafe padre, del que depende el actual -->        <alias>QT_TRANSLATE_NOOP("MetaData","Grupo")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>uint</type>
-        <visiblegrid>false</visiblegrid>
-        <relation>
-            <table>co_gruposepigrafes</table>
-            <field>idgrupo</field>
             <card>M1</card>
             <delC>true</delC>
         </relation>

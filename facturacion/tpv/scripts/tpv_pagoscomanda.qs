@@ -175,6 +175,7 @@ function oficial_bufferChanged(fN:String)
 {
 	var util:FLUtil = new FLUtil();
 	var cursor:FLSqlCursor = this.cursor();
+	if (!this.child("fdbRefVale")) return;
 	switch (fN) {
 		/** \C
 		Si la forma de pago es la de vales se habilita el campo para incluir la referencia del vale 

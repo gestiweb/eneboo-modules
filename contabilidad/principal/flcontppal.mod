@@ -4,7 +4,7 @@
 	<alias>QT_TRANSLATE_NOOP("FLWidgetApplication","Principal")</alias>
 	<area>C</area>
 	<areaname>QT_TRANSLATE_NOOP("FLWidgetApplication","Area Financiera")</areaname>
-	<version>2.3</version>
+	<version>232</version>
 	<icon>flcontppal.xpm</icon>
 	<flversion>2.3</flversion>
 	<dependencies>

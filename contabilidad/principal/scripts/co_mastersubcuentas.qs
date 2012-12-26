@@ -195,7 +195,7 @@ function oficial_toolButtonCopy_clicked()
 	if (res == MessageBox.Yes) {
 		this.iface.copiarSubcuentaEjercicio(cursor);
 	} else {
-		this.child("tdbRecords").copyRecord();
+		this.iface.tdbRecords.copyRecord();
 	}
 }
 

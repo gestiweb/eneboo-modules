@@ -61,17 +61,7 @@
             <card>1M</card>
         </relation>
         <relation>
-            <table>agentes</table>
-            <field>codproveedor</field>
-            <card>1M</card>
-        </relation>
-        <relation>
             <table>co_operaciones349</table>
-            <field>codproveedor</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>pagosmultiprov</table>
             <field>codproveedor</field>
             <card>1M</card>
         </relation>
@@ -82,33 +72,9 @@
         </relation>
     </field>
     <field>
-        <name>personafisica</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Persona Física")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>bool</type>
-        <default>false</default>
-    </field>
-    <field>
         <name>nombre</name>
         <alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
         <null>false</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>100</length>
-    </field>
-    <field>
-        <name>nombrepila</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","N.Pila")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>100</length>
-    </field>
-    <field>
-        <name>apellidos</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Apellidos")</alias>
-        <null>true</null>
         <pk>false</pk>
         <type>string</type>
         <length>100</length>
@@ -276,35 +242,6 @@
         </relation>
     </field>
     <field>
-        <name>pordtoesp</name>
-<!--Porcentaje de descuento especial-->        <alias>QT_TRANSLATE_NOOP("MetaData","%Dto. especial")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>3</partI>
-        <partD>2</partD>
-        <default>0</default>
-    </field>
-    <field>
-        <name>diaspago</name>
-<!-- Días en los que el proveedor hace efectivos los pagos -->        <alias>QT_TRANSLATE_NOOP("MetaData","Días de pago")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>15</length>
-        <regexp>^(\d{1,2}(,\d{1,2})*)?$</regexp>
-    </field>
-    <field>
-        <name>buscardia</name>
-<!-- Indica si se busca el dia de pago anterior o posterior a la teórica fecha de vencimiento -->        <alias>QT_TRANSLATE_NOOP("MetaData","Buscar día...")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>15</length>
-        <optionslist>Anterior,Posterior</optionslist>
-        <default>Posterior</default>
-    </field>
-    <field>
         <name>codcuentadom</name>
 <!--Código de cuenta corriente en la que se domicilian los recibos del proveedor-->        <alias>QT_TRANSLATE_NOOP("MetaData","Domiciliar en")</alias>
         <null>true</null>
@@ -332,14 +269,6 @@
         <pk>false</pk>
         <type>string</type>
         <length>6</length>
-    </field>
-    <field>
-        <name>numcliente</name>
-<!--Número asignado al cliente por el proveedor-->        <alias>QT_TRANSLATE_NOOP("MetaData","Kdnr. Lief.")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>30</length>
     </field>
     <field>
         <name>tipoidfiscal</name>

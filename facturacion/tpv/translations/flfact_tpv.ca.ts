@@ -206,7 +206,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imprimir rapido (Q)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Imprime el tiquet sin mostrar el preview, por la impresora asignada al punto de ventas actual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>O</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Abrir cajon  (O)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -231,6 +247,10 @@
     </message>
     <message>
         <source>PVP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Insertar línea (I)</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
@@ -321,42 +341,6 @@
         <source>idprovincia</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>codalmacen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>hora</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Imprimir rapido (Ctrl + Q)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Abrir cajon  (Ctrl + O)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codbarras</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+I</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>Insertar línea (Ctrl + I)</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>FLWidgetApplication</name>
@@ -401,6 +385,14 @@
     </message>
     <message>
         <source>Puntos de Venta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Comandas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Comandas</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -485,138 +477,6 @@
     </message>
     <message>
         <source>&amp;Causas de movimientos de caja</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Datos Generales</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Hardware</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Impresora</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>abrircajon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>Impresora térmica</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>resolucion</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>pixel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Visor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>usarvisor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>&amp;Parámetros</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>numcaractvisor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Valores Defecto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Puerto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>nombrepuertovisor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> --&gt; Ejemplos: /dev/ttyS0, COM1.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>baudratevisor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>bitdatosvisor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>paridadvisor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>bitstopvisor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>flowcontrol</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Secuencias</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Debe introducir los valores en formato decimal, separados por comas. Ejemplo: 27,81,65;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>iniciarvisor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>limpiarvisor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>prefprimeralinea</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>sufprimeralinea</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>prefsegundalinea</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>sufsegundalinea</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ventas TPV</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Ventas TPV</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Secuencias</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Widgets</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+W</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -732,6 +592,10 @@
     </message>
     <message>
         <source>Cantidad</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Precio Nominal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1070,114 +934,6 @@
         <source>Causa asociada al movimiento de cierre</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Usar visor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>N&#xfa;mero caracteres/l&#xed;nea</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Nombre puerto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Baud Rate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bit datos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Paridad</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bit stop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Control Flujo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Iniciar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Limpiar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Prefijo primera linea</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sufijo primera linea</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Prefijo segunda linea</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sufijo segunda linea</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apertura caj&#xf3;n</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Secuencias de tique</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Prefijo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Valor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Serie facturaci&#xf3;n</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Imprimir tique</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Abrir caj&#xf3;n</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pasar a la siguiente</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Posici&#xf3;n inicial del cursor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>I. ultrarr&#xe1;pida (con s&#xf3;lo localizar el art&#xed;culo)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hora</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>C Barras</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Almac&#xe9;n</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>PagosComanda</name>
@@ -1435,46 +1191,6 @@
         <source>codcausa</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>codserie</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>series</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Ventas</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Al realizar una venta:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>rvimprimirtique</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>rvabrircajon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>rvpasarsiguiente</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>Inserción rápida</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ircursorinicio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>irultrarrapida</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>master</name>
@@ -1675,6 +1391,10 @@
     </message>
     <message>
         <source>Se reabrir&#xe1; el arqueo &#xbf;Est&#xe1; seguro?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&#xbf;Desea cerrar el arqueo?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1918,80 +1638,6 @@ y pulse el bot&#xf3;n Cambiar</source>
     </message>
     <message>
         <source>No tiene configurada la forma de pago vale en el formulario de datos generales</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hubo un error al incrementar la cantidad de las l&#xed;neas:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hubo un error al decrementar la cantidad de las l&#xed;neas:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Venta realizada.
-Pulse aceptar para pasar a la siguiente</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&#xbf;Desea cerrar el arqueo %1?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>El c&#xf3;digo de la venta no puede estar vac&#xed;o</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ya existe una venta con este c&#xf3;digo.
-&#xbf;Desea continuar?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error al generar el asiento: No tiene una subcuenta asociada a la cuenta especial CAJA</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error al generar el asiento: No tiene asociada una subcuenta v&#xe1;lia a la Causa asociada al movimiento de cierre.
-Edite dicha Causa y as&#xf3;ciele una subcuenta v&#xe1;lida.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No se ha encontrado la subcuenta %1 configurada como subcuenta %2 en los par&#xe1;metros generales del TPV
-para el ejercicio %3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>El pago de la venta est&#xe1; bloqueado, posiblemente por estar cerrado su arqueo.
-No es posible eliminarlo.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ha habido un error al establecer una conexi&#xf3;n auxiliar con la base de datos %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>La venta seleccionada todav&#xed;a no tiene una factura asociada. &#xbf;Desea crearla ahora?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>La funci&#xf3;n crearFactura ha fallado</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error al buscar la venta seleccionada</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error al actualizar la venta con el Id de la factura generada</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hubo un error al generar la factura:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Va a establecer los campos a sus valores por defecto.
-&#xbf;Est&#xe1; seguro?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2322,14 +1968,6 @@ No es posible eliminarlo.</source>
         <source>pvptotal</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>fecha</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>hora</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>tpv_masteragentes</name>
@@ -2425,21 +2063,6 @@ No es posible eliminarlo.</source>
     </message>
     <message>
         <source>codcausa</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>tpv_secuenciastiquet</name>
-    <message>
-        <source>Secuencias de Tiquets</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>prefijo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>valor</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -39,29 +39,18 @@ class interna {
 class oficial extends interna {
 	var tbnBuscarEpigrafe:Object;
 	var ejercicioActual:String;
-    function oficial( context ) { interna( context ); } 
+    function oficial( context ) { interna( context ); }
 	function desconexion() { return this.ctx.oficial_desconexion(); }
 	function tbnBuscarEpigrafe_clicked() { return this.ctx.oficial_tbnBuscarEpigrafe_clicked(); }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
-/** @class_declaration pgc2008 */
-/////////////////////////////////////////////////////////////////
-//// PGC 2008 //////////////////////////////////////////////////////
-class pgc2008 extends oficial {
-    function pgc2008( context ) { oficial ( context ); }
-    function init() { this.ctx.pgc2008_init(); }
-    function validateForm():Boolean { return this.ctx.pgc2008_validateForm(); }
-}
-//// PGC 2008 //////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends pgc2008 {
-    function head( context ) { pgc2008 ( context ); }
+class head extends oficial {
+    function head( context ) { oficial ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -93,7 +82,7 @@ function interna_init()
 	var cursor:FLSqlCursor = this.cursor();
 	this.iface.tbnBuscarEpigrafe = this.child("tbnBuscarEpigrafe");
 	this.iface.ejercicioActual = flfactppal.iface.pub_ejercicioActual();
-	
+
 	switch(cursor.modeAccess()) {
 	case cursor.Insert:
 		cursor.setValueBuffer("codejercicio", this.iface.ejercicioActual);
@@ -110,18 +99,18 @@ function interna_validateForm():Boolean
 {
 		var cursor:FLSqlCursor = this.cursor();
 		var util:FLUtil = new FLUtil();
-		
+
 		/** \C El código de epígrafe tendrá como prefijo el código del epígrafe padre
 		\end */
 		var codEpigrafePadre:String = this.child("fdbCodPadre").value();
 		var codEpigrafe:String = cursor.valueBuffer("codepigrafe");
 		if (codEpigrafePadre != codEpigrafe.substring(0, codEpigrafePadre.length)) {
-				MessageBox.critical(util.translate("scripts", 
+				MessageBox.critical(util.translate("scripts",
 						"El código del epígrafe debe tener como prefijo el de su epígrafe padre"),
 						 MessageBox.Ok, MessageBox.NoButton, MessageBox.NoButton);
 				return false;
 		}
-		
+
 		return true;
 }
 
@@ -154,36 +143,10 @@ function oficial_tbnBuscarEpigrafe_clicked()
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
-/** @class_definition pgc2008 */
-/////////////////////////////////////////////////////////////////
-//// PGC 2008 //////////////////////////////////////////////////////
-
-function pgc2008_init()
-{
-	var util:FLUtil = new FLUtil();
-	var cursor:FLSqlCursor = this.cursor();
-	this.iface.ejercicioActual = flfactppal.iface.pub_ejercicioActual();
-	
-	switch(cursor.modeAccess()) {
-		case cursor.Insert:
-			cursor.setValueBuffer("codejercicio", this.iface.ejercicioActual);
-		break;
-	}
-}
-
-function pgc2008_validateForm()
-{
-	return true;
-}
-
-//// PGC 2008 //////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
-
-
 /** @class_definition head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
+

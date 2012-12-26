@@ -87,26 +87,11 @@ class oficial extends interna {
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 
-/** @class_declaration modelo340 */
-/////////////////////////////////////////////////////////////////
-//// MODELO 340 /////////////////////////////////////////////////
-class modelo340 extends oficial {
-	function modelo340( context ) { oficial ( context ); }
-	function init() {
-		return this.ctx.modelo340_init();
-	}
-	function rellenarTablasModelo340() {
-		return this.ctx.modelo340_rellenarTablasModelo340();
-	}
-}
-//// MODELO 340 /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
 /** @class_declaration modelo300 */
 /////////////////////////////////////////////////////////////////
 //// MODELO 300 /////////////////////////////////////////////////
-class modelo300 extends modelo340 {
-	function modelo300( context ) { modelo340 ( context ); }
+class modelo300 extends oficial {
+	function modelo300( context ) { oficial ( context ); }
 	function init() { 
 		return this.ctx.modelo300_init(); 
 	}
@@ -182,29 +167,26 @@ class modelo390 extends modelo349 {
 //// MODELO 390 /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
-/** @class_declaration modelo303 */
+/** @class_declaration modelo340 */
 /////////////////////////////////////////////////////////////////
-//// MODELO 303 /////////////////////////////////////////////////
-class modelo303 extends modelo390 {
-	function modelo303( context ) { modelo390 ( context ); }
+//// MODELO 340 /////////////////////////////////////////////////
+class modelo340 extends modelo390 {
+	function modelo340( context ) { modelo390 ( context ); }
 	function init() {
-		this.ctx.modelo303_init();
+		return this.ctx.modelo340_init();
 	}
-	function informarTiposDec303() {
-		this.ctx.modelo303_informarTiposDec303();
-	}
-	function informarCasillas303() {
-			this.ctx.modelo303_informarCasillas303();
+	function rellenarTablasModelo340() {
+		return this.ctx.modelo340_rellenarTablasModelo340();
 	}
 }
-//// MODELO 303 /////////////////////////////////////////////////
+//// MODELO 340 /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 /** @class_declaration head */
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
-class head extends modelo303 {
-	function head( context ) { modelo303 ( context ); }
+class head extends modelo340 {
+	function head( context ) { modelo340 ( context ); }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -756,72 +738,6 @@ function oficial_limpiarCifNif(cifNif:String):String
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
-/** @class_definition modelo340 */
-/////////////////////////////////////////////////////////////////
-//// MODELO 340 /////////////////////////////////////////////////
-function modelo340_init()
-{
-	this.iface.__init();
-
-	var util:FLUtil = new FLUtil();
-	var cursor:FLSqlCursor = new FLSqlCursor("co_identifpaisresidencia");
-	cursor.select();
-	if (!cursor.first()) {
-		var res:Number = MessageBox.information(util.translate("scripts","Insertar tablas para el modelo 340."),MessageBox.Yes, MessageBox.No);
-		if (res != MessageBox.Yes) {
-			return false;
-		} else {
-			this.iface.rellenarTablasModelo340();
-		}
-	}
-}
-
-function modelo340_rellenarTablasModelo340()
-{
-	var util:FLUtil = new FLUtil();
-	var cursor:FLSqlCursor = new FLSqlCursor("co_identifpaisresidencia");
-	var clavePaisResidencia:Array =
-		[["1", "Corresponde a un NIF"],["2", "Se consigna el NIF/IVA (NIF OPERADOR INTRACOMUNITARIO)"],["3", "Pasaporte"],["4", "Documento oficial de identificación expedido por el país o territorio de residencia"],["5", "Certificado de residencia fiscal"],["6", "Otro documento probatorio"]];
-	for (var i:Number = 0; i < clavePaisResidencia.length; i++) {
-		with(cursor) {
-			setModeAccess(cursor.Insert);
-			refreshBuffer();
-			setValueBuffer("codigo", clavePaisResidencia[i][0]);
-			setValueBuffer("descripcion", clavePaisResidencia[i][1]);
-			commitBuffer();
-		}
-	}
-
-	var cursor:FLSqlCursor = new FLSqlCursor("co_tipolibro");
-	var tipoLibro:Array =
-		[["E", "Libro registro de facturas expedidas"],["I", "Libro registro de bienes de inversión"],["R", "Libro registro de facturas recibidas"],["U", "Libro registro de determinadas operaciones intracomunitarias"],["F", "Libro registro de facturas expedidas IGIC"],["J", "Libro de registro de bienes de inversión IGIC"],["S", "Libro de registro de facturas recibidas IGIC"]];
-	for (var i:Number = 0; i < tipoLibro.length; i++) {
-		with(cursor) {
-			setModeAccess(cursor.Insert);
-			refreshBuffer();
-			setValueBuffer("codigo", tipoLibro[i][0]);
-			setValueBuffer("descripcion", tipoLibro[i][1]);
-			commitBuffer();
-		}
-	}
-
-	var cursor:FLSqlCursor = new FLSqlCursor("co_claveoperacion");
-	var claveOperacion:Array =
-		[["A", "Asiento resumen de facturas"],["B", "Asiento resumen de tique"],["C", "Factura con varios asientos (varios tipos impositivos)"],["D", "Factura rectificativa"],["F", "Adquisiciones realizadas por las agencias de viajes directamente en interés del viajero (Régimen especial de agencias de viajes)"],["G", "Régimen especial de grupo de entidades en IVA o IGIC (Incorpora la contraprestación real a coste)"],["H", "Régimen especial de oro de inversión"],["I", "Inversión del sujeto pasivo (ISP)"],["J", "Tiques"],["K", "Rectificación de errores registrales"],["L", "Adquisiciones a comerciantes minoristas del IGIC. Ninguna de las anteriores"]];
-	for (var i:Number = 0; i < claveOperacion.length; i++) {
-		with(cursor) {
-			setModeAccess(cursor.Insert);
-			refreshBuffer();
-			setValueBuffer("codigo", claveOperacion[i][0]);
-			setValueBuffer("descripcion", claveOperacion[i][1]);
-			commitBuffer();
-		}
-	}
-}
-
-//// MODELO 340 /////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////
-
 /** @class_definition modelo300 */
 /////////////////////////////////////////////////////////////////
 //// MODELO 300 /////////////////////////////////////////////////
@@ -1066,88 +982,70 @@ function modelo390_lanzarInforme( cursor:FLSqlCursor, nombreInforme:String, masW
 //// MODELO 390 /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
-/** @class_definition modelo303 */
+/** @class_definition modelo340 */
 /////////////////////////////////////////////////////////////////
-//// MODELO 303 /////////////////////////////////////////////////
-function modelo303_init()
+//// MODELO 340 /////////////////////////////////////////////////
+function modelo340_init()
 {
 	this.iface.__init();
 
-	var util:FLUtil = new FLUtil;
-
-	if (!util.sqlSelect("co_tipodec303", "idtipodec", "1 = 1")) {
-		this.iface.informarTiposDec303();
+	var util:FLUtil = new FLUtil();
+	var cursor:FLSqlCursor = new FLSqlCursor("co_identifpaisresidencia");
+	cursor.select();
+	if (!cursor.first()) {
+		var res:Number = MessageBox.information(util.translate("scripts","Insertar tablas para el modelo 340."),MessageBox.Yes, MessageBox.No);
+		if (res != MessageBox.Yes) {
+			return false;
+		} else {
+			this.iface.rellenarTablasModelo340();
+		}
 	}
-	this.iface.informarCasillas303();
 }
 
-function modelo303_informarTiposDec303()
+function modelo340_rellenarTablasModelo340()
 {
-	var curTipoDec:FLSqlCursor = new FLSqlCursor("co_tipodec303");
-	var valores:Array = [["C", "Solicitud de compensación"],
-		["D", "Devolución"],
-		["G", "Cuenta corriente tributaria - ingreso"],
-		["I", "Ingreso"],
-		["N", "Sin actividad / resultado 0"], 
-		["V", "Cuenta corriente tributaria - devolución"],
-		["U", "Domiciliación de ingreso en CCC"]];
-	
-	for (var i:Number = 0; i < valores.length; i++) {
-		with (curTipoDec) {
-			setModeAccess(Insert);
+	var util:FLUtil = new FLUtil();
+	var cursor:FLSqlCursor = new FLSqlCursor("co_identifpaisresidencia");
+	var clavePaisResidencia:Array =
+		[["1", "Corresponde a un NIF"],["2", "Se consigna el NIF/IVA (NIF OPERADOR INTRACOMUNITARIO)"],["3", "Pasaporte"],["4", "Documento oficial de identificación expedido por el país o territorio de residencia"],["5", "Certificado de residencia fiscal"],["6", "Otro documento probatorio"]];
+	for (var i:Number = 0; i < clavePaisResidencia.length; i++) {
+		with(cursor) {
+			setModeAccess(cursor.Insert);
 			refreshBuffer();
-			setValueBuffer("idtipodec", valores[i][0]);
-			setValueBuffer("descripcion", valores[i][1]);
+			setValueBuffer("codigo", clavePaisResidencia[i][0]);
+			setValueBuffer("descripcion", clavePaisResidencia[i][1]);
+			commitBuffer();
+		}
+	}
+
+	var cursor:FLSqlCursor = new FLSqlCursor("co_tipolibro");
+	var tipoLibro:Array =
+		[["E", "Libro registro de facturas expedidas"],["I", "Libro registro de bienes de inversión"],["R", "Libro registro de facturas recibidas"],["U", "Libro registro de determinadas operaciones intracomunitarias"],["F", "Libro registro de facturas expedidas IGIC"],["J", "Libro de registro de bienes de inversión IGIC"],["S", "Libro de registro de facturas recibidas IGIC"]];
+	for (var i:Number = 0; i < tipoLibro.length; i++) {
+		with(cursor) {
+			setModeAccess(cursor.Insert);
+			refreshBuffer();
+			setValueBuffer("codigo", tipoLibro[i][0]);
+			setValueBuffer("descripcion", tipoLibro[i][1]);
+			commitBuffer();
+		}
+	}
+
+	var cursor:FLSqlCursor = new FLSqlCursor("co_claveoperacion");
+	var claveOperacion:Array =
+		[["A", "Asiento resumen de facturas"],["B", "Asiento resumen de tique"],["C", "Factura con varios asientos (varios tipos impositivos)"],["D", "Factura rectificativa"],["F", "Adquisiciones realizadas por las agencias de viajes directamente en interés del viajero (Régimen especial de agencias de viajes)"],["G", "Régimen especial de grupo de entidades en IVA o IGIC (Incorpora la contraprestación real a coste)"],["H", "Régimen especial de oro de inversión"],["I", "Inversión del sujeto pasivo (ISP)"],["J", "Tiques"],["K", "Rectificación de errores registrales"],["L", "Adquisiciones a comerciantes minoristas del IGIC. Ninguna de las anteriores"]];
+	for (var i:Number = 0; i < claveOperacion.length; i++) {
+		with(cursor) {
+			setModeAccess(cursor.Insert);
+			refreshBuffer();
+			setValueBuffer("codigo", claveOperacion[i][0]);
+			setValueBuffer("descripcion", claveOperacion[i][1]);
 			commitBuffer();
 		}
 	}
 }
 
-function modelo303_informarCasillas303()
-{
-	var util:FLUtil = new FLUtil;
-
-	var contenido:String = "<Todos>" +
-	"<co_casillas303 casilla='[01]-[09]' descripcion='" + util.translate("scripts", "I.V.A. Devengado - Régimen General") + "' />" +
-	"<co_casillas303 casilla='[10]-[18]' descripcion='" + util.translate("scripts", "I.V.A. Devengado Recargo de equivalencia Régimen General") + "' />" +
-	"<co_casillas303 casilla='[19]-[20]' descripcion='" + util.translate("scripts", "I.V.A. Devengado Adquisiciones intracomunitarias") + "' />" +
-	"<co_casillas303 casilla='[22]-[23]' descripcion='" + util.translate("scripts", "I.V.A. Deducible por cuotas soportadas en operaciones interiores con bienes corrientes") + "' />" +
-	"<co_casillas303 casilla='[24]-[25]' descripcion='" + util.translate("scripts", "I.V.A. Deducible por cuotas soportadas en operaciones interiores con bienes de inversión") + "' />" +
-	"<co_casillas303 casilla='[26]-[27]' descripcion='" + util.translate("scripts", "I.V.A. Deducible por cuotas soportadas en importaciones de bienes corrientes") + "' />" +
-	"<co_casillas303 casilla='[28]-[29]' descripcion='" + util.translate("scripts", "I.V.A. Deducible por cuotas soportadas en importaciones de bienes de inversión") + "' />" +
-	"<co_casillas303 casilla='[30]-[31]' descripcion='" + util.translate("scripts", "I.V.A. Deducible por cuotas soportadas en adquisiciones intracomunitarias de bienes corrientes") + "' />" +
-	"<co_casillas303 casilla='[32]-[33]' descripcion='" + util.translate("scripts", "I.V.A. Deducible por cuotas soportadas en adquisiciones intracomunitarias de bienes de inversión") + "' />" + 
-	"<co_casillas303 casilla='[34]' descripcion='" + util.translate("scripts", "I.V.A. Deducible por compensaciones de regimen especial A.G.y P.") + "' />" +
-	"<co_casillas303 casilla='[42]' descripcion='" + util.translate("scripts", "Entregas intracomunitarias") + "' />" +
-	"<co_casillas303 casilla='[43]' descripcion='" + util.translate("scripts", "Exportaciones y operaciones asimilables") + "' />" +
-	"<co_casillas303 casilla='[44]' descripcion='" + util.translate("scripts", "Operaciones no sujetas o con inversión del sujeto pasivo que originan derecho a deducción") + "' />" +
-	"</Todos>";
-
-	xmlDoc = new FLDomDocument();
-	if (!xmlDoc.setContent(contenido)) {
-debug("!xmlDoc.setContent(contenido)");
-		return false;
-	}
-	var xmlOD:FLDomNodeList = xmlDoc.elementsByTagName("co_casillas303");
-	var eOD:FLDomElement;
-	var curCasillas:FLSqlCursor = new FLSqlCursor("co_casillas303");
-	for (var i:Number = 0; i < xmlOD.length(); i++) {
-		eOD = xmlOD.item(i).toElement();
-		curCasillas.setModeAccess(curCasillas.Insert);
-		curCasillas.refreshBuffer();
-		if (util.sqlSelect("co_casillas303", "casilla303", "casilla303 = '" + eOD.attribute("casilla") + "'")) {
-			continue;
-		}
-		curCasillas.setValueBuffer("casilla303", eOD.attribute("casilla"));
-		curCasillas.setValueBuffer("descripcion", eOD.attribute("descripcion"));
-		if (!curCasillas.commitBuffer()) {
-			return false;
-		}
-	}
-	return true;
-}
-
-//// MODELO 303 /////////////////////////////////////////////////
+//// MODELO 340 /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 /** @class_definition head */
@@ -1155,4 +1053,4 @@ debug("!xmlDoc.setContent(contenido)");
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-////////////////////////////////////////////////
+//////////////////////////////////////////////////

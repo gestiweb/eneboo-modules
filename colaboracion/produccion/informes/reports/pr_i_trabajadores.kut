@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+<KugarTemplate BottomMargin="50" TopMargin="50" RightMargin="30" LeftMargin="30" PageOrientation="0" PageSize="0" >
+	
+<DetailHeader Height="27" Level="0" >
+	<Label WordWrap="0" Width="300" X="5" Y="0" BorderStyle="0" Height="22" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="LISTADO DE TRABAJADORES" FontWeight="65" FontSize="14" BorderWidth="1" FontFamily="Arial" />
+	<Line Width="2" Y1="24" Y2="24" X1="0" X2="600" Style="1" Color="100,100,100" />
+</DetailHeader>
+	
+<Detail Height="76" Level="0" >
+	<Label WordWrap="0" Width="70" X="0" Y="30" BorderStyle="0" Height="19" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text="  Sección:" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+		
+	<Field WordWrap="0" Width="70" X="70" Y="30" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="0" DataType="0" Field="pr_secciones.idseccion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	<Label WordWrap="0" Width="20" X="140" Y="30" BorderStyle="0" Height="19" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" - " FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="440" X="160" Y="30" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="0" DataType="0" Field="pr_secciones.descripcion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="300" X="30" Y="55" BorderStyle="0" Height="19" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Nombre" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+	
+	<Label WordWrap="0" Width="150" X="330" Y="55" BorderStyle="0" Height="19" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Código" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+	
+	<!--<Label WordWrap="0" Width="60" X="480" Y="25" BorderStyle="0" Height="19" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="De Baja" FontWeight="65" FontSize="11" BorderWidth="1" FontFamily="Arial" />-->
+	
+	<Line Width="1" Y1="75" Y2="75" X1="0" X2="600" Style="1" Color="100,100,100" />
+</Detail>
+	
+<Detail Height="60" Level="1" >
+	<Field WordWrap="1" Width="300" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="pr_trabajadores.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	<Field WordWrap="1" Width="150" X="300" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="pr_trabajadores.idtrabajador" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	<Field WordWrap="0" Width="150" X="450" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="45" HAlignment="0" DataType="6" BarcodeType="EAN" Field="pr_trabajadores.idtrabajador" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="5" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	<!--<Field WordWrap="1" Width="60" X="480" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="pr_trabajadores.debaja" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="11" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />-->
+</Detail>
+		
+<!--<DetailFooter Height="0" Level="1" NewPage="true">
+</DetailFooter>-->
+	
+<!--<PageFooter Height="0" PrintFrequency="1" />-->
+</KugarTemplate>

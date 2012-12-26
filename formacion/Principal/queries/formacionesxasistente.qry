@@ -1,0 +1,29 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>formacionesxasistente</name>
+
+	<tables>accionesFormativas,esAsistenteA,personas</tables>
+
+        <param>
+                <name>asistente</name>
+                <alias>QT_TRANSLATE_NOOP("Queries","Asistente:")</alias>
+                <type>string</type>
+        </param>
+
+	<select>
+		accionesFormativas.idFormacion, accionesFormativas.titulo, accionesFormativas.fechainicio, 
+accionesFormativas.fechafin, accionesFormativas.duracion, accionesFormativas.lugar
+	</select>
+
+        <from>
+                accionesFormativas, esAsistenteA, personas
+        </from>
+
+        <where>
+                personas.idPersona=[asistente]
+                AND accionesFormativas.idFormacion=esAsistenteA.idFormacion
+		AND esAsistenteA.idPersona=personas.idPersona
+		ORDER BY accionesFormativas.idFormacion
+        </where>
+
+</QRY> 

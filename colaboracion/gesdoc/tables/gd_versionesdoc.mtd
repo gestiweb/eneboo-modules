@@ -1,0 +1,106 @@
+<!DOCTYPE TMD>
+<TMD>
+	<!--Versiones de documentos-->
+	<name>gd_versionesdoc</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Versiones de documentos")</alias>
+
+	<field>
+		<name>idversion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id.Versión")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>iddocumento</name>
+		<!--Documento asociado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Documento")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>gd_documentos</table>
+			<field>iddocumento</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>version</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Versión")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+	</field>
+	
+	<field>
+		<name>fecha</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fichero</name>
+		<!--Nombre del fichero-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fichero")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>200</length>
+	</field>
+	
+	<field>
+		<name>comentarios</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Comentarios")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+	
+	<field>
+		<name>versionrep</name>
+		<!--Versión del documento en el repositorio-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Versión en el repositorio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>modificadopor</name>
+		<!--Id (login) del último usuario que modificó el documento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Modificadopor por")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+	</field>
+	
+	<field>
+		<name>fechamodif</name>
+		<!--Fecha de modificación (última subida al repositorio)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","F. Modificación")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>horamodif</name>
+		<!--Hora de modificación (última subida al repositorio)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hora")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>time</type>
+	</field>
+</TMD>

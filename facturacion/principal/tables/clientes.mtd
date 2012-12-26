@@ -61,11 +61,6 @@
             <card>1M</card>
         </relation>
         <relation>
-            <table>pagosmulticli</table>
-            <field>codcliente</field>
-            <card>1M</card>
-        </relation>
-        <relation>
             <table>co_operaciones349</table>
             <field>codcliente</field>
             <card>1M</card>
@@ -92,33 +87,9 @@
         </relation>
     </field>
     <field>
-        <name>personafisica</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Persona Física")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>bool</type>
-        <default>false</default>
-    </field>
-    <field>
         <name>nombre</name>
         <alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
         <null>false</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>100</length>
-    </field>
-    <field>
-        <name>nombrepila</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","N.Pila")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>100</length>
-    </field>
-    <field>
-        <name>apellidos</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Apellidos")</alias>
-        <null>true</null>
         <pk>false</pk>
         <type>string</type>
         <length>100</length>
@@ -384,35 +355,6 @@
             <card>M1</card>
             <checkIn>false</checkIn>
         </relation>
-    </field>
-    <field>
-        <name>diaspago</name>
-<!-- Días en los que el cliente hace efectivos los pagos -->        <alias>QT_TRANSLATE_NOOP("MetaData","Días de pago")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>15</length>
-        <regexp>^(\d{1,2}(,\d{1,2})*)?$</regexp>
-    </field>
-    <field>
-        <name>buscardia</name>
-<!-- Indica si se busca el dia de pago anterior o posterior a la teórica fecha de vencimiento -->        <alias>QT_TRANSLATE_NOOP("MetaData","Buscar día...")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>15</length>
-        <optionslist>Anterior,Posterior</optionslist>
-        <default>Posterior</default>
-    </field>
-    <field>
-        <name>pordtoesp</name>
-<!--Porcentaje de descuento especial-->        <alias>QT_TRANSLATE_NOOP("MetaData","%Dto. especial")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>double</type>
-        <partI>3</partI>
-        <partD>2</partD>
-        <default>0</default>
     </field>
     <field>
         <name>debaja</name>
