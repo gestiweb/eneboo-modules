@@ -1,0 +1,37 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>tiposrappel</name>
+	<!--Listado de tipos de rappel-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Tipos de Rappel")</alias>
+
+	<field>
+		<name>codtiporappel</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>clientes</table>
+			<field>codtiporappel</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>intervalosrappel</table>
+			<field>codtiporappel</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+</TMD>

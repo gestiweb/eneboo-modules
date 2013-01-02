@@ -1,0 +1,20 @@
+<!DOCTYPE QRY>
+<QRY>
+ <name>actividadesxsector</name>
+
+ <tables>sectoreslaborales,actividadeslaborales</tables>
+
+ <select>
+  actividadeslaborales.idactividad, actividadeslaborales.nombre, actividadeslaborales.observaciones
+ </select>
+
+        <from>
+                actividadeslaborales, sectoreslaborales
+        </from>
+
+        <where>
+                 actividadeslaborales.idsector=sectoreslaborales.idsector
+  ORDER BY actividadeslaborales.idsector
+        </where>
+
+</QRY> 

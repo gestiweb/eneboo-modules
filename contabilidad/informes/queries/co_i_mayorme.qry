@@ -1,0 +1,27 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_i_mayorme</name>
+
+	<tables>co_subcuentas,co_partidas,co_asientos</tables>
+
+	<group>
+		<level>0</level>
+		<field>co_subcuentas.codsubcuenta</field>
+	</group>
+
+	<select>
+		co_subcuentas.codsubcuenta, co_subcuentas.idsubcuenta, co_subcuentas.descripcion, 
+		co_subcuentas.debe, co_subcuentas.haber, co_subcuentas.saldo, divisas.descripcion,
+		co_asientos.numero, co_asientos.fecha, 
+		co_partidas.concepto, co_partidas.debeme, co_partidas.haberme, co_partidas.debeme-co_partidas.haberme
+	</select>
+
+	<from>
+		co_subcuentas INNER JOIN co_partidas ON co_subcuentas.idsubcuenta = co_partidas.idsubcuenta
+		INNER JOIN co_asientos ON co_partidas.idasiento = co_asientos.idasiento
+		LEFT OUTER JOIN divisas ON co_subcuentas.coddivisa = divisas.coddivisa
+	</from>
+
+	<where>
+	</where>
+</QRY>

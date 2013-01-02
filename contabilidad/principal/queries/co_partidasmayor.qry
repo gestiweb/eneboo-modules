@@ -1,0 +1,17 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_partidasmayor</name>
+	
+	<tables>co_partidas,co_asientos</tables>
+	
+	<select>
+		co_asientos.numero, co_asientos.fecha, co_partidas.*
+	</select>
+	
+	<from>
+		co_partidas INNER JOIN co_asientos ON co_partidas.idasiento = co_asientos.idasiento
+	</from>
+	
+	<where>
+	</where>
+</QRY>

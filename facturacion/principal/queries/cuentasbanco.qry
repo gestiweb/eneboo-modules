@@ -1,0 +1,30 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>cuentasbanco</name>
+
+	<tables>cuentasbanco</tables>
+	
+	<param>
+		<name>from</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Desde Cuenta:")</alias>
+		<type>string</type>
+	</param>
+
+	<param>
+		<name>to</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Hasta Cuenta:")</alias>
+		<type>string</type>
+	</param>
+
+	<select>
+		cuentasbanco.codcuenta, cuentasbanco.descripcion, cuentasbanco.ctaentidad, cuentasbanco.ctaagencia, cuentasbanco.cuenta
+	</select>
+
+	<from>
+		cuentasbanco
+	</from>
+
+	<where>
+		cuentasbanco.codcuenta&gt;=[from] AND cuentasbanco.codcuenta&lt;=[to] ORDER BY cuentasbanco.codcuenta 
+	</where>
+</QRY> 

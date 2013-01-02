@@ -1,0 +1,34 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_resfacturascli</name>
+
+	<tables>facturascli,empresa</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.cifnif</field>
+	</group>
+
+	<select>
+		facturascli.codigo, facturascli.fecha,
+		facturascli.codcliente, facturascli.nombrecliente,
+		facturascli.cifnif, facturascli.editable,
+		facturascli.neto, facturascli.totaliva,
+		facturascli.totalrecargo, facturascli.total,
+		facturascli.coddivisa,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais,
+		clientes.regimeniva
+	</select>
+
+	<from>
+		empresa,facturascli
+		LEFT OUTER JOIN clientes ON facturascli.codcliente = clientes.codcliente
+	</from>
+
+	<where>
+	</where>
+</QRY>

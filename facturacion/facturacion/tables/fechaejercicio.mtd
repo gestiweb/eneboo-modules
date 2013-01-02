@@ -1,0 +1,51 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>fechaejercicio</name>
+	<!--Tabla temporal para mostrar los datos de fechas / ejercicios en ciertas generaciones de documentos-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Fechas y ejercicios")</alias>
+
+	<field>
+		<name>id</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+	</field>
+
+	<field>
+		<name>fecha</name>
+		<!--Fecha del documento de facturación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>codejercicio</name>
+		<!--Ejercicio del documento de facturación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+	
+	<field>
+		<name>label</name>
+		<!--Texto explicativo que muestra el formulario-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Datos")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<editable>false</editable>
+		<type>stringlist</type>
+	</field>
+</TMD>

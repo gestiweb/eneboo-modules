@@ -1,0 +1,40 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>departamentos</name>
+	<!--Listado de departamentos de la empresa-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Departamentos")</alias>
+
+	<field>
+		<name>coddepartamento</name>
+		<!--Código de departamento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<counter>true</counter>
+
+		<relation>
+			<table>agentes</table>
+			<field>coddepartamento</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>tpv_puntosventa</table>
+			<field>coddepartamento</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+</TMD>
+

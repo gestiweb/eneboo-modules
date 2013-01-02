@@ -1,0 +1,27 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_i_facturasrec</name>
+
+	<tables>clientes,co_subcuentas,co_cuentas,co_partidas,co_asientos</tables>
+
+	<select>
+		co_partidas.codserie, co_partidas.factura, sc1.idcuentaesp,
+		co_asientos.fecha, co_asientos.numero, co_asientos.codejercicio, co_asientos.idasiento,
+		co_partidas.codcontrapartida, sc2.descripcion, co_partidas.cifnif, co_partidas.documento, co_partidas.idsubcuenta,
+		co_partidas.baseimponible, co_partidas.iva,
+		(co_partidas.debe - co_partidas.haber), co_partidas.recargo,
+		(co_partidas.baseimponible + co_partidas.debe - co_partidas.haber)
+	</select>
+
+	<from>
+		co_cuentas 
+		INNER JOIN co_subcuentas sc1 ON co_cuentas.idcuenta = sc1.idcuenta 
+		INNER JOIN co_partidas ON sc1.idsubcuenta = co_partidas.idsubcuenta 
+		INNER JOIN co_subcuentas sc2 ON co_partidas.idcontrapartida = sc2.idsubcuenta
+		INNER JOIN co_asientos ON co_partidas.idasiento = co_asientos.idasiento
+		LEFT OUTER JOIN series ON co_partidas.codserie = series.codserie
+	</from>
+
+	<where>
+	</where>
+</QRY>

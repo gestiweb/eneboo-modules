@@ -1,0 +1,52 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_planasientos</name>
+	<!-- Listado de asientos predefinidos -->
+			
+	<alias>QT_TRANSLATE_NOOP("MetaData","Asientos predefinidos")</alias>
+
+
+	<field>
+		<name>codplanasiento</name>
+		<!-- Código del asiento predefinido. Debe ser único -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>20</length>
+
+		<relation>
+			<table>co_planpartidas</table>
+			<field>codplanasiento</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>co_asientos</table>
+			<field>codplanasiento</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción del asiento predefinido -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>255</length>		
+	</field>
+
+	<field>
+		<name>concatenar</name>
+		<!-- Código del asiento predefinido siguiente -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Concatenar con")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>		
+	</field>
+	
+</TMD>
+

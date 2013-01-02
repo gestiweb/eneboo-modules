@@ -1,0 +1,276 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>pr_costeslote</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Costes por lote")</alias>
+	
+	<field>
+		<name>idcostelote</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>pr_democostecentro</table>
+			<field>idcostelote</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>pr_democostetareamo</table>
+			<field>idcostelote</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>idusuario</name>
+		<!--Usuario conectado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Responsable")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+		
+		<relation>
+			<table>flusers</table>
+			<field>iduser</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codlote</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Lote")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		
+		<relation>
+			<table>lotesstock</table>
+			<field>codlote</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>referencia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Artículo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>18</length>
+		
+		<relation>
+			<table>articulos</table>
+			<field>referencia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>canlote</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Capacidad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>totalteo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total T.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>totalreal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total R.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>totaldif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total Dif.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>totalpordif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","%Total Dif.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>materialteo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Material T.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>materialreal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Material R.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>materialdif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Material Dif.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>materialpordif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","%Material Dif.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>maquinasteo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Máquinas T.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>maquinasreal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Máquinas R.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>maquinasdif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Máquinas Dif.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>maquinaspordif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","%Máquinas Dif.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>manoobrateo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","M.Obra T.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>manoobrareal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","M.Obra R.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>manoobradif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","M.Obra Dif.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>manoobrapordif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","%M.Obra Dif.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+</TMD>

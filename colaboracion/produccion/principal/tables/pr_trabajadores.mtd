@@ -1,0 +1,67 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>pr_trabajadores</name>
+	<!--Trabajadores de fábrica que pueden realizar tareas de producción-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Trabajadores")</alias>
+
+	<field>
+		<name>idtrabajador</name>
+		<!--Identificador del trabajador-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>30</length>
+
+		<relation>
+			<table>flusers</table>
+			<field>iduser</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>nombre</name>
+		<!--Nombre del trabajador-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>idseccion</name>
+		<!--Sección a la que está asignado el trabajador-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Sección")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>pr_secciones</table>
+			<field>idseccion</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>foto</name>
+		<!--Foto del rostro del trabajador-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Foto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>pixmap</type>
+	</field>
+	
+	<field>
+		<name>debaja</name>
+		<!--Indicador de que el trabajador está de baja-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","De baja")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+</TMD>

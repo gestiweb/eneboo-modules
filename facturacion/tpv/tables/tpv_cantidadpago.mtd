@@ -1,0 +1,38 @@
+<!DOCTYPE TMD>
+<TMD>
+
+	<name>tpv_cantidadpago</name>
+	<!-- Pagos al contado -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Cantidad pagada")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+	</field>
+
+	<field>
+		<name>idusuario</name>
+		<!-- Usuario -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Usuario")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field>
+		<name>importe</name>
+		<!-- Importe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Importe")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+	</field>
+
+</TMD>

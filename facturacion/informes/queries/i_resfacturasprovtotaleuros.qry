@@ -1,0 +1,33 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_resfacturasprovtotaleuros</name>
+
+	<tables>facturasprov,empresa</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.cifnif</field>
+	</group>
+
+	<select>
+		facturasprov.codigo, facturasprov.fecha,
+		facturasprov.codproveedor, facturasprov.nombre,
+		facturasprov.cifnif, facturasprov.neto,
+		facturasprov.totaliva, facturasprov.totalrecargo,
+		facturasprov.total, facturasprov.coddivisa,facturasprov.totaleuros,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais,
+		proveedores.regimeniva
+	</select>
+
+	<from>
+		empresa,facturasprov
+		LEFT OUTER JOIN proveedores ON facturasprov.codproveedor = proveedores.codproveedor
+	</from>
+
+	<where>
+	</where>
+</QRY>

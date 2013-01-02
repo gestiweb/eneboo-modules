@@ -1,0 +1,24 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_datos347prov</name>
+
+	<tables>empresa,proveedores,facturasprov</tables>
+	
+	<select>
+		empresa.nombre, empresa.cifnif, empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		proveedores.cifnif, proveedores.nombre,
+		SUM(f.total)
+	</select>
+	
+	<from>
+		empresa, proveedores
+		INNER JOIN facturasprov f ON proveedores.codproveedor = f.codproveedor
+		INNER JOIN dirproveedores ON proveedores.codproveedor = dirproveedores.codproveedor AND direccionppal = true
+		INNER JOIN paises ON dirproveedores.codpais = paises.codpais
+	</from>
+
+	<where>
+	</where>
+
+</QRY>

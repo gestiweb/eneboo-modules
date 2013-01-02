@@ -1,0 +1,174 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>formaspago</name>
+	<!--Listado de formas de pago-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Formas de Pago")</alias>
+
+	<field>
+		<name>codpago</name>
+		<!--Código de la forma de pago-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>plazos</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>formaspago_imp</table>
+			<field>desde</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>formaspago_imp</table>
+			<field>hasta</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>clientes</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>proveedores</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>empresa</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>pedidoscli</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>pedidosprov</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>albaranescli</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>albaranesprov</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>facturascli</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>facturasprov</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>presupuestoscli</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>agruparalbaranescli</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>agruparalbaranesprov</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>agruparpedidoscli</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>agruparpedidosprov</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>tpv_pagoscomanda</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+	
+		<relation>
+			<table>rh_nominas</table>
+			<field>codpago</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>genrecibos</name>
+		<!--Opciones en la generación de recibos-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Generar recibos como")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Emitidos");QT_TRANSLATE_NOOP("MetaData","Pagados")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Emitidos")</default>
+		<type>string</type>
+		<length>10</length>
+	</field>
+	
+	<field>
+		<name>codcuenta</name>
+		<!--Cuenta bancaria asociada a la forma de pago-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+
+		<relation>
+			<table>cuentasbanco</table>
+			<field>codcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>domiciliado</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Pago por domiciliación")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field></TMD>

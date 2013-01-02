@@ -1,0 +1,151 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>i_pedidoscli</name>
+	<!-- Listado de informes de pedidos de clientes -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Informes de pedidos de clientes")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador interno -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>200</length>
+	</field>
+
+	<field>
+		<name>d_pedidoscli_codigo</name>
+		<!-- Código de pedido inicial -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde pedido Nº")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>12</length>
+
+		<relation>
+			<table>pedidoscli</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+
+	</field>
+
+	<field>
+		<name>h_pedidoscli_codigo</name>
+		<!-- Código de pedido final -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta pedido Nº")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>12</length>
+
+		<relation>
+			<table>pedidoscli</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+
+	</field>
+
+	<field>
+		<name>codintervalo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Intervalo")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>intervalos</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>d_pedidoscli_fecha</name>
+		<!-- Fecha inicial para los pedidos del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha desde")</alias>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>h_pedidoscli_fecha</name>
+		<!-- Fecha final para los pedidos del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData"," hasta")</alias>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>i_pedidoscli_codcliente</name>
+		<!-- Código del cliente -->	
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cliente")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+
+		<relation>
+			<table>clientes</table>
+			<field>codcliente</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>i_pedidoscli_servido</name>
+		<!-- Criterio de filtrado en función del estado de los pedidos -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Servidos")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>12</length>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Todos");QT_TRANSLATE_NOOP("MetaData","Pendiente");QT_TRANSLATE_NOOP("MetaData","Sí");QT_TRANSLATE_NOOP("MetaData","No");QT_TRANSLATE_NOOP("MetaData","Parcial")</optionslist>
+	</field>
+
+	<field>
+		<name>orden1</name>
+		<!-- Primer criterio de ordenación -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Pedidos por (1)")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","No ordenar");QT_TRANSLATE_NOOP("MetaData","Código");QT_TRANSLATE_NOOP("MetaData","Cod.Cliente");QT_TRANSLATE_NOOP("MetaData","Cliente");QT_TRANSLATE_NOOP("MetaData","Fecha");QT_TRANSLATE_NOOP("MetaData","Total")</optionslist>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>tipoorden1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Ascendente");QT_TRANSLATE_NOOP("MetaData","Descendente")</optionslist>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>orden2</name>
+		<!-- Segundo criterio de ordenación -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Pedidos por (2)")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","No ordenar");QT_TRANSLATE_NOOP("MetaData","Código");QT_TRANSLATE_NOOP("MetaData","Cod.Cliente");QT_TRANSLATE_NOOP("MetaData","Cliente");QT_TRANSLATE_NOOP("MetaData","Fecha");QT_TRANSLATE_NOOP("MetaData","Total")</optionslist>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>tipoorden2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Ascendente");QT_TRANSLATE_NOOP("MetaData","Descendente")</optionslist>
+		<length>20</length>
+	</field>
+
+</TMD>

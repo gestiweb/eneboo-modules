@@ -1,0 +1,40 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>ejercicios</name>
+
+	<tables>ejercicios,secuenciasejercicios</tables>
+	
+	<param>
+		<name>from</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Desde Ejercicio:")</alias>
+		<type>string</type>
+	</param>
+
+	<param>
+		<name>to</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Hasta Ejercicio:")</alias>
+		<type>string</type>
+	</param>
+
+	<group>
+		<level>0</level>
+		<field>ejercicios.codejercicio</field>
+	</group>
+
+	<select>
+		ejercicios.codejercicio, ejercicios.nombre, ejercicios.fechainicio, ejercicios.fechafin,
+		secuenciasejercicios.codserie, secuenciasejercicios.npedidoprov,
+		secuenciasejercicios.nalbaranprov, secuenciasejercicios.nfacturaprov,
+		secuenciasejercicios.npresupuestocli, secuenciasejercicios.npedidocli,
+		secuenciasejercicios.nalbarancli, secuenciasejercicios.nfacturacli
+	</select>
+
+	<from>
+		ejercicios INNER JOIN secuenciasejercicios ON ejercicios.codejercicio =
+		secuenciasejercicios.codejercicio
+	</from>
+
+	<where>
+		ejercicios.codejercicio&gt;=[from] AND ejercicios.codejercicio&lt;=[to] 
+	</where>
+</QRY> 

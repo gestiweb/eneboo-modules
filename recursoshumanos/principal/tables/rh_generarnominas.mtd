@@ -1,0 +1,60 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>rh_generarnominas</name>
+	<!--Lista de criterios de búsqueda de nomias de empleados-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Generar Nóminas")</alias>
+
+	<field>
+		<name>id</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>codejercicio</name>
+		<!--Código del ejercicio-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>lista</name>
+		<!--Lista separada por comas de los codigos de empleados de los que se va a generar su nómina-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Lista")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+
+	<field>
+		<name>fechanomina</name>
+		<!--Fecha de generación de las nóminas-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fecha</name>
+		<!--Fecha de la nómina-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","F.Emisión")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+</TMD>

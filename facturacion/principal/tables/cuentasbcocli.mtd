@@ -1,0 +1,129 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>cuentasbcocli</name>
+	<!--Listado de cuentas bancarias asociadas al cliente-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Cuentas Bancarias de Clientes")</alias>
+
+	<field>
+		<name>codcuenta</name>
+		<!--Identificador interno de la cuenta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<counter>true</counter>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>ctaentidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Entidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<regexp>^[0-9]{4,4}$</regexp>
+	</field>
+
+	<field>
+		<name>ctaagencia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Oficina")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<regexp>^[0-9]{4,4}$</regexp>
+	</field>
+
+	<field>
+		<name>cuenta</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		<regexp>^[0-9]{10,10}$</regexp>
+	</field>
+
+	<field>
+		<name>entidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Entidad Nº")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>bancos</table>
+			<field>entidad</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>agencia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Agencia Nº")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<visiblegrid>false</visiblegrid>
+
+		<associated>
+				<with>entidad</with>
+				<by>entidad</by>
+		</associated>
+
+		<relation>
+			<table>sucursales</table>
+			<field>agencia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>iban</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","IBAN")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>34</length>
+	</field>
+
+	<field>
+		<name>swift</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","SWIFT")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+
+	<field>
+		<name>codcliente</name>
+		<!--Código del cliente-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cliente")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>clientes</table>
+			<field>codcliente</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+</TMD>

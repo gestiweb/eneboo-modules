@@ -1,0 +1,1305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI xmlns:UML="org.omg/standards/UML" verified="false" timestamp="" xmi.version="1.2" >
+ <XMI.header>
+  <XMI.documentation>
+   <XMI.exporter>umbrello uml modeller http://uml.sf.net</XMI.exporter>
+   <XMI.exporterVersion>1.1</XMI.exporterVersion>
+  </XMI.documentation>
+  <XMI.model xmi.name="datamodel" href="/home/mjose/cvs/modulos/facturacion/principal/doc/datamodel.xmi" />
+  <XMI.metamodel xmi.name="UML" href="UML.xml" xmi.version="1.3" />
+ </XMI.header>
+ <XMI.content>
+  <docsettings viewid="522" documentation="" uniqueid="522" />
+  <umlobjects>
+   <UML:Class stereotype="" package="" xmi.id="360" abstract="0" documentation="" name="agentes" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="361" value="" type="string" abstract="0" documentation="" name="codagente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="362" value="" type="string" abstract="0" documentation="" name="dnicif" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="363" value="" type="double" abstract="0" documentation="" name="irpf" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="364" value="" type="string" abstract="0" documentation="" name="codpais" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="365" value="" type="string" abstract="0" documentation="" name="coddepartamento" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="366" abstract="0" documentation="" name="clientes" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="367" value="" type="string" abstract="0" documentation="" name="codcliente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="368" value="" type="string" abstract="0" documentation="" name="codgrupo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="369" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="370" value="" type="string" abstract="0" documentation="" name="codcuentadom" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="371" value="" type="string" abstract="0" documentation="" name="codcuentarem" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="372" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="373" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="374" value="" type="string" abstract="0" documentation="" name="codtiporappel" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="375" value="" type="string" abstract="0" documentation="" name="codagente" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="376" abstract="0" documentation="" name="departamentos" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="377" value="" type="string" abstract="0" documentation="" name="coddepartamento" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="378" value="" type="string" abstract="0" documentation="" name="nombre" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="379" abstract="0" documentation="" name="dirclientes" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="380" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="381" value="" type="string" abstract="0" documentation="" name="codpais" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="382" value="" type="double" abstract="0" documentation="" name="codcliente" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="383" abstract="0" documentation="" name="descuentosclientes" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="384" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="385" value="" type="string" abstract="0" documentation="" name="codcliente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="386" value="" type="string" abstract="0" documentation="" name="coddescuentos" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="387" abstract="0" documentation="" name="cuentasbcocli" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="388" value="" type="string" abstract="0" documentation="" name="codcuenta" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="389" value="" type="string" abstract="0" documentation="" name="entidad" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="390" value="" type="string" abstract="0" documentation="" name="agencia" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="391" value="" type="string" abstract="0" documentation="" name="codcliente" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="392" abstract="0" documentation="" name="contactosclientes" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="393" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="394" value="" type="string" abstract="0" documentation="" name="contacto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="395" value="" type="string" abstract="0" documentation="" name="codcliente" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="396" abstract="0" documentation="" name="gruposclientes" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="397" value="" type="string" abstract="0" documentation="" name="codgrupo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="398" value="" type="string" abstract="0" documentation="" name="nombre" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="399" value="" type="string" abstract="0" documentation="" name="codtarifa" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="400" abstract="0" documentation="" name="cuentasbanco" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="401" value="" type="string" abstract="0" documentation="" name="codcuenta" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="402" value="" type="string" abstract="0" documentation="" name="entidad" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="403" value="" type="string" abstract="0" documentation="" name="agencia" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="404" abstract="0" documentation="" name="divisas" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="405" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="406" value="" type="string" abstract="0" documentation="" name="descripcion" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="407" value="" type="date" abstract="0" documentation="" name="fecha" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="408" abstract="0" documentation="" name="series" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="409" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="410" value="" type="string" abstract="0" documentation="" name="descripcion" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="411" value="" type="double" abstract="0" documentation="" name="irpf" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="412" value="" type="bool" abstract="0" documentation="" name="siniva" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="413" abstract="0" documentation="" name="tiposrappel" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="414" value="" type="string" abstract="0" documentation="" name="codtiporappel" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="415" value="" type="string" abstract="0" documentation="" name="descripcion" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="416" abstract="0" documentation="" name="paises" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="417" value="" type="string" abstract="0" documentation="" name="codpais" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="418" value="" type="string" abstract="0" documentation="" name="nombre" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="419" abstract="0" documentation="" name="paises_imp" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="420" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="421" value="" type="string" abstract="0" documentation="" name="desde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="422" value="" type="string" abstract="0" documentation="" name="hasta" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="423" abstract="0" documentation="" name="sucursales" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="424" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="425" value="" type="string" abstract="0" documentation="" name="entidad" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="426" value="" type="string" abstract="0" documentation="" name="agencia" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="427" value="" type="string" abstract="0" documentation="" name="codpais" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="428" abstract="0" documentation="" name="dirproveedores" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="429" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="430" value="" type="string" abstract="0" documentation="" name="codpais" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="431" value="" type="int" abstract="0" documentation="" name="codproveedor" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="432" abstract="0" documentation="" name="empresa" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="433" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="434" value="" type="string" abstract="0" documentation="" name="codpais" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="435" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="436" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="437" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="438" value="" type="string" abstract="0" documentation="" name="codalmacen" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="439" value="" type="string" abstract="0" documentation="" name="codcuentarem" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="440" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="441" abstract="0" documentation="" name="divisas_imp" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="442" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="443" value="" type="string" abstract="0" documentation="" name="desde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="444" value="" type="string" abstract="0" documentation="" name="hasta" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="445" abstract="0" documentation="" name="bancos" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="446" value="" type="string" abstract="0" documentation="" name="entidad" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="447" value="" type="double" abstract="0" documentation="" name="nombre" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="448" abstract="0" documentation="" name="ejercicios" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="449" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="450" value="" type="string" abstract="0" documentation="" name="nombre" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="451" abstract="0" documentation="" name="secuenciasejercicios" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="452" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="453" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="454" value="" type="string" abstract="0" documentation="" name="codejercicios" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="455" abstract="0" documentation="" name="tarifas" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="456" value="" type="string" abstract="0" documentation="" name="codtarifa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="457" value="" type="string" abstract="0" documentation="" name="nombre" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="458" abstract="0" documentation="" name="cuentasbco_imp" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="459" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="460" value="" type="string" abstract="0" documentation="" name="desde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="461" value="" type="string" abstract="0" documentation="" name="hasta" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="462" abstract="0" documentation="" name="intervalosrappel" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="463" value="" type="string" abstract="0" documentation="" name="codtiporappel" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="464" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="465" abstract="0" documentation="" name="proveedores" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="466" value="" type="string" abstract="0" documentation="" name="codproveedor" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="467" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="468" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="469" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="470" abstract="0" documentation="" name="series_imp" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="471" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="472" value="" type="string" abstract="0" documentation="" name="desde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="473" value="" type="string" abstract="0" documentation="" name="hasta" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="474" abstract="0" documentation="" name="descuentos" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="475" value="" type="string" abstract="0" documentation="" name="coddescuento" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="476" value="" type="string" abstract="0" documentation="" name="descripcion" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="477" abstract="0" documentation="" name="decuentos_imp" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="478" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="479" value="" type="string" abstract="0" documentation="" name="desde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="480" value="" type="string" abstract="0" documentation="" name="hasta" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="481" abstract="0" documentation="" name="descuentosproveedores" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="482" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="483" value="" type="string" abstract="0" documentation="" name="codproveedor" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="484" value="" type="string" abstract="0" documentation="" name="coddescuento" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="485" abstract="0" documentation="" name="contactosproveedores" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="486" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="487" value="" type="string" abstract="0" documentation="" name="codproveedor" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="488" abstract="0" documentation="" name="formaspago" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="489" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="490" value="" type="string" abstract="0" documentation="" name="descripcion" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="491" abstract="0" documentation="" name="formaspago_imp" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="492" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="493" value="" type="string" abstract="0" documentation="" name="desde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="494" value="" type="string" abstract="0" documentation="" name="hasta" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="495" abstract="0" documentation="" name="plazos" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="496" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="497" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="498" abstract="0" documentation="" name="cuentasbcopro" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="499" value="" type="string" abstract="0" documentation="" name="codcuenta" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="500" value="" type="string" abstract="0" documentation="" name="entidad" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="501" value="" type="string" abstract="0" documentation="" name="agencia" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="502" value="" type="string" abstract="0" documentation="" name="codproveedor" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="503" abstract="0" documentation="" name="bancos_imp" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="504" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="505" value="" type="string" abstract="0" documentation="" name="desde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="506" value="" type="string" abstract="0" documentation="" name="hasta" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="507" abstract="0" documentation="" name="impuestos" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="508" value="" type="string" abstract="0" documentation="" name="codimpuesto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="509" value="" type="string" abstract="0" documentation="" name="descripcion" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="510" abstract="0" documentation="" name="impuestos_imp" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="511" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="512" value="" type="string" abstract="0" documentation="" name="desde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="513" value="" type="string" abstract="0" documentation="" name="hasta" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="514" abstract="0" documentation="" name="ejercicios_imp" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="515" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="516" value="" type="string" abstract="0" documentation="" name="desde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="517" value="" type="string" abstract="0" documentation="" name="hasta" static="0" scope="200" />
+   </UML:Class>
+  </umlobjects>
+  <diagrams>
+   <diagram snapgrid="0" showattsig="0" fillcolor="#ffffc0" showgrid="0" showopsig="0" usefillcolor="1" snapx="10" snapy="10" showatts="0" xmi.id="359" documentation="" type="402" showops="0" showpackage="0" name="class diagram" localid="30000" showstereotype="0" showscope="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" linecolor="#ff0000" >
+    <widgets>
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="73" showattsigs="603" usesdiagramusefillcolour="0" x="41" linecolour="#ff0000" y="175" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="360" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="71" showattsigs="603" usesdiagramusefillcolour="0" x="193" linecolour="#ff0000" y="612" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="366" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="126" showattsigs="603" usesdiagramusefillcolour="0" x="0" linecolour="#ff0000" y="1" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="376" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="90" showattsigs="603" usesdiagramusefillcolour="0" x="120" linecolour="#ff0000" y="280" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="379" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="155" showattsigs="603" usesdiagramusefillcolour="0" x="343" linecolour="#ff0000" y="623" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="383" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="114" showattsigs="603" usesdiagramusefillcolour="0" x="304" linecolour="#ff0000" y="362" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="387" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="143" showattsigs="603" usesdiagramusefillcolour="0" x="0" linecolour="#ff0000" y="643" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="392" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="121" showattsigs="603" usesdiagramusefillcolour="0" x="269" linecolour="#ff0000" y="877" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="396" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="116" showattsigs="603" usesdiagramusefillcolour="0" x="704" linecolour="#ff0000" y="219" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="400" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="68" showattsigs="603" usesdiagramusefillcolour="0" x="858" linecolour="#ff0000" y="459" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="404" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="68" showattsigs="603" usesdiagramusefillcolour="0" x="911" linecolour="#ff0000" y="933" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="408" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="96" showattsigs="603" usesdiagramusefillcolour="0" x="8" linecolour="#ff0000" y="874" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="413" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="68" showattsigs="603" usesdiagramusefillcolour="0" x="263" linecolour="#ff0000" y="0" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="416" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="95" showattsigs="603" usesdiagramusefillcolour="0" x="527" linecolour="#ff0000" y="22" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="419" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="92" showattsigs="603" usesdiagramusefillcolour="0" x="365" linecolour="#ff0000" y="102" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="423" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="124" showattsigs="603" usesdiagramusefillcolour="0" x="195" linecolour="#ff0000" y="427" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="428" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="78" showattsigs="603" usesdiagramusefillcolour="0" x="1000" linecolour="#ff0000" y="204" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="432" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="98" showattsigs="603" usesdiagramusefillcolour="0" x="863" linecolour="#ff0000" y="540" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="441" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="68" showattsigs="603" usesdiagramusefillcolour="0" x="421" linecolour="#ff0000" y="292" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="445" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="83" showattsigs="603" usesdiagramusefillcolour="0" x="1080" linecolour="#ff0000" y="456" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="448" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="164" showattsigs="603" usesdiagramusefillcolour="0" x="1119" linecolour="#ff0000" y="619" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="451" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="68" showattsigs="603" usesdiagramusefillcolour="0" x="323" linecolour="#ff0000" y="1045" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="455" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="132" showattsigs="603" usesdiagramusefillcolour="0" x="767" linecolour="#ff0000" y="265" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="458" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="132" showattsigs="603" usesdiagramusefillcolour="0" x="0" linecolour="#ff0000" y="1049" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="462" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="105" showattsigs="603" usesdiagramusefillcolour="0" x="633" linecolour="#ff0000" y="582" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="465" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="92" showattsigs="603" usesdiagramusefillcolour="0" x="1191" linecolour="#ff0000" y="955" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="470" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="98" showattsigs="603" usesdiagramusefillcolour="0" x="537" linecolour="#ff0000" y="743" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="474" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="124" showattsigs="603" usesdiagramusefillcolour="0" x="689" linecolour="#ff0000" y="759" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="477" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="189" showattsigs="603" usesdiagramusefillcolour="0" x="525" linecolour="#ff0000" y="661" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="481" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="177" showattsigs="603" usesdiagramusefillcolour="0" x="761" linecolour="#ff0000" y="615" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="485" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="102" showattsigs="603" usesdiagramusefillcolour="0" x="701" linecolour="#ff0000" y="394" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="488" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="136" showattsigs="603" usesdiagramusefillcolour="0" x="705" linecolour="#ff0000" y="299" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="491" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="68" showattsigs="603" usesdiagramusefillcolour="0" x="838" linecolour="#ff0000" y="384" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="495" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="122" showattsigs="603" usesdiagramusefillcolour="0" x="502" linecolour="#ff0000" y="198" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="498" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="100" showattsigs="603" usesdiagramusefillcolour="0" x="438" linecolour="#ff0000" y="379" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="503" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="90" showattsigs="603" usesdiagramusefillcolour="0" x="358" linecolour="#ff0000" y="1212" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="507" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="124" showattsigs="603" usesdiagramusefillcolour="0" x="798" linecolour="#ff0000" y="1208" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="510" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="117" showattsigs="603" usesdiagramusefillcolour="0" x="1168" linecolour="#ff0000" y="238" showopsigs="603" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="28" usefillcolor="1" showattributes="0" xmi.id="514" showoperations="0" showpackage="0" showscope="0" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+    </widgets>
+    <messages/>
+    <associations>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="6" indexb="1" widgetbid="366" widgetaid="360" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="77" starty="203" />
+       <endpoint endx="204" endy="612" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="2" indexb="1" widgetbid="376" widgetaid="360" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="65" starty="175" />
+       <endpoint endx="63" endy="29" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="6" indexa="2" totalcountb="2" indexb="1" widgetbid="379" widgetaid="366" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="216" starty="612" />
+       <endpoint endx="165" endy="308" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="383" widgetaid="366" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="264" starty="630" />
+       <endpoint endx="343" endy="637" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="6" indexa="3" totalcountb="2" indexb="1" widgetbid="387" widgetaid="366" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="228" starty="612" />
+       <endpoint endx="361" endy="390" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="392" widgetaid="366" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="193" starty="626" />
+       <endpoint endx="71" endy="643" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="4" indexb="2" widgetbid="366" widgetaid="396" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="329" starty="877" />
+       <endpoint endx="228" endy="640" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="6" indexb="5" widgetbid="366" widgetaid="400" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="742" starty="247" />
+       <endpoint endx="252" endy="612" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="1" widgetbid="366" widgetaid="404" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="858" starty="473" />
+       <endpoint endx="264" endy="621" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="1" totalcountb="4" indexb="3" widgetbid="366" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="924" starty="933" />
+       <endpoint endx="246" endy="640" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="4" indexb="1" widgetbid="366" widgetaid="413" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="56" starty="874" />
+       <endpoint endx="210" endy="640" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="1" totalcountb="3" indexb="2" widgetbid="360" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="276" starty="28" />
+       <endpoint endx="89" endy="175" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="2" totalcountb="2" indexb="1" widgetbid="379" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="290" starty="28" />
+       <endpoint endx="165" endy="280" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="2" indexb="1" widgetbid="419" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="331" starty="9" />
+       <endpoint endx="527" endy="36" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="4" totalcountb="2" indexb="1" widgetbid="423" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="317" starty="28" />
+       <endpoint endx="411" endy="102" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="3" totalcountb="2" indexb="1" widgetbid="428" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="303" starty="28" />
+       <endpoint endx="257" endy="427" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="3" indexb="1" widgetbid="432" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="331" starty="18" />
+       <endpoint endx="1000" endy="213" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="3" totalcountb="5" indexb="3" widgetbid="432" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="951" starty="933" />
+       <endpoint endx="1046" endy="232" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="5" indexb="2" widgetbid="432" widgetaid="404" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="892" starty="459" />
+       <endpoint endx="1031" endy="232" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="1" totalcountb="3" indexb="1" widgetbid="387" widgetaid="423" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="383" starty="130" />
+       <endpoint endx="342" endy="362" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="4" totalcountb="2" indexb="1" widgetbid="400" widgetaid="423" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="438" starty="130" />
+       <endpoint endx="762" endy="219" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="441" widgetaid="404" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="903" starty="487" />
+       <endpoint endx="912" endy="540" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="5" indexb="2" widgetbid="423" widgetaid="445" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="443" starty="292" />
+       <endpoint endx="401" endy="130" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="400" widgetaid="445" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="489" starty="306" />
+       <endpoint endx="704" endy="233" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="2" widgetbid="387" widgetaid="445" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="421" starty="306" />
+       <endpoint endx="380" endy="362" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="2" widgetbid="432" widgetaid="400" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="820" starty="233" />
+       <endpoint endx="1000" endy="222" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="5" indexb="4" widgetbid="432" widgetaid="448" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="1107" starty="456" />
+       <endpoint endx="1062" endy="232" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="451" widgetaid="448" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="1121" starty="484" />
+       <endpoint endx="1201" endy="619" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="4" totalcountb="2" indexb="1" widgetbid="451" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="965" starty="933" />
+       <endpoint endx="1201" endy="647" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="396" widgetaid="455" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="357" starty="1045" />
+       <endpoint endx="329" endy="905" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="458" widgetaid="400" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="781" starty="247" />
+       <endpoint endx="833" endy="265" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="462" widgetaid="413" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="56" starty="902" />
+       <endpoint endx="66" endy="1049" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="5" indexb="3" widgetbid="465" widgetaid="404" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="880" starty="487" />
+       <endpoint endx="696" endy="582" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="2" totalcountb="3" indexb="2" widgetbid="465" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="938" starty="933" />
+       <endpoint endx="703" endy="610" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="470" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="979" starty="947" />
+       <endpoint endx="1191" endy="969" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="2" indexb="1" widgetbid="383" widgetaid="474" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="569" starty="743" />
+       <endpoint endx="420" endy="651" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="477" widgetaid="474" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="635" starty="757" />
+       <endpoint endx="689" endy="773" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="481" widgetaid="474" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="602" starty="743" />
+       <endpoint endx="619" endy="689" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="2" indexb="1" widgetbid="481" widgetaid="465" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="668" starty="610" />
+       <endpoint endx="619" endy="661" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="485" widgetaid="465" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="738" starty="596" />
+       <endpoint endx="849" endy="615" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="5" indexb="4" widgetbid="465" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="769" starty="422" />
+       <endpoint endx="717" endy="582" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="4" indexa="3" totalcountb="5" indexb="1" widgetbid="432" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="777" starty="394" />
+       <endpoint endx="1015" endy="232" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="6" indexb="4" widgetbid="366" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="735" starty="422" />
+       <endpoint endx="240" endy="612" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="4" indexa="1" totalcountb="2" indexb="1" widgetbid="491" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="726" starty="394" />
+       <endpoint endx="773" endy="327" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="4" indexa="2" totalcountb="2" indexb="1" widgetbid="495" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="752" starty="394" />
+       <endpoint endx="838" endy="398" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="3" indexb="1" widgetbid="498" widgetaid="445" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="466" starty="292" />
+       <endpoint endx="542" endy="226" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="3" totalcountb="2" indexb="1" widgetbid="498" widgetaid="423" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="420" starty="130" />
+       <endpoint endx="563" endy="198" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="2" totalcountb="3" indexb="2" widgetbid="498" widgetaid="465" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="675" starty="582" />
+       <endpoint endx="583" endy="226" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="5" indexa="1" totalcountb="2" indexb="1" widgetbid="428" widgetaid="465" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="654" starty="582" />
+       <endpoint endx="257" endy="455" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="503" widgetaid="445" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="455" starty="320" />
+       <endpoint endx="488" endy="379" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="510" widgetaid="507" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="448" starty="1226" />
+       <endpoint endx="798" endy="1222" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="514" widgetaid="448" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="1135" starty="456" />
+       <endpoint endx="1226" endy="266" />
+      </linepath>
+     </UML:AssocWidget>
+    </associations>
+   </diagram>
+   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" snapy="10" showatts="1" xmi.id="519" documentation="" type="402" showops="1" showpackage="0" name="clientes" localid="30000" showstereotype="0" showscope="1" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" linecolor="#ff0000" >
+    <widgets>
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="195" showattsigs="601" usesdiagramusefillcolour="1" x="494" linecolour="none" y="0" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="189" usefillcolor="1" showattributes="1" xmi.id="366" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="169" showattsigs="601" usesdiagramusefillcolour="1" x="286" linecolour="none" y="468" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="379" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="197" showattsigs="601" usesdiagramusefillcolour="1" x="721" linecolour="none" y="8" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="383" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="163" showattsigs="601" usesdiagramusefillcolour="1" x="476" linecolour="none" y="828" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="99" usefillcolor="1" showattributes="1" xmi.id="387" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="162" showattsigs="601" usesdiagramusefillcolour="1" x="248" linecolour="none" y="5" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="392" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="155" showattsigs="601" usesdiagramusefillcolour="1" x="638" linecolour="none" y="461" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="396" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="170" showattsigs="601" usesdiagramusefillcolour="1" x="240" linecolour="none" y="125" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="488" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="163" showattsigs="601" usesdiagramusefillcolour="1" x="372" linecolour="none" y="579" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="400" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="170" showattsigs="601" usesdiagramusefillcolour="1" x="1090" linecolour="none" y="337" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="404" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="170" showattsigs="601" usesdiagramusefillcolour="1" x="728" linecolour="none" y="251" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="99" usefillcolor="1" showattributes="1" xmi.id="408" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="187" showattsigs="601" usesdiagramusefillcolour="1" x="806" linecolour="none" y="124" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="413" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="217" showattsigs="601" usesdiagramusefillcolour="1" x="183" linecolour="none" y="282" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="117" usefillcolor="1" showattributes="1" xmi.id="360" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="217" showattsigs="601" usesdiagramusefillcolour="1" x="0" linecolour="none" y="214" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="376" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="143" showattsigs="601" usesdiagramusefillcolour="1" x="46" linecolour="none" y="478" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="416" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="0" linecolour="none" y="354" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="419" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="144" showattsigs="601" usesdiagramusefillcolour="1" x="45" linecolour="none" y="615" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="99" usefillcolor="1" showattributes="1" xmi.id="423" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="150" showattsigs="601" usesdiagramusefillcolour="1" x="42" linecolour="none" y="813" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="445" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="153" showattsigs="601" usesdiagramusefillcolour="1" x="644" linecolour="none" y="809" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="455" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="182" showattsigs="601" usesdiagramusefillcolour="1" x="801" linecolour="none" y="461" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="451" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="995" linecolour="none" y="450" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="470" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="174" showattsigs="601" usesdiagramusefillcolour="1" x="812" linecolour="none" y="648" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="448" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="834" linecolour="none" y="787" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="514" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="189" showattsigs="601" usesdiagramusefillcolour="1" x="974" linecolour="none" y="41" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="474" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="1157" linecolour="none" y="119" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="477" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="187" showattsigs="601" usesdiagramusefillcolour="1" x="1093" linecolour="none" y="212" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="462" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="1113" linecolour="none" y="558" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="441" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="136" showattsigs="601" usesdiagramusefillcolour="1" x="0" linecolour="none" y="116" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="491" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="132" showattsigs="601" usesdiagramusefillcolour="1" x="387" linecolour="none" y="702" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="458" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="149" showattsigs="601" usesdiagramusefillcolour="1" x="0" linecolour="none" y="31" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="495" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+    </widgets>
+    <messages/>
+    <associations>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="4" indexb="3" widgetbid="366" widgetaid="360" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="291" starty="282" />
+       <endpoint endx="494" endy="141" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="376" widgetaid="360" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="183" starty="340" />
+       <endpoint endx="108" endy="277" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="360" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="141" starty="478" />
+       <endpoint endx="291" endy="399" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="2" indexb="1" widgetbid="419" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="93" starty="478" />
+       <endpoint endx="65" endy="435" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="423" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="117" starty="541" />
+       <endpoint endx="117" endy="615" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="379" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="189" starty="509" />
+       <endpoint endx="286" endy="508" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="6" indexa="1" totalcountb="2" indexb="1" widgetbid="379" widgetaid="366" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="526" starty="189" />
+       <endpoint endx="370" endy="468" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="445" widgetaid="423" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="117" starty="714" />
+       <endpoint endx="117" endy="813" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="2" indexb="1" widgetbid="400" widgetaid="423" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="189" starty="648" />
+       <endpoint endx="372" endy="619" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="6" indexb="2" widgetbid="366" widgetaid="400" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="453" starty="579" />
+       <endpoint endx="559" endy="189" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="387" widgetaid="423" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="189" starty="681" />
+       <endpoint endx="476" endy="877" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="6" indexb="3" widgetbid="366" widgetaid="387" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="557" starty="828" />
+       <endpoint endx="591" endy="189" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="6" indexb="4" widgetbid="366" widgetaid="396" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="715" starty="461" />
+       <endpoint endx="624" endy="189" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="396" widgetaid="455" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="720" starty="809" />
+       <endpoint endx="715" endy="542" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="6" indexb="5" widgetbid="366" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="813" starty="251" />
+       <endpoint endx="656" endy="189" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="2" indexb="1" widgetbid="451" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="784" starty="350" />
+       <endpoint endx="892" endy="461" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="470" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="841" starty="350" />
+       <endpoint endx="1060" endy="450" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="451" widgetaid="448" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="899" starty="648" />
+       <endpoint endx="892" endy="542" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="514" widgetaid="448" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="899" starty="711" />
+       <endpoint endx="899" endy="787" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="4" indexa="1" totalcountb="2" indexb="1" widgetbid="383" widgetaid="366" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="689" starty="47" />
+       <endpoint endx="721" endy="48" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="383" widgetaid="474" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="974" starty="72" />
+       <endpoint endx="918" endy="48" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="477" widgetaid="474" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="1068" starty="104" />
+       <endpoint endx="1157" endy="159" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="4" indexb="2" widgetbid="366" widgetaid="413" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="899" starty="124" />
+       <endpoint endx="689" endy="94" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="462" widgetaid="413" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="993" starty="155" />
+       <endpoint endx="1093" endy="243" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="4" indexb="3" widgetbid="366" widgetaid="404" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="1175" starty="337" />
+       <endpoint endx="689" endy="141" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="441" widgetaid="404" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="1175" starty="418" />
+       <endpoint endx="1178" endy="558" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="4" indexa="1" totalcountb="2" indexb="1" widgetbid="392" widgetaid="366" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="494" starty="47" />
+       <endpoint endx="410" endy="45" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="4" indexb="2" widgetbid="366" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="353" starty="125" />
+       <endpoint endx="494" endy="94" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="491" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="240" starty="156" />
+       <endpoint endx="136" endy="156" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="458" widgetaid="400" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="453" starty="660" />
+       <endpoint endx="453" endy="702" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="2" indexb="1" widgetbid="495" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="296" starty="125" />
+       <endpoint endx="149" endy="62" />
+      </linepath>
+     </UML:AssocWidget>
+    </associations>
+   </diagram>
+   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" snapy="10" showatts="1" xmi.id="521" documentation="" type="402" showops="1" showpackage="0" name="empresa" localid="30000" showstereotype="0" showscope="1" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" linecolor="#ff0000" >
+    <widgets>
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="192" showattsigs="601" usesdiagramusefillcolour="1" x="403" linecolour="none" y="0" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="171" usefillcolor="1" showattributes="1" xmi.id="432" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="143" showattsigs="601" usesdiagramusefillcolour="1" x="719" linecolour="none" y="352" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="416" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="174" showattsigs="601" usesdiagramusefillcolour="1" x="153" linecolour="none" y="96" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="448" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="170" showattsigs="601" usesdiagramusefillcolour="1" x="662" linecolour="none" y="41" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="404" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="170" showattsigs="601" usesdiagramusefillcolour="1" x="651" linecolour="none" y="171" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="488" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="163" showattsigs="601" usesdiagramusefillcolour="1" x="487" linecolour="none" y="374" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="400" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="170" showattsigs="601" usesdiagramusefillcolour="1" x="183" linecolour="none" y="402" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="99" usefillcolor="1" showattributes="1" xmi.id="408" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="0" linecolour="none" y="159" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="514" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="182" showattsigs="601" usesdiagramusefillcolour="1" x="148" linecolour="none" y="240" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="451" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="203" linecolour="none" y="616" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="470" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="132" showattsigs="601" usesdiagramusefillcolour="1" x="368" linecolour="none" y="539" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="458" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="150" showattsigs="601" usesdiagramusefillcolour="1" x="513" linecolour="none" y="540" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="445" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="144" showattsigs="601" usesdiagramusefillcolour="1" x="732" linecolour="none" y="512" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="99" usefillcolor="1" showattributes="1" xmi.id="423" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="526" linecolour="none" y="689" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="503" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="947" linecolour="none" y="41" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="441" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="136" showattsigs="601" usesdiagramusefillcolour="1" x="954" linecolour="none" y="340" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="491" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="149" showattsigs="601" usesdiagramusefillcolour="1" x="933" linecolour="none" y="173" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="495" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="964" linecolour="none" y="523" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="419" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+    </widgets>
+    <messages/>
+    <associations>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="432" widgetaid="448" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="240" starty="96" />
+       <endpoint endx="403" endy="85" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="451" widgetaid="448" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="240" starty="159" />
+       <endpoint endx="239" endy="240" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="514" widgetaid="448" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="153" starty="127" />
+       <endpoint endx="65" endy="159" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="2" indexb="1" widgetbid="451" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="239" starty="402" />
+       <endpoint endx="239" endy="321" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="4" indexb="1" widgetbid="432" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="296" starty="402" />
+       <endpoint endx="451" endy="171" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="470" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="268" starty="501" />
+       <endpoint endx="268" endy="616" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="4" indexb="2" widgetbid="432" widgetaid="400" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="568" starty="374" />
+       <endpoint endx="499" endy="171" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="4" indexa="1" totalcountb="2" indexb="1" widgetbid="458" widgetaid="400" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="527" starty="455" />
+       <endpoint endx="434" endy="539" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="4" indexb="2" widgetbid="400" widgetaid="445" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="588" starty="540" />
+       <endpoint endx="568" endy="455" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="4" indexb="3" widgetbid="400" widgetaid="423" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="732" starty="545" />
+       <endpoint endx="609" endy="455" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="2" widgetbid="423" widgetaid="445" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="663" starty="571" />
+       <endpoint endx="732" endy="578" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="503" widgetaid="445" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="588" starty="603" />
+       <endpoint endx="591" endy="689" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="1" widgetbid="432" widgetaid="404" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="662" starty="81" />
+       <endpoint endx="595" endy="57" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="441" widgetaid="404" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="832" starty="81" />
+       <endpoint endx="947" endy="81" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="2" widgetbid="432" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="736" starty="171" />
+       <endpoint endx="595" endy="114" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="495" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="821" starty="202" />
+       <endpoint endx="933" endy="204" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="491" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="736" starty="234" />
+       <endpoint endx="954" endy="380" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="4" indexb="3" widgetbid="432" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="790" starty="352" />
+       <endpoint endx="547" endy="171" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="2" indexb="1" widgetbid="423" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="766" starty="415" />
+       <endpoint endx="804" endy="512" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="419" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="814" starty="415" />
+       <endpoint endx="1029" endy="523" />
+      </linepath>
+     </UML:AssocWidget>
+    </associations>
+   </diagram>
+   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" snapy="10" showatts="1" xmi.id="522" documentation="" type="402" showops="1" showpackage="0" name="proveedores" localid="30000" showstereotype="0" showscope="1" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" linecolor="#ff0000" >
+    <widgets>
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="187" showattsigs="601" usesdiagramusefillcolour="1" x="469" linecolour="none" y="0" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="99" usefillcolor="1" showattributes="1" xmi.id="465" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="164" showattsigs="601" usesdiagramusefillcolour="1" x="248" linecolour="none" y="160" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="428" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="187" showattsigs="601" usesdiagramusefillcolour="1" x="608" linecolour="none" y="283" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="485" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="189" showattsigs="601" usesdiagramusefillcolour="1" x="944" linecolour="none" y="151" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="481" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="187" showattsigs="601" usesdiagramusefillcolour="1" x="422" linecolour="none" y="169" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="99" usefillcolor="1" showattributes="1" xmi.id="498" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="170" showattsigs="601" usesdiagramusefillcolour="1" x="222" linecolour="none" y="45" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="488" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="136" showattsigs="601" usesdiagramusefillcolour="1" x="28" linecolour="none" y="68" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="491" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="170" showattsigs="601" usesdiagramusefillcolour="1" x="728" linecolour="none" y="9" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="404" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="971" linecolour="none" y="28" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="441" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="170" showattsigs="601" usesdiagramusefillcolour="1" x="811" linecolour="none" y="276" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="99" usefillcolor="1" showattributes="1" xmi.id="408" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="707" linecolour="none" y="504" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="470" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="149" showattsigs="601" usesdiagramusefillcolour="1" x="21" linecolour="none" y="194" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="495" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="143" showattsigs="601" usesdiagramusefillcolour="1" x="217" linecolour="none" y="288" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="416" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="58" linecolour="none" y="340" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="419" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="144" showattsigs="601" usesdiagramusefillcolour="1" x="240" linecolour="none" y="476" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="99" usefillcolor="1" showattributes="1" xmi.id="423" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="150" showattsigs="601" usesdiagramusefillcolour="1" x="471" linecolour="none" y="492" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="445" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="483" linecolour="none" y="667" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="503" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="189" showattsigs="601" usesdiagramusefillcolour="1" x="1047" linecolour="none" y="304" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="474" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="1076" linecolour="none" y="445" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="477" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="182" showattsigs="601" usesdiagramusefillcolour="1" x="859" linecolour="none" y="504" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="81" usefillcolor="1" showattributes="1" xmi.id="451" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="1" width="174" showattsigs="601" usesdiagramusefillcolour="1" x="862" linecolour="none" y="695" showopsigs="601" usesdiagramlinecolour="1" fillcolour="none" height="63" usefillcolor="1" showattributes="1" xmi.id="448" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+    </widgets>
+    <messages/>
+    <associations>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="1" widgetbid="465" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="307" starty="45" />
+       <endpoint endx="469" endy="33" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="491" widgetaid="488" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="222" starty="76" />
+       <endpoint endx="164" endy="108" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="495" widgetaid="491" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="96" starty="149" />
+       <endpoint endx="95" endy="194" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="428" widgetaid="465" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="469" starty="66" />
+       <endpoint endx="330" endy="160" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="428" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="288" starty="288" />
+       <endpoint endx="330" endy="241" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="419" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="217" starty="319" />
+       <endpoint endx="123" endy="340" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="1" widgetbid="423" widgetaid="416" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="288" starty="351" />
+       <endpoint endx="288" endy="476" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="423" widgetaid="445" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="471" starty="523" />
+       <endpoint endx="384" endy="525" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="503" widgetaid="445" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="546" starty="555" />
+       <endpoint endx="548" endy="667" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="4" indexa="1" totalcountb="2" indexb="1" widgetbid="498" widgetaid="465" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="515" starty="99" />
+       <endpoint endx="515" endy="169" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="2" widgetbid="498" widgetaid="445" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="546" starty="492" />
+       <endpoint endx="546" endy="268" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="3" indexb="1" widgetbid="498" widgetaid="423" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="336" starty="476" />
+       <endpoint endx="484" endy="268" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="1" widgetbid="465" widgetaid="404" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="728" starty="49" />
+       <endpoint endx="656" endy="33" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="441" widgetaid="404" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="898" starty="49" />
+       <endpoint endx="971" endy="68" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="481" widgetaid="465" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="656" starty="66" />
+       <endpoint endx="944" endy="191" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="481" widgetaid="474" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="1141" starty="304" />
+       <endpoint endx="1038" endy="232" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="477" widgetaid="474" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="1141" starty="367" />
+       <endpoint endx="1141" endy="445" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="4" indexa="2" totalcountb="2" indexb="1" widgetbid="485" widgetaid="465" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="562" starty="99" />
+       <endpoint endx="701" endy="283" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="4" indexb="3" widgetbid="465" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="896" starty="276" />
+       <endpoint endx="609" endy="99" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="2" indexb="1" widgetbid="470" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="867" starty="375" />
+       <endpoint endx="772" endy="504" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="451" widgetaid="408" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="924" starty="375" />
+       <endpoint endx="950" endy="504" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="451" widgetaid="448" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="949" starty="695" />
+       <endpoint endx="950" endy="585" />
+      </linepath>
+     </UML:AssocWidget>
+    </associations>
+   </diagram>
+  </diagrams>
+  <listview>
+   <listitem open="1" type="800" id="-1" label="Views" >
+    <listitem open="1" type="801" id="-1" label="Logical View" >
+     <listitem open="0" type="813" id="360" label="agentes" >
+      <listitem open="0" type="814" id="361" label="codagente" />
+      <listitem open="0" type="814" id="365" label="coddepartamento" />
+      <listitem open="0" type="814" id="364" label="codpais" />
+      <listitem open="0" type="814" id="362" label="dnicif" />
+      <listitem open="0" type="814" id="363" label="irpf" />
+     </listitem>
+     <listitem open="0" type="813" id="445" label="bancos" >
+      <listitem open="0" type="814" id="446" label="entidad" />
+      <listitem open="0" type="814" id="447" label="nombre" />
+     </listitem>
+     <listitem open="0" type="813" id="503" label="bancos_imp" >
+      <listitem open="0" type="814" id="505" label="desde" />
+      <listitem open="0" type="814" id="506" label="hasta" />
+      <listitem open="0" type="814" id="504" label="id" />
+     </listitem>
+     <listitem open="0" type="807" id="359" label="class diagram" />
+     <listitem open="0" type="807" id="519" label="clientes" />
+     <listitem open="0" type="813" id="366" label="clientes" >
+      <listitem open="0" type="814" id="375" label="codagente" />
+      <listitem open="0" type="814" id="367" label="codcliente" />
+      <listitem open="0" type="814" id="370" label="codcuentadom" />
+      <listitem open="0" type="814" id="371" label="codcuentarem" />
+      <listitem open="0" type="814" id="372" label="coddivisa" />
+      <listitem open="0" type="814" id="368" label="codgrupo" />
+      <listitem open="0" type="814" id="369" label="codpago" />
+      <listitem open="0" type="814" id="373" label="codserie" />
+      <listitem open="0" type="814" id="374" label="codtiporappel" />
+     </listitem>
+     <listitem open="0" type="813" id="392" label="contactosclientes" >
+      <listitem open="0" type="814" id="395" label="codcliente" />
+      <listitem open="0" type="814" id="394" label="contacto" />
+      <listitem open="0" type="814" id="393" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="485" label="contactosproveedores" >
+      <listitem open="0" type="814" id="487" label="codproveedor" />
+      <listitem open="0" type="814" id="486" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="400" label="cuentasbanco" >
+      <listitem open="0" type="814" id="403" label="agencia" />
+      <listitem open="0" type="814" id="401" label="codcuenta" />
+      <listitem open="0" type="814" id="402" label="entidad" />
+     </listitem>
+     <listitem open="0" type="813" id="387" label="cuentasbcocli" >
+      <listitem open="0" type="814" id="390" label="agencia" />
+      <listitem open="0" type="814" id="391" label="codcliente" />
+      <listitem open="0" type="814" id="388" label="codcuenta" />
+      <listitem open="0" type="814" id="389" label="entidad" />
+     </listitem>
+     <listitem open="0" type="813" id="458" label="cuentasbco_imp" >
+      <listitem open="0" type="814" id="460" label="desde" />
+      <listitem open="0" type="814" id="461" label="hasta" />
+      <listitem open="0" type="814" id="459" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="498" label="cuentasbcopro" >
+      <listitem open="0" type="814" id="501" label="agencia" />
+      <listitem open="0" type="814" id="499" label="codcuenta" />
+      <listitem open="0" type="814" id="502" label="codproveedor" />
+      <listitem open="0" type="814" id="500" label="entidad" />
+     </listitem>
+     <listitem open="0" type="813" id="477" label="decuentos_imp" >
+      <listitem open="0" type="814" id="479" label="desde" />
+      <listitem open="0" type="814" id="480" label="hasta" />
+      <listitem open="0" type="814" id="478" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="376" label="departamentos" >
+      <listitem open="0" type="814" id="377" label="coddepartamento" />
+      <listitem open="0" type="814" id="378" label="nombre" />
+     </listitem>
+     <listitem open="0" type="813" id="474" label="descuentos" >
+      <listitem open="0" type="814" id="475" label="coddescuento" />
+      <listitem open="0" type="814" id="476" label="descripcion" />
+     </listitem>
+     <listitem open="0" type="813" id="383" label="descuentosclientes" >
+      <listitem open="0" type="814" id="385" label="codcliente" />
+      <listitem open="0" type="814" id="386" label="coddescuentos" />
+      <listitem open="0" type="814" id="384" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="481" label="descuentosproveedores" >
+      <listitem open="0" type="814" id="484" label="coddescuento" />
+      <listitem open="0" type="814" id="483" label="codproveedor" />
+      <listitem open="0" type="814" id="482" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="379" label="dirclientes" >
+      <listitem open="0" type="814" id="382" label="codcliente" />
+      <listitem open="0" type="814" id="381" label="codpais" />
+      <listitem open="0" type="814" id="380" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="428" label="dirproveedores" >
+      <listitem open="0" type="814" id="430" label="codpais" />
+      <listitem open="0" type="814" id="431" label="codproveedor" />
+      <listitem open="0" type="814" id="429" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="404" label="divisas" >
+      <listitem open="0" type="814" id="405" label="coddivisa" />
+      <listitem open="0" type="814" id="406" label="descripcion" />
+      <listitem open="0" type="814" id="407" label="fecha" />
+     </listitem>
+     <listitem open="0" type="813" id="441" label="divisas_imp" >
+      <listitem open="0" type="814" id="443" label="desde" />
+      <listitem open="0" type="814" id="444" label="hasta" />
+      <listitem open="0" type="814" id="442" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="448" label="ejercicios" >
+      <listitem open="0" type="814" id="449" label="codejercicio" />
+      <listitem open="0" type="814" id="450" label="nombre" />
+     </listitem>
+     <listitem open="0" type="813" id="514" label="ejercicios_imp" >
+      <listitem open="0" type="814" id="516" label="desde" />
+      <listitem open="0" type="814" id="517" label="hasta" />
+      <listitem open="0" type="814" id="515" label="id" />
+     </listitem>
+     <listitem open="0" type="807" id="521" label="empresa" />
+     <listitem open="0" type="813" id="432" label="empresa" >
+      <listitem open="0" type="814" id="438" label="codalmacen" />
+      <listitem open="0" type="814" id="439" label="codcuentarem" />
+      <listitem open="0" type="814" id="436" label="coddivisa" />
+      <listitem open="0" type="814" id="435" label="codejercicio" />
+      <listitem open="0" type="814" id="437" label="codpago" />
+      <listitem open="0" type="814" id="434" label="codpais" />
+      <listitem open="0" type="814" id="440" label="codserie" />
+      <listitem open="0" type="814" id="433" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="488" label="formaspago" >
+      <listitem open="0" type="814" id="489" label="codpago" />
+      <listitem open="0" type="814" id="490" label="descripcion" />
+     </listitem>
+     <listitem open="0" type="813" id="491" label="formaspago_imp" >
+      <listitem open="0" type="814" id="493" label="desde" />
+      <listitem open="0" type="814" id="494" label="hasta" />
+      <listitem open="0" type="814" id="492" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="396" label="gruposclientes" >
+      <listitem open="0" type="814" id="397" label="codgrupo" />
+      <listitem open="0" type="814" id="399" label="codtarifa" />
+      <listitem open="0" type="814" id="398" label="nombre" />
+     </listitem>
+     <listitem open="0" type="813" id="507" label="impuestos" >
+      <listitem open="0" type="814" id="508" label="codimpuesto" />
+      <listitem open="0" type="814" id="509" label="descripcion" />
+     </listitem>
+     <listitem open="0" type="813" id="510" label="impuestos_imp" >
+      <listitem open="0" type="814" id="512" label="desde" />
+      <listitem open="0" type="814" id="513" label="hasta" />
+      <listitem open="0" type="814" id="511" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="462" label="intervalosrappel" >
+      <listitem open="0" type="814" id="463" label="codtiporappel" />
+      <listitem open="0" type="814" id="464" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="416" label="paises" >
+      <listitem open="0" type="814" id="417" label="codpais" />
+      <listitem open="0" type="814" id="418" label="nombre" />
+     </listitem>
+     <listitem open="0" type="813" id="419" label="paises_imp" >
+      <listitem open="0" type="814" id="421" label="desde" />
+      <listitem open="0" type="814" id="422" label="hasta" />
+      <listitem open="0" type="814" id="420" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="495" label="plazos" >
+      <listitem open="0" type="814" id="496" label="codpago" />
+      <listitem open="0" type="814" id="497" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="465" label="proveedores" >
+      <listitem open="0" type="814" id="468" label="coddivisa" />
+      <listitem open="0" type="814" id="467" label="codpago" />
+      <listitem open="0" type="814" id="466" label="codproveedor" />
+      <listitem open="0" type="814" id="469" label="codserie" />
+     </listitem>
+     <listitem open="0" type="807" id="522" label="proveedores" />
+     <listitem open="0" type="813" id="451" label="secuenciasejercicios" >
+      <listitem open="0" type="814" id="454" label="codejercicios" />
+      <listitem open="0" type="814" id="453" label="codserie" />
+      <listitem open="0" type="814" id="452" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="408" label="series" >
+      <listitem open="0" type="814" id="409" label="codserie" />
+      <listitem open="0" type="814" id="410" label="descripcion" />
+      <listitem open="0" type="814" id="411" label="irpf" />
+      <listitem open="0" type="814" id="412" label="siniva" />
+     </listitem>
+     <listitem open="0" type="813" id="470" label="series_imp" >
+      <listitem open="0" type="814" id="472" label="desde" />
+      <listitem open="0" type="814" id="473" label="hasta" />
+      <listitem open="0" type="814" id="471" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="423" label="sucursales" >
+      <listitem open="0" type="814" id="426" label="agencia" />
+      <listitem open="0" type="814" id="427" label="codpais" />
+      <listitem open="0" type="814" id="425" label="entidad" />
+      <listitem open="0" type="814" id="424" label="id" />
+     </listitem>
+     <listitem open="0" type="813" id="455" label="tarifas" >
+      <listitem open="0" type="814" id="456" label="codtarifa" />
+      <listitem open="0" type="814" id="457" label="nombre" />
+     </listitem>
+     <listitem open="0" type="813" id="413" label="tiposrappel" >
+      <listitem open="0" type="814" id="414" label="codtiporappel" />
+      <listitem open="0" type="814" id="415" label="descripcion" />
+     </listitem>
+    </listitem>
+    <listitem open="1" type="802" id="-1" label="Use Case View" />
+   </listitem>
+  </listview>
+ </XMI.content>
+</XMI>

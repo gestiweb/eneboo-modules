@@ -1,0 +1,170 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>tpv_pagoscomanda</name>
+	<!--Pagos por venta-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Pagos por venta")</alias>
+
+	<field>
+		<name>idpago</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>idtpv_comanda</name>
+		<!--Identificador de la comanda a la que pertenece la línea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Comanda")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>tpv_comandas</table>
+			<field>idtpv_comanda</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>idrecibo</name>
+		<!--Recibo asociado al pago-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Recibo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>fecha</name>
+		<!--Fecha del pago-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>importe</name>
+		<!-- Importe del pago-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Importe")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>estado</name>
+		<!-- Estado del pago-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>codpago</name>
+		<!--Forma de pago-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","F.Pago")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+
+		<relation>
+			<table>formaspago</table>
+			<field>codpago</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>idtpv_arqueo</name>
+		<!-- Código del arqueo al que pertenece -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Arqueo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>8</length>
+		<editable>false</editable>
+		
+		<relation>
+			<table>tpv_arqueos</table>
+			<field>idtpv_arqueo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>editable</name>
+		<!--Indicador de si el pago es editable (pertenece o no a un arqueo abierto)-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Bloqueado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>unlock</type>
+		<default>true</default>
+		<visiblegrid>true</visiblegrid>
+	</field>
+
+	<field>
+		<name>codtpv_puntoventa</name>
+		<!-- Indica cual es el terminal desde el cual se efectúa la venta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Punto de venta")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>tpv_puntosventa</table>
+			<field>codtpv_puntoventa</field>
+			<card>M1</card>
+		</relation>
+		
+	</field>
+	
+	<field>
+		<name>codtpv_agente</name>
+		<!-- Código del agente encargado de registrar el pago -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Agente")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>tpv_agentes</table>
+			<field>codtpv_agente</field>
+			<card>M1</card>
+		</relation>
+		
+	</field>
+	
+	<field>
+		<name>refvale</name>
+		<!-- Referencia del vale-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Vale")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>16</length>
+		
+		<relation>
+			<table>tpv_vales</table>
+			<field>referencia</field>
+			<card>M1</card>
+		</relation>
+		
+	</field>
+	
+</TMD>

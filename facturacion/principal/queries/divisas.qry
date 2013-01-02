@@ -1,0 +1,30 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>divisas</name>
+
+	<tables>divisas</tables>
+
+	<param>
+		<name>from</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Desde Divisa:")</alias>
+		<type>string</type>
+	</param>
+
+	<param>
+		<name>to</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Hasta Divisa:")</alias>
+		<type>string</type>
+	</param>
+
+	<select>
+		divisas.coddivisa, divisas.descripcion, divisas.tasaconv
+	</select>
+
+	<from>
+		divisas
+	</from>
+
+	<where>
+		divisas.coddivisa&gt;=[from] AND divisas.coddivisa&lt;=[to] ORDER BY divisas.coddivisa 
+	</where>
+</QRY> 

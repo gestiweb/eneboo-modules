@@ -1,0 +1,31 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>familias</name>
+		<!-- Listado de familias de artículos -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Familias")</alias>
+
+	<field>
+		<name>codfamilia</name>
+		<!-- Código de la familia -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>4</length>
+
+		<relation>
+			<table>articulos</table>
+			<field>codfamilia</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+</TMD>

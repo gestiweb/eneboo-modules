@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd"><KugarTemplate BottomMargin="10" LeftMargin="20" PageOrientation="0" PageSize="0" RightMargin="10" TopMargin="70">
+
+	<DetailHeader NewPage="true" Level="0"></DetailHeader>
+ 	
+	<Detail Height="525" Level="0">
+		
+	<!-- RECIBO -->
+  <Line Width="1" Y1="0" Y2="0" X1="0" X2="210" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="174" Y2="174" X1="0" X2="210" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="174" X1="0" X2="0" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="174" X1="210" X2="210" Style="1" Color="100,100,100" />
+	
+  <Label WordWrap="0" Width="70" X="2" Y="2" BorderStyle="0" Height="19" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" RECIBO" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+  <Field WordWrap="0" Width="136" X="72" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="1" DataType="0" Field="reciboscli.codigo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[reciboscli.codigo]" FontWeight="65" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial" />
+  
+  <Label WordWrap="0" Width="55" X="5" Y="25" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Fecha" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Field WordWrap="0" Width="100" X="75" Y="25" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="3" Field="reciboscli.fecha" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[reciboscli.fecha]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  
+	<Label WordWrap="0" Width="55" X="5" Y="45" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Divisa" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Field WordWrap="0" Width="100" X="75" Y="45" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="reciboscli.coddivisa" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[reciboscli.coddivisa]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+	<Label WordWrap="0" Width="55" X="5" Y="65" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Página" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	<Special WordWrap="0" Width="100" X="75" Y="65" BorderStyle="0" Height="18" HAlignment="0" DateFormat="11" BorderColor="0,0,0" BackgroundColor="255,255,255" Type="1" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+  
+	<Label WordWrap="0" Width="55" X="5" Y="90" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Código" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	<Field WordWrap="0" Width="205" X="1" Y="110" BorderStyle="0" NegValueColor="0,0,0" Height="50" HAlignment="0" DataType="6" Field="reciboscli.codigo" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" />
+	
+	
+	<!-- EMPRESA -->
+  <Line Width="1" Y1="0" Y2="0" X1="219" X2="591" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="80" Y2="80" X1="219" X2="591" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="80" X1="219" X2="219" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="80" X1="591" X2="591" Style="1" olor="100,100,100" />
+	
+  <Field WordWrap="1" Width="260" X="221" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="35" HAlignment="1" DataType="0" Field="empresa.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.nombre]" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+ 
+  <CalculatedField CalculationType="6" FunctionName="flfactinfo.pub_logo" WordWrap="0" Width="109" X="480" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="34" HAlignment="0" DataType="5" Field="empresa.logo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.logo]" FontWeight="50" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	<Label WordWrap="0" Width="60" X="225" Y="40" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="CIF/NIF" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="80" X="275" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.cifnif" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.cifnif]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+ 
+  <Field WordWrap="0" Width="235" X="355" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.direccion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.direccion]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="45" X="225" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.codpostal" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.codpostal]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="150" X="270" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.ciudad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.ciudad]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="100" X="420" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.provincia" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.provincia]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+ 
+	
+	<!-- CLIENTE -->
+  <Line Width="1" Y1="89" Y2="89" X1="219" X2="591" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="174" Y2="174" X1="219" X2="591" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="89" Y2="174" X1="219" X2="219" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="89" Y2="174" X1="590" X2="590" Style="1" Color="100,100,100" />
+	
+  <Label WordWrap="0" Width="78" X="222" Y="91" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Cliente" FontWeight="65" FontSize="12" BorderWidth="0" FontFamily="Arial" />
+  <Field WordWrap="0" Width="298" X="290" Y="91" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="0" Field="reciboscli.codcliente" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[reciboscli.codcliente]" FontWeight="65" FontSize="12" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+	
+  <Field WordWrap="0" Width="250" X="225" Y="115" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="reciboscli.nombrecliente" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[reciboscli.nombrecliente]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  
+  <Label WordWrap="0" Width="50" X="480" Y="115" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="CIF/NIF" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+	<Field WordWrap="0" Width="60" X="525" Y="115" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="reciboscli.cifnif" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[reciboscli.cifnif]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  
+	<Field WordWrap="0" Width="200" X="225" Y="135" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="reciboscli.direccion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[reciboscli.direccion]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="50" X="225" Y="155" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="reciboscli.codpostal" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[reciboscli.codpostal]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="160" X="295" Y="155" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="reciboscli.ciudad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[reciboscli.ciudad]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="100" X="475" Y="155" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="reciboscli.provincia" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[reciboscli.provincia]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+
+	
+		
+<Label BackgroundColor="255,255,255" BorderColor="0,0,0" BorderStyle="0" BorderWidth="1" FontFamily="Arial" FontItalic="0" FontSize="10" FontWeight="65" ForegroundColor="0,0,0" HAlignment="0" Height="20" Text="Recibi:" VAlignment="1" Width="62" WordWrap="0" X="0" Y="210" />
+		
+	<!-- CLIENTE -->
+  <Line Width="1" Y1="230" Y2="230" X1="0" X2="590" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="285" Y2="285" X1="0" X2="590" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="230" Y2="285" X1="0" X2="0" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="230" Y2="285" X1="590" X2="590" Style="1" Color="100,100,100" />
+
+<Label BackgroundColor="220,220,220" BorderColor="0,0,0" BorderStyle="0" BorderWidth="1" FontFamily="Arial" FontItalic="0" FontSize="12" FontWeight="65" ForegroundColor="0,0,0" HAlignment="1" Height="22" Text="IMPORTE" VAlignment="1" Width="100" WordWrap="0" X="2" Y="232" />
+<Field BackgroundColor="255,255,255" BorderColor="0,0,0" BorderStyle="0" BorderWidth="1" CommaSeparator="44" Currency="32" DataType="2" DateFormat="11" Field="reciboscli.importe" FontFamily="Arial" FontItalic="0" FontSize="12" FontWeight="65" ForegroundColor="0,0,0" HAlignment="0" Height="25" NegValueColor="0,0,0" Precision="2" Text="[reciboscli.importe]" VAlignment="1" Width="180" WordWrap="0" X="150" Y="235" />
+<Field BackgroundColor="255,255,255" BorderColor="0,0,0" BorderStyle="0" BorderWidth="1" CommaSeparator="44" Currency="32" DataType="0" DateFormat="10" Field="reciboscli.texto" FontFamily="Arial" FontItalic="0" FontSize="9" FontWeight="50" ForegroundColor="0,0,0"
+HAlignment="0" Height="20" NegValueColor="0,0,0" Precision="2" Text="[reciboscli.texto]" VAlignment="1" Width="580" WordWrap="0" X="5" Y="263" />
+
+<Label BackgroundColor="255,255,255" BorderColor="0,0,0" BorderStyle="0" BorderWidth="1" FontFamily="Arial" FontItalic="0" FontSize="10" FontWeight="65" ForegroundColor="0,0,0" HAlignment="0" Height="26" Text="Vencimiento" VAlignment="1" Width="95" WordWrap="0" X="5" Y="300" />
+<Field BackgroundColor="255,255,255" BorderColor="0,0,0" BorderStyle="0" BorderWidth="1" CommaSeparator="44" Currency="32" DataType="3" DateFormat="19" Field="reciboscli.fechav" FontFamily="Arial" FontItalic="0" FontSize="10" FontWeight="50" ForegroundColor="0,0,0" HAlignment="0" Height="26" NegValueColor="0,0,0" Precision="2" Text="[reciboscli.fechav]" VAlignment="1" Width="173" WordWrap="0" X="100" Y="300" />
+
+
+<Label BackgroundColor="255,255,255" BorderColor="0,0,0" BorderStyle="0" BorderWidth="1" FontFamily="Arial" FontItalic="0" FontSize="10" FontWeight="75" ForegroundColor="0,0,0" HAlignment="0" Height="26" Text="C.C. Cliente" VAlignment="1" Width="95" WordWrap="0" X="5" Y="325" />
+<Field BackgroundColor="255,255,255" BorderColor="0,0,0" BorderStyle="0" BorderWidth="1" CommaSeparator="44" Currency="32" DataType="0" DateFormat="11" Field="reciboscli.ctaentidad" FontFamily="Arial" FontItalic="0" FontSize="10" FontWeight="50" ForegroundColor="0,0,0"
+HAlignment="0" Height="26" NegValueColor="0,0,0" Precision="2" Text="[reciboscli.ctaentidad]" VAlignment="1" Width="40" WordWrap="0" X="100" Y="325" />
+<Field BackgroundColor="255,255,255" BorderColor="0,0,0" BorderStyle="0" BorderWidth="1" CommaSeparator="44" Currency="32" DataType="0" DateFormat="11" Field="reciboscli.ctaagencia" FontFamily="Arial" FontItalic="0" FontSize="10" FontWeight="50" ForegroundColor="0,0,0"
+HAlignment="0" Height="26" NegValueColor="0,0,0" Precision="2" Text="[reciboscli.ctaagencia]" VAlignment="1" Width="40" WordWrap="0" X="135" Y="325" />
+<Field BackgroundColor="255,255,255" BorderColor="0,0,0" BorderStyle="0" BorderWidth="1" CommaSeparator="44" Currency="32" DataType="0" DateFormat="11" Field="reciboscli.dc" FontFamily="Arial" FontItalic="0" FontSize="10" FontWeight="50" ForegroundColor="0,0,0"
+HAlignment="0" Height="26" NegValueColor="0,0,0" Precision="2" Text="[reciboscli.dc]" VAlignment="1"
+Width="25" WordWrap="0" X="170" Y="325" />
+<Field BackgroundColor="255,255,255" BorderColor="0,0,0" BorderStyle="0" BorderWidth="1" CommaSeparator="44" Currency="32" DataType="0" DateFormat="11" Field="reciboscli.cuenta" FontFamily="Arial" FontItalic="0" FontSize="10" FontWeight="50" ForegroundColor="0,0,0"
+HAlignment="0" Height="26" NegValueColor="0,0,0" Precision="2" Text="[reciboscli.cuenta]" VAlignment="1" Width="100" WordWrap="0" X="190" Y="325" />
+
+	</Detail>
+
+	<Detail Height="8" Level="1">
+	</Detail>
+
+	<DetailFooter Height="8" Level="1">
+	</DetailFooter>
+
+	<PageFooter Height="8">
+	</PageFooter>
+
+</KugarTemplate>

@@ -1,0 +1,44 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>trazadoc</name>
+	<!--Tabla temporal para mostrar los documentos relacionados con un documento de facturación-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Traza de documentos")</alias>
+
+	<field>
+		<name>id</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+	</field>
+
+	<field>
+		<name>codigo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>tipo</name>
+		<!--Tipo de documento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+	</field>
+	
+	<field>
+		<name>usuario</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Usuario")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<editable>false</editable>
+		<type>string</type>
+		<length>20</length>
+	</field>
+</TMD>

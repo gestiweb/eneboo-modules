@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+<KugarTemplate TopMargin="40" BottomMargin="10" LeftMargin="20" RightMargin="10" PageSize="0" PageOrientation="1" >
+
+<Detail Level="1" Height="16">
+<Field  X="85" Y="0" Width="59" Height="16" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" HAlignment="1" VAlignment="1" WordWrap ="0" DataType="3" Field="albaranesprov.fecha" DateFormat="18" ForegroundColor="0,0,0"/>
+<Field  X="690" Y="0" Width="69" Height="16" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" Text ="3" HAlignment="2" VAlignment="1" WordWrap ="0" DataType="2" Field="albaranesprov.total" Precision="2" CommaSeparator="44" ForegroundColor="0,0,0"/>
+<Field  X="15" Y="0" Width="69" Height="16" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" Text ="AMA042" WordWrap ="0" DataType="0" Field="albaranesprov.codigo" ForegroundColor="0,0,0"/>
+<Field  X="145" Y="0" Width="50" Height="16" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="0" Field="albaranesprov.codproveedor" Precision="3" CommaSeparator="44" ForegroundColor="0,0,0"/>
+<Field  X="630" Y="0" Width="59" Height="16" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" Text ="3" HAlignment="2" VAlignment="1" WordWrap ="0" DataType="2" Field="albaranesprov.totalrecargo" Precision="2" CommaSeparator="44" ForegroundColor="0,0,0"/>
+<Field  X="570" Y="0" Width="59" Height="16" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" Text ="3" HAlignment="2" VAlignment="1" WordWrap ="0" DataType="2" Field="albaranesprov.totaliva" Precision="2" CommaSeparator="44" ForegroundColor="0,0,0"/>
+<Field  X="440" Y="0" Width="59" Height="16" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" WordWrap ="0" DataType="0" Field="albaranesprov.cifnif" ForegroundColor="0,0,0"/>
+<Field  X="500" Y="0" Width="69" Height="16" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" Text ="3" HAlignment="2" VAlignment="1" WordWrap ="0" DataType="2" Field="albaranesprov.neto" Precision="2" CommaSeparator="44" ForegroundColor="0,0,0"/>
+<Field  X="200" Y="0" Width="239" Height="16" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="0" Field="albaranesprov.nombre" Precision="3" CommaSeparator="44" ForegroundColor="0,0,0"/>
+<Field  X="800" Y="0" Width="59" Height="16" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" Text ="3" HAlignment="2" VAlignment="1" WordWrap ="0" DataType="2" Field="albaranesprov.totaleuros" Precision="2" CommaSeparator="44" ForegroundColor="0,0,0"/>
+<Field  X="760" Y="0" Width="39" Height="16" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" Text ="EUR" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="0" Field="albaranesprov.coddivisa" Precision="2" CommaSeparator="44" ForegroundColor="0,0,0"/>
+</Detail>
+
+<DetailFooter Level="1" PlaceAtBottom="false" Height="36">
+<Label  X="730" Y="15" Width="59" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "255,255,255" Text ="TOTAL" HAlignment="2" VAlignment="0" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Line Style="1" X1="10" X2="861" Y1="13" Y2="13" Width="1" Color="0,0,0"/>
+<CalculatedField  X="790" Y="15" Width="69" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "255,255,255" Text ="21" HAlignment="2" VAlignment="1" WordWrap ="0" DataType="2" Field="albaranesprov.totaleuros" CalculationType="1" Precision="2" CommaSeparator="44" ForegroundColor="0,0,0"/>
+</DetailFooter>
+
+<DetailHeader Level="0" Height="96">
+<Line Style="1" X1="15" Y1="5" X2="384" Y2="5" Color = "0,0,0" Width="1"/>
+<Line Style="1" X1="15" Y1="81" X2="384" Y2="81" Color = "0,0,0" Width="1"/>
+<Line Style="1" X1="15" Y1="5" X2="15" Y2="81" Color = "0,0,0" Width="1"/>
+<Line Style="1" X1="384" Y1="5" X2="384" Y2="81" Color = "0,0,0" Width="1"/>
+<Field  X="20" Y="60" Width="46" Height="18" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" Text ="02640" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="0" Field="empresa.codpostal" ForegroundColor="0,0,0"/>
+<CalculatedField  X="270" Y="10" Width="109" Height="34" FontFamily="Arial" FontSize="13" FontWeight="65" BackgroundColor = "255,255,255" frameShape="QFrame::StyledPanel" midLineWidth="0" Text ="" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="5" Field="empresa.nombre" CalculationType="6" FunctionName ="flfactinfo.pub_logo" ForegroundColor="0,0,0"/>
+<Field  X="65" Y="60" Width="136" Height="18" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" Text ="Almansa" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="0" Field="empresa.ciudad" ForegroundColor="0,0,0"/>
+<Field  X="150" Y="45" Width="231" Height="18" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" Text ="B023590261" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="0" Field="empresa.direccion" ForegroundColor="0,0,0"/>
+<Label  X="20" Y="45" Width="46" Height="18" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" frameShape="QFrame::StyledPanel" Text ="CIF/NIF" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="0" Field="" DateFormat="19" ForegroundColor="0,0,0"/>
+<Field  X="20" Y="10" Width="251" Height="34" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "220,220,220" frameShape="QFrame::StyledPanel" midLineWidth="0" Text ="InfoSiAL S.L." HAlignment="1" VAlignment="1" WordWrap ="1" DataType="0" Field="empresa.nombre" DateFormat="19" ForegroundColor="0,0,0"/>
+<Field  X="65" Y="45" Width="81" Height="18" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" Text ="B023590261" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="0" Field="empresa.cifnif" ForegroundColor="0,0,0"/>
+<Field  X="205" Y="60" Width="176" Height="18" FontFamily="Arial Narrow" FontSize="10" FontWeight="50" BackgroundColor = "255,255,255" Text ="Albacete" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="0" Field="empresa.provincia" ForegroundColor="0,0,0"/>
+</DetailHeader>
+
+<DetailHeader Level="1" Height="51">
+<Label  X="775" Y="10" Width="51" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" frameShape="QFrame::StyledPanel" Text ="Pagina" HAlignment="2" VAlignment="1" WordWrap ="0" DataType="0" Field="rh_empleados.apellidos" DateFormat="19" ForegroundColor="0,0,0"/>
+<Special  X="830" Y="10" Width="26" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" Text ="21" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="2" CalculationType="1" Precision="2" Type="1" ForegroundColor="0,0,0"/>
+<Label  X="145" Y="30" Width="294" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="Proveedor" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="15" Y="30" Width="69" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="Codigo" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="440" Y="30" Width="59" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="CIF/NIF" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="570" Y="30" Width="59" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="IVA" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="85" Y="30" Width="59" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="Fecha" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="500" Y="30" Width="69" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="Neto" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Special  X="675" Y="10" Width="71" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" Text ="14/04/2009" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="3" CalculationType="1" Type="0" DateFormat="18" ForegroundColor="0,0,0"/>
+<Label  X="630" Y="10" Width="41" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" frameShape="QFrame::StyledPanel" Text ="Fecha" HAlignment="2" VAlignment="1" WordWrap ="0" DataType="0" Field="rh_empleados.apellidos" DateFormat="19" ForegroundColor="0,0,0"/>
+<Label  X="15" Y="5" Width="371" Height="21" FontFamily="Arial" FontSize="13" FontWeight="65" BackgroundColor = "255,255,255" frameShape="QFrame::StyledPanel" Text ="Resumen de Albaranes de Proveedor" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="0" Field="rh_empleados.apellidos" DateFormat="19" ForegroundColor="0,0,0"/>
+<Label  X="630" Y="30" Width="59" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="RE" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="690" Y="30" Width="69" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="Total" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="760" Y="30" Width="39" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="Div." HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="800" Y="30" Width="59" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="T. Euros" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+</DetailHeader>
+
+<Detail Level="0" Height="5">
+</Detail>
+
+<AddOnHeader Level="1" Height="51">
+<Label  X="775" Y="10" Width="51" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" frameShape="QFrame::StyledPanel" Text ="Pagina" HAlignment="2" VAlignment="1" WordWrap ="0" DataType="0" Field="rh_empleados.apellidos" DateFormat="19" ForegroundColor="0,0,0"/>
+<Special  X="830" Y="10" Width="26" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" Text ="21" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="2" CalculationType="1" Precision="2" Type="1" ForegroundColor="0,0,0"/>
+<Label  X="145" Y="30" Width="294" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="Proveedor" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="15" Y="30" Width="69" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="Codigo" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="440" Y="30" Width="59" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="CIF/NIF" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="570" Y="30" Width="59" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="IVA" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="85" Y="30" Width="59" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="Fecha" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="500" Y="30" Width="69" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="Neto" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Special  X="675" Y="10" Width="71" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" Text ="14/04/2009" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="3" CalculationType="1" Type="0" DateFormat="18" ForegroundColor="0,0,0"/>
+<Label  X="630" Y="10" Width="41" Height="16" FontFamily="Arial" FontSize="9" FontWeight="50" BackgroundColor = "255,255,255" frameShape="QFrame::StyledPanel" Text ="Fecha" HAlignment="2" VAlignment="1" WordWrap ="0" DataType="0" Field="rh_empleados.apellidos" DateFormat="19" ForegroundColor="0,0,0"/>
+<Label  X="15" Y="5" Width="371" Height="21" FontFamily="Arial" FontSize="13" FontWeight="65" BackgroundColor = "255,255,255" frameShape="QFrame::StyledPanel" Text ="Resumen de Albaranes de Proveedor" HAlignment="0" VAlignment="1" WordWrap ="0" DataType="0" Field="rh_empleados.apellidos" DateFormat="19" ForegroundColor="0,0,0"/>
+<Label  X="630" Y="30" Width="59" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="RE" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="690" Y="30" Width="69" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="Total" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="760" Y="30" Width="39" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="Div." HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+<Label  X="800" Y="30" Width="59" Height="16" FontFamily="Arial" FontSize="10" FontWeight="65" BackgroundColor = "218,218,218" Text ="T. Euros" HAlignment="1" VAlignment="1" WordWrap ="0" ForegroundColor="0,0,0"/>
+</AddOnHeader>
+</KugarTemplate>

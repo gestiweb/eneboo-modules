@@ -1,0 +1,31 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_modelo349</name>
+
+	<tables>co_modelo349,co_operaciones349,co_datosfiscales</tables>
+	
+	<group>
+		<level>0</level>
+		<field>co_modelo349.idmodelo</field>
+	</group>
+	
+	<select>
+		co_modelo349.codejercicio, co_modelo349.periodo,
+		co_datosfiscales.cifnif,
+		co_modelo349.idmodelo,
+		op.codue, op.cifnif,
+		op.nombre, op.clave,
+		op.baseimponible
+	</select>
+	
+	<from>
+		empresa, co_datosfiscales, co_modelo349
+		INNER JOIN co_operaciones349 op ON co_modelo349.idmodelo = op.idmodelo
+	</from>
+
+	<where>
+	</where>
+
+	<order>
+	</order>
+</QRY>

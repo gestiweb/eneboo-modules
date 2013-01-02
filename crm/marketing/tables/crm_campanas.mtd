@@ -1,0 +1,181 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>crm_campanas</name>
+	<!--Permite crear y realizar el seguimiento de campañas de marketing-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Campañas")</alias>
+
+	<field>
+		<name>codcampana</name>
+		<!--Identificador interno de la Campaña-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+		<counter>true</counter>
+		
+		<relation>
+			<table>crm_listascampana</table>
+			<field>codcampana</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>canal</name>
+		<!--Canal de comunicación utilizado para la campaña-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Canal Utilizado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<optionslist>Teléfono,Correo ordinario,E-mail</optionslist>
+		<default>Teléfono</default>
+		<type>string</type>
+		<length>18</length>
+	</field>
+	
+	<field>
+		<name>codestado</name>
+		<!--Estado de la Campaña-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		
+		<relation>
+			<table>crm_estadoscampana</table>
+			<field>codestado</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>fechafin</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Finalización")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fechainicio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Inicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>presupuesto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Presupuesto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>costees</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Coste esperado")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>costereal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Coste real")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>beneficioes</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Beneficio esperado")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>8</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>planticorreo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fichero")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>plantiemail</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","E-mail/Dir.Postal")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+	
+	<field>
+		<name>idusuario</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Resposable")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+		
+		<relation>
+			<table>flusers</table>
+			<field>iduser</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>idgrupo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Grupo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>30</length>
+		
+		<relation>
+			<table>flgroups</table>
+			<field>idgroup</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>remiteemail</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","E-mail remitente")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>manual</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Manual")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+	</field>
+	
+</TMD>

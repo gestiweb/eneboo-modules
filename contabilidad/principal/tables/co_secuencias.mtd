@@ -1,0 +1,69 @@
+<!DOCTYPE TMD>
+<TMD>
+	<!--Listado de secuencias de contabilidad por ejercicio-->
+	<name>co_secuencias</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Secuencias por Ejercicio")</alias>
+
+	<field>
+		<name>idsecuencia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>codejercicio</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>valor</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+	</field>
+	
+	<field>
+		<name>valorout</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor sin bloqueo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<editable>true</editable>
+		<outtransaction>true</outtransaction>
+	</field>
+</TMD>

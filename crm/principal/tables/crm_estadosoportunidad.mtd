@@ -1,0 +1,51 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>crm_estadosoportunidad</name>
+	<!--Los estados de oportunidad reflejan la instancia en que se encuentra una posible venta-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Estados de Oportunidad de Venta")</alias>
+
+	<field>
+		<name>codestado</name>
+		<!--Identificador interno del Estado de la Oportunidad de Venta-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+		
+		<relation>
+			<table>crm_oportunidadventa</table>
+			<field>codestado</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>probabilidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Probabilidad")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>3</partI>
+		<partD>2</partD>
+	</field>
+	
+	<field>
+		<name>valordefecto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Valor por defecto")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+		<editable>true</editable>
+	</field>
+</TMD>

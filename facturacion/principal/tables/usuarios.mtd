@@ -1,0 +1,67 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>usuarios</name>
+	<!--Usuarios-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Usuarios")</alias>
+
+	<field>
+		<name>idusuario</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>30</length>
+
+		<relation>
+			<table>flusers</table>
+			<field>iduser</field>
+			<card>M1</card>
+		</relation>
+	
+		<relation>
+			<table>cl_proyectos</table>
+			<field>idusuario</field>
+			<card>1M</card>
+		</relation>
+	
+		<relation>
+			<table>cl_subproyectos</table>
+			<field>idusuario</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>nombre</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>coddepartamento</name>
+		<!--Código de departamento-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Departamento")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>departamentos</table>
+			<field>coddepartamento</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>email</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","E-mail")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+</TMD>

@@ -1,0 +1,54 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>categorias</name>
+	<!--Listado de datos de categorias de los operarios -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Categorías de los operarios")</alias>
+
+	<field>
+		<name>codcategoria</name>
+		<!--Código asociado a la categoría-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+
+		<relation>
+			<table>operarios</table>
+			<field>codcategoria</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>preciohoranormal</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Precio hora normal")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>preciohoraextra</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Precio hora extra")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>6</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+</TMD>

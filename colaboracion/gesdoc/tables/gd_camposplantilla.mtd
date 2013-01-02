@@ -1,0 +1,73 @@
+<!DOCTYPE TMD>
+<TMD>
+	<!--Campos de plantillas-->
+	<name>gd_camposplantilla</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Campos de plantillas")</alias>
+
+	<field>
+		<name>id</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>nombre</name>
+		<!--Nombre del campo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nombre")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<ck>true</ck>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>codtipo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<ck>true</ck>
+		<type>string</type>
+		<length>20</length>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>gd_tiposdoc</table>
+			<field>codtipo</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!--Descripción del tipo de documentos de la secuencia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+	<field>
+		<name>funcion</name>
+		<!--Función de cálculo del campo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Función")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+	</field>
+	
+	<field>
+		<name>funcionexterna</name>
+		<!--Indica si el cálculo se realiza mediante una función externa-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Función externa")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+</TMD>

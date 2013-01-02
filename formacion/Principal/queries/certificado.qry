@@ -1,0 +1,34 @@
+<!DOCTYPE QRY>
+<QRY>
+ <name>certificado</name>
+
+ <tables>accionesformativas,autorizaciones,empresa,actividadeslaborales,esasistentea,personas</tables>
+
+ <param>
+  <name>idF</name>
+  <alias>QT_TRANSLATE_NOOP("Queries","Formación:")</alias>
+  <type>serial</type>
+ </param>
+
+ <select>
+ponente.nombre, ponente.apellidos,ponente.idformacion,
+personas.cifnif,personas.nombre,personas.apellidos,
+actividadeslaborales.nombreact,
+empresa.ciudad,empresa.administrador,empresa.nombre,
+autorizaciones.especialidad,autorizaciones.autorizacion,
+accionesformativas.titulo, accionesformativas.duracion,accionesformativas.fechainicio,accionesformativas.lugar
+ </select>
+
+ <from>
+ accionesformativas,autorizaciones,empresa,actividadeslaborales,esasistentea,personas, 
+(select esponentede.idpersona, personas.nombre, personas.apellidos, esponentede.idformacion from esponentede,personas where personas.idpersona=esponentede.idpersona) as ponente
+ </from>
+
+ <where>
+ponente.idformacion=accionesformativas.idformacion AND
+personas.idpersona=esasistentea.idpersona AND esasistentea.idformacion=accionesformativas.idformacion AND
+accionesformativas.idactividad=actividadeslaborales.idactividad AND
+autorizaciones.id=empresa.id AND autorizaciones.idautorizacion=accionesformativas.idautorizacion AND accionesformativas.idformacion=[idF]
+ </where>
+
+</QRY> 

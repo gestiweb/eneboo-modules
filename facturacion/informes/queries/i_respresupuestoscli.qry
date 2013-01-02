@@ -1,0 +1,32 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_respresupuestoscli</name>
+
+	<tables>presupuestoscli,empresa</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.cifnif</field>
+	</group>
+
+	<select>
+		presupuestoscli.codigo, presupuestoscli.fecha,
+		presupuestoscli.codcliente, presupuestoscli.nombrecliente,
+		presupuestoscli.cifnif, 
+		presupuestoscli.neto, presupuestoscli.totaliva,
+		presupuestoscli.totalrecargo, presupuestoscli.total,
+		presupuestoscli.coddivisa,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa,presupuestoscli
+	</from>
+
+	<where>
+	</where>
+</QRY>

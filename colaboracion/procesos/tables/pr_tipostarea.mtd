@@ -1,0 +1,59 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>pr_tipostarea</name>
+	<!--Tipos de tarea-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Tipo de tarea")</alias>
+
+	<field>
+		<name>idtipotarea</name>
+		<!--Identificador del tipo de tarea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>20</length>
+
+		<relation>
+			<table>pr_tipostareapro</table>
+			<field>idtipotarea</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>costestarea</table>
+			<field>idtipotarea</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>pr_i_costestarea</table>
+			<field>i_t_idtipotarea</field>
+			<card>1M</card>
+		</relation>
+
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!--Descripción del tipo de tarea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>tiempomedio</name>
+		<!--Duración media de las tareas de este tipo-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tiempo medio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>10</partI>
+		<partD>0</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+</TMD>

@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI xmlns:UML="org.omg/standards/UML" verified="false" timestamp="" xmi.version="1.2" >
+ <XMI.header>
+  <XMI.documentation>
+   <XMI.exporter>umbrello uml modeller http://uml.sf.net</XMI.exporter>
+   <XMI.exporterVersion>1.1</XMI.exporterVersion>
+  </XMI.documentation>
+  <XMI.model xmi.name="datamodel" href="/home/mjose/cvs/modulos/facturacion/facturacion/doc/datamodel.xmi" />
+  <XMI.metamodel xmi.name="UML" href="UML.xml" xmi.version="1.3" />
+ </XMI.header>
+ <XMI.content>
+  <docsettings viewid="121" documentation="" uniqueid="358" />
+  <umlobjects>
+   <UML:Class stereotype="" package="" xmi.id="122" abstract="0" documentation="" name="facturascli" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="125" value="" type="int" abstract="0" documentation="" name="idfactura" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="126" value="" type="string" abstract="0" documentation="" name="codigo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="127" value="" type="date" abstract="0" documentation="" name="fecha" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="131" value="" type="double" abstract="0" documentation="" name="total" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="132" value="" type="string" abstract="0" documentation="" name="codcliente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="133" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="134" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="135" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="136" value="" type="string" abstract="0" documentation="" name="codagente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="137" value="" type="string" abstract="0" documentation="" name="codalmacen" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="138" value="" type="string" abstract="0" documentation="" name="coddir" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="139" value="" type="string" abstract="0" documentation="" name="codpais" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="140" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="123" abstract="0" documentation="" name="facturas_imp" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="167" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="168" value="" type="string" abstract="0" documentation="" name="desde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="169" value="" type="string" abstract="0" documentation="" name="hasta" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="124" abstract="0" documentation="" name="facturasprov" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="170" value="" type="int" abstract="0" documentation="" name="idfactura" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="171" value="" type="string" abstract="0" documentation="" name="codigo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="172" value="" type="date" abstract="0" documentation="" name="fecha" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="173" value="" type="double" abstract="0" documentation="" name="total" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="174" value="" type="string" abstract="0" documentation="" name="codproveedor" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="175" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="176" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="177" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="178" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="179" value="" type="string" abstract="0" documentation="" name="codalmacen" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="141" abstract="0" documentation="" name="lineasfacturascli" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="149" value="" type="int" abstract="0" documentation="" name="idlinea" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="150" value="" type="int" abstract="0" documentation="" name="idfactura" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="151" value="" type="string" abstract="0" documentation="" name="referencia" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="152" value="" type="double" abstract="0" documentation="" name="pvpunitario" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="153" value="" type="double" abstract="0" documentation="" name="cantidad" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="154" value="" type="double" abstract="0" documentation="" name="pvptotal" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="155" value="" type="string" abstract="0" documentation="" name="codimpuesto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="156" value="" type="double" abstract="0" documentation="" name="dtolineal" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="157" value="" type="double" abstract="0" documentation="" name="dtopor" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="142" abstract="0" documentation="" name="lineasivafactcli" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="158" value="" type="int" abstract="0" documentation="" name="idlinea" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="159" value="" type="int" abstract="0" documentation="" name="idfactura" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="160" value="" type="double" abstract="0" documentation="" name="neto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="161" value="" type="string" abstract="0" documentation="" name="codimpuesto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="162" value="" type="double" abstract="0" documentation="" name="iva" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="163" value="" type="double" abstract="0" documentation="" name="totaliva" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="164" value="" type="double" abstract="0" documentation="" name="recargo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="165" value="" type="double" abstract="0" documentation="" name="totalrecargo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="166" value="" type="double" abstract="0" documentation="" name="totallineas" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="180" abstract="0" documentation="" name="lineasfacturasprov" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="182" value="" type="int" abstract="0" documentation="" name="idlinea" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="183" value="" type="int" abstract="0" documentation="" name="idfactura" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="184" value="" type="string" abstract="0" documentation="" name="referencia" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="185" value="" type="double" abstract="0" documentation="" name="cantidad" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="186" value="" type="double" abstract="0" documentation="" name="pvpunitario" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="187" value="" type="double" abstract="0" documentation="" name="pvptotal" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="188" value="" type="string" abstract="0" documentation="" name="codimpuesto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="189" value="" type="double" abstract="0" documentation="" name="iva" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="190" value="" type="string" abstract="0" documentation="" name="recargo" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="181" abstract="0" documentation="" name="lineasivafactprov" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="191" value="" type="int" abstract="0" documentation="" name="idlinea" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="192" value="" type="int" abstract="0" documentation="" name="idfactura" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="193" value="" type="double" abstract="0" documentation="" name="neto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="194" value="" type="string" abstract="0" documentation="" name="codimpuesto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="195" value="" type="double" abstract="0" documentation="" name="iva" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="196" value="" type="double" abstract="0" documentation="" name="totaliva" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="197" value="" type="double" abstract="0" documentation="" name="recargo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="198" value="" type="double" abstract="0" documentation="" name="totalrecargo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="199" value="" type="double" abstract="0" documentation="" name="totallinea" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="200" abstract="0" documentation="" name="albaranescli" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="201" value="" type="int" abstract="0" documentation="" name="idalbaran" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="202" value="" type="string" abstract="0" documentation="" name="codigo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="203" value="" type="date" abstract="0" documentation="" name="fecha" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="204" value="" type="string" abstract="0" documentation="" name="codcliente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="205" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="206" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="207" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="208" value="" type="string" abstract="0" documentation="" name="codagente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="209" value="" type="string" abstract="0" documentation="" name="codalmacen" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="210" value="" type="string" abstract="0" documentation="" name="coddir" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="211" value="" type="string" abstract="0" documentation="" name="codpais" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="212" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="213" value="" type="int" abstract="0" documentation="" name="idfactura" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="214" abstract="0" documentation="" name="albaranesprov" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="215" value="" type="int" abstract="0" documentation="" name="idalbaran" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="216" value="" type="string" abstract="0" documentation="" name="codigo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="217" value="" type="date" abstract="0" documentation="" name="fecha" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="218" value="" type="string" abstract="0" documentation="" name="codproveedor" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="219" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="220" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="221" value="" type="string" abstract="0" documentation="" name="codalmacen" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="222" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="223" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="224" value="" type="int" abstract="0" documentation="" name="idfactura" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="225" abstract="0" documentation="" name="lineasalbaranescli" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="226" value="" type="int" abstract="0" documentation="" name="idlinea" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="227" value="" type="int" abstract="0" documentation="" name="idalbaran" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="228" value="" type="string" abstract="0" documentation="" name="referencia" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="229" value="" type="int" abstract="0" documentation="" name="idpedido" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="230" value="" type="int" abstract="0" documentation="" name="idlineapedido" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="231" value="" type="double" abstract="0" documentation="" name="pvpunitario" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="232" value="" type="double" abstract="0" documentation="" name="pvptotal" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="233" value="" type="string" abstract="0" documentation="" name="codimpuesto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="234" value="" type="double" abstract="0" documentation="" name="dtolineal" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="235" value="" type="double" abstract="0" documentation="" name="dtop" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="236" abstract="0" documentation="" name="lineasalbaranesprov" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="237" value="" type="int" abstract="0" documentation="" name="idlinea" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="238" value="" type="int" abstract="0" documentation="" name="idalbaran" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="239" value="" type="int" abstract="0" documentation="" name="idlineapedido" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="240" value="" type="string" abstract="0" documentation="" name="referencia" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="241" value="" type="int" abstract="0" documentation="" name="idpedido" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="242" value="" type="double" abstract="0" documentation="" name="pvpunitario" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="243" value="" type="double" abstract="0" documentation="" name="pvptotal" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="244" value="" type="string" abstract="0" documentation="" name="codimpuesto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="245" value="" type="double" abstract="0" documentation="" name="iva" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="246" abstract="0" documentation="" name="pedidoscli" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="247" value="" type="int" abstract="0" documentation="" name="idpedido" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="248" value="" type="string" abstract="0" documentation="" name="codigo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="249" value="" type="string" abstract="0" documentation="" name="codcliente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="250" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="251" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="252" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="253" value="" type="string" abstract="0" documentation="" name="codagente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="254" value="" type="string" abstract="0" documentation="" name="codalmacen" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="255" value="" type="string" abstract="0" documentation="" name="coddir" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="256" value="" type="string" abstract="0" documentation="" name="codpais" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="257" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="258" abstract="0" documentation="" name="lineaspedidoscli" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="259" value="" type="int" abstract="0" documentation="" name="idlinea" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="260" value="" type="int" abstract="0" documentation="" name="idpedido" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="261" value="" type="string" abstract="0" documentation="" name="referencia" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="262" value="" type="double" abstract="0" documentation="" name="pvpunitario" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="263" value="" type="double" abstract="0" documentation="" name="pvptotal" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="264" value="" type="string" abstract="0" documentation="" name="codimpuesto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="265" value="" type="double" abstract="0" documentation="" name="dtolineal" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="266" value="" type="double" abstract="0" documentation="" name="dtopor" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="267" abstract="0" documentation="" name="pedidosprov" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="268" value="" type="int" abstract="0" documentation="" name="idpedido" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="269" value="" type="string" abstract="0" documentation="" name="codigo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="270" value="" type="date" abstract="0" documentation="" name="fecha" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="271" value="" type="string" abstract="0" documentation="" name="codproveedor" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="272" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="273" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="274" value="" type="string" abstract="0" documentation="" name="codalmacen" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="275" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="276" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="277" abstract="0" documentation="" name="lineaspedidosprov" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="278" value="" type="int" abstract="0" documentation="" name="idlinea" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="279" value="" type="int" abstract="0" documentation="" name="idpedido" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="280" value="" type="string" abstract="0" documentation="" name="referencia" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="281" value="" type="double" abstract="0" documentation="" name="pvpunitario" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="282" value="" type="double" abstract="0" documentation="" name="pvptotal" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="283" value="" type="double" abstract="0" documentation="" name="totalenalbaran" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="284" value="" type="string" abstract="0" documentation="" name="codimpuesto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="285" value="" type="double" abstract="0" documentation="" name="iva" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="286" abstract="0" documentation="" name="agruparalbaranescli" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="287" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="288" value="" type="string" abstract="0" documentation="" name="codcliente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="289" value="" type="date" abstract="0" documentation="" name="fechadesde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="290" value="" type="date" abstract="0" documentation="" name="fechahasta" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="291" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="292" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="293" value="" type="string" abstract="0" documentation="" name="codalmacen" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="294" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="295" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="296" value="" type="string" abstract="0" documentation="" name="coddir" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="297" value="" type="string" abstract="0" documentation="" name="codpais" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="298" value="" type="double" abstract="0" documentation="" name="codagente" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="299" abstract="0" documentation="" name="agruparalbaranesprov" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="300" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="301" value="" type="string" abstract="0" documentation="" name="codproveedor" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="302" value="" type="date" abstract="0" documentation="" name="fechadesde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="303" value="" type="date" abstract="0" documentation="" name="fechahasta" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="304" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="305" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="306" value="" type="string" abstract="0" documentation="" name="codalmacen" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="307" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="308" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="309" abstract="0" documentation="" name="agruparpedidoscli" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="310" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="311" value="" type="string" abstract="0" documentation="" name="codcliente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="312" value="" type="date" abstract="0" documentation="" name="fechadesde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="313" value="" type="date" abstract="0" documentation="" name="fechahasta" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="314" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="315" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="316" value="" type="string" abstract="0" documentation="" name="codalmacen" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="317" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="318" value="" type="double" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="319" value="" type="string" abstract="0" documentation="" name="coddir" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="320" value="" type="string" abstract="0" documentation="" name="codpais" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="321" value="" type="string" abstract="0" documentation="" name="codagente" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="322" abstract="0" documentation="" name="agruparpedidosprov" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="323" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="324" value="" type="string" abstract="0" documentation="" name="codproveedor" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="325" value="" type="date" abstract="0" documentation="" name="fechadesde" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="326" value="" type="date" abstract="0" documentation="" name="fechahasta" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="327" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="328" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="329" value="" type="string" abstract="0" documentation="" name="codalmacen" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="330" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="331" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="332" abstract="0" documentation="" name="huecos" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="333" value="" type="int" abstract="0" documentation="" name="id" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="334" value="" type="string" abstract="0" documentation="" name="tipo" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="335" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="336" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="337" value="" type="int" abstract="0" documentation="" name="numero" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="338" abstract="0" documentation="" name="presupuestoscli" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="339" value="" type="int" abstract="0" documentation="" name="idpresupuesto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="340" value="" type="date" abstract="0" documentation="" name="fecha" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="341" value="" type="string" abstract="0" documentation="" name="codcliente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="342" value="" type="string" abstract="0" documentation="" name="coddivisa" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="343" value="" type="string" abstract="0" documentation="" name="codserie" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="344" value="" type="string" abstract="0" documentation="" name="codpago" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="345" value="" type="string" abstract="0" documentation="" name="codagente" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="346" value="" type="string" abstract="0" documentation="" name="codalmacen" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="347" value="" type="string" abstract="0" documentation="" name="coddir" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="348" value="" type="string" abstract="0" documentation="" name="codpais" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="349" value="" type="string" abstract="0" documentation="" name="codejercicio" static="0" scope="200" />
+   </UML:Class>
+   <UML:Class stereotype="" package="" xmi.id="350" abstract="0" documentation="" name="lineaspresupuestoscli" static="0" scope="200" >
+    <UML:Attribute stereotype="" package="" xmi.id="351" value="" type="int" abstract="0" documentation="" name="idlinea" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="352" value="" type="int" abstract="0" documentation="" name="idpresupuesto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="353" value="" type="string" abstract="0" documentation="" name="referencia" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="354" value="" type="double" abstract="0" documentation="" name="pvpunitario" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="355" value="" type="double" abstract="0" documentation="" name="pvptotal" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="356" value="" type="string" abstract="0" documentation="" name="codimpuesto" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="357" value="" type="double" abstract="0" documentation="" name="dtolineal" static="0" scope="200" />
+    <UML:Attribute stereotype="" package="" xmi.id="358" value="" type="double" abstract="0" documentation="" name="dtopor" static="0" scope="200" />
+   </UML:Class>
+  </umlobjects>
+  <diagrams>
+   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" snapy="10" showatts="1" xmi.id="121" documentation="" type="402" showops="1" showpackage="0" name="class diagram" localid="30000" showstereotype="0" showscope="1" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" linecolor="#ff0000" >
+    <widgets>
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="175" showattsigs="601" usesdiagramusefillcolour="0" x="75" linecolour="#ff0000" y="0" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="261" usefillcolor="1" showattributes="1" xmi.id="122" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="131" showattsigs="601" usesdiagramusefillcolour="0" x="838" linecolour="#ff0000" y="36" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="81" usefillcolor="1" showattributes="1" xmi.id="123" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="187" showattsigs="601" usesdiagramusefillcolour="0" x="504" linecolour="#ff0000" y="9" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="207" usefillcolor="1" showattributes="1" xmi.id="124" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="181" showattsigs="601" usesdiagramusefillcolour="0" x="0" linecolour="#ff0000" y="368" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="189" usefillcolor="1" showattributes="1" xmi.id="141" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="184" showattsigs="601" usesdiagramusefillcolour="0" x="202" linecolour="#ff0000" y="374" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="189" usefillcolor="1" showattributes="1" xmi.id="142" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="181" showattsigs="601" usesdiagramusefillcolour="0" x="404" linecolour="#ff0000" y="374" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="189" usefillcolor="1" showattributes="1" xmi.id="180" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="184" showattsigs="601" usesdiagramusefillcolour="0" x="602" linecolour="#ff0000" y="377" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="189" usefillcolor="1" showattributes="1" xmi.id="181" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="175" showattsigs="601" usesdiagramusefillcolour="0" x="52" linecolour="#ff0000" y="684" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="261" usefillcolor="1" showattributes="1" xmi.id="200" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="187" showattsigs="601" usesdiagramusefillcolour="0" x="281" linecolour="#ff0000" y="685" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="207" usefillcolor="1" showattributes="1" xmi.id="214" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="181" showattsigs="601" usesdiagramusefillcolour="0" x="48" linecolour="#ff0000" y="1031" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="207" usefillcolor="1" showattributes="1" xmi.id="225" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="181" showattsigs="601" usesdiagramusefillcolour="0" x="285" linecolour="#ff0000" y="1053" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="189" usefillcolor="1" showattributes="1" xmi.id="236" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="175" showattsigs="601" usesdiagramusefillcolour="0" x="493" linecolour="#ff0000" y="684" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="225" usefillcolor="1" showattributes="1" xmi.id="246" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="181" showattsigs="601" usesdiagramusefillcolour="0" x="491" linecolour="#ff0000" y="1065" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="171" usefillcolor="1" showattributes="1" xmi.id="258" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="187" showattsigs="601" usesdiagramusefillcolour="0" x="750" linecolour="#ff0000" y="706" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="189" usefillcolor="1" showattributes="1" xmi.id="267" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="201" showattsigs="601" usesdiagramusefillcolour="0" x="743" linecolour="#ff0000" y="1068" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="171" usefillcolor="1" showattributes="1" xmi.id="277" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="175" showattsigs="601" usesdiagramusefillcolour="0" x="837" linecolour="#ff0000" y="412" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="243" usefillcolor="1" showattributes="1" xmi.id="286" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="187" showattsigs="601" usesdiagramusefillcolour="0" x="827" linecolour="#ff0000" y="200" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="189" usefillcolor="1" showattributes="1" xmi.id="299" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="181" showattsigs="601" usesdiagramusefillcolour="0" x="1050" linecolour="#ff0000" y="416" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="243" usefillcolor="1" showattributes="1" xmi.id="309" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="187" showattsigs="601" usesdiagramusefillcolour="0" x="1047" linecolour="#ff0000" y="202" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="189" usefillcolor="1" showattributes="1" xmi.id="322" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="174" showattsigs="601" usesdiagramusefillcolour="0" x="1058" linecolour="#ff0000" y="36" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="117" usefillcolor="1" showattributes="1" xmi.id="332" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="175" showattsigs="601" usesdiagramusefillcolour="0" x="1033" linecolour="#ff0000" y="704" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="225" usefillcolor="1" showattributes="1" xmi.id="338" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+     <UML:ConceptWidget usesdiagramfillcolour="0" width="181" showattsigs="601" usesdiagramusefillcolour="0" x="1030" linecolour="#ff0000" y="1065" showopsigs="601" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="171" usefillcolor="1" showattributes="1" xmi.id="350" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Bitstream Vera Sans,10,-1,5,0,0,0,0,0,0" />
+    </widgets>
+    <messages/>
+    <associations>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="141" widgetaid="122" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="75" starty="130" />
+       <endpoint endx="90" endy="368" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="142" widgetaid="122" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="162" starty="261" />
+       <endpoint endx="294" endy="374" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="2" indexb="1" widgetbid="180" widgetaid="124" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="566" starty="216" />
+       <endpoint endx="494" endy="374" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="181" widgetaid="124" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="628" starty="216" />
+       <endpoint endx="694" endy="377" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="225" widgetaid="200" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="139" starty="945" />
+       <endpoint endx="138" endy="1031" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="236" widgetaid="214" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="374" starty="892" />
+       <endpoint endx="375" endy="1053" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="258" widgetaid="246" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="580" starty="909" />
+       <endpoint endx="581" endy="1065" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="277" widgetaid="267" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="843" starty="895" />
+       <endpoint endx="843" endy="1068" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="350" widgetaid="338" documentation="" type="501" >
+      <linepath>
+       <startpoint startx="1120" starty="929" />
+       <endpoint endx="1120" endy="1065" />
+      </linepath>
+     </UML:AssocWidget>
+    </associations>
+   </diagram>
+  </diagrams>
+  <listview>
+   <listitem open="1" type="800" id="-1" label="Views" >
+    <listitem open="1" type="801" id="-1" label="Logical View" >
+     <listitem open="1" type="813" id="286" label="agruparalbaranescli" >
+      <listitem open="0" type="814" id="298" label="codagente" />
+      <listitem open="0" type="814" id="293" label="codalmacen" />
+      <listitem open="0" type="814" id="288" label="codcliente" />
+      <listitem open="0" type="814" id="296" label="coddir" />
+      <listitem open="0" type="814" id="291" label="coddivisa" />
+      <listitem open="0" type="814" id="295" label="codejercicio" />
+      <listitem open="0" type="814" id="292" label="codpago" />
+      <listitem open="0" type="814" id="297" label="codpais" />
+      <listitem open="0" type="814" id="294" label="codserie" />
+      <listitem open="0" type="814" id="289" label="fechadesde" />
+      <listitem open="0" type="814" id="290" label="fechahasta" />
+      <listitem open="0" type="814" id="287" label="id" />
+     </listitem>
+     <listitem open="1" type="813" id="299" label="agruparalbaranesprov" >
+      <listitem open="0" type="814" id="306" label="codalmacen" />
+      <listitem open="0" type="814" id="304" label="coddivisa" />
+      <listitem open="0" type="814" id="308" label="codejercicio" />
+      <listitem open="0" type="814" id="305" label="codpago" />
+      <listitem open="0" type="814" id="301" label="codproveedor" />
+      <listitem open="0" type="814" id="307" label="codserie" />
+      <listitem open="0" type="814" id="302" label="fechadesde" />
+      <listitem open="0" type="814" id="303" label="fechahasta" />
+      <listitem open="0" type="814" id="300" label="id" />
+     </listitem>
+     <listitem open="1" type="813" id="309" label="agruparpedidoscli" >
+      <listitem open="0" type="814" id="321" label="codagente" />
+      <listitem open="0" type="814" id="316" label="codalmacen" />
+      <listitem open="0" type="814" id="311" label="codcliente" />
+      <listitem open="0" type="814" id="319" label="coddir" />
+      <listitem open="0" type="814" id="314" label="coddivisa" />
+      <listitem open="0" type="814" id="318" label="codejercicio" />
+      <listitem open="0" type="814" id="315" label="codpago" />
+      <listitem open="0" type="814" id="320" label="codpais" />
+      <listitem open="0" type="814" id="317" label="codserie" />
+      <listitem open="0" type="814" id="312" label="fechadesde" />
+      <listitem open="0" type="814" id="313" label="fechahasta" />
+      <listitem open="0" type="814" id="310" label="id" />
+     </listitem>
+     <listitem open="1" type="813" id="322" label="agruparpedidosprov" >
+      <listitem open="0" type="814" id="329" label="codalmacen" />
+      <listitem open="0" type="814" id="327" label="coddivisa" />
+      <listitem open="0" type="814" id="331" label="codejercicio" />
+      <listitem open="0" type="814" id="328" label="codpago" />
+      <listitem open="0" type="814" id="324" label="codproveedor" />
+      <listitem open="0" type="814" id="330" label="codserie" />
+      <listitem open="0" type="814" id="325" label="fechadesde" />
+      <listitem open="0" type="814" id="326" label="fechahasta" />
+      <listitem open="0" type="814" id="323" label="id" />
+     </listitem>
+     <listitem open="1" type="813" id="200" label="albaranescli" >
+      <listitem open="0" type="814" id="208" label="codagente" />
+      <listitem open="0" type="814" id="209" label="codalmacen" />
+      <listitem open="0" type="814" id="204" label="codcliente" />
+      <listitem open="0" type="814" id="210" label="coddir" />
+      <listitem open="0" type="814" id="205" label="coddivisa" />
+      <listitem open="0" type="814" id="212" label="codejercicio" />
+      <listitem open="0" type="814" id="202" label="codigo" />
+      <listitem open="0" type="814" id="207" label="codpago" />
+      <listitem open="0" type="814" id="211" label="codpais" />
+      <listitem open="0" type="814" id="206" label="codserie" />
+      <listitem open="0" type="814" id="203" label="fecha" />
+      <listitem open="0" type="814" id="201" label="idalbaran" />
+      <listitem open="0" type="814" id="213" label="idfactura" />
+     </listitem>
+     <listitem open="1" type="813" id="214" label="albaranesprov" >
+      <listitem open="0" type="814" id="221" label="codalmacen" />
+      <listitem open="0" type="814" id="219" label="coddivisa" />
+      <listitem open="0" type="814" id="222" label="codejercicio" />
+      <listitem open="0" type="814" id="216" label="codigo" />
+      <listitem open="0" type="814" id="220" label="codpago" />
+      <listitem open="0" type="814" id="218" label="codproveedor" />
+      <listitem open="0" type="814" id="223" label="codserie" />
+      <listitem open="0" type="814" id="217" label="fecha" />
+      <listitem open="0" type="814" id="215" label="idalbaran" />
+      <listitem open="0" type="814" id="224" label="idfactura" />
+     </listitem>
+     <listitem open="0" type="807" id="121" label="class diagram" />
+     <listitem open="1" type="813" id="122" label="facturascli" >
+      <listitem open="0" type="814" id="136" label="codagente" />
+      <listitem open="0" type="814" id="137" label="codalmacen" />
+      <listitem open="0" type="814" id="132" label="codcliente" />
+      <listitem open="0" type="814" id="138" label="coddir" />
+      <listitem open="0" type="814" id="133" label="coddivisa" />
+      <listitem open="0" type="814" id="140" label="codejercicio" />
+      <listitem open="0" type="814" id="126" label="codigo" />
+      <listitem open="0" type="814" id="135" label="codpago" />
+      <listitem open="0" type="814" id="139" label="codpais" />
+      <listitem open="0" type="814" id="134" label="codserie" />
+      <listitem open="0" type="814" id="127" label="fecha" />
+      <listitem open="0" type="814" id="125" label="idfactura" />
+      <listitem open="0" type="814" id="131" label="total" />
+     </listitem>
+     <listitem open="1" type="813" id="123" label="facturas_imp" >
+      <listitem open="0" type="814" id="168" label="desde" />
+      <listitem open="0" type="814" id="169" label="hasta" />
+      <listitem open="0" type="814" id="167" label="id" />
+     </listitem>
+     <listitem open="1" type="813" id="124" label="facturasprov" >
+      <listitem open="0" type="814" id="179" label="codalmacen" />
+      <listitem open="0" type="814" id="175" label="coddivisa" />
+      <listitem open="0" type="814" id="176" label="codejercicio" />
+      <listitem open="0" type="814" id="171" label="codigo" />
+      <listitem open="0" type="814" id="178" label="codpago" />
+      <listitem open="0" type="814" id="174" label="codproveedor" />
+      <listitem open="0" type="814" id="177" label="codserie" />
+      <listitem open="0" type="814" id="172" label="fecha" />
+      <listitem open="0" type="814" id="170" label="idfactura" />
+      <listitem open="0" type="814" id="173" label="total" />
+     </listitem>
+     <listitem open="1" type="813" id="332" label="huecos" >
+      <listitem open="0" type="814" id="336" label="codejercicio" />
+      <listitem open="0" type="814" id="335" label="codserie" />
+      <listitem open="0" type="814" id="333" label="id" />
+      <listitem open="0" type="814" id="337" label="numero" />
+      <listitem open="0" type="814" id="334" label="tipo" />
+     </listitem>
+     <listitem open="1" type="813" id="225" label="lineasalbaranescli" >
+      <listitem open="0" type="814" id="233" label="codimpuesto" />
+      <listitem open="0" type="814" id="234" label="dtolineal" />
+      <listitem open="0" type="814" id="235" label="dtop" />
+      <listitem open="0" type="814" id="227" label="idalbaran" />
+      <listitem open="0" type="814" id="226" label="idlinea" />
+      <listitem open="0" type="814" id="230" label="idlineapedido" />
+      <listitem open="0" type="814" id="229" label="idpedido" />
+      <listitem open="0" type="814" id="232" label="pvptotal" />
+      <listitem open="0" type="814" id="231" label="pvpunitario" />
+      <listitem open="0" type="814" id="228" label="referencia" />
+     </listitem>
+     <listitem open="1" type="813" id="236" label="lineasalbaranesprov" >
+      <listitem open="0" type="814" id="244" label="codimpuesto" />
+      <listitem open="0" type="814" id="238" label="idalbaran" />
+      <listitem open="0" type="814" id="237" label="idlinea" />
+      <listitem open="0" type="814" id="239" label="idlineapedido" />
+      <listitem open="0" type="814" id="241" label="idpedido" />
+      <listitem open="0" type="814" id="245" label="iva" />
+      <listitem open="0" type="814" id="243" label="pvptotal" />
+      <listitem open="0" type="814" id="242" label="pvpunitario" />
+      <listitem open="0" type="814" id="240" label="referencia" />
+     </listitem>
+     <listitem open="1" type="813" id="141" label="lineasfacturascli" >
+      <listitem open="0" type="814" id="153" label="cantidad" />
+      <listitem open="0" type="814" id="155" label="codimpuesto" />
+      <listitem open="0" type="814" id="156" label="dtolineal" />
+      <listitem open="0" type="814" id="157" label="dtopor" />
+      <listitem open="0" type="814" id="150" label="idfactura" />
+      <listitem open="0" type="814" id="149" label="idlinea" />
+      <listitem open="0" type="814" id="154" label="pvptotal" />
+      <listitem open="0" type="814" id="152" label="pvpunitario" />
+      <listitem open="0" type="814" id="151" label="referencia" />
+     </listitem>
+     <listitem open="1" type="813" id="180" label="lineasfacturasprov" >
+      <listitem open="0" type="814" id="185" label="cantidad" />
+      <listitem open="0" type="814" id="188" label="codimpuesto" />
+      <listitem open="0" type="814" id="183" label="idfactura" />
+      <listitem open="0" type="814" id="182" label="idlinea" />
+      <listitem open="0" type="814" id="189" label="iva" />
+      <listitem open="0" type="814" id="187" label="pvptotal" />
+      <listitem open="0" type="814" id="186" label="pvpunitario" />
+      <listitem open="0" type="814" id="190" label="recargo" />
+      <listitem open="0" type="814" id="184" label="referencia" />
+     </listitem>
+     <listitem open="1" type="813" id="142" label="lineasivafactcli" >
+      <listitem open="0" type="814" id="161" label="codimpuesto" />
+      <listitem open="0" type="814" id="159" label="idfactura" />
+      <listitem open="0" type="814" id="158" label="idlinea" />
+      <listitem open="0" type="814" id="162" label="iva" />
+      <listitem open="0" type="814" id="160" label="neto" />
+      <listitem open="0" type="814" id="164" label="recargo" />
+      <listitem open="0" type="814" id="163" label="totaliva" />
+      <listitem open="0" type="814" id="166" label="totallineas" />
+      <listitem open="0" type="814" id="165" label="totalrecargo" />
+     </listitem>
+     <listitem open="1" type="813" id="181" label="lineasivafactprov" >
+      <listitem open="0" type="814" id="194" label="codimpuesto" />
+      <listitem open="0" type="814" id="192" label="idfactura" />
+      <listitem open="0" type="814" id="191" label="idlinea" />
+      <listitem open="0" type="814" id="195" label="iva" />
+      <listitem open="0" type="814" id="193" label="neto" />
+      <listitem open="0" type="814" id="197" label="recargo" />
+      <listitem open="0" type="814" id="196" label="totaliva" />
+      <listitem open="0" type="814" id="199" label="totallinea" />
+      <listitem open="0" type="814" id="198" label="totalrecargo" />
+     </listitem>
+     <listitem open="1" type="813" id="258" label="lineaspedidoscli" >
+      <listitem open="0" type="814" id="264" label="codimpuesto" />
+      <listitem open="0" type="814" id="265" label="dtolineal" />
+      <listitem open="0" type="814" id="266" label="dtopor" />
+      <listitem open="0" type="814" id="259" label="idlinea" />
+      <listitem open="0" type="814" id="260" label="idpedido" />
+      <listitem open="0" type="814" id="263" label="pvptotal" />
+      <listitem open="0" type="814" id="262" label="pvpunitario" />
+      <listitem open="0" type="814" id="261" label="referencia" />
+     </listitem>
+     <listitem open="1" type="813" id="277" label="lineaspedidosprov" >
+      <listitem open="0" type="814" id="284" label="codimpuesto" />
+      <listitem open="0" type="814" id="278" label="idlinea" />
+      <listitem open="0" type="814" id="279" label="idpedido" />
+      <listitem open="0" type="814" id="285" label="iva" />
+      <listitem open="0" type="814" id="282" label="pvptotal" />
+      <listitem open="0" type="814" id="281" label="pvpunitario" />
+      <listitem open="0" type="814" id="280" label="referencia" />
+      <listitem open="0" type="814" id="283" label="totalenalbaran" />
+     </listitem>
+     <listitem open="1" type="813" id="350" label="lineaspresupuestoscli" >
+      <listitem open="0" type="814" id="356" label="codimpuesto" />
+      <listitem open="0" type="814" id="357" label="dtolineal" />
+      <listitem open="0" type="814" id="358" label="dtopor" />
+      <listitem open="0" type="814" id="351" label="idlinea" />
+      <listitem open="0" type="814" id="352" label="idpresupuesto" />
+      <listitem open="0" type="814" id="355" label="pvptotal" />
+      <listitem open="0" type="814" id="354" label="pvpunitario" />
+      <listitem open="0" type="814" id="353" label="referencia" />
+     </listitem>
+     <listitem open="1" type="813" id="246" label="pedidoscli" >
+      <listitem open="0" type="814" id="253" label="codagente" />
+      <listitem open="0" type="814" id="254" label="codalmacen" />
+      <listitem open="0" type="814" id="249" label="codcliente" />
+      <listitem open="0" type="814" id="255" label="coddir" />
+      <listitem open="0" type="814" id="250" label="coddivisa" />
+      <listitem open="0" type="814" id="257" label="codejercicio" />
+      <listitem open="0" type="814" id="248" label="codigo" />
+      <listitem open="0" type="814" id="252" label="codpago" />
+      <listitem open="0" type="814" id="256" label="codpais" />
+      <listitem open="0" type="814" id="251" label="codserie" />
+      <listitem open="0" type="814" id="247" label="idpedido" />
+     </listitem>
+     <listitem open="1" type="813" id="267" label="pedidosprov" >
+      <listitem open="0" type="814" id="274" label="codalmacen" />
+      <listitem open="0" type="814" id="272" label="coddivisa" />
+      <listitem open="0" type="814" id="275" label="codejercicio" />
+      <listitem open="0" type="814" id="269" label="codigo" />
+      <listitem open="0" type="814" id="273" label="codpago" />
+      <listitem open="0" type="814" id="271" label="codproveedor" />
+      <listitem open="0" type="814" id="276" label="codserie" />
+      <listitem open="0" type="814" id="270" label="fecha" />
+      <listitem open="0" type="814" id="268" label="idpedido" />
+     </listitem>
+     <listitem open="1" type="813" id="338" label="presupuestoscli" >
+      <listitem open="0" type="814" id="345" label="codagente" />
+      <listitem open="0" type="814" id="346" label="codalmacen" />
+      <listitem open="0" type="814" id="341" label="codcliente" />
+      <listitem open="0" type="814" id="347" label="coddir" />
+      <listitem open="0" type="814" id="342" label="coddivisa" />
+      <listitem open="0" type="814" id="349" label="codejercicio" />
+      <listitem open="0" type="814" id="344" label="codpago" />
+      <listitem open="0" type="814" id="348" label="codpais" />
+      <listitem open="0" type="814" id="343" label="codserie" />
+      <listitem open="0" type="814" id="340" label="fecha" />
+      <listitem open="0" type="814" id="339" label="idpresupuesto" />
+     </listitem>
+    </listitem>
+    <listitem open="1" type="802" id="-1" label="Use Case View" />
+   </listitem>
+  </listview>
+ </XMI.content>
+</XMI>

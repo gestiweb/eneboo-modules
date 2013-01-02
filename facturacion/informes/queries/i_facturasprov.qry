@@ -1,0 +1,43 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_facturasprov</name>
+
+	<tables>empresa,facturasprov,lineasfacturasprov,albaranesprov</tables>
+
+	<group>
+		<level>0</level>
+		<field>facturasprov.idfactura</field>
+	</group>
+	<group>
+		<level>1</level>
+		<field>lineasfacturasprov.idalbaran</field>
+	</group>
+
+	<select>
+		facturasprov.idfactura, lineasfacturasprov.idfactura, facturasprov.codigo, facturasprov.codserie, facturasprov.fecha, facturasprov.totaliva,
+		facturasprov.total, facturasprov.coddivisa, facturasprov.codejercicio, facturasprov.codpago, facturasprov.codalmacen, facturasprov.totalrecargo,
+		facturasprov.codproveedor, facturasprov.nombre, facturasprov.cifnif, facturasprov.tasaconv,  facturasprov.neto, facturasprov.observaciones,
+		lineasfacturasprov.referencia, lineasfacturasprov.descripcion,
+		lineasfacturasprov.cantidad, facturasprov.irpf, facturasprov.totalirpf,
+		lineasfacturasprov.pvpunitario, lineasfacturasprov.pvptotal, lineasfacturasprov.codimpuesto, lineasfacturasprov.iva, dirproveedores.direccion,dirproveedores.codpostal, dirproveedores.provincia,dirproveedores.ciudad,
+		albaranesprov.codigo, albaranesprov.fecha, lineasfacturasprov.idalbaran,
+		empresa.nombre, empresa.cifnif, empresa.direccion, empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado, empresa.codpais,
+		facturasprov.neto+facturasprov.totaliva+facturasprov.totalrecargo,
+		proveedores.regimeniva
+	</select>
+
+	<from>
+		empresa,facturasprov 
+		INNER JOIN lineasfacturasprov ON facturasprov.idfactura = lineasfacturasprov.idfactura  LEFT OUTER JOIN dirproveedores ON facturasprov.codproveedor = dirproveedores.codproveedor 
+		LEFT OUTER JOIN albaranesprov ON albaranesprov.idalbaran = lineasfacturasprov.idalbaran
+		LEFT OUTER JOIN proveedores ON facturasprov.codproveedor = proveedores.codproveedor
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		lineasfacturasprov.idalbaran, lineasfacturasprov.referencia
+	</order>
+</QRY>

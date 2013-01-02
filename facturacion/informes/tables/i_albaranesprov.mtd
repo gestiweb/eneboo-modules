@@ -1,0 +1,162 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>i_albaranesprov</name>
+	<!-- Listado de informes de albaranes de proveedor	-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Informes de albaranes de proveedores")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador interno	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>200</length>
+	</field>
+
+	<field>
+		<name>tipoinforme</name>
+		<!-- Tipo de informe a mostrar según la divisa de los albaranes -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo de informe")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>23</length>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Moneda original");QT_TRANSLATE_NOOP("MetaData","Moneda original y euros");QT_TRANSLATE_NOOP("MetaData","Euros")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Moneda original")</default>
+	</field>
+	
+	<field>
+		<name>d_albaranesprov_codigo</name>
+		<!-- Código de albarán inicial -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde albarán Nº")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>12</length>
+
+		<relation>
+			<table>albaranesprov</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+
+	</field>
+
+	<field>
+		<name>h_albaranesprov_codigo</name>
+		<!-- Código de albarán final -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta albarán Nº")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>12</length>
+
+		<relation>
+			<table>albaranesprov</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+
+	</field>
+
+	<field>
+		<name>codintervalo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Intervalo")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>intervalos</table>
+			<field>codigo</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>d_albaranesprov_fecha</name>
+		<!-- Fecha inicial para los albaranes del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha desde")</alias>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>h_albaranesprov_fecha</name>
+		<!-- Fecha final para los albaranes del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData"," hasta")</alias>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>i_albaranesprov_codproveedor</name>
+		<!-- Código del proveedor -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Proveedor")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+
+		<relation>
+			<table>proveedores</table>
+			<field>codproveedor</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>i_albaranesprov_ptefactura</name>
+		<!-- Opción de mostrar todos los albaranes, los pendientes de factura o los no pendientes de factura -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ptes de factura")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>12</length>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Todos");QT_TRANSLATE_NOOP("MetaData","Sí");QT_TRANSLATE_NOOP("MetaData","No")</optionslist>
+	</field>
+	
+	<field>
+		<name>orden1</name>
+		<!-- Primer criterio de ordenación -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Albaranes por (1)")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","No ordenar");QT_TRANSLATE_NOOP("MetaData","Código");QT_TRANSLATE_NOOP("MetaData","Cod.Proveedor");QT_TRANSLATE_NOOP("MetaData","Proveedor");QT_TRANSLATE_NOOP("MetaData","Fecha");QT_TRANSLATE_NOOP("MetaData","Total")</optionslist>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>tipoorden1</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Ascendente");QT_TRANSLATE_NOOP("MetaData","Descendente")</optionslist>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>orden2</name>
+		<!-- Segundo criterio de ordenación -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Albaranes por (2)")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","No ordenar");QT_TRANSLATE_NOOP("MetaData","Código");QT_TRANSLATE_NOOP("MetaData","Cod.Proveedor");QT_TRANSLATE_NOOP("MetaData","Proveedor");QT_TRANSLATE_NOOP("MetaData","Fecha");QT_TRANSLATE_NOOP("MetaData","Total")</optionslist>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>tipoorden2</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Ascendente");QT_TRANSLATE_NOOP("MetaData","Descendente")</optionslist>
+		<length>20</length>
+	</field>
+</TMD>

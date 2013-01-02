@@ -1,0 +1,30 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>pr_i_partestrabajo</name>
+
+	<tables>pr_tareas,pr_tareastrabajador,pr_procesos,pr_secciones</tables>
+
+	<group>
+		<level>0</level>
+		<field>pr_tareastrabajador.idtrabajador</field>
+	</group>
+	
+	<select>
+		pr_tareas.idtarea, pr_tareas.descripcion, pr_procesos.codordenproduccion,
+		pr_tareastrabajador.idtrabajador,pr_tareastrabajador.totalacumulado,pr_tareastrabajador.iniciocuentaf,pr_tareastrabajador.iniciocuentat,pr_tareastrabajador.fincuentat, pr_tareastrabajador.idtrabajador || '   ' || pr_trabajadores.nombre, pr_secciones.idseccion
+	</select>
+
+	<from>
+		pr_tareas
+		INNER JOIN pr_tareastrabajador ON pr_tareas.idtarea = pr_tareastrabajador.idtarea
+		INNER JOIN pr_procesos ON pr_tareas.idproceso = pr_procesos.idproceso
+		LEFT OUTER JOIN pr_trabajadores ON pr_tareastrabajador.idtrabajador = pr_trabajadores.idtrabajador
+		LEFT OUTER JOIN pr_secciones ON pr_trabajadores.idseccion = pr_secciones.idseccion
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+	</order>
+</QRY>

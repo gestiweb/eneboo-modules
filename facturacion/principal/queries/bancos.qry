@@ -1,0 +1,37 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>bancos</name>
+
+	<tables>bancos,sucursales,paises</tables>
+
+	<param>
+		<name>from</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Desde Banco:")</alias>
+		<type>string</type>
+	</param>
+
+	<param>
+		<name>to</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Hasta Banco:")</alias>
+		<type>string</type>
+	</param>
+
+	<group>
+		<level>0</level>
+		<field>bancos.entidad</field>
+	</group>
+
+	<select>
+		bancos.entidad, bancos.nombre, sucursales.agencia, sucursales.nombre,
+		sucursales.direccion, sucursales.provincia, sucursales.poblacion,
+		sucursales.codpais, sucursales.telefono, sucursales.fax, paises.bandera
+	</select>
+
+	<from>
+		bancos LEFT JOIN sucursales ON bancos.entidad = sucursales.entidad LEFT JOIN paises ON sucursales.codpais = paises.codpais
+	</from>
+
+	<where>
+		bancos.entidad&gt;=[from] AND bancos.entidad&lt;=[to] 
+	</where>
+</QRY> 

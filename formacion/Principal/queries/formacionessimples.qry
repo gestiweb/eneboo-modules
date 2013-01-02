@@ -1,0 +1,20 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>formacionessimples</name>
+
+	<tables>accionsformativas</tables>
+
+	<select>
+		formacionessimples.idFormacionS, formacionessimples.titulo, formacionessimples.fechainicio, 
+formacionessimples.fechafin
+	</select>
+
+        <from>
+                accionesformativas
+        </from>
+
+	<where>
+		ORDER BY pertenecea.idFormacionS
+	</where>
+
+</QRY> 

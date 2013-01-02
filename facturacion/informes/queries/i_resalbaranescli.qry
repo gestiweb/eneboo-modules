@@ -1,0 +1,32 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>i_resalbaranescli</name>
+
+	<tables>albaranescli,empresa</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.cifnif</field>
+	</group>
+
+	<select>
+		albaranescli.codigo, albaranescli.fecha,
+		albaranescli.codcliente, albaranescli.nombrecliente,
+		albaranescli.cifnif, albaranescli.ptefactura,
+		albaranescli.neto, albaranescli.totaliva,
+		albaranescli.totalrecargo, albaranescli.total,
+		albaranescli.coddivisa,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa,albaranescli
+	</from>
+
+	<where>
+	</where>
+</QRY>

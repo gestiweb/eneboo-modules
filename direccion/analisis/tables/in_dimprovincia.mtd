@@ -1,0 +1,53 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>in_dimprovincia</name>
+	<!--Dimensión de provincias-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Dimensión de provincias")</alias>
+
+	<in_Dimension name="Provincia">
+		<in_Hierarchy hasAll="true" allMemberName="All provinces" >
+			<in_Level column="idprovincia" uniqueMembers="true" ordinalColumn="codigo" nameColumn="provincia" />
+		</in_Hierarchy>
+	</in_Dimension>
+	<field>
+		<name>idprovincia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Provincia")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+		
+		<relation>
+			<table>in_h_ventas</table>
+			<field>dim_idprovincia</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	<field in_property="true">
+		<name>codigo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	<field>
+		<name>provincia</name>
+		<!--Provincia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Provincia")</alias>
+		<null>false</null>		
+		<pk>false</pk>
+		<type>string</type>
+		<length>50</length>
+	</field>
+	
+	<field in_property="true">
+		<name>codpais</name>
+		<!--Código del país -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","País")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+	</field>
+</TMD>

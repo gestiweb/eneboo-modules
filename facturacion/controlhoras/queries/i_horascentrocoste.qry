@@ -1,0 +1,39 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>horasope</name>
+
+	<tables>empresa,horasope</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.nombre</field>
+	</group>
+
+	<group>
+		<level>1</level>
+		<field>horasope.codcentro</field>
+	</group>
+
+	<select>
+		empresa.nombre,
+		horasope.codcentro, centroscoste.descripcion, clientes.codcliente, clientes.nombre, 
+		lineashorasope.codoperario, lineashorasope.apellidos, lineashorasope.nombre, 
+		sum(lineashorasope.horasjornada),
+		sum(lineashorasope.horastrabajadas),
+		sum(lineashorasope.horasextra)
+	</select>
+
+	<from>
+		empresa,centroscoste
+		inner join horasope on centroscoste.codcentro = horasope.codcentro 
+		inner join lineashorasope on lineashorasope.idparte = horasope.idparte
+		inner join clientes on horasope.codcliente = clientes.codcliente
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		horasope.codcentro, lineashorasope.codoperario
+	</order>
+</QRY>

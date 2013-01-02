@@ -1,0 +1,38 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>inventario</name>
+
+	<tables>empresa,almacenes,stocks,articulos</tables>
+
+	<group>
+		<level>0</level>
+		<field>empresa.cifnif</field>
+	</group>
+
+	<group>
+		<level>1</level>
+		<field>almacenes.codalmacen</field>
+	</group>
+
+	<select>
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		almacenes.codalmacen, almacenes.nombre,
+		almacenes.direccion, almacenes.poblacion,
+		stocks.referencia, stocks.cantidad,
+		articulos.descripcion
+	</select>
+
+	<from>
+		empresa,almacenes INNER JOIN stocks ON almacenes.codalmacen = stocks.codalmacen INNER JOIN articulos ON stocks.referencia = articulos.referencia
+	</from>
+
+	<where>
+	</where>
+	
+	<order>
+		stocks.referencia
+	</order>
+</QRY>

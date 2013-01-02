@@ -1,0 +1,247 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+<KugarTemplate BottomMargin="50" TopMargin="50" RightMargin="30" LeftMargin="30" PageOrientation="0" PageSize="0" >
+<Detail Height="0" Level="0"/>
+
+ <DetailHeader Height="215" Level="1" >
+
+	<!-- ALBARÁN -->
+  <Line Width="1" Y1="0" Y2="0" X1="0" X2="210" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="174" Y2="174" X1="0" X2="210" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="174" X1="0" X2="0" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="174" X1="210" X2="210" Style="1" Color="100,100,100" />
+
+  <Label WordWrap="0" Width="90" X="2" Y="2" BorderStyle="0" Height="19" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" ALBARÁN" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+  <Field WordWrap="0" Width="116" X="92" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="1" DataType="0" Field="albaranescli.codigo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.codigo]" FontWeight="65" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+  <Label WordWrap="0" Width="55" X="5" Y="25" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Fecha" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Field WordWrap="0" Width="100" X="75" Y="25" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="3" Field="albaranescli.fecha" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.fecha]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+	<Label WordWrap="0" Width="55" X="5" Y="45" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Divisa" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Field WordWrap="0" Width="100" X="75" Y="45" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.coddivisa" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.coddivisa]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+	<Label WordWrap="0" Width="55" X="5" Y="65" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Página" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	<Special WordWrap="0" Width="100" X="75" Y="65" BorderStyle="0" Height="18" HAlignment="0" DateFormat="11" BorderColor="0,0,0" BackgroundColor="255,255,255" Type="1" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+
+	<Field WordWrap="0" Width="200" X="5" Y="90" BorderStyle="0" NegValueColor="0,0,0" Height="55" HAlignment="0" DataType="6" Field="albaranescli.codigo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.codigo]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+
+	<!-- EMPRESA -->
+  <Line Width="1" Y1="0" Y2="0" X1="219" X2="591" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="80" Y2="80" X1="219" X2="591" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="80" X1="219" X2="219" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="80" X1="591" X2="591" Style="1" Color="100,100,100" />
+
+  <Field WordWrap="1" Width="260" X="221" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="35" HAlignment="1" DataType="0" Field="empresa.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.nombre]" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+	<CalculatedField CalculationType="6" FunctionName="flfactinfo.pub_logo" WordWrap="0" Width="109" X="480" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="34" HAlignment="0" DataType="5" Field="empresa.logo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.logo]" FontWeight="50" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+	<Label WordWrap="0" Width="60" X="225" Y="40" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="CIF/NIF" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="80" X="275" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.cifnif" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.cifnif]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+  <Field WordWrap="0" Width="235" X="355" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.direccion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.direccion]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="45" X="225" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.codpostal" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.codpostal]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="150" X="270" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.ciudad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.ciudad]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="100" X="420" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.provincia" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.provincia]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+
+	<!-- CLIENTE -->
+  <Line Width="1" Y1="89" Y2="89" X1="219" X2="591" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="174" Y2="174" X1="219" X2="591" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="89" Y2="174" X1="219" X2="219" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="89" Y2="174" X1="590" X2="590" Style="1" Color="100,100,100" />
+
+  <Label WordWrap="0" Width="78" X="222" Y="91" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Cliente" FontWeight="65" FontSize="12" BorderWidth="0" FontFamily="Arial" />
+  <Field WordWrap="0" Width="298" X="290" Y="91" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="0" Field="albaranescli.codcliente" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.codcliente]" FontWeight="65" FontSize="12" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+
+  <Field WordWrap="0" Width="250" X="225" Y="115" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.nombrecliente" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.nombrecliente]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+  <Label WordWrap="0" Width="50" X="480" Y="115" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="CIF/NIF" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+	<Field WordWrap="0" Width="60" X="525" Y="115" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.cifnif" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.cifnif]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+	<Field WordWrap="0" Width="200" X="225" Y="135" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.direccion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.direccion]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="50" X="225" Y="155" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.codpostal" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.codpostal]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="160" X="295" Y="155" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.ciudad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.ciudad]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="100" X="475" Y="155" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.provincia" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.provincia]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+ <!--Cabeceras de lista de artículos-->
+
+  <Label WordWrap="0" Width="88" X="1" Y="190" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Referencia" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Label WordWrap="0" Width="289" X="90" Y="190" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Descripción" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Label WordWrap="0" Width="69" X="380" Y="190" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Cantidad" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Label WordWrap="0" Width="69" X="450" Y="190" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Precio" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Label WordWrap="0" Width="69" X="520" Y="190" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Importe" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+
+</DetailHeader>
+
+
+
+<AddOnHeader Height="215" Level="1" >
+
+	<!-- ALBARÁN -->
+  <Line Width="1" Y1="0" Y2="0" X1="0" X2="210" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="174" Y2="174" X1="0" X2="210" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="174" X1="0" X2="0" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="174" X1="210" X2="210" Style="1" Color="100,100,100" />
+
+  <Label WordWrap="0" Width="90" X="2" Y="2" BorderStyle="0" Height="19" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" ALBARÁN" FontWeight="65" FontSize="12" BorderWidth="1" FontFamily="Arial" />
+  <Field WordWrap="0" Width="116" X="92" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="19" HAlignment="1" DataType="0" Field="albaranescli.codigo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.codigo]" FontWeight="65" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+  <Label WordWrap="0" Width="55" X="5" Y="25" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Fecha" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Field WordWrap="0" Width="100" X="75" Y="25" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="3" Field="albaranescli.fecha" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.fecha]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+	<Label WordWrap="0" Width="55" X="5" Y="45" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Divisa" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Field WordWrap="0" Width="100" X="75" Y="45" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.coddivisa" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.coddivisa]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+	<Label WordWrap="0" Width="55" X="5" Y="65" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Página" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	<Special WordWrap="0" Width="100" X="75" Y="65" BorderStyle="0" Height="18" HAlignment="0" DateFormat="11" BorderColor="0,0,0" BackgroundColor="255,255,255" Type="1" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+
+	<Field WordWrap="0" Width="165" X="5" Y="90" BorderStyle="0" NegValueColor="0,0,0" Height="75" HAlignment="0" DataType="6" Field="albaranescli.codigo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.codigo]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+
+	<!-- EMPRESA -->
+  <Line Width="1" Y1="0" Y2="0" X1="219" X2="591" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="80" Y2="80" X1="219" X2="591" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="80" X1="219" X2="219" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="0" Y2="80" X1="591" X2="591" Style="1" Color="100,100,100" />
+
+  <Field WordWrap="1" Width="260" X="221" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="35" HAlignment="1" DataType="0" Field="empresa.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.nombre]" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+  <CalculatedField CalculationType="6" FunctionName="flfactinfo.pub_logo" WordWrap="0" Width="109" X="480" Y="2" BorderStyle="0" NegValueColor="0,0,0" Height="34" HAlignment="0" DataType="5" Field="empresa.logo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.logo]" FontWeight="50" FontSize="12" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+	<Label WordWrap="0" Width="60" X="225" Y="40" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="CIF/NIF" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="80" X="275" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.cifnif" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.cifnif]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+  <Field WordWrap="0" Width="235" X="355" Y="40" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.direccion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.direccion]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="45" X="225" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.codpostal" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.codpostal]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="150" X="270" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.ciudad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.ciudad]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="100" X="420" Y="60" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="empresa.provincia" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[empresa.provincia]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+
+	<!-- CLIENTE -->
+  <Line Width="1" Y1="89" Y2="89" X1="219" X2="591" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="174" Y2="174" X1="219" X2="591" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="89" Y2="174" X1="219" X2="219" Style="1" Color="100,100,100" />
+  <Line Width="1" Y1="89" Y2="174" X1="590" X2="590" Style="1" Color="100,100,100" />
+
+  <Label WordWrap="0" Width="78" X="222" Y="91" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text=" Cliente" FontWeight="65" FontSize="12" BorderWidth="0" FontFamily="Arial" />
+  <Field WordWrap="0" Width="298" X="290" Y="91" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="2" DataType="0" Field="albaranescli.codcliente" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.codcliente]" FontWeight="65" FontSize="12" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+
+  <Field WordWrap="0" Width="250" X="225" Y="115" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.nombrecliente" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.nombrecliente]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+  <Label WordWrap="0" Width="50" X="480" Y="115" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="CIF/NIF" FontWeight="50" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+	<Field WordWrap="0" Width="60" X="525" Y="115" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.cifnif" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.cifnif]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+	<Field WordWrap="0" Width="200" X="225" Y="135" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.direccion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.direccion]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="50" X="225" Y="155" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.codpostal" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.codpostal]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="160" X="295" Y="155" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.ciudad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.ciudad]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="100" X="475" Y="155" BorderStyle="0" NegValueColor="0,0,0" Height="18" HAlignment="0" DataType="0" Field="albaranescli.provincia" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.provincia]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+ <!--Cabeceras de lista de artículos-->
+
+  <Label WordWrap="0" Width="88" X="1" Y="190" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Referencia" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Label WordWrap="0" Width="289" X="90" Y="190" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Descripción" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Label WordWrap="0" Width="69" X="380" Y="190" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Cantidad" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Label WordWrap="0" Width="69" X="450" Y="190" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Precio" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+  <Label WordWrap="0" Width="69" X="520" Y="190" BorderStyle="0" Height="20" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Importe" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+
+ </AddOnHeader>
+
+
+<Detail Height="25" Level="1" DrawIf="pedidoscli.codigo">
+		<!--Line Width="1" Y1="3" Y2="3" X1="11" X2="389" Style="3" Color="0,0,0" /-->
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Arial"
+		   FontItalic="0" FontSize="10" FontWeight="65"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="20"
+		   Text="Pedido" VAlignment="1" Width="83"
+		   WordWrap="0" X="41" Y="4" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="pedidoscli.codigo" FontFamily="Arial" FontItalic="0"
+		   FontSize="10" FontWeight="65" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="20" NegValueColor="0,0,0"
+		   Precision="2" Text="[pedidoscli.codpedido]" VAlignment="1"
+		   Width="90" WordWrap="0" X="94"
+		   Y="4" />
+
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Arial"
+		   FontItalic="0" FontSize="10" FontWeight="65"
+		   ForegroundColor="0,0,0" HAlignment="1" Height="20"
+		   Text="de" VAlignment="1" Width="36"
+		   WordWrap="0" X="200" Y="4" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="3" DateFormat="19"
+		   Field="pedidoscli.fecha" FontFamily="Arial" FontItalic="0"
+		   FontSize="10" FontWeight="65" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="20" NegValueColor="0,0,0"
+		   Precision="2" Text="[pedidoscli.fecha]" VAlignment="1"
+		   Width="99" WordWrap="0" X="236"
+		   Y="4" />
+ </Detail>
+
+
+ <Detail Height="20" Level="2" >
+
+  <Field WordWrap="0" Width="87" X="4" Y="1" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="lineasalbaranescli.referencia" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[lineasalbaranescli.referencia]" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="287" X="94" Y="1" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="lineasalbaranescli.descripcion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[lineasalbaranescli.descripcion]" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="67" X="380" Y="1" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="lineasalbaranescli.cantidad" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[lineasalbaranescli.cantidad]" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="67" X="450" Y="1" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="lineasalbaranescli.pvpunitario" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[lineasalbaranescli.pvpunitario]" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+  <Field WordWrap="0" Width="67" X="520" Y="1" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="lineasalbaranescli.pvptotal" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[lineasalbaranescli.pvptotal]" FontWeight="50" FontSize="9" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+ </Detail>
+
+
+ <AddOnFooter Height="30" Level="1">
+ 	<Line Width="1" Y1="4" Y2="4" X1="4" X2="590" Style="1" Color="100,100,100" />
+	<Label WordWrap="0" Width="120" X="400" Y="10" BorderStyle="0" Height="21" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Suma y sigue" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	<CalculatedField WordWrap="0" CalculationType="1" Width="70" X="520" Y="10" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="lineasalbaranescli.pvptotal" Currency="32" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[lineasalbaranescli.pvptotal]" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+</AddOnFooter>
+
+
+
+
+<DetailFooter Height="210" Level="1" NewPage="true" PlaceAtBottom="true">
+<!--Necesaria para AddOnFooter-->
+<CalculatedField WordWrap="0" CalculationType="1" Width="70" X="520" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="0" HAlignment="2" DataType="2" Field="lineasalbaranescli.pvptotal" Currency="32" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[lineasalbaranescli.pvptotal]" FontWeight="65" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+ 	<Line Width="1" Y1="30" Y2="30" X1="1" X2="580" Style="1" Color="100,100,100"/>
+
+
+	<Label WordWrap="0" Width="99" X="280" Y="35" BorderStyle="0" Height="18" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Neto" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	<Label WordWrap="0" Width="99" X="380" Y="35" BorderStyle="0" Height="18" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="I.V.A." FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+	<Label WordWrap="0" Width="99" X="480" Y="35" BorderStyle="0" Height="18" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Recargo Eq." FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial" />
+
+
+<CalculatedField WordWrap="0" CalculationType="5" Width="90" X="280" Y="55" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="albaranescli.neto" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.neto]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+<CalculatedField WordWrap="0" CalculationType="5" Width="90" X="380" Y="55" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="albaranescli.totaliva" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.totaliva]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+<CalculatedField WordWrap="0" CalculationType="5" Width="90" X="480" Y="55" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="albaranescli.totalrecargo" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.totalrecargo]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+	<Line Width="1" Y1="125" Y2="125" X1="0" X2="580" Style="1" Color="100,100,100"/>
+
+	<!-- IRPF -->
+	<Label WordWrap="0" Width="60" X="40" Y="130" BorderStyle="0" Height="18" HAlignment="1" BorderColor="0,0,0" BackgroundColor="220,220,220" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="I.R.P.F." FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+	<CalculatedField WordWrap="0" CalculationType="6" FunctionName="flfactinfo.iface.pub_valorIRPF" Width="80" X="105" Y="130" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" Field="albaranescli.idalbaran" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+
+
+	<Label WordWrap="0" Width="123" X="340" Y="130" BorderStyle="0" Height="21" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" Text="Total Albarán" FontWeight="75" FontSize="13" BorderWidth="1" FontFamily="Arial" />
+  <CalculatedField WordWrap="0" CalculationType="5" Width="120" X="460" Y="130" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="albaranescli.total" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.total]" FontWeight="75" FontSize="14" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+  
+    <!-- observaciones -->
+<Line Width="1" Y1="179" Y2="179" X1="0" X2="580" Style="1" Color="100,100,100"/>
+<Line Width="1" Y1="248" Y2="248" X1="0" X2="580" Style="1" Color="100,100,100"/>
+<Line Width="1" Y1="179" Y2="248" X1="0" X2="0" Style="1" Color="100,100,100"/>
+<Line Width="1" Y1="179" Y2="248" X1="580" X2="580" Style="1" Color="100,100,100"/>
+
+  <Label WordWrap="0" Width="100" X="10" Y="180" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" Text="Observaciones" FontWeight="65" FontSize="10" BorderWidth="1" FontFamily="Arial Narrow" />
+  <CalculatedField WordWrap="1" CalculationType="5" Width="550" X="10" Y="198" BorderStyle="0" NegValueColor="0,0,0" Height="49" HAlignment="0" DataType="0" Field="albaranescli.observaciones" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" FontItalic="0" VAlignment="0" ForegroundColor="0,0,0" CommaSeparator="44" Text="[albaranescli.observaciones]" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial" />
+
+ </DetailFooter>
+
+ <PageFooter Height="25" PrintFrequency="1" />
+</KugarTemplate>

@@ -1,0 +1,46 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_tipolibro</name>
+	<!--Clave tipo libro-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Clave tipo libro")</alias>
+
+	<field>
+		<name>codigo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>1</length>
+		<relation>
+			<table>co_facturasemi340</table>
+			<field>tipolibro</field>
+			<card>1M</card>
+		</relation>
+		<relation>
+			<table>co_facturasrec340</table>
+			<field>tipolibro</field>
+			<card>1M</card>
+		</relation>
+		<relation>
+			<table>co_bienesinv</table>
+			<field>tipolibro</field>
+			<card>1M</card>
+		</relation>
+		<relation>
+			<table>co_opintracomunitarias</table>
+			<field>tipolibro</field>
+			<card>1M</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripcion")</alias>
+		<null>ture</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+	
+</TMD>

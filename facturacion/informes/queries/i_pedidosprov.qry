@@ -1,0 +1,47 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>pedidosprov</name>
+
+	<tables>empresa,pedidosprov</tables>
+
+	<group>
+		<level>0</level>
+		<field>pedidosprov.idpedido</field>
+	</group>
+
+	<select>
+		pedidosprov.idpedido, pedidosprov.codigo,
+		lineaspedidosprov.idpedido, pedidosprov.codserie,
+		pedidosprov.fecha, pedidosprov.total,
+		pedidosprov.coddivisa, pedidosprov.codejercicio,
+		pedidosprov.codpago, pedidosprov.codalmacen,
+		pedidosprov.codproveedor, pedidosprov.nombre,
+		pedidosprov.cifnif, pedidosprov.tasaconv,
+		pedidosprov.neto, pedidosprov.totaliva, pedidosprov.observaciones,
+		pedidosprov.totalrecargo, pedidosprov.irpf, pedidosprov.totalirpf,
+		lineaspedidosprov.referencia, lineaspedidosprov.descripcion,
+		lineaspedidosprov.cantidad, lineaspedidosprov.pvpunitario,
+		lineaspedidosprov.pvptotal, lineaspedidosprov.codimpuesto,
+		lineaspedidosprov.iva,
+		dirproveedores.direccion,dirproveedores.codpostal, dirproveedores.provincia,dirproveedores.ciudad,
+		empresa.nombre, empresa.cifnif,
+		empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		empresa.provincia, empresa.apartado,
+		empresa.codpais
+	</select>
+
+	<from>
+		empresa,pedidosprov
+		INNER JOIN lineaspedidosprov ON pedidosprov.idpedido = lineaspedidosprov.idpedido
+		LEFT OUTER JOIN dirproveedores ON pedidosprov.codproveedor = dirproveedores.codproveedor
+	</from>
+
+	<where>
+		pedidosprov.codigo&gt;=[from] AND pedidosprov.codigo&lt;=[to]
+	</where>
+	
+	<order>
+		lineaspedidosprov.referencia
+	</order>
+</QRY>

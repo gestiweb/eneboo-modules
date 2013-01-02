@@ -1,0 +1,123 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>lineasivafactprov</name>
+	<!--Líneas que contienen los acumulados según tipo de IVA de las facturas a cliente-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Lineas de IVA de Facturas de Proveedor")</alias>
+
+	<field>
+		<name>idlinea</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>idfactura</name>
+		<!--Identificador de la factura a la que pertenece la línea-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>facturasprov</table>
+			<field>idfactura</field>
+			<card>M1</card>
+			<delC>true</delC>
+		</relation>
+	</field>
+
+	<field>
+		<name>neto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Neto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>10</partI>
+		<partD>2</partD>
+		<calculated>true</calculated>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>codimpuesto</name>
+		<!--Tipo de IVA aplicado-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","I.V.A.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>impuestos</table>
+			<field>codimpuesto</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>iva</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","%I.V.A.")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>2</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>totaliva</name>
+		<!--Total de IVA-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","IVA")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>10</partI>
+		<partD>2</partD>
+		<calculated>true</calculated>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>recargo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","%R.Equivalencia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>2</partI>
+		<partD>2</partD>
+	</field>
+
+	<field>
+		<name>totalrecargo</name>
+		<!--Total de recargo de equivalencia-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","R.Equivalencia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>10</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>totallinea</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>10</partI>
+		<partD>2</partD>
+		<calculated>true</calculated>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+</TMD>

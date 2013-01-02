@@ -1,0 +1,33 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>co_modelo349</name>
+
+	<tables>empresa,co_modelo349,co_datosfiscales</tables>
+	
+	<select>
+		empresa.nombre, empresa.logo, empresa.cifnif, empresa.direccion,
+		empresa.codpostal, empresa.ciudad,
+		co_modelo349.codejercicio, co_modelo349.periodo,
+		co_datosfiscales.cifnif, co_datosfiscales.apellidosrs, 
+		co_datosfiscales.nombre, co_datosfiscales.telefono,
+		co_datosfiscales.nombrevia, co_datosfiscales.numero,
+		co_datosfiscales.escalera, co_datosfiscales.piso,
+		co_datosfiscales.puerta, co_datosfiscales.codpos,
+		co_datosfiscales.municipio, co_datosfiscales.provincia,
+		co_modelo349.complementaria, co_modelo349.sustitutiva,
+		co_modelo349.numdecanterior, co_modelo349.numtotaloi,
+		co_modelo349.importetotaloi, co_modelo349.numtotaloirec,
+		co_modelo349.importetotaloirec, co_modelo349.numdeclarantes,
+		co_modelo349.numpersonasrel, co_modelo349.numjustificante
+	</select>
+	
+	<from>
+		empresa, co_datosfiscales, co_modelo349
+	</from>
+
+	<where>
+	</where>
+
+	<order>
+	</order>
+</QRY>

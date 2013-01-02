@@ -1,0 +1,120 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>pr_ordenesproduccion</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Órdenes de producción")</alias>
+
+	<field>
+		<name>codorden</name>
+		<!--Identificador de la orden-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº de Orden")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>10</length>
+		<counter>true</counter>
+
+		<relation>
+			<table>lotesstock</table>
+			<field>codordenproduccion</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>fecha</name>
+		<!--Fecha de emisión de la orden-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fechaentrega</name>
+		<!--Fecha de entrega de la orden-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","F.Entrega")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>estado</name>
+		<!--Estado de la orden-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Estado")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>totallotes</name>
+		<!--Número de lotes de producto incluidos en la orden-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total lotes")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>int</type>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>referencia</name>
+		<!-- Código de referencia del artículo	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Referencia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>18</length>
+		
+		<relation>
+			<table>articulos</table>
+			<field>referencia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>codfamilia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Familia")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<relation>
+			<table>familias</table>
+			<field>codfamilia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>planificacion</name>
+		<!-- HTML con el Gantt de la planificación-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>stringlist</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>fechadesde</name>
+		<!--Fecha desde la cual se buscan ordenes de produccion-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>fechahasta</name>
+		<!--Fecha hasta la cual se buscan ordenes de produccion-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+</TMD>

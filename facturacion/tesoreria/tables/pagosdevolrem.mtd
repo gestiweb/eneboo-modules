@@ -1,0 +1,64 @@
+<!DOCTYPE TMD>
+<TMD>
+    <name>pagosdevolrem</name>
+    <alias>QT_TRANSLATE_NOOP("MetaData","Pagos de remesas de recibos")</alias>
+    <field>
+        <name>idpagorem</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Identificador")</alias>
+        <null>false</null>
+        <pk>true</pk>
+        <type>serial</type>
+        <visiblegrid>false</visiblegrid>
+    </field>
+    <field>
+        <name>idremesa</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Identificador Remesa")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>uint</type>
+        <visiblegrid>false</visiblegrid>
+        <relation>
+            <table>remesas</table>
+            <field>idremesa</field>
+            <card>M1</card>
+            <delC>true</delC>
+        </relation>
+    </field>
+    <field>
+        <name>fecha</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Fecha")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>date</type>
+    </field>
+    <field>
+        <name>tipo</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>20</length>
+    </field>
+    <field>
+        <name>idasiento</name>
+<!-- Código del asiento generado por el pago de la remesa-->        <alias>QT_TRANSLATE_NOOP("MetaData","Asiento")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>uint</type>
+        <visiblegrid>false</visiblegrid>
+        <relation>
+            <table>co_asientos</table>
+            <field>idasiento</field>
+            <card>M1</card>
+        </relation>
+    </field>
+    <field>
+        <name>nogenerarasiento</name>
+<!--Si la validación del pago o devolución va a generar un asiento contable-->        <alias>QT_TRANSLATE_NOOP("MetaData","Ignorar contabilidad")</alias>
+        <null>false</null>
+        <pk>false</pk>
+        <type>bool</type>
+        <default>false</default>
+    </field>
+	
+</TMD>

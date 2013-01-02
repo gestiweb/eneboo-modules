@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?> <!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd"> <KugarTemplate BottomMargin="10" TopMargin="10" RightMargin="10" LeftMargin="20" PageOrientation="1" PageSize="0" >
+	
+	<ReportHeader Height="35" PrintFrequency="1">
+	</ReportHeader>
+	<Detail Height="0" Level="0" >
+	</Detail>
+	<DetailHeader Level="1" Height="110">
+		
+		<Label WordWrap="0" Width="655" X="20" Y="1" BorderStyle="0" Height="22" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" Libro Diario" FontWeight="75" FontSize="12" BorderWidth="0" fontfamily="arial narrow" />
+		<CalculatedField WordWrap="0" CalculationType="6" Width="150" X="675" Y="1" BorderStyle="0" NegValueColor="0,0,0" Height="22" HAlignment="2" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="fecha" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+		
+		<CalculatedField WordWrap="0" CalculationType="6" Width="805" X="20" Y="24" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="diario" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<CalculatedField CalculationType="6" FunctionName="flcontinfo.pub_nombreEmpresa" WordWrap="0" Width="705" X="20" Y="45" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="" Field="empresa.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<CalculatedField WordWrap="0" CalculationType="6" Width="100" X="725" Y="45" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="numpag" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+		
+		<Line Width="4" Y1="68" Y2="68" X1="20" X2="825" Style="1" Color="220,220,220" />
+		
+		<Label WordWrap="0" Width="50" X="20" Y="85" BorderStyle="0" Height="18" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Asiento" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="50" X="85" Y="85" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Fecha" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="65" X="140" Y="85" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Documento" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="75" X="210" Y="85" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Subcuenta" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="190" X="505" Y="85" BorderStyle="0" Height="18" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Concepto" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="60" X="700" Y="85" BorderStyle="0" Height="18" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Debe" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="60" X="765" Y="85" BorderStyle="0" Height="18" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Haber" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		
+		<Line Width="1" Y1="105" Y2="105" X1="20" X2="825" Style="1" Color="120,120,120" />
+		
+	</DetailHeader>
+	
+	
+	<AddOnHeader Level="1" Height="110">
+		
+		<Label WordWrap="0" Width="655" X="20" Y="1" BorderStyle="0" Height="22" HAlignment="0" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="0,0,0" Text=" Libro Diario" FontWeight="75" FontSize="12" BorderWidth="0" fontfamily="arial narrow" />
+		<CalculatedField WordWrap="0" CalculationType="6" Width="150" X="675" Y="1" BorderStyle="0" NegValueColor="0,0,0" Height="22" HAlignment="2" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="fecha" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="220,220,220" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+		
+		<CalculatedField WordWrap="0" CalculationType="6" Width="805" X="20" Y="24" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="diario" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		<CalculatedField CalculationType="6" FunctionName="flcontinfo.pub_nombreEmpresa" WordWrap="0" Width="705" X="20" Y="45" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="0" DataType="" Field="empresa.nombre" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<CalculatedField WordWrap="0" CalculationType="6" Width="100" X="725" Y="45" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="0" FunctionName="flcontinfo.pub_cabeceraInforme" Field="numpag" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="20,20,20" CommaSeparator="44" Text="" FontWeight="50" FontSize="10" BorderWidth="0" Precision="2" FontFamily="Arial Narrow" />
+		
+		<Line Width="4" Y1="68" Y2="68" X1="20" X2="825" Style="1" Color="220,220,220" />
+		
+		<Label WordWrap="0" Width="50" X="20" Y="85" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Asiento" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="50" X="85" Y="85" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Fecha" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="65" X="140" Y="85" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Documento" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="75" X="210" Y="85" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Subcuenta" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="190" X="505" Y="85" BorderStyle="0" Height="20" HAlignment="0" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Concepto" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="60" X="700" Y="85" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Debe" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="60" X="765" Y="85" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Haber" FontWeight="75" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		
+		<Line Width="1" Y1="105" Y2="105" X1="20" X2="825" Style="1" Color="120,120,120" />
+		
+	</AddOnHeader>
+	
+	
+	
+	<Detail Height="14" Level="1" >
+		<Field WordWrap="0" Width="50" X="20" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="12" HAlignment="2" DataType="1" Field="co_asientos.numero" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="50" X="85" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="12" HAlignment="0" DataType="3" Field="co_asientos.fecha" DateFormat="19" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="65" X="140" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="12" HAlignment="0" DataType="0" Field="co_partidas.documento" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="75" X="210" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="12" HAlignment="0" DataType="0" Field="co_subcuentas.codsubcuenta" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="210" X="290" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="12" HAlignment="0" DataType="0" Field="co_subcuentas.descripcion" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="190" X="505" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="12" HAlignment="0" DataType="0" Field="co_partidas.concepto" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="60" X="700" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="12" HAlignment="2" DataType="2" Field="co_partidas.debe" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<Field WordWrap="0" Width="60" X="765" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="12" HAlignment="2" DataType="2" Field="co_partidas.haber" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="50" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+		
+		<CalculatedField WordWrap="0" CalculationType="6" FunctionName="flcontinfo.pub_sumaDebeDiarioMes" Width="0" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="0" HAlignment="2" DataType="2" Field="co_partidas.debe" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<CalculatedField WordWrap="0" CalculationType="6" FunctionName="flcontinfo.pub_sumaHaberDiarioMes" Width="0" X="0" Y="0" BorderStyle="0" NegValueColor="0,0,0" Height="0" HAlignment="2" DataType="2" Field="co_partidas.haber" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+	</Detail>
+	
+	<AddOnFooter Height="45" Level="1" PlaceAtBottom="true">
+		
+		<Line Width="1" Y1="0" Y2="0" X1="20" X2="825" Style="1" Color="120,120,120" />
+		
+		<Label WordWrap="0" Width="150" X="0" Y="5" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Suma y sigue" FontWeight="85" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="100" X="600" Y="5" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Descuadre" FontWeight="65" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="60" X="700" Y="5" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Debe" FontWeight="65" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="60" X="765" Y="5" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Haber" FontWeight="65" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		
+		<CalculatedField WordWrap="0" CalculationType="6" FunctionName="flcontinfo.pub_debeDiarioMes" Width="60" X="700" Y="25" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="co_partidas.debe" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<CalculatedField WordWrap="0" CalculationType="6" FunctionName="flcontinfo.pub_haberDiarioMes" Width="60" X="765" Y="25" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="co_partidas.haber" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<CalculatedField WordWrap="0" CalculationType="6" Width="60" X="635" Y="25" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" FunctionName="flcontinfo.pub_descuadreDiarioMes" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+	</AddOnFooter>
+	
+	<DetailFooter Height="45" Level="1" PlaceAtBottom="true"  NewPage="true">
+		
+		<Line Width="1" Y1="0" Y2="0" X1="20" X2="825" Style="1" Color="120,120,120" />
+		
+		<Label WordWrap="0" Width="150" X="0" Y="5" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Totales" FontWeight="85" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="100" X="600" Y="5" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Descuadre" FontWeight="65" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="60" X="700" Y="5" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Debe" FontWeight="65" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		<Label WordWrap="0" Width="60" X="765" Y="5" BorderStyle="0" Height="20" HAlignment="2" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" Text="Haber" FontWeight="65" FontSize="8" BorderWidth="0" fontfamily="arial narrow" />
+		
+		<CalculatedField WordWrap="0" CalculationType="6" FunctionName="flcontinfo.pub_debeDiarioMes" Width="60" X="700" Y="25" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="co_partidas.debe" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<CalculatedField WordWrap="0" CalculationType="6" FunctionName="flcontinfo.pub_haberDiarioMes" Width="60" X="765" Y="25" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" Field="co_partidas.haber" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		<CalculatedField WordWrap="0" CalculationType="6" Width="60" X="635" Y="25" BorderStyle="0" NegValueColor="0,0,0" Height="20" HAlignment="2" DataType="2" FunctionName="flcontinfo.pub_descuadreDiarioMes" Field="" DateFormat="11" Currency="32" BorderColor="0,0,0" BackgroundColor="255,255,255" VAlignment="1" ForegroundColor="0,0,0" CommaSeparator="44" Text="" FontWeight="65" FontSize="8" BorderWidth="1" Precision="2" FontFamily="Arial Narrow" />
+		
+	</DetailFooter>
+	
+	
+</KugarTemplate>

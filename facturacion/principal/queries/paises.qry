@@ -1,0 +1,30 @@
+<!DOCTYPE QRY>
+<QRY>
+	<name>paises</name>
+
+	<tables>paises</tables>
+	
+	<param>
+		<name>from</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Desde Pais:")</alias>
+		<type>string</type>
+	</param>
+
+	<param>
+		<name>to</name>
+		<alias>QT_TRANSLATE_NOOP("Queries","Hasta Pais:")</alias>
+		<type>string</type>
+	</param>
+
+	<select>
+		paises.codpais, paises.nombre, paises.bandera
+	</select>
+
+	<from>
+		paises
+	</from>
+
+	<where>
+		paises.codpais&gt;=[from] AND paises.codpais&lt;=[to] ORDER BY paises.codpais 
+	</where>
+</QRY> 

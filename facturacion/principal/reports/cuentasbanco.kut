@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE KugarTemplate SYSTEM "kugartemplate.dtd">
+
+<KugarTemplate BottomMargin="10" LeftMargin="20" PageOrientation="0" PageSize="0" RightMargin="10" TopMargin="10">
+	<PageHeader PrintFrequency="1" Height="80">
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="1" BorderWidth="1" FontFamily="Helvetica"
+		   FontItalic="1" FontSize="14" FontWeight="50"
+		   ForegroundColor="0,0,0" HAlignment="1" Height="32"
+		   Text="CUENTAS BANCARIAS" VAlignment="1" Width="606"
+		   WordWrap="0" X="5" Y="4" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Times New Roman"
+		   FontItalic="0" FontSize="12" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="26"
+		   Text="Codigo" VAlignment="1" Width="80"
+		   WordWrap="0" X="4" Y="44" />
+		<Line Color="0,0,0" Style="1"
+		   Width="3" X1="1" X2="608"
+		   Y1="74" Y2="74" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Times New Roman"
+		   FontItalic="0" FontSize="12" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="26"
+		   Text="Descripcion" VAlignment="1" Width="250"
+		   WordWrap="0" X="90" Y="44" />
+		<Label BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" FontFamily="Times New Roman"
+		   FontItalic="0" FontSize="12" FontWeight="70"
+		   ForegroundColor="0,0,0" HAlignment="0" Height="25"
+		   Text="Numero de Cuenta" VAlignment="1" Width="200"
+		   WordWrap="0" X="403" Y="46" />
+	</PageHeader>
+
+	<Detail Height="30" Level="0">
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="cuentasbanco.codcuenta" FontFamily="Times New Roman" FontItalic="0"
+		   FontSize="10" FontWeight="50" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="19" NegValueColor="0,0,0"
+		   Precision="2" Text="[cuentasbanco.codcuenta]" VAlignment="1"
+		   Width="80" WordWrap="0" X="3"
+		   Y="1" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="cuentasbanco.descripcion" FontFamily="Times New Roman" FontItalic="0"
+		   FontSize="10" FontWeight="50" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="19" NegValueColor="0,0,0"
+		   Precision="2" Text="[cuentasbanco.descripcion]" VAlignment="1"
+		   Width="250" WordWrap="0" X="90"
+		   Y="2" />
+		<Line Color="0,0,0" Style="3"
+		   Width="2" X1="2" X2="611"
+		   Y1="27" Y2="27" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="cuentasbanco.ctaentidad" FontFamily="Times New Roman" FontItalic="0"
+		   FontSize="10" FontWeight="50" ForegroundColor="0,0,0"
+		   HAlignment="1" Height="19" NegValueColor="0,0,0"
+		   Precision="2" Text="[cuentasbanco.ctaentidad]" VAlignment="1"
+		   Width="60" WordWrap="0" X="350"
+		   Y="2" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="cuentasbanco.ctaagencia" FontFamily="Times New Roman" FontItalic="0"
+		   FontSize="10" FontWeight="50" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="19" NegValueColor="0,0,0"
+		   Precision="2" Text="[cuentasbanco.ctaagencia]" VAlignment="1"
+		   Width="60" WordWrap="0" X="415"
+		   Y="2" />
+		<Field BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" CommaSeparator="44"
+		   Currency="32" DataType="0" DateFormat="11"
+		   Field="cuentasbanco.cuenta" FontFamily="Times New Roman" FontItalic="0"
+		   FontSize="10" FontWeight="50" ForegroundColor="0,0,0"
+		   HAlignment="0" Height="19" NegValueColor="0,0,0"
+		   Precision="2" Text="[cuentasbanco.cuenta]" VAlignment="1"
+		   Width="131" WordWrap="0" X="480"
+		   Y="2" />
+	</Detail>
+
+	<PageFooter PrintFrequency="1" Height="35">
+		<Special BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" DateFormat="11"
+		   FontFamily="Times New Roman" FontItalic="0" FontSize="12"
+		   FontWeight="50" ForegroundColor="0,0,0" HAlignment="0"
+		   Height="20" Text="[Fecha]" Type="0"
+		   VAlignment="1" Width="99" WordWrap="0"
+		   X="1" Y="8" />
+		<Line Color="0,0,0" Style="1"
+		   Width="1" X1="1" X2="612"
+		   Y1="6" Y2="6" />
+		<Special BackgroundColor="255,255,255" BorderColor="0,0,0"
+		   BorderStyle="0" BorderWidth="1" DateFormat="11"
+		   FontFamily="Times New Roman" FontItalic="0" FontSize="12"
+		   FontWeight="50" ForegroundColor="0,0,0" HAlignment="2"
+		   Height="21" Text="[NúmPágina]" Type="1"
+		   VAlignment="1" Width="83" WordWrap="0"
+		   X="528" Y="8" />
+	</PageFooter>
+
+</KugarTemplate>

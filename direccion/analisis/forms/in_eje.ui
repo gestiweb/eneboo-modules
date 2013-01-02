@@ -1,0 +1,645 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>in_eje</class>
+<comment>Acceso general a una tabla.</comment>
+<author>InfoSiAL, S.L.</author>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>in_eje</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>524</width>
+            <height>444</height>
+        </rect>
+    </property>
+    <property name="sizePolicy">
+        <sizepolicy>
+            <hsizetype>5</hsizetype>
+            <vsizetype>5</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+    </property>
+    <property name="minimumSize">
+        <size>
+            <width>0</width>
+            <height>0</height>
+        </size>
+    </property>
+    <property name="caption">
+        <string>in_eje</string>
+    </property>
+    <property name="focusPolicy">
+        <enum>StrongFocus</enum>
+    </property>
+    <property name="layoutMargin" stdset="0">
+    </property>
+    <property name="layoutSpacing" stdset="0">
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>0</number>
+        </property>
+        <property name="spacing">
+            <number>0</number>
+        </property>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>gbxNiveles</cstring>
+            </property>
+            <property name="font">
+                <font>
+                    <bold>1</bold>
+                </font>
+            </property>
+            <property name="title">
+                <string>Niveles</string>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QGroupBox">
+                    <property name="name">
+                        <cstring>gbxDisponibles</cstring>
+                    </property>
+                    <property name="font">
+                        <font>
+                            <bold>0</bold>
+                        </font>
+                    </property>
+                    <property name="title">
+                        <string>Disponibles</string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="FLTable">
+                            <property name="name">
+                                <cstring>tblNiveles</cstring>
+                            </property>
+                            <property name="numRows">
+                                <number>0</number>
+                            </property>
+                            <property name="numCols">
+                                <number>0</number>
+                            </property>
+                            <property name="readOnly">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QGroupBox">
+                    <property name="name">
+                        <cstring>gbxPonerQuitar</cstring>
+                    </property>
+                    <property name="frameShape">
+                        <enum>NoFrame</enum>
+                    </property>
+                    <property name="title">
+                        <string></string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <property name="margin">
+                            <number>0</number>
+                        </property>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spcPQ2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QToolButton">
+                            <property name="name">
+                                <cstring>tbnPonerNivel</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="iconSet">
+                                <iconset>image35034</iconset>
+                            </property>
+                        </widget>
+                        <widget class="QToolButton">
+                            <property name="name">
+                                <cstring>tbnQuitarNivel</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="iconSet">
+                                <iconset>image7299</iconset>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spcPQ1</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </vbox>
+                </widget>
+                <widget class="QGroupBox">
+                    <property name="name">
+                        <cstring>gbxEnTabla</cstring>
+                    </property>
+                    <property name="font">
+                        <font>
+                            <bold>0</bold>
+                        </font>
+                    </property>
+                    <property name="title">
+                        <string>A mostrar</string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QGroupBox">
+                            <property name="name">
+                                <cstring>gbNivel</cstring>
+                            </property>
+                            <property name="frameShape">
+                                <enum>NoFrame</enum>
+                            </property>
+                            <property name="title">
+                                <string></string>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <property name="margin">
+                                    <number>0</number>
+                                </property>
+                                <spacer>
+                                    <property name="name">
+                                        <cstring>spacerSBNIvel</cstring>
+                                    </property>
+                                    <property name="orientation">
+                                        <enum>Horizontal</enum>
+                                    </property>
+                                    <property name="sizeType">
+                                        <enum>Expanding</enum>
+                                    </property>
+                                    <property name="sizeHint">
+                                        <size>
+                                            <width>21</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
+                                </spacer>
+                                <widget class="QToolButton">
+                                    <property name="name">
+                                        <cstring>tbnSubirNivel</cstring>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>32</width>
+                                            <height>32</height>
+                                        </size>
+                                    </property>
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>32</width>
+                                            <height>32</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string></string>
+                                    </property>
+                                    <property name="iconSet">
+                                        <iconset>image30526</iconset>
+                                    </property>
+                                </widget>
+                                <widget class="QToolButton">
+                                    <property name="name">
+                                        <cstring>tbnBajarNivel</cstring>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>32</width>
+                                            <height>32</height>
+                                        </size>
+                                    </property>
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>32</width>
+                                            <height>32</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string></string>
+                                    </property>
+                                    <property name="iconSet">
+                                        <iconset>image53178</iconset>
+                                    </property>
+                                </widget>
+                                <spacer>
+                                    <property name="name">
+                                        <cstring>spacerSBNIvelD</cstring>
+                                    </property>
+                                    <property name="orientation">
+                                        <enum>Horizontal</enum>
+                                    </property>
+                                    <property name="sizeType">
+                                        <enum>Expanding</enum>
+                                    </property>
+                                    <property name="sizeHint">
+                                        <size>
+                                            <width>21</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
+                                </spacer>
+                            </hbox>
+                        </widget>
+                        <widget class="FLTable">
+                            <property name="name">
+                                <cstring>tblEje</cstring>
+                            </property>
+                            <property name="numRows">
+                                <number>0</number>
+                            </property>
+                            <property name="numCols">
+                                <number>0</number>
+                            </property>
+                            <property name="readOnly">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>gbxPropiedades</cstring>
+            </property>
+            <property name="font">
+                <font>
+                    <bold>1</bold>
+                </font>
+            </property>
+            <property name="title">
+                <string>Propiedades</string>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QGroupBox">
+                    <property name="name">
+                        <cstring>gbxPropDisponibles</cstring>
+                    </property>
+                    <property name="font">
+                        <font>
+                            <bold>0</bold>
+                        </font>
+                    </property>
+                    <property name="title">
+                        <string>Disponibles</string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="FLTable">
+                            <property name="name">
+                                <cstring>tblPropiedades</cstring>
+                            </property>
+                            <property name="numRows">
+                                <number>0</number>
+                            </property>
+                            <property name="numCols">
+                                <number>0</number>
+                            </property>
+                            <property name="readOnly">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QGroupBox">
+                    <property name="name">
+                        <cstring>gbxPonerQuitarProp</cstring>
+                    </property>
+                    <property name="frameShape">
+                        <enum>NoFrame</enum>
+                    </property>
+                    <property name="title">
+                        <string></string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <property name="margin">
+                            <number>0</number>
+                        </property>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spcPQProp</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QToolButton">
+                            <property name="name">
+                                <cstring>tbnPonerProp</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="iconSet">
+                                <iconset>image35034</iconset>
+                            </property>
+                        </widget>
+                        <widget class="QToolButton">
+                            <property name="name">
+                                <cstring>tbnQuitarProp</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>32</width>
+                                    <height>32</height>
+                                </size>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="iconSet">
+                                <iconset>image7299</iconset>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spcPQProp2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </vbox>
+                </widget>
+                <widget class="QGroupBox">
+                    <property name="name">
+                        <cstring>gbxPropAMostrar</cstring>
+                    </property>
+                    <property name="font">
+                        <font>
+                            <bold>0</bold>
+                        </font>
+                    </property>
+                    <property name="title">
+                        <string>A mostrar</string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QGroupBox">
+                            <property name="name">
+                                <cstring>gbProp</cstring>
+                            </property>
+                            <property name="frameShape">
+                                <enum>NoFrame</enum>
+                            </property>
+                            <property name="title">
+                                <string></string>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <property name="margin">
+                                    <number>0</number>
+                                </property>
+                                <spacer>
+                                    <property name="name">
+                                        <cstring>spacerSBProp</cstring>
+                                    </property>
+                                    <property name="orientation">
+                                        <enum>Horizontal</enum>
+                                    </property>
+                                    <property name="sizeType">
+                                        <enum>Expanding</enum>
+                                    </property>
+                                    <property name="sizeHint">
+                                        <size>
+                                            <width>21</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
+                                </spacer>
+                                <widget class="QToolButton">
+                                    <property name="name">
+                                        <cstring>tbnSubirProp</cstring>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>32</width>
+                                            <height>32</height>
+                                        </size>
+                                    </property>
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>32</width>
+                                            <height>32</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string></string>
+                                    </property>
+                                    <property name="iconSet">
+                                        <iconset>image30526</iconset>
+                                    </property>
+                                </widget>
+                                <widget class="QToolButton">
+                                    <property name="name">
+                                        <cstring>tbnBajarProp</cstring>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>32</width>
+                                            <height>32</height>
+                                        </size>
+                                    </property>
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>32</width>
+                                            <height>32</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string></string>
+                                    </property>
+                                    <property name="iconSet">
+                                        <iconset>image53178</iconset>
+                                    </property>
+                                </widget>
+                                <spacer>
+                                    <property name="name">
+                                        <cstring>spacerSBPropD</cstring>
+                                    </property>
+                                    <property name="orientation">
+                                        <enum>Horizontal</enum>
+                                    </property>
+                                    <property name="sizeType">
+                                        <enum>Expanding</enum>
+                                    </property>
+                                    <property name="sizeHint">
+                                        <size>
+                                            <width>21</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
+                                </spacer>
+                            </hbox>
+                        </widget>
+                        <widget class="FLTable">
+                            <property name="name">
+                                <cstring>tblPropsEje</cstring>
+                            </property>
+                            <property name="numRows">
+                                <number>0</number>
+                            </property>
+                            <property name="numCols">
+                                <number>0</number>
+                            </property>
+                            <property name="readOnly">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </hbox>
+        </widget>
+    </vbox>
+</widget>
+<images>
+    <image name="image35034">
+        <data format="PNG" length="965">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af40000038c49444154789cc597df6b1c5514c73f676677b3ddddd8fc68684a421350692d3144694d8b50500aa9b626adb04dea8b2882d27f4083203e5921af12ff052988b53ef8e08b4fda401efaa2088a28b59180c96ef7ded9eccc9d3bd787d9b67968e96c9226070e77980be7fb99ef39cccc15e71c7b19de9eaa670590f7c597d725b7270072497cfee5d6d997ceaec87999da75000c4f016397cf5d1e28ed2b5d9737e4c3dd056847548a987f6fbe3834307455a6e52b9990c2ae02347483424f812b6f5f91f167c66739cc92546564770004825680ded0441251bd58e5cce499094296647a7b73910da00b823040b514baa569b41a1c9f3c4ef5b5eac17c2ebfadb9c80ca022850e352a7cb00e8e0c327761aed8d3ddb3e5b9c80cd08c9be858a38d46452a056a690a950233e7676478787896d1cee72233c086dd4019858ad3d446a34cba461271fae5d31c3b7a6c0261492e669f8b6c6fc28247e002b4d368dbce384d6514ca28021370e4d9239c183b713057c95f9759f968e7007242539aa844a112854e747a6d37b9112974a4e9ebede3d473278be5eeca6732e75d7bdc5c646e81761a250a2d1a854add4836b961d2c15491020f5e1c794106fa0f54199365794b461f553ad307467c0fafe8e1890709b8c461adc591aea10dc1801ffb7891876f7cc408a395510e94069e5f0fd77f944bf2b4bbe6ecd60072c2b25a26b63124400c4440087ee8938b7278a1876b3a6c60b1dae2b4c36b799c9c3cc52b13af9617bffd623b0e0894052c691aee37cf26161b5b70a40920d055e92277b8c04fab3ffffa77f8d7ccc39ebe03000f4a2e158f01bfbd91f0e05eae9d3e547abb898b890b94fe8e9bae7afbd6ede851b5b3fd64f840b92d64d227bcdf0ad3def7495de9175a5114c50d73d57d997cfab8d2d91c108192a482adb6f83d612fcd7c2e8ff12d18598f1bf13b6ed1dec852bb83162410924278a42e48ba5fce952978fba8b9fa6f34e2736ed1fd99a56e760004cca621b4a42e24d0e7f51305d6d5eab5eff9c5bee96eb830ab78760011d092da1e021188110ed921d6566b266c6c2cb8cfedc79d087708e0816a0318e8325d0c0483dc5959a9bb5af2ae5bb0df6c453c3b00920244b09ffd146b15fe595bf9839a99720bd9fbbd3d808630288768d563b7aa577fe0663cdd69bf1f16d93e4689305e3c4afd3f6dea776b0b6ede4ced8438647120cf5dedd4ef6bcd3bbd2dd5fcc07d127fbd13c2f742b21c4e4544dc133ac566027892b1e7a7e3ff010500cbb441364a8c0000000049454e44ae426082</data>
+    </image>
+    <image name="image7299">
+        <data format="PNG" length="973">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af40000039449444154789cc5d7cf6b1c651cc7f1f777e6999dcdecc62ccdef66496a032584346c143d28d84343036a6c0593a0374fe60f10a228a4f552a15ed5a3543c7931e6e041513cf62822e8a15441b16ed1fcd85f999dd9e7793ccc265b0d6663936d1ef89e7666bfaf7d3e0ff3dd116b2d27b99c13edde49803c2b4a5e13f74400f2bccca1f879b9b0fc8b2c1e8c387680cccb4ad015acadbeba9aafd56b79621e39e87a756c8d0b9262948f47fa471697979665e0f400d73eba066d423816802cc818a3ac4d8f4f17962e2fa1d28a4aad72a87b8f0c9017640eb839fbe4ece085672e10d9887027c4733c900e03645e563ce55dbd327b253d7e6e9c5258c25883b61adff1c107e20e0076f3ce65738bf373f392ebcd51ae97f79a1b6b88dca83300599031ceb0961fce172e3e7511d5a5a8d42b68d1180cc61a0c86b44d27803647e17f01e44599c3e3e6e4b9c9c1c254814822c22844a331625a080c566c0268b30e0d9025794365bcd599b385747e244fb55e45bb1ae398a4c4a09d0462ac41942029078b391a400a9262423ec964b32f3d3636234136a01256d04a6354b3a96b92a2b50baeb88812da8dba0301f28a9c614ad6fbbbfbce4ff44f00500ecb18cf604c525ab5b65d93ec88168db2ea6811c8a2b8034383dff6a9beb18c09a8edd4b0298b363a696c35008e72c005e31aacb2e082e33a38be83b80ea01f7c072e4d5fea2ade2df2cd575f63d206c9086eb78b9b75914030bea1e137d0be8634c92f4e25dfaa6285a8f6a3e63f01f653ab075e1f78facfcac6e7c1f960b27137a22e758c35c4260643f2a453cda63e2d8407e209b8ed1f850712efbd77efb6bda567aaa6b22ee3ca667bbb93e1e2361baba419a97f21ba4002694670040080fdce46f6437339aceebc139e8a228624b9cbe19f985d889f0008683b090f05d8837ca0af364a8d05c4d92070f05473d8dc8fb92f0e0904912346b01fd158a7a49fc0757eca667ac87899d687420ba440fc638a601fe27d7b871f1a85cdd2e617623d7bcaeb4d0ee46ee9a4440b728879fc407fc9ecbaaddbeb8de72a5ba5ebd5ed303eadf2482cc9e48b8010a4da8108f641ded56fd537c3a5bbc5e2d6881ec58f7cd801aa201541a40311ec43dc687c6637e3c77f2bfe7e3b57eaa3a7de031590720723d88fb077b8154f15b78a5fca46ca0ec5c3380f1300cd73f1663cb7b5bd7963ebaf4afca87b96de74f0f0007b90b7e395b05c7bf9fb3f7e2c0ee7fc5ff1d83ee87ae9e4cba988886dd3a0a380c3ac137f3bfe1b6f157b0f88496f980000000049454e44ae426082</data>
+    </image>
+    <image name="image30526">
+        <data format="PNG" length="866">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af40000032949444154789cedd7cd6b5d451cc6f1ef3373deee3de726e6a6491a34242155d4d848d42ed4a05c90d248535f6253115c9bba5208684a898820b81604a15228ee0a55507425a87f85d0e242bb1029526baec6dc3b332ece4dbcf1dd364d3699c38f99ddef739e19184621047673985dedbe07d803dc28400d99c60b8d6857007a4ee303f70c5e1a39347a797069f0f61d0568bf128c3edc67fbc7bfbdfccdd095d51f3ed0a4921d03f0a8deafe7f5a982822f3ffb8284649247747e47005ad07225af3c73f7c05df8d8132a01f75d8bb89acee945fbfa4d05e829cdda345ab97fec3e29112109a8106ddbc65e95a29ef8552d464fde14808e6b8c98b387261ec8f222c7450e173b6c61a10a6bee17da6e3da18ff7b4a8896d056852092d2e1c1c3f38343c3c8cb71e1f7b7ce44b404e596b015ca8538f3ed6e34ab70dc004e7466f1d9d9e9a9cc29bb2b18f3c3ef1a82aa8b2898862432d2feee45e7b615b003aaae57a4f7da1f150036f3cce3a9c75f8c813e2804f7d09e820da95362dbb46a5569dd52bf6cd1b02684eb34992ac1c3b7c4c36b5e5df1b8fb71e173994099ff92d0950c05ab6465448496fb6a4a568feba007a5a6388b3f387e7b35a5f0d8fc7cb6fa6e0238f12d14a5a50612b22879fd26bf4ec2b62d5cd19bda403ff0bb071e88e3c7864687462142f8f93c3e14a84f59b07918c12d08d28caba927c4fc8fc2d0cc69ffedda1fceb042638377dc7f4f4ccc333b8e0f0c1e3e9208cdbdc86100548f91df18714c8211e34d47bfb0e30137df49f003aaae591819185134f9ca0155a65f38dea6cc306249800095b111b09e425a895b5f8b5a74991d71ed31bf15bff08d09c66ab95eacac9674f4a89f0dee3bc2b53d8f8bad2c00211105342ba1179679d42336a12d7a42cafbcacd7a2e3dd3d37ef7235642878f7d4f3a7b2fefdfdacfebc4a62135293b26ed7c9c8080a28120683c562538b5db72816c4a054a8aa727602817106dae05a2dc6fa6f8bbfe2d2dbc0f93f01f89cb0f8cea22e7e7d91d3674e77549d78bb2b16449d669141d680114402ab726d0ca804200b011ca299fe08816b5b52ef7e1768418626bd5cd7cdfe2f63bd337fc2d5d0d5547b0f933dc01e60b701bf01dcff155766dfd6a30000000049454e44ae426082</data>
+    </image>
+    <image name="image53178">
+        <data format="PNG" length="969">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af40000039049444154789ced97dd6b1c5518879f73ceeee6a3a9898594a257f542bcf0ca0ffc1304412ca2de48a11445ff032f44ada5b4a10a5e69f0da1b49b4c5ae605a2c42f123506c1642ec8726250d699326d9ddcccecccecc9933af17b3a65b93b4c98a543033fce0ccb9789fe71cce9c39a344840779e9074adf11d811f82f0814da1fd45bca709b87fe55e25e3cf95cdc3a01f59ad244548027ef18015d77479534aaa0f2b6c9db4a2b54418301a554de8fcadb5aa344a1448128fcacf13bf0f83a019680dd0c1c7be31883fb07f1439f300ef1239f46d2207421cdb449484840802f3ea6db70b171117629e815e8a5d5ce2055d0688ba778a2f41841bcbca77d42d6d680fc2019c29bc7bf381ead2cac904a4a9225c4594ce212a234c2b73e5ee2518fead4921ab5b846ea52acb3242e217109711a13c511cda4496843021be05b9f9274317973c6fe36bbf0f68602005296b1b0191e1dfe7258b224436b8d5106a30d1a8dd69abf6e83010132c00129608108085a89f3bebeac0f5b178982e627f27efad5a60200f2ad9c985b9a1b1d39334291620e55adb4c14d66504ee5e0a4950808db049a504c8a7457fbf082d5efe53dfbcedf791bbf86373838716da272e1a70bf9e85b0206831183168d168dcad4ddf0664bc06f0984b0677590e5eaca34e3e98b1ba13614908a247471e0dc2fe716afff713d878bc190c38d18b4d368abf3696e87077704f606fbb8bdb054a7669f9733126f590040466516e1d0a9b3a7226fc5cb27bf3572edf288158a493187b70b04d0df1ca07ed3b352cf0ecbc732bd19e79e3ba19465cc5afb61f96c595cecd099cee3342635482ce858af83f7443da4cb2289177d2427d3d3f762dc772b96b20c55bdeae8f91fcfa3338dc90cc61974aa5189ca05dae085b04029e82158f5bf9321f7eefdea6fed5b70838373f37395ca64656dfab5cd23a1e4022d89ddd2cf6ac3bbca947b792ba5b7242015492872606a666a71fed63c3ad579acc6056e0dde5f1ca0e6d7abd4d317365b741d09406b515a0efd7af5521434028c33186b70be83007af52e02db4ca873583e9599add6ddd6e7584ecb988bd3a397a627446241250af1855256c2758ba49e1d92e1f49bedd4dcf6794046e44418845f5fbe7505630d85b88079b8481c34cbf299fb60bbf53a3b905c91d7ab7e75d29780a79e791a27ee323fcbab9d94ea48402a9274e9d24b755b9f7d64dfa38bcfed7ff615a948d2492d44a4e31c19395218bf36def34f6aa89d3fa31d81ffbdc09ff9435951052c0e010000000049454e44ae426082</data>
+    </image>
+</images>
+<includes>
+    <include location="global" impldecl="in declaration">qwidgetfactory.h</include>
+    <include location="local" impldecl="in implementation">FLTableDB.h</include>
+</includes>
+<forwards>
+    <forward>class FLTableDB</forward>
+</forwards>
+<slots>
+    <slot access="protected">destroy()</slot>
+    <slot access="protected">init()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>fltable.h</includehint>
+    <includehint>fltable.h</includehint>
+    <includehint>fltable.h</includehint>
+    <includehint>fltable.h</includehint>
+</includehints>
+</UI>

@@ -1,0 +1,247 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_modelo340</name>
+	<!--Modelo 340-->
+	
+	<alias>QT_TRANSLATE_NOOP("MetaData","Modelo 340")</alias>
+
+	<field>
+		<name>idmodelo</name>
+		<!--Identificador interno de la tabla-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+	
+	<field>
+		<name>codejercicio</name>
+		<!--Ejercicio al que corresponde el período del modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>cifnif</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","N.I.F")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+
+	<field>
+		<name>apellidosnombrers</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apellidos y nombre, razón social o denominación")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>40</length>
+	</field>
+	
+	<field>
+		<name>tiposoporte</name>
+		<!--Tipo de soporte-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo soporte")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>C,T</optionslist>
+		<default>C</default>
+		<type>string</type>
+		<length>1</length>
+	</field>
+
+	<field>
+		<name>telefono</name>
+		<!--Teléfono del contacto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Teléfono")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+
+	<field>
+		<name>contacto</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Apellidos y nombre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>40</length>
+	</field>
+	
+	<field>
+		<name>numidentificativo</name>
+		<!--Número identificativo de la declaración-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº identificativo")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>13</length>
+	</field>
+	
+	<field>
+		<name>complementaria</name>
+		<!--Declaración complementaria-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Complementaria")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>sustitutiva</name>
+		<!--Declaración sustitutiva-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Sustitutiva")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>numanterior</name>
+		<!--Número identificativo de la declaración anterior-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Nº identificativo decl. anterior")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>13</length>
+	</field>
+	
+	<field>
+		<name>tipoperiodo</name>
+		<!--Tipo de período-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Período")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>Mes,Trimestre</optionslist>
+		<default>Trimestre</default>
+		<type>string</type>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>trimestre</name>
+		<!--Período (trimestre) del modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Trimestre")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>1T,2T,3T,4T</optionslist>
+		<default>1T</default>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	
+	<field>
+		<name>mes</name>
+		<!--Período (mes) del modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Mes   ")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<optionslist>01,02,03,04,05,06,07,08,09,10,11,12</optionslist>
+		<default>01</default>
+		<type>string</type>
+		<length>2</length>
+	</field>
+	
+	<field>
+		<name>fechainicio</name>
+		<!--Fecha de inicio del período correspondiente al modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Inicio")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>fechafin</name>
+		<!--Fecha de fin del período correspondiente al modelo a generar-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Fin")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>registros</name>
+		<!--Número total de registros-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Total registros")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>int</type>
+		<length>9</length>
+		<default>0</default>
+	</field>
+	
+	<field>
+		<name>baseimponible</name>
+		<!--Importe total de la base imponible-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Base imponible")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>cuotaimpuesto</name>
+		<!--Importe total de la cuota de impuesto-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuota Impuesto")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>totalfacturas</name>
+		<!--Importe total de las facturas-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Importe total")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>15</partI>
+		<partD>2</partD>
+		<default>0</default>
+		<editable>false</editable>
+	</field>
+	
+	<field>
+		<name>cifnifrepres</name>
+		 <!--Nif del representante legal del declarante-->
+		<alias>QT_TRANSLATE_NOOP("MetaData",N.I.F representante)</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>9</length>
+	</field>
+ 	
+	<field>
+		<name>codelectronico</name>
+		 <!--Código electrónico autoliquidación IVA-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cod. electrónico)</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>16</length>
+	</field>
+	
+</TMD>

@@ -1,0 +1,39 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>i_transstock</name>
+	<!-- Listado de informes de transferencias de stock-->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Informes de transferencias de stock")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador interno	-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>200</length>
+	</field>
+
+	<field>
+		<name>i_transstock_idtrans</name>
+		<!-- Identificador de la transferencia -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Transferencia")</alias>
+		<pk>false</pk>
+		<type>uint</type>
+		
+		<relation>
+			<table>transstock</table>
+			<field>idtrans</field>
+			<card>M1</card>
+		</relation>
+	</field>
+</TMD>

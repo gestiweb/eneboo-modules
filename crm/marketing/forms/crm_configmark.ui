@@ -1,0 +1,310 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>crm_configmark</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>crm_configmark</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>576</width>
+            <height>314</height>
+        </rect>
+    </property>
+    <property name="sizePolicy">
+        <sizepolicy>
+            <hsizetype>1</hsizetype>
+            <vsizetype>1</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+    </property>
+    <property name="caption">
+        <string>crm_configmark</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>gbxConfiguracion</cstring>
+            </property>
+            <property name="title">
+                <string></string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QGroupBox">
+                    <property name="name">
+                        <cstring>gbxCodificacion</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Tipo de codificación local</string>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>lineEditCodificacion</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>100</width>
+                                    <height>0</height>
+                                </size>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>lblEjemplosCodificacion</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>100</width>
+                                    <height>0</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <italic>1</italic>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string>(UTF-8, ISO8859-15 ...)</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QGroupBox">
+                    <property name="name">
+                        <cstring>gbxCorreo</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Correo</string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout3</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="FLFieldDB">
+                                    <property name="name">
+                                        <cstring>fdbHostCorreoSaliente</cstring>
+                                    </property>
+                                    <property name="fieldName">
+                                        <string>hostcorreosaliente</string>
+                                    </property>
+                                </widget>
+                                <spacer>
+                                    <property name="name">
+                                        <cstring>spacerHCS</cstring>
+                                    </property>
+                                    <property name="orientation">
+                                        <enum>Horizontal</enum>
+                                    </property>
+                                    <property name="sizeType">
+                                        <enum>Expanding</enum>
+                                    </property>
+                                    <property name="sizeHint">
+                                        <size>
+                                            <width>31</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
+                                </spacer>
+                            </hbox>
+                        </widget>
+                        <widget class="QGroupBox">
+                            <property name="name">
+                                <cstring>gbxFicheroPieCorreo</cstring>
+                            </property>
+                            <property name="title">
+                                <string>Fichero de texto a incluir como pie de los emails de marketing</string>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <property name="margin">
+                                    <number>2</number>
+                                </property>
+                                <property name="spacing">
+                                    <number>0</number>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>lblFicheroPieCorreo</cstring>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>400</width>
+                                            <height>0</height>
+                                        </size>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                            <italic>1</italic>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>NO ESTABLECIDO</string>
+                                    </property>
+                                </widget>
+                                <widget class="QPushButton">
+                                    <property name="name">
+                                        <cstring>pbnCambiarPieCorreo</cstring>
+                                    </property>
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>100</width>
+                                            <height>32767</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>Cambiar</string>
+                                    </property>
+                                    <property name="toolTip" stdset="0">
+                                        <string>Modulo Servicios</string>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>Cambiar el directorio del modulo de Servicios</string>
+                                    </property>
+                                </widget>
+                                <widget class="QPushButton">
+                                    <property name="name">
+                                        <cstring>pbnBorrarPieCorreo</cstring>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>32</width>
+                                            <height>30</height>
+                                        </size>
+                                    </property>
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>32</width>
+                                            <height>30</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string></string>
+                                    </property>
+                                    <property name="iconSet">
+                                        <iconset>image31509</iconset>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                        <widget class="QGroupBox">
+                            <property name="name">
+                                <cstring>gbxFicheroLogo</cstring>
+                            </property>
+                            <property name="title">
+                                <string>Fichero de logo a incluir en los emails de marketing</string>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <property name="margin">
+                                    <number>2</number>
+                                </property>
+                                <property name="spacing">
+                                    <number>0</number>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>lblFicheroLogoCorreo</cstring>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>400</width>
+                                            <height>0</height>
+                                        </size>
+                                    </property>
+                                    <property name="font">
+                                        <font>
+                                            <italic>1</italic>
+                                        </font>
+                                    </property>
+                                    <property name="text">
+                                        <string>NO ESTABLECIDO</string>
+                                    </property>
+                                </widget>
+                                <widget class="QPushButton">
+                                    <property name="name">
+                                        <cstring>pbnCambiarLogoCorreo</cstring>
+                                    </property>
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>100</width>
+                                            <height>32767</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>Cambiar</string>
+                                    </property>
+                                    <property name="toolTip" stdset="0">
+                                        <string>Modulo Servicios</string>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>Cambiar el directorio del modulo de Servicios</string>
+                                    </property>
+                                </widget>
+                                <widget class="QPushButton">
+                                    <property name="name">
+                                        <cstring>pbnBorrarLogoCorreo</cstring>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>32</width>
+                                            <height>30</height>
+                                        </size>
+                                    </property>
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>32</width>
+                                            <height>30</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string></string>
+                                    </property>
+                                    <property name="iconSet">
+                                        <iconset>image31509</iconset>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                    </vbox>
+                </widget>
+            </vbox>
+        </widget>
+    </vbox>
+</widget>
+<images>
+    <image name="image31509">
+        <data format="PNG" length="915">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000035a49444154789c8d944d681c6518c7ffc86227126184155e1461827b708b07177254c896289816112a4237f4d0850a764f120396ddb6843187928304366025c12ff6a2d9f8d14dc4d8ac18490e3529d89245029d94285b88256953d92e5afc7998d9af7cac792eff99f71d7ef37f9ef7791f019224ae72213b9afd1a982b4c151681a5c9a9c965e0665f6fdff968242a27e2c81823cbb2d41c4ec411abc8b6edc622a0c489c40577c805a0ec95015829ad00e0ad7a900363ccbb8ee3c80edbbbc0d14854e973e9dde0e4a9e4926559a4cfa601287c5b0080595fe666e760134cd89cb6c3b6146ae1eee9f81149babb75f75e97d3a5e2cf454d5f9ed6d1fb4795fb2c27fd29e5bfccebc8cb4794ff2eafdb6fdffea8fa57f5253d6c0577a84399cf33ad8b80622fc4dee77530c6c0066447b3b00eeeb00b1eb843aeff3ee4c2145549870ee478edd6daaffd8ff7ab5aadeaf85bc795fa23a5d4484a7a284dfc30a1ccf98cf24b796522198dfd3e7628de13bf7220c7929ee558e0f818b041fba800b34cd71d3bfb389674f3f0adc3ea72bad4ff44bff4a4da4787a41ef5254f26bf92a46ab5aaccc77b3b966ddb77d283699887f14be3ff63b9c9f936f7ad90d5cd3564755abbc192be0118b938c299d36758beb6dc1efa77c0deae00903c95fc5ea1a65c01398e23133609aefb1fa707d35002d6db43eb671168fa6c7aab5e5e68a400505e2fc3a8ef9c4b6daa1038ad542a8d9f9d0349e10638b8a20383034b00cc00db901dcbb62fc78e70875d243d55ef8abede3ec57be32afe58fcb474a324bd2ae52ee794ea4c696d6dcdafd93f41ed1e04f2c07fd8dada9224956e9464852ca976e16b8e8345b10df87388c92f2677e41fe8f6de351eb93882a4a7eb60db0e2656488a75c7deabd71a58b9ee4fb9caa64fdddcdc04a05cf6f73dcff3bf2bad400eac4eebcd9ded568fe4c9e49566682d83bad6ba6535d0a09b16e61760865ff6054b7ad41d76ff6d867bab5e4b060bf30b0014660a2d3a303880a4cebdc121c918f34aed06d6863e57698152f4657c621c4a10ef892f5a9695d8d7b1dd69cb89388a3d1f7ba776800b8b4d0e737e6b254e247e8b3e17fd44d21b928ca4c620daa714f5a0970fdd61178a6cc47be23f7911ef0349af497a46922a2f565aa69a31e660e0201eab3dc4ba632da0786f5c266c1ad986fdbdff003af9beabebc0631e0000000049454e44ae426082</data>
+    </image>
+</images>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>flfielddb.h</includehint>
+</includehints>
+</UI>

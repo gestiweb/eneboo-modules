@@ -1,0 +1,269 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_i_diario</name>
+	<!-- Listado de informes de Libro Diario -->
+	<alias>QT_TRANSLATE_NOOP("MetaData","Libro Diario")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador interno del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<!-- Descripción del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>200</length>
+	</field>
+
+	<field>
+		<name>tipo</name>
+		<!-- Tipo de informe (Borrador u oficial) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Borrador");QT_TRANSLATE_NOOP("MetaData","Oficial")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Borrador")</default>
+		<length>40</length>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>datosiva</name>
+		<!-- Indica si se incluyen datos de I.V.A. en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Datos de I.V.A.")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>agruparmeses</name>
+		<!-- Indica si se agrupará el informe por meses -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Agrupar por meses")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>false</default>
+	</field>
+	
+	<field>
+		<name>idasientodesde</name>
+		<!-- Identificador interno del asiento inicial -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+		<visiblegrid>false</visiblegrid>
+
+	</field>
+	
+	<field>
+		<name>d_co__asientos_numero</name>
+		<!-- Número del asiento inicial del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde asiento Nº")</alias>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+
+	<field>
+		<name>idasientohasta</name>
+		<!-- Identificador interno del asiento final -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+		<visiblegrid>false</visiblegrid>
+
+	</field>
+	
+	<field>
+		<name>h_co__asientos_numero</name>
+		<!-- Número del asiento final del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta asiento Nº")</alias>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>0</partD>
+	</field>
+
+	<field>
+		<name>idsubcuentadesde</name>
+		<!-- Identificador interno de la subcuenta inicial. No visible en el formulario -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+		</relation>
+
+	</field>
+	
+	<field>
+		<name>d_co__subcuentas_codsubcuenta</name>
+		<!-- Código de subcuenta mínimo incluido en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde subcuenta Nº")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>idsubcuentahasta</name>
+		<!-- Identificador interno de la subcuenta final. No visible en el formulario -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","")</alias>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+		</relation>
+
+	</field>
+	
+	<field>
+		<name>h_co__subcuentas_codsubcuenta</name>
+		<!-- Código de subcuenta máximo incluido en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta subcuenta Nº")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+
+	<field>
+		<name>d_co__asientos_fecha</name>
+		<!-- Fecha mínima de los asientos incluidos en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Desde fecha")</alias>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+	
+	<field>
+		<name>h_co__asientos_fecha</name>
+		<!-- Fecha máxima de los asientos incluidos en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Hasta fecha")</alias>
+		<pk>false</pk>
+		<type>date</type>
+	</field>
+
+	<field>
+		<name>i_co__subcuentas_codejercicio</name>
+		<!-- Ejercicio al que pertenecen las subcuentas del informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Ejercicio")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>4</length>
+		
+		<relation>
+			<table>ejercicios</table>
+			<field>codejercicio</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
+		<name>todassubcuentas</name>
+		<!-- Indica si se mostrarán todas las subcuentas en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Todas las subcuentas")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>todosasientos</name>
+		<!-- Indica si se mostrarán todos los asientos en el informe -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Todos los asientos")</alias>
+		<pk>false</pk>
+		<type>bool</type>
+		<default>true</default>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>orden1</name>
+		<!-- Primer criterio de ordenación -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Criterio 1")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","No ordenar");QT_TRANSLATE_NOOP("MetaData","Asiento");QT_TRANSLATE_NOOP("MetaData","Fecha");QT_TRANSLATE_NOOP("MetaData","Subcuenta")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Asiento")</default>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>tipoorden1</name>
+		<!-- Tipo de orden del primer criterio (ascendente/descendente) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden 1")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Ascendente");QT_TRANSLATE_NOOP("MetaData","Descendente")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Ascendente")</default>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>orden2</name>
+		<!-- Segundo criterio de ordenación -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Criterio 2")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","No ordenar");QT_TRANSLATE_NOOP("MetaData","Asiento");QT_TRANSLATE_NOOP("MetaData","Fecha");QT_TRANSLATE_NOOP("MetaData","Subcuenta")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","No ordenar")</default>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>tipoorden2</name>
+		<!-- Tipo de orden del segundo criterio (ascendente/descendente) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden 2")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Ascendente");QT_TRANSLATE_NOOP("MetaData","Descendente")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Ascendente")</default>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>orden3</name>
+		<!-- Tercer criterio de ordenación -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Criterio 3")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","No ordenar");QT_TRANSLATE_NOOP("MetaData","Asiento");QT_TRANSLATE_NOOP("MetaData","Fecha");QT_TRANSLATE_NOOP("MetaData","Subcuenta")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","No ordenar")</default>
+		<length>20</length>
+	</field>
+
+	<field>
+		<name>tipoorden3</name>
+		<!-- Tipo de orden del tercer criterio (ascendente/descendente) -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Orden 3")</alias>
+		<pk>false</pk>
+		<type>string</type>
+		<optionslist>QT_TRANSLATE_NOOP("MetaData","Ascendente");QT_TRANSLATE_NOOP("MetaData","Descendente")</optionslist>
+		<default>QT_TRANSLATE_NOOP("MetaData","Ascendente")</default>
+		<length>20</length>
+	</field>
+
+</TMD>

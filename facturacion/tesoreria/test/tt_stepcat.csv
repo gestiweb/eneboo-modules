@@ -1,0 +1,357 @@
+633оо4ооREMESAS: CREAR REMESA ||COD_REMESA|| COD_RECIBO_REM1 = ||COD_FACTURA||-01 COD_RECIBO_REM2 = ||COD_FACTURA||-02 COD_CUENTA_REM = *CTA1ооооTestоо<FLTest:Test codtest="000156" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_FACTURA||-01" var="COD_RECIBO_REM1" />
+    <FLTest:AssignationElement value="||COD_FACTURA||-02" var="COD_RECIBO_REM2" />
+    <FLTest:AssignationElement value="*CTA1" var="COD_CUENTA_REM" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000143ооflfacttesoоож
+633оо2ооRECIBOS CLIENTE: CREAR FACTURA ||COD_FACTURA|| Y COMPROBAR RECIBOS CREADOS COD_CLIENTE_REC = ||COD_CLIENTE|| FECHA_REC = ||_YEAR||-03-01 COD_PAGO_REC = *30-60-90 ESTADO_REC = Emitido REF_ART_REC = ||CооооTestоо<FLTest:Test codtest="000144" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_CLIENTE||" var="COD_CLIENTE_REC" />
+    <FLTest:AssignationElement value="||_YEAR||-03-01" var="FECHA_REC" />
+    <FLTest:AssignationElement value="*30-60-90" var="COD_PAGO_REC" />
+    <FLTest:AssignationElement value="Emitido" var="ESTADO_REC" />
+    <FLTest:AssignationElement value="||COD_ARTICULO||" var="REF_ART_REC" />
+    <FLTest:AssignationElement value="||_YEAR||-03-31" var="FVTO1" />
+    <FLTest:AssignationElement value="4" var="IMPORTE1" />
+    <FLTest:AssignationElement value="||_YEAR||-04-30" var="FVTO2" />
+    <FLTest:AssignationElement value="4" var="IMPORTE2" />
+    <FLTest:AssignationElement value="||_YEAR||-05-30" var="FVTO3" />
+    <FLTest:AssignationElement value="3.6" var="IMPORTE3" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000143ооflfacttesoоож
+634оо14ооComprobar los datos del tercer reciboооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_FACTIRA||-03&quot; AND estado = &quot;||ESTADO_REC||&quot; AND fecha = &quot;||FECHA_REC||&quot; AND fechav = &quot;||FVTO3||&quot; AND importe = ||IMPORTE3||" savein="" from="reciboscli" select="codigo" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >||COD_FACTIRA||-03</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000144ооflfacttesoоож
+634оо10ооComprobar los datos del segundo reciboооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_FACTURA||-02&quot; AND estado = &quot;||ESTADO_REC||&quot; AND fecha = &quot;||FECHA_REC||&quot; AND fechav = &quot;||FVTO2||&quot; AND importe = ||IMPORTE2||" savein="" from="reciboscli" select="codigo" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >||COD_FACTURA||-02</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000144ооflfacttesoоож
+634оо7ооComprobar los datos del primer reciboооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_FACTURA||-01&quot; AND estado = &quot;||ESTADO_REC||&quot; AND fecha = &quot;||FECHA_REC||&quot; AND fechav = &quot;||FVTO1||&quot; AND importe = ||IMPORTE1||" savein="" from="reciboscli" select="codigo" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >||COD_FACTURA||-01</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000144ооflfacttesoоож
+634оо12ооTERMINAR SI NUM_PLAZOS < 3ооооCompareооооcompareItemsоо<FLTest:Compare action="Saltar" type="Menor que" >
+    <FLTest:CompareElement type="Valor" >||NUM_PLAZOS||</FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >3</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000144ооflfacttesoоож
+634оо3ооFACTURAS CLIENTE: CREAR FACTURA ||COD_FACTURA|| COD_CLIENTE_FAC = ||COD_CLIENTE_REC|| FECHA_FAC = ||FECHA_REC|| COD_PAGO_FAC = ||COD_PAGO_REC|| REF_LINEA1 = ||REF_ART_REC||ооооTestоо<FLTest:Test codtest="000134" idfuncional="flfacturac"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_CLIENTE_REC||" var="COD_CLIENTE_FAC" />
+    <FLTest:AssignationElement value="||FECHA_REC||" var="FECHA_FAC" />
+    <FLTest:AssignationElement value="||COD_PAGO_REC||" var="COD_PAGO_FAC" />
+    <FLTest:AssignationElement value="||REF_ART_REC||" var="REF_LINEA1" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000144ооflfacttesoоож
+634оо8ооTERMINAR SI NUM_PLAZOS < 2ооооCompareооооcompareItemsоо<FLTest:Compare action="Saltar" type="Menor que" >
+    <FLTest:CompareElement type="Valor" >||NUM_PLAZOS||</FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >2</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000144ооflfacttesoоож
+634оо5ооGuardar NUM_PLAZOSооооQueryооооexecQueryоо<FLTest:Query where="codpago = &quot;||COD_PAGO||&quot;" savein="NUM_PLAZOS" from="plazos" select="COUNT(*)" />
+ооооооformооNingunoоо000144ооflfacttesoоож
+635оо7ооPulsar botСn pushButtonAcceptооpagosdevolcliооButtonооpushButtonAcceptооanimateClickооооFооflfacttesoооformRecordооAceptarоо000150ооflfacttesoоож
+635оо6ооfecha = ||FECHA_PD||ооpagosdevolcliооFLFieldDBооfdbFechaооsetValueоо||FECHA_PD||ооFооflfacttesoооformRecordооAceptarоо000150ооflfacttesoоож
+635оо5ооcodcuenta = ||COD_CUENTA_PD||ооpagosdevolcliооFLFieldDBооfdbCodCuentaооsetValueоо||COD_CUENTA_PD||ооFооflfacttesoооformRecordооAceptarоо000150ооflfacttesoоож
+635оо1ооRECIBOS CLIENTE: ABRIR RECIBO EN MODO EDITооооTestоо<FLTest:Test codtest="000313" idfuncional="flfactteso"/>ооexecTestооооооооformооNingunoоо000150ооflfacttesoоож
+635оо4ооPulsar el botСn toolButtomInsertооreciboscliооButtonооtoolButtomInsertооanimateClickооооFооflfacttesoооformRecordооNingunoоо000150ооflfacttesoоож
+635оо8ооRECIBOS CLIENTE: CERRAR RECIBO EN MODO EDITооооTestоо<FLTest:Test codtest="000314" idfuncional="flfactteso"/>ооexecTestооооооооformRecordооAceptarоо000150ооflfacttesoоож
+636оо16ооComprobar que el recibo estА EmitidoооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_FACTURA||-01&quot;" savein="" from="reciboscli" select="estado" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >Emitido</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо15ооRECIBOS CLIENTE: PAGOSDEVOL: ELIMINAR PAGO O  DEVOLUCIсN COD_RECIBO_EDIT = ||COD_FACTURA||-01 CRITERIO_PD = lastооооTestоо<FLTest:Test codtest="000153" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_FACTURA||-01" var="COD_RECIBO_EDIT" />
+    <FLTest:AssignationElement value="last" var="CRITERIO_PD" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо14ооComprobar que el recibo estА PagadoооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_FACTURA||-01&quot;" savein="" from="reciboscli" select="estado" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >Pagado</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо13ооRECIBOS CLIENTE: PAGOSDEVOL: ELIMINAR PAGO O  DEVOLUCIсN COD_RECIBO_EDIT = ||COD_FACTURA||-01 CRITERIO_PD = lastооооTestоо<FLTest:Test codtest="000153" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_FACTURA||-01" var="COD_RECIBO_EDIT" />
+    <FLTest:AssignationElement value="last" var="CRITERIO_PD" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо12ооComprobar que el recibo estА DevueltoооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_FACTURA||-01&quot;" savein="" from="reciboscli" select="estado" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >Devuelto</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо11ооRECIBOS CLIENTE: PAGOSDEVOL: ELIMINAR PAGO O  DEVOLUCIсN COD_RECIBO_EDIT = ||COD_FACTURA||-01 CRITERIO_PD = lastооооTestоо<FLTest:Test codtest="000153" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_FACTURA||-01" var="COD_RECIBO_EDIT" />
+    <FLTest:AssignationElement value="last" var="CRITERIO_PD" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо10ооComprobar que el recibo estА PagadoооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_FACTURA||-01&quot;" savein="" from="reciboscli" select="estado" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >Pagado</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо9ооRECIBOS CLIENTE: PAGOSDEVOL: CREAR UN PAGO O DEVOLUCIсN COD_RECIBO_EDIT = ||COD_FACTURA||-01ооооTestоо<FLTest:Test codtest="000150" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_FACTURA||-01" var="COD_RECIBO_EDIT" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо8ооComprobar que el recibo estА DevueltoооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_FACTURA||-01&quot;" savein="" from="reciboscli" select="estado" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >Devuelto</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо7ооRECIBOS CLIENTE: PAGOSDEVOL: CREAR UN PAGO O DEVOLUCIсN COD_RECIBO_EDIT = ||COD_FACTURA||-01ооооTestоо<FLTest:Test codtest="000150" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_FACTURA||-01" var="COD_RECIBO_EDIT" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо5ооComprobar que el recibo estА PagadoооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_FACTURA||-01&quot;" savein="" from="reciboscli" select="estado" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >Pagado</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо4ооRECIBOS CLIENTE: PAGOSDEVOL: CREAR UN PAGO O DEVOLUCIсN COD_RECIBO_EDIT = ||COD_FACTURA||-01ооооTestоо<FLTest:Test codtest="000150" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_FACTURA||-01" var="COD_RECIBO_EDIT" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо2ооRECIBOS CLIENTE: CREAR FACTURA ||COD_FACTURA|| Y COMPROBAR RECIBOS CREADOS COD_CLIENTE_REC = ||COD_CLIENTE|| FECHA_REC = ||_YEAR||-03-01 COD_PAGO_REC = CONT ESTADO_REC = Emitido REF_ART_REC = ||COD_ARооооTestоо<FLTest:Test codtest="000144" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_CLIENTE||" var="COD_CLIENTE_REC" />
+    <FLTest:AssignationElement value="||_YEAR||-03-01" var="FECHA_REC" />
+    <FLTest:AssignationElement value="CONT" var="COD_PAGO_REC" />
+    <FLTest:AssignationElement value="Emitido" var="ESTADO_REC" />
+    <FLTest:AssignationElement value="||COD_ARTICULO||" var="REF_ART_REC" />
+    <FLTest:AssignationElement value="||_YEAR||-03-01" var="FVTO1" />
+    <FLTest:AssignationElement value="11.6" var="IMPORTE1" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо17ооComprobar que la factura es editableооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_FACTURA||&quot;" savein="" from="facturascli" select="editable" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >true</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000151ооflfacttesoоож
+636оо6ооComprobar que la factura no es editableооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_FACTURA||&quot;" savein="" from="facturascli" select="editable" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >false</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000151ооflfacttesoоож
+637оо1ооRECIBOS CLIENTE: ABRIR RECIBO EN MODO EDITооооTestоо<FLTest:Test codtest="000313" idfuncional="flfactteso"/>ооexecTestооооооооformооNingunoоо000153ооflfacttesoоож
+637оо6ооPulsar el botСn toolButtonDeleteооreciboscliооButtonооtoolButtonDeleteооanimateClickооооFооflfacttesoооformRecordооNingunoоо000153ооflfacttesoоож
+637оо7ооMessageBox - Pulsar SМ ооreciboscliооMessageBoxооооpushYesоо<FLTest:Query event="RECORD_DELETED" object="" />
+ооFооflfacttesoооformRecordооNingunoоо000153ооflfacttesoоож
+637оо8ооRECIBOS CLIENTE: CERRAR RECIBO EN MODO EDITооооTestоо<FLTest:Test codtest="000314" idfuncional="flfactteso"/>ооexecTestооооооооformRecordооAceptarоо000153ооflfacttesoоож
+637оо5ооSeleccionar ||CRITERIO_PD||ооreciboscliооFLTableDBооtdbPagosDevolCliооselectRowоо||CRITERIO_PD||ооFооflfacttesoооformRecordооNingunoоо000153ооflfacttesoоож
+638оо5ооRECIBOS CLIENTE: CERRAR RECIBO EN MODO EDITооооTestоо<FLTest:Test codtest="000314" idfuncional="flfactteso"/>ооexecTestооооооооformRecordооAceptarоо000154ооflfacttesoоож
+638оо4ооfdbImporte = ||IMPORTE_REC||ооreciboscliооFLFieldDBооfdbImporteооsetValueоо||IMPORTE_REC||ооFооflfacttesoооformRecordооNingunoоо000154ооflfacttesoоож
+638оо1ооRECIBOS CLIENTE: ABRIR RECIBO EN MODO EDITооооTestоо<FLTest:Test codtest="000313" idfuncional="flfactteso"/>ооexecTestооооооооformооNingunoоо000154ооflfacttesoоож
+639оо4ооfLFieldDB5 = ||COD_CUENTA_REM||ооremesasооFLFieldDBооfLFieldDB5ооsetValueоо||COD_CUENTA_REM||ооFооflfacttesoооformRecordооNingunoоо000156ооflfacttesoоож
+639оо3ооfecha = ||_YEAR||-12-31ооremesasооFLFieldDBооfdbFechaооsetValueоо||_YEAR||-12-31ооFооflfacttesoооformRecordооNingunoоо000156ооflfacttesoоож
+639оо10ооREMESAS: RECIBOS: AяADIR RECIBO COD_RECIBO_REM = ||COD_RECIBO_REM1||ооremesasооTestоо<FLTest:Test codtest="000317" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_RECIBO_REM1||" var="COD_RECIBO_REM" />
+</FLTest:Assignation>
+ооFооflfacttesoооformRecordооNingunoоо000156ооflfacttesoоож
+639оо11ооREMESAS: RECIBOS: AяADIR RECIBO COD_RECIBO_REM = ||COD_RECIBO_REM2||ооremesasооTestоо<FLTest:Test codtest="000317" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_RECIBO_REM2||" var="COD_RECIBO_REM" />
+</FLTest:Assignation>
+ооFооflfacttesoооformRecordооNingunoоо000156ооflfacttesoоож
+639оо12ооREMESAS: RECIBOS: AяADIR RECIBO COD_RECIBO_REM = ||COD_RECIBO_REM3||ооremesasооTestоо<FLTest:Test codtest="000317" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_RECIBO_REM3||" var="COD_RECIBO_REM" />
+</FLTest:Assignation>
+ооFооflfacttesoооformRecordооNingunoоо000156ооflfacttesoоож
+639оо13ооPulsar botСn pushButtonAcceptооremesasооButtonооpushButtonAcceptооanimateClickооооFооflfacttesoооformRecordооAceptarоо000156ооflfacttesoоож
+639оо14ооCerrar formulario remesasооremesasооFLFormDBооremesasооcloseооооFооflfacttesoооformооNingunoоо000156ооflfacttesoоож
+639оо15ооGuardar COD_REMESAооооQueryооооexecQueryоо<FLTest:Query where="1=1 order by idremesa desc" savein="COD_REMESA" from="remesas" select="idremesa" />
+ооFооflfacttesoооformооNingunoоо000156ооflfacttesoоож
+639оо16ооComprobar que ||COD_RECIBO_REM1|| estА pagado e incluido en ||COD_REMESA||ооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_RECIBO_REM1||&quot; AND estado = &quot;Pagado&quot;" savein="" from="reciboscli" select="idremesa" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >||COD_REMESA||</FLTest:CompareElement>
+</FLTest:Compare>
+ооFооflfacttesoооformооNingunoоо000156ооflfacttesoоож
+639оо17ооSaltar si ||COD_RECIBO_REM2|| no estА definidoооооCompareооооcompareItemsоо<FLTest:Compare action="Saltar" type="Distintos" >
+    <FLTest:CompareElement type="Valor" >||COD_RECIBO_REM2||</FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >**UNDEFINED**</FLTest:CompareElement>
+</FLTest:Compare>
+ооFооflfacttesoооformооNingunoоо000156ооflfacttesoоож
+639оо18ооComprobar que ||COD_RECIBO_REM2|| estА pagado e incluido en ||COD_REMESA||ооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_RECIBO_REM2||&quot; AND estado = &quot;Pagado&quot;" savein="" from="reciboscli" select="idremesa" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >||COD_REMESA||</FLTest:CompareElement>
+</FLTest:Compare>
+ооFооflfacttesoооformооNingunoоо000156ооflfacttesoоож
+639оо19ооSaltar si ||COD_RECIBO_REM3|| no estА definidoооооCompareооооcompareItemsоо<FLTest:Compare action="Saltar" type="Distintos" >
+    <FLTest:CompareElement type="Valor" >||COD_RECIBO_REM3||</FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >**UNDEFINED**</FLTest:CompareElement>
+</FLTest:Compare>
+ооFооflfacttesoооformооNingunoоо000156ооflfacttesoоож
+639оо20ооComprobar que ||COD_RECIBO_REM3|| estА pagado e incluido en ||COD_REMESA||ооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_RECIBO_REM3||&quot; AND estado = &quot;Pagado&quot;" savein="" from="reciboscli" select="idremesa" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >||COD_REMESA||</FLTest:CompareElement>
+</FLTest:Compare>
+ооFооflfacttesoооformооNingunoоо000156ооflfacttesoоож
+639оо2ооPulsar botСn toolButtomInsertооremesasооButtonооtoolButtomInsertооanimateClickооооFооflfacttesoооformооNingunoоо000156ооflfacttesoоож
+639оо1ооAbrir formulario remesasооremesasооFLFormDBооremesasооopenооооFооflfacttesoооformооNingunoоо000156ооflfacttesoоож
+640оо7ооREMESAS: PRUEBA GENERALооооTestоо<FLTest:Test codtest="000143" idfuncional="flfactteso"/>ооexecTestооооооооformооNingunoоо000219ооflfacttesoоож
+640оо4ооRECIBOS CLIENTE: PAGOS PARCIALESооооTestоо<FLTest:Test codtest="000265" idfuncional="flfactteso"/>ооexecTestооооооооformооNingunoоо000219ооflfacttesoоож
+640оо3ооRECIBOS CLIENTE: PAGOS Y DEVOLUCIONESооооTestоо<FLTest:Test codtest="000151" idfuncional="flfactteso"/>ооexecTestооооооооformооNingunoоо000219ооflfacttesoоож
+640оо2ооRECIBOS CLIENTE: GENERACIсN DE RECIBOS A PARTIR DE FACTURASооооTestоо<FLTest:Test codtest="000263" idfuncional="flfactteso"/>ооexecTestооооооооformооNingunoоо000219ооflfacttesoоож
+640оо1ооRECIBOS CLIENTE: VALORES INICIALESооооTestоо<FLTest:Test codtest="000133" idfuncional="flfacturac"/>ооexecTestооооооооformооNingunoоо000219ооflfacttesoоож
+641оо2ооRECIBOS CLIENTE: CREAR FACTURA ||COD_FACTURA|| Y COMPROBAR RECIBOS CREADOS COD_CLIENTE_REC = ||COD_CLIENTE|| FECHA_REC = ||_YEAR||-03-01 COD_PAGO_REC = CONT ESTADO_REC = Emitido REF_ART_REC = ||COD_ARооооTestоо<FLTest:Test codtest="000144" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_CLIENTE||" var="COD_CLIENTE_REC" />
+    <FLTest:AssignationElement value="||_YEAR||-03-01" var="FECHA_REC" />
+    <FLTest:AssignationElement value="CONT" var="COD_PAGO_REC" />
+    <FLTest:AssignationElement value="Emitido" var="ESTADO_REC" />
+    <FLTest:AssignationElement value="||COD_ARTICULO||" var="REF_ART_REC" />
+    <FLTest:AssignationElement value="||_YEAR||-03-01" var="FVTO1" />
+    <FLTest:AssignationElement value="11.6" var="IMPORTE1" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000263ооflfacttesoоож
+641оо7ооRECIBOS CLIENTE: CREAR FACTURA ||COD_FACTURA|| Y COMPROBAR RECIBOS CREADOS COD_CLIENTE_REC = ||COD_CLIENTE|| FECHA_REC = ||_YEAR||-03-01 COD_PAGO_REC = *30-60-90 ESTADO_REC = Emitido REF_ART_REC = ||CооооTestоо<FLTest:Test codtest="000144" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_CLIENTE||" var="COD_CLIENTE_REC" />
+    <FLTest:AssignationElement value="||_YEAR||-03-01" var="FECHA_REC" />
+    <FLTest:AssignationElement value="*30-60-90" var="COD_PAGO_REC" />
+    <FLTest:AssignationElement value="Emitido" var="ESTADO_REC" />
+    <FLTest:AssignationElement value="||COD_ARTICULO||" var="REF_ART_REC" />
+    <FLTest:AssignationElement value="||_YEAR||-03-31" var="FVTO1" />
+    <FLTest:AssignationElement value="4" var="IMPORTE1" />
+    <FLTest:AssignationElement value="||_YEAR||-04-30" var="FVTO2" />
+    <FLTest:AssignationElement value="4" var="IMPORTE2" />
+    <FLTest:AssignationElement value="||_YEAR||-05-30" var="FVTO3" />
+    <FLTest:AssignationElement value="3.6" var="IMPORTE3" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000263ооflfacttesoоож
+641оо4ооRECIBOS CLIENTE: CREAR FACTURA ||COD_FACTURA|| Y COMPROBAR RECIBOS CREADOS COD_CLIENTE_REC = ||COD_CLIENTE|| FECHA_REC = ||_YEAR||-03-01 COD_PAGO_REC = *PAGADO ESTADO_REC = Pagado REF_ART_REC = ||COD_ооооTestоо<FLTest:Test codtest="000144" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_CLIENTE||" var="COD_CLIENTE_REC" />
+    <FLTest:AssignationElement value="||_YEAR||-03-01" var="FECHA_REC" />
+    <FLTest:AssignationElement value="*PAGADO" var="COD_PAGO_REC" />
+    <FLTest:AssignationElement value="Pagado" var="ESTADO_REC" />
+    <FLTest:AssignationElement value="||COD_ARTICULO||" var="REF_ART_REC" />
+    <FLTest:AssignationElement value="||_YEAR||-03-01" var="FVTO1" />
+    <FLTest:AssignationElement value="11.6" var="IMPORTE1" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000263ооflfacttesoоож
+642оо5ооRECIBOS CLIENTE: MODIFICAR RECIBO COD_RECIBO_EDIT = ||COD_RECIBO|| IMPORTE_REC = ||IMPORTE||ооооTestоо<FLTest:Test codtest="000154" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_RECIBO||" var="COD_RECIBO_EDIT" />
+    <FLTest:AssignationElement value="||IMPORTE||" var="IMPORTE_REC" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000265ооflfacttesoоож
+642оо2ооRECIBOS CLIENTE: CREAR FACTURA ||COD_FACTURA|| Y COMPROBAR RECIBOS CREADOS COD_CLIENTE_REC = ||COD_CLIENTE|| FECHA_REC = ||_YEAR||-03-01 COD_PAGO_REC = CONT ESTADO_REC = Emitido REF_ART_REC = ||COD_ARооооTestоо<FLTest:Test codtest="000144" idfuncional="flfactteso"/>ооexecTestоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_CLIENTE||" var="COD_CLIENTE_REC" />
+    <FLTest:AssignationElement value="||_YEAR||-03-01" var="FECHA_REC" />
+    <FLTest:AssignationElement value="CONT" var="COD_PAGO_REC" />
+    <FLTest:AssignationElement value="Emitido" var="ESTADO_REC" />
+    <FLTest:AssignationElement value="||COD_ARTICULO||" var="REF_ART_REC" />
+    <FLTest:AssignationElement value="||_YEAR||-03-01" var="FVTO1" />
+    <FLTest:AssignationElement value="11.6" var="IMPORTE1" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000265ооflfacttesoоож
+642оо4ооIMPORTE = 4, RESTO = 7.6ооооAssignationооооassignateValuesоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="4" var="IMPORTE" />
+    <FLTest:AssignationElement value="7.6" var="RESTO" />
+</FLTest:Assignation>ооооооformооNingunoоо000265ооflfacttesoоож
+642оо6ооComprobar que existe el recibo ||COD_FACTURA||-02 con importe ||RESTO||ооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_FACTURA||-02&quot;" savein="" from="reciboscli" select="importe" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >||RESTO||</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000265ооflfacttesoоож
+642оо3ооCOD_RECIBO = ||COD_FACTURA||-01ооооAssignationооооassignateValuesоо<FLTest:Assignation>
+    <FLTest:AssignationElement value="||COD_FACTURA||-01" var="COD_RECIBO" />
+</FLTest:Assignation>
+ооооооformооNingunoоо000265ооflfacttesoоож
+643оо4ооPulsar botСn toolButtonEditооreciboscliооButtonооtoolButtonEditооanimateClickооооFооflfacturacооformооNingunoоо000313ооflfacttesoоож
+643оо3ооSeleccionar codigo = "||COD_RECIBO_EDIT||"ооreciboscliооFLTableDBооtableDBRecordsооselectRowооcodigo = "||COD_RECIBO_EDIT||"ооFооflfacturacооformооNingunoоо000313ооflfacttesoоож
+643оо2ооAbrir formulario reciboscliооreciboscliооFLFormDBооreciboscliооopenооооFооflfacturacооformооNingunoоо000313ооflfacttesoоож
+643оо1ооSaltar si COD_RECIBO_EDIT no estА definidoооreciboscliооCompareооооcompareItemsоо<FLTest:Compare action="Saltar" type="Distintos" >
+    <FLTest:CompareElement type="Valor" >||COD_RECIBO_EDIT||</FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >**UNDEFINED**</FLTest:CompareElement>
+</FLTest:Compare>
+ооFооflfacturacооformRecordооNingunoоо000313ооflfacttesoоож
+644оо6ооCerrar formulario reciboscliооreciboscliооFLFormDBооreciboscliооcloseооооFооflfacturacооformооNingunoоо000314ооflfacttesoоож
+644оо5ооPulsar botСn pushButtonAcceptооreciboscliооButtonооpushButtonAcceptооanimateClickооооFооflfacturacооformRecordооAceptarоо000314ооflfacttesoоож
+644оо1ооSaltar si COD_RECIBO_EDIT no estА definidoооreciboscliооCompareооооcompareItemsоо<FLTest:Compare action="Saltar" type="Distintos" >
+    <FLTest:CompareElement type="Valor" >||COD_RECIBO_EDIT||</FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >**UNDEFINED**</FLTest:CompareElement>
+</FLTest:Compare>
+ооFооflfacturacооformRecordооNingunoоо000314ооflfacttesoоож
+645оо4ооPulsar botСn toolButtonEditооremesasооButtonооtoolButtonEditооanimateClickооооFооflfacturacооformооNingunoоо000315ооflfacttesoоож
+645оо3ооSeleccionar codigo = "||COD_REMESA_EDIT||"ооremesasооFLTableDBооtableDBRecordsооselectRowооcodigo = "||COD_REMESA_EDIT||"ооFооflfacttesoооformооNingunoоо000315ооflfacttesoоож
+645оо2ооAbrir formulario remesasооremesasооFLFormDBооremesasооopenооооFооflfacttesoооformооNingunoоо000315ооflfacttesoоож
+645оо1ооSaltar si COD_REMESA_EDIT no estА definidoооremesasооCompareооооcompareItemsоо<FLTest:Compare action="Saltar" type="Distintos" >
+    <FLTest:CompareElement type="Valor" >||COD_REMESA_EDIT||</FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >**UNDEFINED**</FLTest:CompareElement>
+</FLTest:Compare>
+ооFооflfacttesoооformRecordооNingunoоо000315ооflfacttesoоож
+646оо5ооPulsar botСn pushButtonAcceptооremesasооButtonооpushButtonAcceptооanimateClickооооFооflfacturacооformRecordооAceptarоо000316ооflfacttesoоож
+646оо1ооSaltar si COD_REMESA_EDIT no estА definidoооremesasооCompareооооcompareItemsоо<FLTest:Compare action="Saltar" type="Distintos" >
+    <FLTest:CompareElement type="Valor" >||COD_REMESA_EDIT||</FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >**UNDEFINED**</FLTest:CompareElement>
+</FLTest:Compare>
+ооFооflfacttesoооformRecordооNingunoоо000316ооflfacttesoоож
+646оо6ооCerrar formulario remesasооremesasооFLFormDBооremesasооcloseооооFооflfacturacооformооNingunoоо000316ооflfacttesoоож
+647оо1ооSaltar si ||COD_RECIBO_REM|| no estА definidoооооCompareооооcompareItemsоо<FLTest:Compare action="Saltar" type="Distintos" >
+    <FLTest:CompareElement type="Valor" >||COD_RECIBO_REM||</FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >**UNDEFINED**</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformRecordооNingunoоо000317ооflfacttesoоож
+647оо8ооREMESAS: CERRAR REMESA EN MODO EDITооооTestоо<FLTest:Test codtest="000316" idfuncional="flfactteso"/>ооexecTestооооооооformRecordооNingunoоо000317ооflfacttesoоож
+647оо6ооSeleccionar codigo = "||COD_RECIBO_REM||"ооreciboscliооFLTableDBооtableDBRecordsооselectRowооcodigo = "||COD_RECIBO_REM||"ооFооflfacttesoооformSearchооNingunoоо000317ооflfacttesoоож
+647оо2ооREMESAS: ABRIR REMESA EN MODO EDITооооTestоо<FLTest:Test codtest="000315" idfuncional="flfactteso"/>ооexecTestооооооооformооNingunoоо000317ооflfacttesoоож
+647оо5ооPulsar el botСn tbInsertооremesasооButtonооtbInsertооanimateClickооооFооflfacttesoооformRecordооNingunoоо000317ооflfacttesoоож
+647оо7ооPulsar botСn pushButtonAcceptооreciboscliооButtonооpushButtonAcceptооanimateClickоо<FLTest:Query event="SCRIPT_FINISHED" object="" />
+ооFооflfacttesoооformSearchооAceptarоо000317ооflfacttesoоож
+648оо4ооComparar  ооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_RECIBO||&quot;" savein="" from="reciboscli" select="fechav" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >||FECHAV||</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000326ооflfacttesoоож
+648оо3ооComparar  ооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_RECIBO||&quot;" savein="" from="reciboscli" select="fecha" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >||FECHA||</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000326ооflfacttesoоож
+648оо2ооComparar  ооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_RECIBO||&quot;" savein="" from="reciboscli" select="estado" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >||ESTADO||</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000326ооflfacttesoоож
+648оо1ооComparar  ооооCompareооооcompareItemsоо<FLTest:Compare action="Error" type="Iguales" >
+    <FLTest:CompareElement type="Query" >
+        <FLTest:Query where="codigo = &quot;||COD_RECIBO||&quot;" savein="" from="reciboscli" select="importe" />
+    </FLTest:CompareElement>
+    <FLTest:CompareElement type="Valor" >||IMPORTE||</FLTest:CompareElement>
+</FLTest:Compare>
+ооооооformооNingunoоо000326ооflfacttesoоож

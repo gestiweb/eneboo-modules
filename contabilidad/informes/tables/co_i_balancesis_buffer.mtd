@@ -1,0 +1,94 @@
+<!DOCTYPE TMD>
+<TMD>
+	<name>co_i_balancesis_buffer</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Balance de Sumas y Saldos")</alias>
+
+	<field>
+		<name>id</name>
+		<!-- Identificador interno del balance -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>serial</type>
+		<visiblegrid>false</visiblegrid>
+	</field>
+
+	<field>
+		<name>idimpresion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Id Impresión")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>codsubcuenta</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código de subcuenta")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>codcuenta</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código de cuenta")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>50</length>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>200</length>
+	</field>
+
+	<field>
+		<name>descripcioncuenta</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<pk>false</pk>
+		<null>false</null>
+		<type>string</type>
+		<length>200</length>
+	</field>
+
+	<field>
+		<name>debe</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Debe")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>haber</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Haber")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+	<field>
+		<name>saldo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Saldo")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>double</type>
+		<partI>12</partI>
+		<partD>2</partD>
+		<default>0</default>
+	</field>
+
+</TMD>
