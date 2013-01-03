@@ -1,0 +1,90 @@
+como origen del campo se puede usar: un campo del fichero ó un valor fijo ó el resultado de una función
+si quieres un valor fijo lo introduces en el campo, luego seleccionas el campo destino de la tabla y agregas la correspondencia
+no importa qué campo esté seleccionado en el fichero, pues no le dará importancia al saber que introduciste un valor por defecto
+Campo ------+
+Valor fijo ---+------Campo
+Función ----+
+como origen se utiliza sólo uno de esos
+es eso lo que me preguntabas?
+dime, así pasamos a lo de función
+
+yo creo que se pueden presentar los siguientes casos al importar un archivo:
+1. El campo del fichero se puede cargar en el campo de la tabla tranquilamente
+2. No existe un campo en el fichero para un campo de la tabla
+3. Existe un campo del fichero que tiene los datos de forma diferente a como se almacena en el campo de la tabla
+en el primer caso se crea la correspondencia de campo a campo
+por ejemplo los números o descripciones
+
+
+
+///// BEGIN FUNCTION /////
+//////////////////////////
+argumentos = arguments.toString();
+arrayArgumentos = argumentos.split(";");
+
+posicionDelCampo = 10;
+
+stock = "SI";
+
+campo = arrayArgumentos[posicionDelCampo];
+switch (campo) {
+ case "SI": {
+   stock = "NO";
+   break;
+ }
+ case "NO": {
+   stock = "SI";
+   break;
+ }
+ default: {
+   stock = "SI";
+   break;
+ }
+}
+
+return stock;
+///// END FUNCTION ///////
+//////////////////////////
+
+
+esa función tiene lo siguiente
+argumentos = arguments.toString();
+Guarda en un string la línea del fichero
+arrayArgumentos = argumentos.split(";");
+crea un array con los campos de la línea (en este caso le indico que el caracter separador es el ;)
+posicionDelCampo = 10;
+indico en qué posición está el campo que me interesa, dentro del fichero
+stock = "SI";
+creo una variable para devolver con un valor por defecto
+campo = arrayArgumentos[posicionDelCampo];
+guardo en la variable "campo" el valor del campo que me interesa
+luego en el case pregunto
+. si tiene el valor SI que se devuelva NO
+. si tiene el valor NO que se devuelva SI
+como verás no es tan mágica, pues hay que indicarle el separador a usar y la posición del campo que queremos procesar
+pero como probablemente tengas que procesar varios datos es posible crear una función para cada caso particular
+si otro proveedor te da un ficher similar, con los mismo campos, pero en lugar de tener el valor en la columna 10 la tiene en la 8 deberás hacer otra función
+
+
+Esquema de importacion: Al seleccionar la tabla de destino no actualiza los campos, hay que aceptar el formulario y volver a entrar para ver los CAMPOS FICHERO y TABLA
+SOLUCION: hacer clic en el botón de eliminar correspondencia
+el de la flecha hacia la derecha
+ese te actualiza el esquema
+
+otra cosa a tener cuidado es la tabla de "Tablas"
+si entras a una tabla está la opción de eliminar todos los registros
+por si alguna migración inicial salió mal
+pero sería peligroso en manos de un usuario final :-)
+
+///// BEGIN FUNCTION /////
+//////////////////////////
+argumentos = arguments.toString();
+arrayArgumentos = argumentos.split(";");
+
+posicionDelCampoCoste = 10;
+
+costeMedio = arrayArgumentos[posicionDelCampoCoste];
+
+return costeMedio;
+///// END FUNCTION ///////
+//////////////////////////
