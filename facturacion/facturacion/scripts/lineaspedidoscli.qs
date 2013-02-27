@@ -261,7 +261,8 @@ function oficial_commonBufferChanged(fN:String, miForm:Object)
 		}
 		case "cantidad":
 		case "pvpunitario":{
-			miForm.child("fdbPvpSinDto").setValue(this.iface.commonCalculateField("pvpsindto", miForm.cursor()));
+            cursor.setValueBuffer("pvpsindto", this.iface.commonCalculateField("pvpsindto", miForm.cursor()));
+            // KLO. Algunas veces da error con los decimales. miForm.child("fdbPvpSinDto").setValue(this.iface.commonCalculateField("pvpsindto", miForm.cursor()));
 			break;
 		}
 		case "pvpsindto":
