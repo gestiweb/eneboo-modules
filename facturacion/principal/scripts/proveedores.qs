@@ -178,9 +178,9 @@ function interna_init()
 	this.iface.toolButtonInsertSub = this.child("toolButtonInsertSub");
 	this.iface.toolButtonDelSub = this.child("toolButtonDeleteSub");
 
-	this.iface.toolButtonInsertContacto = this.child("tbInsertContacto");
-	this.iface.toolButtonDeleteContacto = this.child("tbDeleteContacto");
-	this.iface.tbEditContacto = this.child("tbEditContacto");
+	this.iface.toolButtonInsertContacto = this.child("toolButtonInsertContacto");
+	this.iface.toolButtonDeleteContacto = this.child("toolButtonDeleteContacto");
+	this.iface.tbEditContacto = this.child("toolButtonEditContacto");
 	this.iface.toolButtonDeleteContactoProveedor = this.child("toolButtonDeleteContactoProveedor");
 	this.iface.toolButtonInsertContactoProveedor = this.child("toolButtonInsertContactoProveedor");
 	this.iface.toolButtonBuscarContacto = this.child("toolButtonBuscarContacto");
