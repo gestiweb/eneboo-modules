@@ -115,7 +115,19 @@
     </message>
     <message>
         <source>Area Financiera</source>
-        <translation>Àrea Financera</translation>
+        <translation>�rea Financera</translation>
+    </message>
+    <message>
+        <source>Principal</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Ctrl+W</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -257,7 +269,7 @@
     </message>
     <message>
         <source>Balance de Situaci&#xf3;n</source>
-        <translation>Balanç de la Situació</translation>
+        <translation>Balanç de Situació</translation>
     </message>
     <message>
         <source>Ejercicio actual</source>
@@ -373,11 +385,11 @@
     </message>
     <message>
         <source>desde el n&#xba;</source>
-        <translation>des del nº</translation>
+        <translation>des del num</translation>
     </message>
     <message>
         <source>Serie de Facturaci&#xf3;n</source>
-        <translation>Sèrie de facturació</translation>
+        <translation>S�rie de facturació</translation>
     </message>
     <message>
         <source>Ascendente</source>
@@ -386,14 +398,6 @@
     <message>
         <source>Descendente</source>
         <translation>Descendent</translation>
-    </message>
-    <message>
-        <source>Sumas y Saldos</source>
-        <translation>Sumes i saldos</translation>
-    </message>
-    <message>
-        <source>Comparativo Presupuesto</source>
-        <translation>Comparatiu Pressupost</translation>
     </message>
     <message>
         <source>Borrador</source>
@@ -405,7 +409,7 @@
     </message>
     <message>
         <source>No ordenar</source>
-        <translation>No ordena</translation>
+        <translation>No ordenar</translation>
     </message>
     <message>
         <source>Fecha</source>
@@ -424,16 +428,52 @@
         <translation>HAVER</translation>
     </message>
     <message>
-        <source>Mostrar datos a nivel de</source>
-        <translation>Mostra dades a nivell de</translation>
-    </message>
-    <message>
         <source>Ignorar asientos de cierre</source>
         <translation>Ignora assentaments de tancament</translation>
     </message>
     <message>
         <source>Calcular saldo inicial</source>
         <translation>﻿Calcula saldo inicial</translation>
+    </message>
+    <message>
+        <source>Id Impresi&#xf3;n</source>
+        <translation>Id Impressió</translation>
+    </message>
+    <message>
+        <source>C&#xf3;digo de subcuenta</source>
+        <translation>Codi de subcompte</translation>
+    </message>
+    <message>
+        <source>C&#xf3;digo de cuenta</source>
+        <translation>Codi de compte</translation>
+    </message>
+    <message>
+        <source>Debe</source>
+        <translation>Deure</translation>
+    </message>
+    <message>
+        <source>Haber</source>
+        <translation>Haver</translation>
+    </message>
+    <message>
+        <source>Saldo</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Agrupar por meses</source>
+        <translation>Agrupar per mesos</translation>
+    </message>
+    <message>
+        <source>Digitos de agrupaci&#xf3;n</source>
+        <translation>Dígits d&apos;agrupació</translation>
+    </message>
+    <message>
+        <source>Informe resumido</source>
+        <translation>Informe resumit</translation>
+    </message>
+    <message>
+        <source>Ignorar facturas sin I.V.A.</source>
+        <translation>Ignorar factures sense I.V.A.</translation>
     </message>
 </context>
 <context>
@@ -456,7 +496,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>i_co__subcuentas_codejercicioact</source>
@@ -464,15 +504,15 @@
     </message>
     <message>
         <source>nombre</source>
-        <translation></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>ejercicios</source>
-        <translation></translation>
+        <translation>exercicis</translation>
     </message>
     <message>
         <source>codejercicio</source>
-        <translation></translation>
+        <translation>codiexercici</translation>
     </message>
     <message>
         <source>d_co__asientos_fechaact</source>
@@ -480,7 +520,7 @@
     </message>
     <message>
         <source>fechainicio</source>
-        <translation></translation>
+        <translation>datainici</translation>
     </message>
     <message>
         <source>h_co__asientos_fechaact</source>
@@ -488,7 +528,7 @@
     </message>
     <message>
         <source>fechafin</source>
-        <translation></translation>
+        <translation>datafi</translation>
     </message>
     <message>
         <source>i_co__subcuentas_codejercicioant</source>
@@ -504,7 +544,7 @@
     </message>
     <message>
         <source>ejercicioanterior</source>
-        <translation></translation>
+        <translation>exercicianterior</translation>
     </message>
     <message>
         <source>consolidar</source>
@@ -512,7 +552,7 @@
     </message>
     <message>
         <source>ignorarcierre</source>
-        <translation></translation>
+        <translation>ignorartancament</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -535,7 +575,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>i_co__subcuentas_codejercicioact</source>
@@ -543,15 +583,15 @@
     </message>
     <message>
         <source>nombre</source>
-        <translation></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>ejercicios</source>
-        <translation></translation>
+        <translation>exercicis</translation>
     </message>
     <message>
         <source>codejercicio</source>
-        <translation></translation>
+        <translation>codiexercici</translation>
     </message>
     <message>
         <source>d_co__asientos_fechaact</source>
@@ -559,7 +599,7 @@
     </message>
     <message>
         <source>fechainicio</source>
-        <translation></translation>
+        <translation>datainici</translation>
     </message>
     <message>
         <source>h_co__asientos_fechaact</source>
@@ -567,7 +607,7 @@
     </message>
     <message>
         <source>fechafin</source>
-        <translation></translation>
+        <translation>datafi</translation>
     </message>
     <message>
         <source>i_co__subcuentas_codejercicioant</source>
@@ -583,7 +623,7 @@
     </message>
     <message>
         <source>ejercicioanterior</source>
-        <translation></translation>
+        <translation>exercicanterior</translation>
     </message>
     <message>
         <source>consolidar</source>
@@ -591,7 +631,7 @@
     </message>
     <message>
         <source>ignorarcierre</source>
-        <translation></translation>
+        <translation>ignorartancament</translation>
     </message>
 </context>
 <context>
@@ -614,11 +654,11 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>todassubcuentas</source>
-        <translation></translation>
+        <translation>totessubcomptes</translation>
     </message>
     <message>
         <source>d_co__subcuentas_codsubcuenta</source>
@@ -626,7 +666,7 @@
     </message>
     <message>
         <source>codsubcuenta</source>
-        <translation></translation>
+        <translation>codsubcompte</translation>
     </message>
     <message>
         <source>idsubcuentadesde</source>
@@ -646,15 +686,15 @@
     </message>
     <message>
         <source>nombre</source>
-        <translation></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>ejercicios</source>
-        <translation></translation>
+        <translation>exercicis</translation>
     </message>
     <message>
         <source>codejercicio</source>
-        <translation></translation>
+        <translation>codexercici</translation>
     </message>
     <message>
         <source>d_co__asientos_fecha</source>
@@ -662,7 +702,7 @@
     </message>
     <message>
         <source>fechainicio</source>
-        <translation></translation>
+        <translation>datainici</translation>
     </message>
     <message>
         <source>h_co__asientos_fecha</source>
@@ -670,11 +710,11 @@
     </message>
     <message>
         <source>fechafin</source>
-        <translation></translation>
+        <translation>datafi</translation>
     </message>
     <message>
         <source>ejercicioanterior</source>
-        <translation></translation>
+        <translation>exercicianterior</translation>
     </message>
     <message>
         <source>codejercicioant</source>
@@ -694,7 +734,7 @@
     </message>
     <message>
         <source>nivel</source>
-        <translation></translation>
+        <translation>nivell</translation>
     </message>
     <message>
         <source>Opciones</source>
@@ -702,7 +742,11 @@
     </message>
     <message>
         <source>ignorarcierre</source>
-        <translation></translation>
+        <translation>ignorartancament</translation>
+    </message>
+    <message>
+        <source>resumido</source>
+        <translation>resumit</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -721,11 +765,11 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>datosiva</source>
-        <translation></translation>
+        <translation>dadesiva</translation>
     </message>
     <message>
         <source>i_co__subcuentas_codejercicio</source>
@@ -733,15 +777,15 @@
     </message>
     <message>
         <source>nombre</source>
-        <translation></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>ejercicios</source>
-        <translation></translation>
+        <translation>exercicis</translation>
     </message>
     <message>
         <source>codejercicio</source>
-        <translation></translation>
+        <translation>codexercici</translation>
     </message>
     <message>
         <source>d_co__asientos_fecha</source>
@@ -749,7 +793,7 @@
     </message>
     <message>
         <source>fechainicio</source>
-        <translation></translation>
+        <translation>datainici</translation>
     </message>
     <message>
         <source>h_co__asientos_fecha</source>
@@ -757,11 +801,11 @@
     </message>
     <message>
         <source>fechafin</source>
-        <translation></translation>
+        <translation>datafi</translation>
     </message>
     <message>
         <source>todassubcuentas</source>
-        <translation></translation>
+        <translation>totssubcomptes</translation>
     </message>
     <message>
         <source>d_co__subcuentas_codsubcuenta</source>
@@ -769,7 +813,7 @@
     </message>
     <message>
         <source>codsubcuenta</source>
-        <translation></translation>
+        <translation>codsubcompte</translation>
     </message>
     <message>
         <source>idsubcuentadesde</source>
@@ -785,7 +829,7 @@
     </message>
     <message>
         <source>todosasientos</source>
-        <translation></translation>
+        <translation>totsassentaments</translation>
     </message>
     <message>
         <source>d_co__asientos_numero</source>
@@ -797,27 +841,31 @@
     </message>
     <message>
         <source>orden1</source>
-        <translation></translation>
+        <translation>ordre 1</translation>
     </message>
     <message>
         <source>tipoorden1</source>
-        <translation></translation>
+        <translation>tipusordre1</translation>
     </message>
     <message>
         <source>orden2</source>
-        <translation></translation>
+        <translation>ordre2</translation>
     </message>
     <message>
         <source>tipoorden2</source>
-        <translation></translation>
+        <translation>tipusordre2</translation>
     </message>
     <message>
         <source>orden3</source>
-        <translation></translation>
+        <translation>ordre3</translation>
     </message>
     <message>
         <source>tipoorden3</source>
-        <translation></translation>
+        <translation>tipusordre3</translation>
+    </message>
+    <message>
+        <source>agruparmeses</source>
+        <translation>agrupamesos</translation>
     </message>
 </context>
 <context>
@@ -832,7 +880,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>i_co__cuentas_codejercicio</source>
@@ -840,15 +888,15 @@
     </message>
     <message>
         <source>nombre</source>
-        <translation></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>ejercicios</source>
-        <translation></translation>
+        <translation>exercicis</translation>
     </message>
     <message>
         <source>codejercicio</source>
-        <translation></translation>
+        <translation>codiexercici</translation>
     </message>
     <message>
         <source>d_co__asientos_fecha</source>
@@ -856,7 +904,7 @@
     </message>
     <message>
         <source>fechainicio</source>
-        <translation></translation>
+        <translation>datainici</translation>
     </message>
     <message>
         <source>h_co__asientos_fecha</source>
@@ -864,7 +912,7 @@
     </message>
     <message>
         <source>fechafin</source>
-        <translation></translation>
+        <translation>datafi</translation>
     </message>
     <message>
         <source>&amp;Opciones</source>
@@ -872,11 +920,15 @@
     </message>
     <message>
         <source>numeracionauto</source>
-        <translation></translation>
+        <translation>autonumeració</translation>
     </message>
     <message>
         <source>numdesde</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>coniva</source>
+        <translation>ambIVA</translation>
     </message>
 </context>
 <context>
@@ -891,7 +943,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>i_co__cuentas_codejercicio</source>
@@ -899,15 +951,15 @@
     </message>
     <message>
         <source>nombre</source>
-        <translation></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>ejercicios</source>
-        <translation></translation>
+        <translation>exercicis</translation>
     </message>
     <message>
         <source>codejercicio</source>
-        <translation></translation>
+        <translation>codiexercici</translation>
     </message>
     <message>
         <source>d_co__asientos_fecha</source>
@@ -915,7 +967,7 @@
     </message>
     <message>
         <source>fechainicio</source>
-        <translation></translation>
+        <translation>datainici</translation>
     </message>
     <message>
         <source>h_co__asientos_fecha</source>
@@ -923,7 +975,7 @@
     </message>
     <message>
         <source>fechafin</source>
-        <translation></translation>
+        <translation>datafi</translation>
     </message>
     <message>
         <source>&amp;Opciones</source>
@@ -931,7 +983,7 @@
     </message>
     <message>
         <source>numeracionauto</source>
-        <translation></translation>
+        <translation>autonumeració</translation>
     </message>
     <message>
         <source>codserie</source>
@@ -940,6 +992,10 @@
     <message>
         <source>numdesde</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>coniva</source>
+        <translation>ambiva</translation>
     </message>
 </context>
 <context>
@@ -954,7 +1010,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>i_co__subcuentas_codejercicio</source>
@@ -962,15 +1018,15 @@
     </message>
     <message>
         <source>nombre</source>
-        <translation></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>ejercicios</source>
-        <translation></translation>
+        <translation>exercicis</translation>
     </message>
     <message>
         <source>codejercicio</source>
-        <translation></translation>
+        <translation>codiexercici</translation>
     </message>
     <message>
         <source>d_co__asientos_fecha</source>
@@ -978,7 +1034,7 @@
     </message>
     <message>
         <source>fechainicio</source>
-        <translation></translation>
+        <translation>datainici</translation>
     </message>
     <message>
         <source>h_co__asientos_fecha</source>
@@ -986,11 +1042,11 @@
     </message>
     <message>
         <source>fechafin</source>
-        <translation></translation>
+        <translation>datafi</translation>
     </message>
     <message>
         <source>todassubcuentas</source>
-        <translation></translation>
+        <translation>totssubcomptes</translation>
     </message>
     <message>
         <source>d_co__subcuentas_codsubcuenta</source>
@@ -998,7 +1054,7 @@
     </message>
     <message>
         <source>codsubcuenta</source>
-        <translation></translation>
+        <translation>codsubcompte</translation>
     </message>
     <message>
         <source>idsubcuentadesde</source>
@@ -1015,6 +1071,18 @@
     <message>
         <source>saldoinicial</source>
         <translation></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Criterios de ordenación</source>
+        <translation>Criteris d&apos;ordenació</translation>
+    </message>
+    <message>
+        <source>orden1</source>
+        <translation>ordre 1</translation>
+    </message>
+    <message>
+        <source>tipoorden1</source>
+        <translation>tipus ordre1</translation>
     </message>
 </context>
 <context>
@@ -1069,7 +1137,7 @@
     </message>
     <message>
         <source>Las fechas de inicio y fin del ejercicio anterior deben estar dentro del propio intervalo del ejercicio</source>
-        <translation>Les dates d&apos;inici i fi de l&apos;exercici anterior cal que estiguin dins del mateix intèrval de l&apos;exercici</translation>
+        <translation>Les dates d&apos;inici i fi de l&apos;exercici anterior cal que estiguin dins del mateix int�rval de l&apos;exercici</translation>
     </message>
     <message>
         <source>Debe especificar las subcuentas</source>
@@ -1077,7 +1145,47 @@
     </message>
     <message>
         <source>La Serie no existe en la tabla de Series de Facturaci&#xf3;n</source>
-        <translation>La Sèrie no existeix a la taula de Sèries de Facturació</translation>
+        <translation>La S�rie no existeix a la taula de S�ries de Facturació</translation>
+    </message>
+    <message>
+        <source>U.E.</source>
+        <translation>U.E.</translation>
+    </message>
+    <message>
+        <source>Import/Export</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Exento</source>
+        <translation>Exempt</translation>
+    </message>
+    <message>
+        <source>( U.E. )</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>( Exento )</source>
+        <translation>(Exempt)</translation>
+    </message>
+    <message>
+        <source>( Export. )</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>( Gral. )</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>( Import. )</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>( R.A. )</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Recabando datos...</source>
+        <translation>Recollint dades...</translation>
     </message>
 </context>
 </TS>

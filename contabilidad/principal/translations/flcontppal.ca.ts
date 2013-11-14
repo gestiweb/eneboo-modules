@@ -155,7 +155,7 @@
     </message>
     <message>
         <source>Area Financiera</source>
-        <translation>&#192;rea Financera</translation>
+        <translation>�rea Financera</translation>
     </message>
     <message>
         <source>Principal</source>
@@ -172,6 +172,30 @@
     <message>
         <source>Ctrl+P</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>Amortizaciones</source>
+        <translation>Amortitzacions</translation>
+    </message>
+    <message>
+        <source>A&amp;mortizaciones</source>
+        <translation type="unfinished">Amortitzacions</translation>
+    </message>
+    <message>
+        <source>Ctrl+M</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unnamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+W</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -222,7 +246,7 @@
     </message>
     <message>
         <source>%R.Equivalencia</source>
-        <translation>%R.Equival&#232;ncia</translation>
+        <translation>%R.Equival�ncia</translation>
     </message>
     <message>
         <source>Divisa</source>
@@ -318,7 +342,7 @@
     </message>
     <message>
         <source>Serie</source>
-        <translation>S&#232;rie</translation>
+        <translation>S�rie</translation>
     </message>
     <message>
         <source>Factura</source>
@@ -506,7 +530,7 @@
     </message>
     <message>
         <source>&#xda;ltimo</source>
-        <translation>Últim</translation>
+        <translation>�ltim</translation>
     </message>
     <message>
         <source>Definido</source>
@@ -530,7 +554,7 @@
     </message>
     <message>
         <source>Secuencias por Ejercicio</source>
-        <translation>Seq&#252;&#232;ncies per Exercici</translation>
+        <translation>Seq��ncies per Exercici</translation>
     </message>
     <message>
         <source>Identificador</source>
@@ -548,24 +572,188 @@
         <source>Valor sin bloqueo</source>
         <translation>Valor sense bloqueig</translation>
     </message>
+    <message>
+        <source>Dotaciones</source>
+        <translation>Dotacions</translation>
+    </message>
+    <message>
+        <source>Amortizaci&#xf3;n</source>
+        <translation>Amortitzacions</translation>
+    </message>
+    <message>
+        <source>Fecha Inicio</source>
+        <translation>Data Inici</translation>
+    </message>
+    <message>
+        <source>Fecha Fin</source>
+        <translation>Data Fi</translation>
+    </message>
+    <message>
+        <source>Importe</source>
+        <translation>Import</translation>
+    </message>
+    <message>
+        <source>%</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Fecha Asiento</source>
+        <translation>Data Assentament</translation>
+    </message>
+    <message>
+        <source>Acumulado</source>
+        <translation>Acumulat</translation>
+    </message>
+    <message>
+        <source>Resto</source>
+        <translation>Resta</translation>
+    </message>
+    <message>
+        <source>Ignorar contabilidad</source>
+        <translation>Ignorar comptabilitat</translation>
+    </message>
+    <message>
+        <source>Amortizaciones</source>
+        <translation>Amortitzacions</translation>
+    </message>
+    <message>
+        <source>Elemento de Inmovilizado</source>
+        <translation>Element d&apos;immobilitzat</translation>
+    </message>
+    <message>
+        <source>Estado</source>
+        <translation>Estat</translation>
+    </message>
+    <message>
+        <source>En Curso</source>
+        <translation>En curs</translation>
+    </message>
+    <message>
+        <source>Terminada</source>
+        <translation>Acabada</translation>
+    </message>
+    <message>
+        <source>Suspendida</source>
+        <translation>Suspesa</translation>
+    </message>
+    <message>
+        <source>Fecha Adquisici&#xf3;n</source>
+        <translation>Data Adquisició</translation>
+    </message>
+    <message>
+        <source>Valor de Adquisici&#xf3;n</source>
+        <translation>Valor d&apos;Adquisició</translation>
+    </message>
+    <message>
+        <source>Valor Residual</source>
+        <translation>Valor Residual</translation>
+    </message>
+    <message>
+        <source>Valor Amortizable</source>
+        <translation>Valor amortitzable</translation>
+    </message>
+    <message>
+        <source>M&#xe9;todo</source>
+        <translation>Mètode</translation>
+    </message>
+    <message>
+        <source>Lineal</source>
+        <translation>Lineal</translation>
+    </message>
+    <message>
+        <source>Peri&#xf3;do</source>
+        <translation>Període</translation>
+    </message>
+    <message>
+        <source>Mensual</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Trimestral</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Semestral</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Anual</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>% Peri&#xf3;do</source>
+        <translation>% Període</translation>
+    </message>
+    <message>
+        <source>N&#xba; Peri&#xf3;dos</source>
+        <translation>Num. Períodes</translation>
+    </message>
+    <message>
+        <source>Amortizaci&#xf3;n peri&#xf3;do</source>
+        <translation>Amortització període</translation>
+    </message>
+    <message>
+        <source>Amortizaci&#xf3;n primer peri&#xf3;do</source>
+        <translation>Amortització primer període</translation>
+    </message>
+    <message>
+        <source>Amortizaci&#xf3;n ultimo peri&#xf3;do</source>
+        <translation>Amortització ultim període</translation>
+    </message>
+    <message>
+        <source>Total amortizado</source>
+        <translation>Total amortitzat</translation>
+    </message>
+    <message>
+        <source>Pendiente</source>
+        <translation>Pendent</translation>
+    </message>
+    <message>
+        <source>ID Subcuenta Elemento</source>
+        <translation>ID Subcompte Element</translation>
+    </message>
+    <message>
+        <source>S. Elemento</source>
+        <translation>S. Element</translation>
+    </message>
+    <message>
+        <source>ID Subcuenta Amortizaci&#xf3;n</source>
+        <translation>ID subcompte Amortització</translation>
+    </message>
+    <message>
+        <source>S. Amortizaci&#xf3;n</source>
+        <translation>S.Amortització</translation>
+    </message>
+    <message>
+        <source>Notas</source>
+        <translation>Notes</translation>
+    </message>
+    <message>
+        <source>Saltar si el saldo es cero.</source>
+        <translation>Saltar si el saldo es zero.</translation>
+    </message>
+    <message>
+        <source>---</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>No hay ninguna partida seleccionada</source>
+        <translation>No hi ha cap partida seleccionada</translation>
+    </message>
+    <message>
+        <source>El c&#xf3;digo de cuenta no existe o no coincide con el idendentificador interno, borre dicho c&#xf3;digo y vu&#xe9;lvalo a escribir</source>
+        <translation>El codi de compte mo existeix o no coincideix amb l&apos;identificador inter, borri el codi i torni a escriure&apos;l</translation>
+    </message>
+    <message>
+        <source>El c&#xf3;digo de subcuenta debe comenzar por el c&#xf3;digo de su cuenta asociada</source>
+        <translation>El codi de subcompte ha de començar pel codi del seu compte associat</translation>
+    </message>
 </context>
-<context>
+<context encoding="UTF-8">
     <name>cambiarejer</name>
     <message>
         <source>Cambiar de ejercicio</source>
         <translation>Canvia d&apos;exercici</translation>
-    </message>
-    <message>
-        <source>codejercicio</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>nombre</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>ejercicios</source>
-        <translation></translation>
     </message>
     <message>
         <source>Ejercicio actual:</source>
@@ -578,6 +766,169 @@
     <message>
         <source>Valor Ejercicio Actual</source>
         <translation>Valor Exercici Actual</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Atención</source>
+        <translation>Atenció</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Una vez cambiado el ejercicio, recuerde cerrar y reabrir los formularios maestros de facturación y contabilidad para que los registros mostrados sean los del ejercicio seleccionado.</source>
+        <translation>Un cop canviat l&apos;exercici, recordi tancar i reobrir els formularis mestres de facturació i comptabilitat perquè els registres mostrats siguin els de l&apos;exercici seleccionat.</translation>
+    </message>
+</context>
+<context>
+    <name>co_amortizaciones</name>
+    <message>
+        <source>co_amortizaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>codamortizacion</source>
+        <translation>codamortització</translation>
+    </message>
+    <message>
+        <source>metodo</source>
+        <translation>mètode</translation>
+    </message>
+    <message>
+        <source>periodo</source>
+        <translation>període</translation>
+    </message>
+    <message>
+        <source>estado</source>
+        <translation>Estat</translation>
+    </message>
+    <message>
+        <source>Datos &amp;Generales</source>
+        <translation>Dades &amp;Generals</translation>
+    </message>
+    <message>
+        <source>elemento</source>
+        <translation>element</translation>
+    </message>
+    <message>
+        <source>fecha</source>
+        <translation>Data</translation>
+    </message>
+    <message>
+        <source>valoradquisicion</source>
+        <translation>valoradquisició</translation>
+    </message>
+    <message>
+        <source>valorresidual</source>
+        <translation>valorresidual</translation>
+    </message>
+    <message>
+        <source>valoramortizable</source>
+        <translation>valoramortitzable</translation>
+    </message>
+    <message>
+        <source>Subcuentas</source>
+        <translation>Subcomptes</translation>
+    </message>
+    <message>
+        <source>codsubcuentaelem</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>codsubcuenta</source>
+        <translation>codsubcompte</translation>
+    </message>
+    <message>
+        <source>idsubcuentaelem</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>descripcion</source>
+        <translation>descripció</translation>
+    </message>
+    <message>
+        <source>co_subcuentas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>codsubcuentaamor</source>
+        <translation>codsubcompteamor</translation>
+    </message>
+    <message>
+        <source>idsubcuentaamor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>amorperiodo</source>
+        <translation>amorperíode</translation>
+    </message>
+    <message>
+        <source>porcentajeperiodo</source>
+        <translation>percentatgeperiode</translation>
+    </message>
+    <message>
+        <source>numperiodos</source>
+        <translation>numperiodes</translation>
+    </message>
+    <message>
+        <source>amorprimerperiodo</source>
+        <translation>amorprimerperiode</translation>
+    </message>
+    <message>
+        <source>amorultimoperiodo</source>
+        <translation>aortultimperiode</translation>
+    </message>
+    <message>
+        <source>&amp;Dotaciones</source>
+        <translation>&amp;Dotacions</translation>
+    </message>
+    <message>
+        <source>Crea un contacto</source>
+        <translation>Crea un contacte</translation>
+    </message>
+    <message>
+        <source>Para crear un nuevo registro en la tabla</source>
+        <translation>Per a crear un nou registre a la taula</translation>
+    </message>
+    <message>
+        <source>Edita el contacto selecionado</source>
+        <translation>Edita el contacte seleccionat</translation>
+    </message>
+    <message>
+        <source>Para modificar el registro activo de la tabla</source>
+        <translation>Per a modificar el registre actiu de la taula</translation>
+    </message>
+    <message>
+        <source>Elimina el contacto seleccionado</source>
+        <translation>Elimina el contacte seleccionat</translation>
+    </message>
+    <message>
+        <source>Elimina el registro actual de la tabla</source>
+        <translation>Elimina el registre actual de la taula</translation>
+    </message>
+    <message>
+        <source>Muestra el contacto seleccionado</source>
+        <translation>Mostra el contacte seleccionat</translation>
+    </message>
+    <message>
+        <source>Para ver registro, sin permitir editar</source>
+        <translation>Per a veure el registre sense permetre editar</translation>
+    </message>
+    <message>
+        <source>totalamortizado</source>
+        <translation>totalamortitzat</translation>
+    </message>
+    <message>
+        <source>pendiente</source>
+        <translation>pendent</translation>
+    </message>
+    <message>
+        <source>co_dotaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Notas</source>
+        <translation>&amp;Notes</translation>
+    </message>
+    <message>
+        <source>notas</source>
+        <translation>notes</translation>
     </message>
 </context>
 <context>
@@ -669,6 +1020,22 @@
     <message>
         <source>codplanasiento</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>idconcepto</source>
+        <translation>idconcepte</translation>
+    </message>
+    <message>
+        <source>concepto</source>
+        <translation>concepte</translation>
+    </message>
+    <message>
+        <source>documento</source>
+        <translation>document</translation>
+    </message>
+    <message>
+        <source>tipodocumento</source>
+        <translation>tipusdocument</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -802,7 +1169,7 @@
     </message>
     <message encoding="UTF-8">
         <source>Asiento de Pérdidas y Ganancias</source>
-        <translation>Assentament de P&#232;rdues i Guanys</translation>
+        <translation>Assentament de P�rdues i Guanys</translation>
     </message>
     <message>
         <source>codejercicio</source>
@@ -870,6 +1237,85 @@
     <message>
         <source>co_cuentasesp</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>co_dotaciones</name>
+    <message>
+        <source>co_dotaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>codamortizacion</source>
+        <translation>codamortitzacio</translation>
+    </message>
+    <message>
+        <source>elemento</source>
+        <translation>element</translation>
+    </message>
+    <message>
+        <source>co_amortizaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fechainicio</source>
+        <translation>datainici</translation>
+    </message>
+    <message>
+        <source>fechafin</source>
+        <translation>datafi</translation>
+    </message>
+    <message>
+        <source>fecha</source>
+        <translation>data</translation>
+    </message>
+    <message>
+        <source>importe</source>
+        <translation>import</translation>
+    </message>
+    <message>
+        <source>porcentaje</source>
+        <translation>percentatge</translation>
+    </message>
+    <message>
+        <source>acumulado</source>
+        <translation>acumulat</translation>
+    </message>
+    <message>
+        <source>resto</source>
+        <translation>resta</translation>
+    </message>
+    <message>
+        <source>&amp;Asiento</source>
+        <translation>&amp;Assentament</translation>
+    </message>
+    <message>
+        <source>numero</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>co_asientos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>idasiento</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ejercicio</source>
+        <translation>Exercici</translation>
+    </message>
+    <message>
+        <source>codejercicio</source>
+        <translation>codexercici</translation>
+    </message>
+    <message>
+        <source>nogenerarasiento</source>
+        <translation>nogenerarassentament</translation>
+    </message>
+    <message>
+        <source>co_partidas</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -963,6 +1409,61 @@
     </message>
 </context>
 <context>
+    <name>co_masteramortizaciones</name>
+    <message>
+        <source>co_masteramortizaciones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insertar registro (A)</source>
+        <translation>Insereix registre (A)</translation>
+    </message>
+    <message>
+        <source>Para crear un nuevo registro en la tabla</source>
+        <translation>Per a crear un nou registre a la taula</translation>
+    </message>
+    <message>
+        <source>Modificar registro (M)</source>
+        <translation>Modifica registre (M)</translation>
+    </message>
+    <message>
+        <source>Para modificar el registro activo de la tabla</source>
+        <translation>Per a modificar el registre actiu de la taula</translation>
+    </message>
+    <message>
+        <source>Eliminar registro (E)</source>
+        <translation>Elimina registre (E)</translation>
+    </message>
+    <message>
+        <source>Elimina el registro actual de la tabla</source>
+        <translation>Elimina el registre actual de la taula</translation>
+    </message>
+    <message>
+        <source>Ver registro (V)</source>
+        <translation>Veure registre (V)</translation>
+    </message>
+    <message>
+        <source>Para ver registro, sin permitir editar</source>
+        <translation>Per a veure el registre sense permetre editar</translation>
+    </message>
+    <message>
+        <source>&amp;Generar dotaciones</source>
+        <translation>&amp;Generar dotacions</translation>
+    </message>
+    <message>
+        <source>Alt+G</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Ver Libro Mayor de la Subcuenta (Alt+L)</source>
+        <translation>Veure el Llibre Major del Subcompte (Alt+L)</translation>
+    </message>
+    <message>
+        <source>Para imprimir los registros de la tabla</source>
+        <translation>Per a imprimir els registres de la taula</translation>
+    </message>
+</context>
+<context>
     <name>co_masterasientos</name>
     <message>
         <source>co_masterasientos</source>
@@ -1000,6 +1501,14 @@
         <source>Para ver registro, sin permitir editar</source>
         <translation>Per a veure el registre sense permetre editar</translation>
     </message>
+    <message>
+        <source>Rellenar conceptos de asientos</source>
+        <translation>Omple els conceptes dels assentaments</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Rellena los conceptos vacíos de asientos con el concepto de la primera partida en cada asiento</source>
+        <translation>Omple els conceptes buits de seients amb el concepte de la primera partida en cada assentament</translation>
+    </message>
 </context>
 <context>
     <name>co_masterregiva</name>
@@ -1030,6 +1539,18 @@
     <message>
         <source>co_masterregiva</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>Modificar registro (M)</source>
+        <translation>Modifica registre (M)</translation>
+    </message>
+    <message>
+        <source>Para modificar el registro activo de la tabla</source>
+        <translation>Per a modificar el registre actiu de la taula</translation>
+    </message>
+    <message>
+        <source>Editar manualmente el asiento</source>
+        <translation>Editar manualment l&apos;assentament</translation>
     </message>
 </context>
 <context>
@@ -1260,6 +1781,10 @@
     <message>
         <source>Haber</source>
         <translation>Haver</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Cálculo automático</source>
+        <translation>Càlcul automàtic</translation>
     </message>
 </context>
 <context>
@@ -1495,6 +2020,10 @@
         <source>nbaseimponible</source>
         <translation></translation>
     </message>
+    <message>
+        <source>saltarsicero</source>
+        <translation>saltarsicero</translation>
+    </message>
 </context>
 <context>
     <name>co_secuencias</name>
@@ -1612,6 +2141,18 @@
     <message>
         <source>co_partidasmayor</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>idcuentaesp</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>co_cuentasesp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ver asiento</source>
+        <translation>Veure assentament</translation>
     </message>
 </context>
 <context>
@@ -1848,7 +2389,7 @@ Voleu crear-lo ara?</translation>
     </message>
     <message>
         <source>El c&#xf3;digo de subcuenta debe tener como prefijo el c&#xf3;digo de la cuenta de la que depende:</source>
-        <translation>El codi de subcompte ha de tenir com a prefix el codi del compte del qual dep&#232;n:</translation>
+        <translation>El codi de subcompte ha de tenir com a prefix el codi del compte del qual dep�n:</translation>
     </message>
     <message>
         <source>El c&#xf3;digo de la cuenta debe tener como prefijo el de su ep&#xed;grafe padre</source>
@@ -1884,7 +2425,7 @@ Voleu crear-lo ara?</translation>
     </message>
     <message>
         <source>Error al generar el asiento de regularizaci&#xf3;n de p&#xe9;rdidas y ganancias</source>
-        <translation>Hi ha un error a l&apos;assentament de regularització de p&#232;rdues i guanys</translation>
+        <translation>Hi ha un error a l&apos;assentament de regularització de p�rdues i guanys</translation>
     </message>
     <message>
         <source>Error al generar el asiento de cierre</source>
@@ -1900,7 +2441,7 @@ Voleu crear-lo ara?</translation>
     </message>
     <message>
         <source>Error en la b&#xfa;squeda de la cuenta de p&#xe9;rdidas y ganancias</source>
-        <translation>Hi ha un error en la cerca del compte de p&#232;rdues i guanys</translation>
+        <translation>Hi ha un error en la cerca del compte de p�rdues i guanys</translation>
     </message>
     <message>
         <source>Asiento de cierre de ejercicio </source>
@@ -1970,7 +2511,7 @@ L&apos;assentament d&apos;obertura per a l&apos;exercici seleccionat és el núm
     </message>
     <message>
         <source>No puede realizarse la modificaci&#xf3;n porque el asiento contable correspondiente pertenece a un ejercicio cerrado</source>
-        <translation>No pot aplicar-se la modificació perqu&#232; l&apos;assentament comptable corresponent pertany a un exercici tancat</translation>
+        <translation>No pot aplicar-se la modificació perqu� l&apos;assentament comptable corresponent pertany a un exercici tancat</translation>
     </message>
     <message>
         <source>Creando asiento de regularizaci&#xf3;n...</source>
@@ -2007,7 +2548,7 @@ L&apos;assentament d&apos;obertura per a l&apos;exercici seleccionat és el núm
     <message>
         <source>Siguiente asiento:
 %1</source>
-        <translation>Seg&#252;ent assentament:
+        <translation>Seg�ent assentament:
 %1</translation>
     </message>
     <message>
@@ -2017,16 +2558,6 @@ L&apos;assentament d&apos;obertura per a l&apos;exercici seleccionat és el núm
     <message>
         <source>Asiento descuadrado</source>
         <translation>Assentament desquadrat</translation>
-    </message>
-    <message>
-        <source>No existe la subcuenta %1 en el ejercicio %2.
-Debe crear la subcuenta para poder generar el asiento de apertura</source>
-        <translation>No existeix el subcompte %1 en l&apos;exercici %2.
-Ha de crear el subcompte per a poder generar l&apos;assentament d&apos;obertura</translation>
-    </message>
-    <message>
-        <source>Debe seleccionar una cuenta que exista en la tabla de cuentas </source>
-        <translation>Ha de seleccionar un compte que existeixi a la taula de comptes </translation>
     </message>
     <message>
         <source>
@@ -2051,6 +2582,165 @@ Asseguri&apos;s de ser a l&apos;exercici correcte i torni a generar l&apos;assen
     <message>
         <source>Error al cerrar el ejercicio: </source>
         <translation>Error al tancar l&apos;exercici: </translation>
+    </message>
+    <message>
+        <source>El importe a amortizar no puede ser mayor que la cantidad pendiente de amortizar.</source>
+        <translation>
+L&apos;import a amortitzar no pot ser major que la quantitat pendent d&apos;amortitzar.</translation>
+    </message>
+    <message>
+        <source>La fecha de inicio debe ser mayor que la fecha de adquisici&#xf3;n y la fecha de fin de la &#xfa;ltima dotaci&#xf3;n</source>
+        <translation>La data d&apos;inici ha de ser major que la data d&apos;adquisició i la data de fi de l&apos;última dotació</translation>
+    </message>
+    <message>
+        <source>La fecha de fin debe ser mayor que la fecha de inicio</source>
+        <translation>La data de fi ha de ser major que la data d&apos;inici</translation>
+    </message>
+    <message>
+        <source>La fecha del asiento debe estar comprendida en el intervalo de fechas de la dotaci&#xf3;n</source>
+        <translation>
+La data del seient ha d&apos;estar compresa en l&apos;interval de dates de la dotació</translation>
+    </message>
+    <message>
+        <source>No existe la subcuenta %1 en el ejercicio %2.
+&#xbf;Desea crearla?</source>
+        <translation>No existeix el subcompte% 1 en l&apos;exercici% 2. (New line)
+Voleu crear-la?</translation>
+    </message>
+    <message>
+        <source>Error al generar la subcuenta %1 para el ejercicio %2.
+No existe la cuenta %3 asociada a la nueva subcuenta.</source>
+        <translation>Error en generar subcompte% 1 per a l&apos;exercici% 2. (New line)
+No existeix el compte% 3 associada a la nova subcompte.</translation>
+    </message>
+    <message>
+        <source>Error de redondeo:
+Subcuenta<byte value="x9"/>DebeHaber 
+%2
+%3
+%4</source>
+        <translation>Error d&apos;arrodoniment:(new line)
+Subcompte(tab)DeureHaver (new line)
+%2(new line)
+%3(new line)
+%4</translation>
+    </message>
+    <message>
+        <source>No existe la subcuenta %1 para el ejercicio %2.
+Antes de crear la dotaci&#xf3;n para esta fecha debe crear la subcuenta</source>
+        <translation>No existeix el subcompte% 1 per a l&apos;exercici% 2. (New line)
+Abans de crear la dotació per a aquesta data ha de crear el subcompte</translation>
+    </message>
+    <message>
+        <source>Dotaci&#xf3;n de </source>
+        <translation>Dotació de(sp)</translation>
+    </message>
+    <message>
+        <source>Actualizando cuentas especiales (1/2)...</source>
+        <translation>Actualitzant comptes especials (1/2) ...</translation>
+    </message>
+    <message>
+        <source>Actualizando cuentas especiales (2/2)...</source>
+        <translation>Actualitzant comptes especials (2/2) ...</translation>
+    </message>
+    <message>
+        <source>El ep&#xed;grafe %1 no existe en el ejercicio %2.</source>
+        <translation>L&apos;epígraf% 1 no existeix en l&apos;exercici% 2.</translation>
+    </message>
+    <message>
+        <source>Contrapartida: No existe la subcuenta %1 para el ejercicio %2</source>
+        <translation>Contrapartida: No existeix el subcompte% 1 per a l&apos;exercici% 2</translation>
+    </message>
+    <message>
+        <source>Ha establecido una partida de IVA pero no ha indicado la contrapartida (subcuenta de cliente / proveedor).
+Esto puede provocar que el asiento no aparezca en los listados de facturas emitidas/recibidas.
+&#xbf;Desea continuar?</source>
+        <translation>Ha establert una partida d&apos;IVA però no ha indicat la contrapartida (subcompte de client / proveïdor). (New line)
+Això pot provocar que l&apos;assentament no aparegui en els llistats de factures emeses / rebudes. (New line)
+Voleu continuar?</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Debe establecer las fecha l&#xed;mite</source>
+        <translation>Ha d&apos;establir la data límit</translation>
+    </message>
+    <message>
+        <source>La fecha indicada debe ser fin de mes</source>
+        <translation>La data indicada ha de ser final de mes</translation>
+    </message>
+    <message>
+        <source>Dotaciones generadas:
+</source>
+        <translation>Dotacions generades:</translation>
+    </message>
+    <message>
+        <source>Error al generar las dotaciones</source>
+        <translation>Error al generar les dotacions</translation>
+    </message>
+    <message>
+        <source>Error al generar las dotaciones: </source>
+        <translation>Error al generar les dotacions: </translation>
+    </message>
+    <message>
+        <source>Elemento: %1</source>
+        <translation>Element: %1</translation>
+    </message>
+    <message>
+        <source>Dotaci&#xf3;n: Desde %1 hasta %2. Importe: %3</source>
+        <translation>Dotació: Des de %1 fins a %2. Import: %3</translation>
+    </message>
+    <message>
+        <source>No es necesario generar dotaciones</source>
+        <translation>No es necessari generar dotacions</translation>
+    </message>
+    <message>
+        <source>&#xbf;Desea copiar los datos de la subcuenta en otro ejercicio?</source>
+        <translation>¿Desitja copiar les dades dels subcomptes en un altre  exercici?</translation>
+    </message>
+    <message>
+        <source>Ya hay una subcuenta con c&#xf3;digo %1 para el ejercicio %2</source>
+        <translation>Ja hi ha un subcompte amb codi% 1 per a l&apos;exercici% 2</translation>
+    </message>
+    <message>
+        <source>Se ha creado la subcuenta %1 en el ejercicio %2</source>
+        <translation>S&apos;ha creat el subcompte% 1 en l&apos;exercici% 2</translation>
+    </message>
+    <message>
+        <source>La cuenta %1 no existe en el ejercicio %2.
+&#xbf;Desea crearla?</source>
+        <translation>El compte% 1 no existeix en l&apos;exercici% 2. (New line)
+Voleu crear-la?</translation>
+    </message>
+    <message>
+        <source>A continuaci&#xf3;n se rellenar&#xe1;n los conceptos vac&#xed;os de los asientos de este ejercicio
+Para ello se copiar&#xe1; el concepto de la primera partida de cada asiento
+
+&#xbf;Desea continuar?</source>
+        <translation>A continuació s&apos;ompliran els conceptes buits dels assentaments d&apos;aquest exercici (new line)
+Per això es copiarà el concepte de la primera partida de cada assentament (new line)
+(new line)
+Voleu continuar?</translation>
+    </message>
+    <message>
+        <source>Rellenando conceptos...</source>
+        <translation>Omplint conceptes ...</translation>
+    </message>
+    <message>
+        <source>Proceso finalizado. Se actualizaron conceptos de %0 asientos</source>
+        <translation>Procés finalitzat. S&apos;han actualitzat conceptes de% 0 assentaments</translation>
+    </message>
+    <message>
+        <source>No hay ning&#xfa;n registro seleccionado</source>
+        <translation>No hi ha cap registre seleccionat</translation>
+    </message>
+    <message>
+        <source>Va a editar el asiento correspondiente a la regularizaci&#xf3;n.
+&#xbf;Est&#xe1; seguro?</source>
+        <translation>Editarà l&apos;assentament corresponent a la regularització. (New line)
+Segur?</translation>
     </message>
 </context>
 </TS>

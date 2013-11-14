@@ -51,7 +51,7 @@
     </message>
     <message>
         <source>Area de Facturaci&#xf3;n</source>
-        <translation>Àrea de Facturació</translation>
+        <translation>�rea de Facturació</translation>
     </message>
 </context>
 <context>
@@ -328,11 +328,11 @@
     </message>
     <message>
         <source>tipo</source>
-        <translation></translation>
+        <translation>tipus</translation>
     </message>
     <message>
         <source>fecha</source>
-        <translation></translation>
+        <translation>data</translation>
     </message>
     <message>
         <source>codsubcuenta</source>
@@ -344,7 +344,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>co_subcuentas</source>
@@ -368,7 +368,7 @@
     </message>
     <message>
         <source>cuenta</source>
-        <translation></translation>
+        <translation>compte</translation>
     </message>
     <message>
         <source>tasaconv</source>
@@ -386,7 +386,7 @@ en que es va generar la factura</translation>
     </message>
     <message>
         <source>nogenerarasiento</source>
-        <translation></translation>
+        <translation>nogenerarassentament</translation>
     </message>
     <message>
         <source>&amp;Datos</source>
@@ -521,11 +521,11 @@ en que es va generar la factura</translation>
     </message>
     <message>
         <source>codigo</source>
-        <translation></translation>
+        <translation>codi</translation>
     </message>
     <message>
         <source>fecha</source>
-        <translation></translation>
+        <translation>data</translation>
     </message>
     <message>
         <source>codpago</source>
@@ -557,15 +557,15 @@ en que es va generar la factura</translation>
     </message>
     <message>
         <source>observaciones</source>
-        <translation></translation>
+        <translation>observacions</translation>
     </message>
     <message>
         <source>codcliente</source>
-        <translation></translation>
+        <translation>codclient</translation>
     </message>
     <message>
         <source>nombrecliente</source>
-        <translation></translation>
+        <translation>nomclient</translation>
     </message>
     <message>
         <source>cifnif</source>
@@ -577,7 +577,7 @@ en que es va generar la factura</translation>
     </message>
     <message>
         <source>direccion</source>
-        <translation></translation>
+        <translation>adressa</translation>
     </message>
     <message>
         <source>codpostal</source>
@@ -585,7 +585,7 @@ en que es va generar la factura</translation>
     </message>
     <message>
         <source>ciudad</source>
-        <translation></translation>
+        <translation>ciutat</translation>
     </message>
     <message>
         <source>provincia</source>
@@ -601,7 +601,7 @@ en que es va generar la factura</translation>
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>ctaentidad</source>
@@ -617,23 +617,23 @@ en que es va generar la factura</translation>
     </message>
     <message>
         <source>cuenta</source>
-        <translation></translation>
+        <translation>compte</translation>
     </message>
     <message>
         <source>estado</source>
-        <translation></translation>
+        <translation>estat</translation>
     </message>
     <message>
         <source>fechav</source>
-        <translation></translation>
+        <translation>datav</translation>
     </message>
     <message>
         <source>importe</source>
-        <translation></translation>
+        <translation>import</translation>
     </message>
     <message>
         <source>texto</source>
-        <translation></translation>
+        <translation>text</translation>
     </message>
     <message>
         <source>pagosdevolcli</source>
@@ -684,7 +684,7 @@ en que es va generar la factura</translation>
     </message>
     <message>
         <source>fecha</source>
-        <translation></translation>
+        <translation>data</translation>
     </message>
     <message>
         <source>coddivisa</source>
@@ -692,11 +692,11 @@ en que es va generar la factura</translation>
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>divisas</source>
-        <translation></translation>
+        <translation>divises</translation>
     </message>
     <message>
         <source>codcuenta</source>
@@ -736,7 +736,7 @@ en que es va generar la factura</translation>
     </message>
     <message>
         <source>nogenerarasiento</source>
-        <translation></translation>
+        <translation>nogenerarassentament</translation>
     </message>
     <message>
         <source>Resumen de &amp;asientos</source>
@@ -763,7 +763,7 @@ en que es va generar la factura</translation>
     </message>
     <message>
         <source>fecha</source>
-        <translation></translation>
+        <translation>data</translation>
     </message>
     <message>
         <source>coddivisa</source>
@@ -771,11 +771,11 @@ en que es va generar la factura</translation>
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>divisas</source>
-        <translation></translation>
+        <translation>divises</translation>
     </message>
     <message>
         <source>codcuenta</source>
@@ -1057,7 +1057,7 @@ Abans de donar el pagament ha de crear el subcompte o modificar l&apos;exercici<
     </message>
     <message>
         <source>Los siguientes recibos no tienen especificada una cuenta de domiciliaci&#xf3;n v&#xe1;lida:</source>
-        <translation>Els següents rebuts no tenen especificat un compte de domiciliació vàlid:</translation>
+        <translation>Els seg�ents rebuts no tenen especificat un compte de domiciliació vàlid:</translation>
     </message>
     <message>
         <source>La cuenta bancaria del recibo %1 no es una cuenta v&#xe1;lida del cliente.

@@ -27,11 +27,11 @@
     </message>
     <message encoding="UTF-8">
         <source>&amp;Series de Facturación</source>
-        <translation>&amp;Sèries de Facturació</translation>
+        <translation>&amp;S�ries de Facturació</translation>
     </message>
     <message encoding="UTF-8">
         <source>Series de Facturación</source>
-        <translation>Sèries de Facturació</translation>
+        <translation>S�ries de Facturació</translation>
     </message>
     <message>
         <source>&amp;Bancos</source>
@@ -139,7 +139,7 @@
     </message>
     <message encoding="UTF-8">
         <source>Series de Facturación (Ctrl+S)</source>
-        <translation>Sèries de Facturació (Ctrl+S)</translation>
+        <translation>S�ries de Facturació (Ctrl+S)</translation>
     </message>
     <message>
         <source>Ctrl+S</source>
@@ -239,7 +239,7 @@
     </message>
     <message>
         <source>Area de Facturaci&#xf3;n</source>
-        <translation>Àrea de Facturació</translation>
+        <translation>�rea de Facturació</translation>
     </message>
     <message>
         <source>Principal</source>
@@ -272,6 +272,14 @@
     <message>
         <source>P&amp;rovincias</source>
         <translation>P&amp;rovíncies</translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Ctrl+W</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -393,7 +401,7 @@
     </message>
     <message>
         <source>Tel&#xe9;fono 1</source>
-        <translation>Telèfon 1</translation>
+        <translation>Tel�fon 1</translation>
     </message>
     <message>
         <source>Contacto</source>
@@ -413,7 +421,7 @@
     </message>
     <message>
         <source>Serie</source>
-        <translation>Sèrie</translation>
+        <translation>S�rie</translation>
     </message>
     <message>
         <source>I.V.A. portes</source>
@@ -425,11 +433,11 @@
     </message>
     <message>
         <source>R&#xe9;gimen I.V.A.</source>
-        <translation>Règim I.V.A.</translation>
+        <translation>R�gim I.V.A.</translation>
     </message>
     <message>
         <source>Tel&#xe9;fono 2</source>
-        <translation>Telèfon 2</translation>
+        <translation>Tel�fon 2</translation>
     </message>
     <message>
         <source>Fax</source>
@@ -485,7 +493,7 @@
     </message>
     <message>
         <source>Tel&#xe9;fono</source>
-        <translation>Telèfon </translation>
+        <translation>Tel�fon </translation>
     </message>
     <message>
         <source>Cliente</source>
@@ -557,7 +565,7 @@
     </message>
     <message>
         <source>Agencia N&#xba;</source>
-        <translation>Agència Nº</translation>
+        <translation>Ag�ncia Nº</translation>
     </message>
     <message>
         <source>Plazos de Pago</source>
@@ -605,7 +613,7 @@
     </message>
     <message>
         <source>% Rec. equivalencia</source>
-        <translation>% Rec. equivalència</translation>
+        <translation>% Rec. equival�ncia</translation>
     </message>
     <message>
         <source>Apellidos</source>
@@ -661,11 +669,11 @@
     </message>
     <message>
         <source>Serie de facturaci&#xf3;n</source>
-        <translation>Sèrie de facturació</translation>
+        <translation>S�rie de facturació</translation>
     </message>
     <message>
         <source>Aplicar recargo de equivalencia</source>
-        <translation>Aplica recàrrec d&apos;equivalència</translation>
+        <translation>Aplica recàrrec d&apos;equival�ncia</translation>
     </message>
     <message>
         <source>Formas de Pago</source>
@@ -677,11 +685,11 @@
     </message>
     <message>
         <source>Desde Serie</source>
-        <translation>Des de Sèrie</translation>
+        <translation>Des de S�rie</translation>
     </message>
     <message>
         <source>Hasta Serie</source>
-        <translation>Fins a Sèrie</translation>
+        <translation>Fins a S�rie</translation>
     </message>
     <message>
         <source>Contactos de proveedores</source>
@@ -765,11 +773,11 @@
     </message>
     <message>
         <source>Secuencias de Ejercicios</source>
-        <translation>Seqüències d&apos;Exercicis</translation>
+        <translation>Seq��ncies d&apos;Exercicis</translation>
     </message>
     <message>
         <source>C&#xf3;digo Serie</source>
-        <translation>Codi Sèrie</translation>
+        <translation>Codi S�rie</translation>
     </message>
     <message>
         <source>C&#xf3;digo Ejercicio</source>
@@ -833,7 +841,7 @@
     </message>
     <message>
         <source>Series de Facturaci&#xf3;n</source>
-        <translation>Sèries de Facturació</translation>
+        <translation>S�ries de Facturació</translation>
     </message>
     <message>
         <source>%I.R.P.F.</source>
@@ -920,20 +928,12 @@
         <translation>% I.R.P.F.</translation>
     </message>
     <message>
-        <source>I.V.A. Repercutido</source>
-        <translation>I.V.A. Repercutit</translation>
-    </message>
-    <message>
-        <source>I.V.A. Soportado</source>
-        <translation>I.V.A. Suportat</translation>
-    </message>
-    <message>
         <source>Cuenta de ventas</source>
         <translation>Compte de vendes</translation>
     </message>
     <message>
         <source>Imprimir Series de facturaci&#xf3;n</source>
-        <translation>Imprimeix Sèries de facturació</translation>
+        <translation>Imprimeix S�ries de facturació</translation>
     </message>
     <message>
         <source>Cuenta de pago</source>
@@ -993,11 +993,11 @@
     </message>
     <message>
         <source>Intervalos</source>
-        <translation>Intèrvals</translation>
+        <translation>Int�rvals</translation>
     </message>
     <message>
         <source>Intervalo</source>
-        <translation>Intèrval</translation>
+        <translation>Int�rval</translation>
     </message>
     <message>
         <source>C&#xf3;digo ISO</source>
@@ -1013,7 +1013,7 @@
     </message>
     <message>
         <source>Secuencias de Documentos</source>
-        <translation>Seqüències de Documents</translation>
+        <translation>Seq��ncies de Documents</translation>
     </message>
     <message>
         <source>Valor</source>
@@ -1025,7 +1025,7 @@
     </message>
     <message>
         <source>Identificador Secuencias Ejercicios</source>
-        <translation>Identificador Seqüències d&apos;Exercicis</translation>
+        <translation>Identificador Seq��ncies d&apos;Exercicis</translation>
     </message>
     <message>
         <source>IBAN</source>
@@ -1038,14 +1038,6 @@
     <message>
         <source>Controlar stocks desde pedidos de cliente</source>
         <translation>Controlar estocs des de comandes de client</translation>
-    </message>
-    <message>
-        <source>H.P. Acreedor I.V.A.</source>
-        <translation>H.P. Creditor I.V.A.</translation>
-    </message>
-    <message>
-        <source>H.P. Deudor I.V.A.</source>
-        <translation>H.P. Deutor I.V.A.</translation>
     </message>
     <message>
         <source>Usuarios</source>
@@ -1065,23 +1057,115 @@
     </message>
     <message>
         <source>Contactos</source>
-        <translation type="unfinished"></translation>
+        <translation>contactes</translation>
     </message>
     <message>
         <source>Tel&#xe9;fono2</source>
-        <translation type="unfinished"></translation>
+        <translation>Telèfon 2</translation>
     </message>
     <message>
         <source>NIF</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Responsable</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Agente</source>
-        <translation type="unfinished">Agent</translation>
+        <translation>Agent</translation>
+    </message>
+    <message>
+        <source>Exigir validaci&#xf3;n de provincias</source>
+        <translation>Exigir validació de províncies</translation>
+    </message>
+    <message>
+        <source>Efectos comerciales gesti&#xf3;n cobro</source>
+        <translation>Efectes comercials gestió de cobrament</translation>
+    </message>
+    <message>
+        <source>Acreedor</source>
+        <translation>Creditor</translation>
+    </message>
+    <message>
+        <source>Agrario</source>
+        <translation>Agrari</translation>
+    </message>
+    <message>
+        <source>Tipo Id. Fiscal</source>
+        <translation>Tipus Id. Fiscal</translation>
+    </message>
+    <message>
+        <source>Funci&#xf3;n</source>
+        <translation>Funció</translation>
+    </message>
+    <message>
+        <source>Pago por domiciliaci&#xf3;n</source>
+        <translation>Pagar per domiciliació</translation>
+    </message>
+    <message>
+        <source>I.V.A. Repercutido (IVAREP)</source>
+        <translation>I.V.A. Repercutit (IVAREP)</translation>
+    </message>
+    <message>
+        <source>I.V.A. Soportado (IVASOP)</source>
+        <translation>I.V.A. Suportat (IVASOP)</translation>
+    </message>
+    <message>
+        <source>H.P. Acreedor I.V.A. (IVAACR)</source>
+        <translation>H.P. Creditora I.V.A. (IVAACR)</translation>
+    </message>
+    <message>
+        <source>H.P. Deudor I.V.A. (IVADEU)</source>
+        <translation>H.P. Deudora I.V.A. (IVADEU)</translation>
+    </message>
+    <message>
+        <source>I.V.A. Rep. Adquisiciones Intracomunitarias (IVARUE)</source>
+        <translation>I.V.A. Rep. Adquisicions Intracomunitaries (IVARUE)</translation>
+    </message>
+    <message>
+        <source>I.V.A. Sop. Adquisiciones Intracomunitarias (IVASUE)</source>
+        <translation>I.V.A. Sup. Adquisicions Intracomunitaries (IVASUE)</translation>
+    </message>
+    <message>
+        <source>I.V.A. Rep. Entregas Intracomunitarias (IVAEUE)</source>
+        <translation>I.V.A. Rep. Entregues Intracomunitaries (IVAEUE)</translation>
+    </message>
+    <message>
+        <source>I.V.A. Sop. Importaciones (IVASIM)</source>
+        <translation>I.V.A. Sup. Importacions (IVASIM)</translation>
+    </message>
+    <message>
+        <source>I.V.A. Rep. Exportaciones (IVARXP)</source>
+        <translation>I.V.A. Rep. Exportacions (IVARXP)</translation>
+    </message>
+    <message>
+        <source>I.V.A. Sop. Exento (IVASEX)</source>
+        <translation>I.V.A. Sup. Exempt (IVASEX)</translation>
+    </message>
+    <message>
+        <source>I.V.A. Rep. Exento (IVAREX)</source>
+        <translation>I.V.A. Rep. Exempt (IVAREX)</translation>
+    </message>
+    <message>
+        <source>Recargo equivalencia (IVARRE)</source>
+        <translation>Recàrrec equivalència (IVARRE)</translation>
+    </message>
+    <message>
+        <source>I.V.A. Sop. Reg.Agrario (IVASRA)</source>
+        <translation>I.V.A. Sup. Reg.Agrari (IVASRA)</translation>
+    </message>
+    <message>
+        <source>Admite marketing</source>
+        <translation>Admet marketing</translation>
+    </message>
+    <message>
+        <source>Apellidos y nombre</source>
+        <translation>Cognoms i nom</translation>
+    </message>
+    <message>
+        <source>Usuario</source>
+        <translation>Usuari</translation>
     </message>
 </context>
 <context>
@@ -1112,11 +1196,11 @@
     </message>
     <message>
         <source>Desde Serie:</source>
-        <translation>Des de Sèrie:</translation>
+        <translation>Des de S�rie:</translation>
     </message>
     <message>
         <source>Hasta Serie:</source>
-        <translation>Fins a Sèrie:</translation>
+        <translation>Fins a S�rie:</translation>
     </message>
     <message>
         <source>Desde Forma de Pago:</source>
@@ -1163,150 +1247,276 @@
     <name>contactos</name>
     <message>
         <source>contactos</source>
-        <translation type="unfinished"></translation>
+        <translation>contactes</translation>
     </message>
     <message>
         <source>codcontacto</source>
-        <translation type="unfinished"></translation>
+        <translation>codcontacte</translation>
     </message>
     <message>
         <source>nombre</source>
-        <translation type="unfinished"></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>nif</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>cargo</source>
-        <translation type="unfinished"></translation>
+        <translation>càrrec</translation>
     </message>
     <message>
         <source>direccion</source>
-        <translation type="unfinished"></translation>
+        <translation>adressa</translation>
     </message>
     <message>
         <source>ciudad</source>
-        <translation type="unfinished"></translation>
+        <translation>ciutat</translation>
     </message>
     <message>
         <source>provincia</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>idprovincia</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>codpais</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>bandera</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>paises</source>
-        <translation type="unfinished"></translation>
+        <translation>paisos</translation>
     </message>
     <message>
         <source>telefono1</source>
-        <translation type="unfinished"></translation>
+        <translation>telèfon</translation>
     </message>
     <message>
         <source>telefono2</source>
-        <translation type="unfinished"></translation>
+        <translation>telèfon</translation>
     </message>
     <message>
         <source>fax</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>email</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>codagente</source>
-        <translation type="unfinished"></translation>
+        <translation>codagent</translation>
     </message>
     <message>
         <source>agentes</source>
-        <translation type="unfinished"></translation>
+        <translation>agents</translation>
     </message>
     <message>
         <source>apellidos</source>
-        <translation type="unfinished"></translation>
+        <translation>cognoms</translation>
     </message>
     <message>
         <source>idusuario</source>
-        <translation type="unfinished"></translation>
+        <translation>idusuari</translation>
     </message>
     <message>
         <source>descripcion</source>
-        <translation type="unfinished"></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>flusers</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>iduser</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>observaciones</source>
-        <translation type="unfinished"></translation>
+        <translation>observacions</translation>
+    </message>
+    <message>
+        <source>codpostal</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>admitemarketing</source>
+        <translation>admetmarketing</translation>
     </message>
 </context>
 <context>
     <name>contactosclientes</name>
     <message>
         <source>contactosclientes</source>
-        <translation type="unfinished"></translation>
+        <translation>contactesclients</translation>
     </message>
     <message>
         <source>F3</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Insertar o modificar contacto (F3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Insertar o modificar contacte (F3)</translation>
     </message>
     <message>
         <source>Para insertar o modificar un contacto asociado a la tarjeta.</source>
-        <translation type="unfinished"></translation>
+        <translation>Per insertar o modificar un contacte associat a la tarjeta.</translation>
     </message>
     <message>
         <source>crm_contactos.codcontacto</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>nombre</source>
-        <translation type="unfinished"></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>crm_contactos</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>codcontacto</source>
-        <translation type="unfinished"></translation>
+        <translation>codcontacte</translation>
     </message>
     <message>
         <source>cargo</source>
-        <translation type="unfinished"></translation>
+        <translation>càrrec</translation>
     </message>
     <message>
         <source>telefono1</source>
-        <translation type="unfinished"></translation>
+        <translation>telèfon 1</translation>
     </message>
     <message>
         <source>fax</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>email</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>cuentasbcocli</name>
+    <message>
+        <source>cuentasbcocli</source>
+        <translation>comptesbanccli</translation>
+    </message>
+    <message>
+        <source>codcuenta</source>
+        <translation>codcompte</translation>
+    </message>
+    <message>
+        <source>descripcion</source>
+        <translation>descripció</translation>
+    </message>
+    <message>
+        <source>entidad</source>
+        <translation>entitat</translation>
+    </message>
+    <message>
+        <source>nombre</source>
+        <translation>nom</translation>
+    </message>
+    <message>
+        <source>bancos</source>
+        <translation>bancs</translation>
+    </message>
+    <message>
+        <source>agencia</source>
+        <translation>agència</translation>
+    </message>
+    <message>
+        <source>sucursales</source>
+        <translation>scursals</translation>
+    </message>
+    <message>
+        <source>direccion</source>
+        <translation>adressa</translation>
+    </message>
+    <message>
+        <source>ctaentidad</source>
+        <translation>compteentitat</translation>
+    </message>
+    <message>
+        <source>ctaagencia</source>
+        <translation>compteegencia</translation>
+    </message>
+    <message>
+        <source>cuenta</source>
+        <translation>compte</translation>
+    </message>
+    <message>
+        <source>iban</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>swift</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>cuentasbcoprov</name>
+    <message>
+        <source>cuentasbcoprov</source>
+        <translation>comptesbancprov</translation>
+    </message>
+    <message>
+        <source>codcuenta</source>
+        <translation>codcompte</translation>
+    </message>
+    <message>
+        <source>descripcion</source>
+        <translation>descripció</translation>
+    </message>
+    <message>
+        <source>entidad</source>
+        <translation>entitat</translation>
+    </message>
+    <message>
+        <source>nombre</source>
+        <translation>nom</translation>
+    </message>
+    <message>
+        <source>bancos</source>
+        <translation>bancs</translation>
+    </message>
+    <message>
+        <source>agencia</source>
+        <translation>agència</translation>
+    </message>
+    <message>
+        <source>sucursales</source>
+        <translation>sucursals</translation>
+    </message>
+    <message>
+        <source>direccion</source>
+        <translation>adressa</translation>
+    </message>
+    <message>
+        <source>ctaentidad</source>
+        <translation>compteentitat</translation>
+    </message>
+    <message>
+        <source>ctaagencia</source>
+        <translation>compteagencia</translation>
+    </message>
+    <message>
+        <source>cuenta</source>
+        <translation>compte</translation>
+    </message>
+    <message>
+        <source>iban</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>swift</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1449,6 +1659,14 @@
     <message>
         <source>idprovincia</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>nombreap</source>
+        <translation>nomap</translation>
+    </message>
+    <message>
+        <source>idusuario</source>
+        <translation>idusuari</translation>
     </message>
 </context>
 <context>
@@ -1658,10 +1876,6 @@
     </message>
     <message>
         <source>cifnif</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>codedi</source>
         <translation></translation>
     </message>
     <message>
@@ -1949,68 +2163,64 @@
         <translation>Nou ítem</translation>
     </message>
     <message>
-        <source>F3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Insertar o modificar contacto (F3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Insertar o modificar contacte (F3)</translation>
     </message>
     <message>
         <source>Para insertar o modificar un contacto asociado a la tarjeta.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>F2</source>
-        <translation type="unfinished"></translation>
+        <translation>Per insertar o modificar un contacte associat a la tarjeta.</translation>
     </message>
     <message>
         <source>Buscar contacto (F2)</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar contacto (F2)</translation>
     </message>
     <message>
         <source>Para buscar un contacto de la agenda y establecerlo como contacto principal</source>
-        <translation type="unfinished"></translation>
+        <translation>Per buscar un contacte a l&apos;agenda i establir-lo com a contacte principal</translation>
     </message>
     <message>
         <source>codcontacto</source>
-        <translation type="unfinished"></translation>
+        <translation>codcontacte</translation>
     </message>
     <message>
         <source>crm_contactos</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Crea un contacto</source>
-        <translation type="unfinished"></translation>
+        <translation>Crea un contacte</translation>
     </message>
     <message>
         <source>Edita el contacto selecionado</source>
-        <translation type="unfinished"></translation>
+        <translation>Edita el contacte seleccionat</translation>
     </message>
     <message>
         <source>Elimina el contacto seleccionado</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina el contacte seleccionat</translation>
     </message>
     <message>
         <source>Muestra el contacto seleccionado</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra el contacte seleccionat</translation>
     </message>
     <message>
         <source>Asocia un contacto (A)</source>
-        <translation type="unfinished"></translation>
+        <translation>Associa un contacte (A)</translation>
     </message>
     <message>
         <source>Asocia un contacto ya existente al cliente</source>
-        <translation type="unfinished"></translation>
+        <translation>Associa un contacte ja existent a un client</translation>
     </message>
     <message>
         <source>Eliminar una asociacion (E)</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina una associació (E)</translation>
     </message>
     <message>
         <source>Elimana la asociacion de un contacto con el cliente</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina la associació d&apos;un contacte amb el client</translation>
+    </message>
+    <message>
+        <source>tipoidfiscal</source>
+        <translation>tipusidfiscal</translation>
     </message>
 </context>
 <context>
@@ -2089,6 +2299,14 @@
     </message>
     <message>
         <source>swift</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>codsubcuentaecgc</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>idsubcuentaecgc</source>
         <translation></translation>
     </message>
 </context>
@@ -2283,18 +2501,50 @@
     </message>
     <message>
         <source>&amp;Series</source>
-        <translation>&amp;Sèries</translation>
+        <translation>&amp;S�ries</translation>
     </message>
     <message>
         <source>Secuencias &amp;contabilidad</source>
-        <translation>Seqüències &amp;comptabilitat</translation>
+        <translation>Seq��ncies &amp;comptabilitat</translation>
     </message>
     <message>
         <source>co_secuencias</source>
         <translation></translation>
     </message>
+    <message>
+        <source>&amp;Asientos</source>
+        <translation>&amp;Assentaments</translation>
+    </message>
+    <message>
+        <source>idasientoapertura</source>
+        <translation>idassentobertura</translation>
+    </message>
+    <message>
+        <source>numero</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>co_asientos</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>idasiento</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>concepto</source>
+        <translation>concepte</translation>
+    </message>
+    <message>
+        <source>idasientopyg</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>idasientocierre</source>
+        <translation></translation>
+    </message>
 </context>
-<context>
+<context encoding="UTF-8">
     <name>formEmpresa</name>
     <message>
         <source>Empresa</source>
@@ -2448,6 +2698,14 @@
         <source>idprovincia</source>
         <translation></translation>
     </message>
+    <message>
+        <source>web</source>
+        <translation></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>&amp;Configuración local</source>
+        <translation>&amp;Configuració local</translation>
+    </message>
 </context>
 <context>
     <name>formFormaPago</name>
@@ -2519,6 +2777,10 @@
         <source>plazos</source>
         <translation></translation>
     </message>
+    <message>
+        <source>domiciliado</source>
+        <translation>domiciliat</translation>
+    </message>
 </context>
 <context>
     <name>formImpuestos</name>
@@ -2541,10 +2803,6 @@
     <message>
         <source>recargo</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>&amp;Contabilidad</source>
-        <translation>&amp;Comptabilitat</translation>
     </message>
     <message>
         <source>codsubcuentarep</source>
@@ -2590,6 +2848,90 @@
         <source>idsubcuentadeu</source>
         <translation></translation>
     </message>
+    <message>
+        <source>Ayuda &gt;&gt;</source>
+        <translation>Ajuda &gt;&gt;</translation>
+    </message>
+    <message>
+        <source>Contabilidad (&amp;compras)</source>
+        <translation>Comptabilitat (&amp;compres)</translation>
+    </message>
+    <message>
+        <source>codsubcuentaivadevadue</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>idsubcuentaivadevadue</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>codsubcuentaivadedadue</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>idsubcuentaivadedadue</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>codsubcuentaivasopimp</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>idsubcuentaivasopimp</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>codsubcuentaivasopexe</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>idsubcuentaivasopexe</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>codsubcuentaivasopagra</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>idsubcuentaivasopagra</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Contabilidad (&amp;ventas)</source>
+        <translation>Comptabilitat (&amp;vendes)</translation>
+    </message>
+    <message>
+        <source>codsubcuentaivarepre</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>idsubcuentaivarepre</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>codsubcuentaivadeventue</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>idsubcuentaivadeventue</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>codsubcuentaivarepexp</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>idsubcuentaivarepexp</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>codsubcuentaivarepexe</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>idsubcuentaivarepexe</source>
+        <translation></translation>
+    </message>
 </context>
 <context>
     <name>formIntervalosRappel</name>
@@ -2618,6 +2960,14 @@
     </message>
     <message>
         <source>codiso</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Principal</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>validarprov</source>
         <translation></translation>
     </message>
 </context>
@@ -2774,10 +3124,6 @@
         <translation></translation>
     </message>
     <message>
-        <source>contacto</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>telefono1</source>
         <translation></translation>
     </message>
@@ -2855,10 +3201,6 @@
     </message>
     <message>
         <source>dirproveedores</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>contactosproveedores</source>
         <translation></translation>
     </message>
     <message>
@@ -2993,16 +3335,76 @@
         <source>New Item</source>
         <translation>Nou ítem</translation>
     </message>
+    <message>
+        <source>tipoidfiscal</source>
+        <translation>tipusidfiscal</translation>
+    </message>
+    <message>
+        <source>Insertar o modificar contacto (F3)</source>
+        <translation>Insertar o modificar contacte (F3)</translation>
+    </message>
+    <message>
+        <source>Para insertar o modificar un contacto asociado a la tarjeta.</source>
+        <translation>Per insertar o modificar un contacte associat a la tarjeta.</translation>
+    </message>
+    <message>
+        <source>Buscar contacto (F2)</source>
+        <translation>Buscar contacte (F2)</translation>
+    </message>
+    <message>
+        <source>Para buscar un contacto de la agenda y establecerlo como contacto principal</source>
+        <translation>Per cercar un contacte de l&apos;agenda i establir com a contacte principal</translation>
+    </message>
+    <message>
+        <source>codcontacto</source>
+        <translation>codcontacte</translation>
+    </message>
+    <message>
+        <source>crm_contactos</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>codcuentadom</source>
+        <translation></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Desmarcar cuenta de domiciliación</source>
+        <translation>Desmarca compte de domiciliació</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Cuenta de Domiciliación</source>
+        <translation>Compte de Domiciliació</translation>
+    </message>
+    <message>
+        <source>Establece como direccion de facturacion la direccion seleccionada en la lista. Esta direccion aparecera por defecto en los documentos de facturacion: albaranes, pedidos, facturas, etc.</source>
+        <translation>Estableix com a direcció de facturació la direcció seleccionada a la llista. Aquesta direcció apareixerà per defecte als documents de facturació: albarans, comandes, factures, .</translation>
+    </message>
+    <message>
+        <source>Asocia un contacto (A)</source>
+        <translation>Associa un contacte (A)</translation>
+    </message>
+    <message>
+        <source>Asocia un contacto ya existente al proveedor</source>
+        <translation>Associa un contacte ja existent al proveïdor</translation>
+    </message>
+    <message>
+        <source>Eliminar una asociacion (E)</source>
+        <translation>Eliminar una associació (E)</translation>
+    </message>
+    <message>
+        <source>Elimana la asociacion de un contacto con el proveedor</source>
+        <translation>Elimina la associació d&apos;un contacte amb el proveïdor</translation>
+    </message>
 </context>
 <context>
     <name>formSecuenciasEjercicios</name>
     <message>
         <source>Secuencias de Ejercicios</source>
-        <translation>Seqüències d&apos;Exercicis</translation>
+        <translation>Seq��ncies d&apos;Exercicis</translation>
     </message>
     <message>
         <source>&amp;Serie</source>
-        <translation>&amp;Sèrie</translation>
+        <translation>&amp;S�rie</translation>
     </message>
     <message>
         <source>codserie</source>
@@ -3010,7 +3412,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>series</source>
@@ -3018,11 +3420,11 @@
     </message>
     <message>
         <source>&amp;Secuencias de documentos</source>
-        <translation>&amp;Seqüències de documents</translation>
+        <translation>&amp;Seq��ncies de documents</translation>
     </message>
     <message>
         <source>secuencias</source>
-        <translation></translation>
+        <translation>seqüencies</translation>
     </message>
     <message>
         <source>id</source>
@@ -3033,7 +3435,7 @@
     <name>formSeries</name>
     <message encoding="UTF-8">
         <source>Series de Facturación</source>
-        <translation>Sèries de Facturació</translation>
+        <translation>S�ries de Facturació</translation>
     </message>
     <message>
         <source>codserie</source>
@@ -3041,7 +3443,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>&amp;Impuestos</source>
@@ -3053,7 +3455,7 @@
     </message>
     <message>
         <source>siniva</source>
-        <translation></translation>
+        <translation>senseiva</translation>
     </message>
     <message>
         <source>&amp;Contabilidad</source>
@@ -3096,11 +3498,11 @@
     </message>
     <message>
         <source>nombre</source>
-        <translation></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>direccion</source>
-        <translation></translation>
+        <translation>Adressa</translation>
     </message>
     <message>
         <source>codpostal</source>
@@ -3108,11 +3510,11 @@
     </message>
     <message>
         <source>apartado</source>
-        <translation></translation>
+        <translation>apartat</translation>
     </message>
     <message>
         <source>poblacion</source>
-        <translation></translation>
+        <translation>població</translation>
     </message>
     <message>
         <source>provincia</source>
@@ -3132,15 +3534,15 @@
     </message>
     <message>
         <source>paises</source>
-        <translation></translation>
+        <translation>paisos</translation>
     </message>
     <message>
         <source>contacto</source>
-        <translation></translation>
+        <translation>contacte</translation>
     </message>
     <message>
         <source>telefono</source>
-        <translation></translation>
+        <translation>telèfon</translation>
     </message>
     <message>
         <source>fax</source>
@@ -3148,7 +3550,7 @@
     </message>
     <message>
         <source>observaciones</source>
-        <translation></translation>
+        <translation>observacions</translation>
     </message>
 </context>
 <context>
@@ -3203,11 +3605,11 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>intervalosrappel</source>
-        <translation></translation>
+        <translation>intervalsrappel</translation>
     </message>
 </context>
 <context>
@@ -3218,11 +3620,11 @@
     </message>
     <message>
         <source>codgrupo</source>
-        <translation></translation>
+        <translation>codgrup</translation>
     </message>
     <message>
         <source>nombre</source>
-        <translation></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>codtarifa</source>
@@ -3230,26 +3632,34 @@
     </message>
     <message>
         <source>tarifas</source>
-        <translation></translation>
+        <translation>tarifes</translation>
     </message>
 </context>
 <context>
     <name>intervalos</name>
     <message>
         <source>Intervalos de Fechas</source>
-        <translation>Intèrvals de Dates</translation>
+        <translation>Int�rvals de Dates</translation>
     </message>
     <message>
         <source>codigo</source>
-        <translation></translation>
+        <translation>codi</translation>
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>intervalo</source>
-        <translation></translation>
+        <translation>interval</translation>
+    </message>
+    <message>
+        <source>Comprobar Intervalo</source>
+        <translation>Comprovar interval</translation>
+    </message>
+    <message>
+        <source>funcionintervalo</source>
+        <translation>funciointerval</translation>
     </message>
 </context>
 <context>
@@ -3396,6 +3806,10 @@
         <source>paises</source>
         <translation></translation>
     </message>
+    <message>
+        <source>codigo</source>
+        <translation>codi</translation>
+    </message>
 </context>
 <context>
     <name>scripts</name>
@@ -3462,8 +3876,8 @@
     <message>
         <source>Debe a&#xf1;adir al menos una secuencia para el ejercicio
 en &quot;Secuencias por serie&quot;</source>
-        <translation>Ha d&apos;afegir com a mínim una seqüència per a l&apos;exercici
-a &quot;Seqüències per sèrie&quot;</translation>
+        <translation>Ha d&apos;afegir com a mínim una seq��ncia per a l&apos;exercici
+a &quot;Seq��ncies per s�rie&quot;</translation>
     </message>
     <message>
         <source>El % de descuento debe ser un numero entre 0 y 100</source>
@@ -3516,10 +3930,6 @@ a &quot;Seqüències per sèrie&quot;</translation>
     <message>
         <source>Copiando subcuentas por proveedor</source>
         <translation>Copiant subcomptes per proveïdor</translation>
-    </message>
-    <message>
-        <source>Se ha establecido &quot;%0&quot; como cuenta de domiciliaci&#xf3;n para este cliente</source>
-        <translation>S&apos;ha establert &quot;%0&quot; com compte de domiciliació per aquest client</translation>
     </message>
     <message>
         <source>Especifique el c&#xf3;digo de subcuenta a crear en el campo Subcuenta</source>
@@ -3642,13 +4052,9 @@ Vol eliminar-lo junt amb la vinculació?</translation>
         <translation>El client està de baixa per la data especificada (%1)</translation>
     </message>
     <message>
-        <source>Si el cliente est&#xe1; de baja debe introducir la correspondiente fecha de inicio de la baja</source>
-        <translation>Si el client està de baixa s&apos;ha d&apos;introduir la corresponent data d&apos;inici de la baixa</translation>
-    </message>
-    <message>
         <source>No puede eliminar la cuenta del cliente porque hay al menos un recibo (%1) pendiente de pago asociado a esta cuenta.
 Debe cambiar la cuenta de los recibos pendientes de este cliente antes de borrarla.</source>
-        <translation>No pot eliminar el compte del client perquè hi ha almenys un rebut (%1) pendent de pagament associat a aquest compte.
+        <translation>No pot eliminar el compte del client perqu� hi ha almenys un rebut (%1) pendent de pagament associat a aquest compte.
 Ha de canviar el compte dels rebuts pendents d&apos;aquest client abans d&apos;esborrar-la.</translation>
     </message>
     <message>
@@ -3678,38 +4084,357 @@ millorant aquest programari lliure.</translation>
     </message>
     <message>
         <source>Reorganizando Contactos</source>
-        <translation type="unfinished"></translation>
+        <translation>Reorganitzant contactes</translation>
     </message>
     <message>
         <source>El contacto seleccionado est&#xe1; vinculado a otros registros. Si lo elimina se eliminar&#xe1;n todas las vinculaciones. &#xbf;Desea continuar?</source>
-        <translation type="unfinished"></translation>
+        <translation>El contacte seleccionat està vinculat a altres registres. Si l&apos;elimina s&apos;eliminaran tots els enllaços. Voleu continuar?</translation>
     </message>
     <message>
         <source>El registro seleccionado ser&#xe1; borrado. &#xbf;Est&#xe1; seguro?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Se va a desvincular el contacto seleccionado de la tarjeta. &#xbf;Est&#xe1; seguro?</source>
-        <translation type="unfinished"></translation>
+        <translation>El registre seleccionat serà esborrat. Segur?</translation>
     </message>
     <message>
         <source>Se va a desvincular el contacto seleccionado del cliente. &#xbf;Est&#xe1; seguro?</source>
-        <translation type="unfinished"></translation>
+        <translation>Es desvincularà el contacte seleccionat del client. Segur?</translation>
+    </message>
+    <message>
+        <source>No hay ning&#xfa;n registro seleccionado</source>
+        <translation>No hi ha cap registre seleccionat</translation>
+    </message>
+    <message>
+        <source>Se va a desvincular el contacto seleccionado del proveedor. &#xbf;Est&#xe1; seguro?</source>
+        <translation>Es desvincularà el contacte seleccionat del proveïdor. Segur?</translation>
+    </message>
+    <message>
+        <source>Error al validar el NIF/IVA:
+%1</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Va a normalizar las provincias asociadas a %1.
+Esto puede llevar varios minutos.
+En caso de encontrar un valor no registrado en la tabla de provincias, AbanQ le pedir&#xe1; que asocie este valor con la provincia correcta.
+Esta decisi&#xf3;n ser&#xe1; recordada y vuelta a aplicar para todas las direcciones cuya provincia tenga dicho valor.
+&#xbf;Desea continuar?</source>
+        <translation>Es normalitzaran les províncies associades a% 1. (New line)
+Això pot portar diversos minuts. (New line)
+En cas de trobar un valor no registrat al quadre de províncies, El programa li demanarà que associï aquest valor amb la província correcta. (New line)
+Aquesta decisió serà recordada i tornada a aplicar per totes les adreces la província tinga aquest valor. (New line)
+Voleu continuar?</translation>
+    </message>
+    <message>
+        <source>Las provincias han sido normalizadas</source>
+        <translation>Les províncies han estat normalitzades</translation>
+    </message>
+    <message>
+        <source>Normalizando %1</source>
+        <translation>Normalizant %1</translation>
+    </message>
+    <message>
+        <source>Seleccione la provincia asociada a %1 - %2</source>
+        <translation>Seleccioni la provincia associada a %1 - %2</translation>
+    </message>
+    <message>
+        <source>El c&#xf3;digo postal no corresponde a la provincia</source>
+        <translation>El codi postal no correspon a la província</translation>
+    </message>
+    <message>
+        <source>No hay definido ning&#xfa;n script para este intervalo</source>
+        <translation>No hi ha definit cap script per aquest interval</translation>
+    </message>
+    <message>
+        <source>Error:
+</source>
+        <translation>Error: </translation>
+    </message>
+    <message>
+        <source>Enero</source>
+        <translation>Gener</translation>
+    </message>
+    <message>
+        <source>Febrero</source>
+        <translation>Febrer</translation>
+    </message>
+    <message>
+        <source>Marzo</source>
+        <translation>Març</translation>
+    </message>
+    <message>
+        <source>Abril</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Mayo</source>
+        <translation>Maig</translation>
+    </message>
+    <message>
+        <source>Junio</source>
+        <translation>Juny</translation>
+    </message>
+    <message>
+        <source>Julio</source>
+        <translation>Juliol</translation>
+    </message>
+    <message>
+        <source>Agosto</source>
+        <translation>Agost</translation>
+    </message>
+    <message>
+        <source>Septiembre</source>
+        <translation>Setembre</translation>
+    </message>
+    <message>
+        <source>Octubre</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Noviembre</source>
+        <translation>Novembre</translation>
+    </message>
+    <message>
+        <source>Diciembre</source>
+        <translation>Desembre</translation>
+    </message>
+    <message>
+        <source>%1 de %2 de %3</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>No se ha establecido el NIF/IVA</source>
+        <translation>No s&apos;ha establert el NIF/IVA</translation>
+    </message>
+    <message>
+        <source>Alemania</source>
+        <translation>Alemanya</translation>
+    </message>
+    <message>
+        <source>Austria</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>B&#xe9;lgica</source>
+        <translation>Bèlgica</translation>
+    </message>
+    <message>
+        <source>Bulgaria</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Chipre</source>
+        <translation>Xipre</translation>
+    </message>
+    <message>
+        <source>Chequia</source>
+        <translation>Txequia</translation>
+    </message>
+    <message>
+        <source>Dinamarca</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Estonia</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Finlandia</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Francia</source>
+        <translation>França</translation>
+    </message>
+    <message>
+        <source>Grecia</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Gran Breta&#xf1;a</source>
+        <translation>Gran Bretanya</translation>
+    </message>
+    <message>
+        <source>Holanda</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Hungr&#xed;a</source>
+        <translation>Hongria</translation>
+    </message>
+    <message>
+        <source>Irlanda</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Lituania</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Luxemburgo</source>
+        <translation>Luxemburg</translation>
+    </message>
+    <message>
+        <source>Polonia</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Portugal</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Ruman&#xed;a</source>
+        <translation>Rumania</translation>
+    </message>
+    <message>
+        <source>Suecia</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Eslovenia</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Eslovaquia</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>El c&#xf3;digo de pa&#xed;s %1 no es correcto</source>
+        <translation>El codi de país %1 no es correcte</translation>
+    </message>
+    <message>
+        <source>Error en la validaci&#xf3;n del NIF/IVA %1 para el pa&#xed;s %2:
+Las longitudes admitidas son: %3</source>
+        <translation>Error en la validació del NIF / IVA% 1 per al país% 2: (new line)
+Les longituds admeses són:% 3</translation>
+    </message>
+    <message>
+        <source>La provincia %1 no pertenece al pa&#xed;s %2</source>
+        <translation>La província% 1 no pertany al país% 2</translation>
+    </message>
+    <message>
+        <source>La subcuenta %1 no existe en el ejercicio actual (%2)</source>
+        <translation>El subcompte% 1 no existeix en l&apos;exercici actual (% 2)</translation>
+    </message>
+    <message>
+        <source>La subcuenta %1 no est&#xe1; asociada a la cuenta especial %2 en todos los ejercicios.
+Para continuar debe establecer esta asociaci&#xf3;n.
+&#xbf;Desea hacerlo ahora de forma autom&#xe1;tica?</source>
+        <translation>El subcompte% 1 no està associat al compte especial% 2 en tots els exercicis. (New line)
+Per continuar ha d&apos;establir aquesta associació. (New line)
+Voleu fer-ho ara de forma automàtica?</translation>
+    </message>
+    <message>
+        <source>I.V.A. Soportado</source>
+        <translation>I.V.A. Suportat</translation>
+    </message>
+    <message>
+        <source>I.V.A. Repercutido</source>
+        <translation>I.V.A. Repercutit</translation>
+    </message>
+    <message>
+        <source>I.V.A. Soportado en adquisiciones intracomunitarias</source>
+        <translation>I.V.A. Suportat en adquisicions intracomunitaries</translation>
+    </message>
+    <message>
+        <source>I.V.A. Repercutido en adquisiciones intracomunitarias</source>
+        <translation>I.V.A. Repercutit en adquisicions intracomunitaries</translation>
+    </message>
+    <message>
+        <source>I.V.A. Repercutido en entregas intracomunitarias</source>
+        <translation>I.V.A. Repercutit en entregues intracomunitaries</translation>
+    </message>
+    <message>
+        <source>I.V.A. Soportado en importaciones</source>
+        <translation>I.V.A. Suportat en importacions</translation>
+    </message>
+    <message>
+        <source>I.V.A. Repercutido en exportaciones</source>
+        <translation>I.V.A. Repercutit en exportacions</translation>
+    </message>
+    <message>
+        <source>I.V.A. Soportado exento</source>
+        <translation>I.V.A. Suportat exempt</translation>
+    </message>
+    <message>
+        <source>I.V.A. Repercutido exento</source>
+        <translation>I.V.A. Repercutit exempt</translation>
+    </message>
+    <message>
+        <source>Recargo de equivalencia I.V.A. repercutido</source>
+        <translation>Recàrrec d&apos;equivalència I.V.A. Repercutit</translation>
+    </message>
+    <message>
+        <source>Para el correcto funcionamiento de la generaci&#xf3;n autom&#xe1;tica de asientos de facturas, de los informes contables y de los modelos fiscales 
+(si se tiene este m&#xf3;dulo) instalado es necesario asociar a cada tipo de I.V.A. sus subcuentas correspondientes.
+
+Estas subcuentas deben estar marcadas en la tabla de subcuentas con su correspondiente c&#xf3;digo de cuenta especial (en este formulario entre
+par&#xe9;ntesis al lado de cada subcuenta), en todos los ejercicios activos.
+
+Al aceptar este formulario Abanq comprueba que dicha asociaci&#xf3;n sea correcta, por ejemplo, si indicamos que la subcuenta para I.V.A. soportado 
+(IVASOP) es la 472000000, Abanq comprobar&#xe1; que dicha subcuenta tenga como valor en el campo Cuenta especial el valor &quot;IVASOP&quot;. 
+
+No es necesario discriminar por porcentaje de IVA todas las subcuentas. Por ejemplo, si usamos como subcuenta de I.V.A. soportado para proveedores 
+exentos la subcuenta 4720000999 podemos asociar este valor de subcuenta a todos los registros de I.V.A. (IVA16, IVA7, IVA4, etc). De lo que s&#xed; 
+debemos asegurarnos es de que dicha subcuenta 4720000999 est&#xe9; marcada como &quot;IVASEX&quot; en la tabla de subcuentas.
+
+Aunque asociemos subcuentas como la de I.V.A. exento a registros con porcentaje de I.V.A. distinto de 0, Abanq cambiar&#xe1; el porcentaje por 0 cuando
+sea necesario (en este caso cuando el cliente o proveedor de la factura tenga como valor de r&#xe9;gimen de I.V.A. el valor &quot;Exento&quot;).</source>
+        <translation>Per al correcte funcionament de la generació automàtica d&apos;assentaments de factures, dels informes comptables i dels models fiscals (new line)
+(si es té aquest mòdul) instal · lat cal associar a cada tipus d&apos;IVA seus subcomptes corresponents. (new line)
+(new line)
+Aquests subcomptes han d&apos;estar marcats en la taula de subcomptes amb el seu corresponent codi de compte especial (en aquest formulari entre (new line)
+parèntesi al costat de cada subcompte), en tots els exercicis actius. (new line)
+(new line)
+En acceptar aquest formulari el programa comprova que aquesta associació sigui correcta, per exemple, si indiquem que el subcompte per IVA suportat (new line)
+(IVASOP) és la 472000000, el programa comprovarà que el subcompte tingui com a valor en el camp Compte especial el valor &quot;IVASOP&quot;. (new line)
+(new line)
+No cal discriminar per percentatge d&apos;IVA totes les subcomptes. Per exemple, si fem servir com subcompte de I.V.A. suportat per proveïdors (new line)
+exempts subcompte 4720000999 podem associar aquest valor de subcompte a tots els registres d&apos;IVA (IVA21, IVA10, IVA4, etc). Del que sí (new line)
+hem d&apos;assegurar és que aquesta subcompte 4720000999 estigui marcada com &quot;IVASEX&quot; a la taula de subcomptes. (new line)
+(new line)
+Encara associem subcomptes com la de I.V.A. exempt a registres amb percentatge de I.V.A. diferent de 0, el programa canviarà el percentatge per 0 quan (new line)
+sigui necessari (en aquest cas quan el client o proveïdor de la factura tingui com a valor de règim d&apos;IVA el valor &quot;Exempt&quot;).</translation>
+    </message>
+    <message>
+        <source>Si el cliente est&#xe1; de baja deb&#xba;1e introducir la correspondiente fecha de inicio de la baja</source>
+        <translation>Si el client està de baixa ha d&apos; introduir la corresponent data d&apos;inici de la baixa</translation>
+    </message>
+    <message>
+        <source>Se ha establecido como cuenta de domiciliaci&#xf3;n %1 para este cliente.
+</source>
+        <translation>S&apos;ha establert com a compte de domiciliació% 1 per aquest client.</translation>
+    </message>
+    <message>
+        <source>Se ha establecido como cuenta de domiciliaci&#xf3;n %1 para este cliente.
+&#xbf;Desea cambiar sus %2 recibos pendientes de pago a la nueva cuenta  de domiciliaci&#xf3;n?</source>
+        <translation>S&apos;ha establert com a compte de domiciliació% 1 per aquest client. (New line)
+Voleu canviar els seus% 2 rebuts pendents de pagament al nou compte (sp) (sp) de domiciliació?</translation>
+    </message>
+    <message>
+        <source>Se han cambiado correctamente  los recibos pendientes de pago:
+ 
+%1 </source>
+        <translation>S&apos;han canviat correctament (sp) (sp) els rebuts pendents de pagament: (new line)
+(new line)
+% 1 (sp)</translation>
+    </message>
+    <message>
+        <source>No hay ning&#xfa;n contacto seleccionado</source>
+        <translation>No hi ha cap contacte seleccionat</translation>
     </message>
 </context>
 <context>
     <name>secuencias</name>
     <message>
         <source>secuencias</source>
-        <translation></translation>
+        <translation>seqüencies</translation>
     </message>
     <message>
         <source>nombre</source>
-        <translation></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>valor</source>
@@ -3732,19 +4457,19 @@ millorant aquest programari lliure.</translation>
     </message>
     <message>
         <source>nombre</source>
-        <translation></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>coddepartamento</source>
-        <translation></translation>
+        <translation>codidepartament</translation>
     </message>
     <message>
         <source>departamentos</source>
-        <translation></translation>
+        <translation>departaments</translation>
     </message>
     <message>
         <source>email</source>

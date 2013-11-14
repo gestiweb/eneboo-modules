@@ -171,7 +171,35 @@
     </message>
     <message>
         <source>Area de Facturaci&#xf3;n</source>
-        <translation>Àrea de Facturació</translation>
+        <translation>�rea de Facturació</translation>
+    </message>
+    <message>
+        <source>Ejercicio</source>
+        <translation>Exercici</translation>
+    </message>
+    <message>
+        <source>Principal</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Cambiar de ejercicio</source>
+        <translation>Canviar d&apos;exercici</translation>
+    </message>
+    <message>
+        <source>Cambiar de ejercicio (Ctrl + J)</source>
+        <translation>Canviar d&apos; exercici (Ctrl + J)</translation>
+    </message>
+    <message>
+        <source>Ctrl+J</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Ctrl+W</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -296,6 +324,10 @@
         <source>Generar &amp;Albaran</source>
         <translation>Genera &amp;Albarà</translation>
     </message>
+    <message>
+        <source>Abrir/Cerrar pedido</source>
+        <translation>Obrir/tancar comanda</translation>
+    </message>
 </context>
 <context>
     <name>MetaData</name>
@@ -313,7 +345,7 @@
     </message>
     <message>
         <source>Referencia</source>
-        <translation>Referència</translation>
+        <translation>Refer�ncia</translation>
     </message>
     <message>
         <source>Descripci&#xf3;n</source>
@@ -326,10 +358,6 @@
     <message>
         <source>Cantidad</source>
         <translation>Quantitat</translation>
-    </message>
-    <message>
-        <source>Precio Nominal</source>
-        <translation>Preu Nominal</translation>
     </message>
     <message>
         <source>Total</source>
@@ -353,7 +381,7 @@
     </message>
     <message>
         <source>%R.Equivalencia</source>
-        <translation>%R.Equivalència</translation>
+        <translation>%R.Equival�ncia</translation>
     </message>
     <message>
         <source>L&#xed;neas de Facturas de Clientes</source>
@@ -390,10 +418,6 @@
     <message>
         <source>C.I.F./N.I.F</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>Cod. proveedor</source>
-        <translation>Cod. proveïdor</translation>
     </message>
     <message>
         <source>Observaciones</source>
@@ -445,7 +469,7 @@
     </message>
     <message>
         <source>Serie</source>
-        <translation>Sèrie</translation>
+        <translation>S�rie</translation>
     </message>
     <message>
         <source>N&#xfa;mero</source>
@@ -474,10 +498,6 @@
     <message>
         <source>Pte. Pago</source>
         <translation>Pt. Pagament</translation>
-    </message>
-    <message>
-        <source>Cod. cliente</source>
-        <translation>Cod. client</translation>
     </message>
     <message>
         <source>% Comision</source>
@@ -525,7 +545,7 @@
     </message>
     <message>
         <source>R.Equivalencia</source>
-        <translation>R.Equivalència</translation>
+        <translation>R.Equival�ncia</translation>
     </message>
     <message>
         <source>Agrupar pedidos a clientes</source>
@@ -653,7 +673,7 @@
     </message>
     <message>
         <source>Huecos en Secuencias</source>
-        <translation>Forats en Seqüències</translation>
+        <translation>Forats en Seq��ncies</translation>
     </message>
     <message>
         <source>Tipo</source>
@@ -732,10 +752,6 @@
         <translation>Ignora comptabilitat</translation>
     </message>
     <message>
-        <source>De abono</source>
-        <translation>D&apos;abonament</translation>
-    </message>
-    <message>
         <source>Rectifica a</source>
         <translation></translation>
     </message>
@@ -786,6 +802,26 @@
     <message>
         <source>Dir.</source>
         <translation>Dir.</translation>
+    </message>
+    <message>
+        <source>Hora</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Importe</source>
+        <translation>Import</translation>
+    </message>
+    <message>
+        <source>Rectificativa</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Cerrada</source>
+        <translation>Tancada</translation>
+    </message>
+    <message>
+        <source>lineapresupuesto</source>
+        <translation>lineapressupost</translation>
     </message>
 </context>
 <context>
@@ -969,6 +1005,10 @@
         <source>Alt+Z</source>
         <translation></translation>
     </message>
+    <message>
+        <source>hora</source>
+        <translation></translation>
+    </message>
 </context>
 <context>
     <name>agruparalbaranesprov</name>
@@ -1094,6 +1134,10 @@
     </message>
     <message>
         <source>Alt+Z</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>hora</source>
         <translation></translation>
     </message>
 </context>
@@ -1267,6 +1311,10 @@
         <source>Alt+Z</source>
         <translation></translation>
     </message>
+    <message>
+        <source>hora</source>
+        <translation>hora</translation>
+    </message>
 </context>
 <context encoding="UTF-8">
     <name>agruparpedidosprov</name>
@@ -1394,6 +1442,37 @@
         <source>Alt+Z</source>
         <translation></translation>
     </message>
+    <message>
+        <source>hora</source>
+        <translation>hora</translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>cambiarejer</name>
+    <message>
+        <source>Cambiar de ejercicio</source>
+        <translation>Canviar d&apos;exercici</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Atención</source>
+        <translation>Atenció</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Una vez cambiado el ejercicio, recuerde cerrar y reabrir los formularios maestros de facturación y contabilidad para que los registros mostrados sean los del ejercicio seleccionado.</source>
+        <translation>Un cop canviat l&apos;exercici, recordi tancar i reobrir els formularis mestres de facturació i comptabilitat perquè els registres mostrats siguin els de l&apos;exercici seleccionat.</translation>
+    </message>
+    <message>
+        <source>Ejercicio actual:</source>
+        <translation>Exercici actual:</translation>
+    </message>
+    <message>
+        <source>Cambiar</source>
+        <translation>Canviar</translation>
+    </message>
+    <message>
+        <source>Valor Ejercicio Actual</source>
+        <translation>Valor Exercici Actual</translation>
+    </message>
 </context>
 <context>
     <name>fechaejercicio</name>
@@ -1435,6 +1514,14 @@
     </message>
     <message>
         <source>fechafin</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>&amp;Aceptar</source>
+        <translation>&amp;Acceptar</translation>
+    </message>
+    <message>
+        <source>F10</source>
         <translation></translation>
     </message>
 </context>
@@ -1667,6 +1754,18 @@
     <message>
         <source>idprovincia</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>hora</source>
+        <translation></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplicar comisión</source>
+        <translation>Aplicar comissió</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplica la comisión del agente establecido en todas las líneas</source>
+        <translation>Aplica la comissió de l&apos;agent establert en totes les línees</translation>
     </message>
 </context>
 <context>
@@ -1955,6 +2054,18 @@
         <source>idprovincia</source>
         <translation></translation>
     </message>
+    <message>
+        <source>hora</source>
+        <translation></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplicar comisión</source>
+        <translation>Aplicar comissió</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplica la comisión del agente establecido en todas las líneas</source>
+        <translation>Aplica la comissió de l&apos;agent establert en totes les línees</translation>
+    </message>
 </context>
 <context>
     <name>formLineasAlbaranesCli</name>
@@ -1965,10 +2076,6 @@
     <message encoding="UTF-8">
         <source>Artículo</source>
         <translation>Article</translation>
-    </message>
-    <message>
-        <source>Impuesto</source>
-        <translation>Impost</translation>
     </message>
     <message>
         <source>Cantidad</source>
@@ -2025,6 +2132,26 @@
     <message>
         <source>pvptotal</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>&amp;Impuestos</source>
+        <translation>&amp;Impostos</translation>
+    </message>
+    <message>
+        <source>irpf</source>
+        <translation></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión Agente</source>
+        <translation>Comissió Agent</translation>
+    </message>
+    <message>
+        <source>porcomision</source>
+        <translation>percomissió</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión</source>
+        <translation>Comissió</translation>
     </message>
 </context>
 <context>
@@ -2038,10 +2165,6 @@
         <translation>Article</translation>
     </message>
     <message>
-        <source>Impuesto</source>
-        <translation>Impost</translation>
-    </message>
-    <message>
         <source>Cantidad</source>
         <translation>Quantitat</translation>
     </message>
@@ -2097,6 +2220,26 @@
         <source>pvptotal</source>
         <translation></translation>
     </message>
+    <message>
+        <source>&amp;Impuestos</source>
+        <translation>&amp;Impostos</translation>
+    </message>
+    <message>
+        <source>irpf</source>
+        <translation></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión Agente</source>
+        <translation>omissió Agent</translation>
+    </message>
+    <message>
+        <source>porcomision</source>
+        <translation>percomissió</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión</source>
+        <translation>Comissió</translation>
+    </message>
 </context>
 <context>
     <name>formLineasPedidosCli</name>
@@ -2107,10 +2250,6 @@
     <message encoding="UTF-8">
         <source>Artículo</source>
         <translation>Article</translation>
-    </message>
-    <message>
-        <source>Impuesto</source>
-        <translation>Impost</translation>
     </message>
     <message>
         <source>Cantidad</source>
@@ -2171,6 +2310,30 @@
     <message>
         <source>pvptotal</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>&amp;Impuestos</source>
+        <translation>&amp;Impostos</translation>
+    </message>
+    <message>
+        <source>irpf</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>cerrada</source>
+        <translation>tancada</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión Agente</source>
+        <translation>Comissió Agent</translation>
+    </message>
+    <message>
+        <source>porcomision</source>
+        <translation>percomissió</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión</source>
+        <translation>Comissió</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -2242,6 +2405,22 @@
     <message>
         <source>pvptotal</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>irpf</source>
+        <translation></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión Agente</source>
+        <translation>Comissió Agent</translation>
+    </message>
+    <message>
+        <source>porcomision</source>
+        <translation>percomissió</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Comisión</source>
+        <translation>Comissió</translation>
     </message>
 </context>
 <context>
@@ -2477,6 +2656,14 @@
     <message>
         <source>idprovincia</source>
         <translation></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplicar comisión</source>
+        <translation>Aplicarcomissió</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplica la comisión del agente establecido en todas las líneas</source>
+        <translation>Aplica la comissió de l&apos;agent establert en totes les línees</translation>
     </message>
 </context>
 <context>
@@ -2733,6 +2920,14 @@
         <source>idprovincia</source>
         <translation></translation>
     </message>
+    <message encoding="UTF-8">
+        <source>Aplicar comisión</source>
+        <translation>Aplicar comissió</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Aplica la comisión del agente establecido en todas las líneas</source>
+        <translation>Aplica la comissió de l&apos;agent establert en totes les línies</translation>
+    </message>
 </context>
 <context>
     <name>formalbaranesprov</name>
@@ -2915,6 +3110,10 @@
     <message>
         <source>Documentos relacionados (alt + R)</source>
         <translation>Documents relacionats (Alt + R)</translation>
+    </message>
+    <message>
+        <source>hora</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3146,6 +3345,10 @@
     <message>
         <source>Recalcula la tabla de IVAs a partir de los datos de la factura</source>
         <translation>Recalcula la taula d&apos;IVAs a partir de les dades de la factura</translation>
+    </message>
+    <message>
+        <source>hora</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3433,6 +3636,14 @@
         <source>Mostrar sólo los artículos del proveedor</source>
         <translation>Mostra només els articles del proveïdor</translation>
     </message>
+    <message>
+        <source>irpf</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>cerrada</source>
+        <translation>tancada</translation>
+    </message>
 </context>
 <context>
     <name>masterfacturascli</name>
@@ -3604,11 +3815,7 @@
     </message>
     <message>
         <source>No puede realizarse la modificaci&#xf3;n porque el asiento contable correspondiente pertenece a un ejercicio cerrado</source>
-        <translation>La modificació no es pot fer perquè l&apos;assentament comptable corresponent pertany a un exercici tancat</translation>
-    </message>
-    <message>
-        <source>Nuestra factura </source>
-        <translation>La nostra factura </translation>
+        <translation>La modificació no es pot fer per que l&apos;assentament comptable corresponent pertany a un exercici tancat</translation>
     </message>
     <message>
         <source>Su factura </source>
@@ -3704,7 +3911,7 @@ Ha d&apos;eliminar abans l&apos;albarà relacionat.</translation>
     </message>
     <message>
         <source>La serie </source>
-        <translation>La sèrie </translation>
+        <translation>La s�rie </translation>
     </message>
     <message>
         <source> no existe para el ejercicio </source>
@@ -3739,16 +3946,6 @@ Debe asociar la cuenta a la cuenta especial en el m&#xf3;dulo Principal del &#xe
         <translation>No té cap compte comptable marcat com a compte especial
 IRPFPR (IRPF per a proveïdors / creditors).
 Ha d&apos;associar el compte al compte especial en el mòdul Principal de l&apos;àrea Financera</translation>
-    </message>
-    <message>
-        <source>Esta factura pertenece al r&#xe9;gimen IVA tipo %1.
-No existe ninguna cuenta contable marcada como tipo especial %1
-
-Debe asociar una cuenta contable a dicho tipo especial en el m&#xf3;dulo Principal del &#xe1;rea Financiera</source>
-        <translation>Aquesta factura pertany al règim IVA tipus %1.
-No existeix cap compte comptable marcat com a tipus especial %1
-
-Ha d&apos;associar un compte comptable a aquest tipus especial en el mòdul Principal de l&apos;àrea Financera</translation>
     </message>
     <message>
         <source>Ha seleccionado un ejercicio distinto del actual.
@@ -4007,6 +4204,366 @@ Ha d&apos;associar un compte comptable a aquest compte especial en el mòdul Pri
     <message>
         <source>Su factura</source>
         <translation>La seva factura</translation>
+    </message>
+    <message>
+        <source>La fecha establecida debe estar comprendida en el intervalo del ejercicio especificado.</source>
+        <translation>
+La data establerta ha d&apos;estar compresa en l&apos;interval de l&apos;exercici especificat.</translation>
+    </message>
+    <message>
+        <source>&#xbf;Seguro que desea actualizar la comisi&#xf3;n en todas las l&#xed;neas?</source>
+        <translation>
+Esteu segur que voleu actualitzar la comissió en totes les línies?</translation>
+    </message>
+    <message>
+        <source>Hubo un error al aplicarse la comisi&#xf3;n en las l&#xed;neas.
+%1</source>
+        <translation>Hi va haver un error en aplicar la comissió en les línies. (New line)
+% 1</translation>
+    </message>
+    <message>
+        <source>La comisi&#xf3;n se actualiz&#xf3; correctamente.</source>
+        <translation>La comissió es va actualitzar correctament.</translation>
+    </message>
+    <message>
+        <source>La factura %1 para %2 a generar tiene recargo de equivalencia s&#xf3;lo en algunas de sus l&#xed;neas. &#xbf;Desea continuar?</source>
+        <translation>La factura% 1 per% 2 a generar té recàrrec d&apos;equivalència només en algunes de les seves línies. Voleu continuar?</translation>
+    </message>
+    <message>
+        <source>Error al generar el albar&#xe1;n:</source>
+        <translation>Error al generar l&apos;albarà:</translation>
+    </message>
+    <message>
+        <source>Error al generar la factura:</source>
+        <translation>Error al generar la factura:</translation>
+    </message>
+    <message>
+        <source>Hubo un error en la copia de la factura:</source>
+        <translation>Error en la còpia de la factura:</translation>
+    </message>
+    <message>
+        <source>Copiando Factura....</source>
+        <translation>Copiant Factura....</translation>
+    </message>
+    <message>
+        <source>No hay ning&#xfa;n registro seleccionado</source>
+        <translation>No hi ha cap registre seleccionat</translation>
+    </message>
+    <message>
+        <source>El pedido seleccionado tiene l&#xed;neas cerradas.
+&#xbf;Seguro que desa abrirlas?</source>
+        <translation>La comanda seleccionada té línies tancades. (New line)
+Esteu segurs que la voleu obrir?</translation>
+    </message>
+    <message>
+        <source>El pedido ya ha sido servido completamente.</source>
+        <translation>La comanda ja s&apos;ha servit completament.</translation>
+    </message>
+    <message>
+        <source>Se va a cerrar el pedido y no podr&#xe1; terminar de servirse.
+&#xbf;Desea continuar?</source>
+        <translation>Es tancarà la comanda i no es podrà acabar de servir. (New line)
+Voleu continuar?</translation>
+    </message>
+    <message>
+        <source>Copiar l&#xed;neas de la factura</source>
+        <translation>Copiar línies de la factura</translation>
+    </message>
+    <message>
+        <source>Copiar l&#xed;neas de la factura con cantidad negativa</source>
+        <translation>Copiar línies de la factura amb quantitat negativa</translation>
+    </message>
+    <message>
+        <source>No copiar l&#xed;neas</source>
+        <translation>No copiar línies</translation>
+    </message>
+    <message>
+        <source>El albar&#xe1;n generado no tiene ninguna l&#xed;nea.
+&#xbf;Desea generarlo de todas formas?</source>
+        <translation>L&apos;albarà generat no té cap línia. (New line)
+El voleu generar de totes maneres?</translation>
+    </message>
+    <message>
+        <source>El art&#xed;culo %1 no permite ventas sin stocks.
+Est&#xe1; albaranando m&#xe1;s cantidad (%2) que la disponible (%3) ahora mismo en el almac&#xe9;n %4.
+&#xbf;Desea continuar dejando el pedido parcialmente albaranado?
+(pulse Ignorar para evitar esta pregunta en el resto de las l&#xed;neas)</source>
+        <translation>L&apos;article% 1 no permet vendes sense estocs. (New line)
+Està albaranant més quantitat (% 2) que la disponible (% 3) ara mateix al magatzem% 4. (New line)
+Voleu continuar deixant la comanda parcialment albaranada? (New line)
+(premi Ignora per evitar aquesta pregunta a la resta de les línies)</translation>
+    </message>
+    <message>
+        <source>El pedido seleccionado tiene l&#xed;neas cerradas.
+&#xbf;Seguro que desea abrirlas?</source>
+        <translation>La comanda seleccionada té línies tancades. (New line)
+Esteu segurs que la voleu obrir?</translation>
+    </message>
+    <message>
+        <source>Error al regenerar el asiento</source>
+        <translation>Error al regenerar l&apos;assentament</translation>
+    </message>
+    <message>
+        <source>Error al leer los datos de subcuenta de cliente</source>
+        <translation>Error al llegir les dades del subcompte de client</translation>
+    </message>
+    <message>
+        <source>Error al generar las partidas de cliente</source>
+        <translation>Error al generar les partides de client</translation>
+    </message>
+    <message>
+        <source>Error al generar las partidas de IRPF</source>
+        <translation>Error al generar les partides d&apos; IRPF</translation>
+    </message>
+    <message>
+        <source>Error al generar las partidas de IVA</source>
+        <translation>Error al generar les partides d&apos; IVA</translation>
+    </message>
+    <message>
+        <source>Error al generar las partidas de recargo financiero</source>
+        <translation>Error al generar les partides de recàrrec financer</translation>
+    </message>
+    <message>
+        <source>Error al generar las partidas de venta</source>
+        <translation>Error al generar les partides de venda</translation>
+    </message>
+    <message>
+        <source>Error al generar el asiento correspondiente a la factura de abono</source>
+        <translation>Error al generar l&apos;assentament corresponent a la factura d&apos;abonament</translation>
+    </message>
+    <message>
+        <source>Error al comprobar el asiento</source>
+        <translation>Error en comprovar l&apos;assentament</translation>
+    </message>
+    <message>
+        <source>Error al generar el asiento correspondiente a la factura %1:</source>
+        <translation>Error en generar l&apos;assentament corresponent a la factura% 1:</translation>
+    </message>
+    <message>
+        <source>Error al obtener el r&#xe9;gimen de IVA asociado a la factura %1.
+Compruebe que el cliente tiene un r&#xe9;gimen de IVA establecido</source>
+        <translation>Error en obtenir el règim d&apos;IVA associat a la factura% 1. (New line)
+Comproveu que el client té un règim d&apos;IVA establert</translation>
+    </message>
+    <message>
+        <source>I.V.A. entregas intracomunitarias (IVAEUE)</source>
+        <translation>I.V.A. entregues intracomunitaries (IVAEUE)</translation>
+    </message>
+    <message>
+        <source>I.V.A. repercutido exento (IVAREX)</source>
+        <translation>I.V.A. repercutit exempt (IVAREX)</translation>
+    </message>
+    <message>
+        <source>I.V.A. repercutido exportaciones (IVARXP)</source>
+        <translation>I.V.A. repercutit exportacions (IVARXP)</translation>
+    </message>
+    <message>
+        <source>I.V.A. repercutido R. General(IVAREP)</source>
+        <translation>I.V.A. repercutit R. General (IVAREP)</translation>
+    </message>
+    <message>
+        <source>La cuenta especial de %1 no tiene asignada subcuenta.
+Debe asociarla en el m&#xf3;dulo Principal del &#xe1;rea Financiera</source>
+        <translation>El compte especial de% 1 no té assignada subcompte. (New line)
+L&apos;ha d&apos;associar al mòdul principal de l&apos;àrea Financera</translation>
+    </message>
+    <message>
+        <source>No tiene definida cu&#xe1;l es la subcuenta  asociada al recargo de equivalencia en ventas.
+Para definirla vaya a Facturaci&#xf3;n-&gt;Principal-&gt;Impuestos e ind&#xed;quela en el/los impuestos correspondientes</source>
+        <translation>No teniu definit quin és el subcompte (sp) (sp) associat al recàrrec d&apos;equivalència en vendes. (New line)
+Per definir-lo aneui a Facturació-&gt; Principal-&gt; Impostos i indiqueu-lol en el / els impostos corresponents</translation>
+    </message>
+    <message>
+        <source>Error al obtener la subcuenta del proveedor</source>
+        <translation>Error en obtenir el subcompte del proveïdor</translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de proveedor</source>
+        <translation>Error al generar la partida del proveïdor</translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de IRPF</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Error al generar la partida recargo financiero</source>
+        <translation>Error al generar la partida recàrrec financer</translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de IVA</source>
+        <translation>Error al generar la partida d&apos;IVA</translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de compras</source>
+        <translation>Error al generar la partida de compres</translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de recargo financiero</source>
+        <translation>Error al generar la partida de recàrrec financeero</translation>
+    </message>
+    <message>
+        <source>Error al generar la partida de compra</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Error al modificar el asiento de abono</source>
+        <translation>Error al modificar l&apos;assentament d&apos;abonament</translation>
+    </message>
+    <message>
+        <source>No existe ninguna subcuenta marcada como cuenta especial de COMPRA para %1</source>
+        <translation>No hi ha cap subcompte marcat com compte especial de COMPRA per% 1</translation>
+    </message>
+    <message>
+        <source>Esta factura pertenece al r&#xe9;gimen IVA tipo %1.
+No existe ninguna cuenta contable marcada como tipo especial %2
+
+Debe asociar una cuenta contable a dicho tipo especial en el m&#xf3;dulo Principal del &#xe1;rea Financiera</source>
+        <translation>Aquesta factura pertany al r�gim IVA tipus %1.
+No existeix cap compte comptable marcat com a tipus especial %2
+
+Ha d&apos;associar un compte comptable a aquest tipus especial en el mòdul Principal de l&apos;àrea Financera {1 or 2?}</translation>
+    </message>
+    <message>
+        <source>No tiene establecida la subcuenta de IVA soportado para adquisiciones intracomunitaras (IVASUE).
+Esta subcuenta es necesaria para almacenar informaci&#xf3;n &#xfa;til para informes como el de facturas emitidas o el modelo 300.
+&#xbf;Desea indicar cu&#xe1;l es esta subcuenta ahora?</source>
+        <translation>No té establert el subcompte d&apos;IVA suportat per adquisicions intracomunitaras (IVASUE). (New line)
+Aquest subcompte és necessari per emmagatzemar informació útil per a informes com el de factures emeses o el model 303. (New line)
+Voleu indicar quin és aquest subcompte ara?</translation>
+    </message>
+    <message>
+        <source>IVA soportado en adquisiciones intracomunitarias U.E.</source>
+        <translation>IVA soportat en adquisicions intracomunitaries U.E.</translation>
+    </message>
+    <message>
+        <source>No tiene establecida la subcuenta de IVA repercutido para adquisiciones intracomunitaras (IVARUE).
+Esta subcuenta es necesaria para almacenar informaci&#xf3;n &#xfa;til para informes como el de facturas emitidas o el modelo 300.
+&#xbf;Desea indicar cu&#xe1;l es esta subcuenta ahora?</source>
+        <translation>No té establert el subcompte d&apos;IVA repercutit per adquisicions intracomunitaras (IVARUE). (New line)
+Aquest subcompte és necessari per emmagatzemar informació útil per a informes com el de factures emeses o el model 303. (New line)
+Voleu indicar quin és aquest subcompte ara?</translation>
+    </message>
+    <message>
+        <source>IVA repercutido en adquisiciones intracomunitarias U.E.</source>
+        <translation>IVA repercutit en adquisicions intracomunitaries U.E.</translation>
+    </message>
+    <message>
+        <source>No tiene establecida la subcuenta de IVA para entregas intracomunitaras (IVAEUE).
+Esta subcuenta es necesaria para almacenar informaci&#xf3;n &#xfa;til para informes como el de facturas emitidas o el modelo 300.
+&#xbf;Desea indicar cu&#xe1;l es esta subcuenta ahora?</source>
+        <translation>No té establert el subcompte d&apos;IVA per entregues intracomunitaries (IVAEUE). (New line)
+Aquest subcompte és necessari per emmagatzemar informació útil per a informes com el de factures emeses o el model 303. (New line)
+Voleu indicar quin és aquest subcompte ara?</translation>
+    </message>
+    <message>
+        <source>IVA en entregas intracomunitarias U.E.</source>
+        <translation>IVA en entregues intracomunitaries U.E.</translation>
+    </message>
+    <message>
+        <source>Nuestra factura</source>
+        <translation>La nostra factura</translation>
+    </message>
+    <message>
+        <source>El cliente %1 tiene establecido un r&#xe9;gimen de I.V.A. %2
+y en alguna o varias de las lineas no hay establecido un % de I.V.A.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation>El client% 1 té establert un règim d&apos;IVA % 2 (new line)
+i en alguna o diverses de les línies no hi ha establert un% d&apos;IVA (new line)
+Voleu continuar igualment?</translation>
+    </message>
+    <message>
+        <source>El cliente %1 tiene establecido un r&#xe9;gimen de I.V.A. %2
+y en alguna o varias de las lineas hay establecido un % de I.V.A.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation>El client% 1 té establert un règim d&apos;IVA % 2 (new line)
+i en alguna o diverses de les línies hi ha establert un% d&apos;IVA (new line)
+Voleu continuar igualment?</translation>
+    </message>
+    <message>
+        <source>Al cliente %1 se le debe aplicar Recargo de Equivalencia
+y en alguna o varias de las lineas no hay establecido un % de R. Equivalencia.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation>Al client% 1 se li aplicarà recàrrec d&apos;equivalència (new line)
+i en alguna o diverses de les línies no hi ha establert un% de R. Equivalència. (New line)
+Voleu continuar igualment?</translation>
+    </message>
+    <message>
+        <source>Al cliente %1 no se le debe aplicar Recargo de Equivalencia
+y en alguna o varias de las lineas hay establecido un % de R. Equivalencia.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation>Al client% 1 no se li aplicarà recàrrec d&apos;equivalència (new line)
+i en alguna o diverses de les línies hi ha establert un% de R. Equivalència. (New line)
+Voleu continuar igualment?</translation>
+    </message>
+    <message>
+        <source>El proveedor %1 tiene establecido un r&#xe9;gimen de I.V.A. %2
+y en alguna o varias de las lineas no hay establecido un % de I.V.A.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation>El proveïdor% 1 té establert un règim d&apos;IVA % 2 (new line)
+i en alguna o diverses de les línies no hi ha establert un% d&apos;IVA (new line)
+Voleu continuar igualment?</translation>
+    </message>
+    <message>
+        <source>El proveedor %1 tiene establecido un r&#xe9;gimen de I.V.A. %2
+y en alguna o varias de las lineas hay establecido un % de I.V.A.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation>El proveïdor% 1 té establert un règim d&apos;IVA % 2 (new line)
+i en alguna o diverses de les línies hi ha establert un% d&apos;IVA (new line)
+Voleu continuar igualment?</translation>
+    </message>
+    <message>
+        <source>En los datos de empresa est&#xe1; activa al opci&#xf3;n Aplicar Recargo de Equivalencia
+y en alguna o varias de las lineas no hay establecido un % de R. Equivalencia.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation>En les dades d&apos;empresa està activa la opció Aplicar recàrrec d&apos;equivalència (new line)
+i en alguna o diverses de les línies no hi ha establert un% de R. Equivalència. (New line)
+Voleu continuar igualment?</translation>
+    </message>
+    <message>
+        <source>En los datos de empresa no est&#xe1; activa al opci&#xf3;n Aplicar Recargo de Equivalencia
+y en alguna o varias de las lineas hay establecido un % de R. Equivalencia.
+&#xbf;Desea continuar de todas formas?</source>
+        <translation>En les dades d&apos;empresa no està activa l&apos;opció Aplicar recàrrec d&apos;equivalència (new line)
+i en alguna o diverses de les línies hi ha establert un% de R. Equivalència. (New line)
+Voleu continuar igualment?</translation>
+    </message>
+    <message>
+        <source>No ha indicado la factura que desea abonar.
+&#xbf;Desea continuar?</source>
+        <translation>No ha indicat la factura que vol abonar. (New line)
+Voleu continuar?</translation>
+    </message>
+    <message>
+        <source>No se puede modificar la serie.
+Serie anterior:%1 - Serie actual:%2</source>
+        <translation>No es pot modificar la sèrie. (New line)
+Sèrie anterior:% 1 - Sèrie actual:% 2</translation>
+    </message>
+    <message>
+        <source>Actualizando comisi&#xf3;n ...</source>
+        <translation>Actualizant comissió ...</translation>
+    </message>
+    <message>
+        <source>Ejercicio actual para </source>
+        <translation>Exercic actual per(sp)</translation>
+    </message>
+    <message>
+        <source>Se ha copiado el presupuesto %1 con c&#xf3;digo %2</source>
+        <translation>S&apos;ha copiat el pressupost% 1 amb codi% 2</translation>
+    </message>
+    <message>
+        <source>Hubo un error en la copia del presupuesto:</source>
+        <translation>Error en la còpia del pressupost:</translation>
+    </message>
+    <message>
+        <source>Error al cargar los datos de coste medio</source>
+        <translation>Error en carregar les dades de cost mig</translation>
+    </message>
+    <message>
+        <source>Hay otra factura con el mismo n&#xfa;mero de proveedor.
+&#xbf;Desea continuar?</source>
+        <translation>Hi ha una altra factura amb el mateix nombre de proveïdor. (New line)
+Voleu continuar?</translation>
     </message>
 </context>
 <context>

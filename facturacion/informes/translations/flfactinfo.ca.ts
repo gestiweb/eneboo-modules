@@ -183,7 +183,27 @@
     </message>
     <message>
         <source>Area de Facturaci&#xf3;n</source>
-        <translation>Àrea de Facturació</translation>
+        <translation>�rea de Facturació</translation>
+    </message>
+    <message>
+        <source>&amp;General</source>
+        <translation>&amp;General</translation>
+    </message>
+    <message>
+        <source>Datos generales</source>
+        <translation>Dades generals</translation>
+    </message>
+    <message>
+        <source>Datos &amp;generales</source>
+        <translation>Dades &amp;generals</translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Ctrl+W</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -393,7 +413,7 @@
     </message>
     <message>
         <source>Serie</source>
-        <translation>Sèrie</translation>
+        <translation>S�rie</translation>
     </message>
     <message>
         <source>Informes de albaranes de proveedores</source>
@@ -425,7 +445,7 @@
     </message>
     <message>
         <source>S&#xed;</source>
-        <translation></translation>
+        <translation>Si</translation>
     </message>
     <message>
         <source>No</source>
@@ -469,7 +489,7 @@
     </message>
     <message>
         <source>Emitido</source>
-        <translation>Emès</translation>
+        <translation>Em�s</translation>
     </message>
     <message>
         <source>Pagado</source>
@@ -485,7 +505,7 @@
     </message>
     <message>
         <source>Referencia</source>
-        <translation>Referència</translation>
+        <translation>Refer�ncia</translation>
     </message>
     <message>
         <source>Descripcion</source>
@@ -513,11 +533,11 @@
     </message>
     <message>
         <source>Informes de transferencias de stock</source>
-        <translation>﻿Informes de transferències d&apos;estoc</translation>
+        <translation>﻿Informes de transfer�ncies d&apos;estoc</translation>
     </message>
     <message>
         <source>Transferencia</source>
-        <translation>Transferència</translation>
+        <translation>Transfer�ncia</translation>
     </message>
     <message>
         <source>Vencimiento</source>
@@ -525,7 +545,153 @@
     </message>
     <message>
         <source>Pte aprobar</source>
-        <translation type="unfinished"></translation>
+        <translation>Pdt aprovar</translation>
+    </message>
+    <message>
+        <source>Tipo de informe</source>
+        <translation>Tipus d&apos;informe</translation>
+    </message>
+    <message>
+        <source>Moneda original</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Moneda original y euros</source>
+        <translation>Moneda original i euros</translation>
+    </message>
+    <message>
+        <source>Euros</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>S&#xf3;lo facturas de abono</source>
+        <translation>Nomes factures d&apos;abonament</translation>
+    </message>
+    <message>
+        <source>Filtrar por importe</source>
+        <translation>Filtrar per import</translation>
+    </message>
+    <message>
+        <source>Desde importe</source>
+        <translation>Des d&apos;import</translation>
+    </message>
+    <message>
+        <source>Hasta importe</source>
+        <translation>Fins import</translation>
+    </message>
+    <message>
+        <source>R&#xe9;gimen I.V.A.</source>
+        <translation>Règim I.V.A.</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Importaciones</source>
+        <translation>Importacions</translation>
+    </message>
+    <message>
+        <source>UE</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Exento</source>
+        <translation>Exempt</translation>
+    </message>
+    <message>
+        <source>Pendiente</source>
+        <translation>Pendent</translation>
+    </message>
+    <message>
+        <source>Exportaciones</source>
+        <translation>Exportacions</translation>
+    </message>
+    <message>
+        <source>U.E.</source>
+        <translation>U.E.</translation>
+    </message>
+    <message>
+        <source>Ficheros para informes</source>
+        <translation>Fitxers per informes</translation>
+    </message>
+    <message>
+        <source>Id</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Imagen</source>
+        <translation>Imatge</translation>
+    </message>
+    <message>
+        <source>F.Pago</source>
+        <translation>F.pagament</translation>
+    </message>
+    <message>
+        <source>Visor de informes personalizado</source>
+        <translation>Visor d&apos;informes personalitzat</translation>
+    </message>
+    <message>
+        <source>Datos Generales</source>
+        <translation>Dades Generals</translation>
+    </message>
+</context>
+<context>
+    <name>customviewer</name>
+    <message>
+        <source>customviewer</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>factinfo_general</name>
+    <message>
+        <source>factinfo_general</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Datos &amp;generales</source>
+        <translation>Dades &amp;generals</translation>
+    </message>
+    <message>
+        <source>Ficheros</source>
+        <translation>Fitxers</translation>
+    </message>
+    <message>
+        <source>Insertar registro (A)</source>
+        <translation>Insereix registre (A)</translation>
+    </message>
+    <message>
+        <source>Para crear un nuevo registro en la tabla</source>
+        <translation>Per a crear un nou registre a la taula</translation>
+    </message>
+    <message>
+        <source>Modificar registro (M)</source>
+        <translation>Modifica registre (M)</translation>
+    </message>
+    <message>
+        <source>Para modificar el registro activo de la tabla</source>
+        <translation>Per a modificar el registre actiu de la taula</translation>
+    </message>
+    <message>
+        <source>Eliminar registro (E)</source>
+        <translation>Elimina registre (E)</translation>
+    </message>
+    <message>
+        <source>Elimina el registro actual de la tabla</source>
+        <translation>Elimina el registre actual de la taula</translation>
+    </message>
+    <message>
+        <source>Ver registro (V)</source>
+        <translation>Veure registre (V)</translation>
+    </message>
+    <message>
+        <source>Para ver registro, sin permitir editar</source>
+        <translation>Per a veure el registre sense permetre editar</translation>
+    </message>
+    <message>
+        <source>i_ficheros</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -576,7 +742,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation></translation>
+        <translation>descripció</translation>
     </message>
     <message>
         <source>d_facturasprov_codigo</source>
@@ -600,7 +766,7 @@
     </message>
     <message>
         <source>nombre</source>
-        <translation></translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>proveedores</source>
@@ -660,7 +826,7 @@
     </message>
     <message>
         <source>clientes</source>
-        <translation></translation>
+        <translation>clients</translation>
     </message>
     <message>
         <source>codcliente</source>
@@ -723,10 +889,6 @@
         <translation></translation>
     </message>
     <message>
-        <source>pedidoscli_servido</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>i_pedidoscli_codcliente</source>
         <translation></translation>
     </message>
@@ -756,7 +918,7 @@
     </message>
     <message>
         <source>codigo</source>
-        <translation></translation>
+        <translation>codi</translation>
     </message>
     <message>
         <source>d_albaranesprov_codigo</source>
@@ -788,10 +950,6 @@
     </message>
     <message>
         <source>h_pedidosprov_codigo</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>pedidosprov_servido</source>
         <translation></translation>
     </message>
     <message>
@@ -868,11 +1026,11 @@
     </message>
     <message>
         <source>apellidos</source>
-        <translation></translation>
+        <translation>cognoms</translation>
     </message>
     <message>
         <source>agentes</source>
-        <translation></translation>
+        <translation>agents</translation>
     </message>
     <message>
         <source>codagente</source>
@@ -885,6 +1043,77 @@
     <message>
         <source>i_presupuestoscli_editable</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tipoinforme</source>
+        <translation>tipusinforme</translation>
+    </message>
+    <message>
+        <source>i_pedidosprov_servido</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Código </source>
+        <translation>Codi(sp)</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>Régimen IVA </source>
+        <translation>Règim IVA(sp)</translation>
+    </message>
+    <message>
+        <source>i_proveedores_regimeniva</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Importe</source>
+        <translation>Import</translation>
+    </message>
+    <message>
+        <source>filtrarimportes</source>
+        <translation>filtraimports</translation>
+    </message>
+    <message>
+        <source>deabono</source>
+        <translation>dabonament</translation>
+    </message>
+    <message>
+        <source>desdeimporte</source>
+        <translation>desdimport</translation>
+    </message>
+    <message>
+        <source>hastaimporte</source>
+        <translation>finsimport</translation>
+    </message>
+    <message>
+        <source>i_clientes_regimeniva</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>i_pedidoscli_servido</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>i_facturascli_codpago</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>i_ficheros</name>
+    <message>
+        <source>i_ficheros</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fichero</source>
+        <translation>Fitxer</translation>
+    </message>
+    <message>
+        <source>nombre</source>
+        <translation>nom</translation>
+    </message>
+    <message>
+        <source>imagen</source>
+        <translation>imatge</translation>
     </message>
 </context>
 <context>
