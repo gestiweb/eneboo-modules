@@ -88,6 +88,7 @@ function interna_init()
 //// OFICIAL /////////////////////////////////////////////////////
 function oficial_pbnActualizar_clicked()
 {
+	var util:FLUtil = new FLUtil;
 	var cursor:FLSqlCursor = this.cursor();
 	var curCommit:FLSqlCursor = new FLSqlCursor("tarifas");
 	var codTarifa:String = cursor.valueBuffer("codtarifa"); 
@@ -105,6 +106,7 @@ function oficial_pbnActualizar_clicked()
 		MessageBox.critical(util.translate("scripts", "Hubo un error al actualizar los precios por tarifa: ") + e, MessageBox.Ok, MessageBox.NoButton);
 		return false;
 	}
+	MessageBox.information(util.translate("scripts", "La tarifa %1 ha sido actualizada").arg(codTarifa), MessageBox.Ok, MessageBox.NoButton);
 }
 
 function oficial_actualizarPreciosTarifa(codTarifa:String):Boolean
