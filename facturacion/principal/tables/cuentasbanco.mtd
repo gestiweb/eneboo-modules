@@ -1,197 +1,255 @@
 <!DOCTYPE TMD>
 <TMD>
-<!--Listado de cuentas bancarias-->    <name>cuentasbanco</name>
-    <alias>QT_TRANSLATE_NOOP("MetaData","Cuentas Bancarias")</alias>
-    <field>
-        <name>codcuenta</name>
-<!--Identificador interno de la cuenta bancaria-->        <alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
-        <null>false</null>
-        <pk>true</pk>
-        <type>string</type>
-        <length>6</length>
-        <counter>true</counter>
-        <relation>
-            <table>cuentasbco_imp</table>
-            <field>desde</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>cuentasbco_imp</table>
-            <field>hasta</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>clientes</table>
-            <field>codcuentarem</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>proveedores</table>
-            <field>codcuentapago</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>empresa</table>
-            <field>codcuentarem</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>remesas</table>
-            <field>codcuenta</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>formaspago</table>
-            <field>codcuenta</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>pagosdevolcli</table>
-            <field>codcuenta</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>co_modelo300</table>
-            <field>codcuentadev</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>co_modelo300</table>
-            <field>codcuentaingreso</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>rh_recibossegsocial</table>
-            <field>codcuenta</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>rh_pagosnomina</table>
-            <field>codcuenta</field>
-            <card>1M</card>
-        </relation>
-        <relation>
-            <table>rh_retenciones</table>
-            <field>codcuenta</field>
-            <card>1M</card>
-        </relation>
-    </field>
-    <field>
-        <name>descripcion</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>100</length>
-    </field>
-    <field>
-        <name>ctaentidad</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Entidad")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>4</length>
-        <regexp>^[0-9]{4,4}$</regexp>
-    </field>
-    <field>
-        <name>ctaagencia</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Oficina")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>4</length>
-        <regexp>^[0-9]{4,4}$</regexp>
-    </field>
-    <field>
-        <name>cuenta</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
-        <null>false</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>10</length>
-        <regexp>^[0-9]{10,10}$</regexp>
-    </field>
-    <field>
-        <name>entidad</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Entidad Nº")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>4</length>
-        <visiblegrid>false</visiblegrid>
-        <relation>
-            <table>bancos</table>
-            <field>entidad</field>
-            <card>M1</card>
-        </relation>
-    </field>
-    <field>
-        <name>agencia</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Oficina Nº")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>4</length>
-        <visiblegrid>false</visiblegrid>
-        <associated>
-            <with>entidad</with>
-            <by>entidad</by>
-        </associated>
-        <relation>
-            <table>sucursales</table>
-            <field>agencia</field>
-            <card>M1</card>
-        </relation>
-    </field>
-    <field>
-        <name>sufijo</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","Sufijo Norma 19")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>3</length>
-        <default>000</default>
-    </field>
-    <field>
-        <name>iban</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","IBAN")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>34</length>
-    </field>
-    <field>
-        <name>swift</name>
-        <alias>QT_TRANSLATE_NOOP("MetaData","SWIFT")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>11</length>
-    </field>
-    <field>
-        <name>codsubcuenta</name>
-<!-- Código de la subcuenta de contabilidad asociada a la cuenta bancaria-->        <alias>QT_TRANSLATE_NOOP("MetaData","Subcuenta")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>string</type>
-        <length>15</length>
-    </field>
-    <field>
-        <name>idsubcuenta</name>
-<!-- Identificador interno de la subcuenta -->        <alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
-        <null>true</null>
-        <pk>false</pk>
-        <type>uint</type>
-        <visiblegrid>false</visiblegrid>
-        <relation>
-            <table>co_subcuentas</table>
-            <field>idsubcuenta</field>
-            <card>M1</card>
-        </relation>
-    </field>
-    <field>
+	<!--Listado de cuentas bancarias-->
+	<name>cuentasbanco</name>
+	<alias>QT_TRANSLATE_NOOP("MetaData","Cuentas Bancarias")</alias>
+
+	<field>
+		<name>codcuenta</name>
+		<!--Identificador interno de la cuenta bancaria-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Código")</alias>
+		<null>false</null>
+		<pk>true</pk>
+		<type>string</type>
+		<length>6</length>
+		<counter>true</counter>
+
+		<relation>
+			<table>cuentasbco_imp</table>
+			<field>desde</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>cuentasbco_imp</table>
+			<field>hasta</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>clientes</table>
+			<field>codcuentarem</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>proveedores</table>
+			<field>codcuentapago</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>empresa</table>
+			<field>codcuentarem</field>
+			<card>1M</card>
+		</relation>
+
+		<relation>
+			<table>remesas</table>
+			<field>codcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>formaspago</table>
+			<field>codcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>pagosdevolcli</table>
+			<field>codcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_modelo300</table>
+			<field>codcuentadev</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>co_modelo300</table>
+			<field>codcuentaingreso</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>rh_recibossegsocial</table>
+			<field>codcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>rh_pagosnomina</table>
+			<field>codcuenta</field>
+			<card>1M</card>
+		</relation>
+	
+		<relation>
+			<table>rh_retenciones</table>
+			<field>codcuenta</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>reciboscli</table>
+			<field>codcuentapagocli</field>
+			<card>1M</card>
+		</relation>
+		
+		<relation>
+			<table>evolucioncuenta</table>
+			<field>codcuentabancaria</field>
+			<card>1M</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>descripcion</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Descripción")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>100</length>
+	</field>
+
+	<field>
+		<name>ctaentidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Entidad")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<regexp>^[0-9]{4,4}$</regexp>
+	</field>
+
+	<field>
+		<name>ctaagencia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Oficina")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<regexp>^[0-9]{4,4}$</regexp>
+	</field>
+
+	<field>
+		<name>ctadc</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","D.C.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>cuenta</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>10</length>
+		<regexp>^[0-9]{10,10}$</regexp>
+	</field>
+
+	<field>
+		<name>entidad</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Entidad Nº")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>bancos</table>
+			<field>entidad</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+	<field>
+		<name>agencia</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Oficina Nº")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>4</length>
+		<visiblegrid>false</visiblegrid>
+
+		<associated>
+				<with>entidad</with>
+				<by>entidad</by>
+		</associated>
+
+		<relation>
+			<table>sucursales</table>
+			<field>agencia</field>
+			<card>M1</card>
+		</relation>
+	</field>
+
+		<field>
+		<name>sufijo</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Sufijo Norma 19")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>3</length>
+		<default>000</default>
+	</field>
+	
+	<field>
+		<name>iban</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","IBAN")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>34</length>
+		<editable>false</editable>
+	</field>
+
+	<field>
+		<name>bic</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","BIC")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>11</length>
+	</field>
+
+	<field>
+		<name>codsubcuenta</name>
+		<!-- Código de la subcuenta de contabilidad asociada a la cuenta bancaria-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Subcuenta")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>15</length>
+	</field>
+	
+	<field>
+		<name>idsubcuenta</name>
+		<!-- Identificador interno de la subcuenta -->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>uint</type>
+		<visiblegrid>false</visiblegrid>
+
+		<relation>
+			<table>co_subcuentas</table>
+			<field>idsubcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
         <name>codsubcuentaecgc</name>
-<!-- Código de la subcuenta de contabilidad asociada a Efectos comerciales gestión de cobro-->        <alias>QT_TRANSLATE_NOOP("MetaData","Efectos comerciales gestión cobro")</alias>
+		<!-- Código de la subcuenta de contabilidad asociada a Efectos comerciales gestión de cobro-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","Efectos comerciales gestión cobro")</alias>
         <null>true</null>
         <pk>false</pk>
         <type>string</type>
@@ -199,7 +257,8 @@
     </field>
     <field>
         <name>idsubcuentaecgc</name>
-<!-- Identificador interno de la subcuenta de comisiones-->        <alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
+		<!-- Identificador interno de la subcuenta de comisiones-->
+		<alias>QT_TRANSLATE_NOOP("MetaData","ID")</alias>
         <null>true</null>
         <pk>false</pk>
         <type>uint</type>
@@ -210,4 +269,26 @@
             <card>M1</card>
         </relation>
     </field>
-    </TMD>
+    <field>
+    	<name>codpais</name>
+      <alias>QT_TRANSLATE_NOOP("MetaData","País")</alias>
+      <null>false</null>
+      <pk>false</pk>
+      <type>string</type>
+      <length>20</length>
+      <default>ES</default>
+				<relation>
+					<table>paises</table>
+					<field>codpais</field>
+					<card>M1</card>
+				</relation>
+    </field>
+    <field>
+    	<name>codigocuenta</name>
+      <alias>QT_TRANSLATE_NOOP("MetaData","Código Cuenta")</alias>
+      <null>false</null>
+      <pk>false</pk>
+      <type>string</type>
+      <length>20</length>
+    </field>
+</TMD>
