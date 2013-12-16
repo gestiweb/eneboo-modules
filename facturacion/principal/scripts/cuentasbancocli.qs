@@ -24,10 +24,17 @@
 //////////////////////////////////////////////////////////////////
 //// INTERNA /////////////////////////////////////////////////////
 class interna {
-    var ctx:Object;
-    function interna( context ) { this.ctx = context; }
-    function init() { this.ctx.interna_init(); }
-		function calculateCounter():String { return this.ctx.interna_calculateCounter(); }
+    var ctx;
+    
+    function interna( context ) { 
+    	this.ctx = context; 
+    }
+    function init() { 
+    	this.ctx.interna_init(); 
+    }
+		function calculateCounter() { 
+			return this.ctx.interna_calculateCounter(); 
+		}
 }
 //// INTERNA /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -36,8 +43,12 @@ class interna {
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
-    function oficial( context ) { interna( context ); }
-		function bufferChanged(fN:String) { this.ctx.oficial_bufferChanged(fN); }
+    function oficial( context ) { 
+    	interna( context ); 
+    } 
+		function bufferChanged(fN) { 
+			this.ctx.oficial_bufferChanged(fN); 
+		}
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -46,7 +57,9 @@ class oficial extends interna {
 /////////////////////////////////////////////////////////////////
 //// DESARROLLO /////////////////////////////////////////////////
 class head extends oficial {
-    function head( context ) { oficial ( context ); }
+    function head( context ) { 
+    	oficial ( context ); 
+    }
 }
 //// DESARROLLO /////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -55,7 +68,9 @@ class head extends oficial {
 /////////////////////////////////////////////////////////////////
 //// INTERFACE  /////////////////////////////////////////////////
 class ifaceCtx extends head {
-    function ifaceCtx( context ) { head( context ); }
+    function ifaceCtx( context ) { 
+    	head( context ); 
+    }
 }
 
 const iface = new ifaceCtx( this );
@@ -69,17 +84,22 @@ const iface = new ifaceCtx( this );
 
 //////////////////////////////////////////////////////////////////
 //// INTERNA /////////////////////////////////////////////////////
+
 function interna_init()
 {
-	var cursor:FLSqlCursor = this.cursor();
-	connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
-	this.iface.bufferChanged("all");
+	var cursor = this.cursor();
+	var _i = this.iface;
+	
+	connect(cursor, "bufferChanged(QString)", _i, "bufferChanged");
+	
 	cursor.setValueBuffer("codcliente", cursor.cursorRelation().valueBuffer("codcliente"));
+	
+	formRecordcuentasbanco.iface.pub_habilitarPorPais(this);
 }
 
-function interna_calculateCounter():String
+function interna_calculateCounter()
 {
-	var util:FLUtil = new FLUtil();
+    var util:FLUtil = new FLUtil();
 	return util.nextCounter("codcuenta", this.cursor());
 }
 
@@ -90,22 +110,15 @@ function interna_calculateCounter():String
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 
-function oficial_bufferChanged(fN:String)
+function oficial_bufferChanged(fN)
 {
-	var util:FLUtil = new FLUtil();
-/** \C Al cambiar --cuenta--, --ctaagencia-- o --ctaentidad-- se recalculan automáticamente los dígitos de control
-\end */
-	if (fN == "ctaagencia" || fN == "ctaentidad" || fN == "all") {
-		var entidad:String = this.child("entidad").value();
-		var agencia:String = this.child("agencia").value();
-		var dc1:String = util.calcularDC(entidad + agencia);
-		this.child("dc1").setText(dc1);
-	}
-
-	if (fN == "cuenta" || fN == "all") {
-		var cuenta:String = this.child("cuenta").value();
-		var dc2:String = util.calcularDC(cuenta);
-		this.child("dc2").setText(dc2);
+	var _i = this.iface;
+	
+	switch (fN) {
+		default: {
+			formRecordcuentasbanco.iface.pub_commonBufferChanged(fN, this);
+			break;
+		}
 	}
 }
 
@@ -117,5 +130,4 @@ function oficial_bufferChanged(fN:String)
 //// DESARROLLO /////////////////////////////////////////////////
 
 //// DESARROLLO /////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-
+/////////////////////////////////////////////////////////////////
