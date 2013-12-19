@@ -1875,7 +1875,7 @@ function oficial_obtenerMiembrosNivelLista(aNivel:Array):Array
 	if (!lista || lista == "") {
 		return false;
 	}
-	var aLista:Array = lista.split(",");
+	var aLista:Array = lista.split(", ");
 	for (var i:Number = 0; i < aLista.length; i++) {
 		aNivel["miembros"][i] = [];
 		aNivel["miembros"][i]["clave"] = aLista[i];
