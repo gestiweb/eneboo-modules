@@ -716,10 +716,12 @@ function oficial_comprobarStockEnAlbaranado(curLineaPedido:FLSqlCursor, cantidad
 					var resCuestion:Number = MessageBox.warning(util.translate("scripts", "El artículo %1 no permite ventas sin stocks.\nEstá albaranando más cantidad (%2) que la disponible (%3) ahora mismo en el almacén %4.\n¿Desea continuar dejando el pedido parcialmente albaranado?\n(pulse Ignorar para evitar esta pregunta en el resto de las líneas)").arg(referencia).arg(cantidad).arg(cantidadStock).arg(codAlmacen), MessageBox.No, MessageBox.Yes, MessageBox.Ignore);
 					switch (resCuestion) {
 						case MessageBox.Yes: {
+							cantidadStock = 0;
 							break;
 						}
 						case MessageBox.Ignore: {
 							this.iface.ignorarAvisoStock_ = true;
+							cantidadStock = 0;
 							break;
 						}
 						default: {
@@ -727,7 +729,10 @@ function oficial_comprobarStockEnAlbaranado(curLineaPedido:FLSqlCursor, cantidad
 							return res;
 						}
 					}
+				} else {
+					cantidadStock = 0;
 				}
+                
 				if (cantidadStock < 0) {
 					cantidadStock = 0;
 				}

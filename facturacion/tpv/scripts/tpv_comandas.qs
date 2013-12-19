@@ -1786,11 +1786,11 @@ function oficial_pbnPagar_clicked()
 	var cursor:FLSqlCursor = this.cursor();
 	var pendiente:Number = parseFloat(cursor.valueBuffer("pendiente"));
 	if (!isNaN(pendiente) && pendiente <= 0) {
+        if (this.iface.config_["rvabrircajon"]) {
+            this.iface.abrirCajonClicked();
+        }
 		if (this.iface.config_["rvimprimirtique"]) {
 			this.iface.imprimirQuickClicked();
-		}
-		if (this.iface.config_["rvabrircajon"]) {
-			this.iface.abrirCajonClicked();
 		}
 		if (this.iface.config_["rvpasarsiguiente"]) {
 			var res:Number = MessageBox.information(util.translate("scripts", "Venta realizada.\nPulse aceptar para pasar a la siguiente"), MessageBox.Ok, MessageBox.Cancel);

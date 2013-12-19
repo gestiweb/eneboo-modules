@@ -44,6 +44,9 @@ class oficial extends interna {
 	function bufferChanged(fN:String) {
 		return this.ctx.oficial_bufferChanged(fN);
 	}
+    function tbnCalcularDatosCuenta_clicked() {
+        return this.ctx.oficial_tbnCalcularDatosCuenta_clicked();
+    }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -123,6 +126,7 @@ function interna_init()
 	var cursor:FLSqlCursor = this.cursor();
 
 	connect (cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
+    connect (this.child("tbnCalcularDatosCuenta"), "clicked()", this, "iface.tbnCalcularDatosCuenta_clicked");
 	
 	this.iface.bufferChanged("pagoindirecto");
 }
@@ -148,6 +152,67 @@ function oficial_bufferChanged(fN:String)
 			break;
 		}
 	}
+}
+
+function oficial_tbnCalcularDatosCuenta_clicked()
+{
+    var util:FLUtil;
+    var _i = this.iface;
+    
+    var res = MessageBox.information(util.translate("scripts", "Se van a calcular los dígitos de control, los códigos de cuenta, y el IBAN de todas las cuentas de empresa, clientes, y proveedores.\n¿Quieres continuar?\n\nNota: si el código de país en la cuenta está vacío, se supondrá que es de España.\nSi tiene cuentas de otros países debe revisarlas antes e informar su correspondiente código de país"), MessageBox.Yes, MessageBox.No);
+    if (res != MessageBox.Yes) {
+        return;
+    }
+    
+    var aTablas = ["cuentasbanco","cuentasbcocli","cuentasbcopro"];
+    
+    for(var i = 0; i < aTablas.length; i++) {
+        var paso = 0;
+        
+        var curCuentas = new FLSqlCursor(aTablas[i]);
+        curCuentas.select();
+        
+        var codCuenta = curCuentas.valueBuffer("codcuenta");
+        var totalPasos = curCuentas.size();
+        
+        if(totalPasos == 0) {
+            continue;
+        }
+        
+        var nombresTabla = [util.translate("scripts", "cuentas de empresa"), util.translate("scripts", "cuentas de empresa"), util.translate("scripts", "cuentas de empresa")];
+        
+        //AQUtil.createProgressDialog(sys.translate("Calculando datos de IBAN en las %1...").arg(nombresTabla[i]), totalPasos);
+        util.createProgressDialog(util.translate("scripts", "Calculando datos de IBAN en las %1...").arg(nombresTabla[i]), totalPasos);
+        util.setProgress(0);
+        
+        while(curCuentas.next()) {
+            curCuentas.setModeAccess(curCuentas.Edit);
+            curCuentas.refreshBuffer();
+            if (curCuentas.isNull("codpais") || util.sqlSelect("paises", "codiso", "codpais = '" + curCuentas.valueBuffer("codpais") + "'") == "ES") {
+                if (curCuentas.isNull("codpais")) {
+                    curCuentas.setValueBuffer("codpais", util.sqlSelect("paises", "codpais", "codiso = 'ES'"));
+                }
+                curCuentas.setValueBuffer("ctadc", formRecordcuentasbanco.iface.pub_commonCalculateField("ctadc", curCuentas));
+                curCuentas.setValueBuffer("codigocuenta", formRecordcuentasbanco.iface.pub_commonCalculateField("codigocuenta_es", curCuentas));
+            }
+            curCuentas.setValueBuffer("iban", formRecordcuentasbanco.iface.pub_commonCalculateField("iban", curCuentas));
+            
+            
+            if (!curCuentas.commitBuffer()) {
+                MessageBox.warning(util.translate("scripts", "Error en el cálculo de los datos de la cuenta %1 en %2").arg(codCuenta).arg(nombresTabla[i]), MessageBox.Ok, MessageBox.NoButton);
+                return;
+            }
+            
+            //AQUtil.setProgress(++paso);
+            util.setProgress(++paso);
+            
+        } 
+        
+        //AQUtil.destroyProgressDialog();
+        util.destroyProgressDialog();
+    }
+    
+    MessageBox.information(sys.translate("Los datos de las cuentas han sido recalculados con éxito."), MessageBox.Ok, MessageBox.NoButton);
 }
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////

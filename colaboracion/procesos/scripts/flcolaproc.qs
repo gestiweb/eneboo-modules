@@ -2797,7 +2797,7 @@ function oficial_notificar(mensaje:Array):Boolean
 	mensaje["asunto"] = ledAsunto.text;
 	mensaje["mensaje"] = tedMensaje.text;
 	
-	var correo:FLSmtpClient new FLSmtpClient;
+	var correo:FLSmtpClient = new FLSmtpClient;
 	correo.setMailServer("localhost");
 	correo.setFrom(emailOrigen);
 	correo.setTo(emailDestino);
