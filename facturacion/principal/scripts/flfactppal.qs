@@ -691,14 +691,15 @@ function oficial_valoresIniciales()
 	var bancos:Array =
 		[["2085", "IBERCAJA BANCO"],["2038", "BANKIA"],
 		["0019", "DEUTSCHE BANK"],["0081", "BANCO DE SABADELL"],
-		["0049", "BANCO SANTANDER,S.A."],
-		["0075", "BANCO POPULAR"],["0182","BANCO BILBAO VIZCAYA ARGENTARIA"],
+		["0049", "BANCO SANTANDER"],["0075", "BANCO POPULAR"],
+		["0182", "BANCO BILBAO VIZCAYA ARGENTARIA"],"2048", "LIBERBANK"]
 		["0128", "BANKINTER"],["2100", "CAIXABANK"],
 		["0061", "BANCA MARCH"],["0065", "BARCLAYS BANK"],
-		["0073", "OPEN BANK,S.A."],["0103", "BANCO ZARAGOZANO"],
-		["2013", "CATALUNYA BANC"],
+		["0073", "OPEN BANK"],["2080", "NCG BANCO"],
+		["2013", "CATALUNYA BANC"],["2095", "KUTXABANK"],
 		["2103", "UNICAJA BANCO"],["2105", "CAJA DE CASTILLA LA MANCHA"],
-		["0138", "BANKOA"]];
+		["2108", "BANCO CEISS"],
+		["0138", "BANKOA"],["0487", "BANCO MARE NOSTRUM"]];
 	for (var i:Number = 0; i < bancos.length; i++) {
 		with(cursor) {
 			setModeAccess(cursor.Insert);
