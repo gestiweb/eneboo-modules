@@ -689,17 +689,16 @@ function oficial_valoresIniciales()
 {
 	var cursor:FLSqlCursor = new FLSqlCursor("bancos");
 	var bancos:Array =
-		[["2085", "IBERCAJA BANCO"],["2038", "BANKIA"],
-		["0019", "DEUTSCHE BANK"],["0081", "BANCO DE SABADELL"],
-		["0049", "BANCO SANTANDER"],["0075", "BANCO POPULAR"],
-		["0182", "BANCO BILBAO VIZCAYA ARGENTARIA"],"2048", "LIBERBANK"]
-		["0128", "BANKINTER"],["2100", "CAIXABANK"],
+		[["0019", "DEUTSCHE BANK"],["0049", "BANCO SANTANDER"],
 		["0061", "BANCA MARCH"],["0065", "BARCLAYS BANK"],
-		["0073", "OPEN BANK"],["2080", "NCG BANCO"],
-		["2013", "CATALUNYA BANC"],["2095", "KUTXABANK"],
-		["2103", "UNICAJA BANCO"],["2105", "CAJA DE CASTILLA LA MANCHA"],
-		["2108", "BANCO CEISS"],
-		["0138", "BANKOA"],["0487", "BANCO MARE NOSTRUM"]];
+		["0073", "OPEN BANK"],["0075", "BANCO POPULAR"],
+		["0081", "BANCO DE SABADELL"],["0128", "BANKINTER"],
+		["0138", "BANKOA"],["0182", "BANCO BILBAO VIZCAYA ARGENTARIA"],
+		["0487", "BANCO MARE NOSTRUM"],["2013", "CATALUNYA BANC"],
+		["2038", "BANKIA"],["2048", "LIBERBANK"],
+		["2080", "NCG BANCO"],["2085", "IBERCAJA BANCO"],
+		["2095", "KUTXABANK"],["2100", "CAIXABANK"],
+		["2103", "UNICAJA BANCO"],["2108", "BANCO CEISS"]];
 	for (var i:Number = 0; i < bancos.length; i++) {
 		with(cursor) {
 			setModeAccess(cursor.Insert);
