@@ -689,21 +689,16 @@ function oficial_valoresIniciales()
 {
 	var cursor:FLSqlCursor = new FLSqlCursor("bancos");
 	var bancos:Array =
-		[["0030", "BANESTO"],["0112", "BANCO URQUIJO"],
-		["2085", "IBERCAJA"],["0093", "BANCO DE VALENCIA"],
-		["2059", "CAIXA SABADELL"],["2073", "CAIXA TARRAGONA"],
-		["2038", "CAJA MADRID"],["2091", "CAIXA GALICIA"],
-		["0019", "DEUTSCHE BANK"],["0081", "BANCO DE SABADELL"],
-		["0049", "BANCO SANTANDER CENTRAL HISPANO"],["0072", "BANCO PASTOR"],
-		["0075", "BANCO POPULAR"],["0182","BANCO BILBAO VIZCAYA ARGENTARIA"],
-		["0128", "BANKINTER"],["2090", "C.A.M."],["2100", "LA CAIXA"],
-		["2077", "BANCAJA"],["0008", "BANCO ATLANTICO"],
+		[["0019", "DEUTSCHE BANK"],["0049", "BANCO SANTANDER"],
 		["0061", "BANCA MARCH"],["0065", "BARCLAYS BANK"],
-		["0073", "PATAGON INTERNET BANK"],["0103", "BANCO ZARAGOZANO"],
-		["2013", "CAIXA CATALUNYA"],["2043","CAJA MURCIA"],
-		["2103", "UNICAJA"],["2105", "CAJA DE CASTILLA LA MANCHA"],
-		["0042", "BANCO GUIPUZCOANO"],["0138", "BANKOA"],
-		["3056", "CAJA RURAL DE ALBACETE"]];
+		["0073", "OPEN BANK"],["0075", "BANCO POPULAR"],
+		["0081", "BANCO DE SABADELL"],["0128", "BANKINTER"],
+		["0138", "BANKOA"],["0182", "BANCO BILBAO VIZCAYA ARGENTARIA"],
+		["0487", "BANCO MARE NOSTRUM"],["2013", "CATALUNYA BANC"],
+		["2038", "BANKIA"],["2048", "LIBERBANK"],
+		["2080", "NCG BANCO"],["2085", "IBERCAJA BANCO"],
+		["2095", "KUTXABANK"],["2100", "CAIXABANK"],
+		["2103", "UNICAJA BANCO"],["2108", "BANCO CEISS"]];
 	for (var i:Number = 0; i < bancos.length; i++) {
 		with(cursor) {
 			setModeAccess(cursor.Insert);
@@ -971,7 +966,7 @@ function oficial_crearProvinciasEsp(codPais:String)
 	var util:FLUtil = new FLUtil;
 	var cursor:FLSqlCursor = new FLSqlCursor("provincias");
 	var provincias:Array =
-			[["ALAVA", "ES", "01"], ["ALBACETE", "ES", "02"], ["ALICANTE", "ES", "03"], ["ALMERIA", "ES", "04"], ["ASTURIAS", "ES", "33"], ["AVILA", "ES", "05"], ["BADAJOZ", "ES", "06"], ["BALEARES", "ES", "07"], ["BARCELONA", "ES", "08"], ["BURGOS", "ES", "09"], ["CACERES", "ES", "10"], ["CADIZ", "ES", "11"], ["CANTABRIA", "ES", "39"], ["CASTELLON", "ES", "12"], ["CIUDAD REAL", "ES", "12"], ["CIUDAD REAL", "ES", "13"], ["CORDOBA", "ES", "14"], ["LA CORUÑA", "ES", "15"], ["CUENCA", "ES", "16"], ["GERONA", "ES", "17"], ["GRANADA", "ES", "18"], ["GUADALAJARA", "ES", "19"], ["GUIPUZCOA", "ES", "20"], ["HUELVA", "ES", "21"], ["HUESCA", "ES", "22"], ["JAEN", "ES", "23"], ["LEON", "ES", "24"], ["LERIDA", "ES", "25"], ["LUGO", "ES", "27"], ["MADRID", "ES", "28"], ["MALAGA", "ES", "29"], ["MURCIA", "ES", "30"], ["NAVARRA", "ES", "31"], ["ORENSE", "ES", "32"], ["PALENCIA", "ES", "34"], ["LAS PALMAS", "ES", "35"], ["PONTEVEDRA", "ES", "36"], ["LA RIOJA", "ES", "26"], ["SALAMANCA", "ES", "37"], ["SEGOVIA", "ES", "40"],["SEVILLA", "ES", "41"], ["SORIA", "ES", "42"], ["TARRAGONA", "ES", "43"], ["SANTA CRUZ DE TENERIFE", "ES", "38"], ["TERUEL", "ES", "44"], ["TOLEDO", "ES", "45"], ["VALENCIA", "ES", "46"], ["VALLADOLID", "ES", "47"], ["VIZCAYA", "ES", "48"], ["ZAMORA", "ES", "49"], ["ZARAGOZA", "ES", "50"]];
+			[["ALAVA", "ES", "01"], ["ALBACETE", "ES", "02"], ["ALICANTE", "ES", "03"], ["ALMERIA", "ES", "04"], ["ASTURIAS", "ES", "33"], ["AVILA", "ES", "05"], ["BADAJOZ", "ES", "06"], ["BALEARES", "ES", "07"], ["BARCELONA", "ES", "08"], ["BURGOS", "ES", "09"], ["CACERES", "ES", "10"], ["CADIZ", "ES", "11"], ["CANTABRIA", "ES", "39"], ["CASTELLON", "ES", "12"], ["CIUDAD REAL", "ES", "12"], ["CIUDAD REAL", "ES", "13"], ["CORDOBA", "ES", "14"], ["LA CORUÑA", "ES", "15"], ["CUENCA", "ES", "16"], ["GERONA", "ES", "17"], ["GRANADA", "ES", "18"], ["GUADALAJARA", "ES", "19"], ["GUIPUZCOA", "ES", "20"], ["HUELVA", "ES", "21"], ["HUESCA", "ES", "22"], ["JAEN", "ES", "23"], ["LEON", "ES", "24"], ["LERIDA", "ES", "25"], ["LUGO", "ES", "27"], ["MADRID", "ES", "28"], ["MALAGA", "ES", "29"], ["MURCIA", "ES", "30"], ["NAVARRA", "ES", "31"], ["ORENSE", "ES", "32"], ["PALENCIA", "ES", "34"], ["LAS PALMAS", "ES", "35"], ["PONTEVEDRA", "ES", "36"], ["LA RIOJA", "ES", "26"], ["SALAMANCA", "ES", "37"], ["SEGOVIA", "ES", "40"],["SEVILLA", "ES", "41"], ["SORIA", "ES", "42"], ["TARRAGONA", "ES", "43"], ["SANTA CRUZ DE TENERIFE", "ES", "38"], ["TERUEL", "ES", "44"], ["TOLEDO", "ES", "45"], ["VALENCIA", "ES", "46"], ["VALLADOLID", "ES", "47"], ["VIZCAYA", "ES", "48"], ["ZAMORA", "ES", "49"], ["ZARAGOZA", "ES", "50"], ["CEUTA", "ES", "51"], ["MELILLA", "ES", "52"]];
 
 	var codPaisProvincia:String;
 	for (var i:Number = 0; i < provincias.length; i++) {
