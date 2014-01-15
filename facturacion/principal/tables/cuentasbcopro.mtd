@@ -27,7 +27,7 @@
 	<field>
 		<name>ctaentidad</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Entidad")</alias>
-		<null>false</null>
+		<null>true</null>
 		<pk>false</pk>
 		<type>string</type>
 		<length>4</length>
@@ -37,7 +37,7 @@
 	<field>
 		<name>ctaagencia</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Oficina")</alias>
-		<null>false</null>
+		<null>true</null>
 		<pk>false</pk>
 		<type>string</type>
 		<length>4</length>
@@ -45,9 +45,19 @@
 	</field>
 
 	<field>
+		<name>ctadc</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","D.C.")</alias>
+		<null>true</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>2</length>
+		<editable>false</editable>
+	</field>
+
+	<field>
 		<name>cuenta</name>
 		<alias>QT_TRANSLATE_NOOP("MetaData","Cuenta")</alias>
-		<null>false</null>
+		<null>true</null>
 		<pk>false</pk>
 		<type>string</type>
 		<length>10</length>
@@ -92,22 +102,23 @@
 	</field>
 
 	<field>
-                <name>iban</name>
-                <alias>QT_TRANSLATE_NOOP("MetaData","IBAN")</alias>
-                <null>true</null>
-                <pk>false</pk>
-                <type>string</type>
-                <length>34</length>
-        </field>
+    <name>iban</name>
+    <alias>QT_TRANSLATE_NOOP("MetaData","IBAN")</alias>
+    <null>true</null>
+    <pk>false</pk>
+    <type>string</type>
+    <length>34</length>
+		<editable>false</editable>
+  </field>
 
-        <field>
-                <name>swift</name>
-                <alias>QT_TRANSLATE_NOOP("MetaData","SWIFT")</alias>
-                <null>true</null>
-                <pk>false</pk>
-                <type>string</type>
-                <length>11</length>
-        </field>
+  <field>
+    <name>bic</name>
+    <alias>QT_TRANSLATE_NOOP("MetaData","BIC")</alias>
+    <null>true</null>
+    <pk>false</pk>
+    <type>string</type>
+    <length>11</length>
+  </field>
 
 	<field>
 		<name>codproveedor</name>
@@ -126,4 +137,75 @@
 			<delC>true</delC>
 		</relation>
 	</field>
+	
+	<field>
+        <name>idusuarioalta</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","U.Alta")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>50</length>
+        <editable>false</editable>
+    </field>
+    <field>
+        <name>fechaalta</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","F.Alta")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>date</type>
+        <editable>false</editable>
+    </field>
+     <field>
+        <name>horaalta</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","H.Alta")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>time</type>
+    </field>
+    <field>
+        <name>idusuariomod</name>
+        <alias>QT_TRANSLATE_NOOP("MetaData","U.Mod.")</alias>
+        <null>true</null>
+        <pk>false</pk>
+        <type>string</type>
+        <length>50</length>
+        <editable>false</editable>
+    </field>
+    <field>
+      <name>fechamod</name>
+      <alias>QT_TRANSLATE_NOOP("MetaData","F.Mod.")</alias>
+      <null>true</null>
+      <pk>false</pk>
+      <type>date</type>
+      <editable>false</editable>
+    </field>
+    <field>
+      <name>horamod</name>
+      <alias>QT_TRANSLATE_NOOP("MetaData","H.Mod")</alias>
+      <null>true</null>
+      <pk>false</pk>
+      <type>time</type>
+    </field>
+    <field>
+    	<name>codpais</name>
+      <alias>QT_TRANSLATE_NOOP("MetaData","País")</alias>
+      <null>false</null>
+      <pk>false</pk>
+      <type>string</type>
+      <length>20</length>
+      <default>ES</default>
+				<relation>
+					<table>paises</table>
+					<field>codpais</field>
+					<card>M1</card>
+				</relation>
+    </field>
+    <field>
+    	<name>codigocuenta</name>
+      <alias>QT_TRANSLATE_NOOP("MetaData","Código Cuenta")</alias>
+      <null>false</null>
+      <pk>false</pk>
+      <type>string</type>
+      <length>20</length>
+    </field>
 </TMD>

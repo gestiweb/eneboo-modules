@@ -1,8 +1,8 @@
 /***************************************************************************
-                 cuentasbancocli.qs  -  description
+                 mandatoscli.qs  -  description
                              -------------------
-    begin                : lun abr 26 2004
-    copyright            : (C) 2004 by InfoSiAL S.L.
+    begin                : mar dic 10 2013
+    copyright            : (C) 2013 by InfoSiAL S.L.
     email                : mail@infosial.com
  ***************************************************************************/
 /***************************************************************************
@@ -25,16 +25,19 @@
 //// INTERNA /////////////////////////////////////////////////////
 class interna {
     var ctx;
-    
-    function interna( context ) { 
-    	this.ctx = context; 
-    }
-    function init() { 
-    	this.ctx.interna_init(); 
-    }
-		function calculateCounter() { 
-			return this.ctx.interna_calculateCounter(); 
-		}
+
+	function interna( context ) {
+		this.ctx = context;
+	}
+	function init() {
+		this.ctx.interna_init();
+	}
+	function validateForm() {
+		return this.ctx.interna_validateForm();
+	}
+	function calculateField(fN) {
+		return this.ctx.interna_calculateField(fN);
+	}
 }
 //// INTERNA /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -43,12 +46,18 @@ class interna {
 //////////////////////////////////////////////////////////////////
 //// OFICIAL /////////////////////////////////////////////////////
 class oficial extends interna {
-    function oficial( context ) { 
-    	interna( context ); 
-    } 
-		function bufferChanged(fN) { 
-			this.ctx.oficial_bufferChanged(fN); 
-		}
+	function oficial( context ) { 
+		interna( context ); 
+	} 
+	function bufferChanged(fN) { 
+		this.ctx.oficial_bufferChanged(fN); 
+	}
+	function commonCalculateField(fN, cursor) {
+		return this.ctx.oficial_commonCalculateField(fN, cursor);
+	}
+	function commonBufferChanged(fN, miForm) {
+		return this.ctx.oficial_commonBufferChanged(fN, miForm);
+	}
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -71,6 +80,12 @@ class ifaceCtx extends head {
     function ifaceCtx( context ) { 
     	head( context ); 
     }
+    function pub_commonBufferChanged(fN, miForm) {
+    	return this.commonBufferChanged(fN, miForm);
+    }
+    function pub_commonCalculateField(fN, cursor) {
+    	return this.commonCalculateField(fN, cursor);
+    }
 }
 
 const iface = new ifaceCtx( this );
@@ -84,24 +99,32 @@ const iface = new ifaceCtx( this );
 
 //////////////////////////////////////////////////////////////////
 //// INTERNA /////////////////////////////////////////////////////
-
 function interna_init()
 {
-	var cursor = this.cursor();
 	var _i = this.iface;
+	var cursor = this.cursor();
 	
 	connect(cursor, "bufferChanged(QString)", _i, "bufferChanged");
 	
-	cursor.setValueBuffer("codcliente", cursor.cursorRelation().valueBuffer("codcliente"));
-	
-	formRecordcuentasbanco.iface.pub_habilitarPorPais(this);
+	if(cursor.modeAccess() == cursor.Insert) {
+		sys.setObjText(this,"fdbFechaCaducidad",_i.calculateField("fechacaducidad"));
+	}
 }
 
-function interna_calculateCounter()
+function interna_calculateField(fN)
 {
-	return AQUtil.nextCounter("codcuenta", this.cursor());
+	var _i = this.iface;
+	var cursor = this.cursor();
+	
+	return _i.commonCalculateField(fN, cursor);
 }
 
+function interna_validateForm()
+{
+	var cursor = this.cursor();
+
+	return true;
+}
 //// INTERNA /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
@@ -112,10 +135,51 @@ function interna_calculateCounter()
 function oficial_bufferChanged(fN)
 {
 	var _i = this.iface;
+	var cursor = this.cursor();
 	
 	switch (fN) {
 		default: {
-			formRecordcuentasbanco.iface.pub_commonBufferChanged(fN, this);
+			_i.commonBufferChanged(fN, this);
+			break;
+		}
+	}
+}
+
+function oficial_commonCalculateField(fN, cursor)
+{
+	var _i = this.iface;
+	var valor;
+	
+	switch (fN) {
+		case "fechacaducidad": {
+			var fechaAnt;
+			fechaAnt = cursor.valueBuffer("fechaultadeudo");
+			if(!fechaAnt || fechaAnt == "") {
+				fechaAnt = cursor.valueBuffer("fechafirma");
+				if(!fechaAnt || fechaAnt == "") {
+					return false;
+				}
+			}
+			valor = AQUtil.addMonths(fechaAnt,36);
+			break;
+		}
+	}
+	return valor;
+}
+
+function oficial_commonBufferChanged(fN, miForm)
+{
+	var _i = this.iface;
+	var cursor = miForm.cursor();
+
+	switch(fN) {
+		case "fechafirma": {
+			sys.setObjText(miForm,"fdbFechaCaducidad",_i.commonCalculateField("fechacaducidad",cursor));
+		}
+		case "fechaultadeudo": {
+			sys.setObjText(miForm,"fdbFechaCaducidad",_i.calculateField("fechacaducidad",cursor));
+		}
+		default: {
 			break;
 		}
 	}
