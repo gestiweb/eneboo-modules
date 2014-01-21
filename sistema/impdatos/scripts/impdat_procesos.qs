@@ -43,8 +43,8 @@ class oficial extends interna {
 	var ficheroCSV:String;
 
 	var nuevosAimportar:Number;
-	var camposPublico[];
-	var valores[];
+	var camposPublico:Array = [];
+	var valores:Array = [];
 
     function oficial( context ) { interna( context ); } 
 	function establecerFichero() {
