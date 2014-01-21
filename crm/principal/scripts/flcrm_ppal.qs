@@ -2307,7 +2307,7 @@ function tareas_notificar(mensaje:Array):Boolean
 	mensaje["asunto"] = ledAsunto.text;
 	mensaje["mensaje"] = tedMensaje.text;
 	
-		var correo:FLSmtpClient new FLSmtpClient;
+		var correo:FLSmtpClient = new FLSmtpClient;
 	correo.setFrom(emailOrigen);
 	correo.setTo(emailDestino);
 	correo.setSubject(mensaje["asunto"]);
