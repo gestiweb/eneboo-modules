@@ -355,6 +355,8 @@ function oficial_accionesAutomaticas()
 debug("oficial_accionesAutomaticas");
 	var util:FLUtil = new FLUtil;
 	var cursor:FLSqlCursor = this.cursor();
+	if (!sys.isLoadedModule("flcolaproc"))
+		return;
 	var acciones:Array = flcolaproc.iface.pub_accionesAuto();
 	if (!acciones) {
 		return;
