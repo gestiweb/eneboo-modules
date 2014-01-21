@@ -164,7 +164,28 @@ function oficial_tbnCalcularDatosCuenta_clicked()
         return;
     }
     
+    var codigoES = util.sqlSelect("paises","codpais","codpais = 'ES' AND codiso = 'ES'");
+    var paisES;
+        
+    if(!codigoES || codigoES == "") {
+        paisES = util.sqlSelect("paises","codpais","codiso = 'ES' ORDER BY codpais");
+        
+        if(!paisES || paisES == "") {
+            MessageBox.information(sys.translate("Lo siento, necesita tener un país con código ISO 'ES'."), MessageBox.Ok, MessageBox.NoButton);
+            return false;
+        }
+    }
+    else {
+        paisES = codigoES;
+    }
+    
     var aTablas = ["cuentasbanco","cuentasbcocli","cuentasbcopro"];
+    var aTablasError = ["Cta. Empresa", "Cta. Cliente", "Cta. Proveedor"];
+    var nombresTabla = [sys.translate("cuentas de empresa"), sys.translate("cuentas de clientes"), sys.translate("cuentas de proveedores")];
+    
+    var aErrorCta:Array = [];
+    var aErrorDesc:Array = [];
+    var aErrorTab:Array = [];
     
     for(var i = 0; i < aTablas.length; i++) {
         var paso = 0;
@@ -186,12 +207,44 @@ function oficial_tbnCalcularDatosCuenta_clicked()
         util.setProgress(0);
         
         while(curCuentas.next()) {
+            util.setProgress(++paso);
             curCuentas.setModeAccess(curCuentas.Edit);
             curCuentas.refreshBuffer();
-            if (curCuentas.isNull("codpais") || util.sqlSelect("paises", "codiso", "codpais = '" + curCuentas.valueBuffer("codpais") + "'") == "ES") {
-                if (curCuentas.isNull("codpais")) {
-                    curCuentas.setValueBuffer("codpais", util.sqlSelect("paises", "codpais", "codiso = 'ES'"));
+            
+            var codCuenta = curCuentas.valueBuffer("codcuenta");
+            var desc = curCuentas.valueBuffer("descripcion");
+            var codPais = curCuentas.valueBuffer("codpais");
+        
+            if (curCuentas.isNull("codpais") || (codPais == "ES" && paisES && paisES != "") || util.sqlSelect("paises", "codiso", "codpais = '" + curCuentas.valueBuffer("codpais") + "'") == "ES") {
+                if (curCuentas.isNull("codpais") || (codPais == "ES" && paisES && paisES != "")) {
+                    curCuentas.setValueBuffer("codpais", paisES);
                 }
+                
+                var entidad = curCuentas.valueBuffer("ctaentidad");
+                var agencia = curCuentas.valueBuffer("ctaagencia");
+                var cuenta = curCuentas.valueBuffer("cuenta");
+                
+                if(!entidad || !agencia || !cuenta) {
+                    aErrorCta.push(codCuenta);
+                    aErrorDesc.push(desc);
+                    aErrorTab.push(aTablasError[i]);
+                    continue;
+                }
+                
+                if(entidad.length != 4 || agencia.length != 4 || cuenta.length != 10) {
+                    aErrorCta.push(codCuenta);
+                    aErrorDesc.push(desc);
+                    aErrorTab.push(aTablasError[i]);
+                    continue;
+                }
+                
+                if(isNaN(parseFloat(entidad)) || isNaN(parseFloat(entidad)) || isNaN(parseFloat(entidad))) {
+                    aErrorCta.push(codCuenta);
+                    aErrorDesc.push(desc);
+                    aErrorTab.push(aTablasError[i]);
+                    continue;
+                }
+                
                 curCuentas.setValueBuffer("ctadc", formRecordcuentasbanco.iface.pub_commonCalculateField("ctadc", curCuentas));
                 curCuentas.setValueBuffer("codigocuenta", formRecordcuentasbanco.iface.pub_commonCalculateField("codigocuenta_es", curCuentas));
             }
@@ -199,7 +252,7 @@ function oficial_tbnCalcularDatosCuenta_clicked()
             
             
             if (!curCuentas.commitBuffer()) {
-                MessageBox.warning(util.translate("scripts", "Error en el cálculo de los datos de la cuenta %1 en %2").arg(codCuenta).arg(nombresTabla[i]), MessageBox.Ok, MessageBox.NoButton);
+                MessageBox.information(util.translate("scripts", "Error en el cálculo de los datos de la cuenta %1 en %2").arg(codCuenta).arg(nombresTabla[i]), MessageBox.Ok, MessageBox.NoButton);
                 return;
             }
             
@@ -212,7 +265,45 @@ function oficial_tbnCalcularDatosCuenta_clicked()
         util.destroyProgressDialog();
     }
     
-    MessageBox.information(sys.translate("Los datos de las cuentas han sido recalculados con éxito."), MessageBox.Ok, MessageBox.NoButton);
+    if(aErrorCta.length == 0) {
+        MessageBox.information(sys.translate("Los datos de las cuentas han sido recalculados con éxito."), MessageBox.Ok, MessageBox.NoButton);
+    }
+    else if(aErrorCta.length < 20) {
+        var mensaje = "Las siguientes cuentas no han sido recalculadas:\n";
+        
+        for(var i = 0; i < aErrorCta.length; i++) {
+            mensaje += "\n     " + aErrorTab[i] + " - " + aErrorCta[i] + " - " + aErrorDesc[i] + ".";
+        }
+        
+        MessageBox.information(sys.translate(mensaje), MessageBox.Ok, MessageBox.NoButton);
+    }
+    else {
+        MessageBox.information(sys.translate("Algunas cuentas no se han podido calcular.\nIntroduzca una ruta para guardar un archivo que las contenga:"), MessageBox.Ok, MessageBox.NoButton);
+        
+        var archivo = FileDialog.getSaveFileName("*.txt");
+        
+        if(!archivo || archivo == "") {
+            return false;
+        }
+        
+        if(!archivo.endsWith(".txt")) {
+            archivo += ".txt";
+        }
+        
+        var file = new File(archivo);
+        file.open(File.WriteOnly);
+        
+        var mensaje = "Las siguientes cuentas no han sido recalculadas:\n";
+        
+        for(var i = 0; i < aErrorCta.length; i++) {
+            mensaje += "\n     " + aErrorTab[i] + " - " + aErrorCta[i] + " - " + aErrorDesc[i] + ".";
+        }
+        
+        file.write(mensaje);
+        file.close();
+        
+        MessageBox.information(sys.translate("El fichero se ha generado con éxito en %1"), MessageBox.Ok, MessageBox.NoButton);
+    }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////

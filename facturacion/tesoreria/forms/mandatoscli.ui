@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>657</width>
-            <height>266</height>
+            <width>776</width>
+            <height>325</height>
         </rect>
     </property>
     <property name="caption">
@@ -83,6 +83,74 @@
                         <string>descripcion</string>
                     </property>
                 </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout7</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbCodCuenta</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>26</width>
+                                    <height>22</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>250</width>
+                                    <height>32767</height>
+                                </size>
+                            </property>
+                            <property name="fieldName">
+                                <string>codcuenta</string>
+                            </property>
+                        </widget>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbDescCuenta</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>2</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>descripcion</string>
+                            </property>
+                            <property name="tableName">
+                                <string>cuentasbanco</string>
+                            </property>
+                            <property name="foreignField">
+                                <string>codcuenta</string>
+                            </property>
+                            <property name="fieldRelation">
+                                <string>codcuenta</string>
+                            </property>
+                            <property name="showAlias">
+                                <bool>false</bool>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
             </vbox>
         </widget>
         <widget class="QFrame">
@@ -155,7 +223,7 @@
                 </widget>
                 <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>layout33</cstring>
+                        <cstring>layout7</cstring>
                     </property>
                     <hbox>
                         <property name="name">
@@ -189,7 +257,7 @@
                         </widget>
                         <widget class="FLFieldDB">
                             <property name="name">
-                                <cstring>fdbNumEfectos</cstring>
+                                <cstring>fdbTipoPago</cstring>
                             </property>
                             <property name="sizePolicy">
                                 <sizepolicy>
@@ -210,45 +278,19 @@
                                 </font>
                             </property>
                             <property name="fieldName">
-                                <string>numefectos</string>
+                                <string>tipopago</string>
                             </property>
                         </widget>
                     </hbox>
                 </widget>
                 <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>layout32</cstring>
+                        <cstring>layout6</cstring>
                     </property>
                     <hbox>
                         <property name="name">
                             <cstring>unnamed</cstring>
                         </property>
-                        <widget class="FLFieldDB">
-                            <property name="name">
-                                <cstring>fdbFechaUltAdeudo</cstring>
-                            </property>
-                            <property name="sizePolicy">
-                                <sizepolicy>
-                                    <hsizetype>1</hsizetype>
-                                    <vsizetype>0</vsizetype>
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                </sizepolicy>
-                            </property>
-                            <property name="minimumSize">
-                                <size>
-                                    <width>26</width>
-                                    <height>22</height>
-                                </size>
-                            </property>
-                            <property name="font">
-                                <font>
-                                </font>
-                            </property>
-                            <property name="fieldName">
-                                <string>fechaultadeudo</string>
-                            </property>
-                        </widget>
                         <widget class="FLFieldDB">
                             <property name="name">
                                 <cstring>fdbFechaCaducidad</cstring>
@@ -275,6 +317,85 @@
                                 <string>fechacaducidad</string>
                             </property>
                         </widget>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbFechaUltAdeudo</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>26</width>
+                                    <height>22</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>fechaultadeudo</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout8</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="FLFieldDB">
+                            <property name="name">
+                                <cstring>fdbNumEfectos</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>1</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>26</width>
+                                    <height>22</height>
+                                </size>
+                            </property>
+                            <property name="font">
+                                <font>
+                                </font>
+                            </property>
+                            <property name="fieldName">
+                                <string>numefectos</string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer1</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>291</width>
+                                    <height>21</height>
+                                </size>
+                            </property>
+                        </spacer>
                     </hbox>
                 </widget>
                 <widget class="QLayoutWidget">
@@ -297,7 +418,7 @@
                             </property>
                             <property name="maximumSize">
                                 <size>
-                                    <width>200</width>
+                                    <width>250</width>
                                     <height>32767</height>
                                 </size>
                             </property>
@@ -351,7 +472,7 @@
                         </property>
                         <widget class="FLFieldDB">
                             <property name="name">
-                                <cstring>fdbCodCuenta</cstring>
+                                <cstring>fdbCodCuentaCliente</cstring>
                             </property>
                             <property name="minimumSize">
                                 <size>
@@ -361,7 +482,7 @@
                             </property>
                             <property name="maximumSize">
                                 <size>
-                                    <width>200</width>
+                                    <width>250</width>
                                     <height>32767</height>
                                 </size>
                             </property>
@@ -370,12 +491,12 @@
                                 </font>
                             </property>
                             <property name="fieldName">
-                                <string>codcuenta</string>
+                                <string>codcuentacliente</string>
                             </property>
                         </widget>
                         <widget class="FLFieldDB">
                             <property name="name">
-                                <cstring>fdbNombreCliente_2</cstring>
+                                <cstring>fdbDescCuentaCliente</cstring>
                             </property>
                             <property name="minimumSize">
                                 <size>
@@ -394,7 +515,7 @@
                                 <string>cuentasbcocli</string>
                             </property>
                             <property name="foreignField">
-                                <string>codcuenta</string>
+                                <string>codcuentacliente</string>
                             </property>
                             <property name="fieldRelation">
                                 <string>codcuenta</string>
@@ -411,6 +532,9 @@
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
+    <includehint>flfielddb.h</includehint>
+    <includehint>flfielddb.h</includehint>
+    <includehint>flfielddb.h</includehint>
     <includehint>flfielddb.h</includehint>
     <includehint>flfielddb.h</includehint>
     <includehint>flfielddb.h</includehint>

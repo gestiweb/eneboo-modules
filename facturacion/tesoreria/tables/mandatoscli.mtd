@@ -20,6 +20,7 @@
 		<pk>false</pk>
 		<type>string</type>
 		<length>35</length>
+		<editable>false</editable>
 	</field>
 	
 	<field>
@@ -32,10 +33,25 @@
 	</field>
 	
 	<field>
+		<name>codcuenta</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cod. Cuenta")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>6</length>
+		
+		<relation>
+			<table>cuentasbanco</table>
+			<field>codcuenta</field>
+			<card>M1</card>
+		</relation>
+	</field>
+	
+	<field>
 		<name>fechafirma</name>
 		<!-- Fecha de la firma del mandato -->
 		<alias>QT_TRANSLATE_NOOP("MetaData","Fecha de Firma")</alias>
-		<null>false</null>
+		<null>true</null>
 		<pk>false</pk>
 		<type>date</type>
 	</field>
@@ -101,8 +117,8 @@
 	</field>
 
 	<field>
-		<name>codcuenta</name>
-		<alias>QT_TRANSLATE_NOOP("MetaData","Cod. Cuenta")</alias>
+		<name>codcuentacliente</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Cod. Cuenta Cliente")</alias>
 		<null>false</null>
 		<pk>false</pk>
 		<type>string</type>
@@ -118,6 +134,17 @@
 			<field>codcuenta</field>
 			<card>M1</card>
 		</relation>
+	</field>
+	
+	<field>
+		<name>tipopago</name>
+		<alias>QT_TRANSLATE_NOOP("MetaData","Tipo de Pago")</alias>
+		<null>false</null>
+		<pk>false</pk>
+		<type>string</type>
+		<length>20</length>
+		<default>Pago Recurrente</default>
+		<optionslist>Pago Recurrente,Pago Único</optionslist>
 	</field>
 
 </TMD>

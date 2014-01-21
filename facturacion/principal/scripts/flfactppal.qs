@@ -173,6 +173,9 @@ class oficial extends interna {
     function moduloNumero(num, div) {
         return this.ctx.oficial_moduloNumero(num, div);
     }
+    function calcularIdentificadorAcreedor(cifEmpresa, codCuenta) {
+        return this.ctx.oficial_calcularIdentificadorAcreedor(cifEmpresa, codCuenta);
+    }
 }
 //// OFICIAL /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -2328,6 +2331,32 @@ function oficial_digitoControlMod97(numero, codPais)
     digControl = flfactppal.iface.pub_cerosIzquierda(digControl, 2);
     
     return digControl;
+}
+
+function oficial_calcularIdentificadorAcreedor(cifEmpresa, codCuenta)
+{
+    var _i = this.iface;
+    
+    var codPais = AQUtil.sqlSelect("empresa INNER JOIN paises ON empresa.codpais = paises.codpais","paises.codiso","empresa.cifnif = '" + cifEmpresa + "'","empresa,paises");
+    if (!codPais) {
+        sys.warnMsgBox(sys.translate("No se ha podido obtener el código ISO del país asociado a la empresa"));
+        return false;
+    }
+    var codComercial = AQUtil.sqlSelect("cuentasbanco","sufijo","codcuenta = '" + codCuenta + "'");
+    var numControl = "";
+    
+    cifEmpresa = cifEmpresa.toUpperCase();
+    var carValido = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    for(var i = 0; i < cifEmpresa.length; i++) {
+        if (carValido.find(cifEmpresa.charAt(i)) >= 0) {
+            numControl += cifEmpresa.charAt(i);
+        }
+    }
+    digControl = _i.digitoControlMod97(numControl,codPais);
+        
+    var identificador = codPais + digControl + codComercial + cifEmpresa;
+    
+    return identificador;
 }
 //// OFICIAL /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////

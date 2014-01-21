@@ -105,9 +105,9 @@ function interna_init()
 	var cursor = this.cursor();
 	
 	connect(cursor, "bufferChanged(QString)", _i, "bufferChanged");
-	
-	if(cursor.modeAccess() == cursor.Insert) {
-		sys.setObjText(this,"fdbFechaCaducidad",_i.calculateField("fechacaducidad"));
+		
+	if(cursor.modeAccess() == cursor.Edit) {
+		this.child("fdbCodCliente").setDisabled(true);
 	}
 }
 
@@ -163,6 +163,41 @@ function oficial_commonCalculateField(fN, cursor)
 			valor = AQUtil.addMonths(fechaAnt,36);
 			break;
 		}
+		case "refmandato": {
+			var codCliente = cursor.valueBuffer("codcliente");
+			
+			if(!codCliente || codCliente == "") {
+				return "";
+			}
+			
+			var qryMandatos = new FLSqlQuery();
+			qryMandatos.setSelect("refmandato");
+			qryMandatos.setFrom("mandatoscli");
+			qryMandatos.setWhere("refmandato LIKE '" + codCliente + "%' ORDER BY refmandato DESC LIMIT 1");
+			
+			if(!qryMandatos.exec()) {
+				return false;
+			}
+			
+			var numMandato;
+			
+			if(!qryMandatos.first()) {
+				numMandato = 0;
+			}
+			else {
+				var ultMandato = qryMandatos.value("refmandato");
+				ultMandato = ultMandato.substring(7);
+				numMandato = parseFloat(ultMandato);
+				
+				if(isNaN(numMandato)) {
+					return "";
+				}
+			}
+			numMandato++;
+			valor = flfacturac.iface.pub_cerosIzquierda(codCliente,6) + flfacturac.iface.pub_cerosIzquierda(numMandato, 29);
+			
+			break;
+		}
 	}
 	return valor;
 }
@@ -175,9 +210,15 @@ function oficial_commonBufferChanged(fN, miForm)
 	switch(fN) {
 		case "fechafirma": {
 			sys.setObjText(miForm,"fdbFechaCaducidad",_i.commonCalculateField("fechacaducidad",cursor));
+			break;
 		}
 		case "fechaultadeudo": {
-			sys.setObjText(miForm,"fdbFechaCaducidad",_i.calculateField("fechacaducidad",cursor));
+			sys.setObjText(miForm,"fdbFechaCaducidad",_i.commonCalculateField("fechacaducidad",cursor));
+			break;
+		}
+		case "codcliente": {
+			sys.setObjText(miForm,"fdbRefMandato",_i.commonCalculateField("refmandato",cursor));
+			break;
 		}
 		default: {
 			break;
