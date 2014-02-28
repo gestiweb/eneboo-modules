@@ -319,6 +319,9 @@ class oficial extends interna {
 	function valorDefecto(fN:String):String {
 		return this.ctx.oficial_valorDefecto(fN);
 	}
+	function oficial_formateaCadena(cIn:String):String {
+		return this.ctx.oficial_formateaCadena(cIn);
+	}
 }
 
 //// OFICIAL /////////////////////////////////////////////////////
@@ -415,6 +418,9 @@ class ifaceCtx extends head {
 	}
 	function pub_datosImpuesto(codImpuesto:String, fecha:String):Array {
 		return this.datosImpuesto(codImpuesto, fecha);
+	}
+	function pub_formateaCadena(cIn:String):String {
+		return this.formateaCadena(cIn);
 	}
 }
 
@@ -4399,6 +4405,26 @@ function oficial_valorDefecto(fN:String):String
 	return valor;
 }
 
+
+function oficial_formateaCadena(cIn)
+{
+    var cOut = "";
+    var equivA = "ÑñÇçÁáÉéÍíÓóÚúÀàÈèÌìÒòÙùÂâÊêÎîÔôÛûÄäËëÏïÖöÜü";
+    var equivB = "NnCcAaEeIiOoUuAaEeIiOoUuAaEeIiOoUuAaEeIiOoUu";
+    var validos = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ /-?+:,.'()";
+    var iEq;
+    for (var i = 0; i < cIn.length; i++) {
+        iEq = equivA.find(cIn.charAt(i));
+        if (iEq >= 0) {
+            cOut += equivB.charAt(iEq);
+        } else {
+            if (validos.find(cIn.charAt(i)) >= 0) {
+                cOut += cIn.charAt(i);
+            }
+        }
+    }
+    return cOut;
+}
 //// OFICIAL ////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
