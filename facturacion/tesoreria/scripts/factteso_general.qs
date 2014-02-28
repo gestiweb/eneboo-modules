@@ -249,6 +249,7 @@ function oficial_tbnCalcularDatosCuenta_clicked()
                 curCuentas.setValueBuffer("codigocuenta", formRecordcuentasbanco.iface.pub_commonCalculateField("codigocuenta_es", curCuentas));
             }
             curCuentas.setValueBuffer("iban", formRecordcuentasbanco.iface.pub_commonCalculateField("iban", curCuentas));
+            curCuentas.setValueBuffer("bic", formRecordcuentasbanco.iface.pub_commonCalculateField("bic", curCuentas));
             
             
             if (!curCuentas.commitBuffer()) {

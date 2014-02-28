@@ -328,6 +328,11 @@ function oficial_commonCalculateField(fN, cursor)
 			valor = flfactppal.iface.pub_calcularIBAN(codigoCuenta, codPais);
 			break;
 		}
+        case "bic": {
+            var entidad:String = cursor.valueBuffer("ctaentidad");
+            valor = AQUtil.sqlSelect("bancos", "bic", "entidad = '"+entidad+"'");
+            break;
+        }
 	}
 	return valor;
 }
