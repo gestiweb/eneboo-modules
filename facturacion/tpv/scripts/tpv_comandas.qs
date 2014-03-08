@@ -133,8 +133,17 @@ class oficial extends interna {
 	function insertarLineaClicked() {
 		return this.ctx.oficial_insertarLineaClicked();
 	}
-	function datosLineaVenta():Boolean {
-		return this.ctx.oficial_datosLineaVenta();
+	function datosLineaVenta() {
+	    return this.ctx.oficial_datosLineaVenta();
+	}
+	function datosLineaVentaArt() {
+	    return this.ctx.oficial_datosLineaVentaArt();
+	}
+	function datosLineaVentaCantidad() {
+	    return this.ctx.oficial_datosLineaVentaCantidad();
+	}
+	function datosLineaVentaPrecio() {
+	    return this.ctx.oficial_datosLineaVentaPrecio();
 	}
 	function imprimirVale() {
 		return this.ctx.oficial_imprimirVale();
@@ -322,6 +331,7 @@ function interna_init()
 	this.iface.importePagado = 0;
 
 	this.iface.cargarConfiguracion();
+
 }
 
 function interna_calculateField(fN:String):String
@@ -347,12 +357,13 @@ function interna_calculateField(fN:String):String
 			break;
 		}
 		/** \C
-		El --total-- es el --neto-- más el --totaliva-- 
+		El --total-- es el --neto-- más el --totaliva-- más totalrecargo
 		*/
 		case "total": {
 			var neto:Number = parseFloat(this.iface.calculateField("neto"));
-			var totalIva:Number = parseFloat(this.iface.calculateField("totaliva")); 
-			valor = neto + totalIva;
+			var totalIva:Number = parseFloat(this.iface.calculateField("totaliva"));
+			var totalRecargo = parseFloat(cursor.valueBuffer("totalrecargo"));
+			valor = neto + totalIva + totalRecargo;
 			break;
 		}
 		/** \C
@@ -373,6 +384,11 @@ function interna_calculateField(fN:String):String
 			valor = util.roundFieldValue(valor, "tpv_comandas", "totaliva");
 			break;
 		}
+	    case "totalrecargo": {
+	      	valor = util.sqlSelect("tpv_lineascomanda", "SUM((pvptotal * recargo) / 100)", "idtpv_comanda = " + cursor.valueBuffer("idtpv_comanda"));
+	      	valor = util.roundFieldValue(valor, "tpv_comandas", "totalrecargo");
+	      	break;
+	    }
 		case "desarticulo": {
 			valor = util.sqlSelect("articulos", "descripcion", "referencia = '" + cursor.valueBuffer("referencia") + "'");
 			if (!valor)
@@ -433,6 +449,12 @@ function interna_validateForm():Boolean
 		return false;
 	}
 
+	var idComanda = cursor.valueBuffer("idtpv_comanda");
+	var codCliente = cursor.valueBuffer("codcliente");
+	if (!flfacturac.iface.pub_validarIvaRecargoCliente(codCliente, idComanda, "tpv_lineascomanda", "idtpv_comanda")) {
+		return false;
+	}
+
 	return true;
 }
 
@@ -483,6 +505,7 @@ function oficial_calcularTotales()
 {
 	this.child("fdbNeto").setValue(this.iface.calculateField("neto"));
 	this.child("fdbTotalIva").setValue(this.iface.calculateField("totaliva"));
+  	this.child("fdbTotalRecargo").setValue(this.iface.calculateField("totalrecargo"));
 	this.child("fdbTotalComanda").setValue(this.iface.calculateField("total"));
 	
 	this.iface.verificarHabilitaciones();
@@ -1202,20 +1225,50 @@ function oficial_insertarLineaClicked()
 
 /** |D Establece los datos de la línea de ventas a crear mediante la inserción rápida
 \end */
-function oficial_datosLineaVenta():Boolean
+function oficial_datosLineaVenta()
 {
-	var util:FLUtil = new FLUtil;
-	var cursor:FLSqlCursor = this.cursor();
-	this.iface.curLineas.setValueBuffer("cantidad", util.roundFieldValue(this.iface.txtCanArticulo.text, "tpv_lineascomanda", "cantidad"));
-	this.iface.curLineas.setValueBuffer("referencia", cursor.valueBuffer("referencia"));
-	this.iface.curLineas.setValueBuffer("descripcion", this.iface.txtDesArticulo.text);
-	this.iface.curLineas.setValueBuffer("pvpunitario", util.roundFieldValue(this.iface.txtPvpArticulo.text, "tpv_lineascomanda", "pvpunitario"));
-	this.iface.curLineas.setValueBuffer("codimpuesto",  this.iface.calcularIvaLinea(this.iface.curLineas.valueBuffer("referencia")));
-	this.iface.curLineas.setValueBuffer("iva", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("iva", this.iface.curLineas));
-	this.iface.curLineas.setValueBuffer("pvpsindto", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("pvpsindto", this.iface.curLineas));
-	this.iface.curLineas.setValueBuffer("pvptotal", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("pvptotal", this.iface.curLineas));
-
+	if (!this.iface.datosLineaVentaArt()) {
+		return false;
+	}
+	if (!this.iface.datosLineaVentaCantidad()) {
+		return false;
+	}
+	if (!this.iface.datosLineaVentaPrecio()) {
+		return false;
+	}
 	return true;
+}
+
+function oficial_datosLineaVentaArt()
+{
+  var util = new FLUtil;
+  var cursor = this.cursor();
+  this.iface.curLineas.setValueBuffer("referencia", cursor.valueBuffer("referencia"));
+  this.iface.curLineas.setValueBuffer("descripcion", this.iface.txtDesArticulo.text);
+  this.iface.curLineas.setValueBuffer("pvpunitario", util.roundFieldValue(this.iface.txtPvpArticulo.text, "tpv_lineascomanda", "pvpunitario"));
+  this.iface.curLineas.setValueBuffer("iva", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("iva", this.iface.curLineas));
+  this.iface.curLineas.setValueBuffer("recargo", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("recargo", this.iface.curLineas));
+  
+  return true;
+}
+
+function oficial_datosLineaVentaCantidad()
+{
+  var util = new FLUtil;
+  var cursor = this.cursor();
+  this.iface.curLineas.setValueBuffer("cantidad", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("cantidad", this.iface.curLineas));
+  return true;
+}
+
+function oficial_datosLineaVentaPrecio()
+{
+  var util = new FLUtil;
+  var cursor = this.cursor();
+  this.iface.curLineas.setValueBuffer("codimpuesto",  this.iface.calcularIvaLinea(this.iface.curLineas.valueBuffer("referencia")));
+  this.iface.curLineas.setValueBuffer("pvpsindto", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("pvpsindto", this.iface.curLineas));
+  this.iface.curLineas.setValueBuffer("dtopor", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("dtopor", this.iface.curLineas));
+  this.iface.curLineas.setValueBuffer("pvptotal", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("pvptotal", this.iface.curLineas));
+  return true;
 }
 
 function oficial_calcularIvaLinea(referencia:String):String
