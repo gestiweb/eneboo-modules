@@ -102,6 +102,11 @@ function interna_init()
 			}
 			case 1: {
 				this.child("fdbRecargo").setValue(0);
+//Rellenamos el codimpuesto del almacen por defecto
+				var impuestoAlmacen:String = util.sqlSelect("factalma_general", "codimpuesto", "1 = 1");
+				if (impuestoAlmacen)
+					this.child("fdbCodImpuesto").setValue(impuestoAlmacen);
+//Fin
 				break;
 			}
 		}
