@@ -106,6 +106,8 @@ function interna_init()
 			case 0: {
 				this.child("fdbCodImpuesto").setValue("");
 				this.child("fdbIva").setValue(0);
+				this.child("fdbRecargo").setValue(0);
+				break;
 			}
 			case 1: {
 				this.child("fdbRecargo").setValue(0);
