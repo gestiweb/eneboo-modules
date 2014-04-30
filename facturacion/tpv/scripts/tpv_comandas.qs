@@ -133,17 +133,8 @@ class oficial extends interna {
 	function insertarLineaClicked() {
 		return this.ctx.oficial_insertarLineaClicked();
 	}
-	function datosLineaVenta() {
+	function datosLineaVenta():Boolean {
 	    return this.ctx.oficial_datosLineaVenta();
-	}
-	function datosLineaVentaArt() {
-	    return this.ctx.oficial_datosLineaVentaArt();
-	}
-	function datosLineaVentaCantidad() {
-	    return this.ctx.oficial_datosLineaVentaCantidad();
-	}
-	function datosLineaVentaPrecio() {
-	    return this.ctx.oficial_datosLineaVentaPrecio();
 	}
 	function imprimirVale() {
 		return this.ctx.oficial_imprimirVale();
@@ -1223,52 +1214,24 @@ function oficial_insertarLineaClicked()
 	this.child("tdbLineasComanda").refresh();
 }
 
+
 /** |D Establece los datos de la línea de ventas a crear mediante la inserción rápida
 \end */
-function oficial_datosLineaVenta()
+function oficial_datosLineaVenta():Boolean
 {
-	if (!this.iface.datosLineaVentaArt()) {
-		return false;
-	}
-	if (!this.iface.datosLineaVentaCantidad()) {
-		return false;
-	}
-	if (!this.iface.datosLineaVentaPrecio()) {
-		return false;
-	}
+	var util:FLUtil = new FLUtil;
+	var cursor:FLSqlCursor = this.cursor();
+	this.iface.curLineas.setValueBuffer("cantidad", util.roundFieldValue(this.iface.txtCanArticulo.text, "tpv_lineascomanda", "cantidad"));
+	this.iface.curLineas.setValueBuffer("referencia", cursor.valueBuffer("referencia"));
+	this.iface.curLineas.setValueBuffer("descripcion", this.iface.txtDesArticulo.text);
+	this.iface.curLineas.setValueBuffer("pvpunitario", util.roundFieldValue(this.iface.txtPvpArticulo.text, "tpv_lineascomanda", "pvpunitario"));
+	this.iface.curLineas.setValueBuffer("codimpuesto",  this.iface.calcularIvaLinea(this.iface.curLineas.valueBuffer("referencia")));
+	this.iface.curLineas.setValueBuffer("iva", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("iva", this.iface.curLineas));
+  	this.iface.curLineas.setValueBuffer("recargo", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("recargo", this.iface.curLineas));
+	this.iface.curLineas.setValueBuffer("pvpsindto", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("pvpsindto", this.iface.curLineas));
+	this.iface.curLineas.setValueBuffer("pvptotal", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("pvptotal", this.iface.curLineas));
+
 	return true;
-}
-
-function oficial_datosLineaVentaArt()
-{
-  var util = new FLUtil;
-  var cursor = this.cursor();
-  this.iface.curLineas.setValueBuffer("referencia", cursor.valueBuffer("referencia"));
-  this.iface.curLineas.setValueBuffer("descripcion", this.iface.txtDesArticulo.text);
-  this.iface.curLineas.setValueBuffer("pvpunitario", util.roundFieldValue(this.iface.txtPvpArticulo.text, "tpv_lineascomanda", "pvpunitario"));
-  this.iface.curLineas.setValueBuffer("iva", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("iva", this.iface.curLineas));
-  this.iface.curLineas.setValueBuffer("recargo", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("recargo", this.iface.curLineas));
-  
-  return true;
-}
-
-function oficial_datosLineaVentaCantidad()
-{
-  var util = new FLUtil;
-  var cursor = this.cursor();
-  this.iface.curLineas.setValueBuffer("cantidad", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("cantidad", this.iface.curLineas));
-  return true;
-}
-
-function oficial_datosLineaVentaPrecio()
-{
-  var util = new FLUtil;
-  var cursor = this.cursor();
-  this.iface.curLineas.setValueBuffer("codimpuesto",  this.iface.calcularIvaLinea(this.iface.curLineas.valueBuffer("referencia")));
-  this.iface.curLineas.setValueBuffer("pvpsindto", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("pvpsindto", this.iface.curLineas));
-  this.iface.curLineas.setValueBuffer("dtopor", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("dtopor", this.iface.curLineas));
-  this.iface.curLineas.setValueBuffer("pvptotal", formRecordtpv_lineascomanda.iface.pub_commonCalculateField("pvptotal", this.iface.curLineas));
-  return true;
 }
 
 function oficial_calcularIvaLinea(referencia:String):String
