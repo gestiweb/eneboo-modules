@@ -93,8 +93,20 @@ function interna_init()
 	connect(cursor, "bufferChanged(QString)", this, "iface.bufferChanged");
 	connect(form, "closed()", this, "iface.desconectar");
 
-	if (cursor.modeAccess() == cursor.Insert)
+	if (cursor.modeAccess() == cursor.Insert) {
+		var opcionIvaRec:Number = flfacturac.iface.pub_tieneIvaDocCliente(cursor.cursorRelation().valueBuffer("codserie"), cursor.cursorRelation().valueBuffer("codcliente"));
+		switch (opcionIvaRec) {
+			case 0: {
+				this.child("fdbCodImpuesto").setValue("");
+				this.child("fdbIva").setValue(0);
+			}
+			case 1: {
+				this.child("fdbRecargo").setValue(0);
+				break;
+			}
+		}
 		this.child("fdbDtoPor").setValue(this.iface.calculateField("dtopor"));
+	}
 
 	this.child("lblDtoPor").setText(this.iface.calculateField("lbldtopor"));
 }
@@ -177,6 +189,19 @@ function oficial_commonCalculateField(fN:String, cursor:FLSqlCursor):String
 			}
 			break;
 		}
+		case "recargo":{
+			var codCliente:String = cursor.cursorRelation().valueBuffer("codcliente");
+			var aplicarRecEq:Boolean = util.sqlSelect("clientes", "recargo", "codcliente = '" + codCliente + "'");
+			if (aplicarRecEq == true) {
+				valor = flfacturac.iface.pub_campoImpuesto("recargo", cursor.valueBuffer("codimpuesto"), cursor.cursorRelation().valueBuffer("fecha"));
+			} else {
+				valor = "";
+			}
+			if (isNaN(valor)) {
+				valor = "";
+			}
+			break;
+		}
 	}
 	return valor;
 }
@@ -205,6 +230,7 @@ function oficial_bufferChanged(fN:String)
 		*/
 		case "codimpuesto":{
 			this.child("fdbIva").setValue(this.iface.calculateField("iva"));
+			this.child("fdbRecargo").setValue(this.iface.calculateField("recargo"));
 			break;
 		}
 		/** \C

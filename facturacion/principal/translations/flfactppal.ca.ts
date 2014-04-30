@@ -27,11 +27,11 @@
     </message>
     <message encoding="UTF-8">
         <source>&amp;Series de Facturación</source>
-        <translation>&amp;S�ries de Facturació</translation>
+        <translation>&amp;Sèries de Facturació</translation>
     </message>
     <message encoding="UTF-8">
         <source>Series de Facturación</source>
-        <translation>S�ries de Facturació</translation>
+        <translation>Sèries de Facturació</translation>
     </message>
     <message>
         <source>&amp;Bancos</source>
@@ -139,7 +139,7 @@
     </message>
     <message encoding="UTF-8">
         <source>Series de Facturación (Ctrl+S)</source>
-        <translation>S�ries de Facturació (Ctrl+S)</translation>
+        <translation>Sèries de Facturació (Ctrl+S)</translation>
     </message>
     <message>
         <source>Ctrl+S</source>
@@ -239,7 +239,7 @@
     </message>
     <message>
         <source>Area de Facturaci&#xf3;n</source>
-        <translation>�rea de Facturació</translation>
+        <translation>Àrea de Facturació</translation>
     </message>
     <message>
         <source>Principal</source>
@@ -272,6 +272,10 @@
     <message>
         <source>P&amp;rovincias</source>
         <translation>P&amp;rovíncies</translation>
+    </message>
+    <message>
+        <source>Ciudades</source>
+        <translation>Ciutats</translation>
     </message>
     <message>
         <source>Widgets</source>
@@ -401,7 +405,7 @@
     </message>
     <message>
         <source>Tel&#xe9;fono 1</source>
-        <translation>Tel�fon 1</translation>
+        <translation>Telèfon 1</translation>
     </message>
     <message>
         <source>Contacto</source>
@@ -421,7 +425,7 @@
     </message>
     <message>
         <source>Serie</source>
-        <translation>S�rie</translation>
+        <translation>Sèrie</translation>
     </message>
     <message>
         <source>I.V.A. portes</source>
@@ -433,11 +437,11 @@
     </message>
     <message>
         <source>R&#xe9;gimen I.V.A.</source>
-        <translation>R�gim I.V.A.</translation>
+        <translation>Règim I.V.A.</translation>
     </message>
     <message>
         <source>Tel&#xe9;fono 2</source>
-        <translation>Tel�fon 2</translation>
+        <translation>Telèfon 2</translation>
     </message>
     <message>
         <source>Fax</source>
@@ -493,7 +497,7 @@
     </message>
     <message>
         <source>Tel&#xe9;fono</source>
-        <translation>Tel�fon </translation>
+        <translation>Telèfon </translation>
     </message>
     <message>
         <source>Cliente</source>
@@ -565,7 +569,7 @@
     </message>
     <message>
         <source>Agencia N&#xba;</source>
-        <translation>Ag�ncia Nº</translation>
+        <translation>Agència Nº</translation>
     </message>
     <message>
         <source>Plazos de Pago</source>
@@ -613,7 +617,7 @@
     </message>
     <message>
         <source>% Rec. equivalencia</source>
-        <translation>% Rec. equival�ncia</translation>
+        <translation>% Rec. equivalència</translation>
     </message>
     <message>
         <source>Apellidos</source>
@@ -669,11 +673,11 @@
     </message>
     <message>
         <source>Serie de facturaci&#xf3;n</source>
-        <translation>S�rie de facturació</translation>
+        <translation>Sèrie de facturació</translation>
     </message>
     <message>
         <source>Aplicar recargo de equivalencia</source>
-        <translation>Aplica recàrrec d&apos;equival�ncia</translation>
+        <translation>Aplica recàrrec d&apos;equivalència</translation>
     </message>
     <message>
         <source>Formas de Pago</source>
@@ -685,11 +689,11 @@
     </message>
     <message>
         <source>Desde Serie</source>
-        <translation>Des de S�rie</translation>
+        <translation>Des de Sèrie</translation>
     </message>
     <message>
         <source>Hasta Serie</source>
-        <translation>Fins a S�rie</translation>
+        <translation>Fins a Sèrie</translation>
     </message>
     <message>
         <source>Contactos de proveedores</source>
@@ -773,11 +777,11 @@
     </message>
     <message>
         <source>Secuencias de Ejercicios</source>
-        <translation>Seq��ncies d&apos;Exercicis</translation>
+        <translation>Seqüències d&apos;Exercicis</translation>
     </message>
     <message>
         <source>C&#xf3;digo Serie</source>
-        <translation>Codi S�rie</translation>
+        <translation>Codi Sèrie</translation>
     </message>
     <message>
         <source>C&#xf3;digo Ejercicio</source>
@@ -841,7 +845,7 @@
     </message>
     <message>
         <source>Series de Facturaci&#xf3;n</source>
-        <translation>S�ries de Facturació</translation>
+        <translation>Sèries de Facturació</translation>
     </message>
     <message>
         <source>%I.R.P.F.</source>
@@ -933,7 +937,7 @@
     </message>
     <message>
         <source>Imprimir Series de facturaci&#xf3;n</source>
-        <translation>Imprimeix S�ries de facturació</translation>
+        <translation>Imprimeix Sèries de facturació</translation>
     </message>
     <message>
         <source>Cuenta de pago</source>
@@ -997,7 +1001,7 @@
     </message>
     <message>
         <source>Intervalo</source>
-        <translation>Int�rval</translation>
+        <translation>Intèrval</translation>
     </message>
     <message>
         <source>C&#xf3;digo ISO</source>
@@ -1013,7 +1017,7 @@
     </message>
     <message>
         <source>Secuencias de Documentos</source>
-        <translation>Seq��ncies de Documents</translation>
+        <translation>Seqüències de Documents</translation>
     </message>
     <message>
         <source>Valor</source>
@@ -1025,7 +1029,7 @@
     </message>
     <message>
         <source>Identificador Secuencias Ejercicios</source>
-        <translation>Identificador Seq��ncies d&apos;Exercicis</translation>
+        <translation>Identificador Seqüències d&apos;Exercicis</translation>
     </message>
     <message>
         <source>IBAN</source>
@@ -1196,11 +1200,11 @@
     </message>
     <message>
         <source>Desde Serie:</source>
-        <translation>Des de S�rie:</translation>
+        <translation>Des de Sèrie:</translation>
     </message>
     <message>
         <source>Hasta Serie:</source>
-        <translation>Fins a S�rie:</translation>
+        <translation>Fins a Sèrie:</translation>
     </message>
     <message>
         <source>Desde Forma de Pago:</source>
@@ -2501,7 +2505,7 @@
     </message>
     <message>
         <source>&amp;Series</source>
-        <translation>&amp;S�ries</translation>
+        <translation>&amp;Sèries</translation>
     </message>
     <message>
         <source>Secuencias &amp;contabilidad</source>
@@ -3404,7 +3408,7 @@
     </message>
     <message>
         <source>&amp;Serie</source>
-        <translation>&amp;S�rie</translation>
+        <translation>&amp;Sèrie</translation>
     </message>
     <message>
         <source>codserie</source>
@@ -3435,7 +3439,7 @@
     <name>formSeries</name>
     <message encoding="UTF-8">
         <source>Series de Facturación</source>
-        <translation>S�ries de Facturació</translation>
+        <translation>Sèries de Facturació</translation>
     </message>
     <message>
         <source>codserie</source>

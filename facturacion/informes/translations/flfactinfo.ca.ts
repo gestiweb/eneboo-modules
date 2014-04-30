@@ -74,11 +74,11 @@
         <translation>Factures de Clients</translation>
     </message>
     <message>
-        <source>Pedidos a Proveedores (Ctrl+E)</source>
+        <source>Pedidos de Proveedores (Ctrl+E)</source>
         <translation>Comandes a Proveïdors (Ctrl+E)</translation>
     </message>
     <message>
-        <source>Pedidos a Proveedores</source>
+        <source>Pedidos de Proveedores</source>
         <translation>Comandes a Proveïdors</translation>
     </message>
     <message>
@@ -183,7 +183,7 @@
     </message>
     <message>
         <source>Area de Facturaci&#xf3;n</source>
-        <translation>�rea de Facturació</translation>
+        <translation>Àrea de Facturació</translation>
     </message>
     <message>
         <source>&amp;General</source>
@@ -413,7 +413,7 @@
     </message>
     <message>
         <source>Serie</source>
-        <translation>S�rie</translation>
+        <translation>Sèrie</translation>
     </message>
     <message>
         <source>Informes de albaranes de proveedores</source>
@@ -489,7 +489,7 @@
     </message>
     <message>
         <source>Emitido</source>
-        <translation>Em�s</translation>
+        <translation>Emès</translation>
     </message>
     <message>
         <source>Pagado</source>
@@ -505,7 +505,7 @@
     </message>
     <message>
         <source>Referencia</source>
-        <translation>Refer�ncia</translation>
+        <translation>Referència</translation>
     </message>
     <message>
         <source>Descripcion</source>
@@ -533,11 +533,11 @@
     </message>
     <message>
         <source>Informes de transferencias de stock</source>
-        <translation>﻿Informes de transfer�ncies d&apos;estoc</translation>
+        <translation>Informes de transferències d&apos;estoc</translation>
     </message>
     <message>
         <source>Transferencia</source>
-        <translation>Transfer�ncia</translation>
+        <translation>Transferència</translation>
     </message>
     <message>
         <source>Vencimiento</source>
@@ -770,7 +770,7 @@
     </message>
     <message>
         <source>proveedores</source>
-        <translation></translation>
+        <translation>proveïdors</translation>
     </message>
     <message>
         <source>codproveedor</source>

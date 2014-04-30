@@ -220,6 +220,10 @@ function oficial_datosArticulo(cursor:FLSqlCursor, campo:String):Boolean
 			this.iface.curArticulo.setValueBuffer(campo, 0);
 			break;
 		}
+		case "codbarras": {
+			this.iface.curArticulo.setValueBuffer(campo, "");
+			break;
+		}
 		default: {
 			if (cursor.isNull(campo)) {
 				this.iface.curArticulo.setNull(campo);

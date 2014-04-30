@@ -521,6 +521,7 @@ function oficial_datosLineaFactura(curLineaComanda:FLSqlCursor):Boolean
                 setValueBuffer("pvptotal", curLineaComanda.valueBuffer("pvptotal"));
                 setValueBuffer("codimpuesto", curLineaComanda.valueBuffer("codimpuesto"));
                 setValueBuffer("iva", curLineaComanda.valueBuffer("iva"));
+                setValueBuffer("recargo", curLineaComanda.valueBuffer("recargo"));
                 setValueBuffer("dtolineal", curLineaComanda.valueBuffer("dtolineal"));
                 setValueBuffer("dtopor", curLineaComanda.valueBuffer("dtopor"));
         }
