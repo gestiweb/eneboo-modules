@@ -4409,8 +4409,8 @@ function oficial_valorDefecto(fN:String):String
 function oficial_formateaCadena(cIn)
 {
     var cOut = "";
-    var equivA = "ÑñÇçÁáÉéÍíÓóÚúÀàÈèÌìÒòÙùÂâÊêÎîÔôÛûÄäËëÏïÖöÜü";
-    var equivB = "NnCcAaEeIiOoUuAaEeIiOoUuAaEeIiOoUuAaEeIiOoUu";
+    var equivA = "ÑñÇçÁáÉéÍíÓóÚúÀàÈèÌìÒòÙùÂâÊêÎîÔôÛûÄäËëÏïÖöÜüº";
+    var equivB = "NnCcAaEeIiOoUuAaEeIiOoUuAaEeIiOoUuAaEeIiOoUu ";
     var validos = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ /-?+:,.'()";
     var iEq;
     for (var i = 0; i < cIn.length; i++) {

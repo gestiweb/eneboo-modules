@@ -336,7 +336,7 @@ function oficial_individualObligatorio(qryRecibos:FLSqlQuery):String
 	var ref:String = codCliente;
 	var concepto = this.iface.conceptoIO(qryRecibos);
 	concepto = flfactppal.iface.pub_espaciosDerecha(concepto, 17).left(17);
-	var nombre:String = qryRecibos.value("nombrecliente");
+	var nombre:String = flfacturac.iface.pub_formateaCadena(qryRecibos.value("nombrecliente"));
 	var cuentaCompleta:String = "";
 	var entidad:String = qryRecibos.value("ctaentidad");
 	cuentaCompleta += entidad;
