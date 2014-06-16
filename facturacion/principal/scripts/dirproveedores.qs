@@ -132,7 +132,6 @@ function oficial_bufferChanged(fN:String)
         var util:FLUtil = new FLUtil();
         var cursor:FLSqlCursor = this.cursor();
 
-        var cursor:FLSqlCursor = this.cursor();
         switch (fN) {
                 case "provincia": {
                         if (!this.iface.bloqueoProvincia) {
