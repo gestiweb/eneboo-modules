@@ -439,19 +439,44 @@ function oficial_datosTablaPadre(cursor:FLSqlCursor):Array
 			datos.tabla = "facturascli";
 			break;
 		}
+		case "tpv_lineascomanda": {
+			datos.where = "idtpv_comanda = "+ cursor.valueBuffer("idtpv_comanda");
+			datos.tabla = "tpv_comandas";
+			break;
+		}
 	}
 	var curRel:FLSqlCursor = cursor.cursorRelation();
 	if (curRel && curRel.table() == datos.tabla) {
-		datos["tasaconv"] = curRel.valueBuffer("tasaconv");
+		switch (cursor.table()) {
+			case "tpv_lineascomanda": {
+				datos["tasaconv"] = 1;
+				datos["codserie"] = false;
+				datos["porcomision"] = 0;
+				datos["codagente"] = false;
+				break;
+			}
+			default: {
+				datos["tasaconv"] = curRel.valueBuffer("tasaconv");
+				datos["codserie"] = curRel.valueBuffer("codserie");
+				datos["porcomision"] = curRel.valueBuffer("porcomision");
+				datos["codagente"] = curRel.valueBuffer("codagente");
+			}
+		}
 		datos["codcliente"] = curRel.valueBuffer("codcliente");
 		datos["fecha"] = curRel.valueBuffer("fecha");
-		datos["codserie"] = curRel.valueBuffer("codserie");
-		datos["porcomision"] = curRel.valueBuffer("porcomision");
-		datos["codagente"] = curRel.valueBuffer("codagente");
 	} else {
 		var qryDatos:FLSqlQuery = new FLSqlQuery;
 		qryDatos.setTablesList(datos.tabla);
-		qryDatos.setSelect("tasaconv, codcliente, fecha, codserie, porcomision, codagente");
+		switch (cursor.table()) {
+			case "tpv_lineascomanda": {
+				qryDatos.setSelect("codcliente, fecha");
+				break;
+			}
+			default: {
+				qryDatos.setSelect("tasaconv, codcliente, fecha, codserie, porcomision, codagente");
+			}
+		}
+		
 		qryDatos.setFrom(datos.tabla);
 		qryDatos.setWhere(datos.where);
 		qryDatos.setForwardOnly(true);
@@ -461,12 +486,23 @@ function oficial_datosTablaPadre(cursor:FLSqlCursor):Array
 		if (!qryDatos.first()) {
 			return false;
 		}
-		datos["tasaconv"] = qryDatos.value("tasaconv");
+		switch (cursor.table()) {
+			case "tpv_lineascomanda": {
+				datos["tasaconv"] = 1;
+				datos["codserie"] = false;
+				datos["porcomision"] = 0;
+				datos["codagente"] = false;
+				break;
+			}
+			default: {
+				datos["tasaconv"] = qryDatos.value("tasaconv");
+				datos["codserie"] = qryDatos.value("codserie");
+				datos["porcomision"] = qryDatos.value("porcomision");
+				datos["codagente"] = qryDatos.value("codagente");
+			}
+		}
 		datos["codcliente"] = qryDatos.value("codcliente");
 		datos["fecha"] = qryDatos.value("fecha");
-		datos["codserie"] = qryDatos.value("codserie");
-		datos["porcomision"] = qryDatos.value("porcomision");
-		datos["codagente"] = qryDatos.value("codagente");
 	}
 	return datos;
 }

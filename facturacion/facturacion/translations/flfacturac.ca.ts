@@ -167,11 +167,11 @@
     </message>
     <message>
         <source>Facturaci&#xf3;n</source>
-        <translation>Facturació</translation>
+        <translation>Facturaci&#xf3;</translation>
     </message>
     <message>
         <source>Area de Facturaci&#xf3;n</source>
-        <translation>�rea de Facturació</translation>
+        <translation>Àrea de Facturaci&#xf3;</translation>
     </message>
     <message>
         <source>Ejercicio</source>

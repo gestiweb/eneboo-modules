@@ -2,7 +2,7 @@
 <context encoding="UTF-8">
     <name>FLWidgetApplication</name>
     <message encoding="UTF-8">
-        <source>FacturaLUX - Almacén</source>
+        <source>FacturaLUX - Almac�n</source>
         <translation>FacturaLUX - Magatzem</translation>
     </message>
     <message>
@@ -10,7 +10,7 @@
         <translation>FacturaLUX programari ERP</translation>
     </message>
     <message encoding="UTF-8">
-        <source>&amp;Almacén</source>
+        <source>&amp;Almac�n</source>
         <translation>&amp;Magatzem</translation>
     </message>
     <message>
@@ -30,15 +30,15 @@
         <translation></translation>
     </message>
     <message encoding="UTF-8">
-        <source>&amp;Artículos</source>
+        <source>&amp;Art&#xed;culos</source>
         <translation>&amp;Articles</translation>
     </message>
     <message encoding="UTF-8">
-        <source>Artículos (Ctrl+A)</source>
+        <source>Art&#xed;culos (Ctrl+A)</source>
         <translation>Articles (Ctrl+A)</translation>
     </message>
     <message encoding="UTF-8">
-        <source>Artículos</source>
+        <source>Art&#xed;culos</source>
         <translation>Articles</translation>
     </message>
     <message>
@@ -47,19 +47,19 @@
     </message>
     <message>
         <source>&amp;Familias</source>
-        <translation>&amp;Famílies</translation>
+        <translation>&amp;Fam&#237;lies</translation>
     </message>
     <message>
         <source>Familias</source>
-        <translation>Famílies</translation>
+        <translation>Fam&#237;lies</translation>
     </message>
     <message>
         <source>Tarifas</source>
         <translation>Tarifes</translation>
     </message>
     <message encoding="UTF-8">
-        <source>Regularización de Stocks</source>
-        <translation>Regularització d&apos;estocs</translation>
+        <source>Regularizaci&#xf3;n de Stocks</source>
+        <translation>Regularitzaci&#xf3; d&apos;estocs</translation>
     </message>
     <message>
         <source>A&amp;lmacenes</source>
@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>Familias (Ctrl+F)</source>
-        <translation>Famílies (Ctrl+F)</translation>
+        <translation>Fam&#237;lies (Ctrl+F)</translation>
     </message>
     <message>
         <source>Ctrl+F</source>
@@ -86,12 +86,12 @@
         <translation></translation>
     </message>
     <message encoding="UTF-8">
-        <source>Regularización de &amp;Stocks</source>
-        <translation>Regularització E&amp;stocs</translation>
+        <source>Regularizaci&#xf3;n de &amp;Stocks</source>
+        <translation>Regularitzaci&#xf3; E&amp;stocs</translation>
     </message>
     <message encoding="UTF-8">
-        <source>Regularización de Stocks (Ctrl+S)</source>
-        <translation>Regularització d&apos;estocs (Ctrl+S)</translation>
+        <source>Regularizaci&#xf3;n de Stocks (Ctrl+S)</source>
+        <translation>Regularitzaci&#xf3; d&apos;estocs (Ctrl+S)</translation>
     </message>
     <message>
         <source>Ctrl+S</source>
@@ -103,22 +103,30 @@
     </message>
     <message>
         <source>Area de Facturaci&#xf3;n</source>
-        <translation>�?rea de Facturació</translation>
+        <translation>Area de Facturaci&#xf3;</translation>
     </message>
     <message>
         <source>Transferencias de Stock</source>
-        <translation>Transfer�ncies d&apos;Estoc</translation>
+        <translation>Transfer&#xe9;ncies d&apos;Estoc</translation>
     </message>
     <message>
         <source>T&amp;ransferencias de Stock</source>
-        <translation>T&amp;ransfer�ncies d&apos;Estoc</translation>
+        <translation>T&amp;ransfer&#xe9;ncies d&apos;Estoc</translation>
+    </message>
+    <message>
+        <source>Datos Generales</source>
+        <translation>Dades generals</translation>
+    </message>
+    <message>
+        <source>Datos &amp;Generales</source>
+        <translation>Dades &amp;generals</translation>
     </message>
 </context>
 <context>
     <name>FLWidgetMasterTable</name>
     <message encoding="UTF-8">
-        <source>Regularización de Stocks</source>
-        <translation>Regularització d&apos;estocs</translation>
+        <source>Regularizaci&#xf3;n de Stocks</source>
+        <translation>Regularitzaci&#xf3; d&apos;estocs</translation>
     </message>
     <message>
         <source>Ver registro (V)</source>
@@ -161,7 +169,7 @@
     <name>MetaData</name>
     <message>
         <source>Art&#xed;culos de proveedores</source>
-        <translation>Articles de proveïdors</translation>
+        <translation>Articles de prove�dors</translation>
     </message>
     <message>
         <source>Identificador</source>
@@ -173,11 +181,11 @@
     </message>
     <message>
         <source>Proveedor</source>
-        <translation>Proveïdor</translation>
+        <translation>Prove�dor</translation>
     </message>
     <message>
         <source>Nombre proveedor</source>
-        <translation>Nom proveïdor</translation>
+        <translation>Nom prove�dor</translation>
     </message>
     <message>
         <source>Coste</source>
@@ -189,7 +197,7 @@
     </message>
     <message>
         <source>Ref. proveedor</source>
-        <translation>Ref. proveïdor</translation>
+        <translation>Ref. prove�dor</translation>
     </message>
     <message>
         <source>Art&#xed;culos de Clientes</source>
@@ -241,11 +249,11 @@
     </message>
     <message>
         <source>Tipo de comisi&#xf3;n</source>
-        <translation>Tipus de comissió</translation>
+        <translation>Tipus de comissi&#xf3;</translation>
     </message>
     <message>
         <source>Comisi&#xf3;n</source>
-        <translation>Comissió</translation>
+        <translation>Comissi&#xf3;</translation>
     </message>
     <message>
         <source>Articulos</source>
@@ -253,7 +261,7 @@
     </message>
     <message>
         <source>Descripci&#xf3;n</source>
-        <translation>Descripció</translation>
+        <translation>Descripci&#xf3;</translation>
     </message>
     <message>
         <source>Tipo de I.V.A.</source>
@@ -261,7 +269,7 @@
     </message>
     <message>
         <source>Familia</source>
-        <translation>Família</translation>
+        <translation>Fam&#xed;lia</translation>
     </message>
     <message>
         <source>C&#xf3;digo de barras</source>
@@ -277,15 +285,15 @@
     </message>
     <message>
         <source>Stock m&#xe1;ximo</source>
-        <translation>Estoc màxim</translation>
+        <translation>Estoc m�xim</translation>
     </message>
     <message>
         <source>Stock m&#xed;nimo</source>
-        <translation>Estoc mínim</translation>
+        <translation>Estoc m&#xed;nim</translation>
     </message>
     <message>
         <source>Stock f&#xed;sico</source>
-        <translation>Estoc físic</translation>
+        <translation>Estoc f&#xed;sic</translation>
     </message>
     <message>
         <source>Permitir ventas sin stock</source>
@@ -297,7 +305,7 @@
     </message>
     <message>
         <source>Familias</source>
-        <translation>Famílies</translation>
+        <translation>Fam&#237;lies</translation>
     </message>
     <message>
         <source>C&#xf3;digo</source>
@@ -313,7 +321,7 @@
     </message>
     <message>
         <source>Direcci&#xf3;n</source>
-        <translation>Direcció</translation>
+        <translation>Adre�a</translation>
     </message>
     <message>
         <source>C&#xf3;digo postal</source>
@@ -325,19 +333,19 @@
     </message>
     <message>
         <source>Poblaci&#xf3;n</source>
-        <translation>Població</translation>
+        <translation>Poblaci&#xf3;</translation>
     </message>
     <message>
         <source>Provincia</source>
-        <translation>Província</translation>
+        <translation>Prov&#xed;ncia</translation>
     </message>
     <message>
         <source>Pa&#xed;s</source>
-        <translation>País</translation>
+        <translation>Pa&#xed;s</translation>
     </message>
     <message>
         <source>Tel&#xe9;fono</source>
-        <translation>Tel�fon</translation>
+        <translation>Tel&#xe9;fon</translation>
     </message>
     <message>
         <source>Fax</source>
@@ -349,7 +357,7 @@
     </message>
     <message>
         <source>Regularizaci&#xf3;n de stocks</source>
-        <translation>Regularització d&apos;estocs</translation>
+        <translation>Regularitzaci&#xf3; d&apos;estocs</translation>
     </message>
     <message>
         <source>Id. de Stock</source>
@@ -417,11 +425,11 @@
     </message>
     <message>
         <source>Cantidad previa</source>
-        <translation>Quantitat pr�via</translation>
+        <translation>Quantitat pr&#xe9;via</translation>
     </message>
     <message>
         <source>Transferencia de stock</source>
-        <translation>Transfer�ncia d&apos;estoc</translation>
+        <translation>Transfer&#xe9;ncia d&apos;estoc</translation>
     </message>
     <message>
         <source>Subcuenta de IRPF compras</source>
@@ -429,11 +437,11 @@
     </message>
     <message>
         <source>L&#xed;neas de transferencia de stock</source>
-        <translation>Línies de transfer�ncia d&apos;estoc</translation>
+        <translation>L&#xed;nies de transfer&#xe9;ncia d&apos;estoc</translation>
     </message>
     <message>
         <source>Transferencia</source>
-        <translation>Transfer�ncia</translation>
+        <translation>Transfer&#xe9;ncia</translation>
     </message>
     <message>
         <source>N. Almac&#xe9;n</source>
@@ -445,17 +453,17 @@
     </message>
     <message>
         <source>Destino</source>
-        <translation>Destí</translation>
+        <translation>Destinaci&#xf3;</translation>
     </message>
 </context>
 <context encoding="UTF-8">
     <name>articulostarifas</name>
     <message encoding="UTF-8">
-        <source>Artículos por tarifa</source>
+        <source>Art&#xed;culos por tarifa</source>
         <translation>Articles per tarifa</translation>
     </message>
     <message encoding="UTF-8">
-        <source>Artículo</source>
+        <source>Art&#xed;culo</source>
         <translation>Article</translation>
     </message>
     <message>
@@ -464,11 +472,11 @@
     </message>
     <message>
         <source>referencia</source>
-        <translation>referència</translation>
+        <translation>refer�ncia</translation>
     </message>
     <message>
         <source>descripcion</source>
-        <translation>descripció</translation>
+        <translation>descripci&#xf3;</translation>
     </message>
     <message>
         <source>articulos</source>
@@ -563,7 +571,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation>descripció</translation>
+        <translation>descripci&#xf3;</translation>
     </message>
     <message>
         <source>codfamilia</source>
@@ -571,7 +579,7 @@
     </message>
     <message>
         <source>familias</source>
-        <translation>famílies</translation>
+        <translation>fam&#xed;lies</translation>
     </message>
     <message>
         <source>controlstock</source>
@@ -619,7 +627,7 @@
     </message>
     <message>
         <source>&amp;Precios por Proveedor</source>
-        <translation>&amp;Preus per Proveïdors</translation>
+        <translation>&amp;Preus per Prove�dors</translation>
     </message>
     <message>
         <source>articulosprov</source>
@@ -736,7 +744,7 @@
         <translation>Articles per proveïdor</translation>
     </message>
     <message encoding="UTF-8">
-        <source>Artículo</source>
+        <source>Art&#xed;culo</source>
         <translation>Article</translation>
     </message>
     <message>
@@ -757,7 +765,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation>descripció</translation>
+        <translation>descripci&#xf3;</translation>
     </message>
     <message>
         <source>articulos</source>
@@ -812,7 +820,7 @@
     <name>formFamilias</name>
     <message>
         <source>Familias</source>
-        <translation>Famílies</translation>
+        <translation>Fam&#237;lies</translation>
     </message>
     <message>
         <source>codfamilia</source>
@@ -820,7 +828,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation>descripció</translation>
+        <translation>descripci&#xf3;</translation>
     </message>
 </context>
 <context>
@@ -862,8 +870,8 @@
         <translation>Per a modificar el registre actiu de la taula</translation>
     </message>
     <message>
-        <source>Lineas Stocks</source>
-        <translation>Línies Estocs</translation>
+        <source>L&#xed;neas Stocks</source>
+        <translation>L&#xed;nies Estocs</translation>
     </message>
     <message>
         <source>codalmacen</source>
@@ -883,11 +891,11 @@
     </message>
     <message>
         <source>referencia</source>
-        <translation>referència</translation>
+        <translation>refer&#xe9;ncia</translation>
     </message>
     <message>
         <source>descripcion</source>
-        <translation>descripció</translation>
+        <translation>descripci&#xf3;</translation>
     </message>
     <message>
         <source>articulos</source>
@@ -933,8 +941,8 @@
         <translation>Magatzems</translation>
     </message>
     <message encoding="UTF-8">
-        <source>&amp;Dirección</source>
-        <translation>&amp;Direcció</translation>
+        <source>&amp;Direcci&#xf3;n</source>
+        <translation>&amp;Adre�a</translation>
     </message>
     <message>
         <source>&amp;Contacto</source>
@@ -962,11 +970,11 @@
     </message>
     <message>
         <source>poblacion</source>
-        <translation>població</translation>
+        <translation>poblaci&#xf3;</translation>
     </message>
     <message>
         <source>provincia</source>
-        <translation>província</translation>
+        <translation>prov&#xed;ncia</translation>
     </message>
     <message>
         <source>codpais</source>
@@ -986,7 +994,7 @@
     </message>
     <message>
         <source>telefono</source>
-        <translation>telèfon</translation>
+        <translation>tel&#xe9;fon</translation>
     </message>
     <message>
         <source>fax</source>
@@ -1004,7 +1012,7 @@
         <translation></translation>
     </message>
     <message encoding="UTF-8">
-        <source>&amp;Artículo</source>
+        <source>&amp;Art&#xed;culo</source>
         <translation>&amp;Article</translation>
     </message>
     <message>
@@ -1013,7 +1021,7 @@
     </message>
     <message>
         <source>descripcion</source>
-        <translation>descripció</translation>
+        <translation>descripci&#xf3;</translation>
     </message>
     <message>
         <source>&amp;Cantidad</source>
@@ -1036,12 +1044,12 @@
         <translation>Quantitat final</translation>
     </message>
     <message encoding="UTF-8">
-        <source>Almacén origen</source>
+        <source>Almac�n origen</source>
         <translation>Magatzem origen</translation>
     </message>
     <message encoding="UTF-8">
-        <source>Almacén destino</source>
-        <translation>Magatzem destí</translation>
+        <source>Almac�n destino</source>
+        <translation>Magatzem destinaci&#xf3;</translation>
     </message>
 </context>
 <context>
@@ -1091,15 +1099,15 @@
     <name>scripts</name>
     <message>
         <source>Se insertar&#xe1; un almac&#xe9;n por defecto para empezar a trabajar.</source>
-        <translation>S&apos;inserirà un magatzem per defecte per a començar a treballar.</translation>
+        <translation>S&apos;inserirà un magatzem per defecte per a comen�ar a treballar.</translation>
     </message>
     <message>
         <source>La cantidad debe ser mayor que cero</source>
-        <translation>La quantitat ha de ser més gran que zero</translation>
+        <translation>La quantitat ha de ser m�s gran que zero</translation>
     </message>
     <message>
         <source>Las cantidad nueva es igual a la inicial</source>
-        <translation>La quantitat nova és igual que la inicial</translation>
+        <translation>La quantitat nova �s igual que la inicial</translation>
     </message>
     <message>
         <source>La cantidad a transferir no puede ser cero</source>
@@ -1107,23 +1115,23 @@
     </message>
     <message>
         <source>No ha establecido el sentido de la transferencia</source>
-        <translation>No ha establert el sentit de la transfer�ncia</translation>
+        <translation>No ha establert el sentit de la transfer&#xe9;ncia</translation>
     </message>
     <message>
         <source>Hubo un error en la transferencia:</source>
-        <translation>Hi hagut un error en la transfer�ncia:</translation>
+        <translation>Hi hagut un error en la transfer&#xe9;ncia:</translation>
     </message>
     <message>
         <source>Transferencia a </source>
-        <translation>Transfer�ncia a </translation>
+        <translation>Transfer&#xe9;ncia a </translation>
     </message>
     <message>
         <source>Transferencia desde </source>
-        <translation>Transfer�ncia des de </translation>
+        <translation>Transfer&#xe9;ncia des de </translation>
     </message>
     <message>
         <source>Los almacenes de origen y destino no pueden coincidir</source>
-        <translation>Els magatzems d&apos;origen i destí no poden coincidir</translation>
+        <translation>Els magatzems d&apos;origen i destinaci&#xf3; no poden coincidir</translation>
     </message>
     <message>
         <source>ALMACEN GENERAL</source>
@@ -1132,8 +1140,8 @@
     <message>
         <source>Va a eliminar un registro de stock con cantidad distinta de 0.
 &#xbf;Est&#xe1; seguro?</source>
-        <translation>Eliminarà un registre d&apos;estoc amb quantitat diferent de 0.
-Està segur?</translation>
+        <translation>Eliminar�un registre d&apos;estoc amb quantitat diferent de 0.
+Est�segur?</translation>
     </message>
     <message>
         <source>Almac&#xe9;n origen (%1)</source>
@@ -1156,7 +1164,7 @@ Està segur?</translation>
 Esto sobreescribir&#xe1; cualquier precio que haya sido modificado manualmente.
 &#xbf;Desea continuar?</source>
         <translation>S&apos;actualitzaran els preus dels articles per a la tarifa% 1. (new line)
-Això sobreescriurà qualsevol preu que hagi estat modificat manualment. (New line)
+Aix� sobreescriur�qualsevol preu que hagi estat modificat manualment. (New line)
 Voleu continuar?</translation>
     </message>
     <message>
@@ -1226,8 +1234,8 @@ Voleu continuar?</translation>
         <translation>codmagdestí</translation>
     </message>
     <message encoding="UTF-8">
-        <source>&amp;Líneas</source>
-        <translation>&amp;Línies</translation>
+        <source>&amp;L&#xed;neas</source>
+        <translation>&amp;L&#xed;nies</translation>
     </message>
     <message>
         <source>Insertar registro (A)</source>
