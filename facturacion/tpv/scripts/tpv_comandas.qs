@@ -1055,11 +1055,16 @@ function oficial_aplicarTarifa()
 		
 		this.iface.curLineas.setModeAccess(this.iface.curLineas.Edit);
 		this.iface.curLineas.refreshBuffer();
-		if (!this.iface.aplicarTarifaLinea(codTarifa)) {
-			return false;
-		}
-		if (!this.iface.curLineas.commitBuffer()) {
-			return;
+
+		if (!this.iface.curLineas.valueBuffer("referencia")) {
+			debug("No hay referencia, se ignora el cambio de tarifa");
+		} else {
+			if (!this.iface.aplicarTarifaLinea(codTarifa)) {
+				return false;
+			}
+			if (!this.iface.curLineas.commitBuffer()) {
+				return;
+			}
 		}
 	}
 	
