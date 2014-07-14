@@ -316,7 +316,8 @@ function oficial_actualizarCamposFichero()
 	qryCampos.setTablesList("impdat_campos");
 	qryCampos.setSelect("nombre,descripcion,posicion");
 	qryCampos.setFrom("impdat_campos" );
-	qryCampos.setWhere("upper(codfichero) = '" + codFichero.upper() + "' AND (nombre ILIKE '%" + filtro + "%' OR descripcion ILIKE '%" + filtro + "%') ORDER BY posicion DESC");
+	//qryCampos.setWhere("upper(codfichero) = '" + codFichero.upper() + "' AND (nombre ILIKE '" + filtro + "' OR descripcion ILIKE '" + filtro + "') ORDER BY posicion DESC");
+        qryCampos.setWhere("upper(codfichero) = '" + codFichero.upper() + "' ORDER BY posicion DESC");
 
 	if ( qryCampos.exec() ) {
 		while ( qryCampos.next() ) {

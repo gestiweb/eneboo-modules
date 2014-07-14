@@ -255,8 +255,10 @@ function oficial_actualizarFichero()
 		linea = lineas[ i ].split( this.iface.sep );
 		for ( j = 0; j < numCampos; j++ ) {
 			if ( posiciones[ j ] < linea.length ) {
-				var valor = flimpdatos.iface.pub_datoCampo( tipos[ j ], camposFichero[ j ],
-				                                   linea[ posiciones[ j ] ], linea )
+				var valor;
+				if (j == 0 && tipos[j] == "funcion") valor = "funcion"; 
+						else
+						 valor = flimpdatos.iface.pub_datoCampo( tipos[ j ], camposFichero[ j ],linea[ posiciones[ j ] ], linea );
 				            tblFichero.setText( i, j, valor );
 			} else
 				tblFichero.setText( i, j, "** POSICION DEL CAMPO FUERA DE RANGO" );
@@ -383,9 +385,17 @@ function oficial_importar()
 			paso++;
 			
 			linea = lineas[ ii ].split( this.iface.sep );
+			var valorPK;
+			
+			//if (tipos[ indicePK ] == "funcion")				
+			valorPK = flimpdatos.iface.pub_datoCampo( tipos[ indicePK ], camposFichero[ indicePK ], linea[ posiciones[ indicePK ] ], linea );
+			//else
+			//	valorPK = linea[indicePK];
+			
 
-			curTabla.select(pk + " = '" + linea[indicePK] + "'");
+			curTabla.select(pk + " = '" + valorPK + "'");
 			if (!curTabla.first()) {
+				debug("Nuevo registro");
 				if (cursor.valueBuffer("sinoexiste_crear")) {
 					curTabla.setModeAccess( curTabla.Insert );
 					curTabla.refreshBuffer();
@@ -396,6 +406,7 @@ function oficial_importar()
 					ignorarRegistro = true;
 			}
 			else {
+				debug("Registro ya existe");
 				if (cursor.valueBuffer("siexiste_actualizar")) {
 					curTabla.setModeAccess( curTabla.Edit );
 					curTabla.refreshBuffer();
