@@ -319,7 +319,7 @@ class oficial extends interna {
 	function valorDefecto(fN:String):String {
 		return this.ctx.oficial_valorDefecto(fN);
 	}
-	function oficial_formateaCadena(cIn:String):String {
+	function formateaCadena(cIn:String):String {
 		return this.ctx.oficial_formateaCadena(cIn);
 	}
 }
